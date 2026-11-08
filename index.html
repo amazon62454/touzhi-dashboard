@@ -464,7 +464,15 @@ gateCheck();
       setG('✅ '+d.updated_at,'#7ee0a8');
       var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';
     }
-  }).catch(function(){setG('⚠️ 未拉到实时数据·显示内置快照','#e07e9c');});
+  }).catch(function(){
+    setG('⚠️ 未拉到实时数据·以下数值不可信','#e07e9c');
+    // FH16(2026-11-09):fetch失败时所有数值锚点置'—'标红,杜绝静态兜底旧数冒充真值
+    var staleIds=['sum-m-spent','sum-m-remain','sum-m-pos','sum-w-avail','sum-w-total','sum-w-items',
+      'sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','m-pos','m-rebal','m-asset',
+      'd-total','d-remain','d-remain2','d-spent','d-pool','d-pool2'];
+    staleIds.forEach(function(id){var e=document.getElementById(id);if(e){e.textContent='—';e.style.color='#e07e9c';}});
+    ['tb-advice','tb-dtrec','tb-jcrec'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML='<tr><td colspan="4" style="color:#e07e9c">⚠️ 数据未加载,勿信本表</td></tr>';});
+  });
 })();
 </script>
 </body>

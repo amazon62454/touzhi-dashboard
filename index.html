@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>投资五档总览</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Miui",sans-serif;background:#0f1620;color:#e8edf5;padding:0 14px 60px;-webkit-tap-highlight-color:transparent}
+  .top{position:sticky;top:0;background:#0f1620;padding:14px 0 10px;z-index:5}
+  h1{font-size:20px;font-weight:700;letter-spacing:.5px}
+  .sub{font-size:12px;color:#8fa3bd;margin-top:3px}
+  .badge{display:inline-block;font-size:10px;color:#7ee0a8;background:rgba(46,204,113,.12);border:1px solid rgba(46,204,113,.35);border-radius:20px;padding:1px 8px;margin-left:6px}
+  .band-card{background:#182230;border:1px solid #233145;border-radius:16px;padding:15px;margin-bottom:11px;cursor:pointer;transition:transform .08s}
+  .band-card:active{transform:scale(.98)}
+  .band-card .row1{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+  .band-card .n{font-size:16px;font-weight:700}
+  .band-card .pill{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .band-card .next{font-size:11px;color:#6fc3ff}
+  .band-card .d{font-size:12px;color:#8fa3bd;line-height:1.5}
+  .band-card .sum{margin-top:7px;font-size:12px;color:#c9d6e6;background:#0f1620;border-radius:8px;padding:7px 9px;line-height:1.5}
+  .arrow{color:#5b6b82;font-size:18px}
+  .back{font-size:14px;color:#6fc3ff;background:none;border:none;cursor:pointer;padding:5px 0;margin-bottom:4px}
+  .sec{font-size:13px;font-weight:600;color:#9fb4cc;margin:16px 0 7px;display:flex;align-items:center;gap:6px}
+  .sec::before{content:'';width:3px;height:13px;background:#3b82f6;border-radius:2px}
+  .card{background:#182230;border-radius:14px;padding:11px 13px;border:1px solid #233145;margin-bottom:10px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th{color:#8fa3bd;font-weight:600;text-align:left;padding:5px 4px;border-bottom:1px solid #2a3a4f}
+  td{padding:6px 4px;border-bottom:1px dashed #243448;vertical-align:top}
+  tr:last-child td{border:none}
+  .r{text-align:right}
+  .up{color:#7ee0a8}.dow{color:#ffb3a0}.mid{color:#ffd07a}.blue{color:#6fc3ff}
+  .warn{font-size:12px;color:#ffd07a;background:rgba(255,190,90,.09);border:1px solid rgba(255,190,90,.3);border-radius:8px;padding:8px 9px;line-height:1.5;margin-bottom:10px}
+  .ok{font-size:12px;color:#7ee0a8;background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.22);border-radius:8px;padding:8px 9px;line-height:1.5;margin-bottom:10px}
+  .kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #243448;font-size:13px;gap:10px}
+  .kv:last-child{border:none}
+  .kv b{color:#fff;text-align:right}
+  .li{font-size:12.5px;color:#c9d6e6;line-height:1.6;padding:3px 0;border-bottom:1px dashed #243448}
+  .li:last-child{border:none}
+  .li b{color:#fff}
+  .note{font-size:11px;color:#67788f;margin-top:14px;line-height:1.7}
+  .inp:disabled,.btn:disabled{opacity:.35;filter:grayscale(1)}
+  .gate{font-size:12px;color:#8fa3bd;background:#0f1620;border-radius:8px;padding:8px 9px;line-height:1.5;margin-bottom:8px}
+  .gate.on{color:#7ee0a8}
+  .badge{display:inline-block;font-size:11px;padding:1px 8px;border-radius:10px;margin-left:6px;vertical-align:1px}
+  .badge-wait{background:#3a2f14;color:#ffd07a}
+  .badge-ok{background:#14321f;color:#7ee0a8}
+  .inp{width:100%;box-sizing:border-box;background:#0f1620;border:1px solid #2a3a4f;border-radius:8px;color:#e8edf5;font-size:15px;padding:8px 10px;text-align:right}
+  .inp:focus{outline:none;border-color:#3b82f6}
+  .btn{width:100%;background:#2ecc71;color:#07110b;border:none;border-radius:12px;padding:13px;font-size:16px;font-weight:700;cursor:pointer;margin:6px 0 4px}
+  .btn:active{transform:scale(.98)}
+  .out{background:#0f1620;border:1px solid #2a3a4f;border-radius:10px;padding:10px;font-size:13px;color:#c9d6e6;white-space:pre-wrap;line-height:1.6;margin-top:10px}
+  .tip{font-size:12px;color:#8fa3bd;line-height:1.6;margin:4px 0 8px}
+</style>
+</head>
+<body>
+
+<div id="list">
+  <div class="top"><h1>📈 投资五档总览</h1><div class="sub">数据=五档引擎报告+台账 · 数据基准 2026-11-06<span class="badge">整合版</span></div></div>
+
+  <div class="band-card" onclick="go('monthend')">
+    <div class="row1"><span class="n"><span class="pill" style="background:#e07e9c"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
+    <div class="d">现在有多少钱 / 本月还剩多少没花</div>
+    <div class="next">每次评估后更新</div>
+    <div class="sum">可动用 2042.6 = 周期剩653 + 上期结余1389.6</div>
+  </div>
+  
+  <div class="band-card" onclick="go('daily')">
+    <div class="row1"><span class="n"><span class="pill" style="background:#f6c25c"></span>每日档 · 风控监控</span><span class="arrow">›</span></div>
+    <div class="d">止损 / 回撤红线 / 事件 / 估值越档 / 低估候选</div>
+    <div class="next">每日 12:00</div>
+    <div class="sum">回撤0.0%安全 · 创新药9.04%极度低估+黄金79.44%高估 · 有色规模1.98亿⚠</div>
+  </div>
+  
+  <div class="band-card" onclick="go('wed')">
+    <div class="row1"><span class="n"><span class="pill" style="background:#3b82f6"></span>周三档 · 定投预提示</span><span class="arrow">›</span></div>
+    <div class="d">本周四投哪些 / 多少钱 · 集中制档位分配 · 加仓评估</div>
+    <div class="next">下次 · 周三 11-11 12:00 → 周四执行</div>
+    <div class="sum">权益本周 <b>153</b>元 · 创新药65 新能车40 兴全30 有色25 黄金10 · 创新药&新能车极度低估待评分</div>
+  </div>
+  
+  <div class="band-card" onclick="go('monthly')">
+    <div class="row1"><span class="n"><span class="pill" style="background:#7ee0a8"></span>月度档 · 机会扫描</span><span class="arrow">›</span></div>
+    <div class="d">全市场扫描 / 候选纳入 / 换仓 / 资金账本</div>
+    <div class="next">每月20号 12:00</div>
+    <div class="sum">不换仓 · 创新药9.04%交周三评分 · 已投160/剩1640 · 仓位38.9/61.1偏离目标</div>
+  </div>
+  
+  <div class="band-card" onclick="go('quarter')">
+    <div class="row1"><span class="n"><span class="pill" style="background:#b07ee0"></span>季度档 · 配置回测</span><span class="arrow">›</span></div>
+    <div class="d">仓位健康度 / 配置调仓 / 信号回测</div>
+    <div class="next">季末25号 12:00</div>
+    <div class="sum">组合9只(8-12内) · 债比61%>50%启动再平衡 · 赛道15.4%未超30%</div>
+  </div>
+  <div class="note">※ 五档报告完整数据已整合进各档详情；每次评估跑完自动更新对应档位。</div>
+</div>
+
+<div id="view-wed" class="view" style="display:none">
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>周三档 · 定投预提示</h1><div class="sub">服务本周四(11-12)执行 · 基准2026-11-06</div></div>
+  <div class="sec">本周四定投建议 · 权益类 <span class="badge badge-wait">待确认</span></div>
+  <div class="card"><table>
+    <tr><th>基金</th><th class="r">金额(元)</th></tr>
+    <tr><td>易方达创新药链接A 024328</td><td class="r">65</td></tr>
+    <tr><td>嘉实新能车C 012544</td><td class="r">40</td></tr>
+    <tr><td>兴全养老FOF A 010267</td><td class="r">30</td></tr>
+    <tr><td>华宝有色A 017140</td><td class="r">25</td></tr>
+    <tr><td>国泰黄金C 004253</td><td class="r">10</td></tr>
+    <tr><td><b>权益小计</b></td><td class="r"><b>153</b></td></tr>
+  </table></div>
+  <div class="sec">本周四定投建议 · 债基类 <span class="badge badge-wait">待确认</span></div>
+  <div class="card"><table>
+    <tr><th>基金</th><th class="r">金额(元)</th></tr>
+    <tr><td>富国债券A 009290</td><td class="r">0</td></tr>
+    <tr><td><b>债基小计</b></td><td class="r"><b>0</b></td></tr>
+  </table>
+  <div class="tip">暂停定投（渐进再平衡）· 每周四赎回转权益，赎回金额见下方债基转换确认</div></div>
+  <div class="sec">本周总计 <span class="badge badge-wait">待确认</span></div>
+  <div class="card"><div class="kv"><span>权益 153 + 债基 0</span><b>本周定投合计 153 元</b></div></div>
+  <div class="sec">本周加仓决策（最近评分 2026-10-21）</div>
+  <div class="card"><table>
+    <tr><th>基金</th><th class="r">评分</th><th>判定</th></tr>
+    <tr><td>创新药 024328</td><td class="r"><b>82</b></td><td class="mid">加仓 122 元（待确认）</td></tr>
+    <tr><td>新能车 012544</td><td class="r">53</td><td>不加（等企稳）</td></tr>
+    <tr><td>有色 017140</td><td class="r">0</td><td class="dow">不加（估值否决）</td></tr>
+  </table>
+  <div class="tip">本周三(11-11) 12:00 重新评分后更新本表</div></div>
+  <div class="sec">专项检查</div>
+  <div class="card"><div class="ok">✅ 通过 · 引擎自动检查，无需你操作；异常时会在此显示报警和你要做的事</div></div>
+  <div class="sec">需你本人做</div><div class="card"><div class="ok">周四8:00前保证账户余额充足</div></div>
+  <div class="sec">定投金额确认（周四 15:00 实扣后开放）</div>
+  <div class="card">
+    <div class="gate" id="gate-dt">⏳ 未到确认时间：周四 15:00 实扣完成后开放填写</div>
+    <table>
+    <tr><th>基金</th><th class="r">实际扣款(元)</th></tr>
+    <tr><td>新能车 012544</td><td class="r"><input class="inp" id="f-nc" type="number" value="40" min="0" disabled></td></tr>
+    <tr><td>创新药 024328</td><td class="r"><input class="inp" id="f-cx" type="number" value="65" min="0" disabled></td></tr>
+    <tr><td>兴全FOF 010267</td><td class="r"><input class="inp" id="f-xq" type="number" value="30" min="0" disabled></td></tr>
+    <tr><td>有色 017140</td><td class="r"><input class="inp" id="f-ys" type="number" value="25" min="0" disabled></td></tr>
+    <tr><td>黄金 004253</td><td class="r"><input class="inp" id="f-hj" type="number" value="0" min="0" disabled></td></tr>
+    </table>
+    <button class="btn" id="btn-dt" onclick="collect()" disabled>✅ 一键生成回传消息</button>
+    <div class="out" id="out" style="display:none"></div>
+    <div class="tip" id="op" style="display:none;color:#7ee0a8"></div>
+  </div>
+  <div class="sec">债基转换确认（周五 15:00 到账后开放）</div>
+  <div class="card">
+    <div class="gate" id="gate-zh">⏳ 未到确认时间：周五 15:00 转换到账后开放填写</div>
+    <table>
+    <tr><th>事项</th><th class="r">实际金额(元)</th></tr>
+    <tr><td>富国009290 本周四赎回转权益</td><td class="r"><input class="inp" id="f-zh" type="number" value="157.5" min="0" disabled></td></tr>
+    </table>
+    <button class="btn" id="btn-zh" onclick="collectZH()" disabled>✅ 一键生成回传消息</button>
+    <div class="out" id="out-zh" style="display:none"></div>
+    <div class="tip" id="op-zh" style="display:none;color:#7ee0a8"></div>
+  </div>
+</div>
+
+<div id="view-daily" class="view" style="display:none">
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">基准2026-11-06</div></div>
+  <div class="sec">触发项扫描</div>
+  <div class="card"><table>
+    <tr><th>触发项</th><th></th><th>说明</th></tr>
+    <tr><td>单日大跌&gt;4%</td><td class="up">🟢</td><td>四只被动指数无单日跌&gt;4%</td></tr>
+    <tr><td>组合回撤红线</td><td class="up">🟢</td><td>回撤0.0%，未触15%红线</td></tr>
+    <tr><td>止损评估</td><td class="mid">🟡</td><td>017491 -31.81%、010363 -30.59%，锁定到期再评</td></tr>
+    <tr><td>极端暴跌预案</td><td class="up">🟢</td><td>沪深300 -1.44%，未破5%</td></tr>
+    <tr><td>持仓估值越档</td><td class="dow">🔴</td><td>创新药9.04%→极度低估；黄金79.44%→高估(自动处置)</td></tr>
+    <tr><td>利好加仓信号</td><td class="up">💰</td><td>低估候选:创新药、新能车(均&lt;30%)</td></tr>
+    <tr><td>债券净值连跌</td><td class="up">🟢</td><td>富国009290 净值1.2555·连跌1日(&lt;10)</td></tr>
+    <tr><td>减仓预警</td><td class="up">🟢</td><td>无被动分位&gt;90%；行业/资金由档盯</td></tr>
+  </table></div>
+  <div class="sec">技术面参考（不构成择时）</div>
+  <div class="card"><table>
+    <tr><th>持仓</th><th class="r">强度</th><th>结论</th></tr>
+    <tr><td>黄金004253</td><td class="r">5/10</td><td>🟡震荡</td></tr>
+    <tr><td>创新药024328</td><td class="r">5/10</td><td>🟡震荡</td></tr>
+    <tr><td>新能车012544</td><td class="r">5/10</td><td>🟡震荡</td></tr>
+    <tr><td>有色017140</td><td class="r">3/10</td><td class="dow">🔴偏空·放量·背离</td></tr>
+  </table></div>
+  <div class="sec">规模监控（红线&lt;2亿）</div>
+  <div class="card"><table>
+    <tr><th>基金</th><th class="r">规模</th></tr>
+    <tr><td>有色017140</td><td class="r dow">≈1.98亿 ⚠</td></tr>
+    <tr><td>创新药024328</td><td class="r mid">≈2.13亿</td></tr>
+  </table></div>
+  <div class="sec">结论</div>
+  <div class="card"><div class="ok">无真风险；2项关注需跟踪（估值越档、低估加分信号）；今日无需你操作</div></div>
+</div>
+
+<div id="view-monthly" class="view" style="display:none">
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号 · 基准2026-11-06</div></div>
+  <div class="sec">行动结论</div>
+  <div class="card">
+    <div class="li"><b>买入新建仓</b>：创业板指110026、中证医疗009881 入<font class="blue">候选纳入评审</font>（便宜度+规模已通过，评分/费率接力中）</div>
+    <div class="li"><b>转仓/换仓</b>：不换仓（无四项全面优于最弱被动的替代）</div>
+    <div class="li"><b>卖出/减持</b>：不动作（止盈未达三条件）</div>
+    <div class="li"><b>唯一动作</b>：创新药9.04%极度低估 → 交周三档加仓评分</div>
+  </div>
+  <div class="sec">全市场估值扫描（分位低→高）</div>
+  <div class="card"><table>
+    <tr><th>方向</th><th class="r">分位</th><th>判定</th></tr>
+    <tr><td>创新药</td><td class="r">9.04%</td><td class="up">极度低估</td></tr>
+    <tr><td>新能车</td><td class="r">12.54%</td><td class="up">低估</td></tr>
+    <tr><td>创业板指</td><td class="r">19.39%</td><td class="up">低估</td></tr>
+    <tr><td>中证医疗</td><td class="r">26.56%</td><td class="up">低估</td></tr>
+    <tr><td>白酒</td><td class="r">48.08%</td><td>合理</td></tr>
+    <tr><td>有色</td><td class="r">48.25%</td><td>合理</td></tr>
+    <tr><td>中证500</td><td class="r">69.17%</td><td>合理</td></tr>
+    <tr><td>恒生指数</td><td class="r">76.11%</td><td class="down">高估</td></tr>
+    <tr><td>沪深300</td><td class="r">76.40%</td><td class="down">高估</td></tr>
+    <tr><td>黄金</td><td class="r">79.44%</td><td class="down">高估</td></tr>
+    <tr><td>上证50</td><td class="r">90.25%</td><td class="down">极度高估</td></tr>
+    <tr><td>央企红利</td><td class="r">96.22%</td><td class="down">极度高估</td></tr>
+    <tr><td>中证银行</td><td class="r">97.81%</td><td class="down">极度高估</td></tr>
+    <tr><td>中证红利</td><td class="r">98.85%</td><td class="down">极度高估</td></tr>
+    <tr><td>红利低波</td><td class="r">99.23%</td><td class="down">极度高估</td></tr>
+  </table></div>
+  <div class="sec">存量持仓占比</div>
+  <div class="card"><table>
+    <tr><th>基金</th><th class="r">占比</th></tr>
+    <tr><td>富国债券009290</td><td class="r">61.1%</td></tr>
+    <tr><td>创新药024328</td><td class="r">7.9%</td></tr>
+    <tr><td>新能车012544</td><td class="r">6.5%</td></tr>
+    <tr><td>黄金004253</td><td class="r">6.0%</td></tr>
+    <tr><td>兴全FOF010267</td><td class="r">5.0%</td></tr>
+    <tr><td>财通017491(暂停申购)</td><td class="r">4.6%</td></tr>
+    <tr><td>高质量010340</td><td class="r">4.3%</td></tr>
+    <tr><td>信澳010363</td><td class="r">3.5%</td></tr>
+    <tr><td>有色017140</td><td class="r">1.1%</td></tr>
+  </table></div>
+  <div class="sec">资金账本（周期 10-20~11-19）</div>
+  <div class="card">
+    <div class="kv"><span>本周期已花</span><b>1147 元</b></div>
+    <div class="kv"><span>本周期剩余</span><b>653 元</b></div>
+    <div class="kv"><span>上期结余（11-20入池）</span><b>1389.6 元</b></div>
+    <div class="kv"><span>预算构成</span><b>1800=分配池1340+现金池460</b></div>
+  </div>
+  <div class="sec">仓位再平衡</div>
+  <div class="card"><div class="li">仓位 权益38.9%/债券61.1% <span class="mid">vs 目标50/40</span> <span class="dow">🔴偏离&gt;10pp</span></div>
+  <div class="li">债比61.1%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）</div></div>
+  <div class="sec">需你本人做</div><div class="card"><div class="ok">发一次本月持仓快照（理财通）供台账更新；核对占比与实盘一致</div></div>
+</div>
+
+<div id="view-quarter" class="view" style="display:none">
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号 · 基准2026-11-06</div></div>
+  <div class="sec">看配置调仓</div>
+  <div class="card"><table>
+    <tr><th>指标</th><th></th><th>内容</th></tr>
+    <tr><td>再平衡</td><td class="dow">🔴</td><td>债比61%&gt;50%启动渐进再平衡，目标回40%</td></tr>
+    <tr><td>组合数量</td><td class="up">🟢</td><td>9只，在8-12区间内</td></tr>
+    <tr><td>赛道集中度</td><td class="up">🟢</td><td>行业ETF合计15.4%，未超30%</td></tr>
+    <tr><td>规模预警</td><td class="dow">🔴</td><td>有色017140 1.98亿（&lt;2亿）</td></tr>
+    <tr><td>回撤红线</td><td class="up">🟢</td><td>回撤0.0%，未触15%</td></tr>
+    <tr><td>暴跌预案</td><td class="up">🟢</td><td>未触暴跌预案</td></tr>
+  </table></div>
+  <div class="sec">信号回测</div>
+  <div class="card"><div class="li">①②③信号：记录4条/需≥30，未达标·持续登记</div>
+  <div class="li">估值联动：AI涨乐无历史序列·数据缺口待恢复</div>
+  <div class="li">总评：数据基础不足，不生成有效性结论</div></div>
+  <div class="sec">需你本人做</div><div class="card"><div class="ok">核对持仓快照/占比符合预期（回撤基准2026-10-27初值21190）</div></div>
+</div>
+
+<div id="view-monthend" class="view" style="display:none">
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>资金状态 · 实时</h1><div class="sub">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
+  <div class="sec">现在有多少钱（实际可动用）</div>
+  <div class="card">
+    <div class="kv"><span>当前总可动用</span><b class="up">2042.6 元</b></div>
+    <div class="kv"><span>＝ 本周期剩余</span><b>653 元</b></div>
+    <div class="kv"><span>＋ 上期结余（11-20封账入池）</span><b>1389.6 元</b></div>
+  </div>
+  <div class="sec">本周期预算执行（10-20 ~ 11-19）</div>
+  <div class="card">
+    <div class="kv"><span>10-20 发薪注入</span><b>1800 元</b></div>
+    <div class="kv"><span>已花</span><b>1147 元</b></div>
+    <div class="kv"><span>剩余</span><b class="up">653 元</b></div>
+    <div class="kv"><span>预算构成</span><b>1800 = 分配池1340 + 现金池注入460</b></div>
+  </div>
+  <div class="sec">本周期已花明细（1147）· 分渠道</div>
+  <div class="card"><table>
+    <tr><th>日期</th><th>渠道</th><th>事项</th><th class="r">金额</th></tr>
+    <tr><td>10-20</td><td>定投</td><td>新能车(提前)</td><td class="r">65</td></tr>
+    <tr><td>10-21</td><td>加仓</td><td>创新药</td><td class="r">122</td></tr>
+    <tr><td>10-22</td><td>转换</td><td>创新药(轮转买入)</td><td class="r">630</td></tr>
+    <tr><td>10-29</td><td>定投</td><td>5只</td><td class="r">170</td></tr>
+    <tr><td>11-05</td><td>定投</td><td>4只</td><td class="r">160</td></tr>
+    <tr><td><b>合计</b></td><td></td><td></td><td class="r"><b>1147</b></td></tr>
+  </table>
+  <div class="tip">渠道小计：定投 395 / 加仓 122 / 转换 630。10-29:创新药65/兴全30/黄金10/新能车40/有色25；11-05:创新药65/新能车40/有色25/兴全30</div></div>
+  <div class="sec">上一周期（9-20 ~ 10-19）</div>
+  <div class="card"><table>
+    <tr><th>日期</th><th>渠道</th><th>事项</th><th class="r">金额</th></tr>
+    <tr><td>10-08</td><td>定投</td><td>8只</td><td class="r">207.4</td></tr>
+    <tr><td>10-15</td><td>定投</td><td>7只</td><td class="r">203</td></tr>
+    <tr><td><b>已花合计</b></td><td></td><td></td><td class="r"><b>410.4</b></td></tr>
+  </table>
+  <div class="kv"><span>上期结余（1800−410.4）</span><b>1389.6 元 · 11-20封账转入现金池</b></div>
+  <div class="tip">10-08:富国50/央企红利11.7/黄金11.7/兴全13/信澳13/高质量13/有色45/创新药50；10-15:有色45/黄金9/兴全13/高质量13/创新药80/信澳13/富国30</div></div>
+  <div class="sec">债基转换（不占预算）</div>
+  <div class="card"><div class="kv"><span>11-06 赎回富国转权益</span><b>214.96 元</b></div><div class="tip">卖旧换新·内部搬家，不占1800预算</div></div>
+  <div class="sec">每月20号封账（自动·无需你操作）</div>
+  <div class="card"><div class="ok">发薪日同日完成：封上周期账（结转现金池）→ 注入新1800 → 资金评审。账本周期=每月20号~次月19号。你不用做任何事。</div></div>
+</div>
+
+<script>
+function go(b){document.getElementById('list').style.display='none';document.getElementById('view-'+b).style.display='block';window.scrollTo(0,0);}
+function back(){document.querySelectorAll('.view').forEach(v=>v.style.display='none');document.getElementById('list').style.display='block';window.scrollTo(0,0);}
+function winOpen(kind){
+  var now=new Date();var d=now.getDay();var h=now.getHours()+now.getMinutes()/60;
+  if(kind==='dt'){return (d===4&&h>=15)||d===5||d===6||d===0||d===1||d===2||(d===3&&h<12);}
+  return (d===5&&h>=15)||d===6||d===0||d===1||d===2||(d===3&&h<12);
+}
+function gateCheck(){
+  var dt=winOpen('dt'),zh=winOpen('zh');
+  var ids=['f-nc','f-cx','f-xq','f-ys','f-hj'];
+  for(var i=0;i<ids.length;i++){document.getElementById(ids[i]).disabled=!dt;}
+  document.getElementById('btn-dt').disabled=!dt;
+  var g1=document.getElementById('gate-dt');
+  if(dt){g1.textContent='✅ 已到确认时间，可填写实际扣款金额';g1.classList.add('on');}
+  else{g1.textContent='⏳ 未到确认时间：周四 15:00 实扣完成后开放填写';g1.classList.remove('on');}
+  document.getElementById('f-zh').disabled=!zh;
+  document.getElementById('btn-zh').disabled=!zh;
+  var g2=document.getElementById('gate-zh');
+  if(zh){g2.textContent='✅ 已到确认时间，可填写实际转换金额';g2.classList.add('on');}
+  else{g2.textContent='⏳ 未到确认时间：周五 15:00 转换到账后开放填写';g2.classList.remove('on');}
+}
+function copyText(text,outId,opId){
+  var out=document.getElementById(outId);out.style.display='block';out.textContent=text;
+  var op=document.getElementById(opId);op.style.display='block';
+  var done=false;
+  if(navigator.clipboard&&navigator.clipboard.writeText){try{navigator.clipboard.writeText(text).then(function(){op.textContent='✅ 已自动复制！直接粘贴到小艺对话框发我即可';op.style.color='#7ee0a8';},function(){op.textContent='↑ 长按下面灰色内容→复制→粘贴到小艺对话框发我';op.style.color='#ffd07a';});done=true;}catch(e){}}
+  if(!done){op.textContent='↑ 长按下面灰色内容→复制→粘贴到小艺对话框发我';op.style.color='#ffd07a';}
+}
+function collect(){
+  var rows=[['新能车012544','nc'],['创新药024328','cx'],['兴全FOF010267','xq'],['有色017140','ys'],['黄金004253','hj']];
+  var parts=['【本周定投确认】'];var total=0,any=false;
+  for(var i=0;i<rows.length;i++){
+    var v=parseFloat(document.getElementById('f-'+rows[i][1]).value);if(isNaN(v))v=0;
+    if(v>0){any=true;total+=v;parts.push(rows[i][0]+'：'+v+'元');}else{parts.push(rows[i][0]+'：0元(未投)');}
+  }
+  if(any){parts.push('合计：'+total+'元');}else{parts.splice(1,0,'本周未定投（金额全为0）');}
+  copyText(parts.join('\n'),'out','op');
+}
+function collectZH(){
+  var v=parseFloat(document.getElementById('f-zh').value);if(isNaN(v))v=0;
+  copyText('【债基转换确认】\n富国009290 本周四赎回转权益：'+v+'元','out-zh','op-zh');
+}
+gateCheck();
+</script>
+</body>
+</html>

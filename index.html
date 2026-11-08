@@ -65,7 +65,7 @@
     <div class="row1"><span class="n"><span class="pill" style="background:#e07e9c"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
     <div class="d">现在有多少钱 / 本月还剩多少没花</div>
     <div class="next">每次评估后更新</div>
-    <div class="sum">可动用 653 · 上期结余1389.6已转家用</div>
+    <div class="sum">可动用 653 · 本周期(10-20~11-19)剩余</div>
   </div>
   
   <div class="band-card" onclick="go('daily')">
@@ -100,7 +100,7 @@
 
 <div id="view-wed" class="view" style="display:none">
   <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>周三档 · 定投预提示</h1><div class="sub">服务本周四(11-12)执行 · 基准2026-11-06</div></div>
-  <div class="sec">本周四定投建议 · 权益类 <span class="badge badge-wait">待确认</span></div>
+  <div class="sec">本周四定投建议 <span class="badge badge-wait">待确认</span></div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">金额(元)</th></tr>
     <tr><td>易方达创新药链接A 024328</td><td class="r">65</td></tr>
@@ -108,17 +108,10 @@
     <tr><td>兴全养老FOF A 010267</td><td class="r">30</td></tr>
     <tr><td>华宝有色A 017140</td><td class="r">25</td></tr>
     <tr><td>国泰黄金C 004253</td><td class="r">10</td></tr>
-    <tr><td><b>权益小计</b></td><td class="r"><b>153</b></td></tr>
-  </table></div>
-  <div class="sec">本周四定投建议 · 债基类 <span class="badge badge-wait">待确认</span></div>
-  <div class="card"><table>
-    <tr><th>基金</th><th class="r">金额(元)</th></tr>
-    <tr><td>富国债券A 009290</td><td class="r">0</td></tr>
-    <tr><td><b>债基小计</b></td><td class="r"><b>0</b></td></tr>
+    <tr><td>富国债券A 009290</td><td class="r">0（暂停）</td></tr>
+    <tr><td><b>本周定投合计</b></td><td class="r"><b>153</b></td></tr>
   </table>
-  <div class="tip">暂停定投（渐进再平衡）· 每周四赎回转权益，赎回金额见下方债基转换确认</div></div>
-  <div class="sec">本周总计 <span class="badge badge-wait">待确认</span></div>
-  <div class="card"><div class="kv"><span>权益 153 + 债基 0</span><b>本周定投合计 153 元</b></div></div>
+  <div class="tip">富国暂停定投（渐进再平衡）· 每周四赎回转权益，赎回金额见下方债基转换确认</div></div>
   <div class="sec">本周加仓决策（最近评分 2026-10-21）</div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">评分</th><th>判定</th></tr>
@@ -271,7 +264,6 @@
   <div class="card">
     <div class="kv"><span>当前总可动用</span><b class="up" id="d-total">653 元</b></div>
     <div class="kv"><span>＝ 本周期剩余</span><b id="d-remain">653 元</b></div>
-    <div class="kv"><span>上期结余 1389.6</span><b>已转家用（出体系，不占）</b></div>
   </div>
   <div class="sec">本周期预算执行（10-20 ~ 11-19）</div>
   <div class="card">
@@ -286,6 +278,7 @@
     <tr><td>10-20</td><td>新能车(提前)</td><td class="r">65</td></tr>
     <tr><td>10-29</td><td>5只(创新药65/兴全30/黄金10/新能车40/有色25)</td><td class="r">170</td></tr>
     <tr><td>11-05</td><td>4只(创新药65/新能车40/有色25/兴全30)</td><td class="r">160</td></tr>
+    <tr><td>富国债券A 009290</td><td>债基定投·暂停（渐进再平衡）</td><td class="r">0</td></tr>
     <tr><td><b>定投小计</b></td><td></td><td class="r"><b>395</b></td></tr>
   </table></div>
   <div class="sec">本周期已花 · 加仓（小计 122）</div>
@@ -304,23 +297,10 @@
   <div class="card"><div class="li">本周期无减仓操作</div></div>
   <div class="sec">本周期合计（占1800）</div>
   <div class="card"><div class="kv"><span>定投395 + 加仓122 + 转换买入630 + 减仓0</span><b>1147 元</b></div></div>
-  <div class="sec">上一周期（9-20 ~ 10-19）</div>
-  <div class="card"><table>
-    <tr><th>日期</th><th>渠道</th><th>事项</th><th class="r">金额</th></tr>
-    <tr><td>10-08</td><td>定投</td><td>8只</td><td class="r">207.4</td></tr>
-    <tr><td>10-15</td><td>定投</td><td>7只</td><td class="r">203</td></tr>
-    <tr><td><b>上期已花小计</b></td><td></td><td></td><td class="r"><b>410.4</b></td></tr>
-  </table>
-  <div class="kv"><span>上期结余（1800−410.4）</span><b>1389.6 元 · 已转家用（出体系）</b></div>
-  <div class="tip">10-08:富国50/央企红利11.7/黄金11.7/兴全13/信澳13/高质量13/有色45/创新药50；10-15:有色45/黄金9/兴全13/高质量13/创新药80/信澳13/富国30</div></div>
-  <div class="sec">债基定投</div>
-  <div class="card"><div class="kv"><span>本周期债基定投</span><b>0 元 · 暂停（渐进再平衡）</b></div></div>
   <div class="sec">最后合计</div>
   <div class="card">
     <div class="kv"><span>本周期剩余</span><b>653 元</b></div>
-    <div class="kv"><span>现金池当前</span><b id="d-pool">0 元（11-20封账后 653 入池）</b></div>
     <div class="kv"><span>＝ 当前总可动用</span><b class="up">653 元</b></div>
-    <div class="tip">11-20：封账 653 入现金池 + 发薪注入新 1800 → 下周期总弹药 2453</div>
   </div>
   <div class="sec">债基转换（不占1800 · 单列）</div>
   <div class="card"><table>

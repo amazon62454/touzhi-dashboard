@@ -237,9 +237,10 @@
     <tr><td>有色017140</td><td class="r">1.1%</td></tr>
   </table></div>
   <div class="sec">仓位再平衡（含现金）</div>
-  <div class="card"><div class="li">仓位 权益36.6%/债券57.4%/现金6.0% <span class="mid">vs 目标50/40/10</span> <span class="dow">🔴债超</span></div>
-  <div class="li">债比57.4%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）</div>
-  <div class="tip">现金=现金池<span id="m-pool">0</span>；总资产=基金组合21900+现金<span id="m-pool2">0</span>=<span id="m-total">21900</span>（现金池由引擎每日自动刷新）</div></div>
+  <div class="card">
+  <div class="li" id="m-pos">仓位 权益38.9%(8511元)/债券61.1%(13379元)/现金0%(0元) <span class="mid">vs 目标50/40/10</span> <span class="dow">🔴债超</span></div>
+  <div class="li" id="m-rebal">债比61.1%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）</div>
+  <div class="tip" id="m-asset">总资产=权益类8511+债券13379+现金0=21890（持仓快照2026-11-05，引擎每日自动刷新）</div></div>
   <div class="sec">需你本人做</div>
   <div class="card"><div class="ok">核对上方「存量持仓占比」表：无误→点下方按钮生成回传文本发小艺；有误→直接小艺说哪只不对（现金不用回传，我直接算）</div>
   <button class="btn" onclick="collectMonthly()">✅ 一键生成回传消息</button>
@@ -383,7 +384,22 @@ gateCheck();
     if(d.cash_pool!=null){
       var mp=document.getElementById('m-pool'),mp2=document.getElementById('m-pool2'),mt=document.getElementById('m-total');
       if(mp)mp.textContent=d.cash_pool; if(mp2)mp2.textContent=d.cash_pool;
-      if(mt)mt.textContent=(21900+d.cash_pool).toFixed(1);
+    }
+    if(d.holdings&&d.holdings.total){
+      var h=d.holdings;
+      var mp=document.getElementById('m-pos');
+      if(mp){
+        var flag=h.debt_pct>50?'<span class="dow">🔴债超</span>':(h.debt_pct>40?'<span class="mid">🟡偏高</span>':'<span class="up">🟢正常</span>');
+        mp.innerHTML='仓位 权益'+h.equity_pct+'%('+h.equity+'元)/债券'+h.debt_pct+'%('+h.debt+'元)/现金'+h.cash_pct+'%('+h.cash+'元) <span class="mid">vs 目标50/40/10</span> '+flag;
+      }
+      var mr=document.getElementById('m-rebal');
+      if(mr){
+        if(h.debt_pct>50){mr.innerHTML='债比'+h.debt_pct+'%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）';}
+        else if(h.debt_pct>40){mr.textContent='债比'+h.debt_pct+'%在40~50%区间 → 观察不动作（超50%才启动渐进再平衡）';}
+        else{mr.textContent='债比'+h.debt_pct+'%已回40%以内 → 渐进再平衡已退出，仓位正常';}
+      }
+      var ma=document.getElementById('m-asset');
+      if(ma)ma.textContent='总资产=权益类'+h.equity+'+债券'+h.debt+'+现金'+h.cash+'='+h.total+'（持仓快照'+h.snapshot+'，引擎每日自动刷新）';
     }
     if(d.wed){
       var w=d.wed;

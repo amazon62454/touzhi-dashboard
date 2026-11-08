@@ -130,17 +130,16 @@
   <div class="tip">评分依据：估值22.02%真低估 + 基本面三重共振 + 成交额分位17.17%地量→情绪12.5。评分=估值50+四信号各12.5，达门槛70才加仓；暂缓/未达门槛不产生记录（如11-08创新药75.5分但A类30日闸暂缓，不列）</div></div>
   <div class="sec">专项检查</div>
   <div class="card"><div class="ok">✅ 通过 · 引擎自动检查，无需你操作；异常时会在此显示报警和你要做的事</div></div>
-  <div class="sec">需你本人做</div><div class="card"><div class="ok">周四8:00前保证账户余额充足</div></div>
   <div class="sec">定投金额确认（周四 15:00 实扣后开放）</div>
   <div class="card">
     <div class="gate" id="gate-dt">⏳ 未到确认时间：周四 15:00 实扣完成后开放填写</div>
-    <table>
+    <table id="tbl-dt">
     <tr><th>基金</th><th class="r">实际扣款(元)</th></tr>
-    <tr><td>新能车 012544</td><td class="r"><input class="inp" id="f-nc" type="number" value="40" min="0" disabled></td></tr>
     <tr><td>创新药 024328</td><td class="r"><input class="inp" id="f-cx" type="number" value="65" min="0" disabled></td></tr>
+    <tr><td>新能车 012544</td><td class="r"><input class="inp" id="f-nc" type="number" value="40" min="0" disabled></td></tr>
     <tr><td>兴全FOF 010267</td><td class="r"><input class="inp" id="f-xq" type="number" value="30" min="0" disabled></td></tr>
     <tr><td>有色 017140</td><td class="r"><input class="inp" id="f-ys" type="number" value="25" min="0" disabled></td></tr>
-    <tr><td>黄金 004253</td><td class="r"><input class="inp" id="f-hj" type="number" value="0" min="0" disabled></td></tr>
+    <tr><td>黄金 004253</td><td class="r"><input class="inp" id="f-hj" type="number" value="10" min="0" disabled></td></tr>
     </table>
     <button class="btn" id="btn-dt" onclick="collect()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out" style="display:none"></div>
@@ -374,6 +373,15 @@ gateCheck();
     set('d-remain2',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
     set('d-spent',d.period&&d.period.spent!=null?d.period.spent+' 元':null);
     if(d.cash_pool!=null){set('d-pool',d.cash_pool+' 元');set('d-pool2',d.cash_pool+' 元');}
+    // 本周四定投已确认(台账完整)→徽章换已执行、确认区隐藏回传(2026-11-09用户拍板)
+    if(d.dt_confirmed){
+      var wb=document.querySelector('#view-wed .badge-wait');
+      if(wb){wb.textContent='已执行 ✅';wb.className='badge badge-ok';}
+      var gd=document.getElementById('gate-dt');
+      if(gd){gd.textContent='✅ 本周四('+(d.dt_thursday||'')+')定投已确认（台账完整）·无需回传';}
+      var tb=document.getElementById('tbl-dt');if(tb)tb.style.display='none';
+      var bt=document.getElementById('btn-dt');if(bt)bt.style.display='none';
+    }
     if(d.updated_at){
       setG('✅ '+d.updated_at,'#7ee0a8');
       var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';

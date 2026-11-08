@@ -62,7 +62,7 @@
     <div class="row1"><span class="n"><span class="pill" style="background:#e07e9c"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
     <div class="d">现在有多少钱 / 本月还剩多少没花</div>
     <div class="next">每次评估后更新</div>
-    <div class="sum">可动用 2042.6 = 周期剩653 + 上期结余1389.6</div>
+    <div class="sum">可动用 653 · 上期结余1389.6已转家用</div>
   </div>
   
   <div class="band-card" onclick="go('daily')">
@@ -263,18 +263,18 @@
 </div>
 
 <div id="view-monthend" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>资金状态 · 实时</h1><div class="sub">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>资金状态 · 实时</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
   <div class="sec">现在有多少钱（实际可动用）</div>
   <div class="card">
-    <div class="kv"><span>当前总可动用</span><b class="up">2042.6 元</b></div>
-    <div class="kv"><span>＝ 本周期剩余</span><b>653 元</b></div>
-    <div class="kv"><span>＋ 上期结余（11-20封账入池）</span><b>1389.6 元</b></div>
+    <div class="kv"><span>当前总可动用</span><b class="up" id="d-total">653 元</b></div>
+    <div class="kv"><span>＝ 本周期剩余</span><b id="d-remain">653 元</b></div>
+    <div class="kv"><span>上期结余 1389.6</span><b>已转家用（出体系，不占）</b></div>
   </div>
   <div class="sec">本周期预算执行（10-20 ~ 11-19）</div>
   <div class="card">
     <div class="kv"><span>10-20 发薪注入</span><b>1800 元</b></div>
-    <div class="kv"><span>已花</span><b>1147 元</b></div>
-    <div class="kv"><span>剩余</span><b class="up">653 元</b></div>
+    <div class="kv"><span>已花</span><b id="d-spent">1147 元</b></div>
+    <div class="kv"><span>剩余</span><b class="up" id="d-remain2">653 元</b></div>
     <div class="kv"><span>预算构成</span><b>1800 = 分配池1340 + 现金池注入460</b></div>
   </div>
   <div class="sec">本周期已花 · 定投（小计 395）</div>
@@ -308,15 +308,16 @@
     <tr><td>10-15</td><td>定投</td><td>7只</td><td class="r">203</td></tr>
     <tr><td><b>上期已花小计</b></td><td></td><td></td><td class="r"><b>410.4</b></td></tr>
   </table>
-  <div class="kv"><span>上期结余（1800−410.4）</span><b>1389.6 元 · 11-20封账转入现金池</b></div>
+  <div class="kv"><span>上期结余（1800−410.4）</span><b>1389.6 元 · 已转家用（出体系）</b></div>
   <div class="tip">10-08:富国50/央企红利11.7/黄金11.7/兴全13/信澳13/高质量13/有色45/创新药50；10-15:有色45/黄金9/兴全13/高质量13/创新药80/信澳13/富国30</div></div>
   <div class="sec">债基定投</div>
   <div class="card"><div class="kv"><span>本周期债基定投</span><b>0 元 · 暂停（渐进再平衡）</b></div></div>
   <div class="sec">最后合计</div>
   <div class="card">
     <div class="kv"><span>本周期剩余</span><b>653 元</b></div>
-    <div class="kv"><span>＋ 上期结余</span><b>1389.6 元</b></div>
-    <div class="kv"><span>＝ 当前总可动用</span><b class="up">2042.6 元</b></div>
+    <div class="kv"><span>现金池当前</span><b id="d-pool">0 元（11-20封账后 653 入池）</b></div>
+    <div class="kv"><span>＝ 当前总可动用</span><b class="up">653 元</b></div>
+    <div class="tip">11-20：封账 653 入现金池 + 发薪注入新 1800 → 下周期总弹药 2453</div>
   </div>
   <div class="sec">债基转换（不占1800 · 单列）</div>
   <div class="card"><table>
@@ -378,6 +379,17 @@ function collectQuarter(){
   copyText('【季度调仓回传】\n本季调仓：(填写调仓内容，无调仓不用发)','out-qtr','op-qtr');
 }
 gateCheck();
+(function(){
+  fetch('h5_data.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():Promise.reject()}).then(function(d){
+    function set(id,v){var e=document.getElementById(id);if(e&&v!=null)e.textContent=v;}
+    set('d-total',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
+    set('d-remain',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
+    set('d-remain2',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
+    set('d-spent',d.period&&d.period.spent!=null?d.period.spent+' 元':null);
+    if(d.cash_pool!=null)set('d-pool',d.cash_pool+' 元（11-20封账后入池）');
+    if(d.updated_at){var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';}
+  }).catch(function(){});
+})();
 </script>
 </body>
 </html>

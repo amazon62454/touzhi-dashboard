@@ -57,6 +57,9 @@
 
 <div id="list">
   <div class="top"><h1>📈 投资五档总览</h1><div class="sub">数据=五档引擎报告+台账 · 数据基准 2026-11-06<span class="badge">整合版</span></div></div>
+  <div class="card" id="g-updated" style="margin:0 0 10px 0;padding:10px 14px;border:1px solid #3a4a5f;border-radius:10px;background:#1a2433">
+    <div class="kv"><span>页面数据更新时间</span><b id="g-updated-val" style="color:#e8c268">⏳ 正在获取…</b></div>
+  </div>
 
   <div class="band-card" onclick="go('monthend')">
     <div class="row1"><span class="n"><span class="pill" style="background:#e07e9c"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
@@ -380,6 +383,7 @@ function collectQuarter(){
 }
 gateCheck();
 (function(){
+  function setG(txt,color){var e=document.getElementById('g-updated-val');if(e){e.textContent=txt;e.style.color=color||'#e8c268';}}
   fetch('h5_data.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():Promise.reject()}).then(function(d){
     function set(id,v){var e=document.getElementById(id);if(e&&v!=null)e.textContent=v;}
     set('d-total',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
@@ -387,8 +391,11 @@ gateCheck();
     set('d-remain2',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
     set('d-spent',d.period&&d.period.spent!=null?d.period.spent+' 元':null);
     if(d.cash_pool!=null)set('d-pool',d.cash_pool+' 元（11-20封账后入池）');
-    if(d.updated_at){var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';}
-  }).catch(function(){});
+    if(d.updated_at){
+      setG('✅ '+d.updated_at,'#7ee0a8');
+      var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';
+    }
+  }).catch(function(){setG('⚠️ 未拉到实时数据·显示内置快照','#e07e9c');});
 })();
 </script>
 </body>

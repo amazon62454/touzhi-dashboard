@@ -377,7 +377,7 @@ function collectQuarter(){
 gateCheck();
 (function(){
   function setG(txt,color){var e=document.getElementById('g-updated-val');if(e){e.textContent=txt;e.style.color=color||'#e8c268';}}
-  fetch('h5_data.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():Promise.reject()}).then(function(d){
+  fetch('h5_data.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():Promise.reject()}).then(function(d){
     function set(id,v){var e=document.getElementById(id);if(e&&v!=null)e.textContent=v;}
     set('d-total',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
     set('d-remain',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
@@ -517,7 +517,9 @@ gateCheck();
     // FH16(2026-11-09):fetch失败时所有数值锚点置'—'标红,杜绝静态兜底旧数冒充真值
     var staleIds=['sum-m-spent','sum-m-remain','sum-m-pos','sum-w-avail','sum-w-total','sum-w-items',
       'sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','m-pos','m-rebal','m-asset',
-      'd-total','d-remain','d-remain2','d-spent','d-pool','d-pool2'];
+      'd-total','d-remain','d-remain2','d-spent','d-pool','d-pool2',
+      'mc-dt-tot','mc-jc-tot','mc-zh-tot','mc-zh','mc-jc2-tot','mc-jian','mc-sum',
+      't-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-sec','t-zh-gate','t-zh-row'];
     staleIds.forEach(function(id){var e=document.getElementById(id);if(e){e.textContent='—';e.style.color='#e07e9c';}});
     ['tb-advice','tb-dtrec','tb-jcrec'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML='<tr><td colspan="4" style="color:#e07e9c">⚠️ 数据未加载,勿信本表</td></tr>';});
   });

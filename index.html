@@ -77,8 +77,8 @@
   
   <div class="band-card" onclick="go('wed')">
     <div class="row1"><span class="n"><span class="pill" style="background:#3b82f6"></span>周三档 · 定投预提示</span><span class="arrow">›</span></div>
-    <div class="d">本周四投哪些 / 多少钱 · 集中制档位分配 · 加仓评估</div>
-    <div class="next">下次 · 周三 11-11 12:00 → 周四执行</div>
+    <div class="d"><span id="t-card-d">本周四(11-12)投哪些</span> / 多少钱 · 集中制档位分配 · 加仓评估</div>
+    <div class="next">下次 · 周三 11-11 12:00 → <span id="t-card-next">周四(11-12)执行</span></div>
     <div class="sum">权益本周 <b id="sum-w-total">160</b>元 · <span id="sum-w-items">创新药65 新能车40 兴全30 有色25 黄金0</span> · 创新药&新能车极度低估待评分</div>
   </div>
   
@@ -99,7 +99,7 @@
 </div>
 
 <div id="view-wed" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>周三档 · 定投预提示</h1><div class="sub">服务本周四执行 · 建议出自最新周三评估</div></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>周三档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">本周四(11-12)执行</span> · 建议出自最新周三评估</div></div>
   <div class="sec"><span id="cap-advice">本周四定投建议</span> <span class="badge badge-wait">待确认</span></div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">金额(元)</th></tr>
@@ -135,9 +135,9 @@
   <div class="tip">评分依据：估值22.02%真低估 + 基本面三重共振 + 成交额分位17.17%地量→情绪12.5。评分=估值50+四信号各12.5，达门槛70才加仓；暂缓/未达门槛不产生记录（如11-08创新药75.5分但A类30日闸暂缓，不列）</div></div>
   <div class="sec">专项检查</div>
   <div class="card"><div class="ok">✅ 通过 · 引擎自动检查，无需你操作；异常时会在此显示报警和你要做的事</div></div>
-  <div class="sec">定投金额确认（周四 15:00 实扣后开放）</div>
+  <div class="sec">定投金额确认（<span id="t-dt-sec">周四 11-12</span> 15:00 实扣后开放）</div>
   <div class="card">
-    <div class="gate" id="gate-dt">⏳ 未到确认时间：周四 15:00 实扣完成后开放填写</div>
+    <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">周四(11-12)</span> 15:00 实扣完成后开放填写</div>
     <table id="tbl-dt">
     <tr><th>基金</th><th class="r">实际扣款(元)</th></tr>
     <tr><td>创新药 024328</td><td class="r"><input class="inp" id="f-cx" type="number" value="65" min="0" disabled></td></tr>
@@ -150,12 +150,12 @@
     <div class="out" id="out" style="display:none"></div>
     <div class="tip" id="op" style="display:none;color:#7ee0a8"></div>
   </div>
-  <div class="sec">债基转换确认（周五 15:00 到账后开放）</div>
+  <div class="sec">债基转换确认（<span id="t-zh-sec">周五 11-13</span> 15:00 到账后开放）</div>
   <div class="card">
-    <div class="gate" id="gate-zh">⏳ 未到确认时间：周五 15:00 转换到账后开放填写</div>
+    <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">周五(11-13)</span> 15:00 转换到账后开放填写</div>
     <table>
     <tr><th>事项</th><th class="r">实际金额(元)</th></tr>
-    <tr><td>富国009290 本周四赎回转权益</td><td class="r"><input class="inp" id="f-zh" type="number" value="157.5" min="0" disabled></td></tr>
+    <tr><td>富国009290 <span id="t-zh-row">本周四(11-12)赎回转权益</span></td><td class="r"><input class="inp" id="f-zh" type="number" value="157.5" min="0" disabled></td></tr>
     </table>
     <button class="btn" id="btn-zh" onclick="collectZH()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out-zh" style="display:none"></div>
@@ -412,6 +412,21 @@ gateCheck();
       var ke=document.getElementById('kv-eq-used'),ker=document.getElementById('kv-eq-rem'),kj=document.getElementById('kv-jc-used'),kjr=document.getElementById('kv-jc-rem');
       if(ke&&d.channels){var equ=Math.round((d.channels.dingtou||0)+(d.channels.zhuanhuan_mairu||0));ke.textContent=equu(equ);if(ker)ker.textContent=1340-equ;}
       if(kj&&d.channels){kj.textContent=d.channels.jiacang||0;if(kjr)kjr.textContent=460-(d.channels.jiacang||0);}
+      if(d.dt_thursday){
+        var thu=d.dt_thursday;
+        var yN=new Date().getFullYear();
+        var fd=new Date(yN,parseInt(thu.slice(0,2),10)-1,parseInt(thu.slice(3,5),10)+1);
+        var fri=(fd.getMonth()+1<10?'0':'')+(fd.getMonth()+1)+'-'+(fd.getDate()<10?'0':'')+fd.getDate();
+        function stT(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+        stT('t-card-d','本周四('+thu+')投哪些');
+        stT('t-card-next','周四('+thu+')执行');
+        stT('t-sub','本周四('+thu+')执行');
+        stT('t-dt-sec','周四 '+thu);
+        stT('t-dt-gate','周四('+thu+')');
+        stT('t-zh-sec','周五 '+fri);
+        stT('t-zh-gate','周五('+fri+')');
+        stT('t-zh-row','本周四('+thu+')赎回转权益');
+      }
       var wt=document.getElementById('sum-w-total'),wi=document.getElementById('sum-w-items');
       if(wt&&d.wed&&d.wed.advice_total!=null)wt.textContent=d.wed.advice_total;
       if(wi&&d.wed&&d.wed.advice&&d.wed.advice.length){
@@ -432,7 +447,7 @@ gateCheck();
         h+='<tr><td><b>本周定投合计</b></td><td class="r"><b>'+(w.advice_total||0)+'</b></td></tr>';
         ta.innerHTML=h;
         var cap=document.getElementById('cap-advice');
-        if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='本周四定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}
+        if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='本周四('+(d.dt_thursday||'')+')定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}
       }
       var tdr=document.getElementById('tb-dtrec');
       if(tdr&&w.dt_records&&w.dt_records.length){

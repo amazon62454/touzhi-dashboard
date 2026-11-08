@@ -264,6 +264,7 @@
   <div class="card">
     <div class="kv"><span>当前总可动用</span><b class="up" id="d-total">653 元</b></div>
     <div class="kv"><span>＝ 本周期剩余</span><b id="d-remain">653 元</b></div>
+    <div class="kv"><span>＋ 现金池</span><b id="d-pool">0 元</b></div>
   </div>
   <div class="sec">本周期预算执行（10-20 ~ 11-19）</div>
   <div class="card">
@@ -300,6 +301,7 @@
   <div class="sec">最后合计</div>
   <div class="card">
     <div class="kv"><span>本周期剩余</span><b>653 元</b></div>
+    <div class="kv"><span>＋ 现金池</span><b id="d-pool2">0 元</b></div>
     <div class="kv"><span>＝ 当前总可动用</span><b class="up">653 元</b></div>
   </div>
   <div class="sec">债基转换（不占1800 · 单列）</div>
@@ -370,7 +372,7 @@ gateCheck();
     set('d-remain',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
     set('d-remain2',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
     set('d-spent',d.period&&d.period.spent!=null?d.period.spent+' 元':null);
-    if(d.cash_pool!=null)set('d-pool',d.cash_pool+' 元（11-20封账后入池）');
+    if(d.cash_pool!=null){set('d-pool',d.cash_pool+' 元');set('d-pool2',d.cash_pool+' 元');}
     if(d.updated_at){
       setG('✅ '+d.updated_at,'#7ee0a8');
       var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';

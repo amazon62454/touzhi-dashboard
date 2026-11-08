@@ -228,17 +228,15 @@
     <tr><td>信澳010363</td><td class="r">3.5%</td></tr>
     <tr><td>有色017140</td><td class="r">1.1%</td></tr>
   </table></div>
-  <div class="sec">资金账本（周期 10-20~11-19）</div>
-  <div class="card">
-    <div class="kv"><span>本周期已花</span><b>1147 元</b></div>
-    <div class="kv"><span>本周期剩余</span><b>653 元</b></div>
-    <div class="kv"><span>上期结余（11-20入池）</span><b>1389.6 元</b></div>
-    <div class="kv"><span>预算构成</span><b>1800=分配池1340+现金池460</b></div>
-  </div>
-  <div class="sec">仓位再平衡</div>
-  <div class="card"><div class="li">仓位 权益38.9%/债券61.1% <span class="mid">vs 目标50/40</span> <span class="dow">🔴偏离&gt;10pp</span></div>
-  <div class="li">债比61.1%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）</div></div>
-  <div class="sec">需你本人做</div><div class="card"><div class="ok">发一次本月持仓快照（理财通）供台账更新；核对占比与实盘一致</div></div>
+  <div class="sec">仓位再平衡（含现金）</div>
+  <div class="card"><div class="li">仓位 权益36.6%/债券57.4%/现金6.0% <span class="mid">vs 目标50/40/10</span> <span class="dow">🔴债超</span></div>
+  <div class="li">债比57.4%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）</div>
+  <div class="tip">现金=现金池1389.6；总资产=基金组合21900+现金1389.6=23289.6</div></div>
+  <div class="sec">需你本人做</div>
+  <div class="card"><div class="ok">核对上方「存量持仓占比」表：无误→点下方按钮生成回传文本发小艺；有误→直接小艺说哪只不对（现金不用回传，我直接算）</div>
+  <button class="btn" onclick="collectMonthly()">✅ 一键生成回传消息</button>
+  <div class="out" id="out-mo" style="display:none"></div>
+  <div class="tip" id="op-mo" style="display:none;color:#7ee0a8"></div></div>
 </div>
 
 <div id="view-quarter" class="view" style="display:none">
@@ -257,7 +255,11 @@
   <div class="card"><div class="li">①②③信号：记录4条/需≥30，未达标·持续登记</div>
   <div class="li">估值联动：AI涨乐无历史序列·数据缺口待恢复</div>
   <div class="li">总评：数据基础不足，不生成有效性结论</div></div>
-  <div class="sec">需你本人做</div><div class="card"><div class="ok">核对持仓快照/占比符合预期（回撤基准2026-10-27初值21190）</div></div>
+  <div class="sec">需你本人做</div>
+  <div class="card"><div class="ok">本季无调仓→无需操作；有调仓（转仓/换仓/减仓）→点下方按钮生成回传文本发小艺</div>
+  <button class="btn" onclick="collectQuarter()">✅ 一键生成调仓回传</button>
+  <div class="out" id="out-qtr" style="display:none"></div>
+  <div class="tip" id="op-qtr" style="display:none;color:#7ee0a8"></div></div>
 </div>
 
 <div id="view-monthend" class="view" style="display:none">
@@ -275,28 +277,53 @@
     <div class="kv"><span>剩余</span><b class="up">653 元</b></div>
     <div class="kv"><span>预算构成</span><b>1800 = 分配池1340 + 现金池注入460</b></div>
   </div>
-  <div class="sec">本周期已花明细（1147）· 分渠道</div>
+  <div class="sec">本周期已花 · 定投（小计 395）</div>
   <div class="card"><table>
-    <tr><th>日期</th><th>渠道</th><th>事项</th><th class="r">金额</th></tr>
-    <tr><td>10-20</td><td>定投</td><td>新能车(提前)</td><td class="r">65</td></tr>
-    <tr><td>10-21</td><td>加仓</td><td>创新药</td><td class="r">122</td></tr>
-    <tr><td>10-22</td><td>转换</td><td>创新药(轮转买入)</td><td class="r">630</td></tr>
-    <tr><td>10-29</td><td>定投</td><td>5只</td><td class="r">170</td></tr>
-    <tr><td>11-05</td><td>定投</td><td>4只</td><td class="r">160</td></tr>
-    <tr><td><b>合计</b></td><td></td><td></td><td class="r"><b>1147</b></td></tr>
-  </table>
-  <div class="tip">渠道小计：定投 395 / 加仓 122 / 转换 630。10-29:创新药65/兴全30/黄金10/新能车40/有色25；11-05:创新药65/新能车40/有色25/兴全30</div></div>
+    <tr><th>日期</th><th>事项</th><th class="r">金额</th></tr>
+    <tr><td>10-20</td><td>新能车(提前)</td><td class="r">65</td></tr>
+    <tr><td>10-29</td><td>5只(创新药65/兴全30/黄金10/新能车40/有色25)</td><td class="r">170</td></tr>
+    <tr><td>11-05</td><td>4只(创新药65/新能车40/有色25/兴全30)</td><td class="r">160</td></tr>
+    <tr><td><b>定投小计</b></td><td></td><td class="r"><b>395</b></td></tr>
+  </table></div>
+  <div class="sec">本周期已花 · 加仓（小计 122）</div>
+  <div class="card"><table>
+    <tr><th>日期</th><th>事项</th><th class="r">金额</th></tr>
+    <tr><td>10-21</td><td>创新药(评分82达标)</td><td class="r">122</td></tr>
+    <tr><td><b>加仓小计</b></td><td></td><td class="r"><b>122</b></td></tr>
+  </table></div>
+  <div class="sec">本周期已花 · 转换买入（小计 630 · 占1800）</div>
+  <div class="card"><table>
+    <tr><th>日期</th><th>事项</th><th class="r">金额</th></tr>
+    <tr><td>10-22</td><td>创新药(轮转买入·零钱通新买入)</td><td class="r">630</td></tr>
+    <tr><td><b>转换买入小计</b></td><td></td><td class="r"><b>630</b></td></tr>
+  </table></div>
+  <div class="sec">本周期已花 · 减仓（小计 0）</div>
+  <div class="card"><div class="li">本周期无减仓操作</div></div>
+  <div class="sec">本周期合计（占1800）</div>
+  <div class="card"><div class="kv"><span>定投395 + 加仓122 + 转换买入630 + 减仓0</span><b>1147 元</b></div></div>
   <div class="sec">上一周期（9-20 ~ 10-19）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>渠道</th><th>事项</th><th class="r">金额</th></tr>
     <tr><td>10-08</td><td>定投</td><td>8只</td><td class="r">207.4</td></tr>
     <tr><td>10-15</td><td>定投</td><td>7只</td><td class="r">203</td></tr>
-    <tr><td><b>已花合计</b></td><td></td><td></td><td class="r"><b>410.4</b></td></tr>
+    <tr><td><b>上期已花小计</b></td><td></td><td></td><td class="r"><b>410.4</b></td></tr>
   </table>
   <div class="kv"><span>上期结余（1800−410.4）</span><b>1389.6 元 · 11-20封账转入现金池</b></div>
   <div class="tip">10-08:富国50/央企红利11.7/黄金11.7/兴全13/信澳13/高质量13/有色45/创新药50；10-15:有色45/黄金9/兴全13/高质量13/创新药80/信澳13/富国30</div></div>
-  <div class="sec">债基转换（不占预算）</div>
-  <div class="card"><div class="kv"><span>11-06 赎回富国转权益</span><b>214.96 元</b></div><div class="tip">卖旧换新·内部搬家，不占1800预算</div></div>
+  <div class="sec">债基定投</div>
+  <div class="card"><div class="kv"><span>本周期债基定投</span><b>0 元 · 暂停（渐进再平衡）</b></div></div>
+  <div class="sec">最后合计</div>
+  <div class="card">
+    <div class="kv"><span>本周期剩余</span><b>653 元</b></div>
+    <div class="kv"><span>＋ 上期结余</span><b>1389.6 元</b></div>
+    <div class="kv"><span>＝ 当前总可动用</span><b class="up">2042.6 元</b></div>
+  </div>
+  <div class="sec">债基转换（不占1800 · 单列）</div>
+  <div class="card"><table>
+    <tr><th>日期</th><th>事项</th><th class="r">金额</th></tr>
+    <tr><td>11-06</td><td>赎回富国转权益(富国→新能车)</td><td class="r">214.96</td></tr>
+  </table>
+  <div class="tip">卖旧换新·内部搬家，不占1800预算</div></div>
   <div class="sec">每月20号封账（自动·无需你操作）</div>
   <div class="card"><div class="ok">发薪日同日完成：封上周期账（结转现金池）→ 注入新1800 → 资金评审。账本周期=每月20号~次月19号。你不用做任何事。</div></div>
 </div>
@@ -343,6 +370,12 @@ function collect(){
 function collectZH(){
   var v=parseFloat(document.getElementById('f-zh').value);if(isNaN(v))v=0;
   copyText('【债基转换确认】\n富国009290 本周四赎回转权益：'+v+'元','out-zh','op-zh');
+}
+function collectMonthly(){
+  copyText('【月度持仓确认】\n存量持仓占比表已核对：无误','out-mo','op-mo');
+}
+function collectQuarter(){
+  copyText('【季度调仓回传】\n本季调仓：(填写调仓内容，无调仓不用发)','out-qtr','op-qtr');
 }
 gateCheck();
 </script>

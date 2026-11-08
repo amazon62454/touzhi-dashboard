@@ -1,0 +1,24 @@
+{
+ "updated_at": "2026-11-08 22:58",
+ "cash_pool": 0.0,
+ "period": {
+  "label": "10-20~11-19",
+  "injected": 1800.0,
+  "spent": 1147.0,
+  "remain": 653.0
+ },
+ "channels": {
+  "dingtou": 395.0,
+  "jiacang": 122.0,
+  "zhuanhuan_mairu": 630.0,
+  "jiancang": 0.0
+ },
+ "debt": {
+  "dingtou": 0.0,
+  "zhuanhuan_buzhan": 214.96
+ },
+ "prev": {
+  "spent": 410.4,
+  "balance_note": "1389.6已转家用"
+ }
+}

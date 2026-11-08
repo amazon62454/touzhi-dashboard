@@ -287,30 +287,34 @@
     <div class="kv"><span>加仓弹药（460）</span><b>已花 <span id="kv-jc-used">122</span> · 剩 <span id="kv-jc-rem">338</span></b></div>
     <div class="tip">⚠️ 本周期含5个定投周四（10-22/29·11-05/12/19）：11-12、11-19两次待执行约306，执行后剩约194；5周定投会挤占加仓弹药，总红线1800兜底</div>
   </div>
-  <div class="sec">本周期已花 · 定投（小计 395）</div>
+  <div class="sec">本周期已花 · 定投（小计 <span id="mc-dt-tot">548</span>）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>事项</th><th class="r">金额</th></tr>
+    <tbody id="mc-dt">
     <tr><td>10-20</td><td>新能车(提前)</td><td class="r">65</td></tr>
-    <tr><td>10-29</td><td>5只(创新药65/兴全30/黄金10/新能车40/有色25)</td><td class="r">170</td></tr>
-    <tr><td>11-05</td><td>4只(创新药65/新能车40/有色25/兴全30)</td><td class="r">160</td></tr>
-    <tr><td>富国债券A 009290</td><td>债基定投·暂停（渐进再平衡）</td><td class="r">0</td></tr>
+    <tr><td>10-22</td><td>5只：创新药40/新能车65/兴全13/黄金10/有色25</td><td class="r">153</td></tr>
+    <tr><td>10-29</td><td>5只：创新药65/新能车40/有色25/兴全30/黄金10</td><td class="r">170</td></tr>
+    <tr><td>11-05</td><td>4只：创新药65/新能车40/有色25/兴全30</td><td class="r">160</td></tr>
     <tr><td><b>定投小计</b></td><td></td><td class="r"><b>548</b></td></tr>
+    </tbody>
   </table></div>
-  <div class="sec">本周期已花 · 加仓（小计 122）</div>
+  <div class="sec">本周期已花 · 加仓（小计 <span id="mc-jc-tot">122</span>）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>事项</th><th class="r">金额</th></tr>
+    <tbody id="mc-jc">
     <tr><td>10-21</td><td>创新药(评分82达标)</td><td class="r">122</td></tr>
     <tr><td><b>加仓小计</b></td><td></td><td class="r"><b>122</b></td></tr>
+    </tbody>
   </table></div>
-  <div class="sec">本周期已花 · 转换买入（小计 630 · 占1800）</div>
+  <div class="sec">本周期已花 · 转换买入（小计 <span id="mc-zh-tot">630</span> · 占1800）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>事项</th><th class="r">金额</th></tr>
     <tr><td>10-22</td><td>创新药(轮转买入·零钱通新买入)</td><td class="r">630</td></tr>
-    <tr><td><b>转换买入小计</b></td><td></td><td class="r"><b>630</b></td></tr>
+    <tr><td><b>转换买入小计</b></td><td></td><td class="r"><b id="mc-zh">630</b></td></tr>
   </table></div>
-  <div class="sec">本周期已花 · 减仓（小计 0）</div>
-  <div class="card"><div class="li">本周期无减仓操作</div>
-  <div class="kv" style="margin-top:8px"><span>本周期合计（定投548+加仓122+转换买入630+减仓0）</span><b>1300 元</b></div></div>
+  <div class="sec">本周期已花 · 减仓（小计 <span id="mc-jc2-tot">0</span>）</div>
+  <div class="card"><div class="li" id="mc-jian">本周期无减仓操作</div>
+  <div class="kv" style="margin-top:8px"><span>本周期合计</span><b id="mc-sum">1300 元</b></div></div>
   <div class="sec">债基转换（不占1800 · 单列）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>事项</th><th class="r">金额</th></tr>
@@ -426,6 +430,35 @@ gateCheck();
         stT('t-zh-sec','周五 '+fri);
         stT('t-zh-gate','周五('+fri+')');
         stT('t-zh-row','本周四('+thu+')赎回转权益');
+      }
+      if(d.channels){
+        var cdt=d.channels.dingtou||0,cjc=d.channels.jiacang||0,czh=d.channels.zhuanhuan_mairu||0,cjn=d.channels.jiancang||0;
+        var mdt=document.getElementById('mc-dt-tot'),mjc=document.getElementById('mc-jc-tot');
+        var mzh=document.getElementById('mc-zh-tot'),mzh2=document.getElementById('mc-zh');
+        var mj2=document.getElementById('mc-jc2-tot'),mjn=document.getElementById('mc-jian'),msum=document.getElementById('mc-sum');
+        if(mdt)mdt.textContent=cdt;if(mjc)mjc.textContent=cjc;
+        if(mzh)mzh.textContent=czh;if(mzh2)mzh2.textContent=czh;
+        if(mj2)mj2.textContent=cjn;
+        if(mjn)mjn.textContent=(cjn>0?'减仓合计'+cjn+'元':'本周期无减仓操作');
+        if(msum)msum.textContent=(Math.round((cdt+cjc+czh+cjn)*10)/10)+' 元';
+      }
+      if(d.wed){
+        var mdtb=document.getElementById('mc-dt');
+        if(mdtb&&d.wed.dt_records&&d.wed.dt_records.length){
+          var bd={},od=[];
+          d.wed.dt_records.forEach(function(x){if(!bd[x.date]){bd[x.date]=[];od.push(x.date);}bd[x.date].push(x);});
+          var h4='';
+          od.forEach(function(dt){var its=bd[dt],s=0,ds=[];its.forEach(function(x){s+=x.amt;ds.push(sn(x.fund)+x.amt);});h4+='<tr><td>'+dt+'</td><td>'+(its.length>1?(Math.round(s*10)/10)+'元：'+ds.join('/'):sn(its[0].fund)+'('+ds.join('/')+')')+'</td><td class="r">'+(Math.round(s*100)/100)+'</td></tr>';});
+          h4+='<tr><td><b>定投小计</b></td><td></td><td class="r"><b>'+(d.wed.dt_total||0)+'</b></td></tr>';
+          mdtb.innerHTML=h4;
+        }
+        var mjtb=document.getElementById('mc-jc');
+        if(mjtb&&d.wed.jc_records&&d.wed.jc_records.length){
+          var h5='';
+          d.wed.jc_records.forEach(function(x){var sc=(x.note||'').match(/(\d+(?:\.\d+)?)分/);h5+='<tr><td>'+x.date+'</td><td>'+esc(x.fund)+'(评分'+(sc?sc[1]:'—')+'达标)</td><td class="r">'+x.amt+'</td></tr>';});
+          h5+='<tr><td><b>加仓小计</b></td><td></td><td class="r"><b>'+(d.wed.jc_records.reduce(function(a,b){return a+(b.amt||0);},0))+'</b></td></tr>';
+          mjtb.innerHTML=h5;
+        }
       }
       var wt=document.getElementById('sum-w-total'),wi=document.getElementById('sum-w-items');
       if(wt&&d.wed&&d.wed.advice_total!=null)wt.textContent=d.wed.advice_total;

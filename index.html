@@ -65,7 +65,7 @@
     <div class="row1"><span class="n"><span class="pill" style="background:#e07e9c"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
     <div class="d">现在有多少钱 / 本月还剩多少没花</div>
     <div class="next">每次评估后更新</div>
-    <div class="sum">可动用 500 · 本周期(10-20~11-19)剩余</div>
+    <div class="sum">可动用 <span id="sum-w-avail">500</span> · 本周期(<span id="sum-w-label">10-20~11-19</span>)剩余</div>
   </div>
   
   <div class="band-card" onclick="go('daily')">
@@ -79,7 +79,7 @@
     <div class="row1"><span class="n"><span class="pill" style="background:#3b82f6"></span>周三档 · 定投预提示</span><span class="arrow">›</span></div>
     <div class="d">本周四投哪些 / 多少钱 · 集中制档位分配 · 加仓评估</div>
     <div class="next">下次 · 周三 11-11 12:00 → 周四执行</div>
-    <div class="sum">权益本周 <b>153</b>元 · 创新药65 新能车40 兴全30 有色25 黄金10 · 创新药&新能车极度低估待评分</div>
+    <div class="sum">权益本周 <b id="sum-w-total">160</b>元 · <span id="sum-w-items">创新药65 新能车40 兴全30 有色25 黄金0</span> · 创新药&新能车极度低估待评分</div>
   </div>
   
   <div class="band-card" onclick="go('monthly')">
@@ -283,8 +283,8 @@
   <div class="card">
     <div class="kv"><span>10-20 发薪注入</span><b>1800 元</b></div>
     <div class="kv"><span>已花</span><b id="d-spent">1300 元</b></div>
-    <div class="kv"><span>分配池（定投+转换买入）</span><b>已花 1178 · 剩 162</b></div>
-    <div class="kv"><span>加仓弹药（460）</span><b>已花 122 · 剩 338</b></div>
+    <div class="kv"><span>分配池（定投+转换买入）</span><b>已花 <span id="kv-eq-used">1178</span> · 剩 <span id="kv-eq-rem">162</span></b></div>
+    <div class="kv"><span>加仓弹药（460）</span><b>已花 <span id="kv-jc-used">122</span> · 剩 <span id="kv-jc-rem">338</span></b></div>
     <div class="tip">⚠️ 本周期含5个定投周四（10-22/29·11-05/12/19）：11-12、11-19两次待执行约306，执行后剩约194；5周定投会挤占加仓弹药，总红线1800兜底</div>
   </div>
   <div class="sec">本周期已花 · 定投（小计 395）</div>
@@ -404,6 +404,22 @@ gateCheck();
       if(ss&&d.period)ss.textContent='已投'+d.period.spent;
       if(sr&&d.period)sr.textContent='剩'+d.period.remain;
       if(sp)sp.textContent=h.equity_pct+'/'+h.debt_pct;
+      var wa=document.getElementById('sum-w-avail'),wl=document.getElementById('sum-w-label');
+      if(wa&&d.period)wa.textContent=d.period.remain;
+      if(wl&&d.period)wl.textContent=d.period.label;
+      var sq=document.getElementById('sum-q-debt');
+      if(sq)sq.textContent=h.debt_pct;
+      var ke=document.getElementById('kv-eq-used'),ker=document.getElementById('kv-eq-rem'),kj=document.getElementById('kv-jc-used'),kjr=document.getElementById('kv-jc-rem');
+      if(ke&&d.channels){var equ=Math.round((d.channels.dingtou||0)+(d.channels.zhuanhuan_mairu||0));ke.textContent=equu(equ);if(ker)ker.textContent=1340-equ;}
+      if(kj&&d.channels){kj.textContent=d.channels.jiacang||0;if(kjr)kjr.textContent=460-(d.channels.jiacang||0);}
+      var wt=document.getElementById('sum-w-total'),wi=document.getElementById('sum-w-items');
+      if(wt&&d.wed&&d.wed.advice_total!=null)wt.textContent=d.wed.advice_total;
+      if(wi&&d.wed&&d.wed.advice&&d.wed.advice.length){
+        var nm2={'创新药':'创新药','新能车':'新能车','兴全':'兴全','有色':'有色','黄金':'黄金','富国':'富国'};
+        var parts=[];
+        d.wed.advice.forEach(function(x){var n=nm2[x.name.slice(0,3)]||x.name.slice(0,4);parts.push(n+(x.amt||0));});
+        wi.textContent=parts.join(' ');
+      }
     }
     if(d.wed){
       var w=d.wed;

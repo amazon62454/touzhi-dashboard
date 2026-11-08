@@ -86,7 +86,7 @@
     <div class="row1"><span class="n"><span class="pill" style="background:#7ee0a8"></span>月度档 · 机会扫描</span><span class="arrow">›</span></div>
     <div class="d">全市场扫描 / 候选纳入 / 换仓 / 资金账本</div>
     <div class="next">每月20号 12:00</div>
-    <div class="sum">不换仓 · 创新药9.04%交周三评分 · 已投160/剩1640 · 仓位38.9/61.1偏离目标</div>
+    <div class="sum">不换仓 · 创新药9.04%交周三评分 · <span id="sum-m-spent">已投1300</span>/<span id="sum-m-remain">剩500</span> · 仓位<span id="sum-m-pos">38.9/61.1</span>偏离目标</div>
   </div>
   
   <div class="band-card" onclick="go('quarter')">
@@ -400,6 +400,10 @@ gateCheck();
       }
       var ma=document.getElementById('m-asset');
       if(ma)ma.textContent='总资产=权益类'+h.equity+'+债券'+h.debt+'+现金'+h.cash+'='+h.total+'（持仓快照'+h.snapshot+'，引擎每日自动刷新）';
+      var ss=document.getElementById('sum-m-spent'),sr=document.getElementById('sum-m-remain'),sp=document.getElementById('sum-m-pos');
+      if(ss&&d.period)ss.textContent='已投'+d.period.spent;
+      if(sr&&d.period)sr.textContent='剩'+d.period.remain;
+      if(sp)sp.textContent=h.equity_pct+'/'+h.debt_pct;
     }
     if(d.wed){
       var w=d.wed;

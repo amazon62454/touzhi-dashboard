@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-09 00:05",
+ "updated_at": "2026-11-09 00:11",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -20,5 +20,7 @@
  "prev": {
   "spent": 410.4,
   "balance_note": "1389.6已转家用"
- }
+ },
+ "dt_thursday": "11-12",
+ "dt_confirmed": false
 }

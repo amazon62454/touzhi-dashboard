@@ -1,14 +1,14 @@
 {
- "updated_at": "2026-11-08 23:55",
+ "updated_at": "2026-11-09 00:05",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
   "injected": 1800.0,
-  "spent": 1147.0,
-  "remain": 653.0
+  "spent": 1300.0,
+  "remain": 500.0
  },
  "channels": {
-  "dingtou": 395.0,
+  "dingtou": 548.0,
   "jiacang": 122.0,
   "zhuanhuan_mairu": 630.0,
   "jiancang": 0.0

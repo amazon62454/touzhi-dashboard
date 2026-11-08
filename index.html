@@ -234,7 +234,7 @@
   <div class="sec">仓位再平衡（含现金）</div>
   <div class="card"><div class="li">仓位 权益36.6%/债券57.4%/现金6.0% <span class="mid">vs 目标50/40/10</span> <span class="dow">🔴债超</span></div>
   <div class="li">债比57.4%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）</div>
-  <div class="tip">现金=现金池1389.6；总资产=基金组合21900+现金1389.6=23289.6</div></div>
+  <div class="tip">现金=现金池<span id="m-pool">0</span>；总资产=基金组合21900+现金<span id="m-pool2">0</span>=<span id="m-total">21900</span>（现金池由引擎每日自动刷新）</div></div>
   <div class="sec">需你本人做</div>
   <div class="card"><div class="ok">核对上方「存量持仓占比」表：无误→点下方按钮生成回传文本发小艺；有误→直接小艺说哪只不对（现金不用回传，我直接算）</div>
   <button class="btn" onclick="collectMonthly()">✅ 一键生成回传消息</button>
@@ -375,6 +375,11 @@ gateCheck();
     set('d-spent',d.period&&d.period.spent!=null?d.period.spent+' 元':null);
     if(d.cash_pool!=null){set('d-pool',d.cash_pool+' 元');set('d-pool2',d.cash_pool+' 元');}
     // 本周四定投已确认(台账完整)→徽章换已执行、确认区隐藏回传(2026-11-09用户拍板)
+    if(d.cash_pool!=null){
+      var mp=document.getElementById('m-pool'),mp2=document.getElementById('m-pool2'),mt=document.getElementById('m-total');
+      if(mp)mp.textContent=d.cash_pool; if(mp2)mp2.textContent=d.cash_pool;
+      if(mt)mt.textContent=(21900+d.cash_pool).toFixed(1);
+    }
     if(d.dt_confirmed){
       var wb=document.querySelector('#view-wed .badge-wait');
       if(wb){wb.textContent='已执行 ✅';wb.className='badge badge-ok';}

@@ -104,59 +104,44 @@
   <div class="sec"><span id="cap-advice">本周四定投建议</span> <span class="badge badge-wait">待确认</span></div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">金额(元)</th></tr>
-    <tbody id="tb-advice">
-    <tr><td>易方达创新药链接A 024328</td><td class="r">65</td></tr>
-    <tr><td>嘉实新能车C 012544</td><td class="r">40</td></tr>
-    <tr><td>兴全养老FOF A 010267</td><td class="r">30</td></tr>
-    <tr><td>华宝有色A 017140</td><td class="r">25</td></tr>
-    <tr><td>国泰黄金C 004253</td><td class="r">0</td></tr>
-    <tr><td><b>本周定投合计</b></td><td class="r"><b>160</b></td></tr>
-    </tbody>
+    <tbody id="tb-advice"></tbody>
   </table>
   <div class="tip">债基暂停定投（渐进再平衡）· 每周四赎回转权益，赎回金额见下方债基转换确认</div></div>
   <div class="sec">定投记录（本周期）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>内容</th><th class="r">金额</th></tr>
-    <tbody id="tb-dtrec">
-    <tr><td>10-20</td><td>新能车（提前执行）</td><td class="r">65</td></tr>
-    <tr><td>10-22</td><td>5只：创新药40/新能车65/兴全13/黄金10/有色25</td><td class="r">153</td></tr>
-    <tr><td>10-29</td><td>5只：创新药65/新能车40/有色25/兴全30/黄金10</td><td class="r">170</td></tr>
-    <tr><td>11-05</td><td>4只：创新药65/新能车40/有色25/兴全30</td><td class="r">160</td></tr>
-    <tr><td><b>定投小计</b></td><td></td><td class="r"><b>548</b></td></tr>
-    </tbody>
+    <tbody id="tb-dtrec"></tbody>
   </table>
-  <div class="tip">每周四执行；<span id="t-next-dt">11-12</span>(本周四)建议见上表，执行后自动补录</div></div>
+  <div class="tip">每周四执行；<span id="t-next-dt">—</span>(本周四)建议见上表，执行后自动补录</div></div>
   <div class="sec">加仓记录（本周期）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>基金</th><th class="r">评分</th><th class="r">金额</th></tr>
-    <tbody id="tb-jcrec">
-    <tr><td>10-21</td><td>创新药 024328</td><td class="r"><b>82</b></td><td class="r">122 元 ✅已执行</td></tr>
-    </tbody>
+    <tbody id="tb-jcrec"></tbody>
   </table>
   <div class="tip">评分依据：估值低估 + 基本面三重共振 + 成交额地量→情绪高分。评分=估值50+四信号各12.5，达门槛70才加仓；暂缓/未达门槛不产生记录（含A类30日闸等合规闸）</div></div>
   <div class="sec">专项检查</div>
-  <div class="card"><div class="ok">✅ 通过 · 引擎自动检查，无需你操作；异常时会在此显示报警和你要做的事</div></div>
-  <div class="sec">定投金额确认（<span id="t-dt-sec">周四 11-12</span> 15:00 实扣后开放）</div>
+  <div class="card"><div class="ok">引擎自动检查中…异常时在此显示报警</div></div>
+  <div class="sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
   <div class="card">
-    <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">周四(11-12)</span> 15:00 实扣完成后开放填写</div>
+    <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
     <table id="tbl-dt">
     <tr><th>基金</th><th class="r">实际扣款(元)</th></tr>
-    <tr><td>创新药 024328</td><td class="r"><input class="inp" id="f-cx" type="number" value="65" min="0" disabled></td></tr>
-    <tr><td>新能车 012544</td><td class="r"><input class="inp" id="f-nc" type="number" value="40" min="0" disabled></td></tr>
-    <tr><td>兴全FOF 010267</td><td class="r"><input class="inp" id="f-xq" type="number" value="30" min="0" disabled></td></tr>
-    <tr><td>有色 017140</td><td class="r"><input class="inp" id="f-ys" type="number" value="25" min="0" disabled></td></tr>
-    <tr><td>黄金 004253</td><td class="r"><input class="inp" id="f-hj" type="number" value="10" min="0" disabled></td></tr>
+    <tr><td>创新药 024328</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
+    <tr><td>新能车 012544</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
+    <tr><td>兴全FOF 010267</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
+    <tr><td>有色 017140</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
+    <tr><td>黄金 004253</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
     </table>
     <button class="btn" id="btn-dt" onclick="collect()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out" style="display:none"></div>
     <div class="tip" id="op" style="display:none;color:#7ee0a8"></div>
   </div>
-  <div class="sec">债基转换确认（<span id="t-zh-sec">周五 11-13</span> 15:00 到账后开放）</div>
+  <div class="sec">债基转换确认（<span id="t-zh-sec">—</span> 15:00 到账后开放）</div>
   <div class="card">
-    <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">周五(11-13)</span> 15:00 转换到账后开放填写</div>
+    <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">—</span> 15:00 转换到账后开放填写</div>
     <table>
     <tr><th>事项</th><th class="r">实际金额(元)</th></tr>
-    <tr><td>富国009290 <span id="t-zh-row">本周四(11-12)赎回转权益</span></td><td class="r"><input class="inp" id="f-zh" type="number" placeholder="实扣后填" min="0" disabled></td></tr>
+    <tr><td>富国009290 <span id="t-zh-row">—</span></td><td class="r"><input class="inp" id="f-zh" type="number" placeholder="实扣后填" min="0" disabled></td></tr>
     </table>
     <button class="btn" id="btn-zh" onclick="collectZH()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out-zh" style="display:none"></div>

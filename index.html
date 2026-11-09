@@ -756,7 +756,7 @@ if(_rps&&mb){
     _trp.innerHTML=_h4;
   }
 }
-if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!=null&&x.分位<30)_act2.push(x.名称+' '+(Math.round(x.分位*100)/100)+'%'+((x.分位<10)?'极度低估':'低估'));});_mac.innerHTML='<b>本周三评分对象</b>：'+( _act2.length?(_act2.join('；')+'<br><span class="mid">周三档自动五维评分给加仓结论（达门槛才加仓），无需你操作，等周三结论即可</span>'):'无（暂无低估持仓待评分）');}
+if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!=null&&x.分位<30&&x.持仓)_act2.push(x.名称+' '+(Math.round(x.分位*100)/100)+'%'+((x.分位<10)?'极度低估':'低估'));});_mac.innerHTML='<b>本周三评分对象</b>：'+( _act2.length?(_act2.join('；')+'<br><span class="mid">仅已持仓低估方向由周三档评分加仓，候选已在月度评审区给建仓结论</span>'):'无（暂无已持仓低估待评分）');}
     // FH: 评估/运行时间具体化(消灭'最新/自动'模糊词,用户可判断数据新旧)
     function _fmtRun(s){s=String(s||'');return s.length>=12?(s.slice(4,6)+'-'+s.slice(6,8)+' '+s.slice(9,11)+':'+s.slice(11,13)):(s.length===8?(s.slice(4,6)+'-'+s.slice(6,8)):'—');}
     var _ar2=document.getElementById('t-adv-run');

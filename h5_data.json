@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-09 12:08",
+ "updated_at": "2026-11-09 12:18",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -24,34 +24,8 @@
  "dt_thursday": "11-12",
  "dt_confirmed": false,
  "wed": {
-  "advice": [
-   {
-    "name": "易方达创新药ETF联接",
-    "code": "024328",
-    "amt": 65
-   },
-   {
-    "name": "嘉实中证新能车C",
-    "code": "012544",
-    "amt": 40
-   },
-   {
-    "name": "华宝有色A",
-    "code": "017140",
-    "amt": 25
-   },
-   {
-    "name": "国泰黄金ETF联接",
-    "code": "004253",
-    "amt": 0
-   },
-   {
-    "name": "兴全安泰养老FOF A",
-    "code": "010267",
-    "amt": 30
-   }
-  ],
-  "advice_total": 160,
+  "advice": [],
+  "advice_total": null,
   "advice_run": "20261108",
   "dt_records": [
    {
@@ -145,7 +119,9 @@
     "note": "本月债基轮转金630元轮转入创新药024328(规则:债比>40%期间轮转;低估22%+基本面干净+评分82达标;占比约6.8%<12%)。已下单确认:10-2"
    }
   ],
-  "period_label": "10-20~11-19"
+  "period_label": "10-20~11-19",
+  "adv_eval_day": "11-11",
+  "advice_valid": false
  },
  "holdings": {
   "equity": 8511.23,

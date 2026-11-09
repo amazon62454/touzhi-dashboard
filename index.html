@@ -100,7 +100,7 @@
 </div>
 
 <div id="view-wed" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>周三档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span> · 建议出自 <span id="t-adv-run">—</span> 评估</div></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>周三档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span> · 建议出自 <span id="t-adv-run">—</span> 评估<span id="wed-testtag"></span></div></div>
   <div class="sec"><span id="cap-advice">本周四定投建议</span> <span class="badge badge-wait" id="badge-wait-txt">待确认</span></div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">金额(元)</th></tr>
@@ -199,7 +199,7 @@
 </div>
 
 <div id="view-monthly" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span></div></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span><span id="mo-testtag"></span></div></div>
   <div class="sec">行动结论</div>
   <div class="card">
     <div class="li" id="mo-new"><b>买入新建仓</b>：待引擎全市场扫描输出候选中</div>
@@ -241,7 +241,7 @@
 </div>
 
 <div id="view-quarter" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号回测 · 本次 <span id="q-run">—</span> · 数据基准 <span id="q-base">—</span></div></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号回测 · 本次 <span id="q-run">—</span> · 数据基准 <span id="q-base">—</span><span id="q-testtag"></span></div></div>
   <div class="sec">看配置调仓</div>
   <div class="card"><table>
     <tr><th>指标</th><th></th><th>内容</th></tr>
@@ -257,7 +257,9 @@
 </div>
 
 <div id="view-monthend" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>资金状态 · 实时</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月结档 · 封账全景</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
+  <div class="sec">本月动作全景（月结封账 · <span id="me-run">—</span><span id="me-testtag"></span>）</div>
+  <div class="card"><div id="me-panorama">…</div></div>
   <div class="sec">现在有多少钱（实际可动用）</div>
   <div class="card">
     <div class="kv"><span>当前总可动用</span><b class="up" id="d-total">500 元</b></div>
@@ -599,6 +601,22 @@ try{gateCheck();}catch(e){}
     var dd=d.bands&&d.bands.daily;
     var _dtt=document.getElementById('dd-testtag');
     if(_dtt&&dd){_dtt.textContent=(dd.测试态?' · ⚠️测试态数据(非正式)':'');}
+    var _wtg=document.getElementById('wed-testtag');if(_wtg&&d.wed){_wtg.textContent=((d.wed.测试态||d.wed.advice_valid===false)?' · ⚠️测试态数据(非正式)':'');}
+    var _mb2=d.bands&&d.bands.monthly;
+    var _mtg=document.getElementById('mo-testtag');if(_mtg&&_mb2){_mtg.textContent=(_mb2.测试态?' · ⚠️测试态数据(非正式)':'');}
+    var _qb3=d.bands&&d.bands.quarter;
+    var _qtg=document.getElementById('q-testtag');if(_qtg&&_qb3){_qtg.textContent=(_qb3.测试态?' · ⚠️测试态数据(非正式)':'');}
+    var _me=d.bands&&d.bands.monthend;
+    if(_me){
+      var _mr2=document.getElementById('me-run');if(_mr2)_mr2.textContent=String(_me.run||'').slice(0,8);
+      var _mt3=document.getElementById('me-testtag');if(_mt3)_mt3.textContent=(_me.测试态?' · ⚠️测试态(非正式)':'');
+      var _mp=document.getElementById('me-panorama');
+      if(_mp){
+        var _pp=_me.动作全景||{};
+        var _f2=function(x){return (x||{});};
+        _mp.innerHTML='定投 <b>'+((_f2(_pp.定投)).笔数||0)+'</b> 笔/'+((_f2(_pp.定投)).金额||0)+'元 · 加仓 <b>'+((_f2(_pp.加仓)).笔数||0)+'</b> 笔/'+((_f2(_pp.加仓)).金额||0)+'元 · 转换 <b>'+((_f2(_pp.转换)).笔数||0)+'</b> 笔/'+((_f2(_pp.转换)).金额||0)+'元<br><span class="mid">月末最后一天12:00自动封账,全景数据来自月结判决</span>';
+      }
+    }
     var tdt=document.getElementById('dd-trig');
     if(dd&&dd.触发项&&tdt){var hh='';(dd.触发项||[]).forEach(function(x){hh+='<tr><td>'+esc(x.名称)+'</td><td class="'+_dd_cls(x.状态)+'">'+esc(x.状态)+'</td><td>'+esc(x.说明)+'</td></tr>';});tdt.innerHTML=hh;}
     var tde=document.getElementById('dd-tech');

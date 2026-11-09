@@ -191,10 +191,7 @@
   <div class="li" id="m-rebal">债比61.1%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）</div>
   <div class="tip" id="m-asset">总资产=权益类8511+债券13379+现金0=21890（持仓快照2026-11-05，引擎每日自动刷新）</div></div>
   <div class="sec">需你本人做</div>
-  <div class="card"><div class="ok">持仓占比已由系统核算（见上表，含现金）：确认无误→点下方按钮生成回传文本发小艺；有误→直接说哪只不对</div>
-  <button class="btn" onclick="collectMonthly()">✅ 一键生成回传消息</button>
-  <div class="out" id="out-mo" style="display:none"></div>
-  <div class="tip" id="op-mo" style="display:none;color:#7ee0a8"></div></div>
+  <div class="card"><div class="ok">持仓占比已由系统台账核算（见上表，含现金），无需确认</div></div>
 </div>
 
 <div id="view-quarter" class="view" style="display:none">
@@ -311,13 +308,6 @@ function collectZH(){
   var nm=fz.getAttribute('data-name')||'债基';
   var v=parseFloat(fz.value);if(isNaN(v))v=0;
   copyText('【债基转换确认】\n'+nm+' 本周四赎回转权益：'+v+'元','out-zh','op-zh');
-}
-function collectMonthly(){
-  var h=d.holdings||{},_tg=(d.targets||{}),_rt='';
-  var _cp=h.total>0?Math.round(h.cash/h.total*1000)/10:0;
-  _rt=(h.equity_pct!=null?h.equity_pct:'—')+'/'+(h.debt_pct!=null?h.debt_pct:'—')+'/'+_cp;
-  var _tgt=(_tg.权益!=null?_tg.权益:50)+'/'+(_tg.债券!=null?_tg.债券:40)+'/'+(_tg.现金!=null?_tg.现金:10);
-  copyText('【月度持仓确认】\n持仓占比已由系统核算: 权益/债券/现金 = '+_rt+' (目标 '+_tgt+')\n确认无误','out-mo','op-mo');
 }
 function collectQuarter(){
   var _qb=(d.bands&&d.bands.quarter)||{},_rq=_qb.信号回测?_qb.信号回测.记录条数:null,_txt;

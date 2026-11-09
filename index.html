@@ -113,6 +113,12 @@
     <tbody id="tb-dtrec"></tbody>
   </table>
   <div class="tip">每周四执行；<span id="t-next-dt">—</span>(本周四)建议见上表，执行后自动补录</div></div>
+  <div class="sec">加仓评分（本周五维明细）</div>
+  <div class="card"><table>
+    <tr><th>标的</th><th class="r">估值</th><th class="r">趋势</th><th class="r">资金</th><th class="r">基本面</th><th class="r">情绪</th><th class="r">总分/门槛</th><th>判定</th></tr>
+    <tbody id="tb-score"></tbody>
+  </table>
+  <div class="tip">评分=估值50分+四信号各12.5分；达门槛才加仓，A类30日闸等合规闸一票否决。判定含"暂缓/不触发"=本周不加仓，无需操作</div></div>
   <div class="sec">加仓记录（本周期）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>基金</th><th class="r">评分</th><th class="r">金额</th></tr>
@@ -431,6 +437,16 @@ try{gateCheck();}catch(e){}
           mdtb.innerHTML=h4;
         }
         var mjtb=document.getElementById('mc-jc');
+        var _tsc=document.getElementById('tb-score');
+        if(_tsc){
+          var _sh2='';
+          (d.wed.scores||[]).forEach(function(x){
+            var _w=x.五维||{};
+            var _cls=(x.总分!=null&&x.门槛!=null&&x.总分>=x.门槛)?'up':'mid';
+            _sh2+='<tr><td>'+esc(sn(x.标的))+'</td><td class="r">'+(_w.估值!=null?_w.估值:'—')+'</td><td class="r">'+(_w.趋势!=null?_w.趋势:'—')+'</td><td class="r">'+(_w.资金!=null?_w.资金:'—')+'</td><td class="r">'+(_w.基本面!=null?_w.基本面:'—')+'</td><td class="r">'+(_w.情绪!=null?_w.情绪:'—')+'</td><td class="r '+_cls+'"><b>'+(x.总分!=null?x.总分:'—')+'</b>/'+(x.门槛!=null?x.门槛:'—')+'</td><td>'+esc(String(x.判定||'').slice(0,50))+'</td></tr>';
+          });
+          _tsc.innerHTML=_sh2||'<tr><td colspan="8">本周无评分对象（非周三评估日或无低估持仓）</td></tr>';
+        }
         if(mjtb&&d.wed.jc_records&&d.wed.jc_records.length){
           var h5='';
           d.wed.jc_records.forEach(function(x){var sc=(x.note||'').match(/(\d+(?:\.\d+)?)分/);h5+='<tr><td>'+x.date+'</td><td>'+esc(x.fund)+'(评分'+(sc?sc[1]:'—')+'达标)</td><td class="r">'+x.amt+'</td></tr>';});
@@ -598,7 +614,7 @@ try{gateCheck();}catch(e){}
       if(_cr.length){
         var _inc=_cr.filter(function(x){return x.判定==='纳入置换';});
         var _ct=_cr.map(function(x){var nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');var sc=x.评分!=null?('评分'+x.评分):'评分缺失';return x.判定==='纳入置换'?('<b>'+nm+'</b>·✅纳入 '+(x.动作||'')):(nm+'('+sc+')·<font class="dow">不纳入</font>('+(x.理由||'')+')');}).join('；');
-        _mc.innerHTML='<b>买入新建仓</b>：'+_ct+(mb.cand_review.最弱被动&&mb.cand_review.最弱被动.方向?('<br><span class="mid">引擎四项终审·置换基准=最弱被动:'+esc(mb.cand_review.最弱被动.方向)+(mb.cand_review.最弱被动.分位!=null?('('+mb.cand_review.最弱被动.分位+'%)'):'')+';预算锁死,纳入走置换或P102净增不新增</span>'):'');
+        _mc.innerHTML='<b>买入新建仓</b>：'+_ct+(mb.cand_review.最弱被动&&mb.cand_review.最弱被动.方向?('<br><span class="mid">引擎四项终审·置换基准=最弱被动:'+esc(mb.cand_review.最弱被动.方向)+(mb.cand_review.最弱被动.分位!=null?('('+mb.cand_review.最弱被动.分位+'%)'):'')+';本轮无置换/净增动作(候选均未达建仓线)。若未来纳入:置换=卖出最弱被动1:1换入(本档给指令,执行后回传记台账);P102净增=第1名分位≥10%时预算内净增</span>'):'');
       }else if(mb&&mb.全市场候选&&mb.全市场候选.length){
         var _candArr=mb.全市场候选;var _cs=d.wed&&d.wed.cand_scores?d.wed.cand_scores:[],_mp={};_cs.forEach(function(x){if(x.方向)_mp[x.方向]=x;});
         _mc.innerHTML='<b>买入新建仓</b>：'+_candArr.map(function(x){var c=_mp[x.方向],nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');return c&&c.总分!=null?(nm+'·评分'+c.总分+'/'+(c.门槛||70)):nm;}).join('、')+' 已入候选池（引擎四项终审结论见候选评审区）';

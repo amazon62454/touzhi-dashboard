@@ -548,15 +548,15 @@ try{gateCheck();}catch(e){}
       var tf=document.getElementById('tb-dtform');
       if(tf&&d.wed.advice&&d.wed.advice.length){
         var hf='';
-        d.wed.advice.forEach(function(x){hf+='<tr><td>'+esc(sn(x.name))+' '+x.code+'</td><td class="r"><input class="inp" id="f-dt-'+x.code+'" type="number" data-name="'+esc(sn(x.name))+x.code+'" value="'+(x.amt==null?0:x.amt)+'" min="0" disabled></td></tr>';});
+        d.wed.advice.forEach(function(x){hf+='<tr><td>'+esc(_shn(x.name))+' '+x.code+'</td><td class="r"><input class="inp" id="f-dt-'+x.code+'" type="number" data-name="'+esc(_shn(x.name))+x.code+'" value="'+(x.amt==null?0:x.amt)+'" min="0" disabled></td></tr>';});
         tf.innerHTML=hf;
       }
       // FH: 债基转换行数据驱动(当前持仓债券基金,支持换/增债基)
       var zf=document.getElementById('tb-zhform');
       if(zf){
-        var bf=d.bond_fund;
+        var bf=(d.holdings&&d.holdings.bond_fund)||null;
         if(bf&&bf.code){
-          zf.innerHTML='<tr><td>'+esc(sn(bf.name))+' '+bf.code+' <span id="t-zh-row">本周四('+(d.dt_thursday||'')+')赎回转权益</span></td><td class="r"><input class="inp" id="f-zh" type="number" data-name="'+esc(sn(bf.name))+bf.code+'" placeholder="实扣后填" min="0" disabled></td></tr>';
+          zf.innerHTML='<tr><td>'+esc(_shn(bf.name))+' '+bf.code+' <span id="t-zh-row">本周四('+(d.dt_thursday||'')+')赎回转权益</span></td><td class="r"><input class="inp" id="f-zh" type="number" data-name="'+esc(_shn(bf.name))+bf.code+'" placeholder="实扣后填" min="0" disabled></td></tr>';
         }else{zf.innerHTML='<tr><td>当前无债券基金持仓</td><td></td></tr>';}
       }
       try{gateCheck();}catch(e){}

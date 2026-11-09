@@ -355,8 +355,13 @@ try{gateCheck();}catch(e){}
       var h=d.holdings;
       var mp=document.getElementById('m-pos');
       if(mp){
-        var flag=h.debt_pct>50?'<span class="dow">🔴债超</span>':(h.debt_pct>40?'<span class="mid">🟡偏高</span>':'<span class="up">🟢正常</span>');
-        mp.innerHTML='仓位 权益'+h.equity_pct+'%('+h.equity+'元)/债券'+h.debt_pct+'%('+h.debt+'元)/现金'+h.cash_pct+'%('+h.cash+'元) <span class="mid">vs 目标50/40/10</span> '+flag;
+        var tg=d.targets||{};var _tq=tg.权益!=null?tg.权益:50,_tb=tg.债券!=null?tg.债券:40,_tc=tg.现金!=null?tg.现金:10,_tol=tg.容差!=null?tg.容差:10;
+        var _dev=[];
+        if(Math.abs(h.equity_pct-_tq)>_tol)_dev.push('权益'+(h.equity_pct>_tq?'高':'低'));
+        if(Math.abs(h.debt_pct-_tb)>_tol)_dev.push('债券'+(h.debt_pct>_tb?'高':'低'));
+        if(Math.abs(h.cash_pct-_tc)>_tol)_dev.push('现金'+(h.cash_pct>_tc?'高':'低'));
+        var flag=_dev.length?'<span class="dow">🔴'+_dev.join(';')+'超容差</span>':'<span class="up">🟢三项在容差内</span>';
+        mp.innerHTML='仓位 权益'+h.equity_pct+'%('+h.equity+'元)/债券'+h.debt_pct+'%('+h.debt+'元)/现金'+h.cash_pct+'%('+h.cash+'元) <span class="mid">vs 目标'+_tq+'/'+_tb+'/'+_tc+'(容差'+_tol+'pp)</span> '+flag;
       }
       var mr=document.getElementById('m-rebal');
       if(mr){

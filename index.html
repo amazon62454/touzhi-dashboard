@@ -80,7 +80,7 @@
     <div class="row1"><span class="n"><span class="pill" style="background:#3b82f6"></span>周三档 · 定投预提示</span><span class="arrow">›</span></div>
     <div class="d"><span id="t-card-d">本周四(11-12)投哪些</span> / 多少钱 · 集中制档位分配 · 加仓评估</div>
     <div class="next">下次 · <span id="t-next-zh">周三 11-11</span> 12:00 → <span id="t-card-next">周四(11-12)执行</span> · 更新 <span id="card-upd-wed">—</span></div>
-    <div class="sum">权益本周 <b id="sum-w-total">160</b>元 · <span id="sum-w-items">创新药65 新能车40 兴全30 有色25 黄金0</span> · <span id="w-sum-tag">创新药&新能车极度低估待评分</span></div>
+    <div class="sum">权益本周 <b id="sum-w-total">…</b>元 · <span id="sum-w-items">…</span> · <span id="w-sum-tag">…</span></div>
   </div>
   
   <div class="band-card" onclick="go('monthly')">
@@ -125,6 +125,18 @@
     <tbody id="tb-jcrec"></tbody>
   </table>
   <div class="tip">评分依据：估值低估 + 基本面三重共振 + 成交额地量→情绪高分。评分=估值50+四信号各12.5，达门槛70才加仓；暂缓/未达门槛不产生记录（含A类30日闸等合规闸）</div></div>
+  <div class="sec">加仓确认（执行后回传）</div>
+  <div class="card">
+    <div id="jc-cf-state">…</div>
+    <div id="jc-cf-form" style="display:none">
+      <table>
+        <tr><th>基金</th><th class="r">评分/门槛</th><th>判定</th><th>实际买入(元)</th></tr>
+        <tbody id="tb-jccf"></tbody>
+      </table>
+      <button class="btn" onclick="collectJC()">✅ 一键生成回传消息</button>
+      <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
+    </div>
+  </div>
   <div class="sec">专项检查</div>
   <div class="card"><div class="ok">引擎自动检查中…异常时在此显示报警</div></div>
   <div class="sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
@@ -321,6 +333,19 @@ function collect(){
   if(any){parts.push('合计：'+total+'元');}else{parts.splice(1,0,'本周未定投（金额全为0）');}
   copyText(parts.join('\n'),'out','op');
 }
+function collectJC(){
+  var d=window.__D__||{};var jp=(d.wed&&d.wed.jc_plan)||[];
+  var lines=['【加仓确认】'];
+  var any=false;
+  jp.forEach(function(x,i){
+    var v=document.getElementById('jcin-'+i);
+    if(v&&v.value){lines.push(x.标的+' 实际买入'+v.value+'元(评分'+x.总分+'/'+x.门槛+')');any=true;}
+  });
+  if(!any){alert('请至少填一笔实际买入金额');return;}
+  lines.push('请记台账');
+  if(navigator.clipboard){navigator.clipboard.writeText(lines.join('\n')).then(function(){alert('已复制,粘贴发给小艺即可');},function(){});}
+  else{alert(lines.join('\n'));}
+}
 function collectZH(){
   var fz=document.getElementById('f-zh');if(!fz)return;
   var nm=fz.getAttribute('data-name')||'债基';
@@ -446,6 +471,20 @@ try{gateCheck();}catch(e){}
             _sh2+='<tr><td>'+esc(x.标的)+'</td><td class="r">'+(_w.估值!=null?_w.估值:'—')+'</td><td class="r">'+(_w.趋势!=null?_w.趋势:'—')+'</td><td class="r">'+(_w.资金!=null?_w.资金:'—')+'</td><td class="r">'+(_w.基本面!=null?_w.基本面:'—')+'</td><td class="r">'+(_w.情绪!=null?_w.情绪:'—')+'</td><td class="r '+_cls+'"><b>'+(x.总分!=null?x.总分:'—')+'</b>/'+(x.门槛!=null?x.门槛:'—')+'</td><td>'+esc(String(x.判定||'').slice(0,50))+'</td></tr>';
           });
           _tsc.innerHTML=_sh2||'<tr><td colspan="8">本周无评分对象（非周三评估日或无低估持仓）</td></tr>';
+        }
+        var _jcs=document.getElementById('jc-cf-state'),_jcf=document.getElementById('jc-cf-form'),_tj=document.getElementById('tb-jccf');
+        if(_jcs){
+          var _jp=d.wed.jc_plan||[];
+          if(!_jp.length){_jcs.innerHTML='本周无加仓建议（评分未达门槛或被闸门拦截），无需确认';}
+          else{
+            _jcs.innerHTML='本周有 <b>'+_jp.length+'</b> 笔加仓建议，执行后回传实际金额：';
+            _jcf.style.display='';
+            var _h3='';
+            _jp.forEach(function(x,i){
+              _h3+='<tr><td>'+esc(x.标的)+'</td><td class="r"><b>'+(x.总分!=null?x.总分:'—')+'</b>/'+(x.门槛!=null?x.门槛:'—')+'</td><td>'+esc(String(x.判定||'').slice(0,30))+'</td><td><input type="number" id="jcin-'+i+'" placeholder="实际买入" style="width:90px"></td></tr>';
+            });
+            _tj.innerHTML=_h3;
+          }
         }
         if(mjtb&&d.wed.jc_records&&d.wed.jc_records.length){
           var h5='';

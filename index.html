@@ -495,6 +495,7 @@ try{gateCheck();}catch(e){}
       }
       var wt=document.getElementById('sum-w-total'),wi=document.getElementById('sum-w-items');
       if(wt&&d.wed&&d.wed.advice_total!=null)wt.textContent=d.wed.advice_total;
+      else if(wt){wt.textContent='待周三评估';if(wi)wi.textContent='本周四定投建议周三(11-11)12:00评估后更新';}
       if(wi&&d.wed&&d.wed.advice&&d.wed.advice.length){
         var nm2={'创新药':'创新药','新能车':'新能车','兴全':'兴全','有色':'有色','黄金':'黄金','富国':'富国'};
         var parts=[];

@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-09 15:38",
+ "updated_at": "2026-11-09 16:15",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -63,6 +63,7 @@
     "闸门": null
    }
   ],
+  "jc_plan": [],
   "dt_records": [
    {
     "date": "10-20",

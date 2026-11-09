@@ -191,7 +191,7 @@
   <div class="li" id="m-rebal">债比61.1%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）</div>
   <div class="tip" id="m-asset">总资产=权益类8511+债券13379+现金0=21890（持仓快照2026-11-05，引擎每日自动刷新）</div></div>
   <div class="sec">需你本人做</div>
-  <div class="card"><div class="ok">核对上方「存量持仓占比」表：无误→点下方按钮生成回传文本发小艺；有误→直接小艺说哪只不对（现金不用回传，我直接算）</div>
+  <div class="card"><div class="ok">持仓占比已由系统核算（见上表，含现金）：确认无误→点下方按钮生成回传文本发小艺；有误→直接说哪只不对</div>
   <button class="btn" onclick="collectMonthly()">✅ 一键生成回传消息</button>
   <div class="out" id="out-mo" style="display:none"></div>
   <div class="tip" id="op-mo" style="display:none;color:#7ee0a8"></div></div>
@@ -313,7 +313,11 @@ function collectZH(){
   copyText('【债基转换确认】\n'+nm+' 本周四赎回转权益：'+v+'元','out-zh','op-zh');
 }
 function collectMonthly(){
-  copyText('【月度持仓确认】\n存量持仓占比表已核对：无误','out-mo','op-mo');
+  var h=d.holdings||{},_tg=(d.targets||{}),_rt='';
+  var _cp=h.total>0?Math.round(h.cash/h.total*1000)/10:0;
+  _rt=(h.equity_pct!=null?h.equity_pct:'—')+'/'+(h.debt_pct!=null?h.debt_pct:'—')+'/'+_cp;
+  var _tgt=(_tg.权益!=null?_tg.权益:50)+'/'+(_tg.债券!=null?_tg.债券:40)+'/'+(_tg.现金!=null?_tg.现金:10);
+  copyText('【月度持仓确认】\n持仓占比已由系统核算: 权益/债券/现金 = '+_rt+' (目标 '+_tgt+')\n确认无误','out-mo','op-mo');
 }
 function collectQuarter(){
   copyText('【季度调仓回传】\n本季调仓：(填写调仓内容，无调仓不用发)','out-qtr','op-qtr');
@@ -505,7 +509,7 @@ try{gateCheck();}catch(e){}
     // ---- FH-二期·月度档判决渲染(bands.monthly/quarter,引擎数据) ----
     var mb=d.bands&&d.bands.monthly;
     var ms=document.getElementById('mh-scan');
-    if(mb&&mb.方向扫描&&ms){var mh='';(mb.方向扫描||[]).forEach(function(x){var p=x.分位;var bd='合理',cls='up';if(p==null){bd='待数据';}else if(p<10){bd='极度低估';}else if(p<30){bd='低估';}else if(p<70){bd='合理';cls='';}else if(p<90){bd='高估';cls='dow';}else{bd='极度高估';cls='dow';}mh+='<tr><td>'+esc(x.名称)+'</td><td class="r">'+(p==null?'—':(p+'%'))+'</td><td class="'+cls+'">'+esc(bd)+'</td></tr>';});ms.innerHTML=mh;}
+    if(mb&&ms){var _srcC=(mb.全市场候选池&&mb.全市场候选池.length)?mb.全市场候选池:(mb.方向扫描||[]);var mh='';_srcC.forEach(function(x){var p=x.分位;var bd='合理',cls='up';if(p==null){bd='待数据';}else if(p<10){bd='极度低估';}else if(p<30){bd='低估';}else if(p<70){bd='合理';cls='';}else if(p<90){bd='高估';cls='dow';}else{bd='极度高估';cls='dow';}var _tag=(mb.全市场候选池&&x.来源)?(' <span class="mid">['+esc(x.来源)+(x.data_date?('·'+String(x.data_date).slice(0,10)):'')+']</span>'):'';mh+='<tr><td>'+esc(x.名称)+(x.代码?(' '+x.代码):'')+_tag+'</td><td class="r">'+(p==null?'—':(p+'%'))+'</td><td class="'+cls+'">'+esc(bd)+'</td></tr>';});ms.innerHTML=mh;}
     var mp=document.getElementById('mh-pos');
     var qb=d.bands&&d.bands.quarter;
     var psrc=qb&&qb.持仓?qb.持仓:null;

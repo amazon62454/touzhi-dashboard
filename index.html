@@ -443,7 +443,7 @@ try{gateCheck();}catch(e){}
           (d.wed.scores||[]).forEach(function(x){
             var _w=x.五维||{};
             var _cls=(x.总分!=null&&x.门槛!=null&&x.总分>=x.门槛)?'up':'mid';
-            _sh2+='<tr><td>'+esc(sn(x.标的))+'</td><td class="r">'+(_w.估值!=null?_w.估值:'—')+'</td><td class="r">'+(_w.趋势!=null?_w.趋势:'—')+'</td><td class="r">'+(_w.资金!=null?_w.资金:'—')+'</td><td class="r">'+(_w.基本面!=null?_w.基本面:'—')+'</td><td class="r">'+(_w.情绪!=null?_w.情绪:'—')+'</td><td class="r '+_cls+'"><b>'+(x.总分!=null?x.总分:'—')+'</b>/'+(x.门槛!=null?x.门槛:'—')+'</td><td>'+esc(String(x.判定||'').slice(0,50))+'</td></tr>';
+            _sh2+='<tr><td>'+esc(x.标的)+'</td><td class="r">'+(_w.估值!=null?_w.估值:'—')+'</td><td class="r">'+(_w.趋势!=null?_w.趋势:'—')+'</td><td class="r">'+(_w.资金!=null?_w.资金:'—')+'</td><td class="r">'+(_w.基本面!=null?_w.基本面:'—')+'</td><td class="r">'+(_w.情绪!=null?_w.情绪:'—')+'</td><td class="r '+_cls+'"><b>'+(x.总分!=null?x.总分:'—')+'</b>/'+(x.门槛!=null?x.门槛:'—')+'</td><td>'+esc(String(x.判定||'').slice(0,50))+'</td></tr>';
           });
           _tsc.innerHTML=_sh2||'<tr><td colspan="8">本周无评分对象（非周三评估日或无低估持仓）</td></tr>';
         }

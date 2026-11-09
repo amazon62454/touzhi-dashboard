@@ -106,7 +106,7 @@
     <tr><th>基金</th><th class="r">金额(元)</th></tr>
     <tbody id="tb-advice"></tbody>
   </table>
-  <div class="tip">债基暂停定投（渐进再平衡）· 每周四赎回转权益，赎回金额见下方债基转换确认</div></div>
+  <div class="tip" id="wed-bond-tip">—</div></div>
   <div class="sec">定投记录（本周期）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>内容</th><th class="r">金额</th></tr>
@@ -346,6 +346,13 @@ try{gateCheck();}catch(e){}
         if(Math.abs(h.cash_pct-_tc)>_tol)_dev.push('现金'+(h.cash_pct>_tc?'高':'低'));
         var flag=_dev.length?'<span class="dow">🔴'+_dev.join(';')+'超容差</span>':'<span class="up">🟢三项在容差内</span>';
         mp.innerHTML='仓位 权益'+h.equity_pct+'%('+h.equity+'元)/债券'+h.debt_pct+'%('+h.debt+'元)/现金'+h.cash_pct+'%('+h.cash+'元) <span class="mid">vs 目标'+_tq+'/'+_tb+'/'+_tc+'(容差'+_tol+'pp)</span> '+flag;
+      }
+      var bt2=document.getElementById('wed-bond-tip');
+      if(bt2){
+        var _tg2=d.targets||{};var _tb2=_tg2.债券!=null?_tg2.债券:40,_tol2=_tg2.容差!=null?_tg2.容差:10;var _start2=_tb2+_tol2;
+        if(h.debt_pct>_start2){bt2.textContent='债基暂停定投（渐进再平衡·债比'+h.debt_pct+'%超启动线'+_start2+'%）· 每周四赎回转权益，赎回金额见下方债基转换确认';}
+        else if(h.debt_pct>_tb2){bt2.textContent='债比'+h.debt_pct+'%在'+_tb2+'~'+_start2+'%观察区 · 债基定投以引擎建议为准';}
+        else{bt2.textContent='债比'+h.debt_pct+'%已回'+_tb2+'%目标内 · 渐进再平衡已退出，债基恢复正常定投';}
       }
       var mr=document.getElementById('m-rebal');
       if(mr){

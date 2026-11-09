@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-09 23:05",
+ "updated_at": "2026-11-09 23:10",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -26,7 +26,7 @@
  "wed": {
   "advice": [],
   "advice_total": null,
-  "advice_run": "20261109_161502",
+  "advice_run": "20261109_230742",
   "scores": [
    {
     "标的": "嘉实中证新能车C",
@@ -177,7 +177,7 @@
     "分位": "19.39%"
    }
   ],
-  "测试态": true,
+  "测试态": false,
   "adv_eval_day": "11-11",
   "advice_valid": false
  },

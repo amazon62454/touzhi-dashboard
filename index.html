@@ -154,7 +154,9 @@
         <tr><th>基金</th><th class="r">评分/门槛</th><th>判定</th><th>实际买入(元)</th></tr>
         <tbody id="tb-jccf"></tbody>
       </table>
-      <button class="btn" onclick="collectJC()">✅ 一键生成回传消息</button>
+      <button class="btn" id="btn-jc" onclick="collectJC()">✅ 一键生成回传消息</button>
+      <div class="out" id="out-jc" style="display:none"></div>
+      <div class="tip" id="op-jc" style="display:none;color:#7ee0a8"></div>
       <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
     </div>
   </div>
@@ -191,7 +193,7 @@
         <tr><th>基金</th><th>实际卖出(元)</th></tr>
         <tbody id="tb-slcf"></tbody>
       </table>
-      <button class="btn" onclick="collectSell()">✅ 一键生成回传消息</button>
+      <button class="btn" id="btn-sl" onclick="collectSell()">✅ 一键生成回传消息</button>
       <div class="out" id="out-sl" style="display:none"></div>
       <div class="tip" id="op-sl" style="display:none;color:#7ee0a8"></div>
       <div class="tip">止损评估结论=赎回时执行→回传实际金额，小艺记台账</div>
@@ -232,7 +234,7 @@
         <tr><th>动作</th><th>实际金额(元)</th></tr>
         <tbody id="tb-rpcf"></tbody>
       </table>
-      <button class="btn" onclick="collectReplace()">✅ 一键生成回传消息</button>
+      <button class="btn" id="btn-rp" onclick="collectReplace()">✅ 一键生成回传消息</button>
       <div class="out" id="out-rp" style="display:none"></div>
       <div class="tip" id="op-rp" style="display:none;color:#7ee0a8"></div>
       <div class="tip">按月度档置换指令执行（卖旧买新）→回传实际金额，小艺记台账</div>
@@ -342,30 +344,47 @@ function gateCheck(){
   else{g2.textContent='⏳ 未到确认时间：周五('+__fri+') 15:00 转换到账后开放填写';g2.classList.remove('on');}
 }
 function copyText(text,outId,opId){
+  // FH20(2026-11-10):三级降级复制——①clipboard API ②execCommand(WebView兼容) ③手动长按
   var out=document.getElementById(outId);out.style.display='block';out.textContent=text;
   var op=document.getElementById(opId);op.style.display='block';
-  var done=false;
-  if(navigator.clipboard&&navigator.clipboard.writeText){try{navigator.clipboard.writeText(text).then(function(){op.textContent='✅ 已自动复制！直接粘贴到小艺对话框发我即可';op.style.color='#7ee0a8';},function(){op.textContent='↑ 长按下面灰色内容→复制→粘贴到小艺对话框发我';op.style.color='#ffd07a';});done=true;}catch(e){}}
-  if(!done){op.textContent='↑ 长按下面灰色内容→复制→粘贴到小艺对话框发我';op.style.color='#ffd07a';}
+  function _ok(){op.textContent='✅ 已复制！直接粘贴到小艺对话框发我即可';op.style.color='#7ee0a8';}
+  function _manual(){op.textContent='⚠️ 自动复制不可用：请长按上方灰色文本→全选→复制→粘贴到小艺对话框发我';op.style.color='#ffd07a';}
+  function _fb(){
+    try{
+      var ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+      document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,text.length);
+      var ok=document.execCommand('copy');document.body.removeChild(ta);
+      if(ok){_ok();return;}
+    }catch(e){}
+    _manual();
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    try{navigator.clipboard.writeText(text).then(_ok,function(){_fb();});return;}catch(e){}
+  }
+  _fb();
 }
+function _rtDate(){var t=new Date();return t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();}
 function collect(){
   var fdt=document.querySelectorAll('input[id^="f-dt-"]');
-  var parts=['【本周定投确认】'];var total=0,any=false;
+  var _thu=(window.__DATA__&&window.__DATA__.dt_thursday)||'本周四';
+  var parts=['【本周定投确认】执行日:'+_thu+' 回传日:'+_rtDate()];var total=0,any=false;
   for(var i=0;i<fdt.length;i++){
     var nm=fdt[i].getAttribute('data-name')||'';
+    var cid=fdt[i].id.replace('f-dt-','');
     var v=parseFloat(fdt[i].value);if(isNaN(v))v=0;
-    if(v>0){any=true;total+=v;parts.push(nm+'：'+v+'元');}else{parts.push(nm+'：0元(未投)');}
+    if(v>0){any=true;total+=v;parts.push(nm+'('+cid+')：'+v+'元');}else{parts.push(nm+'('+cid+')：0元(未投)');}
   }
   if(any){parts.push('合计：'+total+'元');}else{parts.splice(1,0,'本周未定投（金额全为0）');}
+  parts.push('请记台账');
   copyText(parts.join('\n'),'out','op');
 }
 function collectReplace(){
   var d=window.__D__||{};var mb=(d.bands&&d.bands.monthly)||{};
   var inc=((mb.cand_review&&mb.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});
-  var lines=['【置换/净增回传】'];var any=false;
+  var lines=['【置换/净增回传】回传日:'+_rtDate()];var any=false;
   inc.forEach(function(x,i){
     var v=document.getElementById('rpin-'+i);
-    if(v&&v.value){lines.push((x.方向||'')+' 实际金额'+v.value+'元'+(x.动作?('('+String(x.动作).slice(0,40)+')'):''));any=true;}
+    if(v&&v.value){lines.push((x.方向||'')+'('+(x.代码||'')+') 实际金额'+v.value+'元'+(x.动作?('('+String(x.动作).slice(0,40)+')'):''));any=true;}
   });
   if(!any){alert('请至少填一笔实际金额');return;}
   lines.push('请记台账');
@@ -376,10 +395,10 @@ function collectSell(){
   var st=dd.止损||{};var _sev2=(d.stop_eval)||{};
   var keys=Object.keys(st).filter(function(k){var s=_sev2[k];return s&&s.结论==='赎回';});
   var _nm4={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};
-  var lines=['【减仓/止损回传】'];var any=false;
+  var lines=['【减仓/止损回传】回传日:'+_rtDate()];var any=false;
   keys.forEach(function(k,i){
     var v=document.getElementById('slin-'+i);
-    if(v&&v.value){lines.push((_nm4[k]||k)+' 实际卖出'+v.value+'元');any=true;}
+    if(v&&v.value){lines.push((_nm4[k]||k)+'('+k+') 实际卖出'+v.value+'元');any=true;}
   });
   if(!any){alert('请至少填一笔实际卖出金额');return;}
   lines.push('请记台账');
@@ -387,28 +406,28 @@ function collectSell(){
 }
 function collectJC(){
   var d=window.__D__||{};var jp=(d.wed&&d.wed.jc_plan)||[];
-  var lines=['【加仓确认】'];
+  var lines=['【加仓确认】回传日:'+_rtDate()];
   var any=false;
   jp.forEach(function(x,i){
     var v=document.getElementById('jcin-'+i);
-    if(v&&v.value){lines.push(x.标的+' 实际买入'+v.value+'元(评分'+x.总分+'/'+x.门槛+')');any=true;}
+    if(v&&v.value){lines.push(x.标的+'('+x.代码+') 实际买入'+v.value+'元(评分'+x.总分+'/'+x.门槛+')');any=true;}
   });
   if(!any){alert('请至少填一笔实际买入金额');return;}
   lines.push('请记台账');
-  if(navigator.clipboard){navigator.clipboard.writeText(lines.join('\n')).then(function(){alert('已复制,粘贴发给小艺即可');},function(){});}
-  else{alert(lines.join('\n'));}
+  copyText(lines.join('\n'),'out-jc','op-jc');
 }
 function collectZH(){
   var fz=document.getElementById('f-zh');if(!fz)return;
   var nm=fz.getAttribute('data-name')||'债基';
   var v=parseFloat(fz.value);if(isNaN(v))v=0;
-  copyText('【债基转换确认】\n'+nm+' 本周四赎回转权益：'+v+'元','out-zh','op-zh');
+  var _thu2=(window.__DATA__&&window.__DATA__.dt_thursday)||'本周四';
+  copyText('【债基转换确认】执行日:'+_thu2+' 回传日:'+_rtDate()+'\n'+nm+' 本周四赎回转权益：'+v+'元\n请记台账','out-zh','op-zh');
 }
 function collectBan(){
   var _q=(d.bands&&d.bands.quarter)||{};
   var _inp=document.getElementById('in-ban-amt');
   var _amt=_inp?(_inp.value||''):'';
-  var _txt='【周度搬运回传】\n'+(_q.再平衡||'渐进再平衡搬运中')+'\n本周四已执行:赎回富国解锁份额→买入集中制第1名\n·执行搬运金额：'+(_amt||'（元）')+'\n·回传（台账按此更新）';
+  var _txt='【周度搬运回传】回传日:'+_rtDate()+'\n'+(_q.再平衡||'渐进再平衡搬运中')+'\n本周四已执行:赎回富国解锁份额→买入集中制第1名\n·执行搬运金额：'+(_amt||'（元）')+'\n·回传（台账按此更新）';
   copyText(_txt,'out-ban','op-ban');
 }
 function collectQuarter(){
@@ -746,6 +765,16 @@ try{gateCheck();}catch(e){}
         }else{zf.innerHTML='<tr><td>当前无债券基金持仓</td><td></td></tr>';}
       }
       try{gateCheck();}catch(e){}
+      // FH20(2026-11-10):回传按钮状态统一控制——无对应动作即灰(disabled+文案说明),有动作才启用
+      try{
+        var _dd2=d.bands&&d.bands.daily,_w2=d.wed||{},_mb2=d.bands&&d.bands.monthly;
+        var _bjc=document.getElementById('btn-jc');
+        if(_bjc){var _hasJC=(_w2.jc_plan||[]).length>0;_bjc.disabled=!_hasJC;_bjc.textContent=_hasJC?'✅ 一键生成回传消息':'⏸ 本周无加仓建议·无需回传';}
+        var _bsl=document.getElementById('btn-sl');
+        if(_bsl){var _st2=(_dd2&&_dd2.止损)||{};var _sev3=d.stop_eval||{};var _hasSell=Object.keys(_st2).some(function(k){var s2=_sev3[k];return s2&&s2.结论==='赎回';});_bsl.disabled=!_hasSell;_bsl.textContent=_hasSell?'✅ 一键生成回传消息':'⏸ 当前无止损赎回指令·无需回传';}
+        var _brp=document.getElementById('btn-rp');
+        if(_brp){var _inc3=((_mb2&&_mb2.cand_review&&_mb2.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});_brp.disabled=!_inc3.length;_brp.textContent=_inc3.length?'✅ 一键生成回传消息':'⏸ 本期无置换动作·无需回传';}
+      }catch(e){}
     }
     // FH·月度行动结论数据驱动(消灭L192/195硬编码:候选110026/009881、唯一动作9.04)
     var _mc=document.getElementById('mo-new');

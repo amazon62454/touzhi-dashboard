@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-09 10:43",
+ "updated_at": "2026-11-09 10:53",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -155,7 +155,11 @@
   "equity_pct": 38.9,
   "debt_pct": 61.1,
   "cash_pct": 0.0,
-  "snapshot": "2026-11-05"
+  "snapshot": "2026-11-05",
+  "bond_fund": {
+   "name": "富国添享一年持有债券A",
+   "code": "9290"
+  }
  },
  "bands": {
   "daily": {

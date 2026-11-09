@@ -79,7 +79,7 @@
   <div class="band-card" onclick="go('wed')">
     <div class="row1"><span class="n"><span class="pill" style="background:#3b82f6"></span>周三档 · 定投预提示</span><span class="arrow">›</span></div>
     <div class="d"><span id="t-card-d">本周四(11-12)投哪些</span> / 多少钱 · 集中制档位分配 · 加仓评估</div>
-    <div class="next">下次 · <span id="t-next-zh">周三 11-11</span> 12:00 → <span id="t-card-next">周四(11-12)执行</span> · 更新 <span id="card-upd-wed">—</span></div>
+    <div class="next">下次 · <span id="t-next-zh">周三 11-11</span> 12:00 · 更新 <span id="card-upd-wed">—</span></div>
     <div class="sum">权益本周 <b id="sum-w-total">…</b>元 · <span id="sum-w-items">…</span> · <span id="w-sum-tag">…</span></div>
   </div>
   
@@ -490,7 +490,6 @@ try{gateCheck();}catch(e){}
         stT('t-next-zh','周三 '+_prev(thu));
         stT('t-next-dt',thu);
         stT('t-card-d','本周四('+thu+')投哪些');
-        stT('t-card-next','周四('+thu+')执行');
         stT('t-sub','本周四('+thu+')执行');
         stT('t-dt-sec','周四 '+thu);
         stT('t-dt-gate','周四('+thu+')');
@@ -820,13 +819,13 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
       'sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','m-pos','m-rebal','m-asset',
       'd-total','d-remain','d-remain2','d-spent','d-pool','d-pool2',
       'mc-dt-tot','mc-jc-tot','mc-jc2-tot','mc-jian','mc-sum',
-      't-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-sec','t-zh-gate','t-zh-row'];
+      't-card-d','t-sub','t-dt-sec','t-dt-gate','t-zh-sec','t-zh-gate','t-zh-row'];
     staleIds.forEach(function(id){var e=document.getElementById(id);if(e){e.textContent='—';e.style.color='#e07e9c';}});
     ['tb-advice','tb-dtrec','tb-jcrec'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML='<tr><td colspan="4" style="color:#e07e9c">⚠️ 数据未加载,勿信本表</td></tr>';});
   });
   }  // FH-二期·__dataOff 关闭数据写入
   else {  // 关·仅框架:清空所有数据锚点初始占位,只留无id的纯文本死数
-    var _zeros=['g-updated-val','d-total','d-remain','d-remain2','d-spent','d-pool','d-pool2','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zqc','mc-dt-tot','mc-jc-tot','mc-jc2-tot','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','period-head','payday','jc-bullet','mo-new','mo-replace','mo-sell','mo-action','f-zh'];
+    var _zeros=['g-updated-val','d-total','d-remain','d-remain2','d-spent','d-pool','d-pool2','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zqc','mc-dt-tot','mc-jc-tot','mc-jc2-tot','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','period-head','payday','jc-bullet','mo-new','mo-replace','mo-sell','mo-action','f-zh'];
     _zeros.forEach(function(id){var _e0=document.getElementById(id);if(_e0){if(_e0.tagName==='INPUT'){_e0.value='';}else{_e0.textContent='';}}});
   }
 })();

@@ -100,8 +100,8 @@
 </div>
 
 <div id="view-wed" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>周三档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">本周四(11-12)执行</span> · 建议出自最新周三评估</div></div>
-  <div class="sec"><span id="cap-advice">本周四定投建议</span> <span class="badge badge-wait">待确认</span></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>周三档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span> · 建议出自 <span id="t-adv-run">—</span> 评估</div></div>
+  <div class="sec"><span id="cap-advice">本周四定投建议</span> <span class="badge badge-wait" id="badge-wait-txt">待确认</span></div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">金额(元)</th></tr>
     <tbody id="tb-advice"></tbody>
@@ -146,7 +146,7 @@
 </div>
 
 <div id="view-daily" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎每日12:00自动检查<span id="dd-testtag"></span></div></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎每日12:00检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div></div>
   <div class="sec">触发项扫描</div>
   <div class="card"><table>
     <tr><th>触发项</th><th></th><th>说明</th></tr>
@@ -167,7 +167,7 @@
 </div>
 
 <div id="view-monthly" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号 · 引擎自动扫描</div></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span></div></div>
   <div class="sec">行动结论</div>
   <div class="card">
     <div class="li" id="mo-new"><b>买入新建仓</b>：待引擎全市场扫描输出候选中</div>
@@ -198,7 +198,7 @@
 </div>
 
 <div id="view-quarter" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号 · 引擎自动回测</div></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号回测 · 本次 <span id="q-run">—</span> · 数据基准 <span id="q-base">—</span></div></div>
   <div class="sec">看配置调仓</div>
   <div class="card"><table>
     <tr><th>指标</th><th></th><th>内容</th></tr>
@@ -573,6 +573,18 @@ try{gateCheck();}catch(e){}
     if(_msl2){_msl2.innerHTML='<b>卖出/减持</b>：不动作（止盈未达三条件'+(mb&&mb.止盈?('：'+String(mb.止盈).replace(/^[🔴🟢🟠🟡]+/,'').slice(0,20)):'')+'）';}
     var _mac=document.getElementById('mo-action');
     if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!=null&&x.分位<30)_act2.push(x.名称+' '+(Math.round(x.分位*100)/100)+'%'+((x.分位<10)?'极度低估':'低估')+' → 交周三档加仓评分');});_mac.innerHTML='<b>唯一动作</b>：'+( _act2.length?_act2.join('；'):'无（暂无低估持仓待评分）');}
+    // FH: 评估/运行时间具体化(消灭'最新/自动'模糊词,用户可判断数据新旧)
+    function _fmtRun(s){s=String(s||'');return s.length>=12?(s.slice(4,6)+'-'+s.slice(6,8)+' '+s.slice(9,11)+':'+s.slice(11,13)):'—';}
+    var _ar2=document.getElementById('t-adv-run');
+    if(_ar2&&d.wed&&d.wed.advice_run){var _s2=String(d.wed.advice_run);_ar2.textContent=_s2.slice(4,6)+'-'+_s2.slice(6,8);}
+    var _bw3=document.getElementById('badge-wait-txt');
+    if(_bw3&&d.dt_thursday)_bw3.textContent='待确认 · 周四('+d.dt_thursday+') 15:00 实扣后回传';
+    var _bd2=d.bands||{};
+    [['dd-run','dd-base',_bd2.daily],['mo-run','mo-base',_bd2.monthly],['q-run','q-base',_bd2.quarter]].forEach(function(p){
+      var e1=document.getElementById(p[0]),e2=document.getElementById(p[1]);
+      if(e1&&p[2]&&p[2].run)e1.textContent=_fmtRun(p[2].run);
+      if(e2&&p[2]&&p[2].基准)e2.textContent=p[2].基准;
+    });
     if(d.updated_at){
       setG('✅ '+d.updated_at,'#7ee0a8');
       var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';

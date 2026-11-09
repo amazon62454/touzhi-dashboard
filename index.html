@@ -245,7 +245,7 @@
     <div class="kv"><span><span id="payday">10-20</span> 发薪注入</span><b id="inject-line">1800 元</b></div>
     <div class="kv"><span>已花</span><b id="d-spent">1300 元</b></div>
     <div class="kv"><span>分配池（定投）</span><b>已花 <span id="kv-eq-used">1178</span> · 剩 <span id="kv-eq-rem">162</span></b></div>
-    <div class="kv"><span>加仓弹药（<span id="jc-bullet">460</span>）</span><b>已花 <span id="kv-jc-used">122</span> · 剩 <span id="kv-jc-rem">338</span></b></div>
+    <div class="kv"><span>加仓弹药（<span id="jc-bullet">-</span>）</span><b>已花 <span id="kv-jc-used">122</span> · 剩 <span id="kv-jc-rem">338</span></b></div>
     <div class="tip" id="plan-tip">⚠️ 本周期含5个定投周四（10-22/29・11-05/12/19）：11-12、11-19两次待执行约340，执行后剩约160；5周定投会挤占加仓弹药，月总预算红线兜底</div>
   </div>
   <div class="sec">本周期已花 · 定投（小计 <span id="mc-dt-tot">548</span>）</div>
@@ -381,10 +381,11 @@ try{gateCheck();}catch(e){}
       var sq=document.getElementById('sum-q-debt');
       if(sq)sq.textContent=h.debt_pct;
       var ke=document.getElementById('kv-eq-used'),ker=document.getElementById('kv-eq-rem'),kj=document.getElementById('kv-jc-used'),kjr=document.getElementById('kv-jc-rem');
-      var _pp2=d.pool||{};var _dp2=_pp2.集中制池||1340,_jb=_pp2.加仓弹药||460;
-      if(ke&&d.channels){var equ=Math.round(d.channels.dingtou||0);ke.textContent=equ;if(ker)ker.textContent=Math.round((_dp2-equ)*10)/10;}
-      if(kj&&d.channels){kj.textContent=d.channels.jiacang||0;if(kjr)kjr.textContent=Math.round((_jb-(d.channels.jiacang||0))*10)/10;}
-      var _jh=document.getElementById('jc-bullet');if(_jh)_jh.textContent=Math.round(_jb);
+      var _pp2=d.pool||{};
+      var _dp2=_pp2.集中制池!=null?_pp2.集中制池:'',_jb=_pp2.加仓弹药!=null?_pp2.加仓弹药:'';
+      if(ke&&d.channels){var equ=Math.round(d.channels.dingtou||0);ke.textContent=equ;if(ker)ker.textContent=_dp2===''?'':Math.round((_dp2-equ)*10)/10;}
+      if(kj&&d.channels){kj.textContent=d.channels.jiacang||0;if(kjr)kjr.textContent=_jb===''?'':Math.round((_jb-(d.channels.jiacang||0))*10)/10;}
+      var _jh=document.getElementById('jc-bullet');if(_jh)_jh.textContent=_jb===''?'-':Math.round(_jb);
       if(d.period&&d.period.label){var _pl=d.period.label;var _ph=document.getElementById('period-head');if(_ph)_ph.textContent=_pl.replace('~',' ~ ');var _pd=document.getElementById('payday');if(_pd){var _pdv=_pl.split('~')[0].trim();if(_pdv)_pd.textContent=_pdv;}}
       if(d.dt_thursday){
         var thu=d.dt_thursday;

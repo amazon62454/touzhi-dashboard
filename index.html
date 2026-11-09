@@ -175,11 +175,6 @@
     <tr><th>持仓</th><th class="r">强度</th><th>结论</th></tr>
     <tbody id="dd-tech"></tbody>
   </table></div>
-  <div class="sec">规模监控（红线&lt;2亿）</div>
-  <div class="card"><table>
-    <tr><th>基金</th><th class="r">规模</th></tr>
-    <tbody id="dd-scale"></tbody>
-  </table></div>
   <div class="sec">结论</div>
   <div class="card"><div class="ok" id="dd-concl">数据加载中…</div></div>
   <div class="sec">减仓/止损执行回传</div>
@@ -620,9 +615,6 @@ try{gateCheck();}catch(e){}
     if(dd&&dd.触发项&&tdt){var hh='';(dd.触发项||[]).forEach(function(x){hh+='<tr><td>'+esc(x.名称)+'</td><td class="'+_dd_cls(x.状态)+'">'+esc(x.状态)+'</td><td>'+esc(x.说明)+'</td></tr>';});tdt.innerHTML=hh;}
     var tde=document.getElementById('dd-tech');
     if(dd&&dd.技术面&&tde){var ht='';(dd.技术面||[]).forEach(function(x){var dr=String(x.方向||'');var c2='up';if(dr.indexOf('偏空')>=0)c2='dow';else if(dr.indexOf('偏多')>=0)c2='up';ht+='<tr><td>'+esc(x.名称||x.代码)+(x.名称?(' '+x.代码):'')+'</td><td class="r">'+esc(x.强度)+'</td><td class="'+c2+'">'+esc(x.方向)+'</td></tr>';});tde.innerHTML=ht;}
-    var tds=document.getElementById('dd-scale');
-    var scband=d.bands&&d.bands.daily;
-    if(scband&&scband.规模预警&&tds){var hs='';(scband.规模预警||[]).forEach(function(x){var f2=String(x.标志||'').indexOf('🟢')>=0?'up':'dow';hs+='<tr><td>'+esc(x.名称)+'</td><td class="r '+f2+'">≈'+esc(x.规模)+'亿 '+esc(x.标志)+'</td></tr>';});tds.innerHTML=hs;}
     var tdc=document.getElementById('dd-concl');
     if(dd&&dd.结论&&tdc){var rz=dd.结论.真风险||[],gz=dd.结论.关注项||[];if(rz.length>0){tdc.textContent='🔴 真风险需处置:'+rz.join('、');}else if(gz.length>0){tdc.textContent='无真风险；'+gz.length+'项关注需跟踪（'+gz.join('、')+'）';}else{tdc.textContent='✅ 今日无真风险，正常';}}
     // FH-二期·主页摘要(d-summar):回撤.daily + 估值越档(方向扫描挑持仓越档,口径与引擎一致) + 规模.quarter
@@ -632,8 +624,6 @@ try{gateCheck();}catch(e){}
       if(_dd3&&_dd3.回撤&&_dd3.回撤.说明){_p2.push(esc(_dd3.回撤.说明.replace(/\s+/g,'')));}
       var _mbs2=d.bands&&d.bands.monthly&&d.bands.monthly.方向扫描;
       if(_mbs2&&_mbs2.length){var _yv=[];_mbs2.forEach(function(x){var _pc=x.分位;if(_pc==null)return;var _bd2;if(_pc<10)_bd2='极度低估';else if(_pc<30)_bd2='低估';else if(_pc<90)return;else _bd2='高估';if(_bd2)_yv.push(esc(x.名称)+' '+(Math.round(_pc*100)/100)+'%'+esc(_bd2));});if(_yv.length)_p2.push('估值:'+_yv.join('+'));}
-      var _q3=d.bands&&d.bands.quarter;
-      if(_dd3&&_dd3.规模预警&&_dd3.规模预警.length){_p2.push(_dd3.规模预警.map(function(x){var _tf=String(x.标志||'');var _sz=esc(x.名称)+(x.规模!=null?(' 规模'+x.规模+'亿'):'');if(_tf.indexOf('🟠')>=0){_sz+='(<2亿警戒)';}else if(_tf.indexOf('🔴')>=0){_sz+='(清盘风险)';}return _sz;}).join('、'));}
       if(_p2.length)_dsum.textContent=_p2.join(' · ');else _dsum.textContent='数据待引擎加载';
     }
     // ---- FH-二期·月度档判决渲染(bands.monthly/quarter,引擎数据) ----
@@ -652,7 +642,6 @@ try{gateCheck();}catch(e){}
       if(qb2.再平衡)qrows.push(['再平衡',qb2.再平衡]);
       if(qb2.组合数量!=null)qrows.push(['组合数量',String(qb2.组合数量结论||(qb2.组合数量+'只'))]);
       if(qb2.赛道集中度)qrows.push(['赛道集中度',qb2.赛道集中度]);
-      if(qb2.规模预警&&qb2.规模预警.length)qrows.push(['规模预警',qb2.规模预警.map(function(x){return (x.名称||'')+(x.规模?(' '+x.规模+'亿'):'')+(x.标志||'')}).join('，')]);
       if(qb2.回撤)qrows.push(['回撤红线',qb2.回撤]);
       if(qb2.暴跌预案)qrows.push(['暴跌预案',qb2.暴跌预案]);
       var qh='';qrows.forEach(function(r){var m2=String(r[1]).match(/[🔴🟠🟡🟢💰⚠]/);var st=m2?m2[0]:'';qh+='<tr><td>'+esc(r[0])+'</td><td class="'+_qcls(st)+'">'+esc(st)+'</td><td>'+esc(r[1])+'</td></tr>';});

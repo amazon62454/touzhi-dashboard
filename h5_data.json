@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-09 15:18",
+ "updated_at": "2026-11-09 15:25",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -26,7 +26,7 @@
  "wed": {
   "advice": [],
   "advice_total": null,
-  "advice_run": null,
+  "advice_run": "20261109",
   "dt_records": [
    {
     "date": "10-20",

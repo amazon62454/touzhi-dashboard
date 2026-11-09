@@ -125,18 +125,6 @@
     <tbody id="tb-jcrec"></tbody>
   </table>
   <div class="tip">评分依据：估值低估 + 基本面三重共振 + 成交额地量→情绪高分。评分=估值50+四信号各12.5，达门槛70才加仓；暂缓/未达门槛不产生记录（含A类30日闸等合规闸）</div></div>
-  <div class="sec">加仓确认（执行后回传）</div>
-  <div class="card">
-    <div id="jc-cf-state">…</div>
-    <div id="jc-cf-form" style="display:none">
-      <table>
-        <tr><th>基金</th><th class="r">评分/门槛</th><th>判定</th><th>实际买入(元)</th></tr>
-        <tbody id="tb-jccf"></tbody>
-      </table>
-      <button class="btn" onclick="collectJC()">✅ 一键生成回传消息</button>
-      <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
-    </div>
-  </div>
   <div class="sec">专项检查</div>
   <div class="card"><div class="ok">引擎自动检查中…异常时在此显示报警</div></div>
   <div class="sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
@@ -161,6 +149,18 @@
     <div class="out" id="out-zh" style="display:none"></div>
     <div class="tip" id="op-zh" style="display:none;color:#7ee0a8"></div>
   </div>
+  <div class="sec">加仓确认（执行后回传）</div>
+  <div class="card">
+    <div id="jc-cf-state">…</div>
+    <div id="jc-cf-form" style="display:none">
+      <table>
+        <tr><th>基金</th><th class="r">评分/门槛</th><th>判定</th><th>实际买入(元)</th></tr>
+        <tbody id="tb-jccf"></tbody>
+      </table>
+      <button class="btn" onclick="collectJC()">✅ 一键生成回传消息</button>
+      <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
+    </div>
+  </div>
 </div>
 
 <div id="view-daily" class="view" style="display:none">
@@ -182,6 +182,20 @@
   </table></div>
   <div class="sec">结论</div>
   <div class="card"><div class="ok" id="dd-concl">数据加载中…</div></div>
+  <div class="sec">减仓/止损执行回传</div>
+  <div class="card">
+    <div id="sl-cf-state">…</div>
+    <div id="sl-cf-form" style="display:none">
+      <table>
+        <tr><th>基金</th><th>实际卖出(元)</th></tr>
+        <tbody id="tb-slcf"></tbody>
+      </table>
+      <button class="btn" onclick="collectSell()">✅ 一键生成回传消息</button>
+      <div class="out" id="out-sl" style="display:none"></div>
+      <div class="tip" id="op-sl" style="display:none;color:#7ee0a8"></div>
+      <div class="tip">止损评估结论=赎回时执行→回传实际金额，小艺记台账</div>
+    </div>
+  </div>
 </div>
 
 <div id="view-monthly" class="view" style="display:none">
@@ -210,6 +224,20 @@
   <div class="tip" id="m-asset">总资产=权益类8511+债券13379+现金0=21890（持仓快照2026-11-05，引擎每日自动刷新）</div></div>
   <div class="sec">需你本人做</div>
   <div class="card"><div class="ok">持仓占比已由系统台账核算（见上表，含现金），无需确认</div></div>
+  <div class="sec">置换/净增执行回传</div>
+  <div class="card">
+    <div id="rp-cf-state">…</div>
+    <div id="rp-cf-form" style="display:none">
+      <table>
+        <tr><th>动作</th><th>实际金额(元)</th></tr>
+        <tbody id="tb-rpcf"></tbody>
+      </table>
+      <button class="btn" onclick="collectReplace()">✅ 一键生成回传消息</button>
+      <div class="out" id="out-rp" style="display:none"></div>
+      <div class="tip" id="op-rp" style="display:none;color:#7ee0a8"></div>
+      <div class="tip">按月度档置换指令执行（卖旧买新）→回传实际金额，小艺记台账</div>
+    </div>
+  </div>
 </div>
 
 <div id="view-quarter" class="view" style="display:none">
@@ -332,6 +360,31 @@ function collect(){
   }
   if(any){parts.push('合计：'+total+'元');}else{parts.splice(1,0,'本周未定投（金额全为0）');}
   copyText(parts.join('\n'),'out','op');
+}
+function collectReplace(){
+  var d=window.__D__||{};var mb=(d.bands&&d.bands.monthly)||{};
+  var inc=((mb.cand_review&&mb.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});
+  var lines=['【置换/净增回传】'];var any=false;
+  inc.forEach(function(x,i){
+    var v=document.getElementById('rpin-'+i);
+    if(v&&v.value){lines.push((x.方向||'')+' 实际金额'+v.value+'元'+(x.动作?('('+String(x.动作).slice(0,40)+')'):''));any=true;}
+  });
+  if(!any){alert('请至少填一笔实际金额');return;}
+  lines.push('请记台账');
+  copyText(lines.join('\n'),'out-rp','op-rp');
+}
+function collectSell(){
+  var d=window.__D__||{};var dd=(d.bands&&d.bands.daily)||{};
+  var st=dd.止损||{};var keys=Object.keys(st);
+  var _nm4={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};
+  var lines=['【减仓/止损回传】'];var any=false;
+  keys.forEach(function(k,i){
+    var v=document.getElementById('slin-'+i);
+    if(v&&v.value){lines.push((_nm4[k]||k)+' 实际卖出'+v.value+'元');any=true;}
+  });
+  if(!any){alert('请至少填一笔实际卖出金额');return;}
+  lines.push('请记台账');
+  copyText(lines.join('\n'),'out-sl','op-sl');
 }
 function collectJC(){
   var d=window.__D__||{};var jp=(d.wed&&d.wed.jc_plan)||[];
@@ -596,6 +649,21 @@ try{gateCheck();}catch(e){}
         var _bq2=document.getElementById('btn-qtr');if(_bq2)_bq2.textContent='✅ 生成季度确认回传';}
     }
     // FH-二期·入口卡片摘要数据驱动(组合/月度/发薪/评分提示,消灭硬编码;须在所有判决段之后)
+    var _sls=document.getElementById('sl-cf-state'),_slf=document.getElementById('sl-cf-form'),_tsl=document.getElementById('tb-slcf');
+    if(_sls){
+      var _stx=(dd&&dd.止损)||{};var _sk=Object.keys(_stx);
+      var _nm3={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};
+      if(!_sk.length){_sls.innerHTML='本期无止损/减仓触发，无需回传';}
+      else{
+        _sls.innerHTML='有 <b>'+_sk.length+'</b> 只触发止损线（SOP383评估结论见台账），若结论=赎回，执行后回传：';
+        _slf.style.display='';
+        var _h5='';
+        _sk.forEach(function(k,i){
+          _h5+='<tr><td>'+esc(_nm3[k]||k)+'</td><td><input type="number" id="slin-'+i+'" placeholder="实际卖出" style="width:90px"></td></tr>';
+        });
+        _tsl.innerHTML=_h5;
+      }
+    }
     var _wsun=document.getElementById('w-sum-tag');
     if(_wsun&&dd&&dd.估值){var _nm={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};var _jd=[];for(var _c0 in dd.估值){var _it=dd.估值[_c0];if(_it&&_it.档位==='极度低估'&&_nm[_c0])_jd.push(_nm[_c0]);}_wsun.textContent=_jd.length?(_jd.join('&')+'极度低估待评分'):'';}
     var _msl=document.getElementById('m-sum-lead');
@@ -665,7 +733,21 @@ try{gateCheck();}catch(e){}
     var _msl2=document.getElementById('mo-sell');
     if(_msl2){_msl2.innerHTML='<b>卖出/减持</b>：不动作（止盈三条件未齐不触发；斩仓类由每日档风控独立盯）';}
     var _mac=document.getElementById('mo-action');
-    if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!=null&&x.分位<30)_act2.push(x.名称+' '+(Math.round(x.分位*100)/100)+'%'+((x.分位<10)?'极度低估':'低估'));});_mac.innerHTML='<b>本周三评分对象</b>：'+( _act2.length?(_act2.join('；')+'<br><span class="mid">周三档自动五维评分给加仓结论（达门槛才加仓），无需你操作，等周三结论即可</span>'):'无（暂无低估持仓待评分）');}
+    var _rps=document.getElementById('rp-cf-state'),_rpf=document.getElementById('rp-cf-form'),_trp=document.getElementById('tb-rpcf');
+if(_rps&&mb){
+  var _inc2=((mb.cand_review&&mb.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});
+  if(!_inc2.length){_rps.innerHTML='本期无置换/净增动作（候选均未达建仓线），无需回传';}
+  else{
+    _rps.innerHTML='本期有 <b>'+_inc2.length+'</b> 笔置换待执行，执行后回传：';
+    _rpf.style.display='';
+    var _h4='';
+    _inc2.forEach(function(x,i){
+      _h4+='<tr><td>'+esc((x.方向||'')+(x.动作?('·'+String(x.动作).slice(0,40)):''))+'</td><td><input type="number" id="rpin-'+i+'" placeholder="实际金额" style="width:90px"></td></tr>';
+    });
+    _trp.innerHTML=_h4;
+  }
+}
+if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!=null&&x.分位<30)_act2.push(x.名称+' '+(Math.round(x.分位*100)/100)+'%'+((x.分位<10)?'极度低估':'低估'));});_mac.innerHTML='<b>本周三评分对象</b>：'+( _act2.length?(_act2.join('；')+'<br><span class="mid">周三档自动五维评分给加仓结论（达门槛才加仓），无需你操作，等周三结论即可</span>'):'无（暂无低估持仓待评分）');}
     // FH: 评估/运行时间具体化(消灭'最新/自动'模糊词,用户可判断数据新旧)
     function _fmtRun(s){s=String(s||'');return s.length>=12?(s.slice(4,6)+'-'+s.slice(6,8)+' '+s.slice(9,11)+':'+s.slice(11,13)):(s.length===8?(s.slice(4,6)+'-'+s.slice(6,8)):'—');}
     var _ar2=document.getElementById('t-adv-run');

@@ -156,7 +156,7 @@
     <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">周五(11-13)</span> 15:00 转换到账后开放填写</div>
     <table>
     <tr><th>事项</th><th class="r">实际金额(元)</th></tr>
-    <tr><td>富国009290 <span id="t-zh-row">本周四(11-12)赎回转权益</span></td><td class="r"><input class="inp" id="f-zh" type="number" value="157.5" min="0" disabled></td></tr>
+    <tr><td>富国009290 <span id="t-zh-row">本周四(11-12)赎回转权益</span></td><td class="r"><input class="inp" id="f-zh" type="number" placeholder="实扣后填" min="0" disabled></td></tr>
     </table>
     <button class="btn" id="btn-zh" onclick="collectZH()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out-zh" style="display:none"></div>
@@ -559,9 +559,17 @@ try{gateCheck();}catch(e){}
         _pe.textContent=_pt;
       }
     }
+    // FH·确认表单输入框预填建议值(消灭 value=65/40/25/10 硬编码,数据源=wed.advice)
+    if(d.wed&&d.wed.advice){
+      var _fmap={'024328':'f-cx','012544':'f-nc','010267':'f-xq','017140':'f-ys','004253':'f-hj'};
+      d.wed.advice.forEach(function(x){var _fid=_fmap[x.code];if(_fid){var _fe=document.getElementById(_fid);if(_fe)_fe.value=(x.amt==null?0:x.amt);}});
+    }
     // FH·月度行动结论数据驱动(消灭L192/195硬编码:候选110026/009881、唯一动作9.04)
     var _mc=document.getElementById('mo-new');
-    if(_mc){var _cand=mb&&mb.全市场候选; _mc.innerHTML='<b>买入新建仓</b>：'+( _cand&&_cand.length?_cand.map(function(x){return x.名称})+' 入<font class="blue">候选纳入评审</font>':'待引擎全市场扫描输出候选中');}
+    if(_mc){var _candArr=mb&&mb.全市场候选;
+      if(Array.isArray(_candArr)){_mc.innerHTML='<b>买入新建仓</b>：'+( _candArr.length?_candArr.map(function(x){return (x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':(x.代码?' '+x.代码:''));}).join('、')+' 入<font class="blue">候选纳入评审</font>':'无新低估可投方向（当前无可新建仓）');}
+      else{_mc.innerHTML='<b>买入新建仓</b>：待引擎下次月度档输出候选';}
+    }
     var _mrp=document.getElementById('mo-replace');
     if(_mrp){var _rep2='不换仓（无四项全面优于最弱被动的替代）';if(mb&&mb.可买置换&&mb.可买置换.length)_rep2='有置换候选：'+mb.可买置换.map(function(x){return x.名称}).join('、');_mrp.innerHTML='<b>转仓/换仓</b>：'+_rep2;}
     var _msl2=document.getElementById('mo-sell');
@@ -593,8 +601,8 @@ try{gateCheck();}catch(e){}
   });
   }  // FH-二期·__dataOff 关闭数据写入
   else {  // 关·仅框架:清空所有数据锚点初始占位,只留无id的纯文本死数
-    var _zeros=['g-updated-val','d-total','d-remain','d-remain2','d-spent','d-pool','d-pool2','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zhm','mc-zqc','mc-dt-tot','mc-jc-tot','mc-zh-tot','mc-jc2-tot','mc-zh','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','mo-new','mo-replace','mo-sell','mo-action'];
-    _zeros.forEach(function(id){var _e0=document.getElementById(id);if(_e0)_e0.textContent='';});
+    var _zeros=['g-updated-val','d-total','d-remain','d-remain2','d-spent','d-pool','d-pool2','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zhm','mc-zqc','mc-dt-tot','mc-jc-tot','mc-zh-tot','mc-jc2-tot','mc-zh','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','mo-new','mo-replace','mo-sell','mo-action','f-cx','f-nc','f-xq','f-ys','f-hj','f-zh'];
+    _zeros.forEach(function(id){var _e0=document.getElementById(id);if(_e0){if(_e0.tagName==='INPUT'){_e0.value='';}else{_e0.textContent='';}}});
   }
 })();
 </script>

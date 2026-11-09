@@ -375,7 +375,8 @@ function collectReplace(){
 }
 function collectSell(){
   var d=window.__D__||{};var dd=(d.bands&&d.bands.daily)||{};
-  var st=dd.止损||{};var keys=Object.keys(st);
+  var st=dd.止损||{};var _sev2=(d.stop_eval)||{};
+  var keys=Object.keys(st).filter(function(k){var s=_sev2[k];return s&&s.结论==='赎回';});
   var _nm4={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};
   var lines=['【减仓/止损回传】'];var any=false;
   keys.forEach(function(k,i){
@@ -655,13 +656,24 @@ try{gateCheck();}catch(e){}
       var _nm3={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};
       if(!_sk.length){_sls.innerHTML='本期无止损/减仓触发，无需回传';}
       else{
-        _sls.innerHTML='有 <b>'+_sk.length+'</b> 只触发止损线（SOP383评估结论见台账），若结论=赎回，执行后回传：';
-        _slf.style.display='';
-        var _h5='';
-        _sk.forEach(function(k,i){
-          _h5+='<tr><td>'+esc(_nm3[k]||k)+'</td><td><input type="number" id="slin-'+i+'" placeholder="实际卖出" style="width:90px"></td></tr>';
+        var _sev=(d.stop_eval)||{};
+        var _sell=[],_hold=[];
+        _sk.forEach(function(k){
+          var _se=_sev[k];
+          if(_se&&_se.结论==='赎回'){_sell.push(k);}
+          else{_hold.push(k+'('+( _se?('已评估·'+_se.结论+'·'+_se.日期):'待SOP383评估')+')');}
         });
-        _tsl.innerHTML=_h5;
+        var _htxt=_hold.length?('已破线但结论持有/待评估：'+_hold.join('；')+'——无需操作<br>'):'';
+        if(!_sell.length){_sls.innerHTML=_htxt+'本期无待执行的减仓动作';}
+        else{
+          _sls.innerHTML=_htxt+'有 <b>'+_sell.length+'</b> 只评估结论=赎回，执行后回传：';
+          _slf.style.display='';
+          var _h5='';
+          _sell.forEach(function(k,i){
+            _h5+='<tr><td>'+esc(_nm3[k]||k)+'</td><td><input type="number" id="slin-'+i+'" placeholder="实际卖出" style="width:90px"></td></tr>';
+          });
+          _tsl.innerHTML=_h5;
+        }
       }
     }
     var _wsun=document.getElementById('w-sum-tag');

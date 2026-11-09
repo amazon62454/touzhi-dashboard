@@ -145,6 +145,7 @@
     <button class="btn" id="btn-zh" onclick="collectZH()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out-zh" style="display:none"></div>
     <div class="tip" id="op-zh" style="display:none;color:#7ee0a8"></div>
+    <div class="tip">渐进再平衡搬运：每周四赎回富国解锁份额→买入当期集中制第1名；债比回目标内自动退出（恢复定投+停搬运）；执行后周五15:00回传实际金额</div>
   </div>
   <div class="sec">加仓确认（执行后回传）</div>
   <div class="card">
@@ -242,7 +243,7 @@
   <div class="card"><div id="qtr-signal" class="li">数据加载中…</div></div>
   <div class="sec">需你本人做</div>
   <div class="card"><div id="qtr-do" class="ok">数据加载中…</div>
-  <div class="tip">季度档=再平衡启动/退出判定档;执行回传入口在周三档(债基转换确认),本档无回传按钮</div></div>
+</div>
 </div>
 <div id="view-monthend" class="view" style="display:none">
   <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月结档 · 封账全景</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
@@ -652,7 +653,7 @@ try{gateCheck();}catch(e){}
     var qs=document.getElementById('qtr-signal');
     if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='加仓/减仓/止损信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}    var _qd=document.getElementById('qtr-do');
     if(_qd&&qb2){
-      if(qb2.动作){_qd.innerHTML='<b>'+qb2.动作+'</b><br><span class="mid">执行入口在周三档(定投确认/债基转换确认),本档仅启动判定:</span><br>①暂停富国定投;②每周四按周三档"周度再平衡搬运"指令,赎回富国累计解锁份额→买入当期集中制第1名;③债比回目标内自动退出(恢复定投+停搬运)。'+(qb2.动作缺口!==undefined&&qb2.动作缺口!==null?('<br>债量超上限缺口≈'+qb2.动作缺口+'元转权益,每笔由周三档按每周解锁份额算,本档只定启动'):'');
+      if(qb2.动作){_qd.innerHTML='<b>'+qb2.动作+'</b>'+(qb2.动作缺口!==undefined&&qb2.动作缺口!==null?('（缺口≈'+qb2.动作缺口+'元转权益，每笔由周三档按每周解锁份额算）'):'')+'<br><span class="mid">本档仅启动/退出判定，无需你操作；执行与回传见周三档「债基转换确认」</span>';
       }else{_qd.innerText='本季无再平衡动作(债比处常态/补债区),仅核对持仓与占比';}
     }
     // FH-二期·入口卡片摘要数据驱动(组合/月度/发薪/评分提示,消灭硬编码;须在所有判决段之后)

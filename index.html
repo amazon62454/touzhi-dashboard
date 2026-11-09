@@ -207,8 +207,8 @@
   <div class="sec">信号回测</div>
   <div class="card"><div id="qtr-signal" class="li">数据加载中…</div></div>
   <div class="sec">需你本人做</div>
-  <div class="card"><div class="ok">调仓动作由系统按季度五维信号判定（见上方再平衡/信号回测）：需调仓→按指令执行后点下方按钮回传承；无调仓→无需操作</div>
-  <button class="btn" onclick="collectQuarter()">✅ 一键生成调仓回传</button>
+  <div class="card"><div id="qtr-do" class="ok">数据加载中…</div>
+  <button class="btn" id="btn-qtr" onclick="collectQuarter()">✅ 一键生成回传</button>
   <div class="out" id="out-qtr" style="display:none"></div>
   <div class="tip" id="op-qtr" style="display:none;color:#7ee0a8"></div></div>
 </div>
@@ -320,16 +320,13 @@ function collectMonthly(){
   copyText('【月度持仓确认】\n持仓占比已由系统核算: 权益/债券/现金 = '+_rt+' (目标 '+_tgt+')\n确认无误','out-mo','op-mo');
 }
 function collectQuarter(){
-  var _qb=(d.bands&&d.bands.quarter)||{},_ln=[];
-  if(_qb.再平衡)_ln.push(_qb.再平衡);
-  if(_qb.组合数量结论)_ln.push(_qb.组合数量结论);
-  if(_qb.赛道集中度)_ln.push(_qb.赛道集中度);
-  if(_qb.规模预警&&_qb.规模预警!=='无规模预警')_ln.push('规模预警：'+_qb.规模预警);
-  if(_qb.回撤)_ln.push('回撤：'+_qb.回撤);
-  if(_qb.暴跌预案)_ln.push('暴跌预案：'+_qb.暴跌预案);
-  var _rq=_qb.信号回测?_qb.信号回测.记录条数:null;
-  var _txt=_ln.length?('系统调仓判定：\n'+_ln.join('\n')):('本季系统判定：无需调仓（信号回测记录'+( _rq!=null?_rq:'?')+'条/需≥30）');
-  copyText('【季度调仓回传】\n'+_txt+'\n我已按指令执行：','out-qtr','op-qtr');
+  var _qb=(d.bands&&d.bands.quarter)||{},_rq=_qb.信号回测?_qb.信号回测.记录条数:null,_txt;
+  if(_qb.动作){
+    _txt='【季度再平衡搬运回传】\n'+(_qb.再平衡||'启动渐进再平衡')+(_qb.动作缺口?('\n·债量超上限缺口≈'+_qb.动作缺口+'元转权益'):'')+'\n①富国定投已暂停：'; _txt+='是/否\n②本周四已按周三档指令赎回富国解锁份额→买入集中制第1名\n·执行搬运金额：'; _txt+='（元）\n·回传（台账按此更新）：';
+  }else{
+    _txt='【季度确认】\n'+(_qb.再平衡||'本季债比常态,无再平衡动作')+'\n本季无调仓/再平衡动作,仅核对持仓与占比'+( _rq!=null?('（信号回测记录'+_rq+'条/需≥30,未达标不产动作）'):'');
+  }
+  copyText(_txt,'out-qtr','op-qtr');
 }
 try{gateCheck();}catch(e){}
 (function(){
@@ -538,7 +535,13 @@ try{gateCheck();}catch(e){}
       qc.innerHTML=qh;
     }
     var qs=document.getElementById('qtr-signal');
-    if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='①②③信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}
+    if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='①②③信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}    var _qd=document.getElementById('qtr-do');
+    if(_qd&&qb2){
+      if(qb2.动作){_qd.innerHTML='<b>'+qb2.动作+'</b><br>①暂停富国定投;②每周四按周三档"周度再平衡搬运"指令,赎回富国累计解锁份额→买入当期集中制第1名;③债比回目标内自动退出(恢复定投+停搬运)。'+(qb2.动作缺口!==undefined&&qb2.动作缺口!==null?('<br>债量超上限缺口≈'+qb2.动作缺口+'元转权益,每笔由周三档按每周解锁份额算,本档只定启动'):'');
+        var _bq=document.getElementById('btn-qtr');if(_bq)_bq.textContent='✅ 生成再平衡搬运回传';
+      }else{_qd.innerText='本季无再平衡动作(债比处常态/补债区),仅核对持仓与占比';
+        var _bq2=document.getElementById('btn-qtr');if(_bq2)_bq2.textContent='✅ 生成季度确认回传';}
+    }
     // FH-二期·入口卡片摘要数据驱动(组合/月度/发薪/评分提示,消灭硬编码;须在所有判决段之后)
     var _wsun=document.getElementById('w-sum-tag');
     if(_wsun&&dd&&dd.估值){var _nm={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};var _jd=[];for(var _c0 in dd.估值){var _it=dd.估值[_c0];if(_it&&_it.档位==='极度低估'&&_nm[_c0])_jd.push(_nm[_c0]);}_wsun.textContent=_jd.length?(_jd.join('&')+'极度低估待评分'):'';}

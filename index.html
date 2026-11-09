@@ -207,7 +207,7 @@
   <div class="sec">信号回测</div>
   <div class="card"><div id="qtr-signal" class="li">数据加载中…</div></div>
   <div class="sec">需你本人做</div>
-  <div class="card"><div class="ok">本季无调仓→无需操作；有调仓（转仓/换仓/减仓）→点下方按钮生成回传文本发小艺</div>
+  <div class="card"><div class="ok">调仓动作由系统按季度五维信号判定（见上方再平衡/信号回测）：需调仓→按指令执行后点下方按钮回传承；无调仓→无需操作</div>
   <button class="btn" onclick="collectQuarter()">✅ 一键生成调仓回传</button>
   <div class="out" id="out-qtr" style="display:none"></div>
   <div class="tip" id="op-qtr" style="display:none;color:#7ee0a8"></div></div>
@@ -320,7 +320,16 @@ function collectMonthly(){
   copyText('【月度持仓确认】\n持仓占比已由系统核算: 权益/债券/现金 = '+_rt+' (目标 '+_tgt+')\n确认无误','out-mo','op-mo');
 }
 function collectQuarter(){
-  copyText('【季度调仓回传】\n本季调仓：(填写调仓内容，无调仓不用发)','out-qtr','op-qtr');
+  var _qb=(d.bands&&d.bands.quarter)||{},_ln=[];
+  if(_qb.再平衡)_ln.push(_qb.再平衡);
+  if(_qb.组合数量结论)_ln.push(_qb.组合数量结论);
+  if(_qb.赛道集中度)_ln.push(_qb.赛道集中度);
+  if(_qb.规模预警&&_qb.规模预警!=='无规模预警')_ln.push('规模预警：'+_qb.规模预警);
+  if(_qb.回撤)_ln.push('回撤：'+_qb.回撤);
+  if(_qb.暴跌预案)_ln.push('暴跌预案：'+_qb.暴跌预案);
+  var _rq=_qb.信号回测?_qb.信号回测.记录条数:null;
+  var _txt=_ln.length?('系统调仓判定：\n'+_ln.join('\n')):('本季系统判定：无需调仓（信号回测记录'+( _rq!=null?_rq:'?')+'条/需≥30）');
+  copyText('【季度调仓回传】\n'+_txt+'\n我已按指令执行：','out-qtr','op-qtr');
 }
 try{gateCheck();}catch(e){}
 (function(){
@@ -607,6 +616,15 @@ try{gateCheck();}catch(e){}
       if(e1&&p[2]&&p[2].run)e1.textContent=_fmtRun(p[2].run);
       if(e2&&p[2]&&p[2].基准)e2.textContent=p[2].基准;
     });
+    // FH(2026-11-09):非周三评估→不显示定投建议金额(仅周三最新五维给建议,用户多次反馈)
+    if(d.wed&&d.wed.advice_valid===false){
+      var tbaX=document.getElementById('tb-advice');
+      if(tbaX)tbaX.innerHTML='<tr><td colspan="2">本周四('+(d.dt_thursday||'')+')定投建议：待本周三('+(d.wed.adv_eval_day||'评估')+')评估后生成 —— 仅周三评估给出最新五维建议，非评估日不给过时建议</td></tr>';
+      var capX=document.getElementById('cap-advice');
+      if(capX)capX.textContent=(d.dt_thursday?('本周四('+d.dt_thursday+')定投建议·'):'')+'待评估';
+      var bwX=document.getElementById('badge-wait-txt');
+      if(bwX)bwX.textContent='待周三评估';
+    }
     if(d.updated_at){
       setG('✅ '+d.updated_at,'#7ee0a8');
       var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';

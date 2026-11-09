@@ -594,15 +594,18 @@ try{gateCheck();}catch(e){}
     }
     // FH·月度行动结论数据驱动(消灭L192/195硬编码:候选110026/009881、唯一动作9.04)
     var _mc=document.getElementById('mo-new');
-    if(_mc){var _candArr=mb&&mb.全市场候选;
-      var _candNm=_candArr&&Array.isArray(_candArr)&&_candArr.length?_candArr.map(function(x){return (x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');}).join('、'):'';
-      if(_candArr&&Array.isArray(_candArr)){_mc.innerHTML=_candArr.length
-        ?'<b>买入新建仓</b>：'+(function(){var _cs=d.wed&&d.wed.cand_scores?d.wed.cand_scores:[],_mp={};_cs.forEach(function(x){if(x.方向)_mp[x.方向]=x;});return _candArr.map(function(x){var c=_mp[x.方向],nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');return c&&c.总分!=null?(nm+'·周三档评分<font class="blue">'+c.总分+'</font>/'+(c.门槛||70)):nm;}).join('、')})()+' 入候选纳入评审（便宜度/规模已过·周三档五维评分已完成·<b>待小艺补费率→四项齐终审</b>）。<b>预算锁死</b>：终审通过后走<b>置换</b>（卖最弱被动1:1换入）或<b>P102净增</b>（集中制第1名≥10%），不新增动用预算；终审后此处给金额+回传'
-        :'<b>买入新建仓</b>：无新低估可投方向（当前无可新建仓）';}
-      else{_mc.innerHTML='<b>买入新建仓</b>：待引擎下次月度档输出候选';}
+    if(_mc){var _cr=mb&&mb.cand_review&&mb.cand_review.候选?mb.cand_review.候选:[];
+      if(_cr.length){
+        var _inc=_cr.filter(function(x){return x.判定==='纳入置换';});
+        var _ct=_cr.map(function(x){var nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');var sc=x.评分!=null?('评分'+x.评分):'评分缺失';return x.判定==='纳入置换'?('<b>'+nm+'</b>·✅纳入 '+(x.动作||'')):(nm+'('+sc+')·<font class="dow">不纳入</font>('+(x.理由||'')+')');}).join('；');
+        _mc.innerHTML='<b>买入新建仓</b>：'+_ct+(mb.cand_review.最弱被动&&mb.cand_review.最弱被动.方向?('<br><span class="mid">引擎四项终审·置换基准=最弱被动:'+esc(mb.cand_review.最弱被动.方向)+(mb.cand_review.最弱被动.分位!=null?('('+mb.cand_review.最弱被动.分位+'%)'):'')+';预算锁死,纳入走置换或P102净增不新增</span>'):'');
+      }else if(mb&&mb.全市场候选&&mb.全市场候选.length){
+        var _candArr=mb.全市场候选;var _cs=d.wed&&d.wed.cand_scores?d.wed.cand_scores:[],_mp={};_cs.forEach(function(x){if(x.方向)_mp[x.方向]=x;});
+        _mc.innerHTML='<b>买入新建仓</b>：'+_candArr.map(function(x){var c=_mp[x.方向],nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');return c&&c.总分!=null?(nm+'·评分'+c.总分+'/'+(c.门槛||70)):nm;}).join('、')+' 入候选评审（终审待引擎月度档输出）';
+      }else{_mc.innerHTML='<b>买入新建仓</b>：无新低估可投方向（当前无可新建仓）';}
     }
     var _mrp=document.getElementById('mo-replace');
-    if(_mrp){var _rep2='不换仓（无四项全面优于最弱被动的替代）';if(mb&&mb.可买置换&&mb.可买置换.length)_rep2='有置换候选：'+mb.可买置换.map(function(x){return x.名称}).join('、');_mrp.innerHTML='<b>转仓/换仓</b>：'+_rep2;}
+    if(_mrp){var _crr=mb&&mb.cand_review&&mb.cand_review.候选?mb.cand_review.候选:[];var _irr=_crr.filter(function(x){return x.判定==='纳入置换';});var _rep2=_irr.length?_irr.map(function(x){return x.方向+'→'+String(x.动作||'').slice(0,26);}).join('；'):'不换仓（候选经引擎四项终审均不纳入,不取消任何基金）';_mrp.innerHTML='<b>转仓/换仓</b>：'+_rep2;}
     var _msl2=document.getElementById('mo-sell');
     if(_msl2){_msl2.innerHTML='<b>卖出/减持</b>：不动作（止盈未达三条件'+(mb&&mb.止盈?('：'+String(mb.止盈).replace(/^[🔴🟢🟠🟡]+/,'').slice(0,20)):'')+'）';}
     var _mac=document.getElementById('mo-action');

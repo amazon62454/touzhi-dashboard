@@ -126,11 +126,7 @@
     <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
     <table id="tbl-dt">
     <tr><th>基金</th><th class="r">实际扣款(元)</th></tr>
-    <tr><td>创新药 024328</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
-    <tr><td>新能车 012544</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
-    <tr><td>兴全FOF 010267</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
-    <tr><td>有色 017140</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
-    <tr><td>黄金 004253</td><td class="r"><input class="inp" id="{_i}" type="number" value="" min="0" disabled></td></tr>
+    <tbody id="tb-dtform"></tbody>
     </table>
     <button class="btn" id="btn-dt" onclick="collect()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out" style="display:none"></div>
@@ -141,7 +137,7 @@
     <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">—</span> 15:00 转换到账后开放填写</div>
     <table>
     <tr><th>事项</th><th class="r">实际金额(元)</th></tr>
-    <tr><td>富国009290 <span id="t-zh-row">—</span></td><td class="r"><input class="inp" id="f-zh" type="number" placeholder="实扣后填" min="0" disabled></td></tr>
+    <tbody id="tb-zhform"></tbody>
     </table>
     <button class="btn" id="btn-zh" onclick="collectZH()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out-zh" style="display:none"></div>
@@ -278,16 +274,16 @@ function winOpen(kind){
 }
 function gateCheck(){
   var dt=winOpen('dt'),zh=winOpen('zh');
-  var ids=['f-nc','f-cx','f-xq','f-ys','f-hj'];
-  for(var i=0;i<ids.length;i++){document.getElementById(ids[i]).disabled=!dt;}
-  document.getElementById('btn-dt').disabled=!dt;
+  var fdt=document.querySelectorAll('input[id^="f-dt-"]');
+  for(var i=0;i<fdt.length;i++){fdt[i].disabled=!dt;}
+  var bd=document.getElementById('btn-dt');if(bd)bd.disabled=!dt;
   var g1=document.getElementById('gate-dt');
   var __thu=(window.__DATA__&&window.__DATA__.dt_thursday)||'';
   var __fri=__thu?'':'';if(__thu){var __t=new Date();var __fd=new Date(Number(__t.getFullYear()),parseInt(__thu.slice(0,2),10)-1,parseInt(__thu.slice(3,5),10)+1);__fri=(__fd.getMonth()+1<10?'0':'')+(__fd.getMonth()+1)+'-'+(__fd.getDate()<10?'0':'')+__fd.getDate();}
   if(dt){g1.textContent='✅ 已到确认时间，可填写实际扣款金额';g1.classList.add('on');}
   else{g1.textContent='⏳ 未到确认时间：周四('+__thu+') 15:00 实扣完成后开放填写';g1.classList.remove('on');}
-  document.getElementById('f-zh').disabled=!zh;
-  document.getElementById('btn-zh').disabled=!zh;
+  var fz=document.getElementById('f-zh');if(fz)fz.disabled=!zh;
+  var bz=document.getElementById('btn-zh');if(bz)bz.disabled=!zh;
   var g2=document.getElementById('gate-zh');
   if(zh){g2.textContent='✅ 已到确认时间，可填写实际转换金额';g2.classList.add('on');}
   else{g2.textContent='⏳ 未到确认时间：周五('+__fri+') 15:00 转换到账后开放填写';g2.classList.remove('on');}
@@ -300,18 +296,21 @@ function copyText(text,outId,opId){
   if(!done){op.textContent='↑ 长按下面灰色内容→复制→粘贴到小艺对话框发我';op.style.color='#ffd07a';}
 }
 function collect(){
-  var rows=[['新能车012544','nc'],['创新药024328','cx'],['兴全FOF010267','xq'],['有色017140','ys'],['黄金004253','hj']];
+  var fdt=document.querySelectorAll('input[id^="f-dt-"]');
   var parts=['【本周定投确认】'];var total=0,any=false;
-  for(var i=0;i<rows.length;i++){
-    var v=parseFloat(document.getElementById('f-'+rows[i][1]).value);if(isNaN(v))v=0;
-    if(v>0){any=true;total+=v;parts.push(rows[i][0]+'：'+v+'元');}else{parts.push(rows[i][0]+'：0元(未投)');}
+  for(var i=0;i<fdt.length;i++){
+    var nm=fdt[i].getAttribute('data-name')||'';
+    var v=parseFloat(fdt[i].value);if(isNaN(v))v=0;
+    if(v>0){any=true;total+=v;parts.push(nm+'：'+v+'元');}else{parts.push(nm+'：0元(未投)');}
   }
   if(any){parts.push('合计：'+total+'元');}else{parts.splice(1,0,'本周未定投（金额全为0）');}
   copyText(parts.join('\n'),'out','op');
 }
 function collectZH(){
-  var v=parseFloat(document.getElementById('f-zh').value);if(isNaN(v))v=0;
-  copyText('【债基转换确认】\n富国009290 本周四赎回转权益：'+v+'元','out-zh','op-zh');
+  var fz=document.getElementById('f-zh');if(!fz)return;
+  var nm=fz.getAttribute('data-name')||'债基';
+  var v=parseFloat(fz.value);if(isNaN(v))v=0;
+  copyText('【债基转换确认】\n'+nm+' 本周四赎回转权益：'+v+'元','out-zh','op-zh');
 }
 function collectMonthly(){
   copyText('【月度持仓确认】\n存量持仓占比表已核对：无误','out-mo','op-mo');
@@ -545,8 +544,22 @@ try{gateCheck();}catch(e){}
     }
     // FH·确认表单输入框预填建议值(消灭 value=65/40/25/10 硬编码,数据源=wed.advice)
     if(d.wed&&d.wed.advice){
-      var _fmap={'024328':'f-cx','012544':'f-nc','010267':'f-xq','017140':'f-ys','004253':'f-hj'};
-      d.wed.advice.forEach(function(x){var _fid=_fmap[x.code];if(_fid){var _fe=document.getElementById(_fid);if(_fe)_fe.value=(x.amt==null?0:x.amt);}});
+      // FH: 确认表单行数据驱动(从wed.advice生成,支持新增/删除基金;input id=f-dt-{code})
+      var tf=document.getElementById('tb-dtform');
+      if(tf&&d.wed.advice&&d.wed.advice.length){
+        var hf='';
+        d.wed.advice.forEach(function(x){hf+='<tr><td>'+esc(sn(x.name))+' '+x.code+'</td><td class="r"><input class="inp" id="f-dt-'+x.code+'" type="number" data-name="'+esc(sn(x.name))+x.code+'" value="'+(x.amt==null?0:x.amt)+'" min="0" disabled></td></tr>';});
+        tf.innerHTML=hf;
+      }
+      // FH: 债基转换行数据驱动(当前持仓债券基金,支持换/增债基)
+      var zf=document.getElementById('tb-zhform');
+      if(zf){
+        var bf=d.bond_fund;
+        if(bf&&bf.code){
+          zf.innerHTML='<tr><td>'+esc(sn(bf.name))+' '+bf.code+' <span id="t-zh-row">本周四('+(d.dt_thursday||'')+')赎回转权益</span></td><td class="r"><input class="inp" id="f-zh" type="number" data-name="'+esc(sn(bf.name))+bf.code+'" placeholder="实扣后填" min="0" disabled></td></tr>';
+        }else{zf.innerHTML='<tr><td>当前无债券基金持仓</td><td></td></tr>';}
+      }
+      try{gateCheck();}catch(e){}
     }
     // FH·月度行动结论数据驱动(消灭L192/195硬编码:候选110026/009881、唯一动作9.04)
     var _mc=document.getElementById('mo-new');
@@ -585,7 +598,7 @@ try{gateCheck();}catch(e){}
   });
   }  // FH-二期·__dataOff 关闭数据写入
   else {  // 关·仅框架:清空所有数据锚点初始占位,只留无id的纯文本死数
-    var _zeros=['g-updated-val','d-total','d-remain','d-remain2','d-spent','d-pool','d-pool2','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zqc','mc-dt-tot','mc-jc-tot','mc-jc2-tot','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','period-head','payday','jc-bullet','mo-new','mo-replace','mo-sell','mo-action','f-cx','f-nc','f-xq','f-ys','f-hj','f-zh'];
+    var _zeros=['g-updated-val','d-total','d-remain','d-remain2','d-spent','d-pool','d-pool2','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zqc','mc-dt-tot','mc-jc-tot','mc-jc2-tot','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','period-head','payday','jc-bullet','mo-new','mo-replace','mo-sell','mo-action','f-zh'];
     _zeros.forEach(function(id){var _e0=document.getElementById(id);if(_e0){if(_e0.tagName==='INPUT'){_e0.value='';}else{_e0.textContent='';}}});
   }
 })();

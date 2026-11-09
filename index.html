@@ -264,10 +264,22 @@
 
 function go(b){document.getElementById('list').style.display='none';document.getElementById('view-'+b).style.display='block';window.scrollTo(0,0);}
 function back(){document.querySelectorAll('.view').forEach(v=>v.style.display='none');document.getElementById('list').style.display='block';window.scrollTo(0,0);}
+function _execOpen(od,oh,cd,chh){
+  var n=new Date(),y=n.getFullYear();
+  var oo=od.split('-'),cc=cd.split('-');
+  var open=new Date(y,parseInt(oo[0],10)-1,parseInt(oo[1],10),oh,0,0);
+  var close=new Date(y,parseInt(cc[0],10)-1,parseInt(cc[1],10),chh,0,0);
+  return n>=open&&n<close;
+}
 function winOpen(kind){
-  var now=new Date();var d=now.getDay();var h=now.getHours()+now.getMinutes()/60;
-  if(kind==='dt'){return (d===4&&h>=15)||d===5||d===6||d===0||d===1||d===2||(d===3&&h<12);}
-  return (d===5&&h>=15)||d===6||d===0||d===1||d===2||(d===3&&h<12);
+  var thu=(window.__DATA__&&window.__DATA__.dt_thursday)||'';
+  if(!thu)return false;
+  var n=new Date(),y=n.getFullYear();var p=thu.split('-');
+  var mo=parseInt(p[0],10),da=parseInt(p[1],10);
+  var friD=new Date(y,mo-1,da+1),ntD=new Date(y,mo-1,da+7);
+  var friS=(friD.getMonth()+1)+'-'+friD.getDate(),ntS=(ntD.getMonth()+1)+'-'+ntD.getDate();
+  if(kind==='dt'){return _execOpen(thu,15,ntS,12);}
+  return _execOpen(friS,15,ntS,12);
 }
 function gateCheck(){
   var dt=winOpen('dt'),zh=winOpen('zh');
@@ -345,7 +357,7 @@ try{gateCheck();}catch(e){}
         if(Math.abs(h.debt_pct-_tb)>_tol)_dev.push('债券'+(h.debt_pct>_tb?'高':'低'));
         if(Math.abs(h.cash_pct-_tc)>_tol)_dev.push('现金'+(h.cash_pct>_tc?'高':'低'));
         var flag=_dev.length?'<span class="dow">🔴'+_dev.join(';')+'超容差</span>':'<span class="up">🟢三项在容差内</span>';
-        mp.innerHTML='仓位 权益'+h.equity_pct+'%('+h.equity+'元)/债券'+h.debt_pct+'%('+h.debt+'元)/现金'+h.cash_pct+'%('+h.cash+'元) <span class="mid">vs 目标'+_tq+'/'+_tb+'/'+_tc+'(容差'+_tol+'pp)</span> '+flag;
+        mp.innerHTML='仓位 权益'+h.equity_pct+'%('+h.equity+'元)/债券'+h.debt_pct+'%('+h.debt+'元)/现金'+h.cash_pct+'%('+h.cash+'元) <span class="mid">vs 目标'+_tq+'/'+_tb+'/'+_tc+'(容差'+_tol+'个百分点)</span> '+flag;
       }
       var bt2=document.getElementById('wed-bond-tip');
       if(bt2){
@@ -364,7 +376,7 @@ try{gateCheck();}catch(e){}
         var _cp6=h.total>0?Math.round(h.cash/h.total*1000)/10:0;
         var _b6=[['权益',h.equity_pct,_tq6],['债券',h.debt_pct,_tb6],['现金',_cp6,_tc6]];
         var _dv6=[];
-        _b6.forEach(function(x){if(x[1]!=null){var _d6=x[1]-x[2];if(Math.abs(_d6)>_tol6)_dv6.push(x[0]+(_d6>0?'高':'低')+(Math.round(Math.abs(_d6)*100)/100)+'pp');}});
+        _b6.forEach(function(x){if(x[1]!=null){var _d6=x[1]-x[2];if(Math.abs(_d6)>_tol6)_dv6.push(x[0]+(_d6>0?'高':'低')+(Math.round(Math.abs(_d6)*100)/100)+'个百分点');}});
         var _ratio6='权益'+h.equity_pct+'/债券'+h.debt_pct+'/现金'+_cp6;
         sp.textContent=_dv6.length?(_ratio6+' · 🔴'+_dv6.join(';')):(_ratio6+' · 🟢仓位正常');
       }
@@ -493,7 +505,7 @@ try{gateCheck();}catch(e){}
       var _mbs2=d.bands&&d.bands.monthly&&d.bands.monthly.方向扫描;
       if(_mbs2&&_mbs2.length){var _yv=[];_mbs2.forEach(function(x){var _pc=x.分位;if(_pc==null)return;var _bd2;if(_pc<10)_bd2='极度低估';else if(_pc<30)_bd2='低估';else if(_pc<90)return;else _bd2='高估';if(_bd2)_yv.push(esc(x.名称)+' '+(Math.round(_pc*100)/100)+'%'+esc(_bd2));});if(_yv.length)_p2.push('估值:'+_yv.join('+'));}
       var _q3=d.bands&&d.bands.quarter;
-      if(_q3&&_dd3.规模预警&&_dd3.规模预警.length){_p2.push(_dd3.规模预警.map(function(x){return esc(x.名称)+(x.规模?(' '+x.规模+'亿'):'')+esc(x.标志||'')}).join('、'));}
+      if(_dd3&&_dd3.规模预警&&_dd3.规模预警.length){_p2.push(_dd3.规模预警.map(function(x){var _tf=String(x.标志||'');var _sz=esc(x.名称)+(x.规模!=null?(' 规模'+x.规模+'亿'):'');if(_tf.indexOf('🟠')>=0){_sz+='(<2亿警戒)';}else if(_tf.indexOf('🔴')>=0){_sz+='(清盘风险)';}return _sz;}).join('、'));}
       if(_p2.length)_dsum.textContent=_p2.join(' · ');else _dsum.textContent='数据待引擎加载';
     }
     // ---- FH-二期·月度档判决渲染(bands.monthly/quarter,引擎数据) ----

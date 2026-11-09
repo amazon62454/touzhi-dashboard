@@ -597,7 +597,7 @@ try{gateCheck();}catch(e){}
     if(_mc){var _candArr=mb&&mb.全市场候选;
       var _candNm=_candArr&&Array.isArray(_candArr)&&_candArr.length?_candArr.map(function(x){return (x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');}).join('、'):'';
       if(_candArr&&Array.isArray(_candArr)){_mc.innerHTML=_candArr.length
-        ?('<b>买入新建仓</b>：'+_candNm+' 入<font class="blue">候选纳入评审</font>（便宜度/规模已过·待周三档五维评分+费率接力→四项齐终审）。<b>预算锁死</b>：终审通过后走<b>置换</b>（卖最弱被动1:1换入）或<b>P102净增</b>（集中制第1名≥10%），不新增动用预算；终审后此处给金额+回传')
+        ?'<b>买入新建仓</b>：'+(function(){var _cs=d.wed&&d.wed.cand_scores?d.wed.cand_scores:[],_mp={};_cs.forEach(function(x){if(x.方向)_mp[x.方向]=x;});return _candArr.map(function(x){var c=_mp[x.方向],nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');return c&&c.总分!=null?(nm+'·周三档评分<font class="blue">'+c.总分+'</font>/'+(c.门槛||70)):nm;}).join('、')})()+' 入候选纳入评审（便宜度/规模已过·周三档五维评分已完成·<b>待小艺补费率→四项齐终审</b>）。<b>预算锁死</b>：终审通过后走<b>置换</b>（卖最弱被动1:1换入）或<b>P102净增</b>（集中制第1名≥10%），不新增动用预算；终审后此处给金额+回传'
         :'<b>买入新建仓</b>：无新低估可投方向（当前无可新建仓）';}
       else{_mc.innerHTML='<b>买入新建仓</b>：待引擎下次月度档输出候选';}
     }

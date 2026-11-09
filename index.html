@@ -334,6 +334,7 @@ try{gateCheck();}catch(e){}
 (function(){
   function setG(txt,color){var e=document.getElementById('g-updated-val');if(e){e.textContent=txt;e.style.color=color||'#e8c268';}}
   function render(d){
+    window.__DATA__=d;  // 2026-11-09修:模板__DATA__静态null,真实数据靠fetch;此处回填使gateCheck/winOpen能读到dt_thursday(周四执行日)
     function set(id,v){var e=document.getElementById(id);if(e&&v!=null)e.textContent=v;}
       function esc(s){return String(s).replace(/</g,'&lt;');}
       function sn(n){n=String(n==null?'':n);var m={'易方达恒生港股通创新药':'创新药','嘉实中证新能源汽车':'新能车','兴全安泰积极养老':'兴全','国泰黄金':'黄金','华宝中证有色金属':'有色','富国添享':'富国'};for(var k in m){if(n.indexOf(k)>=0)return m[k];}return n.slice(0,4);}

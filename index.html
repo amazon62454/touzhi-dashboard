@@ -158,6 +158,16 @@
       <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
     </div>
   </div>
+  <div id="sec-ban" style="display:none">
+  <div class="sec">再平衡搬运回传（每周四执行后）</div>
+  <div class="card"><div id="ban-state" class="li"></div>
+    <table><tbody id="tb-ban"></tbody></table>
+    <button class="btn" onclick="collectBan()">✅ 一键生成搬运回传消息</button>
+    <div class="out" id="out-ban" style="display:none"></div>
+    <div class="tip" id="op-ban" style="display:none;color:#7ee0a8"></div>
+    <div class="tip">渐进再平衡搬运中：每周四赎回富国解锁份额→买入集中制第1名，执行后回传金额，小艺记台账</div>
+  </div>
+  </div>
 </div>
 <div id="view-daily" class="view" style="display:none">
   <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎每日12:00检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div></div>
@@ -393,6 +403,13 @@ function collectZH(){
   var nm=fz.getAttribute('data-name')||'债基';
   var v=parseFloat(fz.value);if(isNaN(v))v=0;
   copyText('【债基转换确认】\n'+nm+' 本周四赎回转权益：'+v+'元','out-zh','op-zh');
+}
+function collectBan(){
+  var _q=(d.bands&&d.bands.quarter)||{};
+  var _inp=document.getElementById('in-ban-amt');
+  var _amt=_inp?(_inp.value||''):'';
+  var _txt='【周度搬运回传】\n'+(_q.再平衡||'渐进再平衡搬运中')+'\n本周四已执行:赎回富国解锁份额→买入集中制第1名\n·执行搬运金额：'+(_amt||'（元）')+'\n·回传（台账按此更新）';
+  copyText(_txt,'out-ban','op-ban');
 }
 function collectQuarter(){
   var _qb=(d.bands&&d.bands.quarter)||{},_rq=_qb.信号回测?_qb.信号回测.记录条数:null,_txt;
@@ -639,7 +656,12 @@ try{gateCheck();}catch(e){}
       qc.innerHTML=qh;
     }
     var qs=document.getElementById('qtr-signal');
-    if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='加仓/减仓/止损信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}    var _qd=document.getElementById('qtr-do');
+    if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='加仓/减仓/止损信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}    var _sb=document.getElementById('sec-ban');
+    if(_sb&&qb2&&qb2.动作){_sb.style.display='';
+      var _bs=document.getElementById('ban-state');if(_bs)_bs.innerHTML='<b>'+qb2.动作+'</b>'+(qb2.动作缺口!=null?('<br>债量超上限缺口≈'+qb2.动作缺口+'元转权益'):'');
+      var _tb=document.getElementById('tb-ban');if(_tb&&!_tb.innerHTML)_tb.innerHTML='<tr><td>执行搬运金额</td><td><input type="number" id="in-ban-amt" placeholder="实际金额" style="width:90px"> 元</td></tr>';
+    }
+    var _qd=document.getElementById('qtr-do');
     if(_qd&&qb2){
       if(qb2.动作){_qd.innerHTML='<b>'+qb2.动作+'</b><br>①暂停富国定投;②每周四按周三档"周度再平衡搬运"指令,赎回富国累计解锁份额→买入当期集中制第1名;③债比回目标内自动退出(恢复定投+停搬运)。'+(qb2.动作缺口!==undefined&&qb2.动作缺口!==null?('<br>债量超上限缺口≈'+qb2.动作缺口+'元转权益,每笔由周三档按每周解锁份额算,本档只定启动'):'');
         var _bq=document.getElementById('btn-qtr');if(_bq)_bq.textContent='✅ 生成再平衡搬运回传';

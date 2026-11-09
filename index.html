@@ -470,7 +470,7 @@ try{gateCheck();}catch(e){}
     var tdt=document.getElementById('dd-trig');
     if(dd&&dd.触发项&&tdt){var hh='';(dd.触发项||[]).forEach(function(x){hh+='<tr><td>'+esc(x.名称)+'</td><td class="'+_dd_cls(x.状态)+'">'+esc(x.状态)+'</td><td>'+esc(x.说明)+'</td></tr>';});tdt.innerHTML=hh;}
     var tde=document.getElementById('dd-tech');
-    if(dd&&dd.技术面&&tde){var ht='';(dd.技术面||[]).forEach(function(x){var dr=String(x.方向||'');var c2='up';if(dr.indexOf('偏空')>=0)c2='dow';else if(dr.indexOf('偏多')>=0)c2='up';ht+='<tr><td>'+esc(x.代码)+'</td><td class="r">'+esc(x.强度)+'</td><td class="'+c2+'">'+esc(x.方向)+'</td></tr>';});tde.innerHTML=ht;}
+    if(dd&&dd.技术面&&tde){var ht='';(dd.技术面||[]).forEach(function(x){var dr=String(x.方向||'');var c2='up';if(dr.indexOf('偏空')>=0)c2='dow';else if(dr.indexOf('偏多')>=0)c2='up';ht+='<tr><td>'+esc(x.名称||x.代码)+(x.名称?(' '+x.代码):'')+'</td><td class="r">'+esc(x.强度)+'</td><td class="'+c2+'">'+esc(x.方向)+'</td></tr>';});tde.innerHTML=ht;}
     var tds=document.getElementById('dd-scale');
     var scband=d.bands&&(d.bands.quarter||d.bands.monthly);
     if(scband&&scband.规模预警&&tds){var hs='';(scband.规模预警||[]).forEach(function(x){var f2=String(x.标志||'').indexOf('🟢')>=0?'up':'dow';hs+='<tr><td>'+esc(x.名称)+'</td><td class="r '+f2+'">≈'+esc(x.规模)+'亿 '+esc(x.标志)+'</td></tr>';});tds.innerHTML=hs;}

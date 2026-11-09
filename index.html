@@ -188,7 +188,7 @@
   <div class="sec">仓位再平衡（含现金）</div>
   <div class="card">
   <div class="li" id="m-pos">仓位 权益38.9%(8511元)/债券61.1%(13379元)/现金0%(0元) <span class="mid">vs 目标50/40/10</span> <span class="dow">🔴债超</span></div>
-  <div class="li" id="m-rebal">债比61.1%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）</div>
+  <div class="li" id="m-rebal">上图仅展示资产配置占比；渐进再平衡<b>动作判定/缺口/回传见季度档『看配置调仓·再平衡』</b></div>
   <div class="tip" id="m-asset">总资产=权益类8511+债券13379+现金0=21890（持仓快照2026-11-05，引擎每日自动刷新）</div></div>
   <div class="sec">需你本人做</div>
   <div class="card"><div class="ok">持仓占比已由系统台账核算（见上表，含现金），无需确认</div></div>
@@ -354,12 +354,6 @@ try{gateCheck();}catch(e){}
         else if(h.debt_pct>_tb2){bt2.textContent='债比'+h.debt_pct+'%在'+_tb2+'~'+_start2+'%观察区 · 债基定投以引擎建议为准';}
         else{bt2.textContent='债比'+h.debt_pct+'%已回'+_tb2+'%目标内 · 渐进再平衡已退出，债基恢复正常定投';}
       }
-      var mr=document.getElementById('m-rebal');
-      if(mr){
-        if(h.debt_pct>50){mr.innerHTML='债比'+h.debt_pct+'%&gt;启动阈值50% → <b>渐进再平衡执行中</b>（周度赎债转权益，回40%退出）';}
-        else if(h.debt_pct>40){mr.textContent='债比'+h.debt_pct+'%在40~50%区间 → 观察不动作（超50%才启动渐进再平衡）';}
-        else{mr.textContent='债比'+h.debt_pct+'%已回40%以内 → 渐进再平衡已退出，仓位正常';}
-      }
       var ma=document.getElementById('m-asset');
       if(ma)ma.textContent='总资产=权益类'+h.equity+'+债券'+h.debt+'+现金'+h.cash+'='+h.total+'（持仓快照'+h.snapshot+'，引擎每日自动刷新）';
       var ss=document.getElementById('sum-m-spent'),sr=document.getElementById('sum-m-remain'),sp=document.getElementById('sum-m-pos');
@@ -487,7 +481,7 @@ try{gateCheck();}catch(e){}
     var tde=document.getElementById('dd-tech');
     if(dd&&dd.技术面&&tde){var ht='';(dd.技术面||[]).forEach(function(x){var dr=String(x.方向||'');var c2='up';if(dr.indexOf('偏空')>=0)c2='dow';else if(dr.indexOf('偏多')>=0)c2='up';ht+='<tr><td>'+esc(x.名称||x.代码)+(x.名称?(' '+x.代码):'')+'</td><td class="r">'+esc(x.强度)+'</td><td class="'+c2+'">'+esc(x.方向)+'</td></tr>';});tde.innerHTML=ht;}
     var tds=document.getElementById('dd-scale');
-    var scband=d.bands&&(d.bands.quarter||d.bands.monthly);
+    var scband=d.bands&&d.bands.daily;
     if(scband&&scband.规模预警&&tds){var hs='';(scband.规模预警||[]).forEach(function(x){var f2=String(x.标志||'').indexOf('🟢')>=0?'up':'dow';hs+='<tr><td>'+esc(x.名称)+'</td><td class="r '+f2+'">≈'+esc(x.规模)+'亿 '+esc(x.标志)+'</td></tr>';});tds.innerHTML=hs;}
     var tdc=document.getElementById('dd-concl');
     if(dd&&dd.结论&&tdc){var rz=dd.结论.真风险||[],gz=dd.结论.关注项||[];if(rz.length>0){tdc.textContent='🔴 真风险需处置:'+rz.join('、');}else if(gz.length>0){tdc.textContent='无真风险；'+gz.length+'项关注需跟踪（'+gz.join('、')+'）';}else{tdc.textContent='✅ 今日无真风险，正常';}}
@@ -499,7 +493,7 @@ try{gateCheck();}catch(e){}
       var _mbs2=d.bands&&d.bands.monthly&&d.bands.monthly.方向扫描;
       if(_mbs2&&_mbs2.length){var _yv=[];_mbs2.forEach(function(x){var _pc=x.分位;if(_pc==null)return;var _bd2;if(_pc<10)_bd2='极度低估';else if(_pc<30)_bd2='低估';else if(_pc<90)return;else _bd2='高估';if(_bd2)_yv.push(esc(x.名称)+' '+(Math.round(_pc*100)/100)+'%'+esc(_bd2));});if(_yv.length)_p2.push('估值:'+_yv.join('+'));}
       var _q3=d.bands&&d.bands.quarter;
-      if(_q3&&_q3.规模预警&&_q3.规模预警.length){_p2.push(_q3.规模预警.map(function(x){return esc(x.名称)+(x.规模?(' '+x.规模+'亿'):'')+esc(x.标志||'')}).join('、'));}
+      if(_q3&&_dd3.规模预警&&_dd3.规模预警.length){_p2.push(_dd3.规模预警.map(function(x){return esc(x.名称)+(x.规模?(' '+x.规模+'亿'):'')+esc(x.标志||'')}).join('、'));}
       if(_p2.length)_dsum.textContent=_p2.join(' · ');else _dsum.textContent='数据待引擎加载';
     }
     // ---- FH-二期·月度档判决渲染(bands.monthly/quarter,引擎数据) ----

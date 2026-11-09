@@ -527,7 +527,7 @@ try{gateCheck();}catch(e){}
         var _jcs=document.getElementById('jc-cf-state'),_jcf=document.getElementById('jc-cf-form'),_tj=document.getElementById('tb-jccf');
         if(_jcs){
           var _jp=d.wed.jc_plan||[];
-          if(!_jp.length){_jcs.innerHTML='本周无加仓建议（评分未达门槛或被闸门拦截），无需确认';}
+          if(!_jp.length){_jcs.innerHTML='本周无加仓建议（评分未达门槛或被闸门拦截），无需确认';_jcf.style.display='';_tj.innerHTML='<tr><td colspan="4" style="text-align:center;color:#8a93a6">无待执行加仓（评分未达门槛）</td></tr>';}
           else{
             _jcs.innerHTML='本周有 <b>'+_jp.length+'</b> 笔加仓建议，执行后回传实际金额：';
             _jcf.style.display='';
@@ -660,7 +660,7 @@ try{gateCheck();}catch(e){}
     if(_sls){
       var _stx=(dd&&dd.止损)||{};var _sk=Object.keys(_stx);
       var _nm3={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};
-      if(!_sk.length){_sls.innerHTML='本期无止损/减仓触发，无需回传';}
+      if(!_sk.length){_sls.innerHTML='本期无止损/减仓触发，无需回传';_slf.style.display='';_tsl.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">无待执行卖出（无止损赎回指令）</td></tr>';}
       else{
         var _sev=(d.stop_eval)||{};
         var _sell=[],_hold=[];
@@ -716,6 +716,7 @@ try{gateCheck();}catch(e){}
     if(d.wed&&d.wed.advice){
       // FH: 确认表单行数据驱动(从wed.advice生成,支持新增/删除基金;input id=f-dt-{code})
       var tf=document.getElementById('tb-dtform');
+      if(tf&&!d.wed.advice.length){tf.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">定投建议待周三评估生成</td></tr>';}
       if(tf&&d.wed.advice&&d.wed.advice.length){
         var hf='';
         d.wed.advice.forEach(function(x){hf+='<tr><td>'+esc(_shn(x.name))+' '+x.code+'</td><td class="r"><input class="inp" id="f-dt-'+x.code+'" type="number" data-name="'+esc(_shn(x.name))+x.code+'" value="'+(x.amt==null?0:x.amt)+'" min="0" disabled></td></tr>';});
@@ -764,7 +765,7 @@ try{gateCheck();}catch(e){}
     var _rps=document.getElementById('rp-cf-state'),_rpf=document.getElementById('rp-cf-form'),_trp=document.getElementById('tb-rpcf');
 if(_rps&&mb){
   var _inc2=((mb.cand_review&&mb.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});
-  if(!_inc2.length){_rps.innerHTML='本期无置换/净增动作（候选均未达建仓线），无需回传';}
+  if(!_inc2.length){_rps.innerHTML='本期无置换/净增动作（候选均未达建仓线），无需回传';_rpf.style.display='';_trp.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">无待执行置换（候选均未达建仓线）</td></tr>';}
   else{
     _rps.innerHTML='本期有 <b>'+_inc2.length+'</b> 笔置换待执行，执行后回传：';
     _rpf.style.display='';

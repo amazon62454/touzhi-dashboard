@@ -244,7 +244,7 @@
   <div class="card">
     <div class="kv"><span><span id="payday">10-20</span> 发薪注入</span><b id="inject-line">1800 元</b></div>
     <div class="kv"><span>已花</span><b id="d-spent">1300 元</b></div>
-    <div class="kv"><span>分配池（定投+转换买入）</span><b>已花 <span id="kv-eq-used">1178</span> · 剩 <span id="kv-eq-rem">162</span></b></div>
+    <div class="kv"><span>分配池（定投）</span><b>已花 <span id="kv-eq-used">1178</span> · 剩 <span id="kv-eq-rem">162</span></b></div>
     <div class="kv"><span>加仓弹药（<span id="jc-bullet">460</span>）</span><b>已花 <span id="kv-jc-used">122</span> · 剩 <span id="kv-jc-rem">338</span></b></div>
     <div class="tip" id="plan-tip">⚠️ 本周期含5个定投周四（10-22/29・11-05/12/19）：11-12、11-19两次待执行约340，执行后剩约160；5周定投会挤占加仓弹药，总红线1800兜底</div>
   </div>
@@ -267,13 +267,6 @@
     <tr><td><b>加仓小计</b></td><td></td><td class="r"><b>122</b></td></tr>
     </tbody>
   </table></div>
-  <div class="sec">本周期已花 · 历史转换买入（小计 <span id="mc-zh-tot">630</span> · 占1800）</div>
-  <div class="card"><table>
-    <tr><th>日期</th><th>事项</th><th class="r">金额</th></tr>
-    <tbody id="mc-zhm"></tbody>
-    <tr><td><b>历史转换买入小计</b></td><td></td><td class="r"><b id="mc-zh">630</b></td></tr>
-  </table>
-  <div class="tip">历史"转换买入"概念已于2026-11-08废除（从1800买入统一走集中制/现金池两通道）；此表为该概念废除前周期内实际发生的历史支出</div></div>
   <div class="sec">本周期已花 · 减仓（小计 <span id="mc-jc2-tot">0</span>）</div>
   <div class="card"><div class="li" id="mc-jian">本周期无减仓操作</div>
   <div class="kv" style="margin-top:8px"><span>本周期合计</span><b id="mc-sum">1300 元</b></div></div>
@@ -384,7 +377,7 @@ try{gateCheck();}catch(e){}
       if(sq)sq.textContent=h.debt_pct;
       var ke=document.getElementById('kv-eq-used'),ker=document.getElementById('kv-eq-rem'),kj=document.getElementById('kv-jc-used'),kjr=document.getElementById('kv-jc-rem');
       var _pp2=d.pool||{};var _dp2=_pp2.集中制池||1340,_jb=_pp2.加仓弹药||460;
-      if(ke&&d.channels){var equ=Math.round((d.channels.dingtou||0)+(d.channels.zhuanhuan_mairu||0));ke.textContent=equ;if(ker)ker.textContent=Math.round((_dp2-equ)*10)/10;}
+      if(ke&&d.channels){var equ=Math.round(d.channels.dingtou||0);ke.textContent=equ;if(ker)ker.textContent=Math.round((_dp2-equ)*10)/10;}
       if(kj&&d.channels){kj.textContent=d.channels.jiacang||0;if(kjr)kjr.textContent=Math.round((_jb-(d.channels.jiacang||0))*10)/10;}
       var _jh=document.getElementById('jc-bullet');if(_jh)_jh.textContent=Math.round(_jb);
       if(d.period&&d.period.label){var _pl=d.period.label;var _ph=document.getElementById('period-head');if(_ph)_ph.textContent=_pl.replace('~',' ~ ');var _pd=document.getElementById('payday');if(_pd){var _pdv=_pl.split('~')[0].trim();if(_pdv)_pd.textContent=_pdv;}}
@@ -407,15 +400,13 @@ try{gateCheck();}catch(e){}
         stT('t-zh-row','本周四('+thu+')赎回转权益');
       }
       if(d.channels){
-        var cdt=d.channels.dingtou||0,cjc=d.channels.jiacang||0,czh=d.channels.zhuanhuan_mairu||0,cjn=d.channels.jiancang||0;
+        var cdt=d.channels.dingtou||0,cjc=d.channels.jiacang||0,cjc2=d.channels.jiacang_cash||0,cjn=d.channels.jiancang||0;
         var mdt=document.getElementById('mc-dt-tot'),mjc=document.getElementById('mc-jc-tot');
-        var mzh=document.getElementById('mc-zh-tot'),mzh2=document.getElementById('mc-zh');
         var mj2=document.getElementById('mc-jc2-tot'),mjn=document.getElementById('mc-jian'),msum=document.getElementById('mc-sum');
-        if(mdt)mdt.textContent=cdt;if(mjc)mjc.textContent=cjc;
-        if(mzh)mzh.textContent=czh;if(mzh2)mzh2.textContent=czh;
+        if(mdt)mdt.textContent=cdt;if(mjc)mjc.textContent=(Math.round((cjc+cjc2)*10)/10);
         if(mj2)mj2.textContent=cjn;
         if(mjn)mjn.textContent=(cjn>0?'减仓合计'+cjn+'元':'本周期无减仓操作');
-        if(msum)msum.textContent=(Math.round((cdt+cjc+czh+cjn)*10)/10)+' 元';
+        if(msum)msum.textContent=(Math.round((cdt+cjc+cjc2+cjn)*10)/10)+' 元';
       }
       if(d.wed){
         var mdtb=document.getElementById('mc-dt');
@@ -543,12 +534,11 @@ try{gateCheck();}catch(e){}
     var _tx=d.tx;
     if(_tx){
       function _shn(f){var mm={'创新药':'创新药','新能车':'新能车','有色':'有色','黄金':'黄金','富国':'富国','兴全':'兴全','央企':'央企','信澳':'信澳','财通':'财通'};for(var k in mm){if(String(f).indexOf(k)>=0)return k;}return String(f).slice(0,6);}
-      function _txrows(list){list=list||[];var byd={},ods=[];list.forEach(function(x){if(!byd[x.date]){byd[x.date]=[];ods.push(x.date);}byd[x.date].push(x);});ods.sort();var h='';ods.forEach(function(dt){var its=byd[dt],s=its.reduce(function(a,b){return a+b.amt;},0);var ns=[];its.forEach(function(x){if(x.amt>=0)ns.push(_shn(x.fund)+' '+Math.round(x.amt*100)/100);});h+='<tr><td>'+esc(dt)+'</td><td>'+(its.length>1?ns.join('/')+' = '+(Math.round(s*100)/100):ns.join(''))+'</td><td class="r">'+(Math.round(s*100)/100)+'</td></tr>';});var tot=list.reduce(function(a,b){return a+b.amt;},0);return {html:h,total:tot};}
+      function _txrows(list){list=list||[];var byd={},ods=[];list.forEach(function(x){if(!byd[x.date]){byd[x.date]=[];ods.push(x.date);}byd[x.date].push(x);});ods.sort();var h='';ods.forEach(function(dt){var its=byd[dt],s=its.reduce(function(a,b){return a+b.amt;},0);var ns=[];its.forEach(function(x){if(x.amt>=0)ns.push(_shn(x.fund)+(x.op&&String(x.op).indexOf('现金仓结余')>=0?'(现金仓结余后加仓)':'')+' '+Math.round(x.amt*100)/100);});h+='<tr><td>'+esc(dt)+'</td><td>'+(its.length>1?ns.join('/')+' = '+(Math.round(s*100)/100):ns.join(''))+'</td><td class="r">'+(Math.round(s*100)/100)+'</td></tr>';});var tot=list.reduce(function(a,b){return a+b.amt;},0);return {html:h,total:tot};}
       var _dtm=_txrows(_tx.dingtou);var e1=document.getElementById('mc-dt');if(e1)e1.innerHTML=_dtm.html+'<tr><td><b>定投小计</b></td><td></td><td class="r"><b>'+Math.round(_dtm.total*100)/100+'</b></td></tr>';var e1t=document.getElementById('mc-dt-tot');if(e1t)e1t.textContent=Math.round(_dtm.total*100)/100;
-      var _jcm=_txrows(_tx.jiacang);var e2=document.getElementById('mc-jc');if(e2)e2.innerHTML=_jcm.html+'<tr><td><b>加仓小计</b></td><td></td><td class="r"><b>'+Math.round(_jcm.total*100)/100+'</b></td></tr>';var e2t=document.getElementById('mc-jc-tot');if(e2t)e2t.textContent=Math.round(_jcm.total*100)/100;
-      var _zmm=_txrows(_tx.zhuanhuan_mairu);var e3=document.getElementById('mc-zhm');if(e3)e3.innerHTML=_zmm.html;var e3t=document.getElementById('mc-zh-tot');if(e3t)e3t.textContent=Math.round(_zmm.total*100)/100;var e3b=document.getElementById('mc-zh');if(e3b)e3b.textContent=Math.round(_zmm.total*100)/100;
-      var _jnd=(_tx.jiancang||[]).reduce(function(a,b){return a+b.amt;},0);var e4=document.getElementById('mc-jian');if(e4)e4.textContent=_jnd>0?('减仓'+Math.round(_jnd*100)/100+'元'):'本周期无减仓操作';var e4t=document.getElementById('mc-jc2-tot');if(e4t)e4t.textContent=Math.round(_jnd*100)/100;
-      var _zqm=_txrows(_tx.zhuanhuan_quchu);var e5=document.getElementById('mc-zqc');if(e5)e5.innerHTML=_zqm.html+( _zqm.total?'<tr><td><b>卖旧换新合计</b></td><td></td><td class="r"><b>'+Math.round(_zqm.total*100)/100+'</b></td></tr>':'');var e6=document.getElementById('mc-sum');if(e6)e6.textContent=Math.round((_dtm.total+_jcm.total+_zmm.total+_jnd)*100)/100+' 元';
+      var _jcm=_txrows((_tx.jiacang||[]).concat(_tx.jiacang_cash||[]));var e2=document.getElementById('mc-jc');if(e2)e2.innerHTML=_jcm.html+'<tr><td><b>加仓小计</b></td><td></td><td class="r"><b>'+Math.round(_jcm.total*100)/100+'</b></td></tr>';var e2t=document.getElementById('mc-jc-tot');if(e2t)e2t.textContent=Math.round(_jcm.total*100)/100;
+            var _jnd=(_tx.jiancang||[]).reduce(function(a,b){return a+b.amt;},0);var e4=document.getElementById('mc-jian');if(e4)e4.textContent=_jnd>0?('减仓'+Math.round(_jnd*100)/100+'元'):'本周期无减仓操作';var e4t=document.getElementById('mc-jc2-tot');if(e4t)e4t.textContent=Math.round(_jnd*100)/100;
+      var _zqm=_txrows(_tx.zhuanhuan_quchu);var e5=document.getElementById('mc-zqc');if(e5)e5.innerHTML=_zqm.html+( _zqm.total?'<tr><td><b>卖旧换新合计</b></td><td></td><td class="r"><b>'+Math.round(_zqm.total*100)/100+'</b></td></tr>':'');var e6=document.getElementById('mc-sum');if(e6)e6.textContent=Math.round((_dtm.total+_jcm.total+_jnd)*100)/100+' 元';
     }
     // FH专项B·定投执行计划(plan:B方案=集中制分配预测,含兴全提额30)。修正原硬编码306/194(旧兴全13)
     var _pp=d.plan;
@@ -597,14 +587,14 @@ try{gateCheck();}catch(e){}
     var staleIds=['sum-m-spent','sum-m-remain','sum-m-pos','sum-w-avail','sum-w-total','sum-w-items',
       'sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','m-pos','m-rebal','m-asset',
       'd-total','d-remain','d-remain2','d-spent','d-pool','d-pool2',
-      'mc-dt-tot','mc-jc-tot','mc-zh-tot','mc-zh','mc-jc2-tot','mc-jian','mc-sum',
+      'mc-dt-tot','mc-jc-tot','mc-jc2-tot','mc-jian','mc-sum',
       't-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-sec','t-zh-gate','t-zh-row'];
     staleIds.forEach(function(id){var e=document.getElementById(id);if(e){e.textContent='—';e.style.color='#e07e9c';}});
     ['tb-advice','tb-dtrec','tb-jcrec'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML='<tr><td colspan="4" style="color:#e07e9c">⚠️ 数据未加载,勿信本表</td></tr>';});
   });
   }  // FH-二期·__dataOff 关闭数据写入
   else {  // 关·仅框架:清空所有数据锚点初始占位,只留无id的纯文本死数
-    var _zeros=['g-updated-val','d-total','d-remain','d-remain2','d-spent','d-pool','d-pool2','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zhm','mc-zqc','mc-dt-tot','mc-jc-tot','mc-zh-tot','mc-jc2-tot','mc-zh','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','period-head','payday','jc-bullet','mo-new','mo-replace','mo-sell','mo-action','f-cx','f-nc','f-xq','f-ys','f-hj','f-zh'];
+    var _zeros=['g-updated-val','d-total','d-remain','d-remain2','d-spent','d-pool','d-pool2','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','sum-q-debt','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-card-next','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zqc','mc-dt-tot','mc-jc-tot','mc-jc2-tot','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','period-head','payday','jc-bullet','mo-new','mo-replace','mo-sell','mo-action','f-cx','f-nc','f-xq','f-ys','f-hj','f-zh'];
     _zeros.forEach(function(id){var _e0=document.getElementById(id);if(_e0){if(_e0.tagName==='INPUT'){_e0.value='';}else{_e0.textContent='';}}});
   }
 })();

@@ -370,7 +370,6 @@ function collectReplace(){
   var d=window.__D__||{};var mb=(d.bands&&d.bands.monthly)||{};
   var inc=((mb.cand_review&&mb.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});
   var lines=['【置换/净增回传】回传日:'+_rtDate()];
-  if(!inc.length){lines.push('本期无置换/净增动作（候选均未达建仓线），无需回传');lines.push('请记台账');copyText(lines.join('\n'),'out-rp','op-rp');return;}
   var any=false;
   inc.forEach(function(x,i){
     var v=document.getElementById('rpin-'+i);
@@ -740,7 +739,7 @@ try{gateCheck();}catch(e){}
         var _bsl=document.getElementById('btn-sl');
         if(_bsl){var _st2=(_dd2&&_dd2.止损)||{};var _sev3=d.stop_eval||{};var _hasSell=Object.keys(_st2).some(function(k){var s2=_sev3[k];return s2&&s2.结论==='赎回';});_bsl.disabled=!_hasSell;_bsl.textContent=_hasSell?'✅ 一键生成回传消息':'⏸ 当前无止损赎回指令·无需回传';}
         var _brp=document.getElementById('btn-rp');
-        if(_brp){var _inc3=((_mb2&&_mb2.cand_review&&_mb2.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});_brp.disabled=false;_brp.textContent=_inc3.length?'✅ 一键生成回传消息':'📋 复制本期状态（无置换）';}
+        if(_brp){var _inc3=((_mb2&&_mb2.cand_review&&_mb2.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});_brp.disabled=!_inc3.length;_brp.textContent=_inc3.length?'✅ 一键生成回传消息':'⏸ 本期无置换动作·无需回传';}
       }catch(e){}
     }
     // FH·月度行动结论数据驱动(消灭L192/195硬编码:候选110026/009881、唯一动作9.04)

@@ -780,7 +780,7 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
     // FH: 评估/运行时间具体化(消灭'最新/自动'模糊词,用户可判断数据新旧)
     function _fmtRun(s){s=String(s||'');return s.length>=12?(s.slice(4,6)+'-'+s.slice(6,8)+' '+s.slice(9,11)+':'+s.slice(11,13)):(s.length===8?(s.slice(4,6)+'-'+s.slice(6,8)):'—');}
     var _ar2=document.getElementById('t-adv-run');
-    if(_ar2&&d.wed&&d.wed.advice_run){var _s2=String(d.wed.advice_run);_ar2.textContent=_s2.slice(4,6)+'-'+_s2.slice(6,8);}
+    if(_ar2&&d.wed&&d.wed.advice_run){_ar2.textContent=_fmtRun(d.wed.advice_run);}
     var _bw3=document.getElementById('badge-wait-txt');
     if(_bw3&&d.dt_thursday)_bw3.textContent='待确认 · 周四('+d.dt_thursday+') 15:00 实扣后回传';
     var _bd2=d.bands||{};

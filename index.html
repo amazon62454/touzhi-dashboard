@@ -464,7 +464,7 @@ try{gateCheck();}catch(e){}
         var _dv6=[];
         _b6.forEach(function(x){if(x[1]!=null){var _d6=x[1]-x[2];if(Math.abs(_d6)>_tol6)_dv6.push(x[0]+(_d6>0?'高':'低')+(Math.round(Math.abs(_d6)*100)/100)+'个百分点');}});
         var _ratio6='权益'+h.equity_pct+'/债券'+h.debt_pct+'/现金'+_cp6;
-        sp.textContent=_dv6.length?(_ratio6+' · 🔴'+_dv6.join(';')):(_ratio6+' · 🟢仓位正常');
+        sp.innerHTML=_dv6.length?(_ratio6+'<br><span class="dow">🔴'+_dv6.join(';')+'</span>'):(_ratio6+' · 🟢仓位正常');
       }
       var wa=document.getElementById('sum-w-avail'),wl=document.getElementById('sum-w-label');
       if(wa&&d.period)wa.textContent=d.period.remain;

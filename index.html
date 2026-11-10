@@ -626,8 +626,9 @@ try{gateCheck();}catch(e){}
       var _p2=[];var _dd3=d.bands&&d.bands.daily;
       if(_dd3&&_dd3.回撤&&_dd3.回撤.说明){_p2.push(esc(_dd3.回撤.说明.replace(/\s+/g,'')));}
       var _mbs2=d.bands&&d.bands.monthly&&d.bands.monthly.方向扫描;
-      if(_mbs2&&_mbs2.length){var _yv=[];_mbs2.forEach(function(x){var _pc=x.分位;if(_pc==null)return;var _bd2;if(_pc<10)_bd2='极度低估';else if(_pc<30)_bd2='低估';else if(_pc<90)return;else _bd2='高估';if(_bd2)_yv.push(esc(x.名称)+' '+(Math.round(_pc*100)/100)+'%'+esc(_bd2));});if(_yv.length)_p2.push('估值:'+_yv.join('+'));}
-      if(_p2.length)_dsum.textContent=_p2.join(' · ');else _dsum.textContent='数据待引擎加载';
+      // FH30(2026-11-10):摘要只列两端异常(<10%极度低估/>90%极度高估),普通低估/高估详情里看;回撤/估值分行
+      if(_mbs2&&_mbs2.length){var _yv=[];_mbs2.forEach(function(x){var _pc=x.分位;if(_pc==null)return;if(_pc<10)_yv.push(esc(x.名称)+' '+(Math.round(_pc*100)/100)+'%极度低估');else if(_pc>90)_yv.push(esc(x.名称)+' '+(Math.round(_pc*100)/100)+'%极度高估');});if(_yv.length)_p2.push('估值异常:'+_yv.join('+'));}
+      if(_p2.length)_dsum.innerHTML=_p2.join('<br>');else _dsum.textContent='数据待引擎加载';
     }
     // ---- FH-二期·月度档判决渲染(bands.monthly/quarter,引擎数据) ----
     var mb=d.bands&&d.bands.monthly;

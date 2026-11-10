@@ -62,9 +62,9 @@
   </div>
   <div class="band-card" onclick="go('monthend')">
     <div class="row1"><span class="n"><span class="pill" style="background:#e07e9c"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
-    <div class="d">现在有多少钱 / 本月还剩多少没花</div>
+    <div class="d">现在有多少钱 / 本周期还剩多少没花</div>
     <div class="next">实时账本 · 更新 <span id="card-upd-monthend">—</span></div>
-    <div class="sum">可动用 <span id="sum-w-avail">500</span> · 本周期(<span id="sum-w-label">10-20~11-19</span>)剩余</div>
+    <div class="sum">本周期剩余可动用 <span id="sum-w-avail">500</span> 元（<span id="sum-w-label">10-20~11-19</span>）</div>
   </div>
   
   <div class="band-card" onclick="go('daily')">
@@ -791,8 +791,9 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
       if(e1&&p[2]&&p[2].run)e1.textContent=_fmtRun(p[2].run);
       if(e2&&p[2]&&p[2].基准)e2.textContent=p[2].基准;
     });
-    var _cu0={wed:(d.wed&&d.wed.advice_run)||null,daily:(_bd2.daily&&_bd2.daily.run)||null,monthly:(_bd2.monthly&&_bd2.monthly.run)||null,quarter:(_bd2.quarter&&_bd2.quarter.run)||null,monthend:(_bd2.monthend&&_bd2.monthend.run)||null};
+    var _cu0={wed:(d.wed&&d.wed.advice_run)||null,daily:(_bd2.daily&&_bd2.daily.run)||null,monthly:(_bd2.monthly&&_bd2.monthly.run)||null,quarter:(_bd2.quarter&&_bd2.quarter.run)||null}; // FH40:monthend取消,资金卡更新时间由updated_at单独填
     for(var _ck0 in _cu0){var _ce0=document.getElementById('card-upd-'+_ck0);if(_ce0)_ce0.textContent=_cu0[_ck0]?_fmtRun(_cu0[_ck0]):'—';}
+    var _ceM=document.getElementById('card-upd-monthend');if(_ceM&&d.updated_at)_ceM.textContent=d.updated_at; // FH40:资金卡(原monthend)更新时间=周期账本生成时间
     // FH(2026-11-09):非周三评估→不显示定投建议金额(仅周三最新五维给建议,用户多次反馈)
     if(d.wed&&d.wed.advice_valid===false){
       var tbaX=document.getElementById('tb-advice');

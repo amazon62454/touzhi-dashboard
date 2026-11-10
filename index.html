@@ -443,7 +443,7 @@ try{gateCheck();}catch(e){}
         if(Math.abs(h.debt_pct-_tb)>_tol)_dev.push('债券'+(h.debt_pct>_tb?'高':'低'));
         if(Math.abs(h.cash_pct-_tc)>_tol)_dev.push('现金'+(h.cash_pct>_tc?'高':'低'));
         var flag=_dev.length?'<span class="dow">🔴'+_dev.join(';')+'超容差</span>':'<span class="up">🟢三项在容差内</span>';
-        mp.innerHTML='仓位 权益'+h.equity_pct+'%('+h.equity+'元)/债券'+h.debt_pct+'%('+h.debt+'元)/现金'+h.cash_pct+'%('+h.cash+'元) <span class="mid">vs 目标'+_tq+'/'+_tb+'/'+_tc+'(容差'+_tol+'个百分点)</span> '+flag;
+        mp.innerHTML='仓位 权益'+h.equity_pct+'%('+h.equity+'元)/债券'+h.debt_pct+'%('+h.debt+'元)/现金'+h.cash_pct+'%('+h.cash+'元)<br><span class="mid">vs 目标'+_tq+'/'+_tb+'/'+_tc+'(容差'+_tol+'个百分点)</span> '+flag;
       }
       var bt2=document.getElementById('wed-bond-tip');
       if(bt2){
@@ -752,7 +752,7 @@ try{gateCheck();}catch(e){}
     if(_mc){var _cr=mb&&mb.cand_review&&mb.cand_review.候选?mb.cand_review.候选:[];
       if(_cr.length){
         var _inc=_cr.filter(function(x){return x.判定==='纳入置换';});
-        var _ct=_cr.map(function(x){var nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');var sc=x.评分!=null?('评分'+x.评分):'评分缺失';return x.判定==='纳入置换'?('<b>'+nm+'</b>·✅纳入 '+(x.动作||'')):(nm+'('+sc+')·<font class="dow">不纳入</font>('+(x.理由||'')+')');}).join('；');
+        var _ct=_cr.map(function(x){var nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');var sc=x.评分!=null?('评分'+x.评分):'评分缺失';return x.判定==='纳入置换'?('<b>'+nm+'</b>·✅纳入 '+(x.动作||'')):(nm+'('+sc+')·<font class="dow">不纳入</font>('+(x.理由||'')+')');}).join('<br>');
         _mc.innerHTML='<b>买入新建仓</b>：'+_ct+(mb.cand_review.最弱被动&&mb.cand_review.最弱被动.方向?('<br><span class="mid">引擎四项终审·置换基准=最弱被动:'+esc(mb.cand_review.最弱被动.方向)+(mb.cand_review.最弱被动.分位!=null?('('+mb.cand_review.最弱被动.分位+'%)'):'')+';本轮无置换/净增动作(候选均未达建仓线)。若未来纳入:置换=卖出最弱被动1:1换入(本档给指令,执行后回传记台账);P102净增=第1名分位≥10%时预算内净增</span>'):'');
       }else if(mb&&mb.全市场候选&&mb.全市场候选.length){
         var _candArr=mb.全市场候选;var _cs=d.wed&&d.wed.cand_scores?d.wed.cand_scores:[],_mp={};_cs.forEach(function(x){if(x.方向)_mp[x.方向]=x;});

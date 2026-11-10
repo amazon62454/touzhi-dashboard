@@ -76,7 +76,7 @@
   
   <div class="band-card" onclick="go('wed')">
     <div class="row1"><span class="n"><span class="pill" style="background:#3b82f6"></span>周日档 · 定投预提示</span><span class="arrow">›</span></div>
-    <div class="d"><span id="t-card-d">周一(11-16)投哪些</span> / 多少钱 · 集中制档位分配 · 加仓评估</div>
+    <div class="d"><span id="t-card-d">定投建议</span> / 多少钱 · 集中制档位分配 · 加仓评估</div>
     <div class="next">下次 · <span id="t-next-zh">周日 11-15</span> 12:00 · 更新 <span id="card-upd-wed">—</span></div>
     <div class="sum">权益本周 <b id="sum-w-total">…</b>元 · <span id="sum-w-items">…</span> · <span id="w-sum-tag">…</span></div>
   </div>
@@ -325,7 +325,7 @@ function gateCheck(){
   var __thu=(window.__DATA__&&window.__DATA__.dt_thursday)||'';
   var __fri=__thu?'':'';if(__thu){var __t=new Date();var __fd=new Date(Number(__t.getFullYear()),parseInt(__thu.slice(0,2),10)-1,parseInt(__thu.slice(3,5),10)+1);__fri=(__fd.getMonth()+1<10?'0':'')+(__fd.getMonth()+1)+'-'+(__fd.getDate()<10?'0':'')+__fd.getDate();}
   if(dt){g1.textContent='✅ 已到确认时间，可填写实际扣款金额';g1.classList.add('on');}
-  else{g1.textContent='⏳ 未到确认时间：周一('+__thu+') 15:00 实扣完成后开放填写';g1.classList.remove('on');}
+  else{g1.textContent='⏳ 未到确认时间：周'+['日','一','二','三','四','五','六'][new Date((new Date().getFullYear()),+__thu.slice(0,2)-1,+__thu.slice(3,5)).getDay()]+'('+__thu+') 15:00 实扣完成后开放填写';g1.classList.remove('on');}
   var fz=document.getElementById('f-zh');if(fz)fz.disabled=!zh;
   var bz=document.getElementById('btn-zh');if(bz)bz.disabled=!zh;
   var g2=document.getElementById('gate-zh');
@@ -489,13 +489,13 @@ try{gateCheck();}catch(e){}
         var _wk=function(x){var _yy=new Date().getFullYear();var _dt=new Date(_yy,parseInt(x.slice(0,2),10)-1,parseInt(x.slice(3,5),10));return '日一二三四五六'[_dt.getDay()];};
         stT('t-next-zh','周'+_wk(_prev(thu))+' '+_prev(thu));
         stT('t-next-dt',thu);
-        stT('t-card-d','周一('+thu+')投哪些');
-        stT('t-sub','周一('+thu+')执行');
+        stT('t-card-d','周'+_wk(thu)+'('+thu+')投哪些');
+        stT('t-sub','周'+_wk(thu)+'('+thu+')执行');
         stT('t-dt-sec','周'+_wk(thu)+' '+thu);
         stT('t-dt-gate','周'+_wk(thu)+'('+thu+')');
         stT('t-zh-sec','周'+_wk(fri)+' '+fri);
         stT('t-zh-gate','周'+_wk(fri)+'('+fri+')');
-        stT('t-zh-row','周一('+thu+')赎回转权益');
+        stT('t-zh-row','周'+_wk(thu)+'('+thu+')赎回转权益');
       }
       if(d.channels){
         var cdt=d.channels.dingtou||0,cjc=d.channels.jiacang||0,cjc2=d.channels.jiacang_cash||0,cjn=d.channels.jiancang||0;
@@ -567,7 +567,7 @@ try{gateCheck();}catch(e){}
         h+='<tr><td><b>本周定投合计</b></td><td class="r"><b>'+(w.advice_total||0)+'</b></td></tr>';
         ta.innerHTML=h;
         var cap=document.getElementById('cap-advice');
-        if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='周一('+(d.dt_thursday||'')+')定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}
+        if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='周'+_wk(d.dt_thursday||'')+'('+(d.dt_thursday||'')+')定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}
       }
       var tdr=document.getElementById('tb-dtrec');
       if(tdr&&w.dt_records&&w.dt_records.length){
@@ -591,7 +591,7 @@ try{gateCheck();}catch(e){}
       var wb=document.querySelector('#view-wed .badge-wait');
       if(wb){wb.textContent='已执行 ✅';wb.className='badge badge-ok';}
       var gd=document.getElementById('gate-dt');
-      if(gd){gd.textContent='✅ 周一('+(d.dt_thursday||'')+')定投已确认（台账完整）·无需回传';}
+      if(gd){gd.textContent='✅ 周'+_wk(d.dt_thursday||'')+'('+(d.dt_thursday||'')+')定投已确认（台账完整）·无需回传';}
       var tb=document.getElementById('tbl-dt');if(tb)tb.style.display='none';
       var bt=document.getElementById('btn-dt');if(bt)bt.style.display='none';
     }
@@ -733,7 +733,7 @@ try{gateCheck();}catch(e){}
         var _qact2=(d.bands&&d.bands.quarter&&d.bands.quarter.动作)||'';
         var bf=(d.holdings&&d.holdings.bond_fund)||null;
         if(_qact2&&bf&&bf.code){
-          var _zhlabel='周一('+(d.dt_thursday||'')+')赎回转权益';
+          var _zhlabel='周'+_wk(d.dt_thursday||'')+'('+(d.dt_thursday||'')+')赎回转权益';
           zf.innerHTML='<tr><td>'+esc(_shn(bf.name))+' '+bf.code+' <span id="t-zh-row">'+_zhlabel+'</span></td><td class="r"><input class="inp" id="f-zh" type="number" data-name="'+esc(_shn(bf.name))+bf.code+'" placeholder="实扣后填" min="0" disabled></td></tr>';
         }else{zf.innerHTML='<tr><td>当前无债基转换动作（再平衡未启动或已退出）</td><td></td></tr>';}
       }
@@ -786,7 +786,7 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
     var _ar2=document.getElementById('t-adv-run');
     if(_ar2&&d.wed&&d.wed.advice_run){_ar2.textContent=_fmtRun(d.wed.advice_run);}
     var _bw3=document.getElementById('badge-wait-txt');
-    if(_bw3&&d.dt_thursday)_bw3.textContent='待确认 · 周一('+d.dt_thursday+') 15:00 实扣后回传';
+    if(_bw3&&d.dt_thursday)_bw3.textContent='待确认 · 周'+_wk(d.dt_thursday)+'('+d.dt_thursday+') 15:00 实扣后回传';
     var _bd2=d.bands||{};
     [['dd-run','dd-base',_bd2.daily],['mo-run','mo-base',_bd2.monthly],['q-run','q-base',_bd2.quarter]].forEach(function(p){
       var e1=document.getElementById(p[0]),e2=document.getElementById(p[1]);
@@ -799,9 +799,9 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
     // FH(2026-11-09):非周日评估→不显示定投建议金额(仅周日最新五维给建议,用户多次反馈)
     if(d.wed&&d.wed.advice_valid===false){
       var tbaX=document.getElementById('tb-advice');
-      if(tbaX)tbaX.innerHTML='<tr><td colspan="2">周一('+(d.dt_thursday||'')+')定投建议：待本周日('+(d.wed.adv_eval_day||'评估')+')评估后生成 —— 仅周日评估给出最新五维建议，非评估日不给过时建议</td></tr>';
+      if(tbaX)tbaX.innerHTML='<tr><td colspan="2">周'+_wk(d.dt_thursday||'')+'('+(d.dt_thursday||'')+')定投建议：待本周日('+(d.wed.adv_eval_day||'评估')+')评估后生成 —— 仅周日评估给出最新五维建议，非评估日不给过时建议</td></tr>';
       var capX=document.getElementById('cap-advice');
-      if(capX)capX.textContent=(d.dt_thursday?('周一('+d.dt_thursday+')定投建议·'):'')+'待评估';
+      if(capX)capX.textContent=(d.dt_thursday?('周'+_wk(d.dt_thursday)+'('+d.dt_thursday+')定投建议·'):'')+'待评估';
       var bwX=document.getElementById('badge-wait-txt');
       if(bwX)bwX.textContent='待周日评估';
     }

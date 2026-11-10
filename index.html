@@ -247,7 +247,7 @@
 </div>
 <div id="view-monthend" class="view" style="display:none">
   <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>资金状态 · 实时账本</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
-  <div class="sec">本月动作全景<br><span class="mid" style="font-size:12px">月末总结 · <span id="me-run">—</span><span id="me-testtag"></span></span></div>
+  <div class="sec">本周期动作全景<br><span class="mid" style="font-size:12px">周期 · <span id="me-run">—</span><span id="me-testtag"></span></span></div>
   <div class="card"><div id="me-panorama">…</div></div>
   <div class="sec">现在有多少钱（实际可动用）</div>
   <div class="card">
@@ -603,19 +603,16 @@ try{gateCheck();}catch(e){}
     var _mtg=document.getElementById('mo-testtag');if(_mtg&&_mb2){_mtg.textContent=(_mb2.测试态?' · ⚠️测试态数据(非正式)':'');}
     var _qb3=d.bands&&d.bands.quarter;
     var _qtg=document.getElementById('q-testtag');if(_qtg&&_qb3){_qtg.textContent=(_qb3.测试态?' · ⚠️测试态数据(非正式)':'');}
-    var _me=null; // FH38:月结档取消,bands.monthend不再产出;刷新时间改用全局updated_at
-    if(_me){
-      var _mr2=document.getElementById('me-run');if(_mr2)_mr2.textContent=String(d.updated_at||'').slice(5,10).replace(/-/g,'-');
-      var _mt3=document.getElementById('me-testtag');if(_mt3)_mt3.textContent='';
-      var _mp=document.getElementById('me-panorama');
-      if(_mp){
+    var _mt9=document.getElementById('me-run');if(_mt9)_mt9.textContent='每月20日~次月19日'; // FH38:月结档取消,本块改周期口径;me-run显示周期范围
+    var _mt3=document.getElementById('me-testtag');if(_mt3)_mt3.textContent='';
+    var _mp=document.getElementById('me-panorama');
+    if(_mp){
         // FH36(2026-11-10):数据源改周期流水(d.tx,10-20~11-19),与页内'本周期已花'同源同口径;原月结档自然月判决与页面其他区块不一致(160vs548)
         var _tx2=d.tx||{};
         var _cnt=function(l){return (l||[]).length;},_sum=function(l){return Math.round((l||[]).reduce(function(a,b){return a+(b.amt||0);},0)*100)/100;};
         var _jc2=(_tx2.jiacang||[]).concat(_tx2.jiacang_cash||[]);
         _mp.innerHTML='定投 <b>'+_cnt(_tx2.dingtou)+'</b> 笔/'+_sum(_tx2.dingtou)+'元<br>加仓 <b>'+_cnt(_jc2)+'</b> 笔/'+_sum(_jc2)+'元 · 转换取出 <b>'+_cnt(_tx2.zhuanhuan_quchu)+'</b> 笔/'+_sum(_tx2.zhuanhuan_quchu)+'元<br><span class="mid">周期口径(每月20号~次月19号);封账结转于每月20号由月度档完成</span>';
       }
-    }
     var tdt=document.getElementById('dd-trig');
     if(dd&&dd.触发项&&tdt){var hh='';(dd.触发项||[]).forEach(function(x){hh+='<tr><td>'+esc(x.名称)+'</td><td class="'+_dd_cls(x.状态)+'">'+esc(x.状态)+'</td><td>'+esc(x.说明)+'</td></tr>';});tdt.innerHTML=hh;}
     var tde=document.getElementById('dd-tech');

@@ -603,10 +603,10 @@ try{gateCheck();}catch(e){}
     var _mtg=document.getElementById('mo-testtag');if(_mtg&&_mb2){_mtg.textContent=(_mb2.测试态?' · ⚠️测试态数据(非正式)':'');}
     var _qb3=d.bands&&d.bands.quarter;
     var _qtg=document.getElementById('q-testtag');if(_qtg&&_qb3){_qtg.textContent=(_qb3.测试态?' · ⚠️测试态数据(非正式)':'');}
-    var _me=d.bands&&d.bands.monthend;
+    var _me=null; // FH38:月结档取消,bands.monthend不再产出;刷新时间改用全局updated_at
     if(_me){
-      var _mr2=document.getElementById('me-run');if(_mr2)_mr2.textContent=String(_me.run||'').slice(0,8);
-      var _mt3=document.getElementById('me-testtag');if(_mt3)_mt3.textContent=(_me.测试态?' · ⚠️测试态(非正式)':'');
+      var _mr2=document.getElementById('me-run');if(_mr2)_mr2.textContent=String(d.updated_at||'').slice(5,10).replace(/-/g,'-');
+      var _mt3=document.getElementById('me-testtag');if(_mt3)_mt3.textContent='';
       var _mp=document.getElementById('me-panorama');
       if(_mp){
         // FH36(2026-11-10):数据源改周期流水(d.tx,10-20~11-19),与页内'本周期已花'同源同口径;原月结档自然月判决与页面其他区块不一致(160vs548)

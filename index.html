@@ -63,7 +63,7 @@
   <div class="band-card" onclick="go('monthend')">
     <div class="row1"><span class="n"><span class="pill" style="background:#e07e9c"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
     <div class="d">现在有多少钱 / 本月还剩多少没花</div>
-    <div class="next">月末封账 · 更新 <span id="card-upd-monthend">—</span></div>
+    <div class="next">月末总结 · 更新 <span id="card-upd-monthend">—</span></div>
     <div class="sum">可动用 <span id="sum-w-avail">500</span> · 本周期(<span id="sum-w-label">10-20~11-19</span>)剩余</div>
   </div>
   
@@ -246,8 +246,8 @@
 </div>
 </div>
 <div id="view-monthend" class="view" style="display:none">
-  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月结档 · 封账全景</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
-  <div class="sec">本月动作全景<br><span class="mid" style="font-size:12px">月结封账 · <span id="me-run">—</span><span id="me-testtag"></span></span></div>
+  <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月结档 · 月末总结</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
+  <div class="sec">本月动作全景<br><span class="mid" style="font-size:12px">月末总结 · <span id="me-run">—</span><span id="me-testtag"></span></span></div>
   <div class="card"><div id="me-panorama">…</div></div>
   <div class="sec">现在有多少钱（实际可动用）</div>
   <div class="card">
@@ -611,7 +611,7 @@ try{gateCheck();}catch(e){}
       if(_mp){
         var _pp=_me.动作全景||{};
         var _f2=function(x){return (x||{});};
-        _mp.innerHTML='定投 <b>'+((_f2(_pp.定投)).笔数||0)+'</b> 笔/'+((_f2(_pp.定投)).金额||0)+'元<br>加仓 <b>'+((_f2(_pp.加仓)).笔数||0)+'</b> 笔/'+((_f2(_pp.加仓)).金额||0)+'元 · 转换 <b>'+((_f2(_pp.转换)).笔数||0)+'</b> 笔/'+((_f2(_pp.转换)).金额||0)+'元<br><span class="mid">月末最后一天12:00自动封账,全景数据来自月结判决</span>';
+        _mp.innerHTML='定投 <b>'+((_f2(_pp.定投)).笔数||0)+'</b> 笔/'+((_f2(_pp.定投)).金额||0)+'元<br>加仓 <b>'+((_f2(_pp.加仓)).笔数||0)+'</b> 笔/'+((_f2(_pp.加仓)).金额||0)+'元 · 转换 <b>'+((_f2(_pp.转换)).笔数||0)+'</b> 笔/'+((_f2(_pp.转换)).金额||0)+'元<br><span class="mid">自然月末12:00总结(不动钱);封账结转已于每月20号由月度档完成</span>';
       }
     }
     var tdt=document.getElementById('dd-trig');

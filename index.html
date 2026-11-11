@@ -99,7 +99,7 @@
     <div class="row1"><span class="n"><span class="pill" style="background:#3b82f6"></span>周六档 · 定投预提示</span><span class="arrow">›</span></div>
     <div class="d"><span id="t-card-d">周一(11-16)投哪些</span> / 多少钱 · 集中制档位分配 · 加仓评估</div>
     <div class="next">下次 · <span id="t-next-zh">周六 11-14</span> 12:00 · 更新 <span id="card-upd-wed">—</span></div>
-    <div class="sum">权益本周 <b id="sum-w-total">…</b>元 · <span id="sum-w-items">…</span> · <span id="w-sum-tag">…</span></div>
+    <div class="sum" id="w-sum-main">…</div>
   </div>
   
   <div class="band-card" onclick="go('monthly')">
@@ -481,6 +481,8 @@ function collectZH(){
 try{gateCheck();}catch(e){}
 (function(){
   function setG(txt,color){var e=document.getElementById('g-updated-val');if(e){e.textContent=txt;e.style.color=color||'#e8c268';}}
+  var _nextSat=function(){var d=new Date(),w=d.getDay(),add=(6-w+7)%7;if(add===0)add=7;var t=new Date(d.getTime()+add*86400000);return (t.getMonth()+1)+'-'+t.getDate();};
+  var _nextM20=function(){var d=new Date(),m=d.getMonth()+1,day=d.getDate();if(day<20)return m+'-20';m=m+1;if(m>12)m=1;return m+'-20';};
   function render(d){
     window.__DATA__=d;  // 2026-11-09修:模板__DATA__静态null,真实数据靠fetch;此处回填使gateCheck/winOpen能读到dt_thursday(定投执行日·周一)
     function set(id,v){var e=document.getElementById(id);if(e&&v!=null)e.textContent=v;}
@@ -605,14 +607,13 @@ try{gateCheck();}catch(e){}
           mjtb.innerHTML=h5;
         }
       }
-      var wt=document.getElementById('sum-w-total'),wi=document.getElementById('sum-w-items');
-      if(wt&&d.wed&&d.wed.advice_total!=null)wt.textContent=d.wed.advice_total;
-      else if(wt){wt.textContent='待周六评估';if(wi)wi.textContent='本周一定投建议周六(11-14)12:00评估后更新';}
-      if(wi&&d.wed&&d.wed.advice&&d.wed.advice.length){
-        var nm2={'创新药':'创新药','新能车':'新能车','兴全':'兴全','有色':'有色','黄金':'黄金','富国':'富国'};
-        var parts=[];
-        d.wed.advice.forEach(function(x){var n=nm2[x.name.slice(0,3)]||x.name.slice(0,4);parts.push(n+(x.amt||0));});
-        wi.textContent=parts.join(' ');
+      var _wsm=document.getElementById('w-sum-main');
+      if(_wsm){
+        if(d.wed&&d.wed.advice_total!=null&&d.wed.advice&&d.wed.advice.length){
+          var nm2={'创新药':'创新药','新能车':'新能车','兴全':'兴全','有色':'有色','黄金':'黄金','富国':'富国'};
+          var parts=[];d.wed.advice.forEach(function(x){var n=nm2[x.name.slice(0,3)]||x.name.slice(0,4);parts.push(n+(x.amt||0));});
+          _wsm.innerHTML='权益本周 <b>'+d.wed.advice_total+'</b>元 · '+esc(parts.join(' '));
+        }else{_wsm.textContent='未到周六评估日（下次'+_nextSat()+'）';}
       }
     }
     if(d.wed){
@@ -767,10 +768,9 @@ try{gateCheck();}catch(e){}
         }
       }
     }
-    var _wsun=document.getElementById('w-sum-tag');
-    if(_wsun&&dd&&dd.估值){var _nm=_CS;var _jd=[];for(var _c0 in dd.估值){var _it=dd.估值[_c0];if(_it&&_it.档位==='极度低估'&&_nm[_c0])_jd.push(_nm[_c0]);}_wsun.textContent=_jd.length?(_jd.join('&')+'极度低估待评分'):'';}
+    // 周六卡已整体渲染(w-sum-main),w-sum-tag废弃
     var _msl=document.getElementById('m-sum-lead');
-    if(_msl&&mb){var _crr0=(mb.cand_review&&mb.cand_review.候选)||[];var _hc=_crr0.some(function(x){return x.判定==='纳入置换';})?'纳入置换':'不换仓';var _cy2=null;if(mb.方向扫描)mb.方向扫描.forEach(function(x){if(String(x.名称||'').indexOf('创新药')>=0)_cy2=x;});_msl.textContent=_hc+(_cy2&&_cy2.分位!=null?(' · '+_cy2.名称+' '+Math.round(_cy2.分位*100)/100+'%交周六评分'):'');}
+    if(_msl){if(mb&&!mb.测试态){var _crr0=(mb.cand_review&&mb.cand_review.候选)||[];var _hc=_crr0.some(function(x){return x.判定==='纳入置换';})?'纳入置换':'不换仓';var _cy2=null;if(mb.方向扫描)mb.方向扫描.forEach(function(x){if(String(x.名称||'').indexOf('创新药')>=0)_cy2=x;});_msl.textContent=_hc+(_cy2&&_cy2.分位!=null?(' · '+_cy2.名称+' '+Math.round(_cy2.分位*100)/100+'%交周六评分'):'');}else{_msl.textContent='未到月度评估日（下次'+_nextM20()+'）';}}
     var _qsm=document.getElementById('q-sum');
     if(_qsm&&qb2){var _pr=[];if(qb2.组合数量!=null)_pr.push('组合'+qb2.组合数量+'只(8-12内)');var _rbm=String(qb2.再平衡||'').match(/债比[0-9.]+%>[0-9.]+%/);_pr.push(_rbm?_rbm[0].replace('债比','债比')+'启动再平衡':'债比评估');var _scm=String(qb2.赛道集中度||'').match(/合计[0-9.]+%/);_pr.push(_scm?('赛道'+_scm[0].replace('合计','')+'未超上限'):'赛道评估');_qsm.textContent=_pr.join(' · ');}
     else if(_qsm&&!qb2){_qsm.textContent='未到季度评估日（下次'+_nq()+'）';}

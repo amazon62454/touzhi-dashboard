@@ -694,8 +694,9 @@ try{gateCheck();}catch(e){}
     if(mb&&ms){var _srcC=(mb.全市场候选池&&mb.全市场候选池.length)?mb.全市场候选池:(mb.方向扫描||[]);var mh='';_srcC.forEach(function(x){var p=x.分位;var bd='合理',cls='up';if(p==null){bd='待数据';}else if(p<10){bd='极度低估';}else if(p<30){bd='低估';}else if(p<70){bd='合理';cls='';}else if(p<90){bd='高估';cls='dow';}else{bd='极度高估';cls='dow';}var _tag=(mb.全市场候选池&&x.来源)?(' <span class="mid">['+esc(x.来源)+(x.data_date?('·'+String(x.data_date).slice(0,10)):'')+']</span>'):'';mh+='<tr><td>'+esc(x.名称)+(x.代码?(' '+x.代码):'')+_tag+'</td><td class="r">'+(p==null?'—':(p+'%'))+'</td><td class="'+cls+'">'+esc(bd)+'</td></tr>';});ms.innerHTML=mh;}
     var mp=document.getElementById('mh-pos');
     var qb=d.bands&&d.bands.quarter;
-    var psrc=qb&&qb.持仓?qb.持仓:null;
-    if(psrc&&mp){var ph='';(psrc||[]).forEach(function(x){ph+='<tr><td>'+esc(x.名称)+(x.代码?' '+x.代码:'')+'</td><td class="r">'+(x.占比!=null?(x.占比+'%'):'—')+'</td></tr>';});mp.innerHTML=ph;}
+    var _pos=d.holdings&&d.holdings.positions;
+    if(mp&&_pos&&_pos.length){var ph='';_pos.forEach(function(x){ph+='<tr><td>'+esc(x.名称)+(x.代码?' '+x.代码:'')+'</td><td class="r">'+(x.占比!=null?(x.占比+'%'):'—')+'</td></tr>';});mp.innerHTML=ph;}
+    else if(mp){mp.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">暂无持仓数据</td></tr>';}
     // ---- FH-二期·季度档判决渲染(bands.quarter,引擎数据) ----
     var qb2=d.bands&&d.bands.quarter;
     var qc=document.getElementById('qtr-conf');

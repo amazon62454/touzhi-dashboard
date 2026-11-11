@@ -519,6 +519,7 @@ try{gateCheck();}catch(e){}
   function setG(txt,color){var e=document.getElementById('g-updated-val');if(e){e.textContent=txt;e.style.color=color||'var(--c-amber)';}}
   var _nextSat=function(){var d=new Date(),w=d.getDay(),add=(6-w+7)%7;if(add===0)add=7;var t=new Date(d.getTime()+add*86400000);return (t.getMonth()+1)+'-'+t.getDate();};
   var _nextM20=function(){var d=new Date(),m=d.getMonth()+1,day=d.getDate();if(day<20)return m+'-20';m=m+1;if(m>12)m=1;return m+'-20';};
+  var _nextMon=function(){var d=new Date(),w=d.getDay(),add=(1-w+7)%7;if(add===0)add=7;var t=new Date(d.getTime()+add*86400000);return (t.getMonth()+1)+'-'+t.getDate();};
   function render(d){
     window.__DATA__=d;  // 2026-11-09修:模板__DATA__静态null,真实数据靠fetch;此处回填使gateCheck/winOpen能读到dt_thursday(定投执行日·周一)
     function set(id,v){var e=document.getElementById(id);if(e&&v!=null)e.textContent=v;}
@@ -582,7 +583,7 @@ try{gateCheck();}catch(e){}
         var _prev=function(x){var _yy=new Date().getFullYear();var _dd=new Date(_yy,parseInt(x.slice(0,2),10)-1,parseInt(x.slice(3,5),10)-1);return (_dd.getMonth()+1<10?'0':'')+(_dd.getMonth()+1)+'-'+(_dd.getDate()<10?'0':'')+_dd.getDate();};
         // 2026-11-10节奏改:评估日周六(过渡2026-11-11为周三)→星期名按实际日期动态算;执行日周一(过渡周四)
         var _wk=function(x){var _yy=new Date().getFullYear();var _dt=new Date(_yy,parseInt(x.slice(0,2),10)-1,parseInt(x.slice(3,5),10));return '日一二三四五六'[_dt.getDay()];};
-        stT('t-next-zh','周'+_wk(_prev(thu))+' '+_prev(thu));
+        var _sat=_prev(_prev(thu));stT('t-next-zh','周'+_wk(_sat)+' '+_sat);  // 2026-11-11改周六评估:周一减2天=周六(原_prev=周日旧逻辑)
         stT('t-next-dt',thu);
         stT('t-card-d','周一('+thu+')投哪些');
         stT('t-sub','周一('+thu+')执行');

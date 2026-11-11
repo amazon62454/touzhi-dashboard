@@ -144,7 +144,7 @@
   </table>
   <div class="tip">评分依据：估值低估 + 基本面三重共振 + 成交额地量→情绪高分。评分=估值50+四信号各12.5，达门槛70才加仓；暂缓/未达门槛不产生记录（含A类30日闸等合规闸）</div></div>
   <div class="sec">专项检查</div>
-  <div class="card"><div class="ok">引擎自动检查中…异常时在此显示报警</div></div>
+  <div class="card"><div id="wed-check" class="li">引擎自动检查中…</div></div>
   <div class="sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
   <div class="card">
     <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
@@ -772,6 +772,13 @@ try{gateCheck();}catch(e){}
     if(_msl&&mb){var _crr0=(mb.cand_review&&mb.cand_review.候选)||[];var _hc=_crr0.some(function(x){return x.判定==='纳入置换';})?'纳入置换':'不换仓';var _cy2=null;if(mb.方向扫描)mb.方向扫描.forEach(function(x){if(String(x.名称||'').indexOf('创新药')>=0)_cy2=x;});_msl.textContent=_hc+(_cy2&&_cy2.分位!=null?(' · '+_cy2.名称+' '+Math.round(_cy2.分位*100)/100+'%交周六评分'):'');}
     var _qsm=document.getElementById('q-sum');
     if(_qsm&&qb2){var _pr=[];if(qb2.组合数量!=null)_pr.push('组合'+qb2.组合数量+'只(8-12内)');var _rbm=String(qb2.再平衡||'').match(/债比[0-9.]+%>[0-9.]+%/);_pr.push(_rbm?_rbm[0].replace('债比','债比')+'启动再平衡':'债比评估');var _scm=String(qb2.赛道集中度||'').match(/合计[0-9.]+%/);_pr.push(_scm?('赛道'+_scm[0].replace('合计','')+'未超上限'):'赛道评估');_qsm.textContent=_pr.join(' · ');}
+    // 专项检查:引擎触发项(来源 bands.daily.触发项=引擎每日自检10项,周六档同展示)
+    var _wc=document.getElementById('wed-check');
+    if(_wc){
+      var _trig=(d.bands&&d.bands.daily&&d.bands.daily.触发项)||[];
+      if(!_trig.length){_wc.innerHTML='<span class="up">✅ 引擎自检通过，无异常触发项</span>';}
+      else{var _wh='';_trig.forEach(function(t){var _st=String(t.状态||''),_cl=_st.indexOf('🔴')>=0?'dow':(_st.indexOf('🟡')>=0||_st.indexOf('🟠')>=0?'mid':'up');_wh+='<div class="li"><span class="'+_cl+'">'+_st+' '+esc(t.名称||'')+'</span>：'+esc(t.说明||'')+'</div>';});_wc.innerHTML=_wh;}
+    }
     var _inj=document.getElementById('inject-line');
     if(_inj&&d.period&&d.period.injected!=null){_inj.textContent=Math.round(d.period.injected)+' 元';}
     // FH专项A·账本数据驱动(d.tx,唯一源=台账记录·消灭硬编码,列全周期内所有转换取出)

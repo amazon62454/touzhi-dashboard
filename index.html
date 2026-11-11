@@ -344,6 +344,8 @@ function winOpen(kind){
   if(kind==='dt'){return _execOpen(thu,15,ntS,12);}
   return _execOpen(friS,15,ntS,12);
 }
+var _CS={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};
+function _wkDay(x){x=String(x||'');if(!x)return '';var _yy=new Date().getFullYear();var _dt=new Date(_yy,parseInt(x.slice(0,2),10)-1,parseInt(x.slice(3,5),10));return '日一二三四五六'[_dt.getDay()];}
 function gateCheck(){
   var dt=winOpen('dt'),zh=winOpen('zh');
   var fdt=document.querySelectorAll('input[id^="f-dt-"]');
@@ -360,7 +362,7 @@ function gateCheck(){
   var _qa3=(window.__DATA__&&window.__DATA__.bands&&window.__DATA__.bands.quarter&&window.__DATA__.bands.quarter.动作)||'';
   if(!_qa3){g2.textContent='当前无债基转换动作（再平衡未启动或已退出）';g2.classList.remove('on');if(bz)bz.disabled=true;}
   else if(zh){g2.textContent='✅ 已到确认时间，可填写实际转换金额';g2.classList.add('on');}
-  else{g2.textContent='⏳ 未到确认时间：周'+_wk(__fri)+'('+__fri+') 15:00 转换到账后开放填写';g2.classList.remove('on');}
+  else{g2.textContent='⏳ 未到确认时间：周'+_wkDay(__fri)+'('+__fri+') 15:00 转换到账后开放填写';g2.classList.remove('on');}
 }
 function copyText(text,outId,opId){
   // FH20(2026-11-10):三级降级复制——①clipboard API ②execCommand(WebView兼容) ③手动长按
@@ -398,7 +400,7 @@ function collect(){
   copyText(parts.join('\n'),'out','op');
 }
 function collectReplace(){
-  var d=window.__D__||{};var mb=(d.bands&&d.bands.monthly)||{};
+  var d=window.__DATA__||{};var mb=(d.bands&&d.bands.monthly)||{};
   var inc=((mb.cand_review&&mb.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});
   var lines=['【置换/净增回传】回传日:'+_rtDate()];
   var any=false;
@@ -411,10 +413,10 @@ function collectReplace(){
   copyText(lines.join('\n'),'out-rp','op-rp');
 }
 function collectSell(){
-  var d=window.__D__||{};var dd=(d.bands&&d.bands.daily)||{};
+  var d=window.__DATA__||{};var dd=(d.bands&&d.bands.daily)||{};
   var st=dd.止损||{};var _sev2=(d.stop_eval)||{};
   var keys=Object.keys(st).filter(function(k){var s=_sev2[k];return s&&s.结论==='赎回';});
-  var _nm4={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};
+  var _nm4=_CS;
   var lines=['【减仓/止损回传】回传日:'+_rtDate()];var any=false;
   keys.forEach(function(k,i){
     var v=document.getElementById('slin-'+i);
@@ -425,16 +427,16 @@ function collectSell(){
   copyText(lines.join('\n'),'out-sl','op-sl');
 }
 function collectYZ(){
-  var d=window.__D__||{};var lines=['【止盈回传】回传日:'+_rtDate()];var rows=document.querySelectorAll('#tb-yzcf input');var any=false;rows.forEach(function(inp){if(inp.value){lines.push((inp.getAttribute('data-name')||'基金')+' 实际卖出'+inp.value+'元');any=true;}});if(!any){alert('请至少填一笔实际卖出金额');return;}lines.push('请记台账');copyText(lines.join('\n'),'out-yz','op-yz');
+  var d=window.__DATA__||{};var lines=['【止盈回传】回传日:'+_rtDate()];var rows=document.querySelectorAll('#tb-yzcf input');var any=false;rows.forEach(function(inp){if(inp.value){lines.push((inp.getAttribute('data-name')||'基金')+' 实际卖出'+inp.value+'元');any=true;}});if(!any){alert('请至少填一笔实际卖出金额');return;}lines.push('请记台账');copyText(lines.join('\n'),'out-yz','op-yz');
 }
 function collectGY(){
-  var d=window.__D__||{};var lines=["【权益高估止盈回传】回传日:"+_rtDate()];var rows=document.querySelectorAll("#tb-gycf input");var any=false;
+  var d=window.__DATA__||{};var lines=["【权益高估止盈回传】回传日:"+_rtDate()];var rows=document.querySelectorAll("#tb-gycf input");var any=false;
   rows.forEach(function(inp){if(inp.value){lines.push((inp.getAttribute("data-name")||"基金")+" 实际卖出"+inp.value+"元(高估止盈)");any=true;}});
   if(!any){alert("请至少填一笔实际卖出金额");return;}
   lines.push("请记台账");copyText(lines.join("\n"),"out-gy","op-gy");
 }
 function collectJC(){
-  var d=window.__D__||{};var jp=(d.wed&&d.wed.jc_plan)||[];
+  var d=window.__DATA__||{};var jp=(d.wed&&d.wed.jc_plan)||[];
   var lines=['【加仓确认】回传日:'+_rtDate()];
   var any=false;
   jp.forEach(function(x,i){
@@ -458,7 +460,7 @@ try{gateCheck();}catch(e){}
   function render(d){
     window.__DATA__=d;  // 2026-11-09修:模板__DATA__静态null,真实数据靠fetch;此处回填使gateCheck/winOpen能读到dt_thursday(定投执行日·周一)
     function set(id,v){var e=document.getElementById(id);if(e&&v!=null)e.textContent=v;}
-      function esc(s){return String(s).replace(/</g,'&lt;');}
+      function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
       function sn(n){n=String(n==null?'':n);var m={'易方达恒生港股通创新药':'创新药','嘉实中证新能源汽车':'新能车','兴全安泰积极养老':'兴全','国泰黄金':'黄金','华宝中证有色金属':'有色','富国添享':'富国'};for(var k in m){if(n.indexOf(k)>=0)return m[k];}return n.slice(0,4);}
     set('d-total',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
     set('d-remain',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
@@ -699,7 +701,7 @@ try{gateCheck();}catch(e){}
     var _sls=document.getElementById('sl-cf-state'),_slf=document.getElementById('sl-cf-form'),_tsl=document.getElementById('tb-slcf');
     if(_sls){
       var _stx=(dd&&dd.止损)||{};var _sk=Object.keys(_stx);
-      var _nm3={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};
+      var _nm3=_CS;
       if(!_sk.length){_sls.innerHTML='本期无止损/减仓触发，无需回传';_slf.style.display='';_tsl.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">无待执行卖出（无止损赎回指令）</td></tr>';}
       else{
         var _sev=(d.stop_eval)||{};
@@ -725,7 +727,7 @@ try{gateCheck();}catch(e){}
     var _gys=document.getElementById('gy-cf-state'),_gyf=document.getElementById('gy-cf-form'),_tgy=document.getElementById('tb-gycf'),_bgy=document.getElementById('btn-gy');
     if(_gys){
       var _gyx=(dd&&dd.高估止盈)||{};var _gks=Object.keys(_gyx);
-      var _gnm={'024328':'创新药','012544':'新能车','017140':'有色'};
+      var _gnm=_CS;
       if(!_gks.length){_gys.innerHTML='本期无权益高估止盈检查数据';if(_bgy){_bgy.disabled=true;_bgy.textContent='⏸ 无高估止盈信号·无需回传';}}
       else{
         var _ghit=[],_gtxts=[];
@@ -742,7 +744,7 @@ try{gateCheck();}catch(e){}
       }
     }
     var _wsun=document.getElementById('w-sum-tag');
-    if(_wsun&&dd&&dd.估值){var _nm={'024328':'创新药','012544':'新能车','017140':'有色','004253':'黄金'};var _jd=[];for(var _c0 in dd.估值){var _it=dd.估值[_c0];if(_it&&_it.档位==='极度低估'&&_nm[_c0])_jd.push(_nm[_c0]);}_wsun.textContent=_jd.length?(_jd.join('&')+'极度低估待评分'):'';}
+    if(_wsun&&dd&&dd.估值){var _nm=_CS;var _jd=[];for(var _c0 in dd.估值){var _it=dd.估值[_c0];if(_it&&_it.档位==='极度低估'&&_nm[_c0])_jd.push(_nm[_c0]);}_wsun.textContent=_jd.length?(_jd.join('&')+'极度低估待评分'):'';}
     var _msl=document.getElementById('m-sum-lead');
     if(_msl&&mb){var _crr0=(mb.cand_review&&mb.cand_review.候选)||[];var _hc=_crr0.some(function(x){return x.判定==='纳入置换';})?'纳入置换':'不换仓';var _cy2=null;if(mb.方向扫描)mb.方向扫描.forEach(function(x){if(String(x.名称||'').indexOf('创新药')>=0)_cy2=x;});_msl.textContent=_hc+(_cy2&&_cy2.分位!=null?(' · '+_cy2.名称+' '+Math.round(_cy2.分位*100)/100+'%交周六评分'):'');}
     var _qsm=document.getElementById('q-sum');
@@ -877,7 +879,8 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
   window.toggleDataSrc=function(){window.location.href=(location.search.indexOf('data=off')>=0)?'?':'?data=off';};
   if(!window.__dataOff){
   // 2026-11-09 用户拍板:去掉 __DATA__ 内嵌兜底,唯一数据源=h5_data.json(fetch绝对路径)。HTML 为纯框架,页面打开即拉取在线数据。
-  fetch('/touzhi-dashboard/h5_data.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():Promise.reject()}).then(function(d){render(d);setG('✅ '+d.updated_at,'#7ee0a8');}).catch(function(){
+  var _ac=new AbortController();var _tm=setTimeout(function(){_ac.abort();},8000);
+  fetch('/touzhi-dashboard/h5_data.json?v='+Date.now(),{cache:'no-store',signal:_ac.signal}).then(function(r){clearTimeout(_tm);return r.ok?r.json():Promise.reject()}).then(function(d){try{render(d);setG('✅ '+d.updated_at,'#7ee0a8');}catch(_re){setG('⚠️ 渲染异常:'+(_re&&_re.message||_re),'#e07e9c');console.error(_re);}}).catch(function(_fe){clearTimeout(_tm);
     setG('⚠️ 数据源加载失败·勿信本表','#e07e9c');
     // FH16(2026-11-09):fetch失败时所有数值锚点置'—'标红,杜绝静态兜底旧数冒充真值
     var staleIds=['sum-m-spent','sum-m-remain','sum-m-pos','sum-w-avail','sum-w-total','sum-w-items',

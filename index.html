@@ -6,54 +6,90 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>投资五档总览</title>
 <style>
+:root{
+  --c-bg:#0f1620;
+  --c-card:#182230;
+  --c-bg2:#1a2433;
+  --c-bg3:#2c3e50;
+  --c-bg-deep:#07110b;
+  --c-bg-green:#14321f;
+  --c-bd:#233145;
+  --c-bd2:#2a3a4f;
+  --c-bd3:#243448;
+  --c-bd4:#3a4a5f;
+  --c-tx:#e8edf5;
+  --c-tx2:#c9d6e6;
+  --c-mu:#8fa3bd;
+  --c-dim:#8a93a6;
+  --c-tx3:#9fb4cc;
+  --c-dim2:#67788f;
+  --c-dim3:#5b6b82;
+  --c-ok:#7ee0a8;
+  --c-up:#4ade80;
+  --c-g:#2ecc71;
+  --c-dow:#ff6b6b;
+  --c-warn:#fbbf24;
+  --c-blue:#3b82f6;
+  --c-blue2:#60a5fa;
+  --c-link:#6fc3ff;
+  --c-blue3:#cfe6ff;
+  --c-pink:#e07e9c;
+  --c-purple:#b07ee0;
+  --c-amber:#e8c268;
+  --c-amber2:#f6c25c;
+  --c-amber3:#ffd07a;
+  --c-amberbg:#3a2f14;
+  --c-white:#fff;
+}
+
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,"PingFang SC","Miui",sans-serif;background:#0f1620;color:#e8edf5;padding:0 14px 60px;-webkit-tap-highlight-color:transparent}
-  .top{position:sticky;top:0;background:#0f1620;padding:14px 0 10px;z-index:5}
+  body{font-family:-apple-system,"PingFang SC","Miui",sans-serif;background:var(--c-bg);color:var(--c-tx);padding:0 14px 60px;-webkit-tap-highlight-color:transparent}
+  .top{position:sticky;top:0;background:var(--c-bg);padding:14px 0 10px;z-index:5}
   h1{font-size:20px;font-weight:700;letter-spacing:.5px}
-  .sub{font-size:12px;color:#8fa3bd;margin-top:3px}
-  .badge{display:inline-block;font-size:11px;color:#7ee0a8;background:rgba(46,204,113,.12);border:1px solid rgba(46,204,113,.35);border-radius:20px;padding:1px 8px;margin-left:6px}
-  .band-card{background:#182230;border:1px solid #233145;border-radius:16px;padding:15px;margin-bottom:11px;cursor:pointer;transition:transform .08s}
+  .sub{font-size:12px;color:var(--c-mu);margin-top:3px}
+  .badge{display:inline-block;font-size:11px;color:var(--c-ok);background:rgba(46,204,113,.12);border:1px solid rgba(46,204,113,.35);border-radius:20px;padding:1px 8px;margin-left:6px}
+  .band-card{background:var(--c-card);border:1px solid var(--c-bd);border-radius:16px;padding:15px;margin-bottom:11px;cursor:pointer;transition:transform .08s}
   .band-card:active{transform:scale(.98)}
   .band-card .row1{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
   .band-card .n{font-size:15px;font-weight:700}
   .band-card .pill{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
-  .band-card .next{font-size:11px;color:#6fc3ff}
-  .band-card .d{font-size:12px;color:#8fa3bd;line-height:1.5}
-  .band-card .sum{margin-top:7px;font-size:12px;color:#c9d6e6;background:#0f1620;border-radius:8px;padding:7px 9px;line-height:1.5}
-  .arrow{color:#5b6b82;font-size:14px}
-  .back{font-size:14px;color:#6fc3ff;background:none;border:none;cursor:pointer;padding:5px 0;margin-bottom:4px}
-  .sec{font-size:15px;font-weight:600;color:#9fb4cc;margin:16px 0 7px;display:flex;align-items:center;gap:6px}
-  .sec::before{content:'';width:3px;height:13px;background:#3b82f6;border-radius:2px}
-  .card{background:#182230;border-radius:14px;padding:11px 13px;border:1px solid #233145;margin-bottom:10px}
+  .band-card .next{font-size:11px;color:var(--c-link)}
+  .band-card .d{font-size:12px;color:var(--c-mu);line-height:1.5}
+  .band-card .sum{margin-top:7px;font-size:12px;color:var(--c-tx2);background:var(--c-bg);border-radius:8px;padding:7px 9px;line-height:1.5}
+  .arrow{color:var(--c-dim3);font-size:14px}
+  .back{font-size:14px;color:var(--c-link);background:none;border:none;cursor:pointer;padding:5px 0;margin-bottom:4px}
+  .sec{font-size:15px;font-weight:600;color:var(--c-tx3);margin:16px 0 7px;display:flex;align-items:center;gap:6px}
+  .sec::before{content:'';width:3px;height:13px;background:var(--c-blue);border-radius:2px}
+  .card{background:var(--c-card);border-radius:14px;padding:11px 13px;border:1px solid var(--c-bd);margin-bottom:10px}
   table{width:100%;border-collapse:collapse;font-size:13px}
-  th{color:#8fa3bd;font-weight:600;text-align:left;padding:5px 4px;border-bottom:1px solid #2a3a4f}
-  td{padding:6px 4px;border-bottom:1px dashed #243448;vertical-align:top}
+  th{color:var(--c-mu);font-weight:600;text-align:left;padding:5px 4px;border-bottom:1px solid var(--c-bd2)}
+  td{padding:6px 4px;border-bottom:1px dashed var(--c-bd3);vertical-align:top}
   tr:last-child td{border:none}
   .r{text-align:right}
-  .up{color:#4ade80}.dow{color:#ff6b6b}.mid{color:#fbbf24}.blue{color:#60a5fa}.red{color:#ff6b6b;font-weight:600}.green{color:#4ade80;font-weight:600}.orange{color:#fbbf24;font-weight:600}
-  .warn{font-size:12px;color:#fbbf24;background:rgba(251,191,36,.09);border:1px solid rgba(251,191,36,.3);border-radius:8px;padding:8px 9px;line-height:1.5;margin-bottom:10px}
-  .ok{font-size:12px;color:#7ee0a8;background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.22);border-radius:8px;padding:8px 9px;line-height:1.5;margin-bottom:10px}
-  .kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #243448;font-size:13px;gap:10px}
+  .up{color:var(--c-up)}.dow{color:var(--c-dow)}.mid{color:var(--c-warn)}.blue{color:var(--c-blue2)}.red{color:var(--c-dow);font-weight:600}.green{color:var(--c-up);font-weight:600}.orange{color:var(--c-warn);font-weight:600}
+  .warn{font-size:12px;color:var(--c-warn);background:rgba(251,191,36,.09);border:1px solid rgba(251,191,36,.3);border-radius:8px;padding:8px 9px;line-height:1.5;margin-bottom:10px}
+  .ok{font-size:12px;color:var(--c-ok);background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.22);border-radius:8px;padding:8px 9px;line-height:1.5;margin-bottom:10px}
+  .kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--c-bd3);font-size:13px;gap:10px}
   .kv:last-child{border:none}
-  .kv b{color:#fff;text-align:right}
-  .li{font-size:13px;color:#c9d6e6;line-height:1.6;padding:3px 0;border-bottom:1px dashed #243448}
+  .kv b{color:var(--c-white);text-align:right}
+  .li{font-size:13px;color:var(--c-tx2);line-height:1.6;padding:3px 0;border-bottom:1px dashed var(--c-bd3)}
   .li:last-child{border:none}
-  .li b{color:#fff}
-  .note{font-size:11px;color:#67788f;margin-top:14px;line-height:1.7}
+  .li b{color:var(--c-white)}
+  .note{font-size:11px;color:var(--c-dim2);margin-top:14px;line-height:1.7}
   .inp:disabled,.btn:disabled{opacity:.35;filter:grayscale(1)}
-  .gate{font-size:12px;color:#8fa3bd;background:#0f1620;border-radius:8px;padding:8px 9px;line-height:1.5;margin-bottom:8px}
-  .gate.on{color:#7ee0a8}
+  .gate{font-size:12px;color:var(--c-mu);background:var(--c-bg);border-radius:8px;padding:8px 9px;line-height:1.5;margin-bottom:8px}
+  .gate.on{color:var(--c-ok)}
   .badge{display:inline-block;font-size:11px;padding:1px 8px;border-radius:10px;margin-left:6px;vertical-align:1px}
-  .badge-wait{background:#3a2f14;color:#fbbf24}
-  .badge-ok{background:#14321f;color:#4ade80}
-  .inp{width:100%;box-sizing:border-box;background:#0f1620;border:1px solid #2a3a4f;border-radius:8px;color:#e8edf5;font-size:14px;padding:8px 10px;text-align:right}
-  .inp:focus{outline:none;border-color:#3b82f6}
-  .btn{width:100%;background:#2ecc71;color:#07110b;border:none;border-radius:12px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin:6px 0 4px}
+  .badge-wait{background:var(--c-amberbg);color:var(--c-warn)}
+  .badge-ok{background:var(--c-bg-green);color:var(--c-up)}
+  .inp{width:100%;box-sizing:border-box;background:var(--c-bg);border:1px solid var(--c-bd2);border-radius:8px;color:var(--c-tx);font-size:14px;padding:8px 10px;text-align:right}
+  .inp:focus{outline:none;border-color:var(--c-blue)}
+  .btn{width:100%;background:var(--c-g);color:var(--c-bg-deep);border:none;border-radius:12px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin:6px 0 4px}
   .btn:active{transform:scale(.98)}
-  .out{background:#0f1620;border:1px solid #2a3a4f;border-radius:10px;padding:10px;font-size:13px;color:#c9d6e6;white-space:pre-wrap;line-height:1.6;margin-top:10px}
-  .tip{font-size:12px;color:#8fa3bd;line-height:1.6;margin:4px 0 8px}
+  .out{background:var(--c-bg);border:1px solid var(--c-bd2);border-radius:10px;padding:10px;font-size:13px;color:var(--c-tx2);white-space:pre-wrap;line-height:1.6;margin-top:10px}
+  .tip{font-size:12px;color:var(--c-mu);line-height:1.6;margin:4px 0 8px}
 
-.data-toggle{position:fixed;top:8px;right:10px;z-index:9999;background:#2c3e50;color:#cfe6ff;border:1px solid #3a4a5f;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer}
+.data-toggle{position:fixed;top:8px;right:10px;z-index:9999;background:var(--c-bg3);color:var(--c-blue3);border:1px solid var(--c-bd4);border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer}
 /* P4-B 响应式断点(2026-11-11):窄屏手机防横向溢出/字号自适应 */
 @media (max-width:420px){
   body{font-size:13px}
@@ -78,39 +114,39 @@
 <button type="button" id="data-toggle" class="data-toggle" aria-label="切换数据源开关(调试)" title="切换数据源" onclick="toggleDataSrc()">🔌 数据源:开</button>
 <div id="list">
   <div class="top"><h1>📈 投资五档总览</h1><div class="sub">数据=台账+引擎判决 · 更新时间见顶部状态条<span class="badge">整合版</span></div></div>
-  <div class="card" id="g-updated" style="margin:0 0 10px 0;padding:10px 14px;border:1px solid #3a4a5f;border-radius:10px;background:#1a2433">
-    <div class="kv"><span>页面数据更新时间</span><b id="g-updated-val" style="color:#e8c268">⏳ 正在获取…</b></div>
+  <div class="card" id="g-updated" style="margin:0 0 10px 0;padding:10px 14px;border:1px solid var(--c-bd4);border-radius:10px;background:var(--c-bg2)">
+    <div class="kv"><span>页面数据更新时间</span><b id="g-updated-val" style="color:var(--c-amber)">⏳ 正在获取…</b></div>
   </div>
   <div class="band-card" onclick="go('monthend')">
-    <div class="row1"><span class="n"><span class="pill" style="background:#e07e9c"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
+    <div class="row1"><span class="n"><span class="pill" style="background:var(--c-pink)"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
     <div class="d">现在有多少钱 / 本周期还剩多少没花</div>
     <div class="next">实时账本 · 更新 <span id="card-upd-monthend">—</span></div>
     <div class="sum">本周期剩余可动用 <span id="sum-w-avail">—</span> 元（<span id="sum-w-label">10-20~11-19</span>）</div>
   </div>
   
   <div class="band-card" onclick="go('daily')">
-    <div class="row1"><span class="n"><span class="pill" style="background:#f6c25c"></span>每日档 · 风控监控</span><span class="arrow">›</span></div>
+    <div class="row1"><span class="n"><span class="pill" style="background:var(--c-amber2)"></span>每日档 · 风控监控</span><span class="arrow">›</span></div>
     <div class="d">止损 / 回撤红线 / 单日暴跌 / 规模 / 事件 / 持仓估值越档</div>
     <div class="next">每日 12:00 · 更新 <span id="card-upd-daily">—</span></div>
     <div class="sum" id="d-summar">回撤/估值/规模摘要（数据待引擎加载）</div>
   </div>
   
   <div class="band-card" onclick="go('wed')">
-    <div class="row1"><span class="n"><span class="pill" style="background:#3b82f6"></span>周六档 · 定投预提示</span><span class="arrow">›</span></div>
+    <div class="row1"><span class="n"><span class="pill" style="background:var(--c-blue)"></span>周六档 · 定投预提示</span><span class="arrow">›</span></div>
     <div class="d"><span id="t-card-d">周一(11-16)投哪些</span> / 多少钱 · 集中制档位分配 · 加仓评估</div>
     <div class="next">下次 · <span id="t-next-zh">周六 11-14</span> 12:00 · 更新 <span id="card-upd-wed">—</span></div>
     <div class="sum" id="w-sum-main">…</div>
   </div>
   
   <div class="band-card" onclick="go('monthly')">
-    <div class="row1"><span class="n"><span class="pill" style="background:#7ee0a8"></span>月度档 · 机会扫描</span><span class="arrow">›</span></div>
+    <div class="row1"><span class="n"><span class="pill" style="background:var(--c-ok)"></span>月度档 · 机会扫描</span><span class="arrow">›</span></div>
     <div class="d">全市场扫描 / 候选纳入评审 / 换仓判定 / 资金月度盘点</div>
     <div class="next">每月20号 12:00 · 更新 <span id="card-upd-monthly">—</span></div>
     <div class="sum"><span id="m-sum-lead">—</span> · <span id="sum-m-spent">已投—</span>/<span id="sum-m-remain">剩—</span> · 仓位<span id="sum-m-pos">—</span></div>
   </div>
   
   <div class="band-card" onclick="go('quarter')">
-    <div class="row1"><span class="n"><span class="pill" style="background:#b07ee0"></span>季度档 · 配置回测</span><span class="arrow">›</span></div>
+    <div class="row1"><span class="n"><span class="pill" style="background:var(--c-purple)"></span>季度档 · 配置回测</span><span class="arrow">›</span></div>
     <div class="d">仓位健康度 / 配置调仓 / 信号回测</div>
     <div class="next">季末25号 12:00 · 更新 <span id="card-upd-quarter">—</span></div>
     <div class="sum" id="q-sum">—</div>
@@ -154,7 +190,7 @@
     </table>
     <button type="button" class="btn" id="btn-dt" onclick="collect()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out" style="display:none"></div>
-    <div class="tip" id="op" style="display:none;color:#7ee0a8"></div>
+    <div class="tip" id="op" style="display:none;color:var(--c-ok)"></div>
   </div>
   <div class="sec">债基转换确认（<span id="t-zh-sec">—</span> 15:00 到账后开放）</div>
   <div class="card">
@@ -165,7 +201,7 @@
     </table>
     <button type="button" class="btn" id="btn-zh" onclick="collectZH()" disabled>✅ 一键生成回传消息</button>
     <div class="out" id="out-zh" style="display:none"></div>
-    <div class="tip" id="op-zh" style="display:none;color:#7ee0a8"></div>
+    <div class="tip" id="op-zh" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">渐进再平衡搬运：每周一赎回富国当周解锁份额（可赎额度）→按实际到账金额买入当期集中制第1名（到账≠解锁额度，以理财通显示为准）；债比回目标内自动退出；执行后周二15:00回传实际到账金额</div>
   </div>
   <div class="sec">加仓确认（执行后回传）</div>
@@ -179,7 +215,7 @@
     </div>
     <button type="button" class="btn" id="btn-jc" onclick="collectJC()">✅ 一键生成回传消息</button>
     <div class="out" id="out-jc" style="display:none"></div>
-    <div class="tip" id="op-jc" style="display:none;color:#7ee0a8"></div>
+    <div class="tip" id="op-jc" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
   </div>
 </div>
@@ -208,7 +244,7 @@
     </div>
     <button type="button" class="btn" id="btn-sl" onclick="collectSell()">✅ 一键生成回传消息</button>
     <div class="out" id="out-sl" style="display:none"></div>
-    <div class="tip" id="op-sl" style="display:none;color:#7ee0a8"></div>
+    <div class="tip" id="op-sl" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">止损评估结论=赎回时执行→回传实际金额，小艺记台账</div>
   </div>
   <div class="sec">权益高估止盈回传（每日档）</div>
@@ -222,7 +258,7 @@
     </div>
     <button type="button" class="btn" id="btn-gy" onclick="collectGY()">✅ 一键生成回传消息</button>
     <div class="out" id="out-gy" style="display:none"></div>
-    <div class="tip" id="op-gy" style="display:none;color:#7ee0a8"></div>
+    <div class="tip" id="op-gy" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">权益高估止盈(高估≥90%+盈利+当日走弱)触发时执行→回传实际金额，小艺记台账</div>
   </div>
 </div>
@@ -263,7 +299,7 @@
     </div>
     <button type="button" class="btn" id="btn-rp" onclick="collectReplace()">✅ 一键生成回传消息</button>
     <div class="out" id="out-rp" style="display:none"></div>
-    <div class="tip" id="op-rp" style="display:none;color:#7ee0a8"></div>
+    <div class="tip" id="op-rp" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">按月度档置换指令执行（卖旧买新）→回传实际金额，小艺记台账</div>
   </div>
   <div class="sec">债基止盈执行回传（月度档）</div>
@@ -277,7 +313,7 @@
     </div>
     <button type="button" class="btn" id="btn-yz" onclick="collectYZ()">✅ 一键生成回传消息</button>
     <div class="out" id="out-yz" style="display:none"></div>
-    <div class="tip" id="op-yz" style="display:none;color:#7ee0a8"></div>
+    <div class="tip" id="op-yz" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">月度止盈三条件触发时执行→回传实际金额，小艺记台账</div>
   </div>
 </div>
@@ -392,8 +428,8 @@ function copyText(text,outId,opId){
   // FH20(2026-11-10):三级降级复制——①clipboard API ②execCommand(WebView兼容) ③手动长按
   var out=document.getElementById(outId);out.style.display='block';out.textContent=text;
   var op=document.getElementById(opId);op.style.display='block';
-  function _ok(){op.textContent='✅ 已复制！直接粘贴到小艺对话框发我即可';op.style.color='#7ee0a8';}
-  function _manual(){op.textContent='⚠️ 自动复制不可用：请长按上方灰色文本→全选→复制→粘贴到小艺对话框发我';op.style.color='#ffd07a';}
+  function _ok(){op.textContent='✅ 已复制！直接粘贴到小艺对话框发我即可';op.style.color='var(--c-ok)';}
+  function _manual(){op.textContent='⚠️ 自动复制不可用：请长按上方灰色文本→全选→复制→粘贴到小艺对话框发我';op.style.color='var(--c-amber3)';}
   function _fb(){
     try{
       var ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
@@ -480,7 +516,7 @@ function collectZH(){
 }
 try{gateCheck();}catch(e){}
 (function(){
-  function setG(txt,color){var e=document.getElementById('g-updated-val');if(e){e.textContent=txt;e.style.color=color||'#e8c268';}}
+  function setG(txt,color){var e=document.getElementById('g-updated-val');if(e){e.textContent=txt;e.style.color=color||'var(--c-amber)';}}
   var _nextSat=function(){var d=new Date(),w=d.getDay(),add=(6-w+7)%7;if(add===0)add=7;var t=new Date(d.getTime()+add*86400000);return (t.getMonth()+1)+'-'+t.getDate();};
   var _nextM20=function(){var d=new Date(),m=d.getMonth()+1,day=d.getDate();if(day<20)return m+'-20';m=m+1;if(m>12)m=1;return m+'-20';};
   function render(d){
@@ -589,7 +625,7 @@ try{gateCheck();}catch(e){}
         var _jcs=document.getElementById('jc-cf-state'),_jcf=document.getElementById('jc-cf-form'),_tj=document.getElementById('tb-jccf');
         if(_jcs){
           var _jp=d.wed.jc_plan||[];
-          if(!_jp.length){_jcs.innerHTML='本周无加仓建议（评分未达门槛或被闸门拦截），无需确认';_jcf.style.display='';_tj.innerHTML='<tr><td colspan="4" style="text-align:center;color:#8a93a6">无待执行加仓（评分未达门槛）</td></tr>';}
+          if(!_jp.length){_jcs.innerHTML='本周无加仓建议（评分未达门槛或被闸门拦截），无需确认';_jcf.style.display='';_tj.innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--c-dim)">无待执行加仓（评分未达门槛）</td></tr>';}
           else{
             _jcs.innerHTML='本周有 <b>'+_jp.length+'</b> 笔加仓建议，执行后回传实际金额：';
             _jcf.style.display='';
@@ -697,7 +733,7 @@ try{gateCheck();}catch(e){}
     var qb=d.bands&&d.bands.quarter;
     var _pos=d.holdings&&d.holdings.positions;
     if(mp&&_pos&&_pos.length){var ph='';_pos.forEach(function(x){ph+='<tr><td>'+esc(x.名称)+(x.代码?' '+x.代码:'')+'</td><td class="r">'+(x.占比!=null?(x.占比+'%'):'—')+'</td></tr>';});mp.innerHTML=ph;}
-    else if(mp){mp.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">暂无持仓数据</td></tr>';}
+    else if(mp){mp.innerHTML='<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">暂无持仓数据</td></tr>';}
     // ---- FH-二期·季度档判决渲染(bands.quarter,引擎数据) ----
     var qb2=d.bands&&d.bands.quarter;
     var qc=document.getElementById('qtr-conf');
@@ -711,7 +747,7 @@ try{gateCheck();}catch(e){}
       var qh='';qrows.forEach(function(r){var m2=String(r[1]).match(/[🔴🟠🟡🟢💰⚠]/);var st=m2?m2[0]:'';qh+='<tr><td>'+esc(r[0])+'</td><td class="'+_qcls(st)+'">'+esc(st)+'</td><td>'+esc(r[1])+'</td></tr>';});
       qc.innerHTML=qh;
     }
-    else if(qc&&!qb2){qc.innerHTML='<tr><td colspan="3" style="text-align:center;color:#8a93a6">未到季度评估日，暂无配置调仓数据</td></tr>';}
+    else if(qc&&!qb2){qc.innerHTML='<tr><td colspan="3" style="text-align:center;color:var(--c-dim)">未到季度评估日，暂无配置调仓数据</td></tr>';}
     var qs=document.getElementById('qtr-signal');
     var _nq=function(){var _d=new Date(),_m=_d.getMonth()+1,_qm=[3,6,9,12];for(var _i=0;_i<_qm.length;_i++){if(_qm[_i]>_m||(_qm[_i]===_m&&_d.getDate()<=25))return _qm[_i]+'月25号';}return '次年3月25号';};
     if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='加仓/减仓/止损信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}
@@ -727,7 +763,7 @@ try{gateCheck();}catch(e){}
     if(_sls){
       var _stx=(dd&&dd.止损)||{};var _sk=Object.keys(_stx);
       var _nm3=_CS;
-      if(!_sk.length){_sls.innerHTML='本期无止损/减仓触发，无需回传';_slf.style.display='';_tsl.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">无待执行卖出（无止损赎回指令）</td></tr>';}
+      if(!_sk.length){_sls.innerHTML='本期无止损/减仓触发，无需回传';_slf.style.display='';_tsl.innerHTML='<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">无待执行卖出（无止损赎回指令）</td></tr>';}
       else{
         var _sev=(d.stop_eval)||{};
         var _sell=[],_hold=[];
@@ -763,7 +799,7 @@ try{gateCheck();}catch(e){}
           _ghit.forEach(function(k,i){_gh+='<tr><td>'+esc((_gnm[k]||k))+'('+k+')</td><td><input type="number" id="gyin-'+i+'" data-name="'+esc((_gnm[k]||k))+'" placeholder="实际卖出" style="width:90px"></td></tr>';});
           _tgy.innerHTML=_gh;if(_bgy){_bgy.disabled=false;_bgy.textContent='✅ 一键生成回传消息';}
         }else{
-          _gyf.style.display='none';_tgy.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">当前无权益高估止盈触发(未达90%高估+盈利+走弱三条件)</td></tr>';
+          _gyf.style.display='none';_tgy.innerHTML='<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">当前无权益高估止盈触发(未达90%高估+盈利+走弱三条件)</td></tr>';
           if(_bgy){_bgy.disabled=true;_bgy.textContent='⏸ 无高估止盈信号·无需回传';}
         }
       }
@@ -810,7 +846,7 @@ try{gateCheck();}catch(e){}
     if(d.wed&&d.wed.advice){
       // FH: 确认表单行数据驱动(从wed.advice生成,支持新增/删除基金;input id=f-dt-{code})
       var tf=document.getElementById('tb-dtform');
-      if(tf&&!d.wed.advice.length){tf.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">定投建议待周六评估生成</td></tr>';}
+      if(tf&&!d.wed.advice.length){tf.innerHTML='<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">定投建议待周六评估生成</td></tr>';}
       if(tf&&d.wed.advice&&d.wed.advice.length){
         var hf='';
         d.wed.advice.forEach(function(x){hf+='<tr><td>'+esc(_shn(x.name))+' '+x.code+'</td><td class="r"><input class="inp" id="f-dt-'+x.code+'" type="number" data-name="'+esc(_shn(x.name))+x.code+'" value="'+(x.amt==null?0:x.amt)+'" min="0" disabled></td></tr>';});
@@ -838,7 +874,7 @@ try{gateCheck();}catch(e){}
         var _brp=document.getElementById('btn-rp');
         if(_brp){var _inc3=((_mb2&&_mb2.cand_review&&_mb2.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});_brp.disabled=!_inc3.length;_brp.textContent=_inc3.length?'✅ 一键生成回传消息':'⏸ 本期无置换动作·无需回传';
         var _byz=document.getElementById('btn-yz');
-        if(_byz){var _zyt=(_mb2&&_mb2.止盈)||'';var _yzHit=!!(_zyt&&!/未达止盈/.test(_zyt));_byz.disabled=!_yzHit;_byz.textContent=_yzHit?'✅ 一键生成回传消息':'⏸ 当前未达止盈·无需回传';var _yzc=document.getElementById('yz-cf-state');if(_yzc)_yzc.innerHTML=_zyt||'数据加载中…';var _yzf=document.getElementById('yz-cf-form');if(_yzf)_yzf.style.display='';var _tYz=document.getElementById('tb-yzcf');if(_tYz)_tYz.innerHTML=_yzHit?'<tr><td>富国(009290)</td><td class="r"><input class="inp" id="yzin-0" data-name="富国(009290)" type="number" placeholder="实际卖出" min="0"></td></tr>':'<tr><td colspan="2" style="text-align:center;color:#8a93a6">当前未达止盈，无止盈赎回指令</td></tr>';
+        if(_byz){var _zyt=(_mb2&&_mb2.止盈)||'';var _yzHit=!!(_zyt&&!/未达止盈/.test(_zyt));_byz.disabled=!_yzHit;_byz.textContent=_yzHit?'✅ 一键生成回传消息':'⏸ 当前未达止盈·无需回传';var _yzc=document.getElementById('yz-cf-state');if(_yzc)_yzc.innerHTML=_zyt||'数据加载中…';var _yzf=document.getElementById('yz-cf-form');if(_yzf)_yzf.style.display='';var _tYz=document.getElementById('tb-yzcf');if(_tYz)_tYz.innerHTML=_yzHit?'<tr><td>富国(009290)</td><td class="r"><input class="inp" id="yzin-0" data-name="富国(009290)" type="number" placeholder="实际卖出" min="0"></td></tr>':'<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">当前未达止盈，无止盈赎回指令</td></tr>';
         }
       }
       }catch(e){}
@@ -863,7 +899,7 @@ try{gateCheck();}catch(e){}
     var _rps=document.getElementById('rp-cf-state'),_rpf=document.getElementById('rp-cf-form'),_trp=document.getElementById('tb-rpcf');
 if(_rps&&mb){
   var _inc2=((mb.cand_review&&mb.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});
-  if(!_inc2.length){_rps.innerHTML='本期无置换/净增动作（候选均未达建仓线），无需回传';_rpf.style.display='';_trp.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">无待执行置换（候选均未达建仓线）</td></tr>';}
+  if(!_inc2.length){_rps.innerHTML='本期无置换/净增动作（候选均未达建仓线），无需回传';_rpf.style.display='';_trp.innerHTML='<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">无待执行置换（候选均未达建仓线）</td></tr>';}
   else{
     _rps.innerHTML='本期有 <b>'+_inc2.length+'</b> 笔置换待执行，执行后回传：';
     _rpf.style.display='';
@@ -900,7 +936,7 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
       if(bwX)bwX.textContent='待周六评估';
     }
     if(d.updated_at){
-      setG('✅ '+d.updated_at,'#7ee0a8');
+      setG('✅ '+d.updated_at,'var(--c-ok)');
       var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';
     }
   }  // render 结束
@@ -912,16 +948,16 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
   if(!window.__dataOff){
   // 2026-11-09 用户拍板:去掉 __DATA__ 内嵌兜底,唯一数据源=h5_data.json(fetch绝对路径)。HTML 为纯框架,页面打开即拉取在线数据。
   var _ac=new AbortController();var _tm=setTimeout(function(){_ac.abort();},8000);
-  fetch('/touzhi-dashboard/h5_data.json?v='+Date.now(),{cache:'no-store',signal:_ac.signal}).then(function(r){clearTimeout(_tm);return r.ok?r.json():Promise.reject()}).then(function(d){try{render(d);setG('✅ '+d.updated_at,'#7ee0a8');}catch(_re){setG('⚠️ 渲染异常:'+(_re&&_re.message||_re),'#e07e9c');console.error(_re);}}).catch(function(_fe){clearTimeout(_tm);
-    setG('⚠️ 数据源加载失败·勿信本表','#e07e9c');
+  fetch('/touzhi-dashboard/h5_data.json?v='+Date.now(),{cache:'no-store',signal:_ac.signal}).then(function(r){clearTimeout(_tm);return r.ok?r.json():Promise.reject()}).then(function(d){try{render(d);setG('✅ '+d.updated_at,'var(--c-ok)');}catch(_re){setG('⚠️ 渲染异常:'+(_re&&_re.message||_re),'var(--c-pink)');console.error(_re);}}).catch(function(_fe){clearTimeout(_tm);
+    setG('⚠️ 数据源加载失败·勿信本表','var(--c-pink)');
     // FH16(2026-11-09):fetch失败时所有数值锚点置'—'标红,杜绝静态兜底旧数冒充真值
     var staleIds=['sum-m-spent','sum-m-remain','sum-m-pos','sum-w-avail','sum-w-total','sum-w-items',
       'kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','m-pos','m-rebal','m-asset',
       'd-total','d-remain','d-spent','d-pool',
       'mc-dt-tot','mc-jc-tot','mc-jc2-tot','mc-jian','mc-sum',
       't-card-d','t-sub','t-dt-sec','t-dt-gate','t-zh-sec','t-zh-gate','t-zh-row'];
-    staleIds.forEach(function(id){var e=document.getElementById(id);if(e){e.textContent='—';e.style.color='#e07e9c';}});
-    ['tb-advice','tb-dtrec','tb-jcrec'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML='<tr><td colspan="4" style="color:#e07e9c">⚠️ 数据未加载,勿信本表</td></tr>';});
+    staleIds.forEach(function(id){var e=document.getElementById(id);if(e){e.textContent='—';e.style.color='var(--c-pink)';}});
+    ['tb-advice','tb-dtrec','tb-jcrec'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML='<tr><td colspan="4" style="color:var(--c-pink)">⚠️ 数据未加载,勿信本表</td></tr>';});
   });
   }  // FH-二期·__dataOff 关闭数据写入
   else {  // 关·仅框架:清空所有数据锚点初始占位,只留无id的纯文本死数

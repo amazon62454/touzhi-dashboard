@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-11 13:24",
+ "updated_at": "2026-11-11 13:31",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -756,16 +756,15 @@
     "fund": "易方达恒生港股通创新药ETF联接A",
     "amt": 122.0,
     "op": "加仓(机动加仓金)"
-   }
-  ],
-  "jiacang_cash": [
+   },
    {
     "date": "10-22",
     "fund": "易方达恒生港股通创新药ETF联接A",
     "amt": 630.0,
-    "op": "加仓(现金仓结余)"
+    "op": "加仓(现金池结余)"
    }
   ],
+  "jiacang_cash": [],
   "jiancang": [],
   "zhuanhuan_quchu": [
    {

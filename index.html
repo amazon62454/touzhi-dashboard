@@ -709,12 +709,17 @@ try{gateCheck();}catch(e){}
       var qh='';qrows.forEach(function(r){var m2=String(r[1]).match(/[🔴🟠🟡🟢💰⚠]/);var st=m2?m2[0]:'';qh+='<tr><td>'+esc(r[0])+'</td><td class="'+_qcls(st)+'">'+esc(st)+'</td><td>'+esc(r[1])+'</td></tr>';});
       qc.innerHTML=qh;
     }
+    else if(qc&&!qb2){qc.innerHTML='<tr><td colspan="3" style="text-align:center;color:#8a93a6">未到季度评估日，暂无配置调仓数据</td></tr>';}
     var qs=document.getElementById('qtr-signal');
-    if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='加仓/减仓/止损信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}    var _qd=document.getElementById('qtr-do');
+    var _nq=function(){var _d=new Date(),_m=_d.getMonth()+1,_qm=[3,6,9,12];for(var _i=0;_i<_qm.length;_i++){if(_qm[_i]>_m||(_qm[_i]===_m&&_d.getDate()<=25))return _qm[_i]+'月25号';}return '次年3月25号';};
+    if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='加仓/减仓/止损信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}
+    else if(qs&&!qb2){qs.innerHTML='未到季度评估日（下次 '+_nq()+' 12:00 回测），暂无信号回测数据';}
+    var _qd=document.getElementById('qtr-do');
     if(_qd&&qb2){
       if(qb2.动作){_qd.innerHTML='<b>'+qb2.动作+'</b>'+(qb2.动作缺口!==undefined&&qb2.动作缺口!==null?('（缺口≈'+qb2.动作缺口+'元转权益，每笔由周六档按每周解锁份额算）'):'')+'<br><span class="mid">本档仅启动/退出判定，无需你操作；执行与回传见周六档「债基转换确认」</span>';
       }else{_qd.innerText='本季无再平衡动作(债比处常态/补债区),仅核对持仓与占比';}
     }
+    else if(_qd&&!qb2){_qd.innerHTML='未到季度评估日（下次 '+_nq()+' 12:00），本档暂无动作；无需你操作';}
     // FH-二期·入口卡片摘要数据驱动(组合/月度/发薪/评分提示,消灭硬编码;须在所有判决段之后)
     var _sls=document.getElementById('sl-cf-state'),_slf=document.getElementById('sl-cf-form'),_tsl=document.getElementById('tb-slcf');
     if(_sls){

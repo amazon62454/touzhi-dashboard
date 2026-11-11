@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-11 08:02",
+ "updated_at": "2026-11-11 08:08",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -21,7 +21,7 @@
   "spent": 410.4,
   "balance_note": "1389.6已转家用(9月周期历史口径,10月起结余转现金池)"
  },
- "dt_thursday": "11-09",
+ "dt_thursday": "11-16",
  "dt_confirmed": false,
  "wed": {
   "advice": [],
@@ -178,7 +178,7 @@
    }
   ],
   "测试态": false,
-  "adv_eval_day": "11-08",
+  "adv_eval_day": "11-15",
   "advice_valid": false
  },
  "holdings": {

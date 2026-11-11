@@ -707,7 +707,7 @@ try{gateCheck();}catch(e){}
         _sk.forEach(function(k){
           var _se=_sev[k];
           if(_se&&_se.结论==='赎回'){_sell.push(k);}
-          else{_hold.push(k+'('+( _se?('已评估·'+_se.结论+'·'+_se.日期):'待SOP383评估')+')');}
+          else{_hold.push(k+'('+( _se?('已评估·'+_se.结论+'·'+_se.日期):'待评估')+')');}
         });
         var _htxt=_hold.length?('已破线但结论持有/待评估：'+_hold.join('；')+'——无需操作<br>'):'';
         if(!_sell.length){_sls.innerHTML=_htxt+'本期无待执行的减仓动作';}
@@ -815,7 +815,7 @@ try{gateCheck();}catch(e){}
       if(_cr.length){
         var _inc=_cr.filter(function(x){return x.判定==='纳入置换';});
         var _ct=_cr.map(function(x){var nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');var sc=x.评分!=null?('评分'+x.评分):'评分缺失';return x.判定==='纳入置换'?('<b>'+nm+'</b>·✅纳入 '+(x.动作||'')):(nm+'('+sc+')·<font class="dow">不纳入</font>('+(x.理由||'')+')');}).join('<br>');
-        _mc.innerHTML='<b>买入新建仓</b>：'+_ct+(mb.cand_review.最弱被动&&mb.cand_review.最弱被动.方向?('<br><span class="mid">引擎四项终审·置换基准=最弱被动:'+esc(mb.cand_review.最弱被动.方向)+(mb.cand_review.最弱被动.分位!=null?('('+mb.cand_review.最弱被动.分位+'%)'):'')+';本轮无置换/净增动作(候选均未达建仓线)。若未来纳入:置换=卖出最弱被动1:1换入(本档给指令,执行后回传记台账);P102净增=第1名分位≥10%时预算内净增</span>'):'');
+        _mc.innerHTML='<b>买入新建仓</b>：'+_ct+(mb.cand_review.最弱被动&&mb.cand_review.最弱被动.方向?('<br><span class="mid">引擎四项终审·置换基准=最弱被动:'+esc(mb.cand_review.最弱被动.方向)+(mb.cand_review.最弱被动.分位!=null?('('+mb.cand_review.最弱被动.分位+'%)'):'')+';本轮无置换/净增动作(候选均未达建仓线)。若未来纳入:置换=卖出最弱被动1:1换入(本档给指令,执行后回传记台账);净增=第1名分位≥10%时预算内净增</span>'):'');
       }else if(mb&&mb.全市场候选&&mb.全市场候选.length){
         var _candArr=mb.全市场候选;var _cs=d.wed&&d.wed.cand_scores?d.wed.cand_scores:[],_mp={};_cs.forEach(function(x){if(x.方向)_mp[x.方向]=x;});
         _mc.innerHTML='<b>买入新建仓</b>：'+_candArr.map(function(x){var c=_mp[x.方向],nm=(x.方向||'')+(x.基金?'('+String(x.基金).split('(')[0]+')':'');return c&&c.总分!=null?(nm+'·评分'+c.总分+'/'+(c.门槛||70)):nm;}).join('、')+' 已入候选池（引擎四项终审结论见候选评审区）';

@@ -190,6 +190,20 @@
     <div class="tip" id="op-sl" style="display:none;color:#7ee0a8"></div>
     <div class="tip">止损评估结论=赎回时执行→回传实际金额，小艺记台账</div>
   </div>
+  <div class="sec">权益高估止盈回传</div>
+  <div class="card">
+    <div id="gy-cf-state">…</div>
+    <div id="gy-cf-form" style="display:none">
+      <table>
+        <tr><th>基金</th><th>实际卖出(元)</th></tr>
+        <tbody id="tb-gycf"></tbody>
+      </table>
+    </div>
+    <button class="btn" id="btn-gy" onclick="collectGY()">✅ 一键生成回传消息</button>
+    <div class="out" id="out-gy" style="display:none"></div>
+    <div class="tip" id="op-gy" style="display:none;color:#7ee0a8"></div>
+    <div class="tip">权益高估止盈(高估≥90%+盈利+当日走弱)触发时执行→回传实际金额，小艺记台账</div>
+  </div>
 </div>
 <div id="view-monthly" class="view" style="display:none">
   <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span><span id="mo-testtag"></span></div></div>
@@ -412,6 +426,12 @@ function collectSell(){
 }
 function collectYZ(){
   var d=window.__D__||{};var lines=['【止盈回传】回传日:'+_rtDate()];var rows=document.querySelectorAll('#tb-yzcf input');var any=false;rows.forEach(function(inp){if(inp.value){lines.push((inp.getAttribute('data-name')||'基金')+' 实际卖出'+inp.value+'元');any=true;}});if(!any){alert('请至少填一笔实际卖出金额');return;}lines.push('请记台账');copyText(lines.join('\n'),'out-yz','op-yz');
+}
+function collectGY(){
+  var d=window.__D__||{};var lines=["【权益高估止盈回传】回传日:"+_rtDate()];var rows=document.querySelectorAll("#tb-gycf input");var any=false;
+  rows.forEach(function(inp){if(inp.value){lines.push((inp.getAttribute("data-name")||"基金")+" 实际卖出"+inp.value+"元(高估止盈)");any=true;}});
+  if(!any){alert("请至少填一笔实际卖出金额");return;}
+  lines.push("请记台账");copyText(lines.join("\n"),"out-gy","op-gy");
 }
 function collectJC(){
   var d=window.__D__||{};var jp=(d.wed&&d.wed.jc_plan)||[];
@@ -699,6 +719,25 @@ try{gateCheck();}catch(e){}
             _h5+='<tr><td>'+esc(_nm3[k]||k)+'</td><td><input type="number" id="slin-'+i+'" placeholder="实际卖出" style="width:90px"></td></tr>';
           });
           _tsl.innerHTML=_h5;
+        }
+      }
+    }
+    var _gys=document.getElementById('gy-cf-state'),_gyf=document.getElementById('gy-cf-form'),_tgy=document.getElementById('tb-gycf'),_bgy=document.getElementById('btn-gy');
+    if(_gys){
+      var _gyx=(dd&&dd.高估止盈)||{};var _gks=Object.keys(_gyx);
+      var _gnm={'024328':'创新药','012544':'新能车','017140':'有色'};
+      if(!_gks.length){_gys.innerHTML='本期无权益高估止盈检查数据';if(_bgy){_bgy.disabled=true;_bgy.textContent='⏸ 无高估止盈信号·无需回传';}}
+      else{
+        var _ghit=[],_gtxts=[];
+        _gks.forEach(function(k){var x=_gyx[k]||{};_gtxts.push((_gnm[k]||k)+':分位'+(x.分位!=null?x.分位+'%':'待数据')+'·收益'+(x.累计收益!=null?x.累计收益+'%':'—')+(x.触发?'→<b>触发止盈</b>':''));if(x.触发)_ghit.push(k);});
+        _gys.innerHTML='权益高估止盈(高估≥90%+盈利+当日走弱):'+_gtxts.join('；');
+        if(_ghit.length){
+          _gyf.style.display='';var _gh='';
+          _ghit.forEach(function(k,i){_gh+='<tr><td>'+esc((_gnm[k]||k))+'('+k+')</td><td><input type="number" id="gyin-'+i+'" data-name="'+esc((_gnm[k]||k))+'" placeholder="实际卖出" style="width:90px"></td></tr>';});
+          _tgy.innerHTML=_gh;if(_bgy){_bgy.disabled=false;_bgy.textContent='✅ 一键生成回传消息';}
+        }else{
+          _gyf.style.display='none';_tgy.innerHTML='<tr><td colspan="2" style="text-align:center;color:#8a93a6">当前无权益高估止盈触发(未达90%高估+盈利+走弱三条件)</td></tr>';
+          if(_bgy){_bgy.disabled=true;_bgy.textContent='⏸ 无高估止盈信号·无需回传';}
         }
       }
     }

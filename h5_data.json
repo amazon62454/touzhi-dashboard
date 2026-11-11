@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-12 07:40",
+ "updated_at": "2026-11-12 07:46",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -177,6 +177,7 @@
     "分位": "19.39%"
    }
   ],
+  "advice_基准": "2026-11-11",
   "测试态": true,
   "adv_eval_day": "11-15",
   "advice_valid": false

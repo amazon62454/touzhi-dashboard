@@ -231,6 +231,20 @@
     <div class="tip" id="op-rp" style="display:none;color:#7ee0a8"></div>
     <div class="tip">按月度档置换指令执行（卖旧买新）→回传实际金额，小艺记台账</div>
   </div>
+  <div class="sec">止盈执行回传</div>
+  <div class="card">
+    <div id="yz-cf-state">…</div>
+    <div id="yz-cf-form" style="display:none">
+      <table>
+        <tr><th>基金</th><th class="r">实际卖出(元)</th></tr>
+        <tbody id="tb-yzcf"></tbody>
+      </table>
+    </div>
+    <button class="btn" id="btn-yz" onclick="collectYZ()">✅ 一键生成回传消息</button>
+    <div class="out" id="out-yz" style="display:none"></div>
+    <div class="tip" id="op-yz" style="display:none;color:#7ee0a8"></div>
+    <div class="tip">月度止盈三条件触发时执行→回传实际金额，小艺记台账</div>
+  </div>
 </div>
 <div id="view-quarter" class="view" style="display:none">
   <div class="top"><button class="back" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号回测 · 本次 <span id="q-run">—</span> · 数据基准 <span id="q-base">—</span><span id="q-testtag"></span></div></div>
@@ -395,6 +409,9 @@ function collectSell(){
   if(!any){alert('请至少填一笔实际卖出金额');return;}
   lines.push('请记台账');
   copyText(lines.join('\n'),'out-sl','op-sl');
+}
+function collectYZ(){
+  var d=window.__D__||{};var lines=['【止盈回传】回传日:'+_rtDate()];var rows=document.querySelectorAll('#tb-yzcf input');var any=false;rows.forEach(function(inp){if(inp.value){lines.push((inp.getAttribute('data-name')||'基金')+' 实际卖出'+inp.value+'元');any=true;}});if(!any){alert('请至少填一笔实际卖出金额');return;}lines.push('请记台账');copyText(lines.join('\n'),'out-yz','op-yz');
 }
 function collectJC(){
   var d=window.__D__||{};var jp=(d.wed&&d.wed.jc_plan)||[];
@@ -746,7 +763,9 @@ try{gateCheck();}catch(e){}
         var _bsl=document.getElementById('btn-sl');
         if(_bsl){var _st2=(_dd2&&_dd2.止损)||{};var _sev3=d.stop_eval||{};var _hasSell=Object.keys(_st2).some(function(k){var s2=_sev3[k];return s2&&s2.结论==='赎回';});_bsl.disabled=!_hasSell;_bsl.textContent=_hasSell?'✅ 一键生成回传消息':'⏸ 当前无止损赎回指令·无需回传';}
         var _brp=document.getElementById('btn-rp');
-        if(_brp){var _inc3=((_mb2&&_mb2.cand_review&&_mb2.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});_brp.disabled=!_inc3.length;_brp.textContent=_inc3.length?'✅ 一键生成回传消息':'⏸ 本期无置换动作·无需回传';}
+        if(_brp){var _inc3=((_mb2&&_mb2.cand_review&&_mb2.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});_brp.disabled=!_inc3.length;_brp.textContent=_inc3.length?'✅ 一键生成回传消息':'⏸ 本期无置换动作·无需回传';
+        var _byz=document.getElementById('btn-yz');
+        if(_byz){var _zyt=(_mb2&&_mb2.止盈)||'';var _yzHit=!!(_zyt&&!/未达止盈/.test(_zyt));_byz.disabled=!_yzHit;_byz.textContent=_yzHit?'✅ 一键生成回传消息':'⏸ 当前未达止盈·无需回传';var _yzc=document.getElementById('yz-cf-state');if(_yzc)_yzc.innerHTML=_zyt||'数据加载中…';var _yzf=document.getElementById('yz-cf-form');if(_yzf)_yzf.style.display='';var _tYz=document.getElementById('tb-yzcf');if(_tYz)_tYz.innerHTML=_yzHit?'<tr><td>富国(009290)</td><td class="r"><input class="inp" id="yzin-0" data-name="富国(009290)" type="number" placeholder="实际卖出" min="0"></td></tr>':'<tr><td colspan="2" style="text-align:center;color:#8a93a6">当前未达止盈，无止盈赎回指令</td></tr>';
       }catch(e){}
     }
     // FH·月度行动结论数据驱动(消灭L192/195硬编码:候选110026/009881、唯一动作9.04)

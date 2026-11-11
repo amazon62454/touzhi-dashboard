@@ -332,7 +332,7 @@ function gateCheck(){
   var _qa3=(window.__DATA__&&window.__DATA__.bands&&window.__DATA__.bands.quarter&&window.__DATA__.bands.quarter.动作)||'';
   if(!_qa3){g2.textContent='当前无债基转换动作（再平衡未启动或已退出）';g2.classList.remove('on');if(bz)bz.disabled=true;}
   else if(zh){g2.textContent='✅ 已到确认时间，可填写实际转换金额';g2.classList.add('on');}
-  else{g2.textContent='⏳ 未到确认时间：周五('+__fri+') 15:00 转换到账后开放填写';g2.classList.remove('on');}
+  else{g2.textContent='⏳ 未到确认时间：周'+_wk(__fri)+'('+__fri+') 15:00 转换到账后开放填写';g2.classList.remove('on');}
 }
 function copyText(text,outId,opId){
   // FH20(2026-11-10):三级降级复制——①clipboard API ②execCommand(WebView兼容) ③手动长按

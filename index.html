@@ -576,13 +576,11 @@ try{gateCheck();}catch(e){}
           _rh+='<tr><td style="font-size:11px">'+_nm+'</td><td class="r">'+x.占比+'%</td><td class="r" style="color:'+_c+'">'+(x.历史年化>0?'+':'')+x.历史年化+'%</td><td class="r">'+(x.贡献>0?'+':'')+x.贡献+'</td></tr>';
         });
         _rh+='<tr style="border-top:1px solid #455a64"><td><b>组合加权</b></td><td class="r">100%</td><td class="r">—</td><td class="r"><b style="color:#4fc3f7">'+_rt.组合历史年化+'%</b></td></tr></table>';
-        _rh+='<div style="font-size:11px;color:#90a4ae;margin:12px 0 4px">② 按这个年化推到 2046 年 10 月</div>';
-        _rh+='<table><tr><th>情形</th><th class="r">组合年化</th><th class="r">退休时</th><th class="r">利润</th></tr>';
-        (_rt.档位||[]).forEach(function(x){
-          var _c=x.利润>0?'#4fc3f7':'#ef5350';
-          _rh+='<tr title="'+x.依据+'"><td style="font-size:11px"><b style="color:'+_c+'">'+x.标签+'</b></td><td class="r">'+x.年化+'</td><td class="r"><b>'+(x.终值/10000).toFixed(1)+'万</b></td><td class="r" style="color:'+_c+'">'+(x.利润>=0?'+':'')+(x.利润/10000).toFixed(1)+'万</td></tr>';
-        });
-        _rh+='</table>';
+        _rh+='<div style="font-size:11px;color:#90a4ae;margin:12px 0 4px">② 按这个年化推到 '+_rt.退休年月+'（还有 '+_rt.剩余年数+' 年）</div>';
+        var _x=(_rt.档位||[])[0]||{};
+        if(_x.终值){
+          _rh+='<div style="display:flex;justify-content:space-between;align-items:baseline;padding:8px 0"><div><span style="font-size:12px;color:#90a4ae">退休时总资产</span><br><b style="font-size:26px;color:#4fc3f7">'+(_x.终值/10000).toFixed(1)+'万</b></div><div style="text-align:right"><span style="font-size:12px;color:#90a4ae">其中利润</span><br><b style="font-size:20px;color:#66bb6a">+'+(_x.利润/10000).toFixed(1)+'万</b><br><span style="font-size:11px;color:#78909c">本金投入'+(_x.本金/10000).toFixed(1)+'万</span></div></div>';
+        }
         document.getElementById('ret-body').innerHTML=_rh;
       }
       if(mp){

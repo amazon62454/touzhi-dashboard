@@ -154,7 +154,7 @@
   <div class="note">※ 五档报告完整数据已整合进各档详情；每次评估跑完自动更新对应档位。</div>
 </div>
 <div id="view-wed" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周六档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span> · 建议出自 <span id="t-adv-run">—</span> 评估<span id="wed-testtag"></span></div></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周六档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span><span id="t-adv-wrap"> · 建议出自 <span id="t-adv-run">—</span> 评估</span><span id="wed-testtag"></span></div></div>
   <div class="sec"><span id="cap-advice">本周一定投建议</span> <span class="badge badge-wait" id="badge-wait-txt">待确认</span></div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">金额(元)</th></tr>
@@ -926,7 +926,16 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
     // FH: 评估/运行时间具体化(消灭'最新/自动'模糊词,用户可判断数据新旧)
     function _fmtRun(s){s=String(s||'');return s.length>=12?(s.slice(4,6)+'-'+s.slice(6,8)+' '+s.slice(9,11)+':'+s.slice(11,13)):(s.length===8?(s.slice(4,6)+'-'+s.slice(6,8)):'—');}
     var _ar2=document.getElementById('t-adv-run');
-    if(_ar2&&d.wed&&d.wed.advice_run){_ar2.textContent=_fmtRun(d.wed.advice_run);}
+    var _aw=document.getElementById('t-adv-wrap');
+    if(_ar2&&d.wed&&d.wed.advice_run){
+      var _test2=(d.wed.advice_formal===false||d.wed.测试态||d.wed.advice_valid===false);
+      if(_test2){
+        // 2026-11-12:测试态不显示"建议出自<测试跑时间>评估"(会让测试跑时间冒充评估日)
+        if(_aw)_aw.textContent=' · 待 '+(d.wed.adv_eval_day||'周六')+' 12:00 正式评估';
+      }else{
+        if(_aw)_aw.textContent=' · 建议出自 '+_fmtRun(d.wed.advice_run)+' 评估';
+      }
+    }
     var _bw3=document.getElementById('badge-wait-txt');
     if(_bw3&&d.dt_thursday)_bw3.textContent='待确认 · 周一('+d.dt_thursday+') 15:00 实扣后回传';
     var _bd2=d.bands||{};

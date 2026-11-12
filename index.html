@@ -161,6 +161,12 @@
     <tbody id="tb-advice"></tbody>
   </table>
   <div class="tip" id="wed-bond-tip">—</div></div>
+  <div class="sec" id="sdd-sec" style="display:none">单只回撤监控（P24/25）</div>
+  <div class="card" id="sdd-card" style="display:none"><table>
+    <tr><th>基金</th><th class="r">距峰值回撤</th><th>处置</th></tr>
+    <tbody id="tb-sdd"></tbody>
+  </table>
+  <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周六判决</div></div>
   <div class="sec">定投记录（本周期）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>内容</th><th class="r">金额</th></tr>
@@ -208,7 +214,7 @@
     <div id="jc-cf-state">…</div>
     <div id="jc-cf-form" style="display:none">
       <table>
-        <tr><th>基金</th><th class="r">评分/门槛</th><th>判定</th><th>实际买入(元)</th></tr>
+        <tr><th>基金</th><th class="r">评分/门槛</th><th class="r">建议金额</th><th>判定</th><th>实际买入(元)</th></tr>
         <tbody id="tb-jccf"></tbody>
       </table>
     </div>
@@ -636,7 +642,7 @@ try{gateCheck();}catch(e){}
             _jcf.style.display='';
             var _h3='';
             _jp.forEach(function(x,i){
-              _h3+='<tr><td>'+esc(x.标的)+'</td><td class="r"><b>'+(x.总分!=null?x.总分:'—')+'</b>/'+(x.门槛!=null?x.门槛:'—')+'</td><td>'+esc(String(x.判定||'').slice(0,30))+'</td><td><input type="number" id="jcin-'+i+'" placeholder="实际买入" style="width:90px"></td></tr>';
+              _h3+='<tr><td>'+esc(x.标的)+'</td><td class="r"><b>'+(x.总分!=null?x.总分:'—')+'</b>/'+(x.门槛!=null?x.门槛:'—')+'</td><td class="r">'+(x.金额!=null?('<b>'+x.金额+'</b>'):('—<span style="font-size:10px;color:var(--c-dim)">'+esc(String(x.金额说明||'').slice(0,18))+'</span>'))+'</td><td>'+esc(String(x.判定||'').slice(0,30))+'</td><td><input type="number" id="jcin-'+i+'" placeholder="实际买入" style="width:90px"></td></tr>';
             });
             _tj.innerHTML=_h3;
           }
@@ -665,6 +671,20 @@ try{gateCheck();}catch(e){}
         w.advice.forEach(function(x){h+='<tr><td>'+esc(x.name)+' '+x.code+'</td><td class="r">'+(x.amt||0)+'</td></tr>';});
         h+='<tr><td><b>本周定投合计</b></td><td class="r"><b>'+(w.advice_total||0)+'</b></td></tr>';
         ta.innerHTML=h;
+        // 2026-11-12 R110·H5关联:单只回撤监控(P24/25)+连续暴跌降投提示(P62/P179)
+        var _sdd=(d.wed&&d.wed.single_dd)||[],_ssec=document.getElementById('sdd-sec'),_scard=document.getElementById('sdd-card'),_stb=document.getElementById('tb-sdd');
+        if(_ssec&&_scard){
+          if(_sdd.length){
+            _ssec.style.display='';_scard.style.display='';
+            var _sh='';_sdd.forEach(function(x){_sh+='<tr><td>'+esc(x.基金)+'('+x.代码+')</td><td class="r"><b>'+x['回撤%']+'%</b></td><td>'+esc(x.处置)+'</td></tr>';});
+            _stb.innerHTML=_sh;
+          }else{_ssec.style.display='none';_scard.style.display='none';}
+        }
+        var _cc=(d.wed&&d.wed.crash_cut)||{};
+        if(_cc&&_cc.触发){
+          var _wt2=document.getElementById('wed-bond-tip');
+          if(_wt2){_wt2.innerHTML='<b style="color:#c62828">⚠️ '+esc(_cc.说明||'连续暴跌触发')+'——定投表金额已按降投比例折算</b>';}
+        }
         var cap=document.getElementById('cap-advice');
         if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='周一('+(d.dt_thursday||'')+')定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}
       }

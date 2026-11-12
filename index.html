@@ -168,11 +168,11 @@
   </table>
   <div class="tip">每周一执行；<span id="t-next-dt">—</span>(周一)建议见上表，执行后自动补录</div></div>
   <div class="sec">加仓评分（本周五维明细）<span id="score-meta" class="mid" style="font-size:11px;font-weight:400"></span></div>
-  <div id="score-banner" class="warn" style="display:none"></div>
   <div class="card" id="score-card"><table>
     <tr><th>标的</th><th class="r">估值</th><th class="r">趋势</th><th class="r">资金</th><th class="r">基本面</th><th class="r">情绪</th><th class="r">总分/门槛</th><th>判定</th></tr>
     <tbody id="tb-score"></tbody>
   </table>
+  <div class="tip" id="score-wait" style="display:none">待本周六(<span id="score-eval-day">—</span>) 12:00 评估后生成 —— 非评估日不展示测试数据，与定投建议同一规则</div>
   <div class="tip">评分=估值50分+四信号各12.5分；达门槛才加仓，A类30日闸等合规闸一票否决。判定含"暂缓/不触发"=本周不加仓，无需操作</div></div>
   <div class="sec">加仓记录（本周期）</div>
   <div class="card"><table>
@@ -696,20 +696,23 @@ try{gateCheck();}catch(e){}
     if(_dtt&&dd){_dtt.textContent=(dd.测试态?' · ⚠️测试态数据(非正式)':'');}
     // 2026-11-12:加仓评分表格旁标注数据基准/态,防"未到评估日却有评分"误读
     var _sm=document.getElementById('score-meta');
-    var _sbn=document.getElementById('score-banner');
     if(_sm&&d.wed&&d.wed.advice_run){
       var _istest=(d.wed.advice_formal===false||d.wed.测试态||d.wed.advice_valid===false);
+      var _sc=document.getElementById('score-card');
+      var _sw=document.getElementById('score-wait');
+      var _sed=document.getElementById('score-eval-day');
       if(_istest){
-        // 2026-11-12:非正式态分数=中间产物,用醒目横幅替代小字标注(小字不足以阻止误读,用户连问三次)
+        // 2026-11-12用户拍板:非评估日直接隐藏评分表(与定投建议同规则),不展示测试数据+免责横幅
         _sm.textContent='';
-        if(_sbn){_sbn.style.display='block';_sbn.innerHTML='⚠️ <b>测试数据 · 非正式结论</b>：基准 '+(d.wed.advice_基准||'—')+'，本周正式结论 '+(d.wed.adv_eval_day?d.wed.adv_eval_day+' 12:00':'待周六')+' 出。下表分数为中间产物，<b>不作为操作依据</b>（你本周无需任何操作）。';}
-        var _sc=document.getElementById('score-card');if(_sc)_sc.style.opacity='0.7';
+        if(_sc)_sc.style.display='none';
+        if(_sw){_sw.style.display='block';}
+        if(_sed)_sed.textContent=d.wed.adv_eval_day||'周六';
       }else{
-        if(_sbn)_sbn.style.display='none';
-        var _sc2=document.getElementById('score-card');if(_sc2)_sc2.style.opacity='1';
+        if(_sc)_sc.style.display='block';
+        if(_sw)_sw.style.display='none';
         _sm.textContent=' · 正式结论 · 评估日 '+(d.wed.adv_eval_day||'—')+' · 基准 '+(d.wed.advice_基准||'—');
       }
-    }else if(_sm){_sm.textContent='';if(_sbn)_sbn.style.display='none';}
+    }
     var _wtg=document.getElementById('wed-testtag');if(_wtg&&d.wed){_wtg.textContent=((d.wed.测试态||d.wed.advice_valid===false)?' · ⚠️测试态数据(非正式)':'');}
     var _mb2=d.bands&&d.bands.monthly;
     var _mtg=document.getElementById('mo-testtag');if(_mtg&&_mb2){_mtg.textContent=(_mb2.测试态?' · ⚠️测试态数据(非正式)':'');}

@@ -695,8 +695,12 @@ try{gateCheck();}catch(e){}
       if(_ysec&&_ycard&&_ytxt){
         var _yt=_yd.说明||'';
         if(_yt&&_yt!=='未执行'){_ysec.style.display='';_ycard.style.display='';
-          var _ydcl=(_yd.状态&&_yd.状态.indexOf('🔴')>=0)?'<b style="color:#c62828">':'<b>';
-          _ytxt.style.display='';_ytxt.innerHTML=_ydcl+esc(_yt.slice(0,160))+'</b>'+(_yt.length>160?'…':'');}
+          _ytxt.style.display='';
+          var _yrows=_yt.slice(0,300).split('；').filter(function(r){return r&&r.trim();});
+          _ytxt.innerHTML=_yrows.map(function(r){
+            var _rc=(r.indexOf('🔴')>=0)?'#ef5350':(r.indexOf('🟡')>=0)?'#ffa726':'#66bb6a';
+            return '<div style="color:'+_rc+';margin:2px 0">'+esc(r)+'</div>';
+          }).join('');}
         else{_ysec.style.display='none';_ycard.style.display='none';}
       }
       var _rdd=(d.wed&&d.wed.risk_dd)||{},_rsec=document.getElementById('rdd-sec'),_rcard=document.getElementById('rdd-card'),_rtxt=document.getElementById('rdd-txt');
@@ -704,7 +708,7 @@ try{gateCheck();}catch(e){}
         var _rt=(_rdd&&_rdd.说明)||'';
         if(_rt){_rsec.style.display='';_rcard.style.display='';
           var _rst=(_rdd&&_rdd.状态)||'';
-          var _rcl=(_rst.indexOf('🔴')>=0)?'#c62828':(_rst.indexOf('🟡')>=0)?'#e65100':'#1b5e20';
+          var _rcl=(_rst.indexOf('🔴')>=0)?'#ef5350':(_rst.indexOf('🟡')>=0)?'#ffa726':'#66bb6a';
           _rtxt.style.display='';_rtxt.innerHTML='<b style="color:'+_rcl+'">'+esc(_rt)+'</b>';}
         else{_rsec.style.display='none';_rcard.style.display='none';}
       }

@@ -673,31 +673,31 @@ try{gateCheck();}catch(e){}
         w.advice.forEach(function(x){h+='<tr><td>'+esc(x.name)+' '+x.code+'</td><td class="r">'+(x.amt||0)+'</td></tr>';});
         h+='<tr><td><b>本周定投合计</b></td><td class="r"><b>'+(w.advice_total||0)+'</b></td></tr>';
         ta.innerHTML=h;
-        // 2026-11-12 R110·H5关联:单只回撤监控(P24/25)+连续暴跌降投提示(P62/P179)
-        var _sdd=(d.wed&&d.wed.single_dd)||[],_ssec=document.getElementById('sdd-sec'),_scard=document.getElementById('sdd-card'),_stb=document.getElementById('tb-sdd');
-        if(_ssec&&_scard){
-          if(_sdd.length){
-            _ssec.style.display='';_scard.style.display='';
-            var _sh='';_sdd.forEach(function(x){_sh+='<tr><td>'+esc(x.基金)+'('+x.代码+')</td><td class="r"><b>'+x['回撤%']+'%</b></td><td>'+esc(x.处置)+'</td></tr>';});
-            _stb.innerHTML=_sh;
-          }else{_ssec.style.display='none';_scard.style.display='none';}
-        }
-        var _cc=(d.wed&&d.wed.crash_cut)||{};
-        if(_cc&&_cc.触发){
-          var _wt2=document.getElementById('wed-bond-tip');
-          if(_wt2){_wt2.innerHTML='<b style="color:#c62828">⚠️ '+esc(_cc.说明||'连续暴跌触发')+'——定投表金额已按降投比例折算</b>';}
-        }
-        // 2026-11-12 R110·P65长期阴跌止血:三条件+每周计次,触发周数满P173→降频/暂停+专项审视
-        var _yd=(d.wed&&d.wed.yindie)||{},_ysec=document.getElementById('yd-sec'),_ycard=document.getElementById('yd-card'),_ytxt=document.getElementById('yd-txt');
-        if(_ysec&&_ycard&&_ytxt){
-          var _yt=_yd.说明||'';
-          if(_yt&&_yt!=='未执行'){_ysec.style.display='';_ycard.style.display='';
-            var _ydcl=(_yd.状态&&_yd.状态.indexOf('🔴')>=0)?'<b style="color:#c62828">':'<b>';
-            _ytxt.style.display='';_ytxt.innerHTML=_ydcl+esc(_yt.slice(0,120))+'</b>'+(_yt.length>120?'…':'');}
-          else{_ysec.style.display='none';_ycard.style.display='none';}
-        }
-        var cap=document.getElementById('cap-advice');
-        if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='周一('+(d.dt_thursday||'')+')定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}
+      }
+      // 2026-11-12 R110修复:单只回撤/阴跌止血是独立监控,不该被"定投建议非空"拖累→移出advice块
+      var _sdd=(d.wed&&d.wed.single_dd)||[],_ssec=document.getElementById('sdd-sec'),_scard=document.getElementById('sdd-card'),_stb=document.getElementById('tb-sdd');
+      if(_ssec&&_scard){
+        if(_sdd.length){
+          _ssec.style.display='';_scard.style.display='';
+          var _sh='';_sdd.forEach(function(x){_sh+='<tr><td>'+esc(x.基金)+'('+x.代码+')</td><td class="r"><b>'+x['回撤%']+'%</b></td><td>'+esc(x.处置)+'</td></tr>';});
+          _stb.innerHTML=_sh;
+        }else{_ssec.style.display='none';_scard.style.display='none';}
+      }
+      var _cc=(d.wed&&d.wed.crash_cut)||{};
+      if(_cc&&_cc.触发){
+        var _wt2=document.getElementById('wed-bond-tip');
+        if(_wt2){_wt2.innerHTML='<b style="color:#c62828">⚠️ '+esc(_cc.说明||'连续暴跌触发')+'——定投表金额已按降投比例折算</b>';}
+      }
+      var _yd=(d.wed&&d.wed.yindie)||{},_ysec=document.getElementById('yd-sec'),_ycard=document.getElementById('yd-card'),_ytxt=document.getElementById('yd-txt');
+      if(_ysec&&_ycard&&_ytxt){
+        var _yt=_yd.说明||'';
+        if(_yt&&_yt!=='未执行'){_ysec.style.display='';_ycard.style.display='';
+          var _ydcl=(_yd.状态&&_yd.状态.indexOf('🔴')>=0)?'<b style="color:#c62828">':'<b>';
+          _ytxt.style.display='';_ytxt.innerHTML=_ydcl+esc(_yt.slice(0,160))+'</b>'+(_yt.length>160?'…':'');}
+        else{_ysec.style.display='none';_ycard.style.display='none';}
+      }
+      var cap=document.getElementById('cap-advice');
+      if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='周一('+(d.dt_thursday||'')+')定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}
       }
       var tdr=document.getElementById('tb-dtrec');
       if(tdr&&w.dt_records&&w.dt_records.length){

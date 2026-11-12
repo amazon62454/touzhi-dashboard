@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-12 12:31",
+ "updated_at": "2026-11-12 12:32",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -26,7 +26,7 @@
  "wed": {
   "advice": [],
   "advice_total": null,
-  "advice_run": "20261112_000036",
+  "advice_run": "20261112_123234",
   "scores": [
    {
     "标的": "易方达创新药ETF联接",

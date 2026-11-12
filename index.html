@@ -127,28 +127,28 @@
   <div class="band-card" onclick="go('daily')">
     <div class="row1"><span class="n"><span class="pill" style="background:var(--c-amber2)"></span>每日档 · 风控监控</span><span class="arrow">›</span></div>
     <div class="d">止损 / 回撤红线 / 单日暴跌 / 规模 / 事件 / 持仓估值越档</div>
-    <div class="next">每日 12:00 · 更新 <span id="card-upd-daily">—</span></div>
+    <div class="next">每日 03:00 · 更新 <span id="card-upd-daily">—</span></div>
     <div class="sum" id="d-summar">回撤/估值/规模摘要（数据待引擎加载）</div>
   </div>
   
   <div class="band-card" onclick="go('wed')">
     <div class="row1"><span class="n"><span class="pill" style="background:var(--c-blue)"></span>周六档 · 定投预提示</span><span class="arrow">›</span></div>
     <div class="d"><span id="t-card-d">周一(11-16)投哪些</span> / 多少钱 · 集中制档位分配 · 加仓评估</div>
-    <div class="next">下次 · <span id="t-next-zh">周六 11-14</span> 12:00 · 更新 <span id="card-upd-wed">—</span></div>
+    <div class="next">下次 · <span id="t-next-zh">周六 11-14</span> 03:00 · 更新 <span id="card-upd-wed">—</span></div>
     <div class="sum" id="w-sum-main">…</div>
   </div>
   
   <div class="band-card" onclick="go('monthly')">
     <div class="row1"><span class="n"><span class="pill" style="background:var(--c-ok)"></span>月度档 · 机会扫描</span><span class="arrow">›</span></div>
     <div class="d">全市场扫描 / 候选纳入评审 / 换仓判定 / 资金月度盘点</div>
-    <div class="next">每月20号 12:00 · 更新 <span id="card-upd-monthly">—</span></div>
+    <div class="next">每月20号 03:00 · 更新 <span id="card-upd-monthly">—</span></div>
     <div class="sum"><span id="m-sum-lead">—</span> · <span id="sum-m-spent">已投—</span>/<span id="sum-m-remain">剩—</span> · 仓位<span id="sum-m-pos">—</span></div>
   </div>
   
   <div class="band-card" onclick="go('quarter')">
     <div class="row1"><span class="n"><span class="pill" style="background:var(--c-purple)"></span>季度档 · 配置回测</span><span class="arrow">›</span></div>
     <div class="d">仓位健康度 / 配置调仓 / 信号回测</div>
-    <div class="next">季末25号 12:00 · 更新 <span id="card-upd-quarter">—</span></div>
+    <div class="next">季末25号 03:00 · 更新 <span id="card-upd-quarter">—</span></div>
     <div class="sum" id="q-sum">—</div>
   </div>
   <div class="note">※ 五档报告完整数据已整合进各档详情；每次评估跑完自动更新对应档位。</div>
@@ -172,7 +172,7 @@
     <tr><th>标的</th><th class="r">估值</th><th class="r">趋势</th><th class="r">资金</th><th class="r">基本面</th><th class="r">情绪</th><th class="r">总分/门槛</th><th>判定</th></tr>
     <tbody id="tb-score"></tbody>
   </table>
-  <div class="tip" id="score-wait" style="display:none">待本周六(<span id="score-eval-day">—</span>) 12:00 评估后生成 —— 非评估日不展示测试数据，与定投建议同一规则</div>
+  <div class="tip" id="score-wait" style="display:none">待本周六(<span id="score-eval-day">—</span>) 03:00 评估后生成 —— 非评估日不展示测试数据，与定投建议同一规则</div>
   <div class="tip">评分=估值50分+四信号各12.5分；达门槛才加仓，A类30日闸等合规闸一票否决。判定含"暂缓/不触发"=本周不加仓，无需操作</div></div>
   <div class="sec">加仓记录（本周期）</div>
   <div class="card"><table>
@@ -219,7 +219,7 @@
   </div>
 </div>
 <div id="view-daily" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎每日12:00检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎每日03:00检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div></div>
   <div class="sec">触发项扫描</div>
   <div class="card"><table>
     <tr><th>触发项</th><th></th><th>说明</th></tr>
@@ -770,13 +770,13 @@ try{gateCheck();}catch(e){}
     var qs=document.getElementById('qtr-signal');
     var _nq=function(){var _d=new Date(),_m=_d.getMonth()+1,_qm=[3,6,9,12];for(var _i=0;_i<_qm.length;_i++){if(_qm[_i]>_m||(_qm[_i]===_m&&_d.getDate()<=25))return _qm[_i]+'月25号';}return '次年3月25号';};
     if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='加仓/减仓/止损信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}
-    else if(qs&&!qb2){qs.innerHTML='未到季度评估日（下次 '+_nq()+' 12:00 回测），暂无信号回测数据';}
+    else if(qs&&!qb2){qs.innerHTML='未到季度评估日（下次 '+_nq()+' 03:00 回测），暂无信号回测数据';}
     var _qd=document.getElementById('qtr-do');
     if(_qd&&qb2){
       if(qb2.动作){_qd.innerHTML='<b>'+qb2.动作+'</b>'+(qb2.动作缺口!==undefined&&qb2.动作缺口!==null?('（缺口≈'+qb2.动作缺口+'元转权益，每笔由周六档按每周解锁份额算）'):'')+'<br><span class="mid">本档仅启动/退出判定，无需你操作；执行与回传见周六档「债基转换确认」</span>';
       }else{_qd.innerText='本季无再平衡动作(债比处常态/补债区),仅核对持仓与占比';}
     }
-    else if(_qd&&!qb2){_qd.innerHTML='未到季度评估日（下次 '+_nq()+' 12:00），本档暂无动作；无需你操作';}
+    else if(_qd&&!qb2){_qd.innerHTML='未到季度评估日（下次 '+_nq()+' 03:00），本档暂无动作；无需你操作';}
     // FH-二期·入口卡片摘要数据驱动(组合/月度/发薪/评分提示,消灭硬编码;须在所有判决段之后)
     var _sls=document.getElementById('sl-cf-state'),_slf=document.getElementById('sl-cf-form'),_tsl=document.getElementById('tb-slcf');
     if(_sls){
@@ -830,7 +830,7 @@ try{gateCheck();}catch(e){}
     if(_qsm&&qb2){var _pr=[];if(qb2.组合数量!=null)_pr.push('组合'+qb2.组合数量+'只(8-12内)');var _rbm=String(qb2.再平衡||'').match(/债比[0-9.]+%>[0-9.]+%/);_pr.push(_rbm?_rbm[0].replace('债比','债比')+'启动再平衡':'债比评估');var _scm=String(qb2.赛道集中度||'').match(/合计[0-9.]+%/);_pr.push(_scm?('赛道'+_scm[0].replace('合计','')+'未超上限'):'赛道评估');_qsm.textContent=_pr.join(' · ');}
     else if(_qsm&&!qb2){_qsm.textContent='未到季度评估日（下次'+_nq()+'）';}
     // 2026-11-12 用户指出:周六档原重复展示每日档"专项检查"(同源 bands.daily.触发项)→已删,
-    // 该10项属每日档职责(每日12:00独立更新),周六档只做定投建议+加仓评分,不重复别档数据(防时效误导)
+    // 该10项属每日档职责(每日03:00独立更新),周六档只做定投建议+加仓评分,不重复别档数据(防时效误导)
     var _inj=document.getElementById('inject-line');
     if(_inj&&d.period&&d.period.injected!=null){_inj.textContent=Math.round(d.period.injected)+' 元';}
     // FH专项A·账本数据驱动(d.tx,唯一源=台账记录·消灭硬编码,列全周期内所有转换取出)
@@ -933,7 +933,7 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
       var _test2=(d.wed.advice_formal===false||d.wed.测试态||d.wed.advice_valid===false);
       if(_test2){
         // 2026-11-12:测试态不显示"建议出自<测试跑时间>评估"(会让测试跑时间冒充评估日)
-        if(_aw)_aw.textContent=' · 待 '+(d.wed.adv_eval_day||'周六')+' 12:00 正式评估';
+        if(_aw)_aw.textContent=' · 待 '+(d.wed.adv_eval_day||'周六')+' 03:00 正式评估';
       }else{
         if(_aw)_aw.textContent=' · 建议出自 '+_fmtRun(d.wed.advice_run)+' 评估';
       }

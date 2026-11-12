@@ -277,6 +277,7 @@
     <div class="li" id="mo-replace"><b>转仓/换仓</b>：…</div>
     <div class="li" id="mo-sell"><b>卖出/减持</b>：…</div>
     <div class="li" id="mo-action"><b>唯一动作</b>：…</div>
+    <div class="li" id="mo-p86"><b>高估持仓评审</b>：…</div>
   </div>
   <div class="sec">全市场估值扫描（分位低→高）</div>
   <div class="card"><table>
@@ -945,6 +946,11 @@ try{gateCheck();}catch(e){}
     var _msl2=document.getElementById('mo-sell');
     if(_msl2){_msl2.innerHTML='<b>卖出/减持</b>：不动作（止盈三条件未齐不触发；斩仓类由每日档风控独立盯）';}
     var _mac=document.getElementById('mo-action');
+    // 2026-11-12 R110:P86高估持仓评审(持仓分位>70%→暂停/削减腾挪预算)
+    var _e86=document.getElementById('mo-p86');
+    if(_e86){var _m86=mb&&mb.高估评审?mb.高估评审:null;
+      if(_m86&&_m86.文案){_e86.innerHTML='<b>高估持仓评审</b>：'+((_m86.超线&&_m86.超线.length)?'<span style="color:#c62828">':'')+esc(_m86.文案);}
+      else{_e86.innerHTML='<b>高估持仓评审</b>：待月度档评估(每月20号)';}}
     var _rps=document.getElementById('rp-cf-state'),_rpf=document.getElementById('rp-cf-form'),_trp=document.getElementById('tb-rpcf');
 if(_rps&&mb){
   var _inc2=((mb.cand_review&&mb.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});
@@ -1019,7 +1025,7 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
   });
   }  // FH-二期·__dataOff 关闭数据写入
   else {  // 关·仅框架:清空所有数据锚点初始占位,只留无id的纯文本死数
-    var _zeros=['g-updated-val','d-total','d-remain','d-spent','d-pool','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zqc','mc-dt-tot','mc-jc-tot','mc-jc2-tot','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','period-head','payday','jc-bullet','mo-new','mo-replace','mo-sell','mo-action','f-zh'];
+    var _zeros=['g-updated-val','d-total','d-remain','d-spent','d-pool','d-summar','dd-testtag','sum-w-total','sum-w-items','sum-w-avail','sum-w-label','sum-m-pos','sum-m-remain','sum-m-spent','kv-eq-used','kv-eq-rem','kv-jc-used','kv-jc-rem','mc-sum','m-pos','m-rebal','m-asset','cap-advice','t-next-zh','t-next-dt','t-card-d','t-sub','t-dt-sec','t-dt-gate','t-zh-row','t-zh-sec','t-zh-gate','gate-dt','gate-zh','mc-dt','mc-jc','mc-zqc','mc-dt-tot','mc-jc-tot','mc-jc2-tot','w-sum-tag','m-sum-lead','q-sum','inject-line','plan-tip','period-head','payday','jc-bullet','mo-new','mo-replace','mo-sell','mo-action','mo-p86','f-zh'];
     _zeros.forEach(function(id){var _e0=document.getElementById(id);if(_e0){if(_e0.tagName==='INPUT'){_e0.value='';}else{_e0.textContent='';}}});
   }
 })();

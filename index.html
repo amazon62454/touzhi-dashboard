@@ -167,8 +167,9 @@
     <tbody id="tb-dtrec"></tbody>
   </table>
   <div class="tip">每周一执行；<span id="t-next-dt">—</span>(周一)建议见上表，执行后自动补录</div></div>
-  <div class="sec">加仓评分（本周五维明细）</div>
-  <div class="card"><table>
+  <div class="sec">加仓评分（本周五维明细）<span id="score-meta" class="mid" style="font-size:11px;font-weight:400"></span></div>
+  <div id="score-banner" class="warn" style="display:none"></div>
+  <div class="card" id="score-card"><table>
     <tr><th>标的</th><th class="r">估值</th><th class="r">趋势</th><th class="r">资金</th><th class="r">基本面</th><th class="r">情绪</th><th class="r">总分/门槛</th><th>判定</th></tr>
     <tbody id="tb-score"></tbody>
   </table>
@@ -179,8 +180,7 @@
     <tbody id="tb-jcrec"></tbody>
   </table>
   <div class="tip">评分依据：估值低估 + 基本面三重共振 + 成交额地量→情绪高分。评分=估值50+四信号各12.5，达门槛70才加仓；暂缓/未达门槛不产生记录（含A类30日闸等合规闸）</div></div>
-  <div class="sec">专项检查</div>
-  <div class="card"><div id="wed-check" class="li">引擎自动检查中…</div></div>
+  <div class="tip">每日风控检查（单日大跌/回撤红线/止损/估值越档/黑天鹅/债券连跌/减仓预警/分位跃迁）见【每日档 · 风控监控】，本档不重复展示——那是每日档职责，每天12:00独立更新。</div>
   <div class="sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
   <div class="card">
     <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
@@ -695,6 +695,22 @@ try{gateCheck();}catch(e){}
     var dd=d.bands&&d.bands.daily;
     var _dtt=document.getElementById('dd-testtag');
     if(_dtt&&dd){_dtt.textContent=(dd.测试态?' · ⚠️测试态数据(非正式)':'');}
+    // 2026-11-12:加仓评分表格旁标注数据基准/态,防"未到评估日却有评分"误读
+    var _sm=document.getElementById('score-meta');
+    var _sbn=document.getElementById('score-banner');
+    if(_sm&&d.wed&&d.wed.advice_run){
+      var _istest=(d.wed.advice_formal===false||d.wed.测试态||d.wed.advice_valid===false);
+      if(_istest){
+        // 2026-11-12:非正式态分数=中间产物,用醒目横幅替代小字标注(小字不足以阻止误读,用户连问三次)
+        _sm.textContent='';
+        if(_sbn){_sbn.style.display='block';_sbn.innerHTML='⚠️ <b>测试数据 · 非正式结论</b>：基准 '+(d.wed.advice_基准||'—')+'，本周正式结论 '+(d.wed.adv_eval_day?d.wed.adv_eval_day+' 12:00':'待周六')+' 出。下表分数为中间产物，<b>不作为操作依据</b>（你本周无需任何操作）。';}
+        var _sc=document.getElementById('score-card');if(_sc)_sc.style.opacity='0.7';
+      }else{
+        if(_sbn)_sbn.style.display='none';
+        var _sc2=document.getElementById('score-card');if(_sc2)_sc2.style.opacity='1';
+        _sm.textContent=' · 正式结论 · 评估日 '+(d.wed.adv_eval_day||'—')+' · 基准 '+(d.wed.advice_基准||'—');
+      }
+    }else if(_sm){_sm.textContent='';if(_sbn)_sbn.style.display='none';}
     var _wtg=document.getElementById('wed-testtag');if(_wtg&&d.wed){_wtg.textContent=((d.wed.测试态||d.wed.advice_valid===false)?' · ⚠️测试态数据(非正式)':'');}
     var _mb2=d.bands&&d.bands.monthly;
     var _mtg=document.getElementById('mo-testtag');if(_mtg&&_mb2){_mtg.textContent=(_mb2.测试态?' · ⚠️测试态数据(非正式)':'');}
@@ -811,13 +827,8 @@ try{gateCheck();}catch(e){}
     var _qsm=document.getElementById('q-sum');
     if(_qsm&&qb2){var _pr=[];if(qb2.组合数量!=null)_pr.push('组合'+qb2.组合数量+'只(8-12内)');var _rbm=String(qb2.再平衡||'').match(/债比[0-9.]+%>[0-9.]+%/);_pr.push(_rbm?_rbm[0].replace('债比','债比')+'启动再平衡':'债比评估');var _scm=String(qb2.赛道集中度||'').match(/合计[0-9.]+%/);_pr.push(_scm?('赛道'+_scm[0].replace('合计','')+'未超上限'):'赛道评估');_qsm.textContent=_pr.join(' · ');}
     else if(_qsm&&!qb2){_qsm.textContent='未到季度评估日（下次'+_nq()+'）';}
-    // 专项检查:引擎触发项(来源 bands.daily.触发项=引擎每日自检10项,周六档同展示)
-    var _wc=document.getElementById('wed-check');
-    if(_wc){
-      var _trig=(d.bands&&d.bands.daily&&d.bands.daily.触发项)||[];
-      if(!_trig.length){_wc.innerHTML='<span class="up">✅ 引擎自检通过，无异常触发项</span>';}
-      else{var _wh='';_trig.forEach(function(t){var _st=String(t.状态||''),_cl=_st.indexOf('🔴')>=0?'dow':(_st.indexOf('🟡')>=0||_st.indexOf('🟠')>=0?'mid':'up');_wh+='<div class="li"><span class="'+_cl+'">'+_st+' '+esc(t.名称||'')+'</span>：'+esc(t.说明||'')+'</div>';});_wc.innerHTML=_wh;}
-    }
+    // 2026-11-12 用户指出:周六档原重复展示每日档"专项检查"(同源 bands.daily.触发项)→已删,
+    // 该10项属每日档职责(每日12:00独立更新),周六档只做定投建议+加仓评分,不重复别档数据(防时效误导)
     var _inj=document.getElementById('inject-line');
     if(_inj&&d.period&&d.period.injected!=null){_inj.textContent=Math.round(d.period.injected)+' 元';}
     // FH专项A·账本数据驱动(d.tx,唯一源=台账记录·消灭硬编码,列全周期内所有转换取出)

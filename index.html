@@ -295,7 +295,14 @@
   <div class="card">
   <div class="li" id="m-pos">仓位 权益38.9%(8511元)/债券61.1%(13379元)/现金0%(0元) <span class="mid">vs 目标50/40/10</span> <span class="dow">🔴债超</span></div>
   <div class="li" id="m-rebal">上图仅展示资产配置占比；渐进再平衡<b>动作判定/缺口/回传见季度档『看配置调仓·再平衡』</b></div>
+  <div class="li" id="m-bondcap">债类状态：—</div>
   <div class="tip" id="m-asset">总资产=权益类8511+债券13379+现金0=21890（持仓快照2026-11-05，引擎每日自动刷新）</div></div>
+  <div class="sec">🎯 养老奔头（按现在金额测算）</div>
+  <div class="card">
+    <div class="tip" id="ret-lead" style="color:#4fc3f7"></div>
+    <div id="ret-body"></div>
+    <div class="tip" style="margin-top:8px">年化收益率为<b>假设非承诺</b>：4%≈债券为主/6%≈股债均衡/8%≈长期权益为主；实际有波动，短期可能亏损。月投按当前 1800 元固定测算（未计未来加薪）。</div>
+  </div>
   <div class="sec">需你本人做</div>
   <div class="card"><div class="ok">持仓占比已由系统台账核算（见上表，含现金），无需确认</div></div>
   <div class="sec">置换/净增执行回传</div>
@@ -549,6 +556,30 @@ try{gateCheck();}catch(e){}
     if(d.holdings&&d.holdings.total){
       var h=d.holdings;
       var mp=document.getElementById('m-pos');
+      var _mbc=document.getElementById('m-bondcap');
+      if(_mbc){
+        var _ps=(d.holdings&&d.holdings.positions)||[];
+        var _bn=_ps.filter(function(x){return (x.类型||'').indexOf('债')>=0;}).length;
+        _mbc.innerHTML=_bn===1
+          ?'债类持仓<b>1只</b>·单只上限豁免生效：<b style="color:#66bb6a">债比区间上沿50%</b>（债比机制优先；配置清单加第2只债基后自动恢复标准上限20%/积累期30%）'
+          :'债类持仓<b>'+_bn+'只</b>·标准单只上限20%（积累期30%）适用';
+      }
+      var _rt=(d&&d.retirement)||null;
+      if(_rt&&document.getElementById('ret-body')){
+        var _rl=document.getElementById('ret-lead');
+        _rl.innerHTML='现在 <b>'+(_rt.当前资产/10000).toFixed(2)+'万</b> 元本金 + 每月 <b>'+_rt.月投+'</b> 元，43 岁起投，复利月计';
+        var _rh='';
+        (_rt.计划||[]).forEach(function(p){
+          _rh+='<div style="margin:12px 0 4px;font-weight:600">到 '+p.年龄+' 岁 <span style="color:#90a4ae;font-weight:400">（'+p.年数+' 年后）</span></div>';
+          _rh+='<table><tr><th>年化假设</th><th class="r">总资产</th><th class="r">本金投入</th><th class="r">利润</th></tr>';
+          (p.档位||[]).forEach(function(x){
+            var _c=x.年化==='8%'?'#66bb6a':(x.年化==='6%'?'#4fc3f7':'#b0bec5');
+            _rh+='<tr><td style="color:'+_c+'"><b>'+x.年化+'</b></td><td class="r"><b>'+(x.终值/10000).toFixed(1)+'万</b></td><td class="r">'+(x.本金/10000).toFixed(1)+'万</td><td class="r" style="color:'+_c+'"><b>+'+(x.利润/10000).toFixed(1)+'万</b></td></tr>';
+          });
+          _rh+='</table>';
+        });
+        document.getElementById('ret-body').innerHTML=_rh;
+      }
       if(mp){
         var tg=d.targets||{};var _tq=tg.权益!=null?tg.权益:50,_tb=tg.债券!=null?tg.债券:40,_tc=tg.现金!=null?tg.现金:10,_tol=tg.容差!=null?tg.容差:10;
         var _dev=[];

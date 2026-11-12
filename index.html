@@ -167,6 +167,8 @@
     <tbody id="tb-sdd"></tbody>
   </table>
   <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周六判决</div></div>
+  <div class="sec" id="yd-sec" style="display:none">长期阴跌止血监控（P65）</div>
+  <div class="card" id="yd-card" style="display:none"><div id="yd-txt" class="tip" style="display:none"></div></div>
   <div class="sec">定投记录（本周期）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>内容</th><th class="r">金额</th></tr>
@@ -684,6 +686,15 @@ try{gateCheck();}catch(e){}
         if(_cc&&_cc.触发){
           var _wt2=document.getElementById('wed-bond-tip');
           if(_wt2){_wt2.innerHTML='<b style="color:#c62828">⚠️ '+esc(_cc.说明||'连续暴跌触发')+'——定投表金额已按降投比例折算</b>';}
+        }
+        // 2026-11-12 R110·P65长期阴跌止血:三条件+每周计次,触发周数满P173→降频/暂停+专项审视
+        var _yd=(d.wed&&d.wed.yindie)||{},_ysec=document.getElementById('yd-sec'),_ycard=document.getElementById('yd-card'),_ytxt=document.getElementById('yd-txt');
+        if(_ysec&&_ycard&&_ytxt){
+          var _yt=_yd.说明||'';
+          if(_yt&&_yt!=='未执行'){_ysec.style.display='';_ycard.style.display='';
+            var _ydcl=(_yd.状态&&_yd.状态.indexOf('🔴')>=0)?'<b style="color:#c62828">':'<b>';
+            _ytxt.style.display='';_ytxt.innerHTML=_ydcl+esc(_yt.slice(0,120))+'</b>'+(_yt.length>120?'…':'');}
+          else{_ysec.style.display='none';_ycard.style.display='none';}
         }
         var cap=document.getElementById('cap-advice');
         if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='周一('+(d.dt_thursday||'')+')定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}

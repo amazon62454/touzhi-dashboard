@@ -121,7 +121,7 @@
   <div class="card">
     <div class="tip" id="ret-lead" style="color:#4fc3f7"></div>
     <div id="ret-body"></div>
-    <div class="tip" style="margin-top:8px">退休年龄按<b>现行法定规则</b>：男职工渐进式延迟退休 60→63 岁（2025-01-01 起施行），1976 年 9 月及以后出生者封顶 <b>63 岁</b>，你 1983-10 生 → 2046 年 10 月退休。<br><b>三档全部按你自己的权重算</b>：债 60% + 权益 34%（行业主题ETF）+ 金 6%，每类只能代入同类长期历史（你的基金 2020-2021 才成立，没有 20 年历史）。债用中长期纯债指数近十年 4.62%、金用黄金 2005-2024 的 8.60%，权益取 0%/8%/12% 三档（8% 已低于沪深300全收益 9.04%）。<b>会不会亏</b>：你组合现在实测累计 <b style="color:#ef5350">-4.44%</b>（投入 2.32 万→现值 2.22 万），短期确实在亏；20 年维度看，只有长期年化低于 0 才真亏。月投按 1800 固定测算。</div>
+    <div class="tip" style="margin-top:8px">退休年龄按<b>现行法定规则</b>：男职工渐进式延迟退休 60→63 岁（2025-01-01 起施行），1976 年 9 月及以后出生者封顶 <b>63 岁</b>，你 1983-10 生 → 2046 年 10 月退休。<br><b>全部按你自己的组合算</b>：每只基金的「成立以来年化」（AI涨乐 2026-11-12 实查）× 当前实际占比 = 组合历史年化 <b>4.13%</b>（占比动态，你买卖后自动重算）。三档：悲观把财通 38.86% 极端值回归 8%，中性全部照实，乐观假设权益类回到宽基 8%。<b>你组合现在实测累计 -4.44%</b>（投入 2.32 万→现值 2.22 万）——基金历史上是赚钱的，亏是因为买在高点，这正是定投摊薄成本的意义。</div>
   </div>
   <div class="band-card" onclick="go('monthend')">
     <div class="row1"><span class="n"><span class="pill" style="background:var(--c-pink)"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
@@ -567,14 +567,22 @@ try{gateCheck();}catch(e){}
       var _rt=(d&&d.retirement)||null;
       if(_rt&&document.getElementById('ret-body')){
         var _rl=document.getElementById('ret-lead');
-        _rl.innerHTML='现在 <b>'+(_rt.当前资产/10000).toFixed(2)+'万</b> 元本金 + 每月 <b>'+_rt.月投+'</b> 元，法定 <b>'+_rt.退休年龄+' 岁</b>退休（'+_rt.退休年月+'，还有 '+_rt.剩余年数+' 年）';
-        var _rh='<table><tr><th>年化（历史口径）</th><th class="r">退休时总资产</th><th class="r">利润</th></tr>';
-        (_rt.档位||[]).forEach(function(x){
-          var neg=x.利润<0;
-          var _c=neg?'#ef5350':(parseFloat(x.年化)>=9?'#66bb6a':(parseFloat(x.年化)>=6?'#4fc3f7':(parseFloat(x.年化)>=4?'#b0bec5':'#8d9aa5')));
-          _rh+='<tr title="'+x.依据+'"><td><b style="color:'+_c+'">'+x.年化+'</b><br><span style="color:#78909c;font-size:10px">'+x.标签+'</span></td><td class="r"><b>'+(x.终值/10000).toFixed(1)+'万</b><br><span style="color:#607d8b;font-size:10px">本金'+(x.本金/10000).toFixed(1)+'万</span></td><td class="r" style="color:'+_c+'"><b>'+(x.利润>=0?'+':'')+(x.利润/10000).toFixed(1)+'万</b></td></tr>';
+        _rl.innerHTML='现在 <b>'+(_rt.当前资产/10000).toFixed(2)+'万</b> 元 + 每月 <b>'+_rt.月投+'</b> 元，法定 <b>'+_rt.退休年龄+' 岁</b>退休（'+_rt.退休年月+'，还有 '+_rt.剩余年数+' 年）';
+        var _rh='<div style="font-size:11px;color:#90a4ae;margin:2px 0 4px">① 你每只基金的真实历史年化 × 当前占比（占比随持仓自动变）</div>';
+        _rh+='<table><tr><th>基金</th><th class="r">占比</th><th class="r">历史年化</th><th class="r">贡献</th></tr>';
+        (_rt.明细||[]).forEach(function(x){
+          var _nm=x.名称.replace(/一年持有|两年持有|三年持有|指数|联接|发起式|\（.*?\）/g,'').slice(0,10);
+          var _c=x.历史年化>=8?'#66bb6a':(x.历史年化>=3?'#4fc3f7':(x.历史年化>=0?'#b0bec5':'#ef5350'));
+          _rh+='<tr><td style="font-size:11px">'+_nm+'</td><td class="r">'+x.占比+'%</td><td class="r" style="color:'+_c+'">'+(x.历史年化>0?'+':'')+x.历史年化+'%</td><td class="r">'+(x.贡献>0?'+':'')+x.贡献+'</td></tr>';
         });
-        _rh+='</table><div style="font-size:10px;color:#78909c;margin-top:6px;line-height:1.6">依据（真实历史，非假设）：中证综合债券财富指数20年 4.19% · 沪深300全收益20年 9.04%（最大回撤72%）· 中证红利全收益20年 10.42% · 黄金2005-2024 8.60%（申万宏源/晨星/证券时报）</div>';
+        _rh+='<tr style="border-top:1px solid #455a64"><td><b>组合加权</b></td><td class="r">100%</td><td class="r">—</td><td class="r"><b style="color:#4fc3f7">'+_rt.组合历史年化+'%</b></td></tr></table>';
+        _rh+='<div style="font-size:11px;color:#90a4ae;margin:12px 0 4px">② 按这个年化推到 2046 年 10 月</div>';
+        _rh+='<table><tr><th>情形</th><th class="r">组合年化</th><th class="r">退休时</th><th class="r">利润</th></tr>';
+        (_rt.档位||[]).forEach(function(x){
+          var _c=x.利润>0?'#4fc3f7':'#ef5350';
+          _rh+='<tr title="'+x.依据+'"><td style="font-size:11px"><b style="color:'+_c+'">'+x.标签+'</b></td><td class="r">'+x.年化+'</td><td class="r"><b>'+(x.终值/10000).toFixed(1)+'万</b></td><td class="r" style="color:'+_c+'">'+(x.利润>=0?'+':'')+(x.利润/10000).toFixed(1)+'万</td></tr>';
+        });
+        _rh+='</table>';
         document.getElementById('ret-body').innerHTML=_rh;
       }
       if(mp){

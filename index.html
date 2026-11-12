@@ -169,6 +169,8 @@
   <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周六判决</div></div>
   <div class="sec" id="yd-sec" style="display:none">长期阴跌止血监控</div>
   <div class="card" id="yd-card" style="display:none"><div id="yd-txt" class="tip" style="display:none"></div></div>
+  <div class="sec" id="rdd-sec" style="display:none">组合回撤红线与黑天鹅监控</div>
+  <div class="card" id="rdd-card" style="display:none"><div id="rdd-txt" class="tip" style="display:none"></div></div>
   <div class="sec">定投记录（本周期）</div>
   <div class="card"><table>
     <tr><th>日期</th><th>内容</th><th class="r">金额</th></tr>
@@ -696,6 +698,15 @@ try{gateCheck();}catch(e){}
           var _ydcl=(_yd.状态&&_yd.状态.indexOf('🔴')>=0)?'<b style="color:#c62828">':'<b>';
           _ytxt.style.display='';_ytxt.innerHTML=_ydcl+esc(_yt.slice(0,160))+'</b>'+(_yt.length>160?'…':'');}
         else{_ysec.style.display='none';_ycard.style.display='none';}
+      }
+      var _rdd=(d.wed&&d.wed.risk_dd)||{},_rsec=document.getElementById('rdd-sec'),_rcard=document.getElementById('rdd-card'),_rtxt=document.getElementById('rdd-txt');
+      if(_rsec&&_rcard&&_rtxt){
+        var _rt=(_rdd&&_rdd.说明)||'';
+        if(_rt){_rsec.style.display='';_rcard.style.display='';
+          var _rst=(_rdd&&_rdd.状态)||'';
+          var _rcl=(_rst.indexOf('🔴')>=0)?'#c62828':(_rst.indexOf('🟡')>=0)?'#e65100':'#1b5e20';
+          _rtxt.style.display='';_rtxt.innerHTML='<b style="color:'+_rcl+'">'+esc(_rt)+'</b>';}
+        else{_rsec.style.display='none';_rcard.style.display='none';}
       }
       var cap=document.getElementById('cap-advice');
       if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='周一('+(d.dt_thursday||'')+')定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}

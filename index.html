@@ -227,16 +227,16 @@
     <div class="tip" id="op-jc" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
   </div>
-  <div class="sec" id="sdd-sec" style="display:none">单只高点回撤监控</div>
-  <div class="card" id="sdd-card" style="display:none"><table>
-    <tr><th>基金</th><th class="r">距峰值回撤</th><th>处置</th></tr>
-    <tbody id="tb-sdd"></tbody>
-  </table>
-  <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周六判决</div></div>
-  <div class="sec" id="yd-sec" style="display:none">长期阴跌止血监控</div>
-  <div class="card" id="yd-card" style="display:none"><div id="yd-txt" class="tip" style="display:none"></div></div>
-  <div class="sec" id="rdd-sec" style="display:none">组合回撤红线与黑天鹅监控</div>
-  <div class="card" id="rdd-card" style="display:none"><div id="rdd-txt" class="tip" style="display:none"></div></div>
+  <div class="sec">债基转换依据（为什么这周要转）</div>
+  <div class="card">
+    <table>
+      <tr><th>项</th><th class="r">状态</th></tr>
+      <tr><td>债基定投</td><td class="r" id="br-dt">—</td></tr>
+      <tr><td>本周赎回→买入目标</td><td class="r" id="br-target">—</td></tr>
+      <tr><td>本周期已转换</td><td class="r" id="br-done">—</td></tr>
+    </table>
+    <div class="tip" id="br-rule">—</div>
+  </div>
   <div class="sec">债基转换确认（<span id="t-zh-sec">—</span> 15:00 到账后开放）</div>
   <div class="card">
     <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">—</span> 15:00 转换到账后开放填写</div>
@@ -249,6 +249,16 @@
     <div class="tip" id="op-zh" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">渐进再平衡搬运：每周一赎回富国当周解锁份额（可赎额度）→按实际到账金额买入当期集中制第1名（到账≠解锁额度，以理财通显示为准）；债比回目标内自动退出；执行后周二15:00回传实际到账金额</div>
   </div>
+  <div class="sec" id="sdd-sec" style="display:none">单只高点回撤监控</div>
+  <div class="card" id="sdd-card" style="display:none"><table>
+    <tr><th>基金</th><th class="r">距峰值回撤</th><th>处置</th></tr>
+    <tbody id="tb-sdd"></tbody>
+  </table>
+  <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周六判决</div></div>
+  <div class="sec" id="yd-sec" style="display:none">长期阴跌止血监控</div>
+  <div class="card" id="yd-card" style="display:none"><div id="yd-txt" class="tip" style="display:none"></div></div>
+  <div class="sec" id="rdd-sec" style="display:none">组合回撤红线与黑天鹅监控</div>
+  <div class="card" id="rdd-card" style="display:none"><div id="rdd-txt" class="tip" style="display:none"></div></div>
 </div>
 
 <div id="view-daily" class="view" style="display:none">
@@ -1077,6 +1087,21 @@ try{gateCheck();}catch(e){}
         h+='<tr><td><b>本周定投合计</b></td><td class="r">—</td><td class="r">—</td><td class="r"><b>'+(w.advice_total||0)+'</b></td></tr>';
         ta.innerHTML=h;
       }
+      // R224(2026-11-14):债基转换依据渲染
+      (function(){
+        var br=d.bond_rebal||{};
+        var e1=document.getElementById('br-dt');
+        if(e1){e1.innerHTML=(br.dt_status===0)?'⏸ 暂停（渐进再平衡中）':((br.dt_status===null||br.dt_status===undefined)?'—':(br.dt_status+' 元/日'));}
+        var e2=document.getElementById('br-target');
+        if(e2){
+          var top=(w.advice||[]).filter(function(x){return x.rank===1;})[0];
+          e2.innerHTML=top?(esc(top.name)+'('+top.code+') · 分位'+(top.pct!==null&&top.pct!==undefined?top.pct+'%':'—')+' · 集中制第1名'):'—';
+        }
+        var e3=document.getElementById('br-done');
+        if(e3){e3.innerHTML=(br.period_converted===null||br.period_converted===undefined)?'—':('<b>'+br.period_converted+' 元</b>');}
+        var e4=document.getElementById('br-rule');
+        if(e4&&br.rule){e4.textContent=br.rule;}
+      })();
       // 2026-11-12 R110修复:单只回撤/阴跌止血是独立监控,不该被"定投建议非空"拖累→移出advice块
       var _sdd=(d.wed&&d.wed.single_dd)||[],_ssec=document.getElementById('sdd-sec'),_scard=document.getElementById('sdd-card'),_stb=document.getElementById('tb-sdd');
       if(_ssec&&_scard){

@@ -513,6 +513,7 @@ function gateCheck(){
 // ===== 2026-11-13 R138 H5报告化改造 =====
 
 var _rfCb=null;
+function _esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
 function _fundOpts(){
   var d=window.__DATA__||{}, ps=((d.holdings||{}).positions)||[];
   return ps.map(function(x){return {v:String(x.代码||''),t:(x.名称||'')+' ('+x.代码+')'};});
@@ -530,10 +531,10 @@ function showForm(title,fields,cb){
     h+='<div style="margin-bottom:12px"><div style="font-size:12px;color:#90a4ae;margin-bottom:5px">'+f.label+'</div>';
     if(f.type==='select'){
       h+='<select id="rf-'+f.key+'" style="width:100%;padding:11px;border-radius:9px;border:1px solid #37474f;background:#1e2a38;color:#fff;font-size:14px">';
-      (f.options||[]).forEach(function(o){h+='<option value="'+esc(o.v)+'"'+(o.v===f.default?' selected':'')+'>'+esc(o.t)+'</option>';});
+      (f.options||[]).forEach(function(o){h+='<option value="'+_esc(o.v)+'"'+(o.v===f.default?' selected':'')+'>'+_esc(o.t)+'</option>';});
       h+='</select>';
     }else{
-      h+='<input id="rf-'+f.key+'" type="'+(f.type==='number'?'number':'text')+'" inputmode="'+(f.type==='number'?'decimal':'text')+'" value="'+esc(String(f.default==null?'':f.default))+'" placeholder="'+esc(f.ph||'')+'" style="width:100%;box-sizing:border-box;padding:11px;border-radius:9px;border:1px solid #37474f;background:#1e2a38;color:#fff;font-size:14px">';
+      h+='<input id="rf-'+f.key+'" type="'+(f.type==='number'?'number':'text')+'" inputmode="'+(f.type==='number'?'decimal':'text')+'" value="'+_esc(String(f.default==null?'':f.default))+'" placeholder="'+_esc(f.ph||'')+'" style="width:100%;box-sizing:border-box;padding:11px;border-radius:9px;border:1px solid #37474f;background:#1e2a38;color:#fff;font-size:14px">';
     }
     h+='</div>';
   });

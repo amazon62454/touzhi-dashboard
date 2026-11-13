@@ -738,24 +738,9 @@ function renderVerdicts(d){
 
 function renderTodayTodo(d){
   var box=document.getElementById('today-todo');if(!box)return;
-  var today=[], next=[];
-  // 今日动作:仅🔴级警报(需立即处理)
-  var db=(d.bands&&d.bands.daily)||{}, dm=db._meta||{};
+  var today=[];
+  var db=(d.bands&&d.bands.daily)||{};
   (db.触发项||[]).forEach(function(x){var s2=String(x);if(s2.indexOf('🔴')>=0)today.push({t:'风控警报(需处理)',d:s2,lv:'#ef5350'});});
-  // 接下来(未来安排,不是今天要做)
-  var w=d.wed||{}, wm=w._meta||{}, pl=d.plan||{};
-  if(pl.待执行次数>0){
-    var _formal = !!(wm.状态&&wm.状态.indexOf('✅')>=0);
-    var _amt = _formal?('共 '+(pl.待执行金额||'—')+' 元'):'金额周六评估后确认';
-    next.push({t:'下周一('+((pl.待执行日期||[])[0]||'—')+') 定投执行',d:pl.待执行次数+' 期 · '+_amt});
-  }
-  if(!(wm.状态&&wm.状态.indexOf('✅')>=0)){
-    next.unshift({t:'周六定投评估',d:'出下周一执行建议（'+(wm.下次生成||'周六 03:00')+'）'});
-  }
-  var q=(d.bands&&d.bands.quarter)||{}, qg=(q.去留&&q.去留.明细)||[];
-  var _qo=qg.filter(function(x){return String(x).indexOf('🟡')>=0||String(x).indexOf('🔴')>=0;});
-  if(_qo.length)next.push({t:'持有期到期观察',d:_qo.length+' 只（季度档已评估，无需操作）'});
-
   var h='';
   if(today.length){
     h+='<div class="card" style="margin:0 0 10px 0;padding:12px 14px;border-left:3px solid #ef5350;background:var(--c-bg2)"><div style="font-size:13px;color:#fff;font-weight:600;margin-bottom:6px">📌 今天要你做的（'+today.length+'项）</div>';
@@ -764,9 +749,26 @@ function renderTodayTodo(d){
   }else{
     h+='<div class="card" style="margin:0 0 10px 0;padding:12px 14px;border-left:3px solid #66bb6a;background:var(--c-bg2)"><div style="font-size:13px;color:#66bb6a;font-weight:600">✅ 今天无需你操作</div><div style="font-size:11px;color:#78909c;margin-top:3px">无警报、无待回传事项</div></div>';
   }
-  if(next.length){
-    h+='<div class="card" style="margin:0 0 10px 0;padding:12px 14px;background:var(--c-bg2)"><div style="font-size:13px;color:#b0bec5;font-weight:600;margin-bottom:6px">📅 接下来</div>';
-    next.slice(0,4).forEach(function(x){h+='<div style="font-size:12px;color:#90a4ae;margin:4px 0;padding-left:8px;border-left:2px solid #455a64"><b style="color:#b0bec5">'+x.t+'</b>：'+x.d+'</div>';});
+  // 接下来:动态(引擎判决 upcoming),不硬编码
+  var up=d.upcoming||[];
+  var _wm=(d.wed||{})._meta||{}, _wFormal=!!(_wm.状态&&_wm.状态.indexOf('✅')>=0);
+  if(up.length){
+    h+='<div class="card" style="margin:0 0 10px 0;padding:12px 14px;background:var(--c-bg2)"><div style="font-size:13px;color:#b0bec5;font-weight:600;margin-bottom:8px">📅 接下来</div>';
+    var byDate={};
+    up.forEach(function(x){var k=x.日期||'—';(byDate[k]=byDate[k]||[]).push(x);});
+    Object.keys(byDate).sort().forEach(function(dt){
+      var rows=byDate[dt], act=rows.filter(function(r){return !r.档期;});
+      var isAct=act.length>0;
+      h+='<div style="margin:8px 0 4px;font-size:11px;font-weight:'+(isAct?'700':'600')+';color:'+(isAct?'#4fc3f7':'#78909c')+'">'+_esc(dt)+(rows[0].星期?' '+_esc(rows[0].星期):'')+(isAct?' · 需执行':'')+'</div>';
+      rows.forEach(function(r){
+        var amt='';
+        if(r.金额){
+          amt=_wFormal?(' · <b style="color:#ffd54f">'+r.金额+' 元</b>'):' · <span style="color:#ffb74d">金额待周六评估确认</span>';
+        }
+        var c=r.档期?'#607d8b':'#cfd8dc';
+        h+='<div style="font-size:12px;color:'+c+';margin:3px 0 3px 8px;padding-left:8px;border-left:2px solid '+(r.档期?'#37474f':'#4fc3f7')+'"><b style="color:'+(r.档期?'#90a4ae':'#fff')+'">'+_esc(r.动作)+'</b>'+amt+(r.说明?'<div style="font-size:10.5px;color:#78909c;margin-top:1px">'+_esc(r.说明)+'</div>':'')+'</div>';
+      });
+    });
     h+='</div>';
   }
   box.innerHTML=h;

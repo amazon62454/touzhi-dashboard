@@ -623,7 +623,7 @@ function genReport(k){
   var d=window.__DATA__||{},dt=new Date(),ds=(dt.getMonth()+1)+'-'+dt.getDate();
   var funds=_fundOpts();
   if(k==='wed'){ showDtForm(); }
-}else if(k==='add'){
+  else if(k==='add'){
     showForm('加仓执行回传',[
       {key:'fund',label:'加仓基金',type:'select',options:funds,default:(funds[0]||{}).v},
       {key:'amt',label:'实际加仓金额（元）',type:'number',ph:'如 122'}

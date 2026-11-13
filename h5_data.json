@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-14 00:33",
+ "updated_at": "2026-11-14 00:41",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -24,34 +24,8 @@
  "dt_thursday": "11-16",
  "dt_confirmed": false,
  "wed": {
-  "advice": [
-   {
-    "name": "嘉实中证新能车C",
-    "code": "012544",
-    "amt": 65
-   },
-   {
-    "name": "易方达创新药ETF联接",
-    "code": "024328",
-    "amt": 40
-   },
-   {
-    "name": "华宝有色A",
-    "code": "017140",
-    "amt": 25
-   },
-   {
-    "name": "国泰黄金ETF联接",
-    "code": "004253",
-    "amt": 0
-   },
-   {
-    "name": "兴全安泰养老FOF A",
-    "code": "010267",
-    "amt": 30
-   }
-  ],
-  "advice_total": 160,
+  "advice": [],
+  "advice_total": null,
   "advice_run": "20261114_002949",
   "scores": [
    {
@@ -266,7 +240,7 @@
    "触发": []
   },
   "adv_eval_day": "11-14",
-  "advice_valid": true
+  "advice_valid": false
  },
  "holdings": {
   "equity": 8905.49,

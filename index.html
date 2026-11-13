@@ -706,13 +706,13 @@ function genReport(k){
     });
   }else if(k==='snap'){
     var ps=(d.holdings||{}).positions||[];
-    var flds=[{key:'date',label:'快照日期',type:'text',default:ds,ph:'MM-DD'}];
+    var flds=[];
     ps.forEach(function(x,i){flds.push({key:'f'+i,label:(x.名称||'')+' 持有金额(元)',type:'number',ph:'理财通持仓页显示金额(当前台账 '+(x.市值||x.资产||'—')+')'});});
-    showForm('持仓快照回传（校准配置清单）',flds,function(v){
+    showForm('持仓快照回传（'+ds+' 自动记当天）',flds,function(v){
       var parts=[];
       ps.forEach(function(x,i){var val=v['f'+i];if(val)parts.push((x.名称||'')+':'+val);});
-      if(!parts.length){alert('请至少填一只基金市值');return;}
-      _copy('【持仓快照】'+(v.date||ds)+' 各基金持有金额：'+parts.join('，')+'。');
+      if(!parts.length){alert('请至少填一只基金持有金额');return;}
+      _copy('【持仓快照】'+ds+' 各基金持有金额：'+parts.join('，')+'。');
     });
   }else if(k==='fund'){
     var hh=((window.__DATA__||{}).household)||[];

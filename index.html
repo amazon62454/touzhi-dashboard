@@ -173,7 +173,11 @@
   </div>
 </div>
 <div id="view-wed" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周六档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span><span id="t-adv-wrap"> · 建议出自 <span id="t-adv-run">—</span> 评估</span><span id="wed-testtag"></span></div></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周六档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span><span id="t-adv-wrap"> · 建议出自 <span id="t-adv-run">—</span> 评估</span><span id="wed-testtag"></span></div>
+  <div class="card verdict" id="vd-wed" style="margin:10px 12px;padding:12px 14px;border-left:4px solid #4fc3f7;background:var(--c-bg2)">
+    <div class="vd-main" style="font-size:15px;font-weight:700;color:#fff">加载中…</div>
+    <div class="vd-why" style="font-size:11px;color:#90a4ae;margin-top:4px"></div>
+  </div></div>
   <div class="sec"><span id="cap-advice">本周一定投建议</span> <span class="badge badge-wait" id="badge-wait-txt">待确认</span></div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">金额(元)</th></tr>
@@ -250,7 +254,11 @@
   <div class="card"><button type="button" onclick="genReport('wed')" style="width:100%;padding:11px;border:none;border-radius:9px;background:#1e88e5;color:#fff;font-size:14px;font-weight:600">📋 生成定投回传文案</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
 
 <div id="view-daily" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎<span id="sch-df">—</span>检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎<span id="sch-df">—</span>检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div>
+  <div class="card verdict" id="vd-daily" style="margin:10px 12px;padding:12px 14px;border-left:4px solid #4fc3f7;background:var(--c-bg2)">
+    <div class="vd-main" style="font-size:15px;font-weight:700;color:#fff">加载中…</div>
+    <div class="vd-why" style="font-size:11px;color:#90a4ae;margin-top:4px"></div>
+  </div></div>
   <div class="sec">触发项扫描</div>
   <div class="card"><table>
     <tr><th>触发项</th><th></th><th>说明</th></tr>
@@ -295,7 +303,11 @@
   <div class="card"><button type="button" onclick="genReport('daily')" style="width:100%;padding:11px;border:none;border-radius:9px;background:#1e88e5;color:#fff;font-size:14px;font-weight:600">📋 生成风控确认文案</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
 
 <div id="view-monthly" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span><span id="mo-testtag"></span></div></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span><span id="mo-testtag"></span></div>
+  <div class="card verdict" id="vd-monthly" style="margin:10px 12px;padding:12px 14px;border-left:4px solid #4fc3f7;background:var(--c-bg2)">
+    <div class="vd-main" style="font-size:15px;font-weight:700;color:#fff">加载中…</div>
+    <div class="vd-why" style="font-size:11px;color:#90a4ae;margin-top:4px"></div>
+  </div></div>
   <div class="sec">行动结论</div>
   <div class="card">
     <div class="li" id="mo-new"><b>买入新建仓</b>：待引擎全市场扫描输出候选中</div>
@@ -354,7 +366,11 @@
   <div class="card"><button type="button" onclick="genReport('monthly')" style="width:100%;padding:11px;border:none;border-radius:9px;background:#1e88e5;color:#fff;font-size:14px;font-weight:600">📋 生成月度回传文案</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
 
 <div id="view-quarter" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号回测 · 本次 <span id="q-run">—</span> · 数据基准 <span id="q-base">—</span><span id="q-testtag"></span></div></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号回测 · 本次 <span id="q-run">—</span> · 数据基准 <span id="q-base">—</span><span id="q-testtag"></span></div>
+  <div class="card verdict" id="vd-quarter" style="margin:10px 12px;padding:12px 14px;border-left:4px solid #4fc3f7;background:var(--c-bg2)">
+    <div class="vd-main" style="font-size:15px;font-weight:700;color:#fff">加载中…</div>
+    <div class="vd-why" style="font-size:11px;color:#90a4ae;margin-top:4px"></div>
+  </div></div>
   <div class="sec">看配置调仓</div>
   <div class="card"><table>
     <tr><th>指标</th><th></th><th>内容</th></tr>
@@ -493,6 +509,41 @@ function genReport(k){
     navigator.clipboard.writeText(t).then(function(){alert('已复制，粘贴发给小艺即可：\n\n'+t);},function(){prompt('请手动复制：',t);});
   }else{prompt('请手动复制：',t);}
 }
+
+function setVerdict(id,main,why,color){
+  var el=document.getElementById(id); if(!el)return;
+  el.style.borderLeftColor=color||'#4fc3f7';
+  var m=el.querySelector('.vd-main'), w=el.querySelector('.vd-why');
+  if(m)m.textContent=main; if(w)w.textContent=why||'';
+}
+function renderVerdicts(d){
+  // 每日档
+  var db=(d.bands&&d.bands.daily)||{}, ti=db.触发项||[];
+  var red=ti.filter(function(x){return String(x).indexOf('🔴')>=0;}).length;
+  if(!ti.length) setVerdict('vd-daily','今日无警报，组合正常','引擎扫描完成，回撤/止损/规模/事件均未触发','#66bb6a');
+  else setVerdict('vd-daily','今日 '+ti.length+' 项触发'+(red?('，其中 '+red+' 项🔴需立即处理'):'，均为提示级'),'详见下方触发项明细',red?'#ef5350':'#ffb74d');
+  // 周六档
+  var pl=d.plan||{}, w=d.wed||{}, ad=w.advice||[];
+  if(ad.length){
+    var amt=w.advice_total||'—';
+    setVerdict('vd-wed','下周一('+((pl.待执行日期||[])[0]||'—')+')定投 '+ad.length+' 笔，共 '+amt+' 元','按集中制分位档位分配，详见下方金额表','#4fc3f7');
+  }else if(pl.待执行次数>0){
+    setVerdict('vd-wed','下周一('+((pl.待执行日期||[])[0]||'—')+')定投 '+pl.待执行次数+' 期，共 '+(pl.待执行金额||'—')+' 元','按既定计划执行，无新增调整','#4fc3f7');
+  }else{
+    setVerdict('vd-wed','本周无定投建议','评分未达门槛或非定投周，不操作','#90a4ae');
+  }
+  // 月度档
+  var mb=(d.bands&&d.bands.monthly)||{};
+  var mact=mb.动作||mb.结论||'';
+  setVerdict('vd-monthly', mact?String(mact).slice(0,80):'本月无换仓/加仓建议', '资金盘点与方向扫描详见下方', mact?'#4fc3f7':'#66bb6a');
+  // 季度档
+  var qb=(d.bands&&d.bands.quarter)||{};
+  var qgate=(qb.去留&&qb.去留.明细)||[];
+  var qact=qb.再平衡||qb.动作||'';
+  var qmain=qact?String(qact).slice(0,80):('配置健康，'+(qgate.length?('持有期 '+qgate.length+' 只按闸门处理'):'无再平衡动作'));
+  setVerdict('vd-quarter',qmain,'配置调仓与到期评估详见下方','#4fc3f7');
+}
+
 function renderTodayTodo(d){
   var box=document.getElementById('today-todo');if(!box)return;
   var items=[];
@@ -638,6 +689,7 @@ try{gateCheck();}catch(e){}
       }
       var _rt=(d&&d.retirement)||null;
       if(typeof renderTodayTodo==='function')try{renderTodayTodo(d);}catch(e){}
+      if(typeof renderVerdicts==='function')try{renderVerdicts(d);}catch(e){}
       if(_rt&&document.getElementById('ret-body')){
         var _rl=document.getElementById('ret-lead');
         if(_rl)_rl.innerHTML='现在 <b>'+(_rt.当前资产/10000).toFixed(2)+'万</b> 元 + 每月 <b>'+_rt.月投+'</b> 元，法定 <b>'+_rt.退休年龄+' 岁</b>退休（'+_rt.退休年月+'，还有 '+_rt.剩余年数+' 年）';

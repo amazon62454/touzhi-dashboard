@@ -500,8 +500,9 @@ function renderTodayTodo(d){
   (db.触发项||[]).forEach(function(x){var s2=String(x);if(s2.indexOf('🔴')>=0)items.push({t:'风控警报',d:s2,lv:'#ef5350'});});
   var w=d.wed||{};
   if((w.advice||[]).length){items.push({t:'本周定投待执行',d:'下周一 '+w.advice.length+' 笔（共'+(w.advice_total||'—')+'元）',lv:'#4fc3f7'});}
-  var q=(d.bands&&d.bands.quarter)||{};
-  if(q.去留&&q.去留.明细){(q.去留.明细||[]).forEach(function(x){var s3=String(x);if(s3.indexOf('🟡')>=0||s3.indexOf('🔴')>=0)items.push({t:'持有期到期观察',d:s3.replace(/^[^ ]+?\(([0-9]{6})\)\s*/,''),lv:'#ffb74d'});});}
+  // 下周一待定投(plan待执行;持有期观察归季度档不在主页待办)
+  var pl=d.plan||{};
+  if(pl.待执行次数>0){items.push({t:'下周一('+((pl.待执行日期||[])[0]||'—')+')待定投',d:pl.待执行次数+' 期 · 共 '+(pl.待执行金额||'—')+' 元',lv:'#4fc3f7'});}
   if(!items.length){
     box.innerHTML='<div class="card" style="margin:0 0 10px 0;padding:12px 14px;border-left:3px solid #66bb6a;background:var(--c-bg2)"><div style="font-size:13px;color:#66bb6a;font-weight:600">✅ 今天无需你操作</div><div style="font-size:11px;color:#78909c;margin-top:3px">系统正常，无警报、无待回传事项</div></div>';
     return;

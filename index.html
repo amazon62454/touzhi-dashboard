@@ -685,6 +685,12 @@ function genReport(k){
   }
 }
 
+function setVerdict(id,main,why,color){
+  var el=document.getElementById(id); if(!el)return;
+  el.style.borderLeftColor=color||'#4fc3f7';
+  var m=el.querySelector('.vd-main'), w=el.querySelector('.vd-why');
+  if(m)m.textContent=main; if(w)w.textContent=why||'';
+}
 function renderVerdicts(d){
   // 每日档
   var db=(d.bands&&d.bands.daily)||{}, ti=db.触发项||[];

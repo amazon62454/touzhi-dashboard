@@ -518,10 +518,12 @@ function _fundOpts(){
   var d=window.__DATA__||{}, ps=((d.holdings||{}).positions)||[];
   return ps.map(function(x){return {v:String(x.代码||''),t:(x.名称||'')+' ('+x.代码+')'};});
 }
-function _holdOpts(){ // 持有期基金(到期赎回用)
-  var all=_fundOpts(), keys=['017491','010363','010340','9290'];
-  var out=all.filter(function(o){return keys.indexOf(o.v)>=0||keys.some(function(k){return o.v.indexOf(k)>=0;});});
-  return out.length?out:all;
+function _holdOpts(){ // 持有期基金(到期赎回用·按最先到期排序)
+  var all=_fundOpts(), order=['017491','010363','010340','9290'];
+  var out=[];
+  order.forEach(function(k){all.forEach(function(o){if(o.v===k||o.v.indexOf(k)>=0){if(out.indexOf(o)<0)out.push(o);}});});
+  all.forEach(function(o){if(out.indexOf(o)<0)out.push(o);});
+  return out;
 }
 
 function _lastDtItems(){

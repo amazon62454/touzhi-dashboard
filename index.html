@@ -672,9 +672,15 @@ function genReport(k){
       _copy('【赎回回传】'+ds+' 到期赎回 '+(v.fund)+' '+v.amt+' 元，已到账。');
     });
   }else if(k==='fund'){
+    var hh=((window.__DATA__||{}).household)||[];
+    var opts=[{v:'家庭支出',t:'家庭支出 · 其他（自填金额）'}];
+    hh.forEach(function(x){opts.push({v:'家庭支出·'+x.名称,t:'家庭支出 · '+x.名称+'（'+x.金额+'元）'});});
+    opts.push({v:'额外收入',t:'额外收入 · 想投入（自填金额）'});
+    opts.push({v:'其他',t:'其他（自填金额）'});
     showForm('资金变动回传',[
-      {key:'type',label:'变动类型',type:'select',options:[{v:'家庭支出',t:'家庭支出（抽钱）'},{v:'额外收入',t:'额外收入（想投）'},{v:'其他',t:'其他'}],default:'家庭支出'},
-      {key:'amt',label:'金额（元）',type:'number',ph:'如 500'}
+      {key:'type',label:'变动事项',type:'select',options:opts,default:(hh[0]?('家庭支出·'+hh[0].名称):'家庭支出'),
+       onChange:function(v){var e=document.getElementById('rf-amt');if(!e)return;var hit=hh.filter(function(x){return ('家庭支出·'+x.名称)===v;})[0];e.value=hit?hit.金额:'';},autoRun:true},
+      {key:'amt',label:'金额（元）·固定项已自动带出',type:'number',ph:'如 500'}
     ],function(v){
       if(!v.amt){alert('请填金额');return;}
       _copy('【资金回传】'+ds+' '+v.type+' '+v.amt+' 元。');

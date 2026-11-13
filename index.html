@@ -216,6 +216,7 @@
   <div class="tip">评分=估值50分+四信号各12.5分；达门槛才加仓，A类30日闸等合规闸一票否决。判定含"暂缓/不触发"=本周不加仓，无需操作</div></div>
   <div class="sec" id="jc-sec">加仓确认（执行后回传）</div>
   <div class="card" id="jc-card">
+    <div class="tip" id="jc-execd" style="display:none"></div>
     <div id="jc-cf-state">…</div>
     <div id="jc-cf-form" style="display:none">
       <table>
@@ -240,6 +241,7 @@
   </div>
   <div class="sec" id="zh-sec">债基转换确认（<span id="t-zh-sec">—</span> 15:00 到账后开放）</div>
   <div class="card" id="zh-card">
+    <div class="tip" id="zh-execd" style="display:none"></div>
     <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">—</span> 15:00 转换到账后开放填写</div>
     <table>
     <tr><th>事项</th><th class="r">实际金额(元)</th></tr>
@@ -257,6 +259,7 @@
   </table>
   <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周六判决</div>
     <div id="sdd-act" style="display:none">
+    <div class="tip" id="sdd-execd" style="display:none"></div>
       <table><tr><th>基金</th><th class="r">应减(元)</th><th class="r">实际减仓(元)</th></tr><tbody id="tb-sddact"></tbody></table>
       <button type="button" class="btn" id="btn-sdd" onclick="collectSDD()">✅ 一键生成回传消息</button>
       <div class="out" id="out-sdd" style="display:none"></div>
@@ -264,6 +267,7 @@
   <div class="sec" id="rdd-sec" style="display:none">组合回撤红线与黑天鹅监控</div>
   <div class="card" id="rdd-card" style="display:none"><div id="rdd-txt" class="tip" style="display:none"></div>
     <div id="rdd-act" style="display:none">
+    <div class="tip" id="rdd-execd" style="display:none"></div>
       <div class="tip" style="color:#ffb74d">已触发回撤防御，请按处置执行后回传</div>
       <input class="inp" id="inp-rdd" type="number" placeholder="实际减仓金额(元)" style="margin:6px 0">
       <button type="button" class="btn" id="btn-rdd" onclick="collectRDD()">✅ 一键生成回传消息</button>
@@ -272,6 +276,7 @@
   <div class="sec" id="yd-sec" style="display:none">长期阴跌止血监控</div>
   <div class="card" id="yd-card" style="display:none"><div id="yd-txt" class="tip" style="display:none"></div>
     <div id="yd-act" style="display:none">
+    <div class="tip" id="yd-execd" style="display:none"></div>
       <div class="tip" style="color:#ffb74d">已触发阴跌止血，请按处置执行后回传</div>
       <input class="inp" id="inp-yd" type="text" placeholder="实际处置(如:已暂停定投/已减仓X元)" style="margin:6px 0">
       <button type="button" class="btn" id="btn-yd" onclick="collectYD()">✅ 一键生成回传消息</button>
@@ -1145,11 +1150,19 @@ try{gateCheck();}catch(e){}
         var _ei=d.exec_info||{}, _wv=(w.advice_valid!==false), _amt=Number(w.advice_total||0);
         var _showDt = _wv && _amt>0;   // R227:非交易日不隐藏(顺延执行,不是取消)
         ['dt-sec','dt-card'].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display=_showDt?'':'none';});
+        // R228:所有金额动作统一显示执行日(顺延机制SOP第三章)
+        var _execTxt = _ei.postponed
+          ? ('<span style="color:#ffb74d">⏳ 计划 '+_ei.plan_date+' 非交易日 → 顺延至 '+_ei.exec_date+' 执行（顺延'+_ei.postponed_days+'天）</span>')
+          : ('执行日：'+(_ei.exec_date||'—')+'（交易日）');
         var _ed=document.getElementById('dt-execd');
         if(_ed){
-          if(_ei.postponed){_ed.innerHTML='<span style="color:#ffb74d">⏳ 计划 '+_ei.plan_date+'（周一）非交易日 → 顺延至 '+_ei.exec_date+' 扣款（顺延'+_ei.postponed_days+'天）</span>';}
-          else if(_ei.exec_date){_ed.textContent='执行日：'+_ei.exec_date+'（周一·交易日），8:00 前确认扣款、15:00 确认结果';}
+          if(_ei.postponed){_ed.innerHTML=_execTxt;}
+          else if(_ei.exec_date){_ed.textContent='执行日：'+_ei.exec_date+'（交易日），8:00 前确认扣款、15:00 确认结果';}
         }
+        ['jc-execd','zh-execd','sdd-execd','rdd-execd','yd-execd'].forEach(function(_id){
+          var _e=document.getElementById(_id);
+          if(_e){_e.innerHTML=_execTxt+'　<span style="opacity:.7">（遇非交易日自动顺延，不取消）</span>';}
+        });
         // ②加仓确认:有加仓计划才显示
         var _showJc = (w.jc_plan&&w.jc_plan.length>0);
         ['jc-sec','jc-card'].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display=_showJc?'':'none';});

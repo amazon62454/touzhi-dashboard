@@ -588,6 +588,21 @@ function _bindDtSum(){
   upd();
 }
 
+
+function _mktByCode(code){
+  var ps=((window.__DATA__||{}).holdings||{}).positions||[];
+  var h=ps.filter(function(x){return String(x.代码)===String(code)||String(x.代码).replace(/^0+/,'')===String(code).replace(/^0+/,'');})[0];
+  return h?Math.round((h.市值||0)*100)/100:'';
+}
+function _fillAmt(code){
+  var v=_mktByCode(code), el=document.getElementById('rf-amt');
+  if(el&&v!=='')el.value=v;
+}
+function _jcAvail(){
+  var p=(window.__DATA__||{}).pool||{};
+  return p.加仓弹药!=null?p.加仓弹药:'';
+}
+
 function showForm(title,fields,cb){
   _rfCb=cb;
   document.getElementById('rf-title').textContent=title;
@@ -604,6 +619,12 @@ function showForm(title,fields,cb){
     h+='</div>';
   });
   document.getElementById('rf-body').innerHTML=h;
+  fields.forEach(function(f){
+    if(f.type==='select'&&typeof f.onChange==='function'){
+      var el=document.getElementById('rf-'+f.key);
+      if(el){el.addEventListener('change',function(){f.onChange(el.value);}); if(f.autoRun)f.onChange(el.value);}
+    }
+  });
   var m=document.getElementById('rf-mask'); m.style.display='flex';
 }
 function rfClose(){document.getElementById('rf-mask').style.display='none';_rfCb=null;}
@@ -626,15 +647,15 @@ function genReport(k){
   else if(k==='add'){
     showForm('加仓执行回传',[
       {key:'fund',label:'加仓基金',type:'select',options:funds,default:(funds[0]||{}).v},
-      {key:'amt',label:'实际加仓金额（元）',type:'number',ph:'如 122'}
+      {key:'amt',label:'实际加仓金额（元）·默认本月加仓弹药',type:'number',ph:'如 122',default:_jcAvail()}
     ],function(v){
       if(!v.amt){alert('请填金额');return;}
       _copy('【加仓回传】'+ds+' 加仓 '+(v.fund)+' '+v.amt+' 元，已执行。');
     });
   }else if(k==='reduce'){
     showForm('减仓/止盈执行回传',[
-      {key:'fund',label:'减仓基金',type:'select',options:funds,default:(funds[0]||{}).v},
-      {key:'amt',label:'实际减仓金额（元）',type:'number',ph:'如 500'}
+      {key:'fund',label:'减仓基金',type:'select',options:funds,default:(funds[0]||{}).v,onChange:_fillAmt,autoRun:true},
+      {key:'amt',label:'实际减仓金额（元）·已自动带出该基金市值',type:'number',ph:'如 500'}
     ],function(v){
       if(!v.amt){alert('请填金额');return;}
       _copy('【减仓回传】'+ds+' 减仓 '+(v.fund)+' '+v.amt+' 元，已执行。');
@@ -642,8 +663,8 @@ function genReport(k){
   }else if(k==='redeem'){
     var ho=_holdOpts();
     showForm('到期赎回回传',[
-      {key:'fund',label:'赎回基金（持有期）',type:'select',options:ho,default:(ho[0]||{}).v},
-      {key:'amt',label:'实际到账金额（元）',type:'number',ph:'如 1060'}
+      {key:'fund',label:'赎回基金（持有期）',type:'select',options:ho,default:(ho[0]||{}).v,onChange:_fillAmt,autoRun:true},
+      {key:'amt',label:'实际到账金额（元）·已自动带出该基金市值',type:'number',ph:'如 1060'}
     ],function(v){
       if(!v.amt){alert('请填金额');return;}
       _copy('【赎回回传】'+ds+' 到期赎回 '+(v.fund)+' '+v.amt+' 元，已到账。');

@@ -194,6 +194,17 @@
     <tbody id="tb-advice"></tbody>
   </table>
   <div class="tip" id="wed-bond-tip">—</div></div>
+  <div class="sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
+  <div class="card">
+    <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
+    <table id="tbl-dt">
+    <tr><th>基金</th><th class="r">实际扣款(元)</th></tr>
+    <tbody id="tb-dtform"></tbody>
+    </table>
+    <button type="button" class="btn" id="btn-dt" onclick="collect()" disabled>✅ 一键生成回传消息</button>
+    <div class="out" id="out" style="display:none"></div>
+    <div class="tip" id="op" style="display:none;color:var(--c-ok)"></div>
+  </div>
   <div class="sec" id="sdd-sec" style="display:none">单只高点回撤监控</div>
   <div class="card" id="sdd-card" style="display:none"><table>
     <tr><th>基金</th><th class="r">距峰值回撤</th><th>处置</th></tr>
@@ -211,29 +222,6 @@
   </table>
   <div class="tip" id="score-wait" style="display:none">待本周六(<span id="score-eval-day">—</span> <span id="sch-stw">—</span>) 评估后生成 —— 非评估日不展示测试数据，与定投建议同一规则</div>
   <div class="tip">评分=估值50分+四信号各12.5分；达门槛才加仓，A类30日闸等合规闸一票否决。判定含"暂缓/不触发"=本周不加仓，无需操作</div></div>
-  <div class="sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
-  <div class="card">
-    <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
-    <table id="tbl-dt">
-    <tr><th>基金</th><th class="r">实际扣款(元)</th></tr>
-    <tbody id="tb-dtform"></tbody>
-    </table>
-    <button type="button" class="btn" id="btn-dt" onclick="collect()" disabled>✅ 一键生成回传消息</button>
-    <div class="out" id="out" style="display:none"></div>
-    <div class="tip" id="op" style="display:none;color:var(--c-ok)"></div>
-  </div>
-  <div class="sec">债基转换确认（<span id="t-zh-sec">—</span> 15:00 到账后开放）</div>
-  <div class="card">
-    <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">—</span> 15:00 转换到账后开放填写</div>
-    <table>
-    <tr><th>事项</th><th class="r">实际金额(元)</th></tr>
-    <tbody id="tb-zhform"></tbody>
-    </table>
-    <button type="button" class="btn" id="btn-zh" onclick="collectZH()" disabled>✅ 一键生成回传消息</button>
-    <div class="out" id="out-zh" style="display:none"></div>
-    <div class="tip" id="op-zh" style="display:none;color:var(--c-ok)"></div>
-    <div class="tip">渐进再平衡搬运：每周一赎回富国当周解锁份额（可赎额度）→按实际到账金额买入当期集中制第1名（到账≠解锁额度，以理财通显示为准）；债比回目标内自动退出；执行后周二15:00回传实际到账金额</div>
-  </div>
   <div class="sec">加仓确认（执行后回传）</div>
   <div class="card">
     <div id="jc-cf-state">…</div>
@@ -247,6 +235,18 @@
     <div class="out" id="out-jc" style="display:none"></div>
     <div class="tip" id="op-jc" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
+  </div>
+  <div class="sec">债基转换确认（<span id="t-zh-sec">—</span> 15:00 到账后开放）</div>
+  <div class="card">
+    <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">—</span> 15:00 转换到账后开放填写</div>
+    <table>
+    <tr><th>事项</th><th class="r">实际金额(元)</th></tr>
+    <tbody id="tb-zhform"></tbody>
+    </table>
+    <button type="button" class="btn" id="btn-zh" onclick="collectZH()" disabled>✅ 一键生成回传消息</button>
+    <div class="out" id="out-zh" style="display:none"></div>
+    <div class="tip" id="op-zh" style="display:none;color:var(--c-ok)"></div>
+    <div class="tip">渐进再平衡搬运：每周一赎回富国当周解锁份额（可赎额度）→按实际到账金额买入当期集中制第1名（到账≠解锁额度，以理财通显示为准）；债比回目标内自动退出；执行后周二15:00回传实际到账金额</div>
   </div>
 </div>
 

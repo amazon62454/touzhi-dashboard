@@ -200,12 +200,6 @@
   <div class="card" id="yd-card" style="display:none"><div id="yd-txt" class="tip" style="display:none"></div></div>
   <div class="sec" id="rdd-sec" style="display:none">组合回撤红线与黑天鹅监控</div>
   <div class="card" id="rdd-card" style="display:none"><div id="rdd-txt" class="tip" style="display:none"></div></div>
-  <div class="sec">定投记录（本周期）</div>
-  <div class="card"><table>
-    <tr><th>日期</th><th>内容</th><th class="r">金额</th></tr>
-    <tbody id="tb-dtrec"></tbody>
-  </table>
-  <div class="tip">每周一执行；<span id="t-next-dt">—</span>(周一)建议见上表，执行后自动补录</div></div>
   <div class="sec">加仓评分（本周五维明细）<span id="score-meta" class="mid" style="font-size:11px;font-weight:400"></span></div>
   <div class="card" id="score-card"><table>
     <tr><th>标的</th><th class="r">估值</th><th class="r">趋势</th><th class="r">资金</th><th class="r">基本面</th><th class="r">情绪</th><th class="r">总分/门槛</th><th>判定</th></tr>
@@ -213,12 +207,6 @@
   </table>
   <div class="tip" id="score-wait" style="display:none">待本周六(<span id="score-eval-day">—</span> <span id="sch-stw">—</span>) 评估后生成 —— 非评估日不展示测试数据，与定投建议同一规则</div>
   <div class="tip">评分=估值50分+四信号各12.5分；达门槛才加仓，A类30日闸等合规闸一票否决。判定含"暂缓/不触发"=本周不加仓，无需操作</div></div>
-  <div class="sec">加仓记录（本周期）</div>
-  <div class="card"><table>
-    <tr><th>日期</th><th>基金</th><th class="r">评分</th><th class="r">金额</th></tr>
-    <tbody id="tb-jcrec"></tbody>
-  </table>
-  <div class="tip">评分依据：估值低估 + 基本面三重共振 + 成交额地量→情绪高分。评分=估值50+四信号各12.5，达门槛70才加仓；暂缓/未达门槛不产生记录（含A类30日闸等合规闸）</div></div>
   <div class="sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
   <div class="card">
     <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
@@ -1443,7 +1431,7 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
       'mc-dt-tot','mc-jc-tot','mc-jc2-tot','mc-jian','mc-sum',
       't-card-d','t-sub','t-dt-sec','t-dt-gate','t-zh-sec','t-zh-gate','t-zh-row'];
     staleIds.forEach(function(id){var e=document.getElementById(id);if(e){e.textContent='—';e.style.color='var(--c-pink)';}});
-    ['tb-advice','tb-dtrec','tb-jcrec'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML='<tr><td colspan="4" style="color:var(--c-pink)">⚠️ 数据未加载,勿信本表</td></tr>';});
+    ['tb-advice'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML='<tr><td colspan="4" style="color:var(--c-pink)">⚠️ 数据未加载,勿信本表</td></tr>';});
   });
   }  // FH-二期·__dataOff 关闭数据写入
   else {  // 关·仅框架:清空所有数据锚点初始占位,只留无id的纯文本死数

@@ -182,7 +182,8 @@
   </div>
 </div>
 <div id="view-wed" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周六档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span><span id="t-adv-wrap"> · 建议出自 <span id="t-adv-run">—</span> 评估</span><span id="wed-testtag"></span></div></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周六档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span><span id="t-adv-wrap"> · 建议出自 <span id="t-adv-run">—</span> 评估</span><span id="wed-testtag"></span></div>
+  <div id="bm-wed" class="bandmeta" style="margin:8px 12px 0;padding:8px 12px;border-radius:8px;background:var(--c-bg2);font-size:11px;color:#90a4ae;line-height:1.5"></div></div>
   <div class="sec"><span id="cap-advice">本周一定投建议</span> <span class="badge badge-wait" id="badge-wait-txt">待确认</span></div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">金额(元)</th></tr>
@@ -258,7 +259,8 @@
 </div>
 
 <div id="view-daily" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎<span id="sch-df">—</span>检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎<span id="sch-df">—</span>检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div>
+  <div id="bm-daily" class="bandmeta" style="margin:8px 12px 0;padding:8px 12px;border-radius:8px;background:var(--c-bg2);font-size:11px;color:#90a4ae;line-height:1.5"></div></div>
   <div class="sec">触发项扫描</div>
   <div class="card"><table>
     <tr><th>触发项</th><th></th><th>说明</th></tr>
@@ -302,7 +304,8 @@
 </div>
 
 <div id="view-monthly" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span><span id="mo-testtag"></span></div></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span><span id="mo-testtag"></span></div>
+  <div id="bm-monthly" class="bandmeta" style="margin:8px 12px 0;padding:8px 12px;border-radius:8px;background:var(--c-bg2);font-size:11px;color:#90a4ae;line-height:1.5"></div></div>
   <div class="sec">行动结论</div>
   <div class="card">
     <div class="li" id="mo-new"><b>买入新建仓</b>：待引擎全市场扫描输出候选中</div>
@@ -361,6 +364,7 @@
 
 <div id="view-quarter" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号回测 · 本次 <span id="q-run">—</span> · 数据基准 <span id="q-base">—</span><span id="q-testtag"></span></div>
+  <div id="bm-quarter" class="bandmeta" style="margin:8px 12px 0;padding:8px 12px;border-radius:8px;background:var(--c-bg2);font-size:11px;color:#90a4ae;line-height:1.5"></div>
   <div class="card verdict" id="vd-quarter" style="margin:10px 12px;padding:12px 14px;border-left:4px solid #4fc3f7;background:var(--c-bg2)">
     <div class="vd-main" style="font-size:15px;font-weight:700;color:#fff">加载中…</div>
     <div class="vd-why" style="font-size:11px;color:#90a4ae;margin-top:4px"></div>
@@ -679,6 +683,29 @@ function setVerdict(id,main,why,color){
   var m=el.querySelector('.vd-main'), w=el.querySelector('.vd-why');
   if(m)m.textContent=main; if(w)w.textContent=why||'';
 }
+
+function _bmHtml(m){
+  if(!m)return '';
+  var isT=m.测试, color=isT?'#ffb74d':'#66bb6a', bg=isT?'rgba(255,183,77,.12)':'rgba(102,187,106,.12)';
+  var head='<span style="display:inline-block;padding:2px 8px;border-radius:6px;background:'+bg+';color:'+color+';font-weight:700;margin-right:8px">'+_esc(m.状态)+'</span>';
+  var body='生成 '+_esc(m.生成)+' · 数据基准 '+_esc(m.基准);
+  if(isT) body+=' · 正式结论将于 '+_esc(m.下次生成)+' 生成';
+  else body+=' · 下次 '+_esc(m.下次生成);
+  return head+'<span style="color:#b0bec5">'+body+'</span>';
+}
+function renderBandMeta(d){
+  var b=d.bands||{}, w=d.wed||{};
+  var map={wed:w._meta,daily:(b.daily||{})._meta,monthly:(b.monthly||{})._meta,quarter:(b.quarter||{})._meta};
+  Object.keys(map).forEach(function(k){
+    var el=document.getElementById('bm-'+k);
+    if(!el)return;
+    var h=_bmHtml(map[k]);
+    if(!h){el.style.display='none';return;}
+    el.style.display='block';
+    el.innerHTML=h;
+  });
+}
+
 function renderVerdicts(d){
   // 每日档
   var db=(d.bands&&d.bands.daily)||{}, ti=db.触发项||[];
@@ -855,6 +882,7 @@ try{gateCheck();}catch(e){}
       var _rt=(d&&d.retirement)||null;
       if(typeof renderTodayTodo==='function')try{renderTodayTodo(d);}catch(e){}
       if(typeof renderVerdicts==='function')try{renderVerdicts(d);}catch(e){}
+      if(typeof renderBandMeta==='function')try{renderBandMeta(d);}catch(e){}
       if(_rt&&document.getElementById('ret-body')){
         var _rl=document.getElementById('ret-lead');
         if(_rl)_rl.innerHTML='现在 <b>'+(_rt.当前资产/10000).toFixed(2)+'万</b> 元 + 每月 <b>'+_rt.月投+'</b> 元，法定 <b>'+_rt.退休年龄+' 岁</b>退休（'+_rt.退休年月+'，还有 '+_rt.剩余年数+' 年）';

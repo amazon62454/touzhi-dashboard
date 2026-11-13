@@ -205,16 +205,6 @@
     <div class="out" id="out" style="display:none"></div>
     <div class="tip" id="op" style="display:none;color:var(--c-ok)"></div>
   </div>
-  <div class="sec" id="sdd-sec" style="display:none">单只高点回撤监控</div>
-  <div class="card" id="sdd-card" style="display:none"><table>
-    <tr><th>基金</th><th class="r">距峰值回撤</th><th>处置</th></tr>
-    <tbody id="tb-sdd"></tbody>
-  </table>
-  <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周六判决</div></div>
-  <div class="sec" id="yd-sec" style="display:none">长期阴跌止血监控</div>
-  <div class="card" id="yd-card" style="display:none"><div id="yd-txt" class="tip" style="display:none"></div></div>
-  <div class="sec" id="rdd-sec" style="display:none">组合回撤红线与黑天鹅监控</div>
-  <div class="card" id="rdd-card" style="display:none"><div id="rdd-txt" class="tip" style="display:none"></div></div>
   <div class="sec">加仓评分（本周五维明细）<span id="score-meta" class="mid" style="font-size:11px;font-weight:400"></span></div>
   <div class="card" id="score-card"><table>
     <tr><th>标的</th><th class="r">估值</th><th class="r">趋势</th><th class="r">资金</th><th class="r">基本面</th><th class="r">情绪</th><th class="r">总分/门槛</th><th>判定</th></tr>
@@ -236,6 +226,16 @@
     <div class="tip" id="op-jc" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
   </div>
+  <div class="sec" id="sdd-sec" style="display:none">单只高点回撤监控</div>
+  <div class="card" id="sdd-card" style="display:none"><table>
+    <tr><th>基金</th><th class="r">距峰值回撤</th><th>处置</th></tr>
+    <tbody id="tb-sdd"></tbody>
+  </table>
+  <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周六判决</div></div>
+  <div class="sec" id="yd-sec" style="display:none">长期阴跌止血监控</div>
+  <div class="card" id="yd-card" style="display:none"><div id="yd-txt" class="tip" style="display:none"></div></div>
+  <div class="sec" id="rdd-sec" style="display:none">组合回撤红线与黑天鹅监控</div>
+  <div class="card" id="rdd-card" style="display:none"><div id="rdd-txt" class="tip" style="display:none"></div></div>
   <div class="sec">债基转换确认（<span id="t-zh-sec">—</span> 15:00 到账后开放）</div>
   <div class="card">
     <div class="gate" id="gate-zh">⏳ 未到确认时间：<span id="t-zh-gate">—</span> 15:00 转换到账后开放填写</div>

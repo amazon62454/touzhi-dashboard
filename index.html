@@ -566,13 +566,15 @@ function renderVerdicts(d){
   // 月度档
   var mb=(d.bands&&d.bands.monthly)||{};
   var mact=mb.动作||mb.结论||'';
-  setVerdict('vd-monthly', mact?String(mact).slice(0,80):'本月无换仓/加仓建议', '资金盘点与方向扫描详见下方', mact?'#4fc3f7':'#66bb6a');
+  var _mc=String(mact).indexOf('🔴')>=0?'#ef5350':(mact?'#4fc3f7':'#66bb6a');
+  setVerdict('vd-monthly', mact?String(mact).slice(0,80):'本月无换仓/加仓建议', '资金盘点与方向扫描详见下方', _mc);
   // 季度档
   var qb=(d.bands&&d.bands.quarter)||{};
   var qgate=(qb.去留&&qb.去留.明细)||[];
   var qact=qb.再平衡||qb.动作||'';
   var qmain=qact?String(qact).slice(0,80):('配置健康，'+(qgate.length?('持有期 '+qgate.length+' 只按闸门处理'):'无再平衡动作'));
-  setVerdict('vd-quarter',qmain,'配置调仓与到期评估详见下方','#4fc3f7');
+  var _qc=String(qmain).indexOf('🔴')>=0?'#ef5350':(String(qmain).indexOf('🟡')>=0?'#ffb74d':'#4fc3f7');
+  setVerdict('vd-quarter',qmain,'配置调仓与到期评估详见下方',_qc);
 }
 
 function renderTodayTodo(d){

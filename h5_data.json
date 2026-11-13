@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-14 04:28",
+ "updated_at": "2026-11-14 04:31",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -28,27 +28,46 @@
    {
     "name": "嘉实中证新能车C",
     "code": "012544",
-    "amt": 65
+    "amt": 65,
+    "rank": 1,
+    "pct": 7.83,
+    "exit_rank": false,
+    "exit_why": null
    },
    {
     "name": "易方达创新药ETF联接",
     "code": "024328",
-    "amt": 40
+    "amt": 40,
+    "rank": 2,
+    "pct": 8.0,
+    "exit_rank": false,
+    "exit_why": null
    },
    {
     "name": "华宝有色A",
     "code": "017140",
-    "amt": 25
+    "amt": 25,
+    "rank": 3,
+    "pct": 41.02,
+    "exit_rank": false,
+    "exit_why": null
    },
    {
     "name": "国泰黄金ETF联接",
     "code": "004253",
-    "amt": 0
+    "amt": 0,
+    "rank": null,
+    "pct": 77.63,
+    "exit_rank": false,
+    "exit_why": null
    },
    {
     "name": "兴全安泰养老FOF A",
     "code": "010267",
-    "amt": 30
+    "amt": 30,
+    "rank": null,
+    "pct": null,
+    "fixed": true
    }
   ],
   "advice_total": 160,

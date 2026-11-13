@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-14 04:51",
+ "updated_at": "2026-11-14 04:56",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -1459,6 +1459,20 @@
   "postponed": false,
   "postponed_days": 0,
   "is_trade": true
+ },
+ "band_exec": {
+  "month": {
+   "plan_date": "11-20",
+   "exec_date": "11-20",
+   "postponed": false,
+   "postponed_days": 0
+  },
+  "quarter": {
+   "plan_date": "11-25",
+   "exec_date": "11-25",
+   "postponed": false,
+   "postponed_days": 0
+  }
  },
  "targets": {
   "权益": 50.0,

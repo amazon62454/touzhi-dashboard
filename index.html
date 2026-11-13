@@ -259,8 +259,6 @@
     <div class="tip" id="op-jc" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
   </div>
-      <div class="sec">回传小艺</div>
-  <div class="card"><button type="button" onclick="genReport('wed')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#1e88e5;color:#fff;margin-top:0">📋 定投执行回传（含实际扣款）</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">只回传「我查不到的执行结果」，我自己的结论不用回传</div></div>
 </div>
 
 <div id="view-daily" class="view" style="display:none">
@@ -309,8 +307,6 @@
     <div class="tip" id="op-gy" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">权益高估止盈(高估≥90%+盈利+当日走弱)触发时执行→回传实际金额，小艺记台账</div>
   </div>
-      <div class="sec">回传小艺</div>
-  <div class="card"><button type="button" onclick="genReport('reduce')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#455a64;color:#fff;margin-top:0">📋 减仓/止盈执行回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">只回传「我查不到的执行结果」，我自己的结论不用回传</div></div>
 </div>
 
 <div id="view-monthly" class="view" style="display:none">
@@ -373,8 +369,6 @@
     <div class="tip" id="op-yz" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">月度止盈三条件触发时执行→回传实际金额，小艺记台账</div>
   </div>
-      <div class="sec">回传小艺</div>
-  <div class="card"><button type="button" onclick="genReport('add')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#455a64;color:#fff;margin-top:0">📋 加仓执行回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">只回传「我查不到的执行结果」，我自己的结论不用回传</div></div>
 </div>
 
 <div id="view-quarter" class="view" style="display:none">
@@ -395,8 +389,11 @@
   <div class="sec">需你本人做</div>
   <div class="card"><div id="qtr-do" class="ok">数据加载中…</div>
 </div>
-      <div class="sec">回传小艺</div>
-  <div class="card"><button type="button" onclick="genReport('redeem')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#ef6c00;color:#fff;margin-top:0">📋 到期赎回回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">只回传「我查不到的执行结果」，我自己的结论不用回传</div></div>
+  <div class="sec">回传小艺</div>
+  <div class="card">
+    <button type="button" onclick="genReport('redeem')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#ef6c00;color:#fff">📋 到期赎回回传</button>
+    <div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">持有期基金到期赎回后回传实际到账金额（下拉已按最先到期排序，金额自动带市值）</div>
+  </div>
 </div>
 
 <div id="view-monthend" class="view" style="display:none">

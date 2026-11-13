@@ -1190,7 +1190,7 @@ try{gateCheck();}catch(e){}
         var _eh='';
         qb2.去留.明细.forEach(function(t){
           var _cl=String(t).indexOf('🔴')>=0?'down':(String(t).indexOf('🟡')>=0?'mid':'up');
-          _eh+='<div class="li '+_cl+'" style="margin-bottom:6px">'+esc(String(t).replace(/^[^ ]+?\(([0-9]{6})\)\s*/,''))+'</div>';
+          _eh+='<div class="li '+_cl+'" style="margin-bottom:6px">'+esc(String(t).replace(/\(([0-9]{6})\)\s*/,''))+'</div>';
         });
         _eh+='<div class="tip" style="font-size:11px;color:#78909c">'+esc((qb2.去留.闸门口径)||'')+'</div>';
         _qe.innerHTML=_eh;

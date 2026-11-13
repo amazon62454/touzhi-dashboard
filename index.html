@@ -190,10 +190,11 @@
   </div>
   <div class="sec"><span id="cap-advice">本周一定投建议</span> <span class="badge badge-wait" id="badge-wait-txt">待确认</span></div>
   <div class="card"><table>
-    <tr><th>基金</th><th class="r">金额(元)</th></tr>
+    <tr><th>基金</th><th class="r">分位</th><th class="r">名次</th><th class="r">金额(元)</th></tr>
     <tbody id="tb-advice"></tbody>
   </table>
-  <div class="tip" id="wed-bond-tip">—</div></div>
+  <div class="tip" id="wed-bond-tip">—</div>
+  <div class="tip">金额推导：按指数估值分位从低到高排名次 → 集中制名次对应档位金额；分位越高档位越低，极度高估当周0元暂停</div></div>
   <div class="sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
   <div class="card">
     <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
@@ -1067,8 +1068,13 @@ try{gateCheck();}catch(e){}
       var ta=document.getElementById('tb-advice');
       if(ta&&w.advice&&w.advice.length){
         var h='';
-        w.advice.forEach(function(x){h+='<tr><td>'+esc(x.name)+' '+x.code+'</td><td class="r">'+(x.amt||0)+'</td></tr>';});
-        h+='<tr><td><b>本周定投合计</b></td><td class="r"><b>'+(w.advice_total||0)+'</b></td></tr>';
+        w.advice.forEach(function(x){
+          var _p=(x.pct===null||x.pct===undefined)?'—':(x.pct+'%');
+          var _rk=x.fixed?'固定':((x.rank===null||x.rank===undefined)?'—':('第'+x.rank));
+          var _ex=x.exit_rank?' <span style="color:#ff8a80">(出局)</span>':'';
+          h+='<tr><td>'+esc(x.name)+' '+x.code+_ex+'</td><td class="r">'+_p+'</td><td class="r">'+_rk+'</td><td class="r">'+(x.amt||0)+'</td></tr>';
+        });
+        h+='<tr><td><b>本周定投合计</b></td><td class="r">—</td><td class="r">—</td><td class="r"><b>'+(w.advice_total||0)+'</b></td></tr>';
         ta.innerHTML=h;
       }
       // 2026-11-12 R110修复:单只回撤/阴跌止血是独立监控,不该被"定投建议非空"拖累→移出advice块

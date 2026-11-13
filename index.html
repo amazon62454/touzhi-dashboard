@@ -180,6 +180,11 @@
     <div class="li" style="user-select:none"><b>明细</b><span class="mid" style="margin-left:6px">每只基金成立以来年化 × 当前占比</span></div>
     <div id="ret-body" style="margin-top:8px"></div>
   </div>
+  <div class="sec">持仓快照回传（校准用）</div>
+  <div class="card">
+    <button type="button" onclick="genReport('snap')" style="width:100%;padding:11px;border:none;border-radius:9px;background:#00897b;color:#fff;font-size:14px;font-weight:600">📋 生成持仓快照回传</button>
+    <div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">理财通截图核对各基金实际市值后回传，小艺校准配置清单+写快照历史（月度评审前做一次即可）</div>
+  </div>
 </div>
 <div id="view-sat" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周六档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span><span id="t-adv-wrap"> · 建议出自 <span id="t-adv-run">—</span> 评估</span><span id="sat-testtag"></span></div>
@@ -698,6 +703,16 @@ function genReport(k){
     ],function(v){
       if(!v.amt){alert('请填金额');return;}
       _copy('【赎回回传】'+ds+' 到期赎回 '+(v.fund)+' '+v.amt+' 元，已到账。');
+    });
+  }else if(k==='snap'){
+    var ps=(d.holdings||{}).positions||[];
+    var flds=[{key:'date',label:'快照日期',type:'text',default:ds,ph:'MM-DD'}];
+    ps.forEach(function(x,i){flds.push({key:'f'+i,label:(x.名称||'')+'('+(x.代码||'')+') 市值',type:'number',ph:'当前 '+(x.市值||x.资产||'—')});});
+    showForm('持仓快照回传（校准配置清单）',flds,function(v){
+      var parts=[];
+      ps.forEach(function(x,i){var val=v['f'+i];if(val)parts.push((x.名称||'')+':'+val);});
+      if(!parts.length){alert('请至少填一只基金市值');return;}
+      _copy('【持仓快照】'+(v.date||ds)+' '+parts.join('，')+'。');
     });
   }else if(k==='fund'){
     var hh=((window.__DATA__||{}).household)||[];

@@ -183,7 +183,7 @@
   <div class="sec">持仓快照回传（校准用）</div>
   <div class="card">
     <button type="button" onclick="genReport('snap')" style="width:100%;padding:11px;border:none;border-radius:9px;background:#00897b;color:#fff;font-size:14px;font-weight:600">📋 生成持仓快照回传</button>
-    <div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">理财通截图核对各基金实际市值后回传，小艺校准配置清单+写快照历史（月度评审前做一次即可）</div>
+    <div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">操作：打开理财通 → 基金持仓，把每只基金显示的<b>「持有金额」</b>照抄进表单 → 一键生成回传。小艺校准台账+写快照历史（月度评审前做一次即可）</div>
   </div>
 </div>
 <div id="view-sat" class="view" style="display:none">
@@ -682,24 +682,24 @@ function genReport(k){
   else if(k==='add'){
     showForm('加仓执行回传',[
       {key:'fund',label:'加仓基金',type:'select',options:funds,default:(funds[0]||{}).v},
-      {key:'amt',label:'实际加仓金额（元）·默认本月加仓弹药',type:'number',ph:'如 122',default:_jcAvail()}
+      {key:'amt',label:'实际买入金额（元）·理财通买入记录显示的金额',type:'number',ph:'如 122',default:_jcAvail()}
     ],function(v){
       if(!v.amt){alert('请填金额');return;}
-      _copy('【加仓回传】'+ds+' 加仓 '+(v.fund)+' '+v.amt+' 元，已执行。');
+      _copy('【加仓回传】'+ds+' 买入 '+(v.fund)+' '+v.amt+' 元，已执行。');
     });
   }else if(k==='reduce'){
     showForm('减仓/止盈执行回传',[
       {key:'fund',label:'减仓基金',type:'select',options:funds,default:(funds[0]||{}).v,onChange:_fillAmt,autoRun:true},
-      {key:'amt',label:'实际减仓金额（元）·已自动带出该基金市值',type:'number',ph:'如 500'}
+      {key:'amt',label:'实际卖出金额（元）·理财通卖出记录显示的金额',type:'number',ph:'如 500'}
     ],function(v){
       if(!v.amt){alert('请填金额');return;}
-      _copy('【减仓回传】'+ds+' 减仓 '+(v.fund)+' '+v.amt+' 元，已执行。');
+      _copy('【减仓回传】'+ds+' 卖出 '+(v.fund)+' '+v.amt+' 元，已执行。');
     });
   }else if(k==='redeem'){
     var ho=_holdOpts();
     showForm('到期赎回回传',[
       {key:'fund',label:'赎回基金（持有期）',type:'select',options:ho,default:(ho[0]||{}).v,onChange:_fillAmt,autoRun:true},
-      {key:'amt',label:'实际到账金额（元）·已自动带出该基金市值',type:'number',ph:'如 1060'}
+      {key:'amt',label:'实际到账金额（元）·理财通卖出后到账的金额',type:'number',ph:'如 1060'}
     ],function(v){
       if(!v.amt){alert('请填金额');return;}
       _copy('【赎回回传】'+ds+' 到期赎回 '+(v.fund)+' '+v.amt+' 元，已到账。');
@@ -707,12 +707,12 @@ function genReport(k){
   }else if(k==='snap'){
     var ps=(d.holdings||{}).positions||[];
     var flds=[{key:'date',label:'快照日期',type:'text',default:ds,ph:'MM-DD'}];
-    ps.forEach(function(x,i){flds.push({key:'f'+i,label:(x.名称||'')+'('+(x.代码||'')+') 市值',type:'number',ph:'当前 '+(x.市值||x.资产||'—')});});
+    ps.forEach(function(x,i){flds.push({key:'f'+i,label:(x.名称||'')+' 持有金额(元)',type:'number',ph:'理财通持仓页显示金额(当前台账 '+(x.市值||x.资产||'—')+')'});});
     showForm('持仓快照回传（校准配置清单）',flds,function(v){
       var parts=[];
       ps.forEach(function(x,i){var val=v['f'+i];if(val)parts.push((x.名称||'')+':'+val);});
       if(!parts.length){alert('请至少填一只基金市值');return;}
-      _copy('【持仓快照】'+(v.date||ds)+' '+parts.join('，')+'。');
+      _copy('【持仓快照】'+(v.date||ds)+' 各基金持有金额：'+parts.join('，')+'。');
     });
   }else if(k==='fund'){
     var hh=((window.__DATA__||{}).household)||[];

@@ -195,7 +195,7 @@
   </table>
   <div class="tip" id="sat-bond-tip">—</div>
   <div class="tip">金额推导：按指数估值分位从低到高排名次 → 集中制名次对应档位金额；分位越高档位越低，极度高估当周0元暂停</div></div>
-  <div class="sec" id="dt-sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
+  <div class="sec" id="dt-sec">定投金额确认（<span id="t-dt-sec">—</span> <span id="t-dt-conf">15:00</span> 实扣后开放）</div>
   <div class="card" id="dt-card">
     <div class="tip" id="dt-execd">—</div>
     <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
@@ -442,6 +442,7 @@
     <div class="kv"><span>已花</span><b id="d-spent">1300 元</b></div>
     <div class="kv"><span>分配池（定投）</span><b>已花 <span id="kv-eq-used">1178</span> · 剩 <span id="kv-eq-rem">162</span></b></div>
     <div class="kv"><span>加仓弹药（<span id="jc-bullet">-</span>）</span><b>已花 <span id="kv-jc-used">122</span> · 剩 <span id="kv-jc-rem">338</span></b></div>
+    <div class="tip" id="prev-note" style="display:none"></div>
     <div class="tip" id="plan-tip">⚠️ 本周期含5个定投执行日（10-22/29・11-05/12/19）：11-12、11-19两次待执行约340，执行后剩约160；5周定投会挤占加仓弹药，月总预算红线兜底</div>
   </div>
   <div class="sec">本周期已花 · 定投（小计 <span id="mc-dt-tot">548</span>）</div>
@@ -1464,7 +1465,8 @@ try{gateCheck();}catch(e){}
       try{
         var _dd2=d.bands&&d.bands.daily,_w2=d.sat||{},_mb2=d.bands&&d.bands.monthly;
         var _bjc=document.getElementById('btn-jc');
-        if(_bjc){var _hasJC=(_w2.jc_plan||[]).length>0;_bjc.disabled=!_hasJC;_bjc.textContent=_hasJC?'✅ 一键生成回传消息':'⏸ 本周无加仓建议·无需回传';}
+        if(_bjc){var _hasJC=(_w2.jc_plan||[]).length>0;_bjc.disabled=!_hasJC;_bjc.textContent=_hasJC?'✅ 一键生成回传消息':'⏸ 本周无加仓建议·无需回传';
+          ['jc-sec','jc-card'].forEach(function(_i){var _e=document.getElementById(_i);if(_e)_e.style.display=_hasJC?'':'none';});}
         var _bsl=document.getElementById('btn-sl');
         if(_bsl){var _st2=(_dd2&&_dd2.止损)||{};var _sev3=d.stop_eval||{};var _hasSell=Object.keys(_st2).some(function(k){var s2=_sev3[k];return s2&&s2.结论==='赎回';});_bsl.disabled=!_hasSell;_bsl.textContent=_hasSell?'✅ 一键生成回传消息':'⏸ 当前无止损赎回指令·无需回传';}
         var _brp=document.getElementById('btn-rp');
@@ -1537,7 +1539,9 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
     });
     var _cu0={sat:(d.sat&&d.sat.advice_run)||null,daily:(_bd2.daily&&_bd2.daily.run)||null,monthly:(_bd2.monthly&&_bd2.monthly.run)||null,quarter:(_bd2.quarter&&_bd2.quarter.run)||null}; // FH40:monthend取消,资金卡更新时间由updated_at单独填
     for(var _ck0 in _cu0){var _ce0=document.getElementById('card-upd-'+_ck0);if(_ce0)_ce0.textContent=_cu0[_ck0]?_fmtRun(_cu0[_ck0]):'—';}
+    var _dtc=document.getElementById('t-dt-conf');if(_dtc&&d.schedule&&d.schedule.dt_confirm)_dtc.textContent=d.schedule.dt_confirm.replace('周一 ','');
     var _ceM=document.getElementById('card-upd-monthend');if(_ceM&&d.updated_at)_ceM.textContent=d.updated_at; // FH40:资金卡(原monthend)更新时间=周期账本生成时间
+    var _pn=document.getElementById('prev-note');if(_pn&&d.prev&&d.prev.balance_note){_pn.style.display='';_pn.innerHTML='📋 上周期结转说明：'+_esc(d.prev.balance_note);}
     // FH(2026-11-09):非周六评估→不显示定投建议金额(仅周六最新五维给建议,用户多次反馈)
     if(d.sat&&d.sat.advice_valid===false){
       var tbaX=document.getElementById('tb-advice');
@@ -1548,7 +1552,7 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
       if(bwX)bwX.textContent='待周六评估';
     }
     if(d.updated_at){
-      setG('✅ '+d.updated_at,'var(--c-ok)');
+      setG('✅ '+d.updated_at+(d.source_version?(' · 规则版本 '+d.source_version):''),'var(--c-ok)');
       var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';
     }
   }  // render 结束

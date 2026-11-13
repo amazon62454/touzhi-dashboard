@@ -117,6 +117,7 @@
   <div class="card" id="g-updated" style="margin:0 0 10px 0;padding:10px 14px;border:1px solid var(--c-bd4);border-radius:10px;background:var(--c-bg2)">
     <div class="kv"><span>页面数据更新时间</span><b id="g-updated-val" style="color:var(--c-amber)">⏳ 正在获取…</b></div>
   </div>
+  <div id="today-todo"></div>
   <div class="band-card" onclick="go('ret')">
     <div class="row1"><span class="n"><span class="pill" style="background:#4fc3f7"></span>退休目标 · 收益跟踪</span><span class="arrow">›</span></div>
     <div class="d">本周 / 本月 / 今年 / 累计收益 · 退休测算</div>
@@ -245,7 +246,9 @@
     <div class="tip" id="op-jc" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
   </div>
-</div>
+</div>  <div class="sec">回传小艺</div>
+  <div class="card"><button type="button" onclick="genReport('wed')" style="width:100%;padding:11px;border:none;border-radius:9px;background:#1e88e5;color:#fff;font-size:14px;font-weight:600">📋 生成定投回传文案</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
+
 <div id="view-daily" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎<span id="sch-df">—</span>检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div></div>
   <div class="sec">触发项扫描</div>
@@ -288,7 +291,9 @@
     <div class="tip" id="op-gy" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">权益高估止盈(高估≥90%+盈利+当日走弱)触发时执行→回传实际金额，小艺记台账</div>
   </div>
-</div>
+</div>  <div class="sec">回传小艺</div>
+  <div class="card"><button type="button" onclick="genReport('daily')" style="width:100%;padding:11px;border:none;border-radius:9px;background:#1e88e5;color:#fff;font-size:14px;font-weight:600">📋 生成风控确认文案</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
+
 <div id="view-monthly" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span><span id="mo-testtag"></span></div></div>
   <div class="sec">行动结论</div>
@@ -345,7 +350,9 @@
     <div class="tip" id="op-yz" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">月度止盈三条件触发时执行→回传实际金额，小艺记台账</div>
   </div>
-</div>
+</div>  <div class="sec">回传小艺</div>
+  <div class="card"><button type="button" onclick="genReport('monthly')" style="width:100%;padding:11px;border:none;border-radius:9px;background:#1e88e5;color:#fff;font-size:14px;font-weight:600">📋 生成月度回传文案</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
+
 <div id="view-quarter" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号回测 · 本次 <span id="q-run">—</span> · 数据基准 <span id="q-base">—</span><span id="q-testtag"></span></div></div>
   <div class="sec">看配置调仓</div>
@@ -360,7 +367,9 @@
   <div class="sec">需你本人做</div>
   <div class="card"><div id="qtr-do" class="ok">数据加载中…</div>
 </div>
-</div>
+</div>  <div class="sec">回传小艺</div>
+  <div class="card"><button type="button" onclick="genReport('quarter')" style="width:100%;padding:11px;border:none;border-radius:9px;background:#1e88e5;color:#fff;font-size:14px;font-weight:600">📋 生成季度回传文案</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
+
 <div id="view-monthend" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>资金状态 · 实时账本</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
   <div class="sec">本周期动作全景<br><span class="mid" style="font-size:12px">周期 · <span id="me-run">—</span><span id="me-testtag"></span></span></div>
@@ -456,6 +465,53 @@ function gateCheck(){
   else if(zh){g2.textContent='✅ 已到确认时间，可填写实际转换金额';g2.classList.add('on');}
   else{g2.textContent='⏳ 未到确认时间：周'+_wkDay(__fri)+'('+__fri+') 15:00 转换到账后开放填写';g2.classList.remove('on');}
 }
+
+// ===== 2026-11-13 R138 H5报告化改造 =====
+function genReport(k){
+  var d=window.__DATA__||{},t='';
+  var dt=new Date(),ds=(dt.getMonth()+1)+'-'+dt.getDate();
+  if(k==='wed'){
+    var w=d.wed||{},ad=w.advice||[];
+    if(ad.length){
+      var lines=ad.map(function(x){return (x.fund||x.名称||x.标的||'')+' '+(x.amt||x.金额||'')+'元';});
+      t='【定投回传】'+ds+' 定投已执行：'+lines.join('、')+'，全部成功。';
+    }else{
+      var sc=(w.scores||[]).map(function(x){return (x.标的||'')+' '+(x.总分||'')+'分';});
+      t='【定投回传】'+ds+' 本周无定投建议（'+(sc.length?('评分：'+sc.join('、')):'无评分数据')+'），未操作。';
+    }
+  }else if(k==='daily'){
+    var db=(d.bands&&d.bands.daily)||{},ti=db.触发项||[];
+    t=ti.length?('【风控确认】'+ds+' 已查看每日档警报 '+ti.length+' 项：'+ti.slice(0,3).join('；')+'。处理情况：'):('【风控确认】'+ds+' 每日档无警报，组合正常。');
+  }else if(k==='monthly'){
+    var mb=(d.bands&&d.bands.monthly)||{};
+    t='【月度回传】'+ds+' 本月资金与持仓已核对。（'+(mb.仓位判定||'仓位正常')+'）';
+  }else if(k==='quarter'){
+    var qb=(d.bands&&d.bands.quarter)||{};
+    t='【季度回传】'+ds+' 季度配置已核对：'+(qb.再平衡||'再平衡正常')+'。';
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){alert('已复制，粘贴发给小艺即可：\n\n'+t);},function(){prompt('请手动复制：',t);});
+  }else{prompt('请手动复制：',t);}
+}
+function renderTodayTodo(d){
+  var box=document.getElementById('today-todo');if(!box)return;
+  var items=[];
+  var db=(d.bands&&d.bands.daily)||{};
+  (db.触发项||[]).forEach(function(x){var s2=String(x);if(s2.indexOf('🔴')>=0)items.push({t:'风控警报',d:s2,lv:'#ef5350'});});
+  var w=d.wed||{};
+  if((w.advice||[]).length){items.push({t:'本周定投待执行',d:'下周一 '+w.advice.length+' 笔（共'+(w.advice_total||'—')+'元）',lv:'#4fc3f7'});}
+  var q=(d.bands&&d.bands.quarter)||{};
+  if(q.去留&&q.去留.明细){(q.去留.明细||[]).forEach(function(x){var s3=String(x);if(s3.indexOf('🟡')>=0||s3.indexOf('🔴')>=0)items.push({t:'持有期到期观察',d:s3.replace(/^[^ ]+?\(([0-9]{6})\)\s*/,''),lv:'#ffb74d'});});}
+  if(!items.length){
+    box.innerHTML='<div class="card" style="margin:0 0 10px 0;padding:12px 14px;border-left:3px solid #66bb6a;background:var(--c-bg2)"><div style="font-size:13px;color:#66bb6a;font-weight:600">✅ 今天无需你操作</div><div style="font-size:11px;color:#78909c;margin-top:3px">系统正常，无警报、无待回传事项</div></div>';
+    return;
+  }
+  var h='<div class="card" style="margin:0 0 10px 0;padding:12px 14px;border-left:3px solid '+items[0].lv+';background:var(--c-bg2)"><div style="font-size:13px;color:#fff;font-weight:600;margin-bottom:6px">📌 今天要你做的（'+items.length+'项）</div>';
+  items.slice(0,4).forEach(function(x){h+='<div style="font-size:12px;color:#cfd8dc;margin:4px 0;padding-left:8px;border-left:2px solid '+x.lv+'"><b style="color:'+x.lv+'">'+x.t+'</b>：'+x.d+'</div>';});
+  h+='</div>';
+  box.innerHTML=h;
+}
+
 function copyText(text,outId,opId){
   // FH20(2026-11-10):三级降级复制——①clipboard API ②execCommand(WebView兼容) ③手动长按
   var out=document.getElementById(outId);out.style.display='block';out.textContent=text;
@@ -580,6 +636,7 @@ try{gateCheck();}catch(e){}
           :'债类持仓<b>'+_bn+'只</b>·标准单只上限20%（积累期30%）适用';
       }
       var _rt=(d&&d.retirement)||null;
+      if(typeof renderTodayTodo==='function')try{renderTodayTodo(d);}catch(e){}
       if(_rt&&document.getElementById('ret-body')){
         var _rl=document.getElementById('ret-lead');
         if(_rl)_rl.innerHTML='现在 <b>'+(_rt.当前资产/10000).toFixed(2)+'万</b> 元 + 每月 <b>'+_rt.月投+'</b> 元，法定 <b>'+_rt.退休年龄+' 岁</b>退休（'+_rt.退休年月+'，还有 '+_rt.剩余年数+' 年）';

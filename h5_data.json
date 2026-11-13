@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-14 04:42",
+ "updated_at": "2026-11-14 04:45",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -1454,8 +1454,10 @@
   "rule": "债比>50%(P40)启动渐进再平衡：①暂停债基定投 ②每周一赎回富国当周解锁份额(可赎额度以理财通为准) ③买入当期集中制第1名 ④债比回到40%(P31)自动退出；满1年赎回费0(P43)"
  },
  "exec_info": {
+  "plan_date": "11-16",
   "exec_date": "11-16",
-  "exec_weekday": "周一",
+  "postponed": false,
+  "postponed_days": 0,
   "is_trade": true
  },
  "targets": {

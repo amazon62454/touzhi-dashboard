@@ -299,13 +299,8 @@
     <tr><th>触发项</th><th></th><th>说明</th></tr>
     <tbody id="dd-trig"></tbody>
   </table></div>
-  <div class="sec">技术面参考（不构成择时）</div>
-  <div class="card"><table>
-    <tr><th>持仓</th><th class="r">强度</th><th>结论</th></tr>
-    <tbody id="dd-tech"></tbody>
-  </table></div>
-  <div class="sec">减仓/止损执行回传</div>
-  <div class="card">
+  <div class="sec" id="sl-sec">减仓/止损执行回传</div>
+  <div class="card" id="sl-card">
     <div id="sl-cf-state">…</div>
     <div id="sl-cf-form" style="display:none">
       <table>
@@ -318,8 +313,8 @@
     <div class="tip" id="op-sl" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">止损评估结论=赎回时执行→回传实际金额，小艺记台账</div>
   </div>
-  <div class="sec">权益高估止盈回传（每日档）</div>
-  <div class="card">
+  <div class="sec" id="gy-sec">权益高估止盈回传（每日档）</div>
+  <div class="card" id="gy-card">
     <div id="gy-cf-state">…</div>
     <div id="gy-cf-form" style="display:none">
       <table>
@@ -332,6 +327,11 @@
     <div class="tip" id="op-gy" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">权益高估止盈(高估≥90%+盈利+当日走弱)触发时执行→回传实际金额，小艺记台账</div>
   </div>
+  <div class="sec">技术面参考（不构成择时）</div>
+  <div class="card"><table>
+    <tr><th>持仓</th><th class="r">强度</th><th>结论</th></tr>
+    <tbody id="dd-tech"></tbody>
+  </table></div>
 </div>
 
 <div id="view-monthly" class="view" style="display:none">
@@ -367,8 +367,9 @@
   <div class="tip" id="m-asset">总资产=权益类8511+债券13379+现金0=21890（持仓快照2026-11-05，引擎每日自动刷新）</div></div>
   <div class="sec">需你本人做</div>
   <div class="card"><div class="ok">持仓占比已由系统台账核算（见上表，含现金），无需确认</div></div>
-  <div class="sec">置换/净增执行回传</div>
-  <div class="card">
+  <div class="sec" id="rp-sec">置换/净增执行回传</div>
+  <div class="card" id="rp-card">
+    <div class="tip" id="rp-execd"></div>
     <div id="rp-cf-state">…</div>
     <div id="rp-cf-form" style="display:none">
       <table>
@@ -381,8 +382,9 @@
     <div class="tip" id="op-rp" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">按月度档置换指令执行（卖旧买新）→回传实际金额，小艺记台账</div>
   </div>
-  <div class="sec">债基止盈执行回传（月度档）</div>
-  <div class="card">
+  <div class="sec" id="yz-sec">债基止盈执行回传（月度档）</div>
+  <div class="card" id="yz-card">
+    <div class="tip" id="yz-execd"></div>
     <div id="yz-cf-state">…</div>
     <div id="yz-cf-form" style="display:none">
       <table>
@@ -416,8 +418,9 @@
   <div class="sec">需你本人做</div>
   <div class="card"><div id="qtr-do" class="ok">数据加载中…</div>
 </div>
-  <div class="sec">回传小艺</div>
-  <div class="card">
+  <div class="sec" id="qr-sec">回传小艺</div>
+  <div class="card" id="qr-card">
+    <div class="tip" id="qr-execd"></div>
     <button type="button" onclick="genReport('redeem')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#ef6c00;color:#fff">📋 到期赎回回传</button>
     <div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">持有期基金到期赎回后回传实际到账金额（下拉已按最先到期排序，金额自动带市值）</div>
   </div>
@@ -1159,6 +1162,14 @@ try{gateCheck();}catch(e){}
           if(_ei.postponed){_ed.innerHTML=_execTxt;}
           else if(_ei.exec_date){_ed.textContent='执行日：'+_ei.exec_date+'（交易日），8:00 前确认扣款、15:00 确认结果';}
         }
+        // R229:月度/季度档执行日
+        (function(){
+          var _be=d.band_exec||{};
+          function _mk(x){if(!x)return '';return x.postponed?('<span style="color:#ffb74d">⏳ 计划'+x.plan_date+'非交易日 → 顺延至'+x.exec_date+'（顺延'+x.postponed_days+'天）</span>'):('执行日：'+x.exec_date+'（交易日）');}
+          [['rp-execd',_be.month],['yz-execd',_be.month],['qr-execd',_be.quarter]].forEach(function(p){
+            var _e=document.getElementById(p[0]);if(_e){var _t2=_mk(p[1]);if(_t2)_e.innerHTML=_t2+'　<span style="opacity:.7">（遇非交易日自动顺延，不取消）</span>';}
+          });
+        })();
         ['jc-execd','zh-execd','sdd-execd','rdd-execd','yd-execd'].forEach(function(_id){
           var _e=document.getElementById(_id);
           if(_e){_e.innerHTML=_execTxt+'　<span style="opacity:.7">（遇非交易日自动顺延，不取消）</span>';}
@@ -1303,6 +1314,12 @@ try{gateCheck();}catch(e){}
     // ---- FH-二期·季度档判决渲染(bands.quarter,引擎数据) ----
     var qb2=d.bands&&d.bands.quarter;
     var qc=document.getElementById('qtr-conf');
+    // R229:季度回传块按"有调仓/到期动作"条件显示
+    setTimeout(function(){
+      var _qtx=qc?String(qc.textContent||''):'';
+      var _qHas=_qtx && !/无再平衡动作|本档暂无动作|数据加载中/.test(_qtx);
+      ['qr-sec','qr-card'].forEach(function(_i){var _e=document.getElementById(_i);if(_e)_e.style.display=_qHas?'':'none';});
+    },0);
     if(qb2&&qc){
       var qrows=[];function _qcls(s){s=String(s||'');if(s.indexOf('🔴')>=0)return'dow';if(s.indexOf('🟠')>=0||s.indexOf('🟡')>=0)return'mid';return'up';}
       if(qb2.再平衡)qrows.push(['再平衡',qb2.再平衡]);
@@ -1353,6 +1370,8 @@ try{gateCheck();}catch(e){}
           else{_hold.push(k+'('+( _se?('已评估·'+_se.结论+'·'+_se.日期):'待评估')+')');}
         });
         var _htxt=_hold.length?('已破线但结论持有/待评估：'+_hold.join('；')+'——无需操作<br>'):'';
+        var _slShow=(_sell.length>0);
+        ['sl-sec','sl-card'].forEach(function(_i){var _e=document.getElementById(_i);if(_e)_e.style.display=_slShow?'':'none';});
         if(!_sell.length){_sls.innerHTML=_htxt+'本期无待执行的减仓动作';}
         else{
           _sls.innerHTML=_htxt+'有 <b>'+_sell.length+'</b> 只评估结论=赎回，执行后回传：';
@@ -1378,8 +1397,10 @@ try{gateCheck();}catch(e){}
           _gyf.style.display='';var _gh='';
           _ghit.forEach(function(k,i){_gh+='<tr><td>'+esc((_gnm[k]||k))+'('+k+')</td><td><input type="number" id="gyin-'+i+'" data-name="'+esc((_gnm[k]||k))+'" placeholder="实际卖出" style="width:90px"></td></tr>';});
           _tgy.innerHTML=_gh;if(_bgy){_bgy.disabled=false;_bgy.textContent='✅ 一键生成回传消息';}
+          ['gy-sec','gy-card'].forEach(function(_i){var _e=document.getElementById(_i);if(_e)_e.style.display='';});
         }else{
           _gyf.style.display='none';_tgy.innerHTML='<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">当前无权益高估止盈触发(未达90%高估+盈利+走弱三条件)</td></tr>';
+          ['gy-sec','gy-card'].forEach(function(_i){var _e=document.getElementById(_i);if(_e)_e.style.display='none';});
           if(_bgy){_bgy.disabled=true;_bgy.textContent='⏸ 无高估止盈信号·无需回传';}
         }
       }
@@ -1449,7 +1470,8 @@ try{gateCheck();}catch(e){}
         var _brp=document.getElementById('btn-rp');
         if(_brp){var _inc3=((_mb2&&_mb2.cand_review&&_mb2.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});_brp.disabled=!_inc3.length;_brp.textContent=_inc3.length?'✅ 一键生成回传消息':'⏸ 本期无置换动作·无需回传';
         var _byz=document.getElementById('btn-yz');
-        if(_byz){var _zyt=(_mb2&&_mb2.止盈)||'';var _yzHit=!!(_zyt&&!/未达止盈/.test(_zyt));_byz.disabled=!_yzHit;_byz.textContent=_yzHit?'✅ 一键生成回传消息':'⏸ 当前未达止盈·无需回传';var _yzc=document.getElementById('yz-cf-state');if(_yzc)_yzc.innerHTML=_zyt||'数据加载中…';var _yzf=document.getElementById('yz-cf-form');if(_yzf)_yzf.style.display='';var _tYz=document.getElementById('tb-yzcf');if(_tYz)_tYz.innerHTML=_yzHit?'<tr><td>富国(009290)</td><td class="r"><input class="inp" id="yzin-0" data-name="富国(009290)" type="number" placeholder="实际卖出" min="0"></td></tr>':'<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">当前未达止盈，无止盈赎回指令</td></tr>';
+        if(_byz){var _zyt=(_mb2&&_mb2.止盈)||'';var _yzHit=!!(_zyt&&!/未达止盈/.test(_zyt));
+        ['yz-sec','yz-card'].forEach(function(_i){var _e=document.getElementById(_i);if(_e)_e.style.display=_yzHit?'':'none';});_byz.disabled=!_yzHit;_byz.textContent=_yzHit?'✅ 一键生成回传消息':'⏸ 当前未达止盈·无需回传';var _yzc=document.getElementById('yz-cf-state');if(_yzc)_yzc.innerHTML=_zyt||'数据加载中…';var _yzf=document.getElementById('yz-cf-form');if(_yzf)_yzf.style.display='';var _tYz=document.getElementById('tb-yzcf');if(_tYz)_tYz.innerHTML=_yzHit?'<tr><td>富国(009290)</td><td class="r"><input class="inp" id="yzin-0" data-name="富国(009290)" type="number" placeholder="实际卖出" min="0"></td></tr>':'<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">当前未达止盈，无止盈赎回指令</td></tr>';
         }
       }
       }catch(e){}
@@ -1479,6 +1501,7 @@ try{gateCheck();}catch(e){}
     var _rps=document.getElementById('rp-cf-state'),_rpf=document.getElementById('rp-cf-form'),_trp=document.getElementById('tb-rpcf');
 if(_rps&&mb){
   var _inc2=((mb.cand_review&&mb.cand_review.候选)||[]).filter(function(x){return x.判定==='纳入置换';});
+  ['rp-sec','rp-card'].forEach(function(_i){var _e=document.getElementById(_i);if(_e)_e.style.display=_inc2.length?'':'none';});
   if(!_inc2.length){_rps.innerHTML='本期无置换/净增动作（候选均未达建仓线），无需回传';_rpf.style.display='';_trp.innerHTML='<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">无待执行置换（候选均未达建仓线）</td></tr>';}
   else{
     _rps.innerHTML='本期有 <b>'+_inc2.length+'</b> 笔置换待执行，执行后回传：';

@@ -197,6 +197,7 @@
   <div class="tip">金额推导：按指数估值分位从低到高排名次 → 集中制名次对应档位金额；分位越高档位越低，极度高估当周0元暂停</div></div>
   <div class="sec" id="dt-sec">定投金额确认（<span id="t-dt-sec">—</span> 15:00 实扣后开放）</div>
   <div class="card" id="dt-card">
+    <div class="tip" id="dt-execd">—</div>
     <div class="gate" id="gate-dt">⏳ 未到确认时间：<span id="t-dt-gate">—</span> 15:00 实扣完成后开放填写</div>
     <table id="tbl-dt">
     <tr><th>基金</th><th class="r">实际扣款(元)</th></tr>
@@ -1142,8 +1143,13 @@ try{gateCheck();}catch(e){}
       (function(){
         // ①定投确认:建议有效 + 有金额 + 执行日是交易日
         var _ei=d.exec_info||{}, _wv=(w.advice_valid!==false), _amt=Number(w.advice_total||0);
-        var _showDt = _wv && _amt>0 && (_ei.is_trade!==false);
+        var _showDt = _wv && _amt>0;   // R227:非交易日不隐藏(顺延执行,不是取消)
         ['dt-sec','dt-card'].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display=_showDt?'':'none';});
+        var _ed=document.getElementById('dt-execd');
+        if(_ed){
+          if(_ei.postponed){_ed.innerHTML='<span style="color:#ffb74d">⏳ 计划 '+_ei.plan_date+'（周一）非交易日 → 顺延至 '+_ei.exec_date+' 扣款（顺延'+_ei.postponed_days+'天）</span>';}
+          else if(_ei.exec_date){_ed.textContent='执行日：'+_ei.exec_date+'（周一·交易日），8:00 前确认扣款、15:00 确认结果';}
+        }
         // ②加仓确认:有加仓计划才显示
         var _showJc = (w.jc_plan&&w.jc_plan.length>0);
         ['jc-sec','jc-card'].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display=_showJc?'':'none';});

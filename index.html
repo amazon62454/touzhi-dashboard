@@ -579,27 +579,16 @@ try{gateCheck();}catch(e){}
       if(_rt&&document.getElementById('ret-body')){
         var _rl=document.getElementById('ret-lead');
         if(_rl)_rl.innerHTML='现在 <b>'+(_rt.当前资产/10000).toFixed(2)+'万</b> 元 + 每月 <b>'+_rt.月投+'</b> 元，法定 <b>'+_rt.退休年龄+' 岁</b>退休（'+_rt.退休年月+'，还有 '+_rt.剩余年数+' 年）';
-        // 收益四维+归因(R135:市值×期间涨跌幅口径,不折叠直接展示)
+        // 收益(R136撤回期间收益假数:市值×涨跌幅≠真实盈亏,只留累计真实值)
         var _pf=document.getElementById('ret-perf');
         if(_pf){
-          var _p4=_rt.收益四维||{},_pd=_rt.期间收益||{};
-          var _blk=function(lab,v,key){
-            var has=(v!==null&&v!==undefined);
-            var c=!has?'#78909c':(v>=0?'#66bb6a':'#ef5350');
-            var h='<div style="background:var(--c-bg2);border:1px solid var(--c-bd4);border-radius:10px;padding:10px 12px;margin-bottom:8px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:12px;color:#90a4ae">'+lab+'</span><b style="font-size:18px;color:'+c+'">'+(has?((v>=0?'+':'')+v.toLocaleString()+'元'):'—')+'</b></div>';
-            var d=_pd[key];
-            if(d&&d.明细&&d.明细.length){
-              var bad=d.明细.filter(function(x){return x.贡献<0;}).slice(0,3);
-              var good=d.明细.filter(function(x){return x.贡献>0;}).slice(-2).reverse();
-              var _f=function(x){return x.名称.slice(0,8)+'<b style="color:'+(x.贡献>=0?'#66bb6a':'#ef5350')+'">'+(x.贡献>=0?'+':'')+x.贡献.toFixed(0)+'</b>';};
-              if(bad.length) h+='<div style="font-size:11px;color:#78909c;margin-top:4px">拖累：'+bad.map(_f).join(' · ')+'</div>';
-              if(good.length) h+='<div style="font-size:11px;color:#78909c;margin-top:2px">贡献：'+good.map(_f).join(' · ')+'</div>';
-            }else if(key==='累计'){h+='<div style="font-size:11px;color:#78909c;margin-top:4px">当前市值 − 累计投入成本</div>';}
-            return h+'</div>';
-          };
+          var _p4=_rt.收益四维||{};
+          var _cu=_p4['累计'];
+          var _has=(_cu!==null&&_cu!==undefined);
+          var _c1=!(_has&&_cu>=0)?'#ef5350':'#66bb6a';
           _pf.style.display='block';
-          _pf.innerHTML=_blk('本周收益',_p4['本周'],'本周')+_blk('本月收益',_p4['本月'],'本月')+_blk('今年收益',_p4['今年'],'今年')+_blk('累计收益',_p4['累计'],'累计')
-            +'<div class="tip" style="font-size:11px;color:#78909c">周/月/年按「当前持仓市值 × 各基金期间涨跌幅」估算（忽略期间申赎影响）；累计=市值−投入成本（精确）</div>';
+          _pf.innerHTML='<div style="background:var(--c-bg2);border:1px solid var(--c-bd4);border-radius:10px;padding:12px 14px;margin-bottom:8px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:13px;color:#90a4ae">累计收益</span><b style="font-size:22px;color:'+_c1+'">'+( _has?((_cu>=0?'+':'')+_cu.toLocaleString()+'元'):'—')+'</b></div><div style="font-size:11px;color:#78909c;margin-top:4px">当前市值 '+(_rt.当前资产/10000).toFixed(2)+'万 − 累计投入成本</div></div>'
+            +'<div class="tip" style="font-size:11px;color:#78909c">周/月/年收益需历史市值基准（期间收益=期末市值−期初市值−期间净投入），台账快照历史自 '+((_p4['首个快照日'])||'2026-11-12')+' 起记录（'+((_p4['快照数'])||0)+' 个点），够一个周期后自动显示真实值——不编假数</div>';
         }
         // 主页卡片摘要
         var _rs=document.getElementById('ret-sum');

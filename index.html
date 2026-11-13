@@ -259,8 +259,8 @@
     <div class="tip" id="op-jc" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">评分达标→按判定执行买入→回传实际金额，小艺记台账闭环</div>
   </div>
-</div>    <div class="sec">回传小艺</div>
-  <div class="card"><button type="button" onclick="genReport('wed')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#1e88e5;color:#fff;margin-top:0">📋 定投回传</button><button type="button" onclick="genReport('add')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#455a64;color:#fff;margin-top:8px">📋 加仓回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
+</div>      <div class="sec">回传小艺</div>
+  <div class="card"><button type="button" onclick="genReport('wed')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#1e88e5;color:#fff;margin-top:0">📋 定投执行回传（含实际扣款）</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">只回传「我查不到的执行结果」，我自己的结论不用回传</div></div>
 
 <div id="view-daily" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎<span id="sch-df">—</span>检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div>
@@ -308,8 +308,8 @@
     <div class="tip" id="op-gy" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">权益高估止盈(高估≥90%+盈利+当日走弱)触发时执行→回传实际金额，小艺记台账</div>
   </div>
-</div>    <div class="sec">回传小艺</div>
-  <div class="card"><button type="button" onclick="genReport('daily')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#1e88e5;color:#fff;margin-top:0">📋 风控确认</button><button type="button" onclick="genReport('reduce')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#455a64;color:#fff;margin-top:8px">📋 减仓/止盈回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
+</div>      <div class="sec">回传小艺</div>
+  <div class="card"><button type="button" onclick="genReport('reduce')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#455a64;color:#fff;margin-top:0">📋 减仓/止盈执行回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">只回传「我查不到的执行结果」，我自己的结论不用回传</div></div>
 
 <div id="view-monthly" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>月度档 · 机会扫描</h1><div class="sub">每月20号扫描 · 本次 <span id="mo-run">—</span> · 数据基准 <span id="mo-base">—</span><span id="mo-testtag"></span></div>
@@ -371,8 +371,8 @@
     <div class="tip" id="op-yz" style="display:none;color:var(--c-ok)"></div>
     <div class="tip">月度止盈三条件触发时执行→回传实际金额，小艺记台账</div>
   </div>
-</div>    <div class="sec">回传小艺</div>
-  <div class="card"><button type="button" onclick="genReport('monthly')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#1e88e5;color:#fff;margin-top:0">📋 月度回传</button><button type="button" onclick="genReport('add')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#455a64;color:#fff;margin-top:8px">📋 加仓回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
+</div>      <div class="sec">回传小艺</div>
+  <div class="card"><button type="button" onclick="genReport('add')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#455a64;color:#fff;margin-top:0">📋 加仓执行回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">只回传「我查不到的执行结果」，我自己的结论不用回传</div></div>
 
 <div id="view-quarter" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>季度档 · 配置回测</h1><div class="sub">季末25号回测 · 本次 <span id="q-run">—</span> · 数据基准 <span id="q-base">—</span><span id="q-testtag"></span></div>
@@ -392,8 +392,8 @@
   <div class="sec">需你本人做</div>
   <div class="card"><div id="qtr-do" class="ok">数据加载中…</div>
 </div>
-</div>    <div class="sec">回传小艺</div>
-  <div class="card"><button type="button" onclick="genReport('quarter')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#1e88e5;color:#fff;margin-top:0">📋 季度回传</button><button type="button" onclick="genReport('redeem')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#ef6c00;color:#fff;margin-top:8px">📋 到期赎回回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">点击生成标准回传文案并复制，粘贴发给小艺即可记账</div></div>
+</div>      <div class="sec">回传小艺</div>
+  <div class="card"><button type="button" onclick="genReport('redeem')" style="width:100%;padding:11px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#ef6c00;color:#fff;margin-top:0">📋 到期赎回回传</button><div class="tip" style="font-size:11px;color:#78909c;margin-top:6px">只回传「我查不到的执行结果」，我自己的结论不用回传</div></div>
 
 <div id="view-monthend" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>资金状态 · 实时账本</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
@@ -501,13 +501,16 @@ function genReport(k){
   var d=window.__DATA__||{},t='';
   var dt=new Date(),ds=(dt.getMonth()+1)+'-'+dt.getDate();
   if(k==='wed'){
-    var w=d.wed||{},ad=w.advice||[];
-    if(ad.length){
-      var lines=ad.map(function(x){return (x.fund||x.名称||x.标的||'')+' '+(x.amt||x.金额||'')+'元';});
-      t='【定投回传】'+ds+' 定投已执行：'+lines.join('、')+'，全部成功。';
+    var w=d.wed||{},ad=w.advice||[],pl2=d.plan||{};
+    var same=confirm('是否按计划执行？\n\n点「确定」= 按计划全额执行（免填数字）\n点「取消」= 实际金额有差异，我来填');
+    if(same){
+      if(ad.length){var lines=ad.map(function(x){return (x.fund||x.名称||x.标的||'')+' '+(x.amt||x.金额||'')+'元';});t='【定投回传】'+ds+' 按计划执行：'+lines.join('、')+'，全部成功。';}
+      else if(pl2.待执行次数>0){t='【定投回传】'+ds+' 按计划执行：'+pl2.待执行次数+' 期共 '+(pl2.待执行金额||'—')+' 元，全部成功。';}
+      else{t='【定投回传】'+ds+' 本周无定投，未操作。';}
     }else{
-      var sc=(w.scores||[]).map(function(x){return (x.标的||'')+' '+(x.总分||'')+'分';});
-      t='【定投回传】'+ds+' 本周无定投建议（'+(sc.length?('评分：'+sc.join('、')):'无评分数据')+'），未操作。';
+      var real=prompt('实际扣款总额（元）？','');
+      if(!real)return;
+      t='【定投回传】'+ds+' 实际扣款 '+real+' 元，与计划有差异，请按实际校准台账。';
     }
   }else if(k==='daily'){
     var db=(d.bands&&d.bands.daily)||{},ti=db.触发项||[];

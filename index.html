@@ -523,6 +523,71 @@ function _holdOpts(){ // 持有期基金(到期赎回用)
   var out=all.filter(function(o){return keys.indexOf(o.v)>=0||keys.some(function(k){return o.v.indexOf(k)>=0;});});
   return out.length?out:all;
 }
+
+function _lastDtItems(){
+  var d=window.__DATA__||{}, w=d.wed||{};
+  var ad=w.advice||[];
+  if(ad.length) return ad.map(function(x){return {fund:(x.name||x.fund||''),code:(x.code||''),amt:(x.amt||0),plan:true};});
+  var recs=w.dt_records||[];
+  if(!recs.length) return [];
+  var dates=recs.map(function(r){return r.date;}).sort();
+  var last=dates[dates.length-1];
+  return recs.filter(function(r){return r.date===last;}).map(function(r){return {fund:r.fund,code:'',amt:r.amt,plan:false};});
+}
+function showDtForm(){
+  var items=_lastDtItems(), d=window.__DATA__||{}, pl=d.plan||{};
+  var per=pl.每期预测||0;
+  if(!items.length){alert('暂无定投记录可参考，请先在周六档生成建议');return;}
+  document.getElementById('rf-title').textContent='定投执行回传（逐只核对）';
+  var h='<div style="font-size:11px;color:#90a4ae;margin-bottom:10px">下面每只预填'+(items[0].plan?'建议金额':'上期实投金额')+'，按理财通实际扣款改；改过的会在文案里标出差异</div>';
+  items.forEach(function(x,i){
+    h+='<div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">'
+      +'<div style="flex:1;font-size:13px;color:#cfd8dc;line-height:1.3">'+_esc(x.fund)+'</div>'
+      +'<input id="dtf-'+i+'" class="dtf" type="number" inputmode="decimal" value="'+x.amt+'" data-plan="'+x.amt+'" data-fund="'+_esc(x.fund)+'" style="width:92px;box-sizing:border-box;padding:9px;border-radius:8px;border:1px solid #37474f;background:#1e2a38;color:#fff;font-size:14px;text-align:right">'
+      +'</div>';
+  });
+  h+='<div style="margin:10px 0"><select id="dtf-add-sel" style="width:100%;padding:9px;border-radius:8px;border:1px solid #37474f;background:#1e2a38;color:#90a4ae;font-size:13px"><option value="">＋ 补一只未列出的基金（可选）</option>'
+    +_fundOpts().map(function(o){return '<option value="'+_esc(o.v)+'">'+_esc(o.t)+'</option>';}).join('')+'</select>'
+    +'<input id="dtf-add-amt" type="number" placeholder="金额" style="width:100%;box-sizing:border-box;margin-top:8px;padding:9px;border-radius:8px;border:1px solid #37474f;background:#1e2a38;color:#fff;font-size:14px"></div>';
+  h+='<div id="dtf-sum" style="font-size:12px;color:#4fc3f7;padding:8px;background:#0f1b26;border-radius:8px">合计 <b id="dtf-tot">—</b> 元'+(per?('（本期预测 '+per+' 元）'):'')+'</div>';
+  document.getElementById('rf-body').innerHTML=h;
+  document.getElementById('rf-mask').style.display='flex';
+  _rfCb=function(){
+    var dt=new Date(),ds=(dt.getMonth()+1)+'-'+dt.getDate();
+    var parts=[],diffs=[],tot=0;
+    document.querySelectorAll('.dtf').forEach(function(el){
+      var real=Number(el.value), plan=Number(el.getAttribute('data-plan')), f=el.getAttribute('data-fund');
+      if(!real&&real!==0)return;
+      tot+=real;
+      if(Math.abs(real-plan)>0.005){diffs.push(f+' 计划'+plan+'→实际'+real);}
+      else{parts.push(f+' '+real+'元');}
+    });
+    var asel=document.getElementById('dtf-add-sel'), aamt=document.getElementById('dtf-add-amt');
+    if(asel&&asel.value&&aamt&&aamt.value){
+      var ps=((window.__DATA__||{}).holdings||{}).positions||[];
+      var hit=ps.filter(function(x){return String(x.代码)===asel.value;})[0];
+      var nm=hit?(hit.名称+' ('+hit.代码+')'):asel.value;
+      parts.push(nm+' '+aamt.value+'元'); tot+=Number(aamt.value);
+    }
+    var msg='【定投回传】'+ds+' 定投已执行：'+parts.join('、');
+    if(diffs.length) msg+='；有差异：'+diffs.join('、');
+    msg+='。合计 '+Math.round(tot*100)/100+' 元。';
+    _copy(msg);
+  };
+  _bindDtSum();
+}
+function _bindDtSum(){
+  function upd(){
+    var t=0;
+    document.querySelectorAll('.dtf').forEach(function(el){var v=Number(el.value);if(v)t+=v;});
+    var a=document.getElementById('dtf-add-amt'); if(a&&a.value)t+=Number(a.value);
+    var e=document.getElementById('dtf-tot'); if(e)e.textContent=Math.round(t*100)/100;
+  }
+  document.querySelectorAll('.dtf').forEach(function(el){el.addEventListener('input',upd);});
+  var a=document.getElementById('dtf-add-amt'); if(a)a.addEventListener('input',upd);
+  upd();
+}
+
 function showForm(title,fields,cb){
   _rfCb=cb;
   document.getElementById('rf-title').textContent=title;
@@ -557,18 +622,8 @@ function _copy(t){
 function genReport(k){
   var d=window.__DATA__||{},dt=new Date(),ds=(dt.getMonth()+1)+'-'+dt.getDate();
   var funds=_fundOpts();
-  if(k==='wed'){
-    var w=d.wed||{},ad=w.advice||[],pl2=d.plan||{};
-    var planTxt = ad.length ? ad.map(function(x){return (x.fund||x.名称||x.标的||'')+' '+(x.amt||x.金额||'')+'元';}).join('、')
-                 : (pl2.待执行次数>0 ? (pl2.待执行次数+' 期共 '+(pl2.待执行金额||'—')+' 元') : '本周无定投');
-    showForm('定投执行回传',[
-      {key:'mode',label:'执行情况',type:'select',options:[{v:'plan',t:'按计划全额执行（'+planTxt+'）'},{v:'diff',t:'实际有差异，我填金额'}],default:'plan'},
-      {key:'real',label:'实际扣款总额（元）·仅"有差异"时填',type:'number',ph:'留空=按计划'}
-    ],function(v){
-      if(v.mode==='plan') _copy('【定投回传】'+ds+' 按计划执行：'+planTxt+'，全部成功。');
-      else if(v.real) _copy('【定投回传】'+ds+' 实际扣款 '+v.real+' 元（计划 '+planTxt+'），请按实际校准台账。');
-    });
-  }else if(k==='add'){
+  if(k==='wed'){ showDtForm(); }
+}else if(k==='add'){
     showForm('加仓执行回传',[
       {key:'fund',label:'加仓基金',type:'select',options:funds,default:(funds[0]||{}).v},
       {key:'amt',label:'实际加仓金额（元）',type:'number',ph:'如 122'}

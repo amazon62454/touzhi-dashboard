@@ -1095,23 +1095,6 @@ try{gateCheck();}catch(e){}
       }
       var cap=document.getElementById('cap-advice');
       if(cap&&w.advice_run){var r=String(w.advice_run);cap.textContent='周一('+(d.dt_thursday||'')+')定投建议（'+r.slice(4,6)+'-'+r.slice(6,8)+'评估）';}
-      var tdr=document.getElementById('tb-dtrec');
-      if(tdr&&w.dt_records&&w.dt_records.length){
-        var bd={},od=[];
-        w.dt_records.forEach(function(x){if(!bd[x.date]){bd[x.date]=[];od.push(x.date);}bd[x.date].push(x);});
-        var h2='';
-        od.forEach(function(dt){var its=bd[dt],s=0,ds=[];its.forEach(function(x){s+=x.amt;ds.push(sn(x.fund)+x.amt);});h2+='<tr><td>'+dt+'</td><td>'+(its.length>1?its.length+'只：':'')+ds.join('/')+'</td><td class="r">'+(Math.round(s*100)/100)+'</td></tr>';});
-        h2+='<tr><td><b>定投小计</b></td><td></td><td class="r"><b>'+(w.dt_total||0)+'</b></td></tr>';
-        tdr.innerHTML=h2;
-      }
-      var tjr=document.getElementById('tb-jcrec');
-      if(tjr){
-        if(w.jc_records&&w.jc_records.length){
-          var h3='';
-          w.jc_records.forEach(function(x){var sc=(x.note||'').match(/(\d+(?:\.\d+)?)分/);h3+='<tr><td>'+x.date+'</td><td>'+esc(x.fund)+'</td><td class="r"><b>'+(sc?sc[1]:'—')+'</b></td><td class="r">'+x.amt+' 元 ✅已执行</td></tr>';});
-          tjr.innerHTML=h3;
-        }else{tjr.innerHTML='<tr><td colspan="4">本周期无加仓</td></tr>';}
-      }
     }
     if(d.dt_confirmed){
       var wb=document.querySelector('#view-wed .badge-wait');

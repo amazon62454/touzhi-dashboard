@@ -249,6 +249,9 @@
 <div id="view-daily" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>每日档 · 风控监控</h1><div class="sub">引擎<span id="sch-df">—</span>检查 · 本次 <span id="dd-run">—</span> · 数据基准 <span id="dd-base">—</span><span id="dd-testtag"></span></div>
   <div id="bm-daily" class="bandmeta" style="margin:8px 12px 0;padding:8px 12px;border-radius:8px;background:var(--c-bg2);font-size:11px;color:#90a4ae;line-height:1.5"></div></div>
+
+  <div class="sec">结论</div>
+  <div class="card"><div class="ok" id="dd-concl">数据加载中…</div></div>
   <div class="sec">触发项扫描</div>
   <div class="card"><table>
     <tr><th>触发项</th><th></th><th>说明</th></tr>
@@ -259,8 +262,6 @@
     <tr><th>持仓</th><th class="r">强度</th><th>结论</th></tr>
     <tbody id="dd-tech"></tbody>
   </table></div>
-  <div class="sec">结论</div>
-  <div class="card"><div class="ok" id="dd-concl">数据加载中…</div></div>
   <div class="sec">减仓/止损执行回传</div>
   <div class="card">
     <div id="sl-cf-state">…</div>

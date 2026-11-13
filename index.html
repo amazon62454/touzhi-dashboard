@@ -163,9 +163,11 @@
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>🎯 退休目标 · 收益跟踪</h1><div class="sub" id="ret-lead">—</div></div>
   <div class="sec">收益四维</div>
   <div id="ret-perf" style="display:grid;grid-template-columns:1fr 1fr;gap:10px"></div>
-  <div class="sec">细项</div>
+  <div class="sec">退休测算（'+2046+'年10月）</div>
+  <div id="ret-plan"></div>
+  <div class="sec">9 只基金历史年化明细</div>
   <div class="card">
-    <div class="li" onclick="toggleRetDetail()" style="cursor:pointer;user-select:none"><b id="ret-tog">▸ 点开看细项</b><span class="mid" style="margin-left:6px">每只基金历史年化 + 退休测算</span></div>
+    <div class="li" onclick="toggleRetDetail()" style="cursor:pointer;user-select:none"><b id="ret-tog">▸ 点开看明细</b><span class="mid" style="margin-left:6px">每只基金成立以来年化 × 当前占比</span></div>
     <div id="ret-body" style="display:none;margin-top:8px"></div>
   </div>
 </div>
@@ -595,7 +597,19 @@ try{gateCheck();}catch(e){}
         if(_rs){var _cu=(_rt.收益四维||{})['累计'];var _cc=(_cu>=0)?'#66bb6a':'#ef5350';
           _rs.innerHTML='累计 <b style="color:'+_cc+'">'+((_cu>=0?'+':'')+(_cu===null?'—':_cu.toLocaleString()))+'元</b> · 组合年化 '+_rt.组合历史年化+'% · '+_rt.退休年月+'约'+((_rt.档位&&_rt.档位[0])?((_rt.档位[0].终值/10000).toFixed(1)+'万'):'—');}
         var _cu2=document.getElementById('card-upd-ret'); if(_cu2)_cu2.textContent=_rt.快照日期||'—';
-        var _rh='<div style="font-size:11px;color:#90a4ae;margin:2px 0 4px">① 你每只基金的真实历史年化 × 当前占比（占比随持仓自动变）</div>';
+        // 退休测算四件套(不折叠)
+        var _rp=document.getElementById('ret-plan');
+        var _x=(_rt.档位||[])[0]||{};
+        if(_rp&&_x.终值){
+          var _ret=(_x.利润/_x.本金*100);
+          _rp.innerHTML='<div class="card"><div style="padding:2px 0 8px"><span style="font-size:12px;color:#90a4ae">持有资产（'+_rt.退休年月+'）</span><br><b style="font-size:28px;color:#4fc3f7">'+(_x.终值/10000).toFixed(1)+'万</b></div>'
+            +'<table><tr><td style="color:#90a4ae;font-size:12px">持仓成本</td><td class="r"><b>'+(_x.本金/10000).toFixed(1)+'万</b></td></tr>'
+            +'<tr><td style="color:#90a4ae;font-size:12px">持仓收益</td><td class="r"><b style="color:#66bb6a">+'+(_x.利润/10000).toFixed(1)+'万</b></td></tr>'
+            +'<tr><td style="color:#90a4ae;font-size:12px">持仓收益率</td><td class="r"><b style="color:#66bb6a">+'+_ret.toFixed(0)+'%</b></td></tr></table>'
+            +'<div style="font-size:11px;color:#78909c;margin-top:8px">按组合历史年化 '+_rt.组合历史年化+'% 推算（'+_rt.剩余年数+' 年，每月 '+_rt.月投+' 元）</div></div>';
+        }
+        // 折叠区:只留9只明细表
+        var _rh='';
         _rh+='<table><tr><th>基金</th><th class="r">占比</th><th class="r">历史年化</th><th class="r">贡献</th></tr>';
         (_rt.明细||[]).forEach(function(x){
           var _nm=x.名称.replace(/一年持有|两年持有|三年持有|指数|联接|发起式|\（.*?\）/g,'').slice(0,10);
@@ -603,15 +617,6 @@ try{gateCheck();}catch(e){}
           _rh+='<tr><td style="font-size:11px">'+_nm+'</td><td class="r">'+x.占比+'%</td><td class="r" style="color:'+_c+'">'+(x.历史年化>0?'+':'')+x.历史年化+'%</td><td class="r">'+(x.贡献>0?'+':'')+x.贡献+'</td></tr>';
         });
         _rh+='<tr style="border-top:1px solid #455a64"><td><b>组合加权</b></td><td class="r">100%</td><td class="r">—</td><td class="r"><b style="color:#4fc3f7">'+_rt.组合历史年化+'%</b></td></tr></table>';
-        _rh+='<div style="font-size:11px;color:#90a4ae;margin:12px 0 4px">② 按这个年化推到 '+_rt.退休年月+'（还有 '+_rt.剩余年数+' 年）</div>';
-        var _x=(_rt.档位||[])[0]||{};
-        if(_x.终值){
-          var _ret=(_x.利润/_x.本金*100);
-          _rh+='<div style="padding:6px 0 2px"><span style="font-size:12px;color:#90a4ae">持有资产（退休时）</span><br><b style="font-size:26px;color:#4fc3f7">'+(_x.终值/10000).toFixed(1)+'万</b></div>';
-          _rh+='<table style="margin-top:4px"><tr><td style="color:#90a4ae;font-size:12px">持仓成本</td><td class="r"><b>'+(_x.本金/10000).toFixed(1)+'万</b></td></tr>';
-          _rh+='<tr><td style="color:#90a4ae;font-size:12px">持仓收益</td><td class="r"><b style="color:#66bb6a">+'+(_x.利润/10000).toFixed(1)+'万</b></td></tr>';
-          _rh+='<tr><td style="color:#90a4ae;font-size:12px">持仓收益率</td><td class="r"><b style="color:#66bb6a">+'+_ret.toFixed(0)+'%</b></td></tr></table>';
-        }
         document.getElementById('ret-body').innerHTML=_rh;
       }
       if(mp){

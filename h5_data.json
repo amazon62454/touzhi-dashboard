@@ -1456,7 +1456,7 @@
  "exec_info": {
   "exec_date": "11-16",
   "exec_weekday": "周一",
-  "is_trade": null
+  "is_trade": true
  },
  "targets": {
   "权益": 50.0,

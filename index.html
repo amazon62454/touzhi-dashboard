@@ -353,6 +353,8 @@
     <tr><th>指标</th><th></th><th>内容</th></tr>
     <tbody id="qtr-conf"></tbody>
   </table></div>
+  <div class="sec">持有期到期评估</div>
+  <div class="card"><div id="qtr-expire" class="li">数据加载中…</div></div>
   <div class="sec">信号回测</div>
   <div class="card"><div id="qtr-signal" class="li">数据加载中…</div></div>
   <div class="sec">需你本人做</div>
@@ -888,6 +890,20 @@ try{gateCheck();}catch(e){}
       qc.innerHTML=qh;
     }
     else if(qc&&!qb2){qc.innerHTML='<tr><td colspan="3" style="text-align:center;color:var(--c-dim)">未到季度评估日，暂无配置调仓数据</td></tr>';}
+    // 2026-11-13 R137:持有期到期退出盈亏闸门(引擎去留字段)
+    var _qe=document.getElementById('qtr-expire');
+    if(_qe){
+      if(qb2&&qb2.去留&&qb2.去留.明细&&qb2.去留.明细.length){
+        var _eh='';
+        qb2.去留.明细.forEach(function(t){
+          var _cl=String(t).indexOf('🔴')>=0?'down':(String(t).indexOf('🟡')>=0?'mid':'up');
+          _eh+='<div class="li '+_cl+'" style="margin-bottom:6px">'+esc(String(t).replace(/^[^ ]+?\(([0-9]{6})\)\s*/,''))+'</div>';
+        });
+        _eh+='<div class="tip" style="font-size:11px;color:#78909c">'+esc((qb2.去留.闸门口径)||'')+'</div>';
+        _qe.innerHTML=_eh;
+      }else if(qb2){_qe.innerText='无持有期基金待到期退出';}
+      else{_qe.innerText='未到季度评估日，暂无到期评估数据';}
+    }
     var qs=document.getElementById('qtr-signal');
     var _nq=function(){var _d=new Date(),_m=_d.getMonth()+1,_qm=[3,6,9,12];for(var _i=0;_i<_qm.length;_i++){if(_qm[_i]>_m||(_qm[_i]===_m&&_d.getDate()<=25))return _qm[_i]+'月25号';}return '次年3月25号';};
     if(qb2&&qb2.信号回测&&qs){var _sp=qb2.信号回测.记录条数,_sv=qb2.信号回测.有效条数;qs.innerHTML='加仓/减仓/止损信号：记录'+(_sp==null?'?':_sp)+'条/需≥30，'+( _sp>=30?'达标可回测':  (_sp==null?'待数据':'未达标·持续登记'))+( _sv!=null&&_sp>0?'；6个月有效'+_sv+'条':'');}

@@ -117,11 +117,11 @@
   <div class="card" id="g-updated" style="margin:0 0 10px 0;padding:10px 14px;border:1px solid var(--c-bd4);border-radius:10px;background:var(--c-bg2)">
     <div class="kv"><span>页面数据更新时间</span><b id="g-updated-val" style="color:var(--c-amber)">⏳ 正在获取…</b></div>
   </div>
-  <div class="sec">🎯 退休目标测算</div>
-  <div class="card">
-    <div class="tip" id="ret-lead" style="color:#4fc3f7"></div>
-    <div id="ret-body"></div>
-    
+  <div class="band-card" onclick="go('ret')">
+    <div class="row1"><span class="n"><span class="pill" style="background:#4fc3f7"></span>退休目标 · 收益跟踪</span><span class="arrow">›</span></div>
+    <div class="d">本周 / 本月 / 今年 / 累计收益 · 退休测算</div>
+    <div class="next">更新 <span id="card-upd-ret">—</span></div>
+    <div class="sum" id="ret-sum">—</div>
   </div>
   <div class="band-card" onclick="go('monthend')">
     <div class="row1"><span class="n"><span class="pill" style="background:var(--c-pink)"></span>资金状态 · 实时</span><span class="arrow">›</span></div>
@@ -158,6 +158,16 @@
     <div class="sum" id="q-sum">—</div>
   </div>
   <div class="note">※ 五档报告完整数据已整合进各档详情；每次评估跑完自动更新对应档位。</div>
+</div>
+<div id="view-ret" class="view" style="display:none">
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>🎯 退休目标 · 收益跟踪</h1><div class="sub" id="ret-lead">—</div></div>
+  <div class="sec">收益四维</div>
+  <div id="ret-perf" style="display:grid;grid-template-columns:1fr 1fr;gap:10px"></div>
+  <div class="sec">细项</div>
+  <div class="card">
+    <div class="li" onclick="toggleRetDetail()" style="cursor:pointer;user-select:none"><b id="ret-tog">▸ 点开看细项</b><span class="mid" style="margin-left:6px">每只基金历史年化 + 退休测算</span></div>
+    <div id="ret-body" style="display:none;margin-top:8px"></div>
+  </div>
 </div>
 <div id="view-wed" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周六档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span><span id="t-adv-wrap"> · 建议出自 <span id="t-adv-run">—</span> 评估</span><span id="wed-testtag"></span></div></div>
@@ -401,6 +411,7 @@
   window.__DATA__=JSON.parse(document.getElementById("__DATA__").textContent||"null");
 function go(b){document.getElementById('list').style.display='none';document.getElementById('view-'+b).style.display='block';window.scrollTo(0,0);}
 function back(){document.querySelectorAll('.view').forEach(v=>v.style.display='none');document.getElementById('list').style.display='block';window.scrollTo(0,0);}
+function toggleRetDetail(){var b=document.getElementById('ret-body'),t=document.getElementById('ret-tog');if(!b)return;var open=b.style.display!=='none';b.style.display=open?'none':'block';if(t)t.textContent=open?'▸ 点开看细项':'▾ 收起细项';}
 function _execOpen(od,oh,cd,chh){
   var n=new Date(),y=n.getFullYear();
   var oo=od.split('-'),cc=cd.split('-');
@@ -567,7 +578,26 @@ try{gateCheck();}catch(e){}
       var _rt=(d&&d.retirement)||null;
       if(_rt&&document.getElementById('ret-body')){
         var _rl=document.getElementById('ret-lead');
-        _rl.innerHTML='现在 <b>'+(_rt.当前资产/10000).toFixed(2)+'万</b> 元 + 每月 <b>'+_rt.月投+'</b> 元，法定 <b>'+_rt.退休年龄+' 岁</b>退休（'+_rt.退休年月+'，还有 '+_rt.剩余年数+' 年）';
+        if(_rl)_rl.innerHTML='现在 <b>'+(_rt.当前资产/10000).toFixed(2)+'万</b> 元 + 每月 <b>'+_rt.月投+'</b> 元，法定 <b>'+_rt.退休年龄+' 岁</b>退休（'+_rt.退休年月+'，还有 '+_rt.剩余年数+' 年）';
+        // 收益四维
+        var _pf=document.getElementById('ret-perf');
+        if(_pf){
+          var _p4=_rt.收益四维||{};
+          var _box=function(lab,v){
+            var has=(v!==null&&v!==undefined);
+            var c=!has?'#78909c':(v>=0?'#66bb6a':'#ef5350');
+            return '<div style="background:var(--c-bg2);border:1px solid var(--c-bd4);border-radius:10px;padding:10px 12px"><div style="font-size:11px;color:#90a4ae">'+lab+'</div><div style="font-size:19px;font-weight:600;color:'+c+';margin-top:2px">'+(has?((v>=0?'+':'')+v.toLocaleString()+'元'):'积累中')+'</div></div>';
+          };
+          _pf.innerHTML=_box('本周收益',_p4['本周'])+_box('本月收益',_p4['本月'])+_box('今年收益',_p4['今年'])+_box('累计收益',_p4['累计']);
+          if(_p4['本周']===null||_p4['本周']===undefined){
+            _pf.innerHTML+='<div class="tip" style="grid-column:1/3;font-size:11px;color:#78909c">周/月/年收益需历史市值基准：快照历史自 '+(_p4['首个快照日']||'今日')+' 起积累（当前 '+(_p4['快照数']||0)+' 个数据点），满一个周期自动显示</div>';
+          }
+        }
+        // 主页卡片摘要
+        var _rs=document.getElementById('ret-sum');
+        if(_rs){var _cu=(_rt.收益四维||{})['累计'];var _cc=(_cu>=0)?'#66bb6a':'#ef5350';
+          _rs.innerHTML='累计 <b style="color:'+_cc+'">'+((_cu>=0?'+':'')+(_cu===null?'—':_cu.toLocaleString()))+'元</b> · 组合年化 '+_rt.组合历史年化+'% · '+_rt.退休年月+'约'+((_rt.档位&&_rt.档位[0])?((_rt.档位[0].终值/10000).toFixed(1)+'万'):'—');}
+        var _cu2=document.getElementById('card-upd-ret'); if(_cu2)_cu2.textContent=_rt.快照日期||'—';
         var _rh='<div style="font-size:11px;color:#90a4ae;margin:2px 0 4px">① 你每只基金的真实历史年化 × 当前占比（占比随持仓自动变）</div>';
         _rh+='<table><tr><th>基金</th><th class="r">占比</th><th class="r">历史年化</th><th class="r">贡献</th></tr>';
         (_rt.明细||[]).forEach(function(x){

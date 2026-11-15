@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-15 21:15",
+ "updated_at": "2026-11-15 21:23",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -28,18 +28,18 @@
    {
     "name": "嘉实中证新能车C",
     "code": "012544",
-    "amt": 75,
+    "amt": 40,
     "rank": 1,
-    "pct": 7.83,
+    "pct": "6.85",
     "exit_rank": false,
     "exit_why": null
    },
    {
     "name": "易方达创新药ETF联接",
     "code": "024328",
-    "amt": 40,
+    "amt": 75,
     "rank": 2,
-    "pct": 8.0,
+    "pct": "5.75",
     "exit_rank": false,
     "exit_why": null
    },
@@ -48,7 +48,7 @@
     "code": "017140",
     "amt": 25,
     "rank": 3,
-    "pct": 41.02,
+    "pct": "41.02",
     "exit_rank": false,
     "exit_why": null
    },
@@ -57,7 +57,7 @@
     "code": "004253",
     "amt": 0,
     "rank": null,
-    "pct": 77.63,
+    "pct": "77.63",
     "exit_rank": false,
     "exit_why": null
    },

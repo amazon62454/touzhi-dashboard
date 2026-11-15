@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-16 00:04",
+ "updated_at": "2026-11-16 00:10",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -24,8 +24,53 @@
  "dt_thursday": "11-16",
  "dt_confirmed": false,
  "sat": {
-  "advice": [],
-  "advice_total": null,
+  "advice": [
+   {
+    "name": "易方达创新药ETF联接",
+    "code": "024328",
+    "amt": 75,
+    "rank": 1,
+    "pct": 5.75,
+    "exit_rank": false,
+    "exit_why": null
+   },
+   {
+    "name": "嘉实中证新能车C",
+    "code": "012544",
+    "amt": 40,
+    "rank": 2,
+    "pct": 6.85,
+    "exit_rank": false,
+    "exit_why": null
+   },
+   {
+    "name": "华宝有色A",
+    "code": "017140",
+    "amt": 25,
+    "rank": 3,
+    "pct": 41.02,
+    "exit_rank": false,
+    "exit_why": null
+   },
+   {
+    "name": "国泰黄金ETF联接",
+    "code": "004253",
+    "amt": 0,
+    "rank": null,
+    "pct": 77.52,
+    "exit_rank": false,
+    "exit_why": null
+   },
+   {
+    "name": "兴全安泰养老FOF A",
+    "code": "010267",
+    "amt": 30,
+    "rank": null,
+    "pct": null,
+    "fixed": true
+   }
+  ],
+  "advice_total": 170,
   "advice_run": "20261115_230014",
   "scores": [
    {
@@ -240,8 +285,8 @@
    "说明": "🟢:嘉实中证新能车C(012544):连续0/6周(净流入、均线下✓、分位7%·低估✓)；🟢:华宝有色A(017140):连续0/6周(净流入、均线下✓、分位41%)；🟢:易方达创新药ETF联接(024328):连续0/6周(净流出✓、均线上、分位6%·低估✓)",
    "触发": []
   },
-  "adv_eval_day": "11-14",
-  "advice_valid": false
+  "adv_eval_day": "11-15",
+  "advice_valid": true
  },
  "holdings": {
   "equity": 8905.49,

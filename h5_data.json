@@ -29,7 +29,7 @@
     "name": "嘉实中证新能车C",
     "code": "012544",
     "amt": 40,
-    "rank": 1,
+    "rank": 2,
     "pct": "6.85",
     "exit_rank": false,
     "exit_why": null
@@ -38,7 +38,7 @@
     "name": "易方达创新药ETF联接",
     "code": "024328",
     "amt": 75,
-    "rank": 2,
+    "rank": 1,
     "pct": "5.75",
     "exit_rank": false,
     "exit_why": null

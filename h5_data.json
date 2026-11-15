@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-16 00:10",
+ "updated_at": "2026-11-16 00:12",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -1371,7 +1371,7 @@
  "schedule": {
   "daily_full": "周一~五 03:00",
   "daily_time": "03:00",
-  "sat_full": "周六 03:00",
+  "sat_full": "周日 03:00",
   "sat_time": "03:00",
   "monthly_full": "每月20号 03:00",
   "quarter_full": "3/6/9/12月25号 03:00",

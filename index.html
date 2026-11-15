@@ -432,6 +432,7 @@
 
 <div id="view-monthend" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>资金状态 · 实时账本</h1><div class="sub" id="d-updated">
+      <div id="health-box" style="margin-top:10px;text-align:left;background:rgba(255,255,255,.03);border-radius:8px;padding:8px 10px"></div>
       <div id="changelog-box" style="margin-top:10px;text-align:left;background:rgba(255,255,255,.03);border-radius:8px;padding:8px 10px"></div>台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
   <div class="sec">本周期动作全景<br><span class="mid" style="font-size:12px">周期 · <span id="me-run">—</span><span id="me-testtag"></span></span></div>
   <div class="card"><div id="me-panorama">…</div></div>
@@ -1570,6 +1571,20 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
     if(d.updated_at){
       setG('✅ '+d.updated_at+(d.source_version?(' · 规则版本 '+d.source_version):''),'var(--c-ok)');
       var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';
+    }
+    // R292:取数健康度(可观测性)——数据源是否健康一眼可见
+    var _hb=document.getElementById('health-box');
+    if(_hb){
+      var _h=d.health||{};
+      if(_h['状态']){
+        var _col=_h['状态']==='🟢'?'#4caf50':(_h['状态']==='🟡'?'#ffb300':'#f4511e');
+        var _lag=_h['平均滞后天'];
+        _hb.innerHTML='<div style="font-size:12px;color:#8a93a6;margin-bottom:4px">📡 数据源健康度(近7天)</div>'
+          +'<div style="font-size:13px"><span style="color:'+_col+';font-weight:bold">'+_h['状态']+'</span> '
+          +'正式判决 '+(_h['近7天正式判决数']||0)+' 次'
+          +( (_h['待数据总次数']||0)>0 ? ' · <span style="color:#ffb300">取数缺项 '+_h['待数据总次数']+' 次</span>' : ' · 取数全命中')
+          +(_lag!=null?' · 数据滞后约 '+_lag+' 天(收盘口径)':'')+'</div>';
+      }
     }
     // R291:版本变更区块(用户唯一可见入口——最近一次升级改了什么,人话)
     var _cl=document.getElementById('changelog-box');

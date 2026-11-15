@@ -147,9 +147,9 @@
   </div>
   
   <div class="band-card" onclick="go('sat')">
-    <div class="row1"><span class="n"><span class="pill" style="background:var(--c-blue)"></span>周六档 · 定投预提示</span><span class="arrow">›</span></div>
+    <div class="row1"><span class="n"><span class="pill" style="background:var(--c-blue)"></span>周日档 · 定投预提示</span><span class="arrow">›</span></div>
     <div class="d"><span id="t-card-d">周一(11-16)投哪些</span> / 多少钱 · 集中制档位分配 · 加仓评估</div>
-    <div class="next">下次 · <span id="t-next-zh">周六 11-14</span> <span id="sch-st">—</span> · 更新 <span id="card-upd-sat">—</span></div>
+    <div class="next">下次 · <span id="t-next-zh">周日 11-14</span> <span id="sch-st">—</span> · 更新 <span id="card-upd-sat">—</span></div>
     <div class="sum" id="w-sum-main">…</div>
   </div>
   
@@ -186,7 +186,7 @@
   </div>
 </div>
 <div id="view-sat" class="view" style="display:none">
-  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周六档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span><span id="t-adv-wrap"> · 建议出自 <span id="t-adv-run">—</span> 评估</span><span id="sat-testtag"></span></div>
+  <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>周日档 · 定投预提示</h1><div class="sub">服务<span id="t-sub">—</span><span id="t-adv-wrap"> · 建议出自 <span id="t-adv-run">—</span> 评估</span><span id="sat-testtag"></span></div>
   <div id="bm-sat" class="bandmeta" style="margin:8px 12px 0;padding:8px 12px;border-radius:8px;background:var(--c-bg2);font-size:11px;color:#90a4ae;line-height:1.5"></div></div>
   <div class="card verdict" id="vd-sat" style="margin:10px 12px;padding:12px 14px;border-left:4px solid #4fc3f7;background:var(--c-bg2)">
     <div class="vd-main" style="font-size:14px;font-weight:700;color:#fff">加载中…</div>
@@ -216,7 +216,7 @@
     <tr><th>标的</th><th class="r">估值</th><th class="r">趋势</th><th class="r">资金</th><th class="r">基本面</th><th class="r">情绪</th><th class="r">总分/门槛</th><th>判定</th></tr>
     <tbody id="tb-score"></tbody>
   </table>
-  <div class="tip" id="score-wait" style="display:none">待本周六(<span id="score-eval-day">—</span> <span id="sch-stw">—</span>) 评估后生成 —— 非评估日不展示测试数据，与定投建议同一规则</div>
+  <div class="tip" id="score-wait" style="display:none">待本周日(<span id="score-eval-day">—</span> <span id="sch-stw">—</span>) 评估后生成 —— 非评估日不展示测试数据，与定投建议同一规则</div>
   <div class="tip">评分=估值50分+四信号各12.5分；达门槛才加仓，A类30日闸等合规闸一票否决。判定含"暂缓/不触发"=本周不加仓，无需操作</div></div>
   <div class="sec" id="jc-sec">加仓确认（执行后回传）</div>
   <div class="card" id="jc-card">
@@ -261,7 +261,7 @@
     <tr><th>基金</th><th class="r">距峰值回撤</th><th>处置</th></tr>
     <tbody id="tb-sdd"></tbody>
   </table>
-  <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周六判决</div>
+  <div class="tip">距历史最高净值回撤：20%~30% 暂停定投+专项评估；≥30% 强制减仓30%。数据源=引擎周日判决</div>
     <div id="sdd-act" style="display:none">
     <div class="tip" id="sdd-execd" style="display:none"></div>
       <table><tr><th>基金</th><th class="r">应减(元)</th><th class="r">实际减仓(元)</th></tr><tbody id="tb-sddact"></tbody></table>
@@ -571,7 +571,7 @@ function _lastDtItems(){
 function showDtForm(){
   var items=_lastDtItems(), d=window.__DATA__||{}, pl=d.plan||{};
   var per=pl.每期预测||0;
-  if(!items.length){alert('暂无定投记录可参考，请先在周六档生成建议');return;}
+  if(!items.length){alert('暂无定投记录可参考，请先在周日档生成建议');return;}
   document.getElementById('rf-title').textContent='定投执行回传（逐只核对）';
   var h='<div style="font-size:11px;color:#90a4ae;margin-bottom:10px">下面每只预填'+(items[0].plan?'建议金额':'上期实投金额')+'，按理财通实际扣款改；改过的会在文案里标出差异</div>';
   items.forEach(function(x,i){
@@ -765,7 +765,7 @@ function renderVerdicts(d){
   var red=ti.filter(function(x){return String(x).indexOf('🔴')>=0;}).length;
   if(!ti.length) setVerdict('vd-daily','今日无警报，组合正常','引擎扫描完成，回撤/止损/规模/事件均未触发','#66bb6a');
   else setVerdict('vd-daily','今日 '+ti.length+' 项触发'+(red?('，其中 '+red+' 项🔴需立即处理'):'，均为提示级'),'详见下方触发项明细',red?'#ef5350':'#ffb74d');
-  // 周六档
+  // 周日档
   var pl=d.plan||{}, w=d.sat||{}, ad=w.advice||[];
   if(ad.length){
     var amt=w.advice_total||'—';
@@ -816,7 +816,7 @@ function renderTodayTodo(d){
       rows.forEach(function(r){
         var amt='';
         if(r.金额){
-          amt=_wFormal?(' · <b style="color:#ffd54f">'+r.金额+' 元</b>'):' · <span style="color:#ffb74d">金额待周六评估确认</span>';
+          amt=_wFormal?(' · <b style="color:#ffd54f">'+r.金额+' 元</b>'):' · <span style="color:#ffb74d">金额待周日评估确认</span>';
         }
         var c=r.档期?'#607d8b':'#cfd8dc';
         h+='<div style="font-size:12px;color:'+c+';margin:3px 0 3px 8px;padding-left:8px;border-left:2px solid '+(r.档期?'#37474f':'#4fc3f7')+'"><b style="color:'+(r.档期?'#90a4ae':'#fff')+'">'+_esc(r.动作)+'</b>'+amt+(r.说明?'<div style="font-size:11px;color:#78909c;margin-top:1px">'+_esc(r.说明)+'</div>':'')+'</div>';
@@ -957,7 +957,7 @@ try{gateCheck();}catch(e){}
     set('d-remain2',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
     set('d-spent',d.period&&d.period.spent!=null?d.period.spent+' 元':null);
     if(d.cash_pool!=null){set('d-pool',d.cash_pool+' 元');set('d-pool2',d.cash_pool+' 元');}
-    // 本周四定投已确认(台账完整)→徽章换已执行、确认区隐藏回传(2026-11-09用户拍板)
+    // 本周一定投已确认(台账完整)→徽章换已执行、确认区隐藏回传(2026-11-09用户拍板)
     if(d.holdings&&d.holdings.total){
       var h=d.holdings;
       var mp=document.getElementById('m-pos');
@@ -1062,9 +1062,9 @@ try{gateCheck();}catch(e){}
         var fri=(fd.getMonth()+1<10?'0':'')+(fd.getMonth()+1)+'-'+(fd.getDate()<10?'0':'')+fd.getDate();
         function stT(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
         var _prev=function(x){var _yy=new Date().getFullYear();var _dd=new Date(_yy,parseInt(x.slice(0,2),10)-1,parseInt(x.slice(3,5),10)-1);return (_dd.getMonth()+1<10?'0':'')+(_dd.getMonth()+1)+'-'+(_dd.getDate()<10?'0':'')+_dd.getDate();};
-        // 2026-11-10节奏改:评估日周六(过渡2026-11-11为周三)→星期名按实际日期动态算;执行日周一(过渡周四)
+        // 2026-11-10节奏改:评估日周日(过渡2026-11-11为周三)→星期名按实际日期动态算;执行日周一
         var _wk=function(x){var _yy=new Date().getFullYear();var _dt=new Date(_yy,parseInt(x.slice(0,2),10)-1,parseInt(x.slice(3,5),10));return '日一二三四五六'[_dt.getDay()];};
-        var _sat=_prev(_prev(thu));stT('t-next-zh','周'+_wk(_sat)+' '+_sat);  // 2026-11-11改周六评估:周一减2天=周六(原_prev=周日旧逻辑)
+        var _sat=_prev(_prev(thu));stT('t-next-zh','周'+_wk(_sat)+' '+_sat);  // 2026-11-11改周日评估:周一减2天=周日(原_prev=周日旧逻辑)
         stT('t-next-dt',thu);
         stT('t-card-d','周一('+thu+')投哪些');
         stT('t-sub','周一('+thu+')执行');
@@ -1102,7 +1102,7 @@ try{gateCheck();}catch(e){}
             var _cls=(x.总分!=null&&x.门槛!=null&&x.总分>=x.门槛)?'up':'mid';
             _sh2+='<tr><td>'+esc(x.标的)+'</td><td class="r">'+(_w.估值!=null?_w.估值:'—')+'</td><td class="r">'+(_w.趋势!=null?_w.趋势:'—')+'</td><td class="r">'+(_w.资金!=null?_w.资金:'—')+'</td><td class="r">'+(_w.基本面!=null?_w.基本面:'—')+'</td><td class="r">'+(_w.情绪!=null?_w.情绪:'—')+'</td><td class="r '+_cls+'"><b>'+(x.总分!=null?x.总分:'—')+'</b>/'+(x.门槛!=null?x.门槛:'—')+'</td><td>'+esc(String(x.判定||'').slice(0,50))+'</td></tr>';
           });
-          _tsc.innerHTML=_sh2||'<tr><td colspan="8">本周无评分对象（非周六评估日或无低估持仓）</td></tr>';
+          _tsc.innerHTML=_sh2||'<tr><td colspan="8">本周无评分对象（非周日评估日或无低估持仓）</td></tr>';
         }
         var _jcs=document.getElementById('jc-cf-state'),_jcf=document.getElementById('jc-cf-form'),_tj=document.getElementById('tb-jccf');
         if(_jcs){
@@ -1131,7 +1131,7 @@ try{gateCheck();}catch(e){}
           var nm2={'创新药':'创新药','新能车':'新能车','兴全':'兴全','有色':'有色','黄金':'黄金','富国':'富国'};
           var parts=[];d.sat.advice.forEach(function(x){var n=nm2[x.name.slice(0,3)]||x.name.slice(0,4);parts.push(n+(x.amt||0));});
           _wsm.innerHTML='权益本周 <b>'+d.sat.advice_total+'</b>元 · '+esc(parts.join(' '));
-        }else{_wsm.textContent='未到周六评估日（下次'+_nextSat()+'）';}
+        }else{_wsm.textContent='未到周日评估日（下次'+_nextSat()+'）';}
       }
     }
     if(d.sat){
@@ -1280,7 +1280,7 @@ try{gateCheck();}catch(e){}
         _sm.textContent='';
         if(_sc)_sc.style.display='none';
         if(_sw){_sw.style.display='block';}
-        if(_sed)_sed.textContent=d.sat.adv_eval_day||'周六';
+        if(_sed)_sed.textContent=d.sat.adv_eval_day||'周日';
       }else{
         if(_sc)_sc.style.display='block';
         if(_sw)_sw.style.display='none';
@@ -1367,7 +1367,7 @@ try{gateCheck();}catch(e){}
     else if(qs&&!qb2){qs.innerHTML='未到季度评估日（下次 '+_nq()+' '+((_sch&&_sch.quarter_time)||'03:00')+' 回测），暂无信号回测数据';}
     var _qd=document.getElementById('qtr-do');
     if(_qd&&qb2){
-      if(qb2.动作){_qd.innerHTML='<b>'+qb2.动作+'</b>'+(qb2.动作缺口!==undefined&&qb2.动作缺口!==null?('（缺口≈'+qb2.动作缺口+'元转权益，每笔由周六档按每周解锁份额算）'):'')+'<br><span class="mid">本档仅启动/退出判定，无需你操作；执行与回传见周六档「债基转换确认」</span>';
+      if(qb2.动作){_qd.innerHTML='<b>'+qb2.动作+'</b>'+(qb2.动作缺口!==undefined&&qb2.动作缺口!==null?('（缺口≈'+qb2.动作缺口+'元转权益，每笔由周日档按每周解锁份额算）'):'')+'<br><span class="mid">本档仅启动/退出判定，无需你操作；执行与回传见周日档「债基转换确认」</span>';
       }else{_qd.innerText='本季无再平衡动作(债比处常态/补债区),仅核对持仓与占比';}
     }
     else if(_qd&&!qb2){_qd.innerHTML='未到季度评估日（下次 '+_nq()+' '+((_sch&&_sch.quarter_time)||'03:00')+'），本档暂无动作；无需你操作';}
@@ -1421,14 +1421,14 @@ try{gateCheck();}catch(e){}
         }
       }
     }
-    // 周六卡已整体渲染(w-sum-main),w-sum-tag废弃
+    // 周日卡已整体渲染(w-sum-main),w-sum-tag废弃
     var _msl=document.getElementById('m-sum-lead');
-    if(_msl){if(mb&&!mb.测试态){var _crr0=(mb.cand_review&&mb.cand_review.候选)||[];var _hc=_crr0.some(function(x){return x.判定==='纳入置换';})?'纳入置换':'不换仓';var _cy2=null;if(mb.方向扫描)mb.方向扫描.forEach(function(x){if(String(x.名称||'').indexOf('创新药')>=0)_cy2=x;});_msl.textContent=_hc+(_cy2&&_cy2.分位!=null?(' · '+_cy2.名称+' '+Math.round(_cy2.分位*100)/100+'%交周六评分'):'');}else{_msl.textContent='未到月度评估日（下次'+_nextM20()+'）';}}
+    if(_msl){if(mb&&!mb.测试态){var _crr0=(mb.cand_review&&mb.cand_review.候选)||[];var _hc=_crr0.some(function(x){return x.判定==='纳入置换';})?'纳入置换':'不换仓';var _cy2=null;if(mb.方向扫描)mb.方向扫描.forEach(function(x){if(String(x.名称||'').indexOf('创新药')>=0)_cy2=x;});_msl.textContent=_hc+(_cy2&&_cy2.分位!=null?(' · '+_cy2.名称+' '+Math.round(_cy2.分位*100)/100+'%交周日评分'):'');}else{_msl.textContent='未到月度评估日（下次'+_nextM20()+'）';}}
     var _qsm=document.getElementById('q-sum');
     if(_qsm&&qb2){var _pr=[];if(qb2.组合数量!=null)_pr.push('组合'+qb2.组合数量+'只(8-12内)');var _rbm=String(qb2.再平衡||'').match(/债比[0-9.]+%>[0-9.]+%/);_pr.push(_rbm?_rbm[0].replace('债比','债比')+'启动再平衡':'债比评估');var _scm=String(qb2.赛道集中度||'').match(/合计[0-9.]+%/);_pr.push(_scm?('赛道'+_scm[0].replace('合计','')+'未超上限'):'赛道评估');_qsm.textContent=_pr.join(' · ');}
     else if(_qsm&&!qb2){_qsm.textContent='未到季度评估日（下次'+_nq()+'）';}
-    // 2026-11-12 用户指出:周六档原重复展示每日档"专项检查"(同源 bands.daily.触发项)→已删,
-    // 该10项属每日档职责(每日03:00独立更新),周六档只做定投建议+加仓评分,不重复别档数据(防时效误导)
+    // 2026-11-12 用户指出:周日档原重复展示每日档"专项检查"(同源 bands.daily.触发项)→已删,
+    // 该10项属每日档职责(每日03:00独立更新),周日档只做定投建议+加仓评分,不重复别档数据(防时效误导)
     var _inj=document.getElementById('inject-line');
     if(_inj&&d.period&&d.period.injected!=null){_inj.textContent=Math.round(d.period.injected)+' 元';}
     // FH专项A·账本数据驱动(d.tx,唯一源=台账记录·消灭硬编码,列全周期内所有转换取出)
@@ -1444,13 +1444,13 @@ try{gateCheck();}catch(e){}
     }
     // FH专项B·定投执行计划(plan:B方案=集中制分配预测,含兴全提额30)。修正原硬编码306/194(旧兴全13)
     var _pp=d.plan;
-    if(_pp&&_pp.周期周四数){
+    if(_pp&&(_pp.周期执行日数||_pp.周期周四数)){
       var _pe=document.getElementById('plan-tip');
       if(_pe){
-        var _pt='⚠️ 本周期含'+_pp.周期周四数+'个定投执行日（'+(_pp.周四列表||[]).join('、')+'）';
+        var _pt='⚠️ 本周期含'+(_pp.周期执行日数||_pp.周期周四数)+'个定投执行日（'+(_pp.执行日列表||_pp.周四列表||[]).join('、')+'）';
         if(_pp.待执行次数>0){_pt+='：'+( _pp.待执行日期||[]).join('、')+' '+_pp.待执行次数+'次待执行约'+Math.round(_pp.待执行金额)+'（每期约'+Math.round(_pp.每期预测)+'，含兴全11月提额30），执行后剩约'+Math.round(_pp.执行后剩余);}
         else{_pt+='：本周期定投已全部执行';}
-        _pt+='；'+_pp.周期周四数+'周定投会挤占加仓弹药，月总预算红线兜底';
+        _pt+='；'+(_pp.周期执行日数||_pp.周期周四数)+'周定投会挤占加仓弹药，月总预算红线兜底';
         _pe.textContent=_pt;
       }
     }
@@ -1458,7 +1458,7 @@ try{gateCheck();}catch(e){}
     if(d.sat&&d.sat.advice){
       // FH: 确认表单行数据驱动(从wed.advice生成,支持新增/删除基金;input id=f-dt-{code})
       var tf=document.getElementById('tb-dtform');
-      if(tf&&!d.sat.advice.length){tf.innerHTML='<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">定投建议待周六评估生成</td></tr>';}
+      if(tf&&!d.sat.advice.length){tf.innerHTML='<tr><td colspan="2" style="text-align:center;color:var(--c-dim)">定投建议待周日评估生成</td></tr>';}
       if(tf&&d.sat.advice&&d.sat.advice.length){
         var hf='';
         d.sat.advice.forEach(function(x){hf+='<tr><td>'+esc(_shn(x.name))+' '+x.code+'</td><td class="r"><input class="inp" id="f-dt-'+x.code+'" type="number" data-name="'+esc(_shn(x.name))+x.code+'" value="'+(x.amt==null?0:x.amt)+'" min="0" disabled></td></tr>';});
@@ -1530,7 +1530,7 @@ if(_rps&&mb){
     _trp.innerHTML=_h4;
   }
 }
-if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!=null&&x.分位<30&&x.持仓)_act2.push(x.名称+'('+(Math.round(x.分位*100)/100)+'%·'+((x.分位<10)?'极度低估':'低估')+')');});_mac.innerHTML='<b>本周评分对象</b>：'+( _act2.length?(_act2.join('；')+'<br><span class="mid">仅已持仓低估方向由周六档评分加仓，候选已在月度评审区给建仓结论</span>'):'无（暂无已持仓低估待评分）');}
+if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!=null&&x.分位<30&&x.持仓)_act2.push(x.名称+'('+(Math.round(x.分位*100)/100)+'%·'+((x.分位<10)?'极度低估':'低估')+')');});_mac.innerHTML='<b>本周评分对象</b>：'+( _act2.length?(_act2.join('；')+'<br><span class="mid">仅已持仓低估方向由周日档评分加仓，候选已在月度评审区给建仓结论</span>'):'无（暂无已持仓低估待评分）');}
     // FH: 评估/运行时间具体化(消灭'最新/自动'模糊词,用户可判断数据新旧)
     function _fmtRun(s){s=String(s||'');return s.length>=12?(s.slice(4,6)+'-'+s.slice(6,8)+' '+s.slice(9,11)+':'+s.slice(11,13)):(s.length===8?(s.slice(4,6)+'-'+s.slice(6,8)):'—');}
     var _ar2=document.getElementById('t-adv-run');
@@ -1539,7 +1539,7 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
       var _test2=(d.sat.advice_formal===false||d.sat.测试态||d.sat.advice_valid===false);
       if(_test2){
         // 2026-11-12:测试态不显示"建议出自<测试跑时间>评估"(会让测试跑时间冒充评估日)
-        if(_aw)_aw.textContent=' · 待 '+(d.sat.adv_eval_day||'周六')+' '+((_sch&&_sch.sat_time)||'03:00')+' 正式评估';
+        if(_aw)_aw.textContent=' · 待 '+(d.sat.adv_eval_day||'周日')+' '+((_sch&&_sch.sat_time)||'03:00')+' 正式评估';
       }else{
         if(_aw)_aw.textContent=' · 建议出自 '+_fmtRun(d.sat.advice_run)+' 评估';
       }
@@ -1557,14 +1557,14 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
     var _dtc=document.getElementById('t-dt-conf');if(_dtc&&d.schedule&&d.schedule.dt_confirm)_dtc.textContent=d.schedule.dt_confirm.replace('周一 ','');
     var _ceM=document.getElementById('card-upd-monthend');if(_ceM&&d.updated_at)_ceM.textContent=d.updated_at; // FH40:资金卡(原monthend)更新时间=周期账本生成时间
     var _pn=document.getElementById('prev-note');if(_pn&&d.prev&&d.prev.balance_note){_pn.style.display='';_pn.innerHTML='📋 上周期结转说明：'+_esc(d.prev.balance_note);}
-    // FH(2026-11-09):非周六评估→不显示定投建议金额(仅周六最新五维给建议,用户多次反馈)
+    // FH(2026-11-09):非周日评估→不显示定投建议金额(仅周日最新五维给建议,用户多次反馈)
     if(d.sat&&d.sat.advice_valid===false){
       var tbaX=document.getElementById('tb-advice');
-      if(tbaX)tbaX.innerHTML='<tr><td colspan="2">周一('+(d.dt_thursday||'')+')定投建议：待本周六('+(d.sat.adv_eval_day||'评估')+')评估后生成 —— 仅周六评估给出最新五维建议，非评估日不给过时建议</td></tr>';
+      if(tbaX)tbaX.innerHTML='<tr><td colspan="2">周一('+(d.dt_thursday||'')+')定投建议：待本周日('+(d.sat.adv_eval_day||'评估')+')评估后生成 —— 仅周日评估给出最新五维建议，非评估日不给过时建议</td></tr>';
       var capX=document.getElementById('cap-advice');
       if(capX)capX.textContent=(d.dt_thursday?('周一('+d.dt_thursday+')定投建议·'):'')+'待评估';
       var bwX=document.getElementById('badge-wait-txt');
-      if(bwX)bwX.textContent='待周六评估';
+      if(bwX)bwX.textContent='待周日评估';
     }
     if(d.updated_at){
       setG('✅ '+d.updated_at+(d.source_version?(' · 规则版本 '+d.source_version):''),'var(--c-ok)');

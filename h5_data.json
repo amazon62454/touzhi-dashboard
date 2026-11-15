@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-15 20:59",
+ "updated_at": "2026-11-15 21:13",
  "cash_pool": 0.0,
  "period": {
   "label": "10-20~11-19",
@@ -28,7 +28,7 @@
    {
     "name": "嘉实中证新能车C",
     "code": "012544",
-    "amt": 65,
+    "amt": 75,
     "rank": 1,
     "pct": 7.83,
     "exit_rank": false,
@@ -70,7 +70,7 @@
     "fixed": true
    }
   ],
-  "advice_total": 160,
+  "advice_total": 170,
   "advice_run": "20261114_030004",
   "scores": [
    {

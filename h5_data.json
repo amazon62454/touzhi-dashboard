@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T03:34:07",
+  "generated_at": "2026-11-17T03:53:36",
   "base_date": "2026-11-17",
   "status": {
     "run_mode": "test",
@@ -457,7 +457,7 @@
       "summary": "测试预览 · 4只基金定投，合计130元",
       "run_mode": "test",
       "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T03:31:50",
+      "generated_at": "2026-11-17T03:53:35",
       "items": [
         {
           "fund_code": "017140",
@@ -797,9 +797,9 @@
                 "source": "AI涨乐"
               },
               "fundamentals": {
-                "value": 50.0,
-                "date": "2026-06-30",
-                "caliber": "改善",
+                "value": 1326.5,
+                "date": "2026-09-30",
+                "caliber": "景气",
                 "source": "AI涨乐"
               },
               "sentiments": {
@@ -814,19 +814,19 @@
             "fund_code": "012544",
             "fund_name": "嘉实中证新能源汽车指数C",
             "valuation": 6.85,
-            "score": 67.5,
+            "score": 70.5,
             "scores": {
               "估值": 45.0,
               "趋势": 4.0,
               "资金": 0.0,
-              "基本面": 6,
+              "基本面": 9,
               "情绪": 12.5
             },
             "missing": [],
             "threshold": 70.0,
-            "eligible": false,
+            "eligible": true,
             "overheated": false,
-            "decision": "未达到加仓门槛，本笔不操作",
+            "decision": "评分通过但现金池余额为0，本笔不操作",
             "dimensions": {
               "trend": {
                 "value": 0.0,
@@ -841,9 +841,9 @@
                 "source": "AI涨乐"
               },
               "fundamentals": {
-                "value": 50.0,
+                "value": 32.89,
                 "date": "2026-09-30",
-                "caliber": "中性",
+                "caliber": "景气",
                 "source": "AI涨乐"
               },
               "sentiments": {
@@ -856,8 +856,8 @@
           }
         ],
         "cash_pool": 0.0,
-        "add_on_summary": "3只低估候选均未形成可执行加仓；逐只原因见下方",
-        "template_patch": "基本面/情绪复用V1模板；仅单只串行补数，其他基金结论未改"
+        "add_on_summary": "新能源车评分通过但现金池为0；其余2只未达门槛，本期均不操作",
+        "template_patch": "三只低估候选基本面/情绪全部按V1口径串行对齐；缺新值时保留同基准快照，不混用字段"
       },
       "source_file": "band_eval_judgment.json"
     },

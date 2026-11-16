@@ -126,10 +126,6 @@
     <div class="kv"><span>页面数据更新时间</span><b id="g-updated-val" style="color:var(--c-amber)">⏳ 正在获取…</b></div>
   </div>
   <div id="today-todo"></div>
-  <div class="card" style="margin:0 0 10px 0;padding:10px 14px;border:1px solid var(--c-bd4);border-radius:10px;background:var(--c-bg2)">
-    <div id="health-box" style="text-align:left"></div>
-    <div id="changelog-box" style="text-align:left;margin-top:8px"></div>
-  </div>
   <div class="band-card" onclick="go('ret')">
     <div class="row1"><span class="n"><span class="pill" style="background:#4fc3f7"></span>退休目标 · 收益跟踪</span><span class="arrow">›</span></div>
     <div class="d">本周 / 本月 / 今年 / 累计收益 · 退休测算</div>
@@ -171,6 +167,10 @@
     <div class="sum" id="q-sum">—</div>
   </div>
   <div class="note">※ 五档报告完整数据已整合进各档详情；每次评估跑完自动更新对应档位。</div>
+  <div class="card" style="margin:10px 0 0 0;padding:10px 14px;border:1px solid var(--c-bd4);border-radius:10px;background:var(--c-bg2)">
+    <div id="health-box" style="text-align:left"></div>
+    <div id="changelog-box" style="text-align:left;margin-top:8px"></div>
+  </div>
 </div>
 <div id="view-ret" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>🎯 退休目标 · 收益跟踪</h1><div class="sub" id="ret-lead">—</div></div>

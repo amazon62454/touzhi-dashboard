@@ -364,7 +364,8 @@
   <div class="card"><table>
     <tr><th>方向</th><th class="r">分位</th><th>判定</th></tr>
     <tbody id="mh-scan"></tbody>
-  </table></div>
+  </table>
+    <div id="mh-scan-diff" class="mid" style="font-size:12px;padding:4px 0"></div></div>
   <div class="sec">存量持仓占比</div>
   <div class="card"><table>
     <tr><th>基金</th><th class="r">占比</th></tr>
@@ -1328,7 +1329,10 @@ try{gateCheck();}catch(e){}
     // ---- FH-二期·月度档判决渲染(bands.monthly/quarter,引擎数据) ----
     var mb=d.bands&&d.bands.monthly;
     var ms=document.getElementById('mh-scan');
-    if(mb&&ms){var _srcC=(mb.全市场候选池&&mb.全市场候选池.length)?mb.全市场候选池:(mb.方向扫描||[]);var mh='';_srcC.forEach(function(x){var p=x.分位;var bd='合理',cls='up';if(p==null){bd='待数据';}else if(p<10){bd='极度低估';}else if(p<30){bd='低估';}else if(p<70){bd='合理';cls='';}else if(p<90){bd='高估';cls='dow';}else{bd='极度高估';cls='dow';}var _tag=(mb.全市场候选池&&x.来源)?(' <span class="mid">['+esc(x.来源)+(x.data_date?('·'+String(x.data_date).slice(0,10)):'')+']</span>'):'';mh+='<tr><td>'+esc(x.名称)+(x.代码?(' '+x.代码):'')+_tag+'</td><td class="r">'+(p==null?'—':(p+'%'))+'</td><td class="'+cls+'">'+esc(bd)+'</td></tr>';});ms.innerHTML=mh;}
+    if(mb&&ms){var _srcC=(mb.全市场候选池&&mb.全市场候选池.length)?mb.全市场候选池:(mb.方向扫描||[]);var mh='';_srcC.forEach(function(x){var p=x.分位;var bd='合理',cls='up';if(p==null){bd='待数据';}else if(p<10){bd='极度低估';}else if(p<30){bd='低估';}else if(p<70){bd='合理';cls='';}else if(p<90){bd='高估';cls='dow';}else{bd='极度高估';cls='dow';}var _tag=(mb.全市场候选池&&x.来源)?(' <span class="mid">['+esc(x.来源)+(x.data_date?('·'+String(x.data_date).slice(0,10)):'')+']</span>'):'';mh+='<tr><td>'+esc(x.名称)+(x.代码?(' '+x.代码):'')+_tag+'</td><td class="r">'+(p==null?'—':(p+'%'))+'</td><td class="'+cls+'">'+esc(bd)+'</td></tr>';});ms.innerHTML=mh;
+        // R294:候选池较上期变化(新进低估/退出)
+        var _pd=mb.候选池变化, _pdEl=document.getElementById('mh-scan-diff');
+        if(_pdEl){_pdEl.textContent=_pd||'';}}
     var mp=document.getElementById('mh-pos');
     var qb=d.bands&&d.bands.quarter;
     var _pos=d.holdings&&d.holdings.positions;

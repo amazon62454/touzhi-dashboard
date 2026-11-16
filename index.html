@@ -167,10 +167,13 @@
     <div class="sum" id="q-sum">—</div>
   </div>
   <div class="note">※ 五档报告完整数据已整合进各档详情；每次评估跑完自动更新对应档位。</div>
-  <div class="card" style="margin:10px 0 0 0;padding:10px 14px;border:1px solid var(--c-bd4);border-radius:10px;background:var(--c-bg2)">
-    <div id="health-box" style="text-align:left"></div>
-    <div id="changelog-box" style="text-align:left;margin-top:8px"></div>
-  </div>
+  <details id="sys-status" style="margin:8px 0 0 0">
+    <summary style="cursor:pointer;font-size:12px;color:var(--c-mut,#8a93a6);padding:6px 2px;list-style:none">📡 系统状态 · <span id="sys-brief">—</span> <span style="opacity:.6">(点开看详情)</span></summary>
+    <div class="card" style="margin:6px 0 0 0;padding:10px 14px;border:1px solid var(--c-bd4);border-radius:10px;background:var(--c-bg2)">
+      <div id="health-box" style="text-align:left"></div>
+      <div id="changelog-box" style="text-align:left;margin-top:8px"></div>
+    </div>
+  </details>
 </div>
 <div id="view-ret" class="view" style="display:none">
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>🎯 退休目标 · 收益跟踪</h1><div class="sub" id="ret-lead">—</div></div>
@@ -1573,6 +1576,13 @@ if(_mac&&mb){var _act2=[];(mb.低估候选||[]).forEach(function(x){if(x.分位!
     if(d.updated_at){
       setG('✅ '+d.updated_at+(d.source_version?(' · 规则版本 '+d.source_version):''),'var(--c-ok)');
       var u=document.getElementById('d-updated');if(u)u.textContent='台账实时 · 更新于 '+d.updated_at+' · 周期口径(每月20号~次月19号)';
+    }
+    // R293b:主页只留一行摘要(details折叠,点开才看详情)——状态信息不占主要功能位置
+    var _sb=document.getElementById('sys-brief');
+    if(_sb){
+      var _hs=(d.health||{})['状态']||'—';
+      var _vs=(d.changelog&&d.changelog[0]&&d.changelog[0]['版本'])||'';
+      _sb.textContent='数据源 '+_hs+(_vs?(' · '+_vs):'');
     }
     // R292:取数健康度(可观测性)——数据源是否健康一眼可见
     var _hb=document.getElementById('health-box');

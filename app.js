@@ -156,7 +156,7 @@ function addOnCard(rows, summary) {
     if (key === '趋势') return `${Number(d.value) === 1 ? '高于' : '低于'}20日均线${date}`;
     if (key === '资金') return `近5日 ${Number(d.value).toFixed(2)}亿元${date}`;
     if (key === '基本面') {
-      if (['强劲','景气','普通','恶化'].includes(d.caliber)) return `${d.caliber} · 龙头净利润增速 ${Number(d.value).toFixed(2)}%${date}`;
+      if (['强劲','景气','普通','恶化'].includes(d.caliber)) return `${d.caliber} · 净利润增速 ${Number(d.value).toFixed(2)}%${date}`;
       return `双季正增长占比 ${Number(d.value).toFixed(0)}%${date}`;
     }
     if (key === '情绪') return `成交额分位 ${Number(d.value).toFixed(2)}%${date}`;

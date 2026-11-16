@@ -33,7 +33,7 @@ function actionRows(items, showZero = true) {
     <div class="action-row">
       <div><div class="action-name">${esc(x.fund_name)}<span class="action-code">${esc(x.fund_code)}</span></div>
       <div class="action-reason">${esc(x.action)} · ${esc(shortReason(x.reason))}</div></div>
-      <div class="action-amount">${x.amount !== null && x.amount !== undefined && Number(x.amount) !== 0 ? money(x.amount) : ''}</div>
+      <div class="action-amount">${x.amount !== null && x.amount !== undefined && Number(x.amount) !== 0 ? money(x.amount) : ''}${x.params && x.params.valuation_pct !== null && x.params.valuation_pct !== undefined ? `<small>估值 ${pct(x.params.valuation_pct)}</small>` : ''}</div>
     </div>`).join('')}</div>`;
 }
 
@@ -143,14 +143,27 @@ function fundingReviewCard(rows) {
 }
 function scanCard(scan) {
   if (!scan) return '';
-  const comparisons = (scan.comparisons || []).map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.sector)} · ${esc(x.fund_code)}</strong><strong>${pct(x.valuation)}</strong></div><div class="fund-numbers">${esc(x.decision)}：${esc(x.reason)}</div></div>`).join('') || '<div class="empty">没有新基金通过低估初筛。</div>';
+  const comparisons = (scan.comparisons || []).map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.sector)} · ${esc(x.fund_name || x.fund_code || '待锁定基金')}</strong><strong>${pct(x.valuation)}</strong></div><div class="fund-numbers">${esc(x.fund_code || '未登记代码')} · ${esc(x.decision)}：${esc(x.reason)}</div></div>`).join('') || '<div class="empty">没有新基金通过低估初筛。</div>';
   const all = (scan.results || []).map(x => `<div class="scan-row"><span>${esc(x.sector)}${x.existing ? '（持仓）' : ''}</span><span>${x.valuation === null ? '缺数据' : pct(x.valuation)}</span><span>${esc(x.status)}</span></div>`).join('');
   return `<div class="card"><h2>全市场扫描与比较置换</h2><p class="lead">${esc(scan.summary)}</p>${comparisons}
     <details><summary>查看全部 ${(scan.results || []).length} 个扫描方向（缺数据 ${scan.missing_count || 0} 个）</summary>${all}</details></div>`;
 }
 function addOnCard(rows, summary) {
   if (!rows) return '';
-  return `<div class="card"><h2>低估加仓评分</h2><p class="lead">${esc(summary || '')}</p>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${x.score} / ${x.threshold}分</strong></div><div class="fund-numbers">估值 ${pct(x.valuation)} · ${esc(x.decision)}</div></div>`).join('')}</div>`;
+  const valueText = (key, d) => {
+    if (!d || d.value === null || d.value === undefined) return '未取到';
+    const date = d.date ? ` · ${d.date}` : '';
+    if (key === '趋势') return `${Number(d.value) === 1 ? '高于' : '低于'}20日均线${date}`;
+    if (key === '资金') return `近5日 ${Number(d.value).toFixed(2)}亿元${date}`;
+    if (key === '基本面') return `双季正增长占比 ${Number(d.value).toFixed(0)}%${date}`;
+    if (key === '情绪') return `成交额分位 ${Number(d.value).toFixed(2)}%${date}`;
+    return `${d.value}${date}`;
+  };
+  const dataKey = {'趋势':'trend','资金':'flows','基本面':'fundamentals','情绪':'sentiments'};
+  return `<div class="card"><h2>低估加仓评分</h2><p class="lead">${esc(summary || '')}</p>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${x.score} / ${x.threshold}分</strong></div>
+    <div class="money-row"><span>估值 · 分位 ${pct(x.valuation)}</span><strong>${x.scores['估值']}分</strong></div>
+    ${['趋势','资金','基本面','情绪'].map(k => `<div class="money-row"><span>${k} · ${esc(valueText(k, x.dimensions[dataKey[k]]))}</span><strong>${x.scores[k]}分</strong></div>`).join('')}
+    <div class="fund-numbers">${esc(x.decision)}${x.missing.length ? ` · 缺：${esc(x.missing.join('、'))}` : ''}</div></div>`).join('')}</div>`;
 }
 function executionCard(r, unlocks) {
   if (!r) return '';

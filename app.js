@@ -89,17 +89,30 @@ function renderBands() {
         <div class="card"><details><summary>其余 ${b.normal_items.length} 只基金：未触发风控</summary>${actionRows(b.normal_items)}</details></div>`;
     } else if (key === 'band_monthly') {
       const f = D.funds_page;
-      content = `<div class="metric-grid"><div class="metric"><div class="metric-label">本周期剩余</div><div class="metric-value">${money(f.remaining)}</div></div>
+      const a = b.artifacts || {};
+      content = `${rebalanceCard(a.rebalance)}
+        <div class="metric-grid"><div class="metric"><div class="metric-label">本周期剩余</div><div class="metric-value">${money(f.remaining)}</div></div>
         <div class="metric"><div class="metric-label">现金池</div><div class="metric-value">${money(f.cash_pool)}</div></div></div>
+        ${flowCard(a.rebalance)}
+        ${fundingReviewCard(a.funding_review)}
+        ${scanCard(a.scan)}
         <div class="card"><h2>持仓健康度</h2>${positionRows(b.items)}</div>
+        ${executionCard(a.execution_review, a.unlock_review)}
         <div class="card"><h2>本周期资金去向</h2>${f.channels.map(x => `<div class="money-row"><span>${esc(x.name)}</span><strong>${esc(x.value || '—')}</strong></div>`).join('')}</div>`;
     } else if (key === 'band_quarter') {
       const weights = (b.allocation || {}).weights || {};
-      content = `<div class="card"><h2>当前资产配置</h2>${Object.keys(weights).length ? Object.entries(weights).map(([k,v]) => `<div class="money-row"><span>${esc(k)}</span><strong>${pct(v)}</strong></div>`).join('') : '<div class="empty">配置数据不足。</div>'}</div>
-        <div class="card"><h2>持有期与去留结论</h2>${actionRows(b.attention_items)}</div>
+      const a = b.artifacts || {};
+      content = `${quarterActionCard(a)}
+        <div class="card"><h2>当前资产配置</h2>${Object.keys(weights).length ? Object.entries(weights).map(([k,v]) => `<div class="money-row"><span>${esc(k)}</span><strong>${pct(v)}</strong></div>`).join('') : '<div class="empty">配置数据不足。</div>'}</div>
+        ${rebalanceCard(a.rebalance)}
+        ${quarterReviewCard(a)}
+        <div class="card"><h2>持有期与去留结论</h2>${actionRows(b.attention_items.filter(x => x.action !== '再平衡'))}</div>
         <div class="card"><details><summary>其余 ${b.normal_items.length} 只：完成配置复核</summary>${actionRows(b.normal_items)}</details></div>`;
     } else {
-      content = `<div class="card"><h2>本期定投结论</h2>${actionRows(b.items)}</div>`;
+      const a = b.artifacts || {};
+      content = `<div class="card"><h2>本期定投结论</h2>${actionRows(b.items.filter(x => x.action !== '暂停' || !String(x.reason).includes('富国')))}</div>
+        ${rebalanceCard(a.rebalance)}
+        ${addOnCard(a.add_on_reviews, a.add_on_summary)}`;
     }
     page.querySelector('.band-content').innerHTML = content;
   });
@@ -107,6 +120,57 @@ function renderBands() {
   const btn = document.querySelector('[data-feedback="invest"]');
   btn.disabled = test;
   btn.textContent = test ? '测试预览无需回传' : '生成定投执行回传文案';
+}
+
+function rebalanceCard(r) {
+  if (!r) return '';
+  return `<div class="card accent"><h2>债基定投与渐进再平衡</h2><p class="lead">${esc(r.action)}</p>
+    <div class="money-row"><span>当前债比 / ERP目标</span><strong>${pct(r.debt_weight)} / ${pct(r.debt_target)}</strong></div>
+    <div class="money-row"><span>启动线 / 补债下沿</span><strong>${pct(r.start_line)} / ${pct(r.lower_line)}</strong></div>
+    <p class="muted">${esc(r.actual_amount_note)}</p></div>`;
+}
+function flowCard(r) {
+  if (!r || !r.flows) return '';
+  return `<div class="card"><h2>${esc(r.erp_label)}态月度流量分配</h2>
+    <div class="money-row"><span>权益层</span><strong>${money(r.flows.equity)}</strong></div>
+    <div class="money-row"><span>债券层（受债比闸门约束）</span><strong>${money(r.flows.debt)}</strong></div>
+    <div class="money-row"><span>现金层</span><strong>${money(r.flows.cash)}</strong></div>
+    <p class="muted">三层合计 ${money(r.monthly_budget)}；存量再平衡不计入这份新增预算。</p></div>`;
+}
+function fundingReviewCard(rows) {
+  if (!rows) return '';
+  return `<div class="card"><h2>月度资金调度台账</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${esc(x.decision)}</strong></div><div class="fund-numbers">${esc(x.fund_code)} · ${esc(x.reason)}</div></div>`).join('')}</div>`;
+}
+function scanCard(scan) {
+  if (!scan) return '';
+  const comparisons = (scan.comparisons || []).map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.sector)} · ${esc(x.fund_code)}</strong><strong>${pct(x.valuation)}</strong></div><div class="fund-numbers">${esc(x.decision)}：${esc(x.reason)}</div></div>`).join('') || '<div class="empty">没有新基金通过低估初筛。</div>';
+  const all = (scan.results || []).map(x => `<div class="scan-row"><span>${esc(x.sector)}${x.existing ? '（持仓）' : ''}</span><span>${x.valuation === null ? '缺数据' : pct(x.valuation)}</span><span>${esc(x.status)}</span></div>`).join('');
+  return `<div class="card"><h2>全市场扫描与比较置换</h2><p class="lead">${esc(scan.summary)}</p>${comparisons}
+    <details><summary>查看全部 ${(scan.results || []).length} 个扫描方向（缺数据 ${scan.missing_count || 0} 个）</summary>${all}</details></div>`;
+}
+function addOnCard(rows, summary) {
+  if (!rows) return '';
+  return `<div class="card"><h2>低估加仓评分</h2><p class="lead">${esc(summary || '')}</p>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${x.score} / ${x.threshold}分</strong></div><div class="fund-numbers">估值 ${pct(x.valuation)} · ${esc(x.decision)}</div></div>`).join('')}</div>`;
+}
+function executionCard(r, unlocks) {
+  if (!r) return '';
+  const upcoming = (unlocks || []).filter(x => x.within_6m);
+  return `<div class="card"><h2>月度执行复盘与数据完整性</h2>
+    <div class="money-row"><span>本周期定投记录 / 实投合计</span><strong>${r.invest_count}笔 / ${money(r.invest_total)}</strong></div>
+    <div class="money-row"><span>持仓快照日期</span><strong>${esc((r.snapshot_dates || []).join('、') || '未登记')}</strong></div>
+    <p>${esc(r.completeness)}</p>
+    <p class="muted">未来6个月解锁提醒：${upcoming.length ? upcoming.map(x => `${esc(x.fund_name)} ${esc(x.lock_end_date)}`).join('；') : '无已登记日期落在窗口内；未登记日期不作“无解锁”结论'}</p></div>`;
+}
+function quarterActionCard(a) {
+  if (!a.action_checklist) return '';
+  return `<div class="card accent"><h2>本季度要做什么</h2><ol class="action-list">${a.action_checklist.map(x => `<li>${esc(x)}</li>`).join('')}</ol></div>`;
+}
+function quarterReviewCard(a) {
+  const s = a.scale_review, bt = a.backtest;
+  if (!s && !bt) return '';
+  return `<div class="card"><h2>规模风险与季度回测</h2>
+    ${s ? `<div class="money-row"><span>基金规模复核</span><strong>${esc(s.status)}</strong></div>` : ''}
+    ${bt ? `<div class="money-row"><span>信号流水 / 有结果样本</span><strong>${bt.signal_count} / ${bt.outcome_count}</strong></div><p>${esc(bt.status)}</p>` : ''}</div>`;
 }
 
 function positionRows(items) {

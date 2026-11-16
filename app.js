@@ -57,7 +57,7 @@ function renderRetirement() {
   const r = D.retirement;
   const metrics = [
     ['当前持有市值', money(r.total_market_value), ''],
-    ['累计投入', money(r.total_cost), ''],
+    ['持仓成本', money(r.total_cost), ''],
     ['持仓收益', money(r.total_profit), r.total_profit > 0 ? 'positive' : r.total_profit < 0 ? 'negative' : ''],
     ['持仓收益率', pct(r.total_profit_rate), r.total_profit_rate > 0 ? 'positive' : r.total_profit_rate < 0 ? 'negative' : ''],
     ['每月投入上限', typeof r.monthly_budget === 'number' ? money(r.monthly_budget) : (r.monthly_budget || '—'), ''],

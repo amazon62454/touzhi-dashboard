@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T01:19:18",
+  "generated_at": "2026-11-17T01:22:39",
   "base_date": "2026-11-13",
   "status": {
     "run_mode": "test",
@@ -43,23 +43,24 @@
     ],
     "changelog": {
       "date": "2026-11-16",
-      "summary": "ERPERP动态比例全链路落地+硬编码专项+定投账实修正:信号源回测定案(纯沪深300PE分位)/现金池180三态/CASH_ANCHOR改名/硬编码3项(CASH_ANCHOR读/富国行接ERP/档位按态)/amt0值陷阱/H5白名单+P码清洗/兴全30基数修正/10-29补录+对账器池内回补豁免/read_plan+图谱维度/M05纯度/编号错配/修必进账门禁check_fix_ledger"
+      "summary": "ERPERP动态比例全链路落地+硬编码专项+定投账实修正:信号源回测定案(纯沪深300PE分位)/现金池180三态/CASH_ANCHOR改名/硬编码3项(CASH_ANCHOR读/富国行接ERP/档位按态)/amt0值陷阱/H5白名单+P码清洗/兴全30基数修正/10-29补录+对账器池内回补豁免/read_plan+图谱维度/M05纯度/编号错配/修必进账门禁check_fix_ledger",
+      "categories": "定投、资金、页面展示、信号回测、数据读取方式"
     },
     "health": [
       {
         "name": "024328",
-        "status": "A",
-        "detail": "估值数据质量"
+        "status": "完整",
+        "detail": "估值数据"
       },
       {
         "name": "017140",
-        "status": "A",
-        "detail": "估值数据质量"
+        "status": "完整",
+        "detail": "估值数据"
       },
       {
         "name": "012544",
-        "status": "A",
-        "detail": "估值数据质量"
+        "status": "完整",
+        "detail": "估值数据"
       }
     ]
   },
@@ -199,7 +200,7 @@
           "fund_name": "易方达恒生港股通创新药ETF联接A",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "024328",
@@ -234,7 +235,7 @@
           "fund_name": "兴全安泰积极养老目标五年FOF A",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "010267",
@@ -269,7 +270,7 @@
           "fund_name": "华宝中证有色金属ETF联接A",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "017140",
@@ -304,7 +305,7 @@
           "fund_name": "嘉实中证新能源汽车指数C",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "012544",
@@ -342,21 +343,21 @@
           "fund_name": "易方达恒生港股通创新药ETF联接A",
           "action": "定投",
           "amount": 60.0,
-          "reason": "ERPhigh·集中制第1名(60.0元)"
+          "reason": "估值分位排名第1，按对应档位定投"
         },
         {
           "fund_code": "017140",
           "fund_name": "华宝中证有色金属ETF联接A",
           "action": "定投",
           "amount": 20.0,
-          "reason": "ERPhigh·集中制第3名(20.0元)"
+          "reason": "估值分位排名第3，按对应档位定投"
         },
         {
           "fund_code": "012544",
           "fund_name": "嘉实中证新能源汽车指数C",
           "action": "定投",
           "amount": 30.0,
-          "reason": "ERPhigh·集中制第2名(30.0元)"
+          "reason": "估值分位排名第2，按对应档位定投"
         }
       ],
       "source_file": "band_eval_judgment.json"
@@ -380,7 +381,7 @@
           "fund_name": "易方达恒生港股通创新药ETF联接A",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "024328",
@@ -415,7 +416,7 @@
           "fund_name": "兴全安泰积极养老目标五年FOF A",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "010267",
@@ -450,7 +451,7 @@
           "fund_name": "华宝中证有色金属ETF联接A",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "017140",
@@ -485,7 +486,7 @@
           "fund_name": "嘉实中证新能源汽车指数C",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "012544",
@@ -530,7 +531,7 @@
           "fund_name": "易方达恒生港股通创新药ETF联接A",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "024328",
@@ -565,7 +566,7 @@
           "fund_name": "兴全安泰积极养老目标五年FOF A",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "010267",
@@ -600,7 +601,7 @@
           "fund_name": "华宝中证有色金属ETF联接A",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "017140",
@@ -635,7 +636,7 @@
           "fund_name": "嘉实中证新能源汽车指数C",
           "action": "定投",
           "amount": 10.0,
-          "reason": "ERP中性·集中制第4名(10.0元)"
+          "reason": "估值分位排名第4，按对应档位定投"
         },
         {
           "fund_code": "012544",

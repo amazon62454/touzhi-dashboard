@@ -7,7 +7,7 @@
 body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; }
 button, input { font: inherit; }
 button { cursor: pointer; }
-#app { max-width: 720px; margin: auto; padding-bottom: 82px; }
+#app { max-width: 720px; margin: auto; padding-bottom: 96px; }
 .topbar { min-height: 58px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; background: #fff; border-bottom: 1px solid var(--line); }
 .topbar strong { font-size: 19px; color: var(--navy); }
 #header-date { margin-left: 10px; color: var(--muted); font-size: 12px; }
@@ -72,8 +72,8 @@ h2 { font-size: 16px; color: var(--navy); margin-bottom: 12px; }
 .rule-detail table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 10px 0; }
 .rule-detail th, .rule-detail td { border-bottom: 1px solid var(--line); padding: 7px; text-align: left; vertical-align: top; }
 .back-btn { border: 0; background: #eef3f8; color: var(--navy); border-radius: 8px; padding: 7px 12px; margin-bottom: 10px; }
-.nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: min(720px, 100%); display: flex; overflow-x: auto; background: #fff; border-top: 1px solid var(--line); z-index: 10; }
-.nav-item { flex: 1 0 14.28%; text-align: center; padding: 13px 2px; text-decoration: none; color: var(--muted); font-size: 12px; }
+.nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: min(720px, 100%); display: flex; overflow-x: auto; background: #fff; border-top: 1px solid var(--line); z-index: 10; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+.nav-item { flex: 1 0 60px; min-width: 60px; min-height: 58px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px 3px calc(10px + env(safe-area-inset-bottom)); text-decoration: none; color: var(--muted); font-size: 16px; line-height: 1.25; white-space: normal; scroll-snap-align: start; touch-action: manipulation; }
 .nav-item.active { color: var(--blue); font-weight: 700; }
 #toast { display: none; position: fixed; left: 50%; bottom: 85px; transform: translateX(-50%); background: #182230; color: #fff; padding: 10px 16px; border-radius: 20px; z-index: 20; font-size: 13px; }
 @media (max-width: 380px) {

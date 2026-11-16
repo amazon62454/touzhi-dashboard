@@ -49,7 +49,7 @@ function renderHome() {
       <span>${c.run_mode === 'test' ? '测试预览' : '正式'} · 基准 ${esc(dateText(c.base_date))}</span>
     </button>`).join('');
   document.querySelectorAll('[data-page]').forEach(b => b.onclick = () => { location.hash = b.dataset.page; showPage(b.dataset.page); });
-  $('changelog').innerHTML = `<div class="change-date">${esc(h.changelog.date || '未记录日期')}</div><div>${esc(h.changelog.summary)}</div>`;
+  $('changelog').innerHTML = `<div class="change-date">${esc(h.changelog.date || '未记录日期')}</div><div>本次涉及：${esc(h.changelog.categories || '规则与执行链路')}</div><details class="meta-text"><summary>查看技术修订明细</summary><p>${esc(h.changelog.summary)}</p></details>`;
   $('health').innerHTML = h.health.length ? h.health.map(x => `<div class="health-row"><span>${esc(x.name)} · ${esc(x.detail)}</span><strong>${esc(x.status)}</strong></div>`).join('') : '<div class="empty">本次没有数据质量明细。</div>';
 }
 

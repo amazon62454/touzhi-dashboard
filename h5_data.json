@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T03:09:34",
+  "generated_at": "2026-11-17T03:34:07",
   "base_date": "2026-11-17",
   "status": {
     "run_mode": "test",
@@ -21,7 +21,7 @@
       },
       {
         "id": "band_eval",
-        "title": "周六档 · 定投评估",
+        "title": "周日档 · 定投评估",
         "summary": "测试预览 · 4只基金定投，合计130元",
         "base_date": "2026-11-17",
         "run_mode": "test"
@@ -453,11 +453,11 @@
       "source_file": "band_daily_judgment.json"
     },
     "band_eval": {
-      "title": "周六档 · 定投评估",
+      "title": "周日档 · 定投评估",
       "summary": "测试预览 · 4只基金定投，合计130元",
       "run_mode": "test",
       "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T02:51:25",
+      "generated_at": "2026-11-17T03:31:50",
       "items": [
         {
           "fund_code": "017140",
@@ -726,22 +726,19 @@
             "fund_code": "017140",
             "fund_name": "华宝中证有色金属ETF联接A",
             "valuation": 0.0,
-            "score": 54.0,
+            "score": 67.0,
             "scores": {
               "估值": 50.0,
               "趋势": 4.0,
               "资金": 0.0,
-              "基本面": 0,
-              "情绪": 0
+              "基本面": 9,
+              "情绪": 4.0
             },
-            "missing": [
-              "基本面",
-              "情绪"
-            ],
+            "missing": [],
             "threshold": 70.0,
             "eligible": false,
             "overheated": false,
-            "decision": "数据不完整：缺基本面、情绪，本笔不操作",
+            "decision": "未达到加仓门槛，本笔不操作",
             "dimensions": {
               "trend": {
                 "value": 0.0,
@@ -755,29 +752,37 @@
                 "caliber": "5年分位",
                 "source": "AI涨乐"
               },
-              "fundamentals": null,
-              "sentiments": null
+              "fundamentals": {
+                "value": 90.75,
+                "date": "2026-09-30",
+                "caliber": "景气",
+                "source": "AI涨乐"
+              },
+              "sentiments": {
+                "value": 80.95238095238095,
+                "date": "2026-11-17",
+                "caliber": "成交额分位点",
+                "source": "问财·换问法"
+              }
             }
           },
           {
             "fund_code": "024328",
             "fund_name": "易方达恒生港股通创新药ETF联接A",
             "valuation": 5.75,
-            "score": 58.0,
+            "score": 62.0,
             "scores": {
               "估值": 45.0,
               "趋势": 4.0,
               "资金": 0.0,
               "基本面": 9,
-              "情绪": 0
+              "情绪": 4.0
             },
-            "missing": [
-              "情绪"
-            ],
+            "missing": [],
             "threshold": 70.0,
             "eligible": false,
             "overheated": false,
-            "decision": "数据不完整：缺情绪，本笔不操作",
+            "decision": "未达到加仓门槛，本笔不操作",
             "dimensions": {
               "trend": {
                 "value": 0.0,
@@ -797,7 +802,12 @@
                 "caliber": "改善",
                 "source": "AI涨乐"
               },
-              "sentiments": null
+              "sentiments": {
+                "value": 62.4,
+                "date": "",
+                "caliber": "AI涨乐成交额分位",
+                "source": "AI涨乐"
+              }
             }
           },
           {
@@ -846,7 +856,8 @@
           }
         ],
         "cash_pool": 0.0,
-        "add_on_summary": "3只低估候选均未形成可执行加仓；逐只原因见下方"
+        "add_on_summary": "3只低估候选均未形成可执行加仓；逐只原因见下方",
+        "template_patch": "基本面/情绪复用V1模板；仅单只串行补数，其他基金结论未改"
       },
       "source_file": "band_eval_judgment.json"
     },

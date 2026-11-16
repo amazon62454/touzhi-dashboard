@@ -1,86 +1,86 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>基金定投SOP V2 - 规则展示</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基金定投 · 今日行动</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
-        <!-- 首页：执行节奏总览 -->
-        <div class="page" id="page-home">
-            <h1>基金定投SOP V2</h1>
-            <div class="card">
-                <h2>SOP概览（直接读取SOP.md）</h2>
-                <div id="schedule-overview"></div>
-            </div>
-            <div class="card">
-                <h2>版本记录</h2>
-                <div id="action-matrix"></div>
-            </div>
-        </div>
-        <!-- 规则页：19章规则展示 -->
-        <div class="page" id="page-rules">
-            <h1>SOP规则</h1>
-            <div class="card">
-                <h2>规则目录</h2>
-                <div id="rules-catalog"></div>
-            </div>
-            <div class="card" id="rule-detail-card" style="display:none;">
-                <h2 id="rule-detail-title"></h2>
-                <div id="rule-detail-content"></div>
-            </div>
-        </div>
-        <!-- 数据页：台账数据展示 -->
-        <div class="page" id="page-data">
-            <h1>台账数据</h1>
-            <div class="card">
-                <h2>基金配置</h2>
-                <div id="fund-config"></div>
-            </div>
-            <div class="card">
-                <h2>预算参数</h2>
-                <div id="budget-params"></div>
-            </div>
-            <div class="card">
-                <h2>规则参数</h2>
-                <div id="rule-params"></div>
-            </div>
-        </div>
-        <!-- 判决页：引擎判决展示 -->
-        <div class="page" id="page-judgment">
-            <h1>引擎判决</h1>
-            <div class="card">
-                <h2>判决结果</h2>
-                <div id="judgment-result"></div>
-            </div>
-            <div class="card">
-                <h2>数据质量</h2>
-                <div id="data-quality"></div>
-            </div>
-        </div>
-        <!-- 报告页：五档报告展示 -->
-        <div class="page" id="page-report">
-            <h1>五档报告</h1>
-            <div class="card">
-                <h2>报告列表</h2>
-                <div id="report-list"></div>
-            </div>
-            <div class="card" id="report-detail-card" style="display:none;">
-                <h2 id="report-detail-title"></h2>
-                <div id="report-detail-content"></div>
-            </div>
-        </div>
-        <!-- 导航栏 -->
-        <nav class="nav">
-            <a href="#page-home" class="nav-item active">首页</a>
-            <a href="#page-rules" class="nav-item">规则</a>
-            <a href="#page-data" class="nav-item">数据</a>
-            <a href="#page-judgment" class="nav-item">判决</a>
-            <a href="#page-report" class="nav-item">报告</a>
-        </nav>
-    </div>
-    <script src="app.js"></script>
+<div id="app">
+  <header class="topbar">
+    <div><strong>基金定投</strong><span id="header-date"></span></div>
+    <button id="open-rules" class="text-btn">规则查询</button>
+  </header>
+  <div id="global-status" class="status-bar"></div>
+
+  <main>
+    <section class="page" id="page-home">
+      <div class="hero card">
+        <div class="eyebrow">今天要你做什么</div>
+        <h1 id="home-headline">正在读取…</h1>
+        <div id="home-actions"></div>
+      </div>
+      <div class="section-title">接下来怎么看</div>
+      <div id="band-cards" class="band-grid"></div>
+      <div class="card">
+        <h2>最近系统改了什么</h2>
+        <div id="changelog"></div>
+      </div>
+      <div class="card">
+        <h2>本次数据是否齐全</h2>
+        <div id="health"></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-retirement">
+      <div class="page-heading"><div class="eyebrow">养老目标</div><h1>现在积累了多少</h1></div>
+      <div id="retirement-summary" class="metric-grid"></div>
+      <div class="card"><h2>持仓明细</h2><div id="retirement-funds"></div></div>
+      <div class="note" id="return-note"></div>
+      <button class="secondary-btn" data-feedback="snapshot">生成持仓快照回传文案</button>
+    </section>
+
+    <section class="page" id="page-funds">
+      <div class="page-heading"><div class="eyebrow">实时账本</div><h1>本周期资金</h1></div>
+      <div id="funds-summary" class="metric-grid"></div>
+      <div class="card"><h2>钱花到哪里了</h2><div id="fund-channels"></div></div>
+      <button class="secondary-btn" data-feedback="fund">生成资金变动回传文案</button>
+    </section>
+
+    <section class="page band-page" id="page-band_daily" data-band="band_daily">
+      <div class="band-header"></div><div class="band-content"></div>
+    </section>
+    <section class="page band-page" id="page-band_eval" data-band="band_eval">
+      <div class="band-header"></div><div class="band-content"></div>
+      <button class="primary-btn" data-feedback="invest">生成定投执行回传文案</button>
+    </section>
+    <section class="page band-page" id="page-band_monthly" data-band="band_monthly">
+      <div class="band-header"></div><div class="band-content"></div>
+    </section>
+    <section class="page band-page" id="page-band_quarter" data-band="band_quarter">
+      <div class="band-header"></div><div class="band-content"></div>
+    </section>
+
+    <section class="page" id="page-rules">
+      <div class="page-heading"><div class="eyebrow">需要时再看</div><h1>SOP规则查询</h1></div>
+      <input id="rule-search" class="search" type="search" placeholder="搜索章节名称，例如：定投、减仓、回撤">
+      <div id="rule-list"></div>
+      <div id="rule-detail" class="card rule-detail" hidden></div>
+    </section>
+  </main>
+
+  <nav class="nav" aria-label="页面导航">
+    <a href="#page-home" class="nav-item active">今日</a>
+    <a href="#page-retirement" class="nav-item">养老</a>
+    <a href="#page-funds" class="nav-item">资金</a>
+    <a href="#page-band_daily" class="nav-item">每日</a>
+    <a href="#page-band_eval" class="nav-item">定投</a>
+    <a href="#page-band_monthly" class="nav-item">月度</a>
+    <a href="#page-band_quarter" class="nav-item">季度</a>
+  </nav>
+</div>
+<div id="toast" role="status"></div>
+<script src="app.js"></script>
 </body>
 </html>

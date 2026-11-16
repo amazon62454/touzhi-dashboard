@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T04:09:28",
+  "generated_at": "2026-11-17T04:37:43",
   "base_date": "2026-11-17",
   "status": {
     "run_mode": "test",
@@ -457,7 +457,7 @@
       "summary": "测试预览 · 4只基金定投，合计130元",
       "run_mode": "test",
       "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T03:53:35",
+      "generated_at": "2026-11-17T04:37:24",
       "items": [
         {
           "fund_code": "017140",
@@ -753,7 +753,7 @@
                 "source": "AI涨乐"
               },
               "fundamentals": {
-                "value": 90.75,
+                "value": 55.51,
                 "date": "2026-09-30",
                 "caliber": "景气",
                 "source": "AI涨乐"
@@ -762,7 +762,7 @@
                 "value": 80.95238095238095,
                 "date": "2026-11-17",
                 "caliber": "成交额分位点",
-                "source": "问财·换问法"
+                "source": "问财"
               }
             }
           },
@@ -770,6 +770,50 @@
             "fund_code": "024328",
             "fund_name": "易方达恒生港股通创新药ETF联接A",
             "valuation": 5.75,
+            "score": 58.0,
+            "scores": {
+              "估值": 45.0,
+              "趋势": 4.0,
+              "资金": 0.0,
+              "基本面": 9,
+              "情绪": 0.0
+            },
+            "missing": [],
+            "threshold": 70.0,
+            "eligible": false,
+            "overheated": true,
+            "decision": "情绪过热，本笔不操作",
+            "dimensions": {
+              "trend": {
+                "value": 0.0,
+                "date": "2026-11-16",
+                "caliber": "5年分位",
+                "source": "AI涨乐"
+              },
+              "flows": {
+                "value": -0.4037,
+                "date": "2026-11-16",
+                "caliber": "5年分位",
+                "source": "AI涨乐"
+              },
+              "fundamentals": {
+                "value": 70.0,
+                "date": "2026-09-30",
+                "caliber": "景气",
+                "source": "AI涨乐"
+              },
+              "sentiments": {
+                "value": 92.68400176289114,
+                "date": "2026-11-17",
+                "caliber": "成交额分位点",
+                "source": "问财"
+              }
+            }
+          },
+          {
+            "fund_code": "012544",
+            "fund_name": "嘉实中证新能源汽车指数C",
+            "valuation": 6.85,
             "score": 62.0,
             "scores": {
               "估值": 45.0,
@@ -791,73 +835,28 @@
                 "source": "AI涨乐"
               },
               "flows": {
-                "value": -0.4037,
-                "date": "2026-11-16",
-                "caliber": "5年分位",
-                "source": "AI涨乐"
-              },
-              "fundamentals": {
-                "value": 1326.5,
-                "date": "2026-09-30",
-                "caliber": "景气",
-                "source": "AI涨乐"
-              },
-              "sentiments": {
-                "value": 62.4,
-                "date": "",
-                "caliber": "AI涨乐成交额分位",
-                "source": "AI涨乐"
-              }
-            }
-          },
-          {
-            "fund_code": "012544",
-            "fund_name": "嘉实中证新能源汽车指数C",
-            "valuation": 6.85,
-            "score": 70.5,
-            "scores": {
-              "估值": 45.0,
-              "趋势": 4.0,
-              "资金": 0.0,
-              "基本面": 9,
-              "情绪": 12.5
-            },
-            "missing": [],
-            "threshold": 70.0,
-            "eligible": true,
-            "overheated": false,
-            "decision": "评分通过但现金池余额为0，本笔不操作",
-            "dimensions": {
-              "trend": {
-                "value": 0.0,
-                "date": "2026-11-16",
-                "caliber": "5年分位",
-                "source": "AI涨乐"
-              },
-              "flows": {
                 "value": -67.83,
                 "date": "2026-11-16",
                 "caliber": "5年分位",
                 "source": "AI涨乐"
               },
               "fundamentals": {
-                "value": 32.89,
+                "value": 75.24,
                 "date": "2026-09-30",
                 "caliber": "景气",
                 "source": "AI涨乐"
               },
               "sentiments": {
-                "value": 0.0,
+                "value": 41.43646408839779,
                 "date": "2026-11-16",
-                "caliber": "5年分位",
-                "source": "AI涨乐"
+                "caliber": "成交额分位点",
+                "source": "问财"
               }
             }
           }
         ],
         "cash_pool": 0.0,
-        "add_on_summary": "新能源车评分通过但现金池为0；其余2只未达门槛，本期均不操作",
-        "template_patch": "三只低估候选基本面/情绪全部按V1口径串行对齐；缺新值时保留同基准快照，不混用字段"
+        "add_on_summary": "3只低估候选均未形成可执行加仓；逐只原因见下方"
       },
       "source_file": "band_eval_judgment.json"
     },

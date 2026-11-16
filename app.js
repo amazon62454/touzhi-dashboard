@@ -28,12 +28,12 @@ function renderShell() {
 }
 
 function actionRows(items, showZero = true) {
-  if (!items || !items.length) return '<div class="empty">本期没有需要执行的资金动作。</div>';
+  if (!items || !items.length) return '<div class="empty">暂无条目。</div>';
   return `<div class="action-list">${items.map(x => `
     <div class="action-row">
       <div><div class="action-name">${esc(x.fund_name)}<span class="action-code">${esc(x.fund_code)}</span></div>
       <div class="action-reason">${esc(x.action)} · ${esc(shortReason(x.reason))}</div></div>
-      <div class="action-amount">${showZero ? money(x.amount) : ''}</div>
+      <div class="action-amount">${x.amount !== null && x.amount !== undefined && Number(x.amount) !== 0 ? money(x.amount) : ''}</div>
     </div>`).join('')}</div>`;
 }
 
@@ -79,15 +79,40 @@ function renderFunds() {
 
 function renderBands() {
   document.querySelectorAll('.band-page').forEach(page => {
-    const b = D.bands[page.dataset.band];
+    const key = page.dataset.band;
+    const b = D.bands[key];
     page.querySelector('.band-header').innerHTML = `<div class="page-heading"><div class="eyebrow">${esc(b.title)}</div><h1>${esc(b.summary)}</h1></div>
       <div class="band-meta"><span class="badge ${b.run_mode === 'test' ? 'test' : ''}">${b.run_mode === 'test' ? '测试·非正式' : '正式'}</span> 基准 ${esc(dateText(b.base_date))}${b.generated_at ? ` · 生成 ${esc(b.generated_at)}` : ''}</div>`;
-    page.querySelector('.band-content').innerHTML = `<div class="card"><h2>本期结论</h2>${actionRows(b.items)}</div>`;
+    let content = '';
+    if (key === 'band_daily') {
+      content = `<div class="card"><h2>需要关注</h2>${actionRows(b.attention_items)}</div>
+        <div class="card"><details><summary>其余 ${b.normal_items.length} 只基金：未触发风控</summary>${actionRows(b.normal_items)}</details></div>`;
+    } else if (key === 'band_monthly') {
+      const f = D.funds_page;
+      content = `<div class="metric-grid"><div class="metric"><div class="metric-label">本周期剩余</div><div class="metric-value">${money(f.remaining)}</div></div>
+        <div class="metric"><div class="metric-label">现金池</div><div class="metric-value">${money(f.cash_pool)}</div></div></div>
+        <div class="card"><h2>持仓健康度</h2>${positionRows(b.items)}</div>
+        <div class="card"><h2>本周期资金去向</h2>${f.channels.map(x => `<div class="money-row"><span>${esc(x.name)}</span><strong>${esc(x.value || '—')}</strong></div>`).join('')}</div>`;
+    } else if (key === 'band_quarter') {
+      const weights = (b.allocation || {}).weights || {};
+      content = `<div class="card"><h2>当前资产配置</h2>${Object.keys(weights).length ? Object.entries(weights).map(([k,v]) => `<div class="money-row"><span>${esc(k)}</span><strong>${pct(v)}</strong></div>`).join('') : '<div class="empty">配置数据不足。</div>'}</div>
+        <div class="card"><h2>持有期与去留结论</h2>${actionRows(b.attention_items)}</div>
+        <div class="card"><details><summary>其余 ${b.normal_items.length} 只：完成配置复核</summary>${actionRows(b.normal_items)}</details></div>`;
+    } else {
+      content = `<div class="card"><h2>本期定投结论</h2>${actionRows(b.items)}</div>`;
+    }
+    page.querySelector('.band-content').innerHTML = content;
   });
   const test = D.bands.band_eval.run_mode === 'test';
   const btn = document.querySelector('[data-feedback="invest"]');
   btn.disabled = test;
   btn.textContent = test ? '测试预览无需回传' : '生成定投执行回传文案';
+}
+
+function positionRows(items) {
+  if (!items.length) return '<div class="empty">暂无持仓数据。</div>';
+  return items.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${money(x.params.market_value)}</strong></div>
+    <div class="fund-numbers">${esc(x.fund_code)} · ${esc(x.reason)} · 收益率 ${pct(x.params.profit_rate)}</div></div>`).join('');
 }
 
 function renderRules(filter = '') {

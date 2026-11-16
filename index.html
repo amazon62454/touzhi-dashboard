@@ -442,6 +442,15 @@
   <div class="top"><button type="button" class="back" aria-label="返回五档列表" onclick="back()">‹ 返回五档</button><h1>资金状态 · 实时账本</h1><div class="sub" id="d-updated">台账资金账本实时快照 · 周期口径(每月20号~次月19号)</div></div>
   <div class="sec">本周期动作全景<br><span class="mid" style="font-size:12px">周期 · <span id="me-run">—</span><span id="me-testtag"></span></span></div>
   <div class="card"><div id="me-panorama">…</div></div>
+  <div class="sec">配置总纲 · ERP 股债性价比动态比例</div>
+  <div class="card">
+    <div class="kv"><span>当前态（沪深300 PE 分位 <span id="erp-pe">—</span>）</span><b id="erp-state">—</b></div>
+    <div class="kv"><span>目标比例 权益 / 债 / 现金</span><b id="erp-ratio">—</b></div>
+    <div class="kv"><span>月流量 权益 / 债 / 现金</span><b id="erp-flow">—</b></div>
+    <div class="kv"><span>权益周基准 · 富国日投</span><b id="erp-week">—</b></div>
+    <div class="kv"><span>债比再平衡区间（启动 / 下沿）</span><b id="erp-rebal">—</b></div>
+    <div class="tip" id="erp-note">…</div>
+  </div>
   <div class="sec">现在有多少钱（实际可动用）</div>
   <div class="card">
     <div class="kv"><span>当前总可动用</span><b class="up" id="d-total">500 元</b></div>
@@ -960,6 +969,17 @@ try{gateCheck();}catch(e){}
     function set(id,v){var e=document.getElementById(id);if(e&&v!=null)e.textContent=v;}
       function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
       function sn(n){return fundShort(n,4);}
+    // R308:ERP配置总纲区块渲染(2026-11-16)
+    (function(){var _e=d.erp||{};if(!_e.state_name||_e.error)return;
+      set('erp-pe',_e.pe_pct!=null?_e.pe_pct+'%':null);
+      set('erp-state',_e.state_name+'态');
+      set('erp-ratio',(_e.eq_tgt!=null?_e.eq_tgt+'%':'—')+' / '+(_e.bond_tgt!=null?_e.bond_tgt+'%':'—')+' / '+(_e.cash_tgt!=null?_e.cash_tgt+'%':'—'));
+      var _f=_e.flow||{};
+      set('erp-flow',(_f.eq!=null?_f.eq:'—')+' / '+(_f.bond!=null?_f.bond:'—')+' / '+(_f.cash!=null?_f.cash:'—')+' 元/月');
+      set('erp-week',(_f.week!=null?_f.week+'元/周':'—')+' · '+(_f.bond_daily!=null?_f.bond_daily+'元/日':'—'));
+      set('erp-rebal',(_e.bond_start_thr!=null?_e.bond_start_thr+'%':'—')+' / '+(_e.bond_floor!=null?_e.bond_floor+'%':'—'));
+      set('erp-note',_e.note||'');
+    })();
     set('d-total',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
     set('d-remain',d.period&&d.period.remain!=null?d.period.remain+' 元':null);
     set('d-remain2',d.period&&d.period.remain!=null?d.period.remain+' 元':null);

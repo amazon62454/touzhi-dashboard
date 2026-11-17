@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T07:19:54",
+  "generated_at": "2026-11-18T07:21:09",
   "base_date": "2026-11-18",
   "status": {
     "run_mode": "test",
@@ -4564,6 +4564,10 @@
     }
   ],
   "ui_labels": {
+    "net_add_trigger": "- 净增路径:触发(第1名{fund}占比{w}%≥{p102}%且火力溢出)——启动净增评估,新标的须过比较置换制七关+四项对比(更便宜/评分/规模/费率)全面优于现有最弱一只方可纳入",
+    "net_add_none": "- 净增路径:未达触发条件(第1名{fund}占比{w}%/预警线{p102}%,火力{fire})——不启动净增评估(防为加而加)",
+    "net_add_fire_yes": "已溢出(集中制全高估,预算无处投放)",
+    "net_add_fire_no": "未溢出(仍有可投集中制基金)",
     "ui_h2_attention": "需要关注",
     "ui_h2_your_action": "需你本人做",
     "ui_h2_position_health": "持仓健康度",

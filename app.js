@@ -103,6 +103,7 @@ function renderBands() {
         ${scanCard(a.scan)}
         <div class="card"><h2>持仓健康度</h2>${positionRows(b.items)}</div>
         ${executionCard(a.execution_review, a.unlock_review)}
+        ${scaleWarnCard(a.scale_warn)}
         <div class="card"><h2>本周期资金去向</h2>${f.channels.map(x => `<div class="money-row"><span>${esc(x.name)}</span><strong>${esc(x.value || '—')}</strong></div>`).join('')}</div>`;
     } else if (key === 'band_quarter') {
       const weights = (b.allocation || {}).weights || {};
@@ -110,6 +111,8 @@ function renderBands() {
       content = `${quarterActionCard(a)}
         <div class="card"><h2>当前资产配置</h2>${Object.keys(weights).length ? Object.entries(weights).map(([k,v]) => `<div class="money-row"><span>${esc(k)}</span><strong>${pct(v)}</strong></div>`).join('') : '<div class="empty">配置数据不足。</div>'}</div>
         ${rebalanceCard(a.rebalance)}
+        ${concentrationCard(a.concentration)}
+        ${exitReviewsCard(a.exit_reviews)}
         ${quarterReviewCard(a)}
         <div class="card"><h2>持有期与去留结论</h2>${actionRows(b.attention_items.filter(x => x.action !== '再平衡'))}</div>
         <div class="card"><details><summary>其余 ${b.normal_items.length} 只：完成配置复核</summary>${actionRows(b.normal_items)}</details></div>`;
@@ -123,6 +126,7 @@ function renderBands() {
       content = `<div class="card"><h2>本期定投金额(集中制排序)</h2><p class="muted">分位低→高,主动/FOF表末;下周一前理财通改额</p>${evalRows}</div>
         ${rebalanceCard(a.rebalance)}
         ${addOnCard(a.add_on_reviews, a.add_on_summary)}
+        ${netAdditionCard(a.net_addition)}
         <div class="card"><h2>需你本人做</h2><p class="lead">下周一前理财通按上表改额;执行后回传实际金额记台账</p></div>`;
     }
     page.querySelector('.band-content').innerHTML = content;
@@ -192,6 +196,7 @@ function executionCard(r, unlocks) {
   const upcoming = (unlocks || []).filter(x => x.within_6m);
   return `<div class="card"><h2>月度执行复盘与数据完整性</h2>
     <div class="money-row"><span>本周期定投记录 / 实投合计</span><strong>${r.invest_count}笔 / ${money(r.invest_total)}</strong></div>
+    <div class="money-row"><span>流水总记录 / 缺规模数据</span><strong>${r.record_count ?? "—"}笔 / ${r.missing_scale_count ?? "—"}只</strong></div>
     <div class="money-row"><span>持仓快照日期</span><strong>${esc((r.snapshot_dates || []).join('、') || '未登记')}</strong></div>
     <p>${esc(r.completeness)}</p>
     <p class="muted">未来6个月解锁提醒：${upcoming.length ? upcoming.map(x => `${esc(x.fund_name)} ${esc(x.lock_end_date)}`).join('；') : '无已登记日期落在窗口内；未登记日期不作“无解锁”结论'}</p></div>`;
@@ -249,6 +254,26 @@ function showPage(id) {
 
 function toast(text) { $('toast').textContent = text; $('toast').style.display = 'block'; setTimeout(() => $('toast').style.display = 'none', 2200); }
 init();
+
+
+function concentrationCard(c) {
+  if (!c || !c.sectors || !c.sectors.length) return '';
+  const rows = c.sectors.map(x => `<div class="money-row"><span>${esc(x.sector)}${x.over ? ' ⚠️超限' : ''}</span><strong>${pct(x.weight)}</strong></div>`).join('');
+  return `<div class="card"><h2>赛道集中度（上限 ${pct(c.limit)}）</h2>${rows}<p class="muted">组合总市值 ${money(c.total)}</p></div>`;
+}
+function scaleWarnCard(rows) {
+  if (!rows || !rows.length) return '';
+  return `<div class="card"><h2>规模预警</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${esc(x.status)}</strong></div><div class="fund-numbers">${esc(x.scale)}</div></div>`).join('')}</div>`;
+}
+function exitReviewsCard(rows) {
+  if (!rows || !rows.length) return '';
+  return `<div class="card"><h2>存量去留结论</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${esc(x.action)}</strong></div><div class="fund-numbers">${esc(x.fund_code)} · ${esc(x.reason)}</div></div>`).join('')}</div>`;
+}
+function netAdditionCard(n) {
+  if (!n || n.triggered === undefined) return '';
+  const state = n.triggered ? `已触发：${esc(n.fund)}` : `未触发（第1名占比 ${pct(n.weight)} &lt; 门槛 ${pct(n.p102)}${n.fire ? '，火力已溢出' : '，火力未溢出'}）`;
+  return `<div class="card"><h2>净增评估（P102）</h2><p class="lead">${state}</p></div>`;
+}
 
 function periodSummaryCard(ps) {
   if (!ps || ps.error) return '';

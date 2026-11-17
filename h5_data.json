@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T21:33:07",
+  "generated_at": "2026-11-17T23:54:19",
   "base_date": "2026-11-17",
   "status": {
     "run_mode": "test",
@@ -29,7 +29,7 @@
       {
         "id": "band_monthly",
         "title": "月度档 · 资金评审",
-        "summary": "测试预览 · 扫描21个方向，8个进入低估观察；本期无新基金正式纳入，1只待四项复核",
+        "summary": "测试预览 · 扫描21个方向,0个进入低估观察;本期无新基金正式纳入,无置换动作；21个方向数据源不可用(配额/取数失败),本次扫描结论不完整,明日自动重试",
         "base_date": "2026-11-17",
         "run_mode": "test"
       },
@@ -183,7 +183,12 @@
         "name": "减仓",
         "value": ""
       }
-    ]
+    ],
+    "cash_detail": {
+      "balance": null,
+      "monthly_inject": null,
+      "last_period_note": "1389.6已转家用"
+    }
   },
   "bands": {
     "band_daily": {
@@ -191,7 +196,7 @@
       "summary": "测试预览 · 2项风控关注,其余7只未触发风控",
       "run_mode": "test",
       "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T21:12:21",
+      "generated_at": "2026-11-17T23:50:35",
       "items": [
         {
           "fund_code": "017491",
@@ -452,6 +457,11 @@
           "detail": "无被动分位>高估线(90%),条件一未触发;条件三/四由每日+月度持续监控"
         },
         {
+          "name": "权益高估止盈",
+          "status": "🟢",
+          "detail": "权益引擎3只无高估止盈触发"
+        },
+        {
           "fund_code": "017491",
           "action": "观察",
           "amount": null,
@@ -460,7 +470,8 @@
             "profit_rate": -40.39,
             "stop_line": -25.0
           },
-          "run_mode": "test"
+          "run_mode": "test",
+          "fund_name": "财通景气甄选一年持有C"
         },
         {
           "fund_code": "010363",
@@ -471,23 +482,24 @@
             "profit_rate": -38.45,
             "stop_line": -25.0
           },
-          "run_mode": "test"
+          "run_mode": "test",
+          "fund_name": "信澳匠心臻选两年持有"
         }
       ],
       "allocation": {
         "amounts": {
+          "养老FOF": 1147.97,
           "商品": 1253.06,
           "现金": 0.0,
           "债券": 13021.65,
-          "养老FOF": 1147.97,
           "权益": 6157.169999999999
         },
         "total": 21579.85,
         "weights": {
+          "养老FOF": 5.32,
           "商品": 5.81,
           "现金": 0.0,
           "债券": 60.34,
-          "养老FOF": 5.32,
           "权益": 28.53
         }
       },
@@ -511,7 +523,7 @@
           {
             "name": "极端预案·单日暴跌",
             "status": "🟢",
-            "detail": "沪深300当日-0.91%,未触暴跌线(P177)"
+            "detail": "沪深300当日-0.91%,未触暴跌线"
           },
           {
             "name": "持仓估值越档",
@@ -547,6 +559,31 @@
             "name": "单只占比上限",
             "status": "⚠️",
             "detail": "债券占比60.3%超50%——已由渐进再平衡通道渐进转权益处理(不叠加强制减仓)"
+          },
+          {
+            "name": "权益高估止盈",
+            "status": "🟢",
+            "detail": "权益引擎3只无高估止盈触发"
+          },
+          {
+            "name": "定投执行检查(每周)",
+            "status": "🟢",
+            "detail": "最近定投日2026-11-16已登记5笔定投"
+          },
+          {
+            "name": "持仓估值越档",
+            "status": "🔴",
+            "detail": "024328:5.75%→极度低估；012544:6.85%→极度低估；004253:76.96%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作"
+          },
+          {
+            "name": "利率倒挂监控",
+            "status": "待数据",
+            "detail": "利率数据待取(1年期/10年期),下次评估自动重试"
+          },
+          {
+            "name": "分位跳变异常",
+            "status": "🟢",
+            "detail": "各基金分位无单日跳变异常"
           }
         ]
       },
@@ -573,7 +610,7 @@
       "summary": "测试预览 · 5只基金定投,合计175.0元",
       "run_mode": "test",
       "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T21:32:30",
+      "generated_at": "2026-11-17T23:50:40",
       "items": [
         {
           "fund_code": "024328",
@@ -803,18 +840,18 @@
       "allocation": {
         "amounts": {
           "债券": 13021.65,
-          "养老FOF": 1147.97,
-          "现金": 0.0,
           "权益": 6157.169999999999,
-          "商品": 1253.06
+          "商品": 1253.06,
+          "养老FOF": 1147.97,
+          "现金": 0.0
         },
         "total": 21579.85,
         "weights": {
           "债券": 60.34,
-          "养老FOF": 5.32,
-          "现金": 0.0,
           "权益": 28.53,
-          "商品": 5.81
+          "商品": 5.81,
+          "养老FOF": 5.32,
+          "现金": 0.0
         }
       },
       "artifacts": {
@@ -1005,10 +1042,10 @@
     },
     "band_monthly": {
       "title": "月度档 · 资金评审",
-      "summary": "测试预览 · 扫描21个方向，8个进入低估观察；本期无新基金正式纳入，1只待四项复核",
+      "summary": "测试预览 · 扫描21个方向,0个进入低估观察;本期无新基金正式纳入,无置换动作；21个方向数据源不可用(配额/取数失败),本次扫描结论不完整,明日自动重试",
       "run_mode": "test",
       "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T21:32:34",
+      "generated_at": "2026-11-17T23:52:33",
       "items": [
         {
           "fund_code": "009290",
@@ -1286,19 +1323,19 @@
       "stop_signals": [],
       "allocation": {
         "amounts": {
-          "债券": 13021.65,
           "商品": 1253.06,
           "权益": 6157.169999999999,
+          "现金": 0.0,
           "养老FOF": 1147.97,
-          "现金": 0.0
+          "债券": 13021.65
         },
         "total": 21579.85,
         "weights": {
-          "债券": 60.34,
           "商品": 5.81,
           "权益": 28.53,
+          "现金": 0.0,
           "养老FOF": 5.32,
-          "现金": 0.0
+          "债券": 60.34
         }
       },
       "artifacts": {
@@ -1392,135 +1429,15 @@
         "scan": {
           "results": [
             {
-              "sector": "有色",
-              "index_code": "930708",
-              "fund_code": "017140",
-              "fund_name": "华宝中证有色金属ETF联接A",
-              "note": "PB口径(周期股禁PE判低估:PE0%=景气顶部风险)",
-              "valuation": 36.8,
-              "date": "2026-11-17",
-              "source": "AI涨乐schema·PB分位",
-              "status": "持仓",
-              "existing": true
-            },
-            {
-              "sector": "科创50",
-              "index_code": "000688",
-              "fund_code": "011613",
-              "fund_name": "华夏科创50ETF联接C",
-              "note": "华夏科创50ETF联接C",
-              "valuation": 66.32,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
-              "existing": false
-            },
-            {
-              "sector": "创新药",
-              "index_code": "931250",
-              "fund_code": "024328",
-              "fund_name": "易方达恒生港股通创新药ETF联接A",
-              "note": "易方达恒生港股通创新药ETF联接A",
-              "valuation": 5.75,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "低估候选",
-              "existing": true
-            },
-            {
-              "sector": "新能车",
-              "index_code": "399976",
-              "fund_code": "012544",
-              "fund_name": "嘉实中证新能源汽车指数C",
-              "note": "嘉实中证新能源汽车指数C",
-              "valuation": 6.85,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "低估候选",
-              "existing": true
-            },
-            {
-              "sector": "创业板指",
-              "index_code": "399006",
-              "fund_code": "110026",
-              "fund_name": "易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
-              "note": "易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
-              "valuation": 12.1,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "低估候选",
-              "existing": false
-            },
-            {
-              "sector": "中证医疗",
-              "index_code": "399989",
-              "fund_code": "009881",
-              "fund_name": "广发中证医疗ETF联接C(7.8亿)",
-              "note": "广发中证医疗ETF联接C(7.8亿)",
-              "valuation": 21.58,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "低估候选",
-              "existing": false
-            },
-            {
-              "sector": "半导体",
-              "index_code": "H30184",
-              "fund_code": "007300",
-              "fund_name": "国联安中证全指半导体ETF联接A(007300/C:007301)",
-              "note": "国联安中证全指半导体ETF联接A(007300/C:007301)",
-              "valuation": 24.26,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "低估候选",
-              "existing": false
-            },
-            {
-              "sector": "中证军工",
-              "index_code": "399967",
-              "fund_code": "005693",
-              "fund_name": "广发中证军工ETF联接C",
-              "note": "广发中证军工ETF联接C",
-              "valuation": 28.81,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "低估候选",
-              "existing": false
-            },
-            {
-              "sector": "中证医药",
-              "index_code": "000933",
-              "fund_code": "007077",
-              "fund_name": "汇添富中证医药ETF联接C",
-              "note": "汇添富中证医药ETF联接C",
-              "valuation": 26.83,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "低估候选",
-              "existing": false
-            },
-            {
-              "sector": "中证新能源",
-              "index_code": "399808",
-              "fund_code": "019856",
-              "fund_name": "博时中证新能源ETF发起式联接C",
-              "note": "博时中证新能源ETF发起式联接C",
-              "valuation": 39.1,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
-              "existing": false
-            },
-            {
-              "sector": "白酒",
-              "index_code": "399997",
-              "fund_code": "161725",
-              "fund_name": "招商中证白酒指数A(209.5亿,A类限频≥30日)",
-              "note": "招商中证白酒指数A(209.5亿,A类限频≥30日)",
-              "valuation": 47.7,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
+              "sector": "沪深300",
+              "index_code": "000300",
+              "fund_code": "110020",
+              "fund_name": "易方达沪深300ETF联接A(158.2亿,A类限频≥30日)",
+              "note": "易方达沪深300ETF联接A(158.2亿,A类限频≥30日)",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": false
             },
             {
@@ -1529,46 +1446,34 @@
               "fund_code": "160119",
               "fund_name": "南方中证500ETF联接(LOF)A(66.3亿)",
               "note": "南方中证500ETF联接(LOF)A(66.3亿)",
-              "valuation": 63.91,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": false
             },
             {
-              "sector": "恒生指数",
-              "index_code": "HSI",
-              "fund_code": "000071",
-              "fund_name": "华夏恒生ETF联接A(33.9亿,A类限频≥30日)",
-              "note": "华夏恒生ETF联接A(33.9亿,A类限频≥30日)",
-              "valuation": 71.62,
-              "date": "2026-11-16",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
+              "sector": "创业板指",
+              "index_code": "399006",
+              "fund_code": "110026",
+              "fund_name": "易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
+              "note": "易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": false
             },
             {
-              "sector": "沪深300",
-              "index_code": "000300",
-              "fund_code": "110020",
-              "fund_name": "易方达沪深300ETF联接A(158.2亿,A类限频≥30日)",
-              "note": "易方达沪深300ETF联接A(158.2亿,A类限频≥30日)",
-              "valuation": 74.1,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
-              "existing": false
-            },
-            {
-              "sector": "上证50",
-              "index_code": "1B0016",
-              "fund_code": "001051",
-              "fund_name": "华夏上证50ETF联接A(10.2亿,A类限频≥30日)",
-              "note": "华夏上证50ETF联接A(10.2亿,A类限频≥30日)",
-              "valuation": 91.35,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
+              "sector": "白酒",
+              "index_code": "399997",
+              "fund_code": "161725",
+              "fund_name": "招商中证白酒指数A(209.5亿,A类限频≥30日)",
+              "note": "招商中证白酒指数A(209.5亿,A类限频≥30日)",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": false
             },
             {
@@ -1577,22 +1482,22 @@
               "fund_code": "021143",
               "fund_name": "华夏港股通央企红利ETF联接C(4.6亿,曾持有2026-10-21已清仓,再纳入须过四项对比+复盘清仓理由)",
               "note": "华夏港股通央企红利ETF联接C(4.6亿,曾持有2026-10-21已清仓,再纳入须过四项对比+复盘清仓理由)",
-              "valuation": 95.18,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": false
             },
             {
-              "sector": "中证消费",
-              "index_code": "000932",
-              "fund_code": "012857",
-              "fund_name": "汇添富中证主要消费ETF联接C",
-              "note": "汇添富中证主要消费ETF联接C",
-              "valuation": 99.09,
-              "date": "2026-11-16",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "sector": "恒生指数",
+              "index_code": "HSI",
+              "fund_code": "000071",
+              "fund_name": "华夏恒生ETF联接A(33.9亿,A类限频≥30日)",
+              "note": "华夏恒生ETF联接A(33.9亿,A类限频≥30日)",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": false
             },
             {
@@ -1601,10 +1506,22 @@
               "fund_code": "009052",
               "fund_name": "易方达中证红利ETF联接C(23.2亿)",
               "note": "易方达中证红利ETF联接C(23.2亿)",
-              "valuation": 99.56,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": false
+            },
+            {
+              "sector": "上证50",
+              "index_code": "1B0016",
+              "fund_code": "001051",
+              "fund_name": "华夏上证50ETF联接A(10.2亿,A类限频≥30日)",
+              "note": "华夏上证50ETF联接A(10.2亿,A类限频≥30日)",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": false
             },
             {
@@ -1613,10 +1530,22 @@
               "fund_code": "007467",
               "fund_name": "华泰柏瑞红利低波ETF联接C(A类75亿同源)",
               "note": "华泰柏瑞红利低波ETF联接C(A类75亿同源)",
-              "valuation": 99.56,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": false
+            },
+            {
+              "sector": "中证医疗",
+              "index_code": "399989",
+              "fund_code": "009881",
+              "fund_name": "广发中证医疗ETF联接C(7.8亿)",
+              "note": "广发中证医疗ETF联接C(7.8亿)",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": false
             },
             {
@@ -1625,11 +1554,47 @@
               "fund_code": "001595",
               "fund_name": "天弘中证银行ETF联接C(23.6亿)",
               "note": "天弘中证银行ETF联接C(23.6亿)",
-              "valuation": 99.78,
-              "date": "2026-11-15",
-              "source": "AI涨乐schema",
-              "status": "合理·非候选",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": false
+            },
+            {
+              "sector": "创新药",
+              "index_code": "931250",
+              "fund_code": "024328",
+              "fund_name": "易方达恒生港股通创新药ETF联接A",
+              "note": "易方达恒生港股通创新药ETF联接A",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": true
+            },
+            {
+              "sector": "新能车",
+              "index_code": "399976",
+              "fund_code": "012544",
+              "fund_name": "嘉实中证新能源汽车指数C",
+              "note": "嘉实中证新能源汽车指数C",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": true
+            },
+            {
+              "sector": "有色",
+              "index_code": "930708",
+              "fund_code": "017140",
+              "fund_name": "华宝中证有色金属ETF联接A",
+              "note": "华宝中证有色金属ETF联接A",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": true
             },
             {
               "sector": "黄金",
@@ -1637,61 +1602,11 @@
               "fund_code": "004253",
               "fund_name": "国泰黄金ETF联接C",
               "note": "国泰黄金ETF联接C",
-              "valuation": 76.96,
-              "date": "2026-11-16",
-              "source": "问财·黄金现货序列",
-              "status": "未进低估区",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
               "existing": true
-            }
-          ],
-          "comparisons": [
-            {
-              "sector": "科创50",
-              "index_code": "000688",
-              "fund_code": "011613",
-              "fund_name": "华夏科创50ETF联接C",
-              "note": "华夏科创50ETF联接C",
-              "valuation": 1.98,
-              "date": "2026-11-16",
-              "source": "AI涨乐",
-              "status": "低估候选",
-              "existing": false,
-              "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换",
-              "weakest_fund_code": "012544",
-              "weakest_valuation": 6.85
-            },
-            {
-              "sector": "创业板指",
-              "index_code": "399006",
-              "fund_code": "110026",
-              "fund_name": "易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
-              "note": "易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
-              "valuation": 12.1,
-              "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "低估候选",
-              "existing": false,
-              "decision": "不纳入、不置换",
-              "reason": "候选分位12.1%不低于当前最弱持仓6.85%，未通过‘更便宜’首道闸门",
-              "weakest_fund_code": "012544",
-              "weakest_valuation": 6.85
-            },
-            {
-              "sector": "中证医疗",
-              "index_code": "399989",
-              "fund_code": "009881",
-              "fund_name": "广发中证医疗ETF联接C(7.8亿)",
-              "note": "广发中证医疗ETF联接C(7.8亿)",
-              "valuation": 21.58,
-              "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "低估候选",
-              "existing": false,
-              "decision": "不纳入、不置换",
-              "reason": "候选分位21.58%不低于当前最弱持仓6.85%，未通过‘更便宜’首道闸门",
-              "weakest_fund_code": "012544",
-              "weakest_valuation": 6.85
             },
             {
               "sector": "半导体",
@@ -1699,15 +1614,23 @@
               "fund_code": "007300",
               "fund_name": "国联安中证全指半导体ETF联接A(007300/C:007301)",
               "note": "国联安中证全指半导体ETF联接A(007300/C:007301)",
-              "valuation": 24.26,
-              "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "低估候选",
-              "existing": false,
-              "decision": "不纳入、不置换",
-              "reason": "候选分位24.26%不低于当前最弱持仓6.85%，未通过‘更便宜’首道闸门",
-              "weakest_fund_code": "012544",
-              "weakest_valuation": 6.85
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": false
+            },
+            {
+              "sector": "科创50",
+              "index_code": "000688",
+              "fund_code": "011613",
+              "fund_name": "华夏科创50ETF联接C",
+              "note": "华夏科创50ETF联接C",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": false
             },
             {
               "sector": "中证军工",
@@ -1715,21 +1638,54 @@
               "fund_code": "005693",
               "fund_name": "广发中证军工ETF联接C",
               "note": "广发中证军工ETF联接C",
-              "valuation": 28.81,
-              "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "低估候选",
-              "existing": false,
-              "decision": "不纳入、不置换",
-              "reason": "候选分位28.81%不低于当前最弱持仓6.85%，未通过‘更便宜’首道闸门",
-              "weakest_fund_code": "012544",
-              "weakest_valuation": 6.85
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": false
+            },
+            {
+              "sector": "中证消费",
+              "index_code": "000932",
+              "fund_code": "012857",
+              "fund_name": "汇添富中证主要消费ETF联接C",
+              "note": "汇添富中证主要消费ETF联接C",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": false
+            },
+            {
+              "sector": "中证医药",
+              "index_code": "000933",
+              "fund_code": "007077",
+              "fund_name": "汇添富中证医药ETF联接C",
+              "note": "汇添富中证医药ETF联接C",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": false
+            },
+            {
+              "sector": "中证新能源",
+              "index_code": "399808",
+              "fund_code": "019856",
+              "fund_name": "博时中证新能源ETF发起式联接C",
+              "note": "博时中证新能源ETF发起式联接C",
+              "valuation": null,
+              "date": null,
+              "source": null,
+              "status": "数据缺失",
+              "existing": false
             }
           ],
-          "summary": "扫描21个方向，8个进入低估观察；本期无新基金正式纳入，1只待四项复核",
-          "weakest_fund_code": "012544",
-          "weakest_valuation": 6.85,
-          "missing_count": 0
+          "comparisons": [],
+          "summary": "扫描21个方向,0个进入低估观察;本期无新基金正式纳入,无置换动作；21个方向数据源不可用(配额/取数失败),本次扫描结论不完整,明日自动重试",
+          "weakest_fund_code": "017140",
+          "weakest_valuation": 36.8,
+          "missing_count": 21
         },
         "execution_review": {
           "invest_count": 25,
@@ -1796,7 +1752,33 @@
             "days": 40,
             "decision": "未达止盈条件(年化-5.47%未达5.0%、十年国债待数据、持有40天未满1年)"
           }
-        ]
+        ],
+        "monthly_review": {
+          "item1_完整性": "持仓与规模数据完整",
+          "item2_收益率": {
+            "累计": {
+              "017491": -40.39,
+              "010363": -38.45,
+              "024328": -5.41,
+              "010340": -20.44,
+              "010267": -7.72,
+              "017140": -11.87,
+              "012544": -4.58,
+              "004253": -7.91,
+              "009290": -0.6
+            },
+            "月度(快照对比)": {
+              "TOTAL": -0.15
+            }
+          },
+          "item3_加减仓回顾": "本期无加减仓操作",
+          "item4_定投统计": {
+            "次数": 25,
+            "金额": 878.0
+          },
+          "item5_信号准确率": "信号准确率:数据积累期(同回测,信号后收益跟踪中)",
+          "item6_赛道跟踪": "扫描21个方向,0个进入低估观察;本期无新基金正式纳入,无置换动作；21个方向数据源不可用(配额/取数失败),本次扫描结论不完整,明日自动重试"
+        }
       },
       "market_env": {
         "hs300_pe_pct": 74.1,
@@ -1816,7 +1798,7 @@
       "summary": "测试预览 · 债比在目标容忍带内，富国按每交易日45元参考额定投",
       "run_mode": "test",
       "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T21:13:05",
+      "generated_at": "2026-11-17T23:50:51",
       "items": [
         {
           "fund_code": "017491",
@@ -2100,7 +2082,8 @@
           "params": {
             "profit_rate": -40.39
           },
-          "run_mode": "test"
+          "run_mode": "test",
+          "fund_name": "财通景气甄选一年持有C"
         },
         {
           "fund_code": "010363",
@@ -2110,23 +2093,24 @@
           "params": {
             "profit_rate": -38.45
           },
-          "run_mode": "test"
+          "run_mode": "test",
+          "fund_name": "信澳匠心臻选两年持有"
         }
       ],
       "allocation": {
         "amounts": {
           "现金": 0.0,
           "养老FOF": 1147.97,
-          "债券": 13021.65,
           "权益": 6157.169999999999,
+          "债券": 13021.65,
           "商品": 1253.06
         },
         "total": 21579.85,
         "weights": {
           "现金": 0.0,
           "养老FOF": 5.32,
-          "债券": 60.34,
           "权益": 28.53,
+          "债券": 60.34,
           "商品": 5.81
         }
       },
@@ -2158,19 +2142,40 @@
             "fund_code": "017491",
             "fund_name": "财通景气甄选一年持有C",
             "action": "观察",
-            "reason": "已到持有观察止损线，启动退出评估"
+            "reason": "已到持有观察止损线，启动退出评估",
+            "eval_dims": {
+              "估值高估": "待数据(主动基金无指数分位)",
+              "业绩跑输": "待数据(需连续4季度业绩对比,基准见fund_benchmark)",
+              "基本面": "待数据",
+              "规模风险": "达标✅·规模存疑(两行同值疑似复制错误,2026-11-07台账审计T15发现,待问财实查刷新)",
+              "价格行为": "收益率-40.39%"
+            }
           },
           {
             "fund_code": "010363",
             "fund_name": "信澳匠心臻选两年持有",
             "action": "观察",
-            "reason": "已到持有观察止损线，启动退出评估"
+            "reason": "已到持有观察止损线，启动退出评估",
+            "eval_dims": {
+              "估值高估": "待数据(主动基金无指数分位)",
+              "业绩跑输": "待数据(需连续4季度业绩对比,基准见fund_benchmark)",
+              "基本面": "待数据",
+              "规模风险": "达标✅·规模存疑(两行同值疑似复制错误,2026-11-07台账审计T15发现,待问财实查刷新)",
+              "价格行为": "收益率-38.45%"
+            }
           },
           {
             "fund_code": "009290",
             "fund_name": "富国添享一年持有债券A",
             "action": "再平衡",
-            "reason": "债比在目标容忍带内，富国按每交易日45元参考额定投"
+            "reason": "债比在目标容忍带内，富国按每交易日45元参考额定投",
+            "eval_dims": {
+              "估值高估": "待数据(主动基金无指数分位)",
+              "业绩跑输": "待数据(需连续4季度业绩对比,基准见fund_benchmark)",
+              "基本面": "待数据",
+              "规模风险": "达标✅·规模≈65.70亿",
+              "价格行为": "收益率-0.6%"
+            }
           }
         ],
         "scale_review": {
@@ -3953,7 +3958,7 @@
         },
         {
           "type": "paragraph",
-          "text": "止盈三条件同时满足：①累计持仓年化收益率达止盈线（台账·规则参数P146）；②十年期国债收益率低于止盈线（P109，数据源：中债国债到期收益率10年，中国债券信息网；阈值纳入季度回测校准）；③持有期满（P110）。分两批赎回（批次比例见P149），间隔见P150，按先进先出赎回已满一年份额。止盈后继续每日定投。"
+          "text": "止盈三条件同时满足：①累计持仓年化收益率达止盈线（台账·规则参数P146）；②十年期国债收益率低于止盈线（P147，数据源：中债国债到期收益率10年，中国债券信息网；阈值纳入季度回测校准）；③持有期满（P148）。分两批赎回（批次比例见P149），间隔见P150，按先进先出赎回已满一年份额。止盈后继续每日定投。"
         },
         {
           "type": "heading",
@@ -4578,5 +4583,45 @@
         }
       ]
     }
-  ]
+  ],
+  "ui_labels": {
+    "ui_h2_attention": "需要关注",
+    "ui_h2_your_action": "需你本人做",
+    "ui_h2_position_health": "持仓健康度",
+    "ui_h2_fund_dest": "本周期资金去向",
+    "ui_h2_allocation": "当前资产配置",
+    "ui_h2_eval_amount": "本期定投金额(集中制排序)",
+    "ui_h2_action_list": "操作清单",
+    "ui_h2_cash_pool": "现金池",
+    "ui_h2_stop_eval": "止损止盈评估",
+    "ui_h2_rebalance": "债基定投与渐进再平衡",
+    "ui_h2_funding_review": "月度资金调度台账",
+    "ui_h2_scan": "全市场扫描与比较置换",
+    "ui_h2_addon_score": "低估加仓评分",
+    "ui_h2_monthly_review": "月度执行复盘与数据完整性",
+    "ui_h2_quarter_action": "本季度要做什么",
+    "ui_h2_scale_backtest": "规模风险与季度回测",
+    "ui_h2_exit_review": "存量去留结论",
+    "ui_h2_net_add": "净增评估",
+    "ui_h2_market_env": "市场环境（技术面参考·纯信息不择时）",
+    "ui_h2_next_review": "再评估时点",
+    "ui_h2_ledger_flow": "台账流水",
+    "ui_h2_bond_tp": "债券止盈检查",
+    "ui_h2_check_scan": "触发项扫描（{n}项）",
+    "ui_h2_concentration": "赛道集中度（上限 {limit}）",
+    "ui_empty_none": "暂无条目。",
+    "ui_empty_no_position": "暂无持仓数据。",
+    "ui_empty_no_ledger": "暂无资金流水。",
+    "ui_no_score": "不参与评分",
+    "ui_wait_data": "待数据",
+    "ui_h2_changelog": "最近系统改了什么",
+    "ui_h2_health": "本次数据是否齐全",
+    "ui_normal_rest": "其余 {n} 只：未触发风控",
+    "ui_home_eyebrow": "今天要你做什么",
+    "ui_retirement_title": "现在积累了多少",
+    "ui_funds_title": "本周期资金",
+    "ui_h2_position_detail": "持仓明细",
+    "ui_h2_period_summary": "本周期总结",
+    "ui_h2_execution": "执行与解锁"
+  }
 }

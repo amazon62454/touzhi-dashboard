@@ -137,15 +137,15 @@ function renderBands() {
     }
     page.querySelector('.band-content').innerHTML = content;
     // 止损止盈独立卡片(2026-11-17 Q7):止损/止盈/减仓从报告文本提为显著卡片,不再埋没
-    const stops = b.stop_signals || [];
+    const stops = (b.stop_signals || []).filter(s => s.fund_code);
     if (stops.length && (key === 'band_daily' || key === 'band_monthly')) {
       const rows = stops.map(s => {
-        const nm = s.fund_code ? `${s.fund_code} ${s.action || ''}` : (s['名称'] || '');
-        const txt = s.reason || s['说明'] || '';
-        const st = s['状态'] || '';
-        return `<div class="money-row"><span>${esc(nm)}</span><strong>${esc(st)}</strong></div><p class="lead">${esc(txt)}</p>`;
+        const nm = s.fund_name || s.fund_code;
+        const txt = s.reason || '';
+        const st = s.status || (s.action || '');
+        return `<div class="money-row"><span>${esc(nm)}<small> ${esc(s.fund_code)}</small></span><strong>${esc(st)}</strong></div><p class="lead">${esc(txt)}</p>`;
       }).join('');
-      page.querySelector('.band-content').insertAdjacentHTML('beforebegin', `<div class="card accent"><h2>止损止盈信号</h2>${rows}</div>`);
+      page.querySelector('.band-content').insertAdjacentHTML('beforebegin', `<div class="card accent"><h2>止损止盈评估</h2>${rows}</div>`);
     }
   });
   const test = D.bands.band_eval.run_mode === 'test';
@@ -192,10 +192,16 @@ function addOnCard(rows, summary) {
     return `${d.value}${date}`;
   };
   const dataKey = {'趋势':'trend','资金':'flows','基本面':'fundamentals','情绪':'sentiments'};
-  return `<div class="card"><h2>低估加仓评分</h2><p class="lead">${esc(summary || '')}</p>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${x.score ?? '—'} / ${x.threshold}分</strong></div>
+  return `<div class="card"><h2>低估加仓评分</h2><p class="lead">${esc(summary || '')}</p>${rows.map(x => {
+    const scored = x.score !== null && x.score !== undefined && x.threshold !== null && x.threshold !== undefined;
+    if (!scored) {
+      return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>不参与评分</strong></div><div class="fund-numbers">${esc(x.decision)}${x.valuation != null ? ` · 分位 ${pct(x.valuation)}` : ''}</div></div>`;
+    }
+    return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${x.score} / ${x.threshold}分</strong></div>
     <div class="money-row"><span>估值 · 分位 ${pct(x.valuation)}</span><strong>${(x.scores || {})['估值'] ?? '—'}分</strong></div>
     ${x.dimensions ? ['趋势','资金','基本面','情绪'].map(k => `<div class="money-row"><span>${k} · ${esc(valueText(k, x.dimensions[dataKey[k]]))}</span><strong>${(x.scores || {})[k] ?? '—'}分</strong></div>`).join('') : ''}
-    <div class="fund-numbers">${esc(x.decision)}${(x.missing || []).length ? ` · 缺：${esc(x.missing.join('、'))}` : ''}</div></div>`).join('')}</div>`;
+    <div class="fund-numbers">${esc(x.decision)}${(x.missing || []).length ? ` · 缺：${esc(x.missing.join('、'))}` : ''}</div></div>`;
+  }).join('')}</div>`;
 }
 function executionCard(r, unlocks) {
   if (!r) return '';

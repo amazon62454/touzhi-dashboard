@@ -130,6 +130,7 @@ function renderBands() {
         <div class="card"><h2>操作清单</h2><p class="lead">按下表逐只改理财通定投额：调高/调低/暂停/恢复；只改金额不改策略</p></div>
         ${addOnCard(a.add_on_reviews, a.add_on_summary)}
         ${netAdditionCard(a.net_addition)}
+        <div class="card"><h2>现金池</h2><div class="money-row"><span>现金池余额（加仓弹药，需≥本次加仓额）</span><strong>${money(a.cash_pool)}</strong></div></div>
         ${nextReviewCard(b.next_review)}
         ${ledgerFlowCard()}
         <div class="card"><h2>需你本人做</h2><p class="lead">下周一前理财通按上表改额;执行后回传实际金额记台账</p></div>`;

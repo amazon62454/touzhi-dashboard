@@ -115,6 +115,17 @@ function renderBands() {
         ${addOnCard(a.add_on_reviews, a.add_on_summary)}`;
     }
     page.querySelector('.band-content').innerHTML = content;
+    // 止损止盈独立卡片(2026-11-17 Q7):止损/止盈/减仓从报告文本提为显著卡片,不再埋没
+    const stops = b.stop_signals || [];
+    if (stops.length) {
+      const rows = stops.map(s => {
+        const nm = s.fund_code ? `${s.fund_code} ${s.action || ''}` : (s['名称'] || '');
+        const txt = s.reason || s['说明'] || '';
+        const st = s['状态'] || '';
+        return `<div class="money-row"><span>${esc(nm)}</span><strong>${esc(st)}</strong></div><p class="lead">${esc(txt)}</p>`;
+      }).join('');
+      page.querySelector('.band-content').insertAdjacentHTML('beforebegin', `<div class="card accent"><h2>止损止盈信号</h2>${rows}</div>`);
+    }
   });
   const test = D.bands.band_eval.run_mode === 'test';
 }

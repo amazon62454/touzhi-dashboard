@@ -1,314 +1,529 @@
-// 人读版H5：只渲染h5_export.py整理好的报告，不实现投资规则。
-let D = null;
-const $ = id => document.getElementById(id);
-const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const inline = v => esc(v).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-const money = v => v === null || v === undefined || v === '' ? '—' : `${Number(v).toLocaleString('zh-CN', {maximumFractionDigits: 2})}元`;
-const pct = v => v === null || v === undefined || v === '' ? '—' : `${Number(v).toFixed(2)}%`;
-const dateText = v => v && v !== '未记录基准日' ? v : '未记录基准日';
-const shortReason = v => v || '按SOP规则判定';
+// ============================================================
+// V2 H5 渲染引擎 · 2026-11-17 专项重构
+// 架构：数据(h5_data.json) → 声明式页面Schema → 组件库 → 四态统一
+// 原则：零依赖 · 文案零硬编码(text_templates) · 数值零硬编码(全部来自数据)
+// ============================================================
 
+let D = null;
+let U = {};               // 界面文案（text_templates ui_ 前缀）
+const $ = id => document.getElementById(id);
+
+// ---------- 工具 ----------
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fmt = (t, o) => String(t || '').replace(/\{(\w+)\}/g, (_, k) => (o && o[k] != null) ? o[k] : '');
+const money = v => (v === null || v === undefined || v === '') ? '—' : `${Number(v).toLocaleString('zh-CN', { maximumFractionDigits: 2 })}元`;
+const pct = v => (v === null || v === undefined || v === '') ? '—' : `${Number(v).toFixed(2)}%`;
+const dateText = v => (v && v !== '未记录基准日') ? v : '未记录基准日';
+const shortReason = v => v || '按SOP规则判定';
+const has = v => v !== null && v !== undefined && v !== '';
+const fundName = (fc, fallback) => {
+  const f = ((D && D.retirement && D.retirement.funds) || []).find(x => String(x.fund_code) === String(fc));
+  return (f && f.fund_name) || fallback || '';
+};
+
+// ---------- 组件库（纯函数 → HTML，样式全部走 class 不写行内样式） ----------
+const C = {
+  card(title, body, kind = '') {
+    if (!body) return '';
+    return `<div class="card ${kind}">${title ? `<h2>${title}</h2>` : ''}${body}</div>`;
+  },
+  kv(label, value, note) {
+    return `<div class="money-row"><span>${esc(label)}${note ? `<small> ${esc(note)}</small>` : ''}</span><strong>${value}</strong></div>`;
+  },
+  badge(text, kind = 'info') { return `<span class="badge ${kind}">${esc(text)}</span>`; },
+  statusBadge(status) {
+    const s = String(status || '');
+    const kind = /🔴/.test(s) ? 'danger' : /⚠️/.test(s) ? 'warn' : /💰/.test(s) ? 'info' : /🟢/.test(s) ? 'ok' : 'muted';
+    return C.badge(s || '—', kind);
+  },
+  empty(title, note) {
+    return `<div class="empty">${title ? `<div class="empty-title">${esc(title)}</div>` : ''}${note ? esc(note) : ''}</div>`;
+  },
+  metricGrid(items) {
+    const rows = (items || []).filter(x => x).map(([label, value]) =>
+      `<div class="metric"><div class="metric-label">${esc(label)}</div><div class="metric-value">${esc(value)}</div></div>`).join('');
+    return rows ? `<div class="metric-grid">${rows}</div>` : '';
+  },
+  actionList(items, opts = {}) {
+    if (!items || !items.length) return C.empty(U.ui_empty_none);
+    return `<div class="action-list">${items.map(x => `
+      <div class="action-row">
+        <div>
+          <div class="action-name">${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}${x.fund_code ? `<span class="action-code">${esc(x.fund_code)}</span>` : ''}</div>
+          <div class="action-reason">${esc(x.action || '')}${x.reason ? ' · ' + esc(shortReason(x.reason)) : ''}</div>
+        </div>
+        <div class="action-amount">${has(x.amount) && Number(x.amount) !== 0 ? money(x.amount) : ''}${x.params && has(x.params.valuation_pct) ? `<small>估值 ${pct(x.params.valuation_pct)}</small>` : ''}</div>
+      </div>`).join('')}</div>`;
+  },
+  orderedList(items) {
+    if (!items || !items.length) return '';
+    return `<ol class="action-list">${items.map(x => `<li>${esc(x)}</li>`).join('')}</ol>`;
+  },
+  fundRows(rows) {
+    if (!rows || !rows.length) return C.empty(U.ui_empty_no_position);
+    return rows.map(x => `
+      <div class="fund-row">
+        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong><strong>${has(x.market_value) ? money(x.market_value) : ''}</strong></div>
+        <div class="fund-numbers">${esc(x.fund_code || '')}${has(x.profit) ? ` · 收益 ${money(x.profit)}` : ''}${has(x.profit_rate) ? ` · ${pct(x.profit_rate)}` : ''}${x.status ? ` · ${esc(x.status)}` : ''}</div>
+      </div>`).join('');
+  },
+  details(summary, body) { return body ? `<details><summary>${esc(summary)}</summary>${body}</details>` : ''; },
+};
+
+// ---------- 渲染器（业务区块：数据 → 组件组合） ----------
+const R = {
+  // 首页
+  homeHero() {
+    const h = D.home || {};
+    const actions = (h.actions || []).length ? C.actionList(h.actions) : '';
+    const total = has(h.total_action_amount) ? C.kv('合计待执行金额', money(h.total_action_amount)) : '';
+    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(h.headline || '')}</h1>${actions}${total}`, 'accent');
+  },
+  bandCards() {
+    const cards = (D.home && D.home.cards) || [];
+    if (!cards.length) return '';
+    return cards.map(c => `<a href="#page-${esc(c.id)}" class="card" style="display:block;color:inherit">
+      <div class="fund-top"><strong>${esc(c.title)}</strong>${C.badge(c.run_mode === 'test' ? (D.status && D.status.label) || '测试' : '正式', c.run_mode === 'test' ? 'warn' : 'ok')}</div>
+      <div class="fund-numbers">${esc(c.summary || '')} · 基准 ${esc(dateText(c.base_date))}</div></a>`).join('');
+  },
+  changelog() {
+    const raw = (D.home && D.home.changelog) || null;
+    if (!raw) return '';
+    const cl = Array.isArray(raw) ? raw : [raw];
+    if (!cl.length) return '';
+    const rows = cl.map(x => `<div class="money-row"><span>${esc(x.date || '')}</span><strong style="font-weight:400;font-size:var(--fs-sm);text-align:right">${esc(x.summary || x.text || '')}</strong></div>`).join('');
+    return C.card(U.ui_h2_changelog || '最近系统改了什么', rows);
+  },
+  health() {
+    const hs = (D.home && D.home.health) || [];
+    if (!hs.length) return C.card(U.ui_h2_health || '本次数据是否齐全', C.empty('', '数据源全部正常'));
+    const rows = hs.map(x => `<div class="money-row"><span>${esc(x.name)} · ${esc(x.detail || '')}</span>${C.statusBadge(x.status)}</div>`).join('');
+    return C.card(U.ui_h2_health || '本次数据是否齐全', rows);
+  },
+
+  // 档位页公共头
+  bandHeader(band) {
+    const b = (D.bands || {})[band] || {};
+    return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>
+      <p class="lead">${esc(b.summary || '')}</p>
+      <div class="muted">${C.badge(b.run_mode === 'test' ? ((D.status && D.status.label) || '测试') : '正式', b.run_mode === 'test' ? 'warn' : 'ok')} 基准 ${esc(dateText(b.base_date))}</div></div>`;
+  },
+
+  // 每日档
+  checkScan(b) {
+    const checks = (b.artifacts && b.artifacts.daily_checks) || [];
+    if (!checks.length) return '';
+    const rows = checks.map(c => `<div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>`).join('');
+    return C.card(fmt(U.ui_h2_check_scan, { n: checks.length }), rows);
+  },
+  attention(b) { return C.card(U.ui_h2_attention, C.actionList(b.attention_items)); },
+  yourAction(b) {
+    const txt = (b.attention_items && b.attention_items.length) ? '按上方需要关注项处置，执行后回传我记台账' : '无';
+    return C.card(U.ui_h2_your_action, `<p class="lead">${esc(txt)}</p>`, 'accent');
+  },
+  normalItems(b) {
+    const items = b.normal_items || [];
+    return C.details(fmt(U.ui_normal_rest || '其余 {n} 只：未触发风控', { n: items.length }), C.actionList(items));
+  },
+
+  // 债基再平衡
+  rebalance(r) {
+    if (!r) return '';
+    const body = `<p class="lead">${esc(r.action || '')}</p>
+      ${C.kv('当前债比 / ERP目标', `${pct(r.debt_weight)} / ${pct(r.debt_target)}`)}
+      ${C.kv('启动线 / 补债下沿', `${pct(r.start_line)} / ${pct(r.lower_line)}`)}
+      ${r.actual_amount_note ? `<p class="muted">${esc(r.actual_amount_note)}</p>` : ''}`;
+    return C.card(U.ui_h2_rebalance, body, r.active ? 'warn' : '');
+  },
+  flow(r) {
+    if (!r || !r.flows) return '';
+    const body = `${C.kv('权益层', money(r.flows.equity))}${C.kv('债券层（受债比闸门约束）', money(r.flows.debt))}${C.kv('现金层', money(r.flows.cash))}
+      <p class="muted">三层合计 ${money(r.monthly_budget)}；存量再平衡不计入这份新增预算。</p>`;
+    return C.card(`${esc(r.erp_label || '')}态月度流量分配`, body);
+  },
+
+  // 月度档
+  monthlyReview(mr) {
+    if (!mr) return '';
+    const ret = mr.item2_收益率 || {};
+    const cum = ret['累计'] || {};
+    const cumRows = Object.entries(cum).map(([fc, r]) =>
+      C.kv(fundName(fc) || fc, pct(r), fc)).join('');
+    const mom = (ret['月度(快照对比)'] || {}).TOTAL;
+    const inv = mr.item4_定投统计 || {};
+    const body = `${C.kv('数据完整性', esc(mr.item1_完整性))}
+      ${C.kv('本月组合收益率', mom != null ? pct(mom) : '—')}
+      ${cumRows}
+      ${C.kv('定投执行', inv['次数'] != null ? `${esc(inv['次数'])}笔 / ${money(inv['金额'])}` : '—')}
+      <p class="lead">${esc(mr.item3_加减仓回顾 || '')}</p>
+      <p class="muted">${esc(mr.item5_信号准确率 || '')}</p>
+      <p class="muted">${esc(mr.item6_赛道跟踪 || '')}</p>`;
+    return C.card(U.ui_h2_monthly_review, body);
+  },
+  periodSummary(ps) {
+    if (!ps) return '';
+    const parts = [];
+    if (ps.start || ps.end) parts.push(C.kv('统计区间', `${esc(ps.start || '—')} ~ ${esc(ps.end || '—')}`));
+    if (ps.period_id) parts.push(C.kv('周期', esc(ps.period_id)));
+    const rows = Array.isArray(ps.rows) ? ps.rows : [];
+    if (rows.length) {
+      const list = rows.map(x => `<div class="money-row"><span>${esc(x.action || '')}${x.count != null ? ` × ${esc(x.count)}` : ''}</span><strong>${x.amount ? money(x.amount) : '—'}</strong></div>`).join('');
+      parts.push(list);
+    }
+    return C.card(U.ui_h2_period_summary || '本周期总结', parts.join(''));
+  },
+  takeProfit(tp) {
+    if (!tp) return '';
+    const rows = (Array.isArray(tp) ? tp : [tp]).map(x => {
+      const dec = String(x.decision || x.status || '');
+      const short = dec.length > 6 ? (dec.includes('触发') ? '触发' : '未触发') : dec;
+      const kind = short.includes('触发') && !short.includes('未') ? 'danger' : 'ok';
+      return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong>${C.badge(short, kind)}</div>
+       <div class="fund-numbers">${esc(x.fund_code || '')}${dec ? ' · ' + esc(dec) : ''}</div></div>`;
+    }).join('');
+    return C.card(U.ui_h2_bond_tp, rows || C.empty('', '无债券止盈触发'));
+  },
+  fundingReview(rows) {
+    if (!rows) return '';
+    const body = rows.map(x => `<div class="fund-row">
+      <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong><strong>${esc(x.decision || '')}</strong></div>
+      <div class="fund-numbers">${esc(x.fund_code || '')} · ${esc(x.reason || '')}${x.valuation != null ? ` · 分位 ${pct(x.valuation)}` : ''}</div></div>`).join('');
+    return C.card(U.ui_h2_funding_review, body);
+  },
+  scan(scan) {
+    if (!scan) return '';
+    const comps = (scan.comparisons || []).map(x => `<div class="fund-row">
+      <div class="fund-top"><strong>${esc(x.sector || '')} · ${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '待锁定基金')}</strong><strong>${pct(x.valuation)}</strong></div>
+      <div class="fund-numbers">${esc(x.fund_code || '未登记代码')} · ${esc(x.decision || '')}：${esc(x.reason || '')}</div></div>`).join('')
+      || C.empty('', '没有新基金通过低估初筛。');
+    return C.card(U.ui_h2_scan, comps);
+  },
+  execution(r, unlocks) {
+    const parts = [];
+    if (r && typeof r === 'object') {
+      if (r.completeness) parts.push(C.kv('数据完整性', esc(r.completeness)));
+      if (r.invest_count != null) parts.push(C.kv('定投笔数 / 金额', `${esc(r.invest_count)}笔 / ${money(r.invest_total)}`));
+      if (r.record_count != null) parts.push(C.kv('流水记录数', esc(r.record_count)));
+      if (r.missing_scale_count != null) parts.push(C.kv('缺规模数据', `${esc(r.missing_scale_count)} 只`));
+    } else if (typeof r === 'string') {
+      parts.push(`<p class="lead">${esc(r)}</p>`);
+    }
+    const ul = Array.isArray(unlocks) ? unlocks : (unlocks ? [unlocks] : []);
+    if (ul.length) {
+      parts.push(ul.map(x => `<div class="money-row"><span>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></span><strong>${esc(x.lock_end_date || '')}${x.within_6m ? ' ' + C.badge('临近解锁', 'warn') : ''}</strong></div>`).join(''));
+    }
+    return parts.length ? C.card(U.ui_h2_execution || '执行与解锁', parts.join('')) : '';
+  },
+  positionRows(items) {
+    return C.card(U.ui_h2_position_health, C.actionList(items));
+  },
+  fundDest() {
+    const f = D.funds_page || {};
+    const rows = (f.channels || []).map(x => {
+      const v = x.value;
+      const val = (v === null || v === undefined || v === '') ? '—' : (Number.isFinite(Number(v)) ? money(Number(v)) : esc(String(v)));
+      return C.kv(x.name, val);
+    }).join('');
+    return C.card(U.ui_h2_fund_dest, rows);
+  },
+  fundsMetrics() {
+    const f = D.funds_page || {};
+    return C.metricGrid([
+      ['本周期剩余', money(f.remaining)],
+      ['现金池', money(f.cash_pool)],
+    ]);
+  },
+  cashDetail() {
+    const cd = (D.funds_page || {}).cash_detail;
+    if (!cd) return '';
+    const parts = [
+      C.kv('现金池累计余额', money(cd.balance)),
+      cd.monthly_inject != null ? C.kv('月度注入额', money(cd.monthly_inject)) : '',
+      cd.last_period_note ? `<p class="muted">上期结余：${esc(cd.last_period_note)}</p>` : '',
+    ].join('');
+    return C.card(U.ui_h2_cash_pool, parts);
+  },
+
+  // 季度档
+  quarterAction(a) {
+    return a && a.action_checklist ? C.card(U.ui_h2_quarter_action, C.orderedList(a.action_checklist), 'accent') : '';
+  },
+  allocation(b) {
+    const weights = (b.allocation || {}).weights || {};
+    const keys = Object.keys(weights);
+    if (!keys.length) return C.card(U.ui_h2_allocation, C.empty('', '配置数据不足。'));
+    const rows = keys.map(k => C.kv(k, pct(weights[k]))).join('');
+    return C.card(U.ui_h2_allocation, rows);
+  },
+  concentration(c) {
+    if (!c) return '';
+    const secs = Array.isArray(c.sectors) ? c.sectors : Object.entries(c.sectors || {}).map(([k, v]) => ({ sector: k, weight: v }));
+    const rows = secs.map(x => `<div class="money-row"><span>${esc(x.sector || '')}${x.over ? ' ' + C.badge('超限', 'danger') : ''}</span><strong>${pct(x.weight)}</strong></div>`).join('');
+    const total = c.total ?? c.total_market_value;
+    return C.card(fmt(U.ui_h2_concentration, { limit: pct(c.limit) }), `${rows}${total ? `<p class="muted">组合总市值 ${money(total)}</p>` : ''}`);
+  },
+  exitReviews(rows) {
+    if (!rows || !rows.length) return '';
+    const body = rows.map(x => `<div class="fund-row">
+      <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong>${C.statusBadge(x.action || '')}</div>
+      <div class="fund-numbers">${esc(x.fund_code || '')} · ${esc(x.reason || '')}</div></div>`).join('');
+    return C.card(U.ui_h2_exit_review, body);
+  },
+  quarterReview(a) {
+    const s = a && a.scale_review, bt = a && a.backtest;
+    if (!s && !bt) return '';
+    const parts = [];
+    if (s) parts.push(C.kv('基金规模复核', esc(s.status || s.message || JSON.stringify(s))));
+    if (bt) parts.push(C.kv('信号流水 / 有结果样本', `${esc(bt.signals ?? 0)} / ${esc(bt.results ?? 0)}`));
+    if (bt && bt.note) parts.push(`<p class="muted">${esc(bt.note)}</p>`);
+    return C.card(U.ui_h2_scale_backtest, parts.join(''));
+  },
+  netAddition(n) {
+    if (!n) return '';
+    const rows = Object.entries(n).map(([k, v]) => C.kv(k, esc(typeof v === 'object' ? JSON.stringify(v) : v))).join('');
+    return C.card(U.ui_h2_net_add, rows);
+  },
+  marketEnv(env) {
+    if (!env) return '';
+    const rows = `${C.kv('沪深300估值分位', pct(env.hs300_pe_pct))}${C.kv('ERP态', esc(env.erp_state || ''))}`;
+    return C.card(U.ui_h2_market_env, rows);
+  },
+  nextReview(rows) {
+    if (!rows || !rows.length) return '';
+    const body = rows.map(x => `<div class="fund-row">
+      <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong><strong>${esc(x.action || '')}</strong></div>
+      <div class="fund-numbers">${esc(x.reason || '')}</div></div>`).join('');
+    return C.card(U.ui_h2_next_review, body);
+  },
+  ledgerFlow() {
+    const f = D.funds_page || {};
+    const rows = `${C.kv('周期', esc(f.period || '—'))}${C.kv('注入', money(f.injection))}${C.kv('已用', money(f.spent))}${C.kv('剩余', money(f.remaining))}`;
+    return C.card(U.ui_h2_ledger_flow, rows);
+  },
+
+  // 周日档
+  evalAmount(b) {
+    const items = (b.items || []).filter(x => x.action !== '暂停' || !String(x.reason || '').includes('富国'));
+    if (!items.length) return '';
+    const body = items.map(x => {
+      const vp = x.params && has(x.params.valuation_pct) ? pct(x.params.valuation_pct) : '—';
+      const amt = has(x.amount) ? `${x.amount}元` : '—';
+      return `<div class="money-row"><span>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></span><strong>${esc(x.action || '')} ${amt}</strong></div><p class="lead">分位${vp} · ${esc(x.reason || '')}</p>`;
+    }).join('');
+    return C.card(U.ui_h2_eval_amount, `<p class="muted">分位低→高，主动/FOF表末；下周一前理财通改额</p>${body}`);
+  },
+  addOn(rows, summary) {
+    if (!rows || !rows.length) return '';
+    const body = rows.map(x => {
+      const sc = has(x.score) ? Number(x.score) : null;
+      const th = has(x.threshold) ? Number(x.threshold) : null;
+      const hit = sc != null && th != null && sc >= th;
+      return `<div class="fund-row">
+        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong><strong>${sc != null ? sc : U.ui_no_score}</strong></div>
+        <div class="fund-numbers">${esc(x.fund_code || '')}${th != null ? ` · 门槛${th}` : ''}${x.decision ? ` · ${esc(x.decision)}` : ''}${hit ? ' ' + C.badge('达标', 'ok') : ''}</div></div>`;
+    }).join('');
+    const sm = summary ? `<p class="muted">${esc(typeof summary === 'string' ? summary : JSON.stringify(summary))}</p>` : '';
+    return C.card(U.ui_h2_addon_score, body + sm);
+  },
+  evalActionList() {
+    return C.card(U.ui_h2_action_list, `<p class="lead">按下表逐只改理财通定投额：调高/调低/暂停/恢复；只改金额不改策略</p>`);
+  },
+
+  evalCash(a) {
+    const cash = a.cash_pool;
+    if (cash === null || cash === undefined) return '';
+    return C.card(U.ui_h2_cash_pool, C.kv('现金池余额', money(cash)));
+  },
+
+  // 规则查询
+  ruleList() {
+    const q = ($('rule-search') && $('rule-search').value || '').trim();
+    const chapters = (D.rules || []).filter(c => !q || String(c.title || '').includes(q));
+    const list = chapters.map(c => `<div class="card" data-rule="${esc(c.title)}"><div class="fund-top"><strong>${esc(c.title)}</strong></div></div>`).join('')
+      || C.empty('', '没有匹配的章节。');
+    return `<div class="search-wrap"><input id="rule-search" class="search" type="search" placeholder="搜索章节名称，例如：定投、减仓、回撤" value="${esc(q)}"></div>${list}`;
+  },
+};
+
+// ---------- 声明式页面 Schema（页面 = 区块有序列表，加区块只改这里） ----------
+const PAGE_SCHEMA = {
+  'page-home': [
+    { fn: 'homeHero' }, { fn: 'bandCards' }, { fn: 'changelog' }, { fn: 'health' },
+  ],
+  'page-band_daily': [
+    { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
+    { fn: 'attention', from: 'band_daily' }, { fn: 'nextReview', from: 'band_daily' },
+    { fn: 'ledgerFlow' }, { fn: 'marketEnv', from: 'band_daily' }, { fn: 'yourAction', from: 'band_daily' },
+    { fn: 'normalItems', from: 'band_daily' },
+  ],
+  'page-band_eval': [
+    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'evalAmount', from: 'band_eval' },
+    { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
+    { fn: 'evalActionList' }, { fn: 'addOn', from: 'band_eval' }, { fn: 'attention', from: 'band_eval' },
+    { fn: 'normalItems', from: 'band_eval' },
+  ],
+  'page-band_monthly': [
+    { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'fundsMetrics' },
+    { fn: 'rebalance', from: 'band_monthly' }, { fn: 'flow', from: 'band_monthly' },
+    { fn: 'monthlyReview', from: 'band_monthly' }, { fn: 'periodSummary', from: 'band_monthly' },
+    { fn: 'takeProfit', from: 'band_monthly' }, { fn: 'fundingReview', from: 'band_monthly' },
+    { fn: 'scan', from: 'band_monthly' }, { fn: 'positionRows', from: 'band_monthly' },
+    { fn: 'execution', from: 'band_monthly' }, { fn: 'fundDest' },
+  ],
+  'page-band_quarter': [
+    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
+    { fn: 'allocation', from: 'band_quarter' }, { fn: 'rebalance', from: 'band_quarter' },
+    { fn: 'concentration', from: 'band_quarter' }, { fn: 'exitReviews', from: 'band_quarter' },
+    { fn: 'quarterReview', from: 'band_quarter' }, { fn: 'yourAction', from: 'band_quarter' },
+    { fn: 'normalItems', from: 'band_quarter' },
+  ],
+  'page-retirement': [{ fn: 'retirementPage' }],
+  'page-funds': [{ fn: 'fundsPage' }],
+  'page-rules': [{ fn: 'ruleList' }],
+};
+
+// ---------- 特殊页渲染 ----------
+R.retirementPage = function () {
+  const r = D.retirement || {};
+  const metrics = C.metricGrid([
+    ['当前持有市值', money(r.total_market_value)],
+    ['持仓成本', money(r.total_cost)],
+    ['持仓收益', money(r.total_profit)],
+    ['持仓收益率', pct(r.total_profit_rate)],
+    ['每月投入上限', money(r.monthly_budget)],
+  ]);
+  const funds = C.card(U.ui_h2_position_detail || '持仓明细', C.fundRows(r.funds));
+  const note = r.return_note ? `<p class="muted">${esc(r.return_note)}</p>` : '';
+  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${funds}${note}`;
+};
+R.fundsPage = function () {
+  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_funds_title || '本周期资金')}</h1></div>${R.fundsMetrics()}${R.cashDetail()}${R.ledgerFlow()}${R.fundDest()}`;
+};
+
+// ---------- 页面渲染引擎 ----------
+function renderPage(pageId) {
+  const el = $(pageId);
+  if (!el) return;
+  const schema = PAGE_SCHEMA[pageId] || [];
+  const html = schema.map(node => {
+    const fn = R[node.fn];
+    if (typeof fn !== 'function') return '';
+    try {
+      if (node.from) {
+        const b = (D.bands || {})[node.from] || {};
+        const a = b.artifacts || {};
+        if (node.fn === 'checkScan') return fn(b);
+        if (node.fn === 'attention') return fn(b);
+        if (node.fn === 'yourAction') return fn(b);
+        if (node.fn === 'normalItems') return fn(b);
+        if (node.fn === 'positionRows') return fn(b.items);
+        if (node.fn === 'nextReview') return fn(b.next_review);
+        if (node.fn === 'marketEnv') return fn(b.market_env);
+        if (node.fn === 'allocation') return fn(b);
+        if (node.fn === 'quarterReview') return fn(a);
+        if (node.fn === 'quarterAction') return fn(a);
+        if (node.fn === 'rebalance') return fn(a.rebalance);
+        if (node.fn === 'flow') return fn(a.rebalance);
+        if (node.fn === 'concentration') return fn(a.concentration);
+        if (node.fn === 'exitReviews') return fn(a.exit_reviews);
+        if (node.fn === 'monthlyReview') return fn(a.monthly_review);
+        if (node.fn === 'periodSummary') return fn(a.period_summary);
+        if (node.fn === 'takeProfit') return fn(a.take_profit);
+        if (node.fn === 'fundingReview') return fn(a.funding_review);
+        if (node.fn === 'scan') return fn(a.scan);
+        if (node.fn === 'execution') return fn(a.execution_review, a.unlock_review);
+        if (node.fn === 'evalAmount') return fn(b);
+        if (node.fn === 'addOn') return fn(a.add_on_reviews, a.add_on_summary);
+        if (node.fn === 'evalCash') return fn(a);
+        if (node.fn === 'netAddition') return fn(a.net_addition);
+        return '';
+      }
+      return fn(node.arg);
+    } catch (e) {
+      return C.card('', C.empty('区块渲染失败', e.message));
+    }
+  }).join('');
+  el.innerHTML = html || C.empty('', '本页暂无内容。');
+  if (pageId === 'page-rules') bindRuleSearch();
+}
+
+// ---------- 导航（配置驱动） ----------
+const NAV = [
+  { id: 'page-home', label: '今日' },
+  { id: 'page-band_daily', label: '每日' },
+  { id: 'page-band_eval', label: '周日' },
+  { id: 'page-band_monthly', label: '月度' },
+  { id: 'page-band_quarter', label: '季度' },
+  { id: 'page-retirement', label: '养老' },
+  { id: 'page-funds', label: '资金' },
+];
+
+function renderNav() {
+  $('nav').innerHTML = NAV.map(n => `<a href="#${n.id}" data-page="${n.id}">${esc(n.label)}</a>`).join('');
+}
+
+function showPage(pageId) {
+  const valid = NAV.some(n => n.id === pageId) || pageId === 'page-rules';
+  const target = valid ? pageId : 'page-home';
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === target));
+  document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('active', a.dataset.page === target));
+  if (!$(target).dataset.rendered) {
+    renderPage(target);
+    $(target).dataset.rendered = '1';
+  }
+  window.scrollTo({ top: 0 });
+}
+
+function bindRuleSearch() {
+  const inp = $('rule-search');
+  if (!inp || inp.dataset.bound) return;
+  inp.dataset.bound = '1';
+  inp.addEventListener('input', () => {
+    const q = inp.value.trim();
+    const chapters = (D.rules || []).filter(c => !q || String(c.title || '').includes(q));
+    const host = inp.closest('.page') || inp.parentElement.parentElement;
+    const listHtml = chapters.map(c => `<div class="card" data-rule="${esc(c.title)}"><div class="fund-top"><strong>${esc(c.title)}</strong></div></div>`).join('')
+      || C.empty('', '没有匹配的章节。');
+    // 只替换列表部分（保留搜索框）
+    const old = host.querySelectorAll('.card, .empty');
+    old.forEach(x => x.remove());
+    host.insertAdjacentHTML('beforeend', listHtml);
+    host.querySelectorAll('[data-rule]').forEach(el => el.addEventListener('click', () => {
+      const ch = (D.rules || []).find(c => c.title === el.dataset.rule);
+      if (!ch) return;
+      const body = (ch.content || []).map(x => `<p class="lead">${esc(x.text || '')}</p>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class="card rule-detail"><h2>${esc(ch.title)}</h2>${body}</div>`);
+    }));
+  });
+}
+
+// ---------- 四态：加载 / 正常 / 空 / 错误 ----------
 async function init() {
   try {
     const r = await fetch(`h5_data.json?t=${Date.now()}`);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     D = await r.json();
-    renderShell(); renderHome(); renderRetirement(); renderFunds(); renderBands(); renderRules();
-    bindNavigation(); 
+    U = D.ui_labels || {};
+    renderShell();
+    renderNav();
+    $('boot-skeleton').remove();
     showPage(location.hash.slice(1) || 'page-home');
+    window.addEventListener('hashchange', () => showPage(location.hash.slice(1) || 'page-home'));
   } catch (e) {
-    $('app').innerHTML = `<div class="card">页面数据读取失败：${esc(e.message)}</div>`;
+    $('boot-skeleton').remove();
+    $('main').innerHTML = `<div class="error-state"><div>页面数据读取失败：${esc(e.message)}</div><button onclick="location.reload()">重试</button></div>`;
   }
 }
 
 function renderShell() {
   $('header-date').textContent = `基准 ${dateText(D.base_date)}`;
-  $('global-status').className = `status-bar ${D.status.is_test ? 'test' : ''}`;
-  $('global-status').textContent = `${D.status.label} · ${D.status.description} · 页面生成 ${D.generated_at || '—'}`;
+  const st = D.status || {};
+  const banner = $('global-status');
+  if (st.label) {
+    banner.hidden = false;
+    banner.className = 'status-banner' + (st.is_test ? '' : ' live');
+    banner.textContent = `${st.label}${st.description ? ' · ' + st.description : ''} · 页面生成 ${D.generated_at || ''}`;
+  }
 }
 
-function actionRows(items, showZero = true) {
-  if (!items || !items.length) return '<div class="empty">暂无条目。</div>';
-  return `<div class="action-list">${items.map(x => `
-    <div class="action-row">
-      <div><div class="action-name">${esc(x.fund_name)}<span class="action-code">${esc(x.fund_code)}</span></div>
-      <div class="action-reason">${esc(x.action)} · ${esc(shortReason(x.reason))}</div></div>
-      <div class="action-amount">${x.amount !== null && x.amount !== undefined && Number(x.amount) !== 0 ? money(x.amount) : ''}${x.params && x.params.valuation_pct !== null && x.params.valuation_pct !== undefined ? `<small>估值 ${pct(x.params.valuation_pct)}</small>` : ''}</div>
-    </div>`).join('')}</div>`;
-}
-
-function renderHome() {
-  const h = D.home;
-  $('home-headline').textContent = h.headline;
-  $('home-actions').innerHTML = h.total_action_amount !== null
-    ? `<div class="action-total">${money(h.total_action_amount)}</div>${actionRows(h.actions)}`
-    : `<div class="empty">${D.status.is_test ? '正式结论生成后，这里只列真正需要你执行的事项。' : '今天无需操作。'}</div>`;
-  $('band-cards').innerHTML = h.cards.map(c => `
-    <button class="band-card" data-page="page-${esc(c.id)}">
-      <strong>${esc(c.title)}</strong><span class="band-summary">${esc(c.summary)}</span>
-      <span>${c.run_mode === 'test' ? '测试预览' : '正式'} · 基准 ${esc(dateText(c.base_date))}</span>
-    </button>`).join('');
-  document.querySelectorAll('[data-page]').forEach(b => b.onclick = () => { location.hash = b.dataset.page; showPage(b.dataset.page); });
-  $('changelog').innerHTML = `<div class="change-date">${esc(h.changelog.date || '未记录日期')}</div><div>本次涉及：${esc(h.changelog.categories || '规则与执行链路')}</div><details class="meta-text"><summary>查看技术修订明细</summary><p>${esc(h.changelog.summary)}</p></details>`;
-  $('health').innerHTML = h.health.length ? h.health.map(x => `<div class="health-row"><span>${esc(x.name)} · ${esc(x.detail)}</span><strong>${esc(x.status)}</strong></div>`).join('') : '<div class="empty">本次没有数据质量明细。</div>';
-}
-
-function renderRetirement() {
-  const r = D.retirement;
-  const metrics = [
-    ['当前持有市值', money(r.total_market_value), ''],
-    ['持仓成本', money(r.total_cost), ''],
-    ['持仓收益', money(r.total_profit), r.total_profit > 0 ? 'positive' : r.total_profit < 0 ? 'negative' : ''],
-    ['持仓收益率', pct(r.total_profit_rate), r.total_profit_rate > 0 ? 'positive' : r.total_profit_rate < 0 ? 'negative' : ''],
-    ['每月投入上限', typeof r.monthly_budget === 'number' ? money(r.monthly_budget) : (r.monthly_budget || '—'), ''],
-  ];
-  $('retirement-summary').innerHTML = metrics.map(([k,v,c]) => `<div class="metric"><div class="metric-label">${k}</div><div class="metric-value ${c}">${esc(v)}</div></div>`).join('');
-  $('retirement-funds').innerHTML = r.funds.length ? r.funds.map(f => `
-    <div class="fund-row"><div class="fund-top"><strong>${esc(f.fund_name)}</strong><strong>${money(f.market_value)}</strong></div>
-    <div class="fund-numbers">${esc(f.fund_code)} · 收益 ${money(f.profit)} · ${pct(f.profit_rate)}</div>
-    <div class="fund-status">${esc(f.status)}</div></div>`).join('') : '<div class="empty">暂无持仓数据。</div>';
-  $('return-note').textContent = r.return_note;
-}
-
-function renderFunds() {
-  const f = D.funds_page;
-  const metrics = [['账本周期', f.period], ['发薪注入', money(f.injection)], ['本周期已用', money(f.spent)], ['本周期剩余', money(f.remaining)], ['现金池', money(f.cash_pool)]];
-  $('funds-summary').innerHTML = metrics.map(([k,v]) => `<div class="metric"><div class="metric-label">${k}</div><div class="metric-value">${esc(v)}</div></div>`).join('');
-  $('fund-channels').innerHTML = f.channels.length ? f.channels.map(x => `<div class="money-row"><span>${esc(x.name)}</span><strong>${esc(x.value || '—')}</strong></div>`).join('') : '<div class="empty">暂无资金流水。</div>';
-}
-
-function renderBands() {
-  document.querySelectorAll('.band-page').forEach(page => {
-    const key = page.dataset.band;
-    const b = D.bands[key];
-    page.querySelector('.band-header').innerHTML = `<div class="page-heading"><div class="eyebrow">${esc(b.title)}</div><h1>${esc(b.summary)}</h1></div>
-      <div class="band-meta"><span class="badge ${b.run_mode === 'test' ? 'test' : ''}">${b.run_mode === 'test' ? '测试·非正式' : '正式'}</span> 基准 ${esc(dateText(b.base_date))}${b.generated_at ? ` · 生成 ${esc(b.generated_at)}` : ''}</div>`;
-    let content = '';
-    if (key === 'band_daily') {
-      const checks = (b.artifacts && b.artifacts.daily_checks) || [];
-      const checkRows = checks.map(c => `<div class="money-row"><span>${esc(c.name ?? c['名称'] ?? '')}</span><strong>${esc(c.status ?? c['状态'] ?? '')}</strong></div><p class="lead">${esc(c.detail ?? c['说明'] ?? '')}</p>`).join('');
-      const checkCard = checkRows ? `<div class="card"><h2>触发项扫描（${checks.length}项）</h2>${checkRows}</div>` : '';
-      content = `${checkCard}<div class="card"><h2>需要关注</h2>${actionRows(b.attention_items)}</div>
-        ${nextReviewCard(b.next_review)}
-        ${ledgerFlowCard()}
-        ${marketEnvCard(b.market_env)}
-        <div class="card"><h2>需你本人做</h2><p class="lead">${(b.attention_items && b.attention_items.length) ? '按上方需要关注项处置，执行后回传我记台账' : '无'}</p></div>
-        <div class="card"><details><summary>其余 ${b.normal_items.length} 只基金：未触发风控</summary>${actionRows(b.normal_items)}</details></div>`;
-    } else if (key === 'band_monthly') {
-      const f = D.funds_page;
-      const a = b.artifacts || {};
-      content = `${rebalanceCard(a.rebalance)}
-        <div class="metric-grid"><div class="metric"><div class="metric-label">本周期剩余</div><div class="metric-value">${money(f.remaining)}</div></div>
-        <div class="metric"><div class="metric-label">现金池</div><div class="metric-value">${money(f.cash_pool)}</div></div></div>
-        ${flowCard(a.rebalance)}
-        ${periodSummaryCard(a.period_summary)}
-        ${takeProfitCard(a.take_profit)}
-        ${fundingReviewCard(a.funding_review)}
-        ${scanCard(a.scan)}
-        <div class="card"><h2>持仓健康度</h2>${positionRows(b.items)}</div>
-        ${executionCard(a.execution_review, a.unlock_review)}
-        <div class="card"><h2>本周期资金去向</h2>${f.channels.map(x => `<div class="money-row"><span>${esc(x.name)}</span><strong>${esc(x.value || '—')}</strong></div>`).join('')}</div>`;
-    } else if (key === 'band_quarter') {
-      const weights = (b.allocation || {}).weights || {};
-      const a = b.artifacts || {};
-      content = `${quarterActionCard(a)}
-        <div class="card"><h2>当前资产配置</h2>${Object.keys(weights).length ? Object.entries(weights).map(([k,v]) => `<div class="money-row"><span>${esc(k)}</span><strong>${pct(v)}</strong></div>`).join('') : '<div class="empty">配置数据不足。</div>'}</div>
-        ${rebalanceCard(a.rebalance)}
-        ${concentrationCard(a.concentration)}
-        ${exitReviewsCard(a.exit_reviews)}
-        ${quarterReviewCard(a)}
-        <div class="card"><h2>需你本人做</h2><p class="lead">按上方去留与调仓结论执行，执行后回传我记台账</p></div>
-        <div class="card"><details><summary>其余 ${b.normal_items.length} 只：完成配置复核</summary>${actionRows(b.normal_items)}</details></div>`;
-    } else {
-      const a = b.artifacts || {};
-      const evalRows = b.items.filter(x => x.action !== '暂停' || !String(x.reason).includes('富国')).map(x => {
-        const pct = x.params && x.params.valuation_pct != null ? x.params.valuation_pct + '%' : '—';
-        const amt = x.amount != null ? x.amount + '元' : '—';
-        return `<div class="money-row"><span>${esc(x.fund_name)}</span><strong>${esc(x.action)} ${amt}</strong></div><p class="lead">分位${pct} · ${esc(x.reason || '')}</p>`;
-      }).join('');
-      content = `<div class="card"><h2>本期定投金额(集中制排序)</h2><p class="muted">分位低→高,主动/FOF表末;下周一前理财通改额</p>${evalRows}</div>
-        <div class="card"><h2>操作清单</h2><p class="lead">按下表逐只改理财通定投额：调高/调低/暂停/恢复；只改金额不改策略</p></div>
-        ${addOnCard(a.add_on_reviews, a.add_on_summary)}
-        ${netAdditionCard(a.net_addition)}
-        <div class="card"><h2>现金池</h2><div class="money-row"><span>现金池余额（加仓弹药，需≥本次加仓额）</span><strong>${money(a.cash_pool)}</strong></div></div>
-        ${nextReviewCard(b.next_review)}
-        ${ledgerFlowCard()}
-        <div class="card"><h2>需你本人做</h2><p class="lead">下周一前理财通按上表改额;执行后回传实际金额记台账</p></div>`;
-    }
-    page.querySelector('.band-content').innerHTML = content;
-    // 止损止盈独立卡片(2026-11-17 Q7):止损/止盈/减仓从报告文本提为显著卡片,不再埋没
-    const stops = (b.stop_signals || []).filter(s => s.fund_code);
-    if (stops.length && (key === 'band_daily' || key === 'band_monthly')) {
-      const rows = stops.map(s => {
-        const nm = s.fund_name || s.fund_code;
-        const txt = s.reason || '';
-        const st = s.status || (s.action || '');
-        return `<div class="money-row"><span>${esc(nm)}<small> ${esc(s.fund_code)}</small></span><strong>${esc(st)}</strong></div><p class="lead">${esc(txt)}</p>`;
-      }).join('');
-      page.querySelector('.band-content').insertAdjacentHTML('beforebegin', `<div class="card accent"><h2>止损止盈评估</h2>${rows}</div>`);
-    }
-  });
-  const test = D.bands.band_eval.run_mode === 'test';
-}
-
-function rebalanceCard(r) {
-  if (!r) return '';
-  return `<div class="card accent"><h2>债基定投与渐进再平衡</h2><p class="lead">${esc(r.action)}</p>
-    <div class="money-row"><span>当前债比 / ERP目标</span><strong>${pct(r.debt_weight)} / ${pct(r.debt_target)}</strong></div>
-    <div class="money-row"><span>启动线 / 补债下沿</span><strong>${pct(r.start_line)} / ${pct(r.lower_line)}</strong></div>
-    <p class="muted">${esc(r.actual_amount_note)}</p></div>`;
-}
-function flowCard(r) {
-  if (!r || !r.flows) return '';
-  return `<div class="card"><h2>${esc(r.erp_label)}态月度流量分配</h2>
-    <div class="money-row"><span>权益层</span><strong>${money(r.flows.equity)}</strong></div>
-    <div class="money-row"><span>债券层（受债比闸门约束）</span><strong>${money(r.flows.debt)}</strong></div>
-    <div class="money-row"><span>现金层</span><strong>${money(r.flows.cash)}</strong></div>
-    <p class="muted">三层合计 ${money(r.monthly_budget)}；存量再平衡不计入这份新增预算。</p></div>`;
-}
-function fundingReviewCard(rows) {
-  if (!rows) return '';
-  return `<div class="card"><h2>月度资金调度台账</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${esc(x.decision)}</strong></div><div class="fund-numbers">${esc(x.fund_code)} · ${esc(x.reason)}${x.valuation != null ? ` · 分位 ${pct(x.valuation)}` : ''}</div></div>`).join('')}</div>`;
-}
-function scanCard(scan) {
-  if (!scan) return '';
-  const comparisons = (scan.comparisons || []).map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.sector)} · ${esc(x.fund_name || x.fund_code || '待锁定基金')}</strong><strong>${pct(x.valuation)}</strong></div><div class="fund-numbers">${esc(x.fund_code || '未登记代码')} · ${esc(x.decision)}：${esc(x.reason)}</div></div>`).join('') || '<div class="empty">没有新基金通过低估初筛。</div>';
-  const all = (scan.results || []).map(x => `<div class="scan-row"><span>${esc(x.sector)}${x.existing ? '（持仓）' : ''}</span><span>${x.valuation === null ? '缺数据' : pct(x.valuation)}</span><span>${esc(x.status)}</span></div>`).join('');
-  return `<div class="card"><h2>全市场扫描与比较置换</h2><p class="lead">${esc(scan.summary)}</p>${comparisons}
-    <details><summary>查看全部 ${(scan.results || []).length} 个扫描方向（缺数据 ${scan.missing_count || 0} 个）</summary>${all}</details></div>`;
-}
-function addOnCard(rows, summary) {
-  if (!rows) return '';
-  const valueText = (key, d) => {
-    if (!d || d.value === null || d.value === undefined) return '未取到';
-    const date = d.date ? ` · ${d.date}` : '';
-    if (key === '趋势') return `${Number(d.value) === 1 ? '高于' : '低于'}20日均线${date}`;
-    if (key === '资金') return `近5日 ${Number(d.value).toFixed(2)}亿元${date}`;
-    if (key === '基本面') {
-      if (['强劲','景气','普通','恶化'].includes(d.caliber)) return `${d.caliber} · 净利润增速 ${Number(d.value).toFixed(2)}%${date}`;
-      return `双季正增长占比 ${Number(d.value).toFixed(0)}%${date}`;
-    }
-    if (key === '情绪') return `成交额分位 ${Number(d.value).toFixed(2)}%${date}`;
-    return `${d.value}${date}`;
-  };
-  const dataKey = {'趋势':'trend','资金':'flows','基本面':'fundamentals','情绪':'sentiments'};
-  return `<div class="card"><h2>低估加仓评分</h2><p class="lead">${esc(summary || '')}</p>${rows.map(x => {
-    const scored = x.score !== null && x.score !== undefined && x.threshold !== null && x.threshold !== undefined;
-    if (!scored) {
-      return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>不参与评分</strong></div><div class="fund-numbers">${esc(x.decision)}${x.valuation != null ? ` · 分位 ${pct(x.valuation)}` : ''}</div></div>`;
-    }
-    return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${x.score} / ${x.threshold}分</strong></div>
-    <div class="money-row"><span>估值 · 分位 ${pct(x.valuation)}</span><strong>${(x.scores || {})['估值'] ?? '—'}分</strong></div>
-    ${x.dimensions ? ['趋势','资金','基本面','情绪'].map(k => `<div class="money-row"><span>${k} · ${esc(valueText(k, x.dimensions[dataKey[k]]))}</span><strong>${(x.scores || {})[k] ?? '—'}分</strong></div>`).join('') : ''}
-    <div class="fund-numbers">${esc(x.decision)}${(x.missing || []).length ? ` · 缺：${esc(x.missing.join('、'))}` : ''}</div></div>`;
-  }).join('')}</div>`;
-}
-function executionCard(r, unlocks) {
-  if (!r) return '';
-  const upcoming = (unlocks || []).filter(x => x.within_6m);
-  return `<div class="card"><h2>月度执行复盘与数据完整性</h2>
-    <div class="money-row"><span>本周期定投记录 / 实投合计</span><strong>${r.invest_count}笔 / ${money(r.invest_total)}</strong></div>
-    <div class="money-row"><span>流水总记录 / 缺规模数据</span><strong>${r.record_count ?? "—"}笔 / ${r.missing_scale_count ?? "—"}只</strong></div>
-    <div class="money-row"><span>持仓快照日期</span><strong>${esc((r.snapshot_dates || []).join('、') || '未登记')}</strong></div>
-    <p>${esc(r.completeness)}</p>
-    <p class="muted">未来6个月解锁提醒：${upcoming.length ? upcoming.map(x => `${esc(x.fund_name)} ${esc(x.lock_end_date)}`).join('；') : '无已登记日期落在窗口内；未登记日期不作“无解锁”结论'}</p></div>`;
-}
-function quarterActionCard(a) {
-  if (!a.action_checklist) return '';
-  return `<div class="card accent"><h2>本季度要做什么</h2><ol class="action-list">${a.action_checklist.map(x => `<li>${esc(x)}</li>`).join('')}</ol></div>`;
-}
-function quarterReviewCard(a) {
-  const s = a.scale_review, bt = a.backtest;
-  if (!s && !bt) return '';
-  return `<div class="card"><h2>规模风险与季度回测</h2>
-    ${s ? `<div class="money-row"><span>基金规模复核</span><strong>${esc(s.status)}</strong></div>` : ''}
-    ${bt ? `<div class="money-row"><span>信号流水 / 有结果样本</span><strong>${bt.signal_count} / ${bt.outcome_count}</strong></div><p>${esc(bt.status)}</p>` : ''}</div>`;
-}
-
-function positionRows(items) {
-  if (!items.length) return '<div class="empty">暂无持仓数据。</div>';
-  return items.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${money(x.params.market_value)}</strong></div>
-    <div class="fund-numbers">${esc(x.fund_code)} · ${esc(x.reason)} · 收益率 ${pct(x.params.profit_rate)}</div></div>`).join('');
-}
-
-function renderRules(filter = '') {
-  const chapters = D.rules.filter(x => x.title.includes(filter));
-  $('rule-list').innerHTML = chapters.length ? chapters.map(x => `<button class="rule-item" data-rule="${D.rules.indexOf(x)}">${esc(x.title)}</button>`).join('') : '<div class="empty">没有匹配的章节。</div>';
-  document.querySelectorAll('[data-rule]').forEach(b => b.onclick = () => showRule(D.rules[Number(b.dataset.rule)]));
-  $('rule-search').oninput = e => renderRules(e.target.value.trim());
-}
-
-function showRule(rule) {
-  const detail = $('rule-detail');
-  detail.hidden = false;
-  detail.innerHTML = `<button class="back-btn" id="rule-back">返回章节列表</button><h2>${esc(rule.title)}</h2>${rule.content.map(block => {
-    if (block.type === 'heading') return `<h3>${esc(block.text)}</h3>`;
-    if (block.type === 'list') return `<ul>${block.items.map(x => `<li>${inline(x)}</li>`).join('')}</ul>`;
-    if (block.type === 'table') return `<table>${block.rows.map(r => `<tr>${r.map(c => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</table>`;
-    return `<p>${inline(block.text)}</p>`;
-  }).join('')}`;
-  $('rule-back').onclick = () => { detail.hidden = true; };
-  detail.scrollIntoView({behavior: 'smooth'});
-}
-
-function bindNavigation() {
-  document.querySelectorAll('.nav-item').forEach(a => a.onclick = e => { e.preventDefault(); location.hash = a.getAttribute('href'); showPage(a.getAttribute('href').slice(1)); });
-  $('open-rules').onclick = () => { location.hash = 'page-rules'; showPage('page-rules'); };
-}
-
-function showPage(id) {
-  if (!$(id)) id = 'page-home';
-  document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === id));
-  document.querySelectorAll('.nav-item').forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
-  window.scrollTo(0, 0);
-}
-
-
-function toast(text) { $('toast').textContent = text; $('toast').style.display = 'block'; setTimeout(() => $('toast').style.display = 'none', 2200); }
-init();
-
-
-function concentrationCard(c) {
-  if (!c || !c.sectors || !c.sectors.length) return '';
-  const rows = c.sectors.map(x => `<div class="money-row"><span>${esc(x.sector)}${x.over ? ' ⚠️超限' : ''}</span><strong>${pct(x.weight)}</strong></div>`).join('');
-  return `<div class="card"><h2>赛道集中度（上限 ${pct(c.limit)}）</h2>${rows}<p class="muted">组合总市值 ${money(c.total)}</p></div>`;
-}
-function exitReviewsCard(rows) {
-  if (!rows || !rows.length) return '';
-  return `<div class="card"><h2>存量去留结论</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${esc(x.action)}</strong></div><div class="fund-numbers">${esc(x.fund_code)} · ${esc(x.reason)}</div></div>`).join('')}</div>`;
-}
-function netAdditionCard(n) {
-  if (!n || n.triggered === undefined) return '';
-  const state = n.triggered ? `已触发：${esc(n.fund)}` : `未触发（第1名占比 ${pct(n.weight)} &lt; 门槛 ${pct(n.p102)}${n.fire ? '，火力已溢出' : '，火力未溢出'}）`;
-  return `<div class="card"><h2>净增评估（P102）</h2><p class="lead">${state}</p></div>`;
-}
-
-
-function marketEnvCard(env) {
-  if (!env) return '';
-  const pe = env.hs300_pe_pct != null ? `${Number(env.hs300_pe_pct).toFixed(1)}%` : '待数据';
-  const erpMap = {high:'高估',low:'低估',neutral:'中性'};
-  const erp = erpMap[env.erp_state] || (env.erp_state || '待数据');
-  return `<div class="card"><h2>市场环境（技术面参考·纯信息不择时）</h2>
-    <div class="money-row"><span>沪深300 PE分位</span><strong>${pe}</strong></div>
-    <div class="money-row"><span>ERP态</span><strong>${esc(erp)}</strong></div>
-    <div class="money-row"><span>周线 / 两融 / 成交额分位</span><strong>待数据</strong></div></div>`;
-}
-function nextReviewCard(rows) {
-  if (!rows || !rows.length) return '';
-  return `<div class="card"><h2>再评估时点</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || x.fund_code || '')}</strong><strong>${esc(x.action || '')}</strong></div><div class="fund-numbers">${esc(x.reason || '')}</div></div>`).join('')}</div>`;
-}
-function ledgerFlowCard() {
-  return `<div class="card"><h2>台账流水</h2><p class="lead">本次监控无台账更新（每日风控档不写台账）</p></div>`;
-}
-
-function periodSummaryCard(ps) {
-  if (!ps || ps.error) return '';
-  const rows = (ps.rows || []).map(r => `<div class="money-row"><span>${esc(r.action)}</span><strong>${r.count}笔 ${r.amount}元</strong></div>`).join('');
-  return `<div class="card"><h2>上周期总结(${esc(ps.start || '')}~${esc(ps.end || '')})</h2>${rows || '<div class="empty">本周期无流水</div>'}</div>`;
-}
-function takeProfitCard(tp) {
-  if (!tp || !tp.length) return '';
-  const rows = tp.map(r => `<p class="lead">${esc(r.fund_name)}:${esc(r.decision)}</p>`).join('');
-  return `<div class="card"><h2>债券止盈检查</h2>${rows}</div>`;
-}
+document.addEventListener('DOMContentLoaded', init);

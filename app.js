@@ -97,6 +97,8 @@ function renderBands() {
         <div class="metric-grid"><div class="metric"><div class="metric-label">本周期剩余</div><div class="metric-value">${money(f.remaining)}</div></div>
         <div class="metric"><div class="metric-label">现金池</div><div class="metric-value">${money(f.cash_pool)}</div></div></div>
         ${flowCard(a.rebalance)}
+        ${periodSummaryCard(a.period_summary)}
+        ${takeProfitCard(a.take_profit)}
         ${fundingReviewCard(a.funding_review)}
         ${scanCard(a.scan)}
         <div class="card"><h2>持仓健康度</h2>${positionRows(b.items)}</div>
@@ -247,3 +249,14 @@ function showPage(id) {
 
 function toast(text) { $('toast').textContent = text; $('toast').style.display = 'block'; setTimeout(() => $('toast').style.display = 'none', 2200); }
 init();
+
+function periodSummaryCard(ps) {
+  if (!ps || ps.error) return '';
+  const rows = (ps.rows || []).map(r => `<div class="money-row"><span>${esc(r.action)}</span><strong>${r.count}笔 ${r.amount}元</strong></div>`).join('');
+  return `<div class="card"><h2>上周期总结(${esc(ps.start || '')}~${esc(ps.end || '')})</h2>${rows || '<div class="empty">本周期无流水</div>'}</div>`;
+}
+function takeProfitCard(tp) {
+  if (!tp || !tp.length) return '';
+  const rows = tp.map(r => `<p class="lead">${esc(r.fund_name)}:${esc(r.decision)}</p>`).join('');
+  return `<div class="card"><h2>债券止盈检查</h2>${rows}</div>`;
+}

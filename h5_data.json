@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T12:04:51",
+  "generated_at": "2026-11-17T12:23:59",
   "base_date": "2026-11-17",
   "status": {
     "run_mode": "test",
@@ -432,6 +432,30 @@
           }
         }
       ],
+      "stop_signals": [
+        {
+          "fund_code": "017491",
+          "action": "观察",
+          "amount": null,
+          "reason": "收益率已触及止损线，持有期内到期再评",
+          "params": {
+            "profit_rate": -28.82,
+            "stop_line": -25.0
+          },
+          "run_mode": "test"
+        },
+        {
+          "fund_code": "010363",
+          "action": "观察",
+          "amount": null,
+          "reason": "收益率已触及止损线，持有期内到期再评",
+          "params": {
+            "profit_rate": -29.21,
+            "stop_line": -25.0
+          },
+          "run_mode": "test"
+        }
+      ],
       "allocation": {
         "amounts": {
           "权益": 6437.25,
@@ -681,6 +705,7 @@
         }
       ],
       "normal_items": [],
+      "stop_signals": [],
       "allocation": {
         "amounts": {
           "权益": 6437.25,
@@ -1132,6 +1157,7 @@
           }
         }
       ],
+      "stop_signals": [],
       "allocation": {
         "amounts": {
           "权益": 6437.25,
@@ -1879,6 +1905,7 @@
           }
         }
       ],
+      "stop_signals": [],
       "allocation": {
         "amounts": {
           "权益": 6437.25,

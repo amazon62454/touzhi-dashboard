@@ -313,7 +313,12 @@ const R = {
     const body = items.map(x => {
       const vp = x.params && has(x.params.valuation_pct) ? pct(x.params.valuation_pct) : '—';
       const amt = has(x.amount) ? `${x.amount}元` : '—';
-      return `<div class="money-row"><span>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></span><strong>${esc(x.action || '')} ${amt}</strong></div><p class="lead">分位${vp} · ${esc(x.reason || '')}</p>`;
+      const r = String(x.reason || '');
+      const m = r.match(/排名第\s*\d+/);
+      // 排名类说明压成短标签（分位+排名第N），不再把整句套话另起一行阻断列表；
+      // 非排名类（养老固定额/债基/高估暂停等）保留原因，因为它是该只为何这个金额的唯一解释。
+      const brief = m ? `分位 ${vp} · ${m[0]}` : `分位 ${vp}${r ? ' · ' + r : ''}`;
+      return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></strong><strong>${esc(x.action || '')} ${amt}</strong></div><div class="fund-numbers">${esc(brief)}</div></div>`;
     }).join('');
     return C.card(U.ui_h2_eval_amount, `<p class="muted">分位低→高，主动/FOF表末；下周一前理财通改额</p>${body}`);
   },

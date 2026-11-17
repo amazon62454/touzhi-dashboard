@@ -14,7 +14,7 @@ async function init() {
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     D = await r.json();
     renderShell(); renderHome(); renderRetirement(); renderFunds(); renderBands(); renderRules();
-    bindNavigation(); bindFeedback();
+    bindNavigation(); 
     showPage(location.hash.slice(1) || 'page-home');
   } catch (e) {
     $('app').innerHTML = `<div class="card">页面数据读取失败：${esc(e.message)}</div>`;
@@ -117,9 +117,6 @@ function renderBands() {
     page.querySelector('.band-content').innerHTML = content;
   });
   const test = D.bands.band_eval.run_mode === 'test';
-  const btn = document.querySelector('[data-feedback="invest"]');
-  btn.disabled = test;
-  btn.textContent = test ? '测试预览无需回传' : '生成定投执行回传文案';
 }
 
 function rebalanceCard(r) {
@@ -227,25 +224,6 @@ function showPage(id) {
   window.scrollTo(0, 0);
 }
 
-function bindFeedback() {
-  document.querySelectorAll('[data-feedback]').forEach(btn => btn.onclick = () => {
-    const type = btn.dataset.feedback;
-    let message = '';
-    if (type === 'invest') {
-      const items = D.bands.band_eval.items.filter(x => x.action === '定投' && x.amount > 0);
-      message = `【定投回传】实际执行情况：${items.map(x => `${x.fund_name}${x.amount}元`).join('、')}。结果：全部成功/有差异（请补充）。`;
-    } else if (type === 'fund') {
-      message = '【资金变动】类型：家庭支出/额外收入；金额：请填写；日期：请填写。';
-    } else {
-      message = '【持仓快照】请按理财通实际持有金额逐只填写后回传。';
-    }
-    copyText(message);
-  });
-}
 
-async function copyText(text) {
-  try { await navigator.clipboard.writeText(text); toast('回传文案已复制，粘贴给小艺即可'); }
-  catch (_) { window.prompt('请复制以下文案发给小艺', text); }
-}
 function toast(text) { $('toast').textContent = text; $('toast').style.display = 'block'; setTimeout(() => $('toast').style.display = 'none', 2200); }
 init();

@@ -89,6 +89,9 @@ function renderBands() {
       const checkRows = checks.map(c => `<div class="money-row"><span>${esc(c.name ?? c['名称'] ?? '')}</span><strong>${esc(c.status ?? c['状态'] ?? '')}</strong></div><p class="lead">${esc(c.detail ?? c['说明'] ?? '')}</p>`).join('');
       const checkCard = checkRows ? `<div class="card"><h2>触发项扫描（${checks.length}项）</h2>${checkRows}</div>` : '';
       content = `${checkCard}<div class="card"><h2>需要关注</h2>${actionRows(b.attention_items)}</div>
+        ${nextReviewCard(b.next_review)}
+        ${ledgerFlowCard()}
+        ${marketEnvCard(b.market_env)}
         <div class="card"><details><summary>其余 ${b.normal_items.length} 只基金：未触发风控</summary>${actionRows(b.normal_items)}</details></div>`;
     } else if (key === 'band_monthly') {
       const f = D.funds_page;
@@ -162,7 +165,7 @@ function flowCard(r) {
 }
 function fundingReviewCard(rows) {
   if (!rows) return '';
-  return `<div class="card"><h2>月度资金调度台账</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${esc(x.decision)}</strong></div><div class="fund-numbers">${esc(x.fund_code)} · ${esc(x.reason)}</div></div>`).join('')}</div>`;
+  return `<div class="card"><h2>月度资金调度台账</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${esc(x.decision)}</strong></div><div class="fund-numbers">${esc(x.fund_code)} · ${esc(x.reason)}${x.valuation != null ? ` · 分位 ${pct(x.valuation)}` : ''}</div></div>`).join('')}</div>`;
 }
 function scanCard(scan) {
   if (!scan) return '';
@@ -273,6 +276,25 @@ function netAdditionCard(n) {
   if (!n || n.triggered === undefined) return '';
   const state = n.triggered ? `已触发：${esc(n.fund)}` : `未触发（第1名占比 ${pct(n.weight)} &lt; 门槛 ${pct(n.p102)}${n.fire ? '，火力已溢出' : '，火力未溢出'}）`;
   return `<div class="card"><h2>净增评估（P102）</h2><p class="lead">${state}</p></div>`;
+}
+
+
+function marketEnvCard(env) {
+  if (!env) return '';
+  const pe = env.hs300_pe_pct != null ? `${Number(env.hs300_pe_pct).toFixed(1)}%` : '待数据';
+  const erpMap = {high:'高估',low:'低估',neutral:'中性'};
+  const erp = erpMap[env.erp_state] || (env.erp_state || '待数据');
+  return `<div class="card"><h2>市场环境（技术面参考·纯信息不择时）</h2>
+    <div class="money-row"><span>沪深300 PE分位</span><strong>${pe}</strong></div>
+    <div class="money-row"><span>ERP态</span><strong>${esc(erp)}</strong></div>
+    <div class="money-row"><span>周线 / 两融 / 成交额分位</span><strong>待数据</strong></div></div>`;
+}
+function nextReviewCard(rows) {
+  if (!rows || !rows.length) return '';
+  return `<div class="card"><h2>再评估时点</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || x.fund_code || '')}</strong><strong>${esc(x.action || '')}</strong></div><div class="fund-numbers">${esc(x.reason || '')}</div></div>`).join('')}</div>`;
+}
+function ledgerFlowCard() {
+  return `<div class="card"><h2>台账流水</h2><p class="lead">本次监控无台账更新（每日风控档不写台账）</p></div>`;
 }
 
 function periodSummaryCard(ps) {

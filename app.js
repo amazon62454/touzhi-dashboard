@@ -92,6 +92,7 @@ function renderBands() {
         ${nextReviewCard(b.next_review)}
         ${ledgerFlowCard()}
         ${marketEnvCard(b.market_env)}
+        <div class="card"><h2>需你本人做</h2><p class="lead">${(b.attention_items && b.attention_items.length) ? '按上方需要关注项处置，执行后回传我记台账' : '无'}</p></div>
         <div class="card"><details><summary>其余 ${b.normal_items.length} 只基金：未触发风控</summary>${actionRows(b.normal_items)}</details></div>`;
     } else if (key === 'band_monthly') {
       const f = D.funds_page;
@@ -106,7 +107,6 @@ function renderBands() {
         ${scanCard(a.scan)}
         <div class="card"><h2>持仓健康度</h2>${positionRows(b.items)}</div>
         ${executionCard(a.execution_review, a.unlock_review)}
-        ${scaleWarnCard(a.scale_warn)}
         <div class="card"><h2>本周期资金去向</h2>${f.channels.map(x => `<div class="money-row"><span>${esc(x.name)}</span><strong>${esc(x.value || '—')}</strong></div>`).join('')}</div>`;
     } else if (key === 'band_quarter') {
       const weights = (b.allocation || {}).weights || {};
@@ -117,7 +117,7 @@ function renderBands() {
         ${concentrationCard(a.concentration)}
         ${exitReviewsCard(a.exit_reviews)}
         ${quarterReviewCard(a)}
-        <div class="card"><h2>持有期与去留结论</h2>${actionRows(b.attention_items.filter(x => x.action !== '再平衡'))}</div>
+        <div class="card"><h2>需你本人做</h2><p class="lead">按上方去留与调仓结论执行，执行后回传我记台账</p></div>
         <div class="card"><details><summary>其余 ${b.normal_items.length} 只：完成配置复核</summary>${actionRows(b.normal_items)}</details></div>`;
     } else {
       const a = b.artifacts || {};
@@ -127,15 +127,17 @@ function renderBands() {
         return `<div class="money-row"><span>${esc(x.fund_name)}</span><strong>${esc(x.action)} ${amt}</strong></div><p class="lead">分位${pct} · ${esc(x.reason || '')}</p>`;
       }).join('');
       content = `<div class="card"><h2>本期定投金额(集中制排序)</h2><p class="muted">分位低→高,主动/FOF表末;下周一前理财通改额</p>${evalRows}</div>
-        ${rebalanceCard(a.rebalance)}
+        <div class="card"><h2>操作清单</h2><p class="lead">按下表逐只改理财通定投额：调高/调低/暂停/恢复；只改金额不改策略</p></div>
         ${addOnCard(a.add_on_reviews, a.add_on_summary)}
         ${netAdditionCard(a.net_addition)}
+        ${nextReviewCard(b.next_review)}
+        ${ledgerFlowCard()}
         <div class="card"><h2>需你本人做</h2><p class="lead">下周一前理财通按上表改额;执行后回传实际金额记台账</p></div>`;
     }
     page.querySelector('.band-content').innerHTML = content;
     // 止损止盈独立卡片(2026-11-17 Q7):止损/止盈/减仓从报告文本提为显著卡片,不再埋没
     const stops = b.stop_signals || [];
-    if (stops.length) {
+    if (stops.length && (key === 'band_daily' || key === 'band_monthly')) {
       const rows = stops.map(s => {
         const nm = s.fund_code ? `${s.fund_code} ${s.action || ''}` : (s['名称'] || '');
         const txt = s.reason || s['说明'] || '';
@@ -263,10 +265,6 @@ function concentrationCard(c) {
   if (!c || !c.sectors || !c.sectors.length) return '';
   const rows = c.sectors.map(x => `<div class="money-row"><span>${esc(x.sector)}${x.over ? ' ⚠️超限' : ''}</span><strong>${pct(x.weight)}</strong></div>`).join('');
   return `<div class="card"><h2>赛道集中度（上限 ${pct(c.limit)}）</h2>${rows}<p class="muted">组合总市值 ${money(c.total)}</p></div>`;
-}
-function scaleWarnCard(rows) {
-  if (!rows || !rows.length) return '';
-  return `<div class="card"><h2>规模预警</h2>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${esc(x.status)}</strong></div><div class="fund-numbers">${esc(x.scale)}</div></div>`).join('')}</div>`;
 }
 function exitReviewsCard(rows) {
   if (!rows || !rows.length) return '';

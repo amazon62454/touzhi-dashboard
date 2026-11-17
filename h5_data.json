@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T04:37:43",
+  "generated_at": "2026-11-17T08:25:20",
   "base_date": "2026-11-17",
   "status": {
     "run_mode": "test",
@@ -70,91 +70,91 @@
     ]
   },
   "retirement": {
-    "total_market_value": 22147.18,
-    "total_cost": 23205.379999999997,
-    "total_profit": -1058.199999999997,
-    "total_profit_rate": -4.560149413627345,
+    "total_market_value": 21579.85,
+    "total_cost": 23340.7,
+    "total_profit": -1760.8500000000022,
+    "total_profit_rate": -7.544118214106699,
     "monthly_budget": 1800.0,
     "funds": [
       {
         "fund_code": "009290",
         "fund_name": "富国添享一年持有债券A",
-        "market_value": 13241.69,
-        "cost": 13192.63,
-        "profit": 49.06,
-        "profit_rate": 0.37,
+        "market_value": 13021.65,
+        "cost": 13100.78,
+        "profit": -79.13,
+        "profit_rate": -0.6,
         "status": "渐进再平衡中，按实际解锁情况处理"
       },
       {
         "fund_code": "024328",
         "fund_name": "易方达恒生港股通创新药ETF联接A",
-        "market_value": 1978.77,
-        "cost": 1984.81,
-        "profit": -6.04,
-        "profit_rate": -0.3,
+        "market_value": 2030.91,
+        "cost": 2146.98,
+        "profit": -116.07,
+        "profit_rate": -5.41,
         "status": "集中制档位参与(当前周金额见c5设定列,随每周集中制档位浮动;分位快照见估值分位参考表) | 金额以理财通实况为准"
       },
       {
         "fund_code": "012544",
         "fund_name": "嘉实中证新能源汽车指数C",
-        "market_value": 1434.21,
-        "cost": 1426.74,
-        "profit": 7.47,
-        "profit_rate": 0.52,
+        "market_value": 1399.62,
+        "cost": 1466.74,
+        "profit": -67.12,
+        "profit_rate": -4.58,
         "status": "集中制档位参与(当前周金额见c5设定列,随每周集中制档位浮动;分位快照见估值分位参考表) | 金额以理财通实况为准"
       },
       {
         "fund_code": "004253",
         "fund_name": "国泰黄金ETF联接C",
-        "market_value": 1318.4,
+        "market_value": 1253.06,
         "cost": 1360.7,
-        "profit": -42.3,
-        "profit_rate": -3.11,
+        "profit": -107.64,
+        "profit_rate": -7.91,
         "status": "集中制档位参与(当前周金额见c5设定列,随每周集中制档位浮动;分位快照见估值分位参考表) | 金额以理财通实况为准"
       },
       {
         "fund_code": "010267",
         "fund_name": "兴全安泰积极养老目标五年FOF A",
-        "market_value": 1149.84,
+        "market_value": 1147.97,
         "cost": 1244.0,
-        "profit": -94.16,
-        "profit_rate": -7.57,
+        "profit": -96.03,
+        "profit_rate": -7.72,
         "status": "养老目标FOF提额至30/周【2026-10-29起执行】,本周(10-22)维持13元定投不更动(用户2026-10-22指定);资金来源=债基转换释放·月度分配,约+73/月;理由:养老=北极星13太少+债基转换资金投权益加速债占比回40%"
-      },
-      {
-        "fund_code": "017491",
-        "fund_name": "财通景气甄选一年持有C",
-        "market_value": 1060.25,
-        "cost": 1489.5,
-        "profit": -429.25,
-        "profit_rate": -28.82,
-        "status": "暂停申购，不可定投,到期赎回退出(2026-10-31拍板:AI硬件方向停用+破止损线,到期后赎回退出,即使恢复申购也不买)"
       },
       {
         "fund_code": "010340",
         "fund_name": "易方达高质量严选三年持有",
-        "market_value": 920.04,
+        "market_value": 891.92,
         "cost": 1121.0,
-        "profit": -200.96,
-        "profit_rate": -17.93,
+        "profit": -229.08,
+        "profit_rate": -20.44,
         "status": "已暂停定投(2026-10-20用户实操),存量到期评估留/赎"
+      },
+      {
+        "fund_code": "017491",
+        "fund_name": "财通景气甄选一年持有C",
+        "market_value": 887.82,
+        "cost": 1489.5,
+        "profit": -601.68,
+        "profit_rate": -40.39,
+        "status": "暂停申购，不可定投,到期赎回退出(2026-10-31拍板:AI硬件方向停用+破止损线,到期后赎回退出,即使恢复申购也不买)"
       },
       {
         "fund_code": "010363",
         "fund_name": "信澳匠心臻选两年持有",
-        "market_value": 789.99,
+        "market_value": 686.92,
         "cost": 1116.0,
-        "profit": -326.01,
-        "profit_rate": -29.21,
+        "profit": -429.08,
+        "profit_rate": -38.45,
         "status": "已暂停定投(2026-10-20用户实操),存量到期评估留/赎"
       },
       {
         "fund_code": "017140",
         "fund_name": "华宝中证有色金属ETF联接A",
-        "market_value": 253.99,
-        "cost": 270.0,
-        "profit": -16.01,
-        "profit_rate": -5.93,
+        "market_value": 259.98,
+        "cost": 295.0,
+        "profit": -35.02,
+        "profit_rate": -11.87,
         "status": "集中制档位参与(当前周金额见c5设定列,随每周集中制档位浮动;分位快照见估值分位参考表) | 金额以理财通实况为准"
       }
     ],
@@ -202,7 +202,7 @@
           "params": {
             "profit_rate": -29.21,
             "stop_line": -25.0,
-            "market_value": 789.99,
+            "market_value": 686.92,
             "cost": 1116.0
           }
         },
@@ -215,7 +215,7 @@
           "params": {
             "profit_rate": -28.82,
             "stop_line": -25.0,
-            "market_value": 1060.25,
+            "market_value": 887.82,
             "cost": 1489.5
           }
         },
@@ -228,7 +228,7 @@
           "params": {
             "profit_rate": -17.93,
             "drawdown": null,
-            "market_value": 920.04,
+            "market_value": 891.92,
             "cost": 1121.0
           }
         },
@@ -241,7 +241,7 @@
           "params": {
             "profit_rate": -7.57,
             "drawdown": null,
-            "market_value": 1149.84,
+            "market_value": 1147.97,
             "cost": 1244.0
           }
         },
@@ -254,8 +254,8 @@
           "params": {
             "profit_rate": -5.93,
             "drawdown": null,
-            "market_value": 253.99,
-            "cost": 270.0
+            "market_value": 259.98,
+            "cost": 295.0
           }
         },
         {
@@ -267,7 +267,7 @@
           "params": {
             "profit_rate": -3.11,
             "drawdown": null,
-            "market_value": 1318.4,
+            "market_value": 1253.06,
             "cost": 1360.7
           }
         },
@@ -280,8 +280,8 @@
           "params": {
             "profit_rate": -0.3,
             "drawdown": null,
-            "market_value": 1978.77,
-            "cost": 1984.81
+            "market_value": 2030.91,
+            "cost": 2146.98
           }
         },
         {
@@ -293,8 +293,8 @@
           "params": {
             "profit_rate": 0.37,
             "drawdown": null,
-            "market_value": 13241.69,
-            "cost": 13192.63
+            "market_value": 13021.65,
+            "cost": 13100.78
           }
         },
         {
@@ -306,8 +306,8 @@
           "params": {
             "profit_rate": 0.52,
             "drawdown": null,
-            "market_value": 1434.21,
-            "cost": 1426.74
+            "market_value": 1399.62,
+            "cost": 1466.74
           }
         }
       ],
@@ -321,7 +321,7 @@
           "params": {
             "profit_rate": -29.21,
             "stop_line": -25.0,
-            "market_value": 789.99,
+            "market_value": 686.92,
             "cost": 1116.0
           }
         },
@@ -334,7 +334,7 @@
           "params": {
             "profit_rate": -28.82,
             "stop_line": -25.0,
-            "market_value": 1060.25,
+            "market_value": 887.82,
             "cost": 1489.5
           }
         }
@@ -349,7 +349,7 @@
           "params": {
             "profit_rate": -17.93,
             "drawdown": null,
-            "market_value": 920.04,
+            "market_value": 891.92,
             "cost": 1121.0
           }
         },
@@ -362,7 +362,7 @@
           "params": {
             "profit_rate": -7.57,
             "drawdown": null,
-            "market_value": 1149.84,
+            "market_value": 1147.97,
             "cost": 1244.0
           }
         },
@@ -375,8 +375,8 @@
           "params": {
             "profit_rate": -5.93,
             "drawdown": null,
-            "market_value": 253.99,
-            "cost": 270.0
+            "market_value": 259.98,
+            "cost": 295.0
           }
         },
         {
@@ -388,7 +388,7 @@
           "params": {
             "profit_rate": -3.11,
             "drawdown": null,
-            "market_value": 1318.4,
+            "market_value": 1253.06,
             "cost": 1360.7
           }
         },
@@ -401,8 +401,8 @@
           "params": {
             "profit_rate": -0.3,
             "drawdown": null,
-            "market_value": 1978.77,
-            "cost": 1984.81
+            "market_value": 2030.91,
+            "cost": 2146.98
           }
         },
         {
@@ -414,8 +414,8 @@
           "params": {
             "profit_rate": 0.37,
             "drawdown": null,
-            "market_value": 13241.69,
-            "cost": 13192.63
+            "market_value": 13021.65,
+            "cost": 13100.78
           }
         },
         {
@@ -427,8 +427,8 @@
           "params": {
             "profit_rate": 0.52,
             "drawdown": null,
-            "market_value": 1434.21,
-            "cost": 1426.74
+            "market_value": 1399.62,
+            "cost": 1466.74
           }
         }
       ],
@@ -470,9 +470,9 @@
             "amount": 50.0,
             "valuation_pct": 0.0,
             "valuation_band": "极度低估",
-            "market_value": 253.99,
-            "cost": 270.0,
-            "profit_rate": -5.93
+            "market_value": 259.98,
+            "cost": 295.0,
+            "profit_rate": -11.87
           }
         },
         {
@@ -486,9 +486,9 @@
             "amount": 30.0,
             "valuation_pct": 5.75,
             "valuation_band": "极度低估",
-            "market_value": 1978.77,
-            "cost": 1984.81,
-            "profit_rate": -0.3
+            "market_value": 2030.91,
+            "cost": 2146.98,
+            "profit_rate": -5.41
           }
         },
         {
@@ -502,9 +502,9 @@
             "amount": 20.0,
             "valuation_pct": 6.85,
             "valuation_band": "极度低估",
-            "market_value": 1434.21,
-            "cost": 1426.74,
-            "profit_rate": 0.52
+            "market_value": 1399.62,
+            "cost": 1466.74,
+            "profit_rate": -4.58
           }
         },
         {
@@ -515,9 +515,9 @@
           "reason": "养老目标基金按固定金额定投",
           "params": {
             "fixed_amount": 30.0,
-            "market_value": 1149.84,
+            "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.57
+            "profit_rate": -7.72
           }
         },
         {
@@ -529,9 +529,9 @@
           "params": {
             "valuation_pct": 76.96,
             "valuation_band": "高估",
-            "market_value": 1318.4,
+            "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -3.11
+            "profit_rate": -7.91
           }
         },
         {
@@ -563,9 +563,9 @@
               "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
               "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
             },
-            "market_value": 13241.69,
-            "cost": 13192.63,
-            "profit_rate": 0.37
+            "market_value": 13021.65,
+            "cost": 13100.78,
+            "profit_rate": -0.6
           }
         }
       ],
@@ -581,9 +581,9 @@
             "amount": 50.0,
             "valuation_pct": 0.0,
             "valuation_band": "极度低估",
-            "market_value": 253.99,
-            "cost": 270.0,
-            "profit_rate": -5.93
+            "market_value": 259.98,
+            "cost": 295.0,
+            "profit_rate": -11.87
           }
         },
         {
@@ -597,9 +597,9 @@
             "amount": 30.0,
             "valuation_pct": 5.75,
             "valuation_band": "极度低估",
-            "market_value": 1978.77,
-            "cost": 1984.81,
-            "profit_rate": -0.3
+            "market_value": 2030.91,
+            "cost": 2146.98,
+            "profit_rate": -5.41
           }
         },
         {
@@ -613,9 +613,9 @@
             "amount": 20.0,
             "valuation_pct": 6.85,
             "valuation_band": "极度低估",
-            "market_value": 1434.21,
-            "cost": 1426.74,
-            "profit_rate": 0.52
+            "market_value": 1399.62,
+            "cost": 1466.74,
+            "profit_rate": -4.58
           }
         },
         {
@@ -626,9 +626,9 @@
           "reason": "养老目标基金按固定金额定投",
           "params": {
             "fixed_amount": 30.0,
-            "market_value": 1149.84,
+            "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.57
+            "profit_rate": -7.72
           }
         },
         {
@@ -640,9 +640,9 @@
           "params": {
             "valuation_pct": 76.96,
             "valuation_band": "高估",
-            "market_value": 1318.4,
+            "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -3.11
+            "profit_rate": -7.91
           }
         },
         {
@@ -674,9 +674,9 @@
               "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
               "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
             },
-            "market_value": 13241.69,
-            "cost": 13192.63,
-            "profit_rate": 0.37
+            "market_value": 13021.65,
+            "cost": 13100.78,
+            "profit_rate": -0.6
           }
         }
       ],
@@ -1622,7 +1622,7 @@
           "reason": "仍处深亏区，按规则继续持有观察",
           "params": {
             "profit_rate": -29.21,
-            "market_value": 789.99,
+            "market_value": 686.92,
             "cost": 1116.0
           }
         },
@@ -1634,7 +1634,7 @@
           "reason": "仍处深亏区，按规则继续持有观察",
           "params": {
             "profit_rate": -28.82,
-            "market_value": 1060.25,
+            "market_value": 887.82,
             "cost": 1489.5
           }
         },
@@ -1645,9 +1645,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 1978.77,
-            "cost": 1984.81,
-            "profit_rate": -0.3
+            "market_value": 2030.91,
+            "cost": 2146.98,
+            "profit_rate": -5.41
           }
         },
         {
@@ -1657,9 +1657,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 1434.21,
-            "cost": 1426.74,
-            "profit_rate": 0.52
+            "market_value": 1399.62,
+            "cost": 1466.74,
+            "profit_rate": -4.58
           }
         },
         {
@@ -1669,9 +1669,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 1318.4,
+            "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -3.11
+            "profit_rate": -7.91
           }
         },
         {
@@ -1681,9 +1681,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 1149.84,
+            "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.57
+            "profit_rate": -7.72
           }
         },
         {
@@ -1693,9 +1693,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 920.04,
+            "market_value": 891.92,
             "cost": 1121.0,
-            "profit_rate": -17.93
+            "profit_rate": -20.44
           }
         },
         {
@@ -1705,9 +1705,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 253.99,
-            "cost": 270.0,
-            "profit_rate": -5.93
+            "market_value": 259.98,
+            "cost": 295.0,
+            "profit_rate": -11.87
           }
         },
         {
@@ -1739,9 +1739,9 @@
               "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
               "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
             },
-            "market_value": 13241.69,
-            "cost": 13192.63,
-            "profit_rate": 0.37
+            "market_value": 13021.65,
+            "cost": 13100.78,
+            "profit_rate": -0.6
           }
         }
       ],
@@ -1754,7 +1754,7 @@
           "reason": "仍处深亏区，按规则继续持有观察",
           "params": {
             "profit_rate": -29.21,
-            "market_value": 789.99,
+            "market_value": 686.92,
             "cost": 1116.0
           }
         },
@@ -1766,7 +1766,7 @@
           "reason": "仍处深亏区，按规则继续持有观察",
           "params": {
             "profit_rate": -28.82,
-            "market_value": 1060.25,
+            "market_value": 887.82,
             "cost": 1489.5
           }
         },
@@ -1799,9 +1799,9 @@
               "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
               "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
             },
-            "market_value": 13241.69,
-            "cost": 13192.63,
-            "profit_rate": 0.37
+            "market_value": 13021.65,
+            "cost": 13100.78,
+            "profit_rate": -0.6
           }
         }
       ],
@@ -1813,9 +1813,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 1978.77,
-            "cost": 1984.81,
-            "profit_rate": -0.3
+            "market_value": 2030.91,
+            "cost": 2146.98,
+            "profit_rate": -5.41
           }
         },
         {
@@ -1825,9 +1825,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 1434.21,
-            "cost": 1426.74,
-            "profit_rate": 0.52
+            "market_value": 1399.62,
+            "cost": 1466.74,
+            "profit_rate": -4.58
           }
         },
         {
@@ -1837,9 +1837,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 1318.4,
+            "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -3.11
+            "profit_rate": -7.91
           }
         },
         {
@@ -1849,9 +1849,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 1149.84,
+            "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.57
+            "profit_rate": -7.72
           }
         },
         {
@@ -1861,9 +1861,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 920.04,
+            "market_value": 891.92,
             "cost": 1121.0,
-            "profit_rate": -17.93
+            "profit_rate": -20.44
           }
         },
         {
@@ -1873,9 +1873,9 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "market_value": 253.99,
-            "cost": 270.0,
-            "profit_rate": -5.93
+            "market_value": 259.98,
+            "cost": 295.0,
+            "profit_rate": -11.87
           }
         }
       ],

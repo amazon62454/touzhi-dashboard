@@ -273,9 +273,13 @@ const R = {
     const s = a && a.scale_review, bt = a && a.backtest;
     if (!s && !bt) return '';
     const parts = [];
-    if (s) parts.push(C.kv('基金规模复核', esc(s.status || s.message || JSON.stringify(s))));
-    if (bt) parts.push(C.kv('信号流水 / 有结果样本', `${esc(bt.signals ?? 0)} / ${esc(bt.results ?? 0)}`));
-    if (bt && bt.note) parts.push(`<p class="muted">${esc(bt.note)}</p>`);
+    if (s) parts.push(C.kv('基金规模复核', esc(s.status || '')));
+    if (bt) {
+      // 字段名对齐数据：signal_count/outcome_count（旧写 signals/results 不存在→永远显0/0）
+      parts.push(C.kv('信号流水 / 有结果样本', `${esc(bt.signal_count ?? 0)} / ${esc(bt.outcome_count ?? 0)}`));
+      if (bt.status) parts.push(`<p class="muted">${esc(bt.status)}</p>`);
+      else if (bt.note) parts.push(`<p class="muted">${esc(bt.note)}</p>`);
+    }
     return C.card(U.ui_h2_scale_backtest, parts.join(''));
   },
   netAddition(n) {

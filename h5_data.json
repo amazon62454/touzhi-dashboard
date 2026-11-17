@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T14:25:20",
+  "generated_at": "2026-11-17T14:40:20",
   "base_date": "2026-11-17",
   "status": {
     "run_mode": "test",
@@ -36,7 +36,7 @@
       {
         "id": "band_quarter",
         "title": "季度档 · 配置复核",
-        "summary": "测试预览 · 富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+        "summary": "测试预览 · 富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
         "base_date": "2026-11-17",
         "run_mode": "test"
       }
@@ -959,40 +959,40 @@
       "summary": "测试预览 · 扫描21个方向，8个进入低估观察；本期无新基金正式纳入，1只待四项复核",
       "run_mode": "test",
       "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T03:00:41",
+      "generated_at": "2026-11-17T14:39:47",
       "items": [
         {
           "fund_code": "009290",
           "fund_name": "富国添享一年持有债券A",
           "action": "再平衡",
           "amount": null,
-          "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+          "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
           "params": {
             "rebalance": {
-              "erp_state": "high",
-              "erp_label": "高估",
+              "erp_state": "unknown",
+              "erp_label": "中性",
               "flows": {
-                "equity": 630.0,
-                "debt": 990.0,
+                "equity": 900.0,
+                "debt": 720.0,
                 "cash": 180.0
               },
               "monthly_budget": 1800.0,
-              "debt_market": 13241.69,
-              "debt_weight": 59.78950819020752,
-              "debt_target": 55.00000000000001,
-              "start_line": 65.0,
-              "lower_line": 45.00000000000001,
+              "debt_market": 13021.65,
+              "debt_weight": 60.341707657838214,
+              "debt_target": 40.0,
+              "start_line": 50.0,
+              "lower_line": 30.0,
               "active": true,
               "mode": "active",
-              "daily_reference": 45.0,
-              "rank1_fund_code": "017140",
-              "target_fund_name": "华宝中证有色金属ETF联接A",
-              "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+              "daily_reference": 33.0,
+              "rank1_fund_code": "024328",
+              "target_fund_name": "易方达恒生港股通创新药ETF联接A",
+              "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
               "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
             },
-            "market_value": 13241.69,
-            "cost": 13192.63,
-            "profit_rate": 0.37
+            "market_value": 13021.65,
+            "cost": 13100.78,
+            "profit_rate": -0.6
           }
         },
         {
@@ -1002,9 +1002,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1978.77,
-            "cost": 1984.81,
-            "profit_rate": -0.3,
+            "market_value": 2030.91,
+            "cost": 2146.98,
+            "profit_rate": -5.41,
             "valuation_pct": 5.75
           }
         },
@@ -1015,9 +1015,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1434.21,
-            "cost": 1426.74,
-            "profit_rate": 0.52,
+            "market_value": 1399.62,
+            "cost": 1466.74,
+            "profit_rate": -4.58,
             "valuation_pct": 6.85
           }
         },
@@ -1028,9 +1028,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1318.4,
+            "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -3.11,
+            "profit_rate": -7.91,
             "valuation_pct": 76.96
           }
         },
@@ -1041,21 +1041,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1149.84,
+            "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.57
-          }
-        },
-        {
-          "fund_code": "017491",
-          "fund_name": "财通景气甄选一年持有C",
-          "action": "持有",
-          "amount": null,
-          "reason": "存量管理",
-          "params": {
-            "market_value": 1060.25,
-            "cost": 1489.5,
-            "profit_rate": -28.82
+            "profit_rate": -7.72
           }
         },
         {
@@ -1065,9 +1053,21 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 920.04,
+            "market_value": 891.92,
             "cost": 1121.0,
-            "profit_rate": -17.93
+            "profit_rate": -20.44
+          }
+        },
+        {
+          "fund_code": "017491",
+          "fund_name": "财通景气甄选一年持有C",
+          "action": "持有",
+          "amount": null,
+          "reason": "存量管理",
+          "params": {
+            "market_value": 887.82,
+            "cost": 1489.5,
+            "profit_rate": -40.39
           }
         },
         {
@@ -1077,9 +1077,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 789.99,
+            "market_value": 686.92,
             "cost": 1116.0,
-            "profit_rate": -29.21
+            "profit_rate": -38.45
           }
         },
         {
@@ -1089,10 +1089,10 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 253.99,
-            "cost": 270.0,
-            "profit_rate": -5.93,
-            "valuation_pct": 0.0
+            "market_value": 259.98,
+            "cost": 295.0,
+            "profit_rate": -11.87,
+            "valuation_pct": 36.8
           }
         }
       ],
@@ -1102,33 +1102,33 @@
           "fund_name": "富国添享一年持有债券A",
           "action": "再平衡",
           "amount": null,
-          "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+          "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
           "params": {
             "rebalance": {
-              "erp_state": "high",
-              "erp_label": "高估",
+              "erp_state": "unknown",
+              "erp_label": "中性",
               "flows": {
-                "equity": 630.0,
-                "debt": 990.0,
+                "equity": 900.0,
+                "debt": 720.0,
                 "cash": 180.0
               },
               "monthly_budget": 1800.0,
-              "debt_market": 13241.69,
-              "debt_weight": 59.78950819020752,
-              "debt_target": 55.00000000000001,
-              "start_line": 65.0,
-              "lower_line": 45.00000000000001,
+              "debt_market": 13021.65,
+              "debt_weight": 60.341707657838214,
+              "debt_target": 40.0,
+              "start_line": 50.0,
+              "lower_line": 30.0,
               "active": true,
               "mode": "active",
-              "daily_reference": 45.0,
-              "rank1_fund_code": "017140",
-              "target_fund_name": "华宝中证有色金属ETF联接A",
-              "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+              "daily_reference": 33.0,
+              "rank1_fund_code": "024328",
+              "target_fund_name": "易方达恒生港股通创新药ETF联接A",
+              "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
               "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
             },
-            "market_value": 13241.69,
-            "cost": 13192.63,
-            "profit_rate": 0.37
+            "market_value": 13021.65,
+            "cost": 13100.78,
+            "profit_rate": -0.6
           }
         }
       ],
@@ -1140,9 +1140,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1978.77,
-            "cost": 1984.81,
-            "profit_rate": -0.3,
+            "market_value": 2030.91,
+            "cost": 2146.98,
+            "profit_rate": -5.41,
             "valuation_pct": 5.75
           }
         },
@@ -1153,9 +1153,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1434.21,
-            "cost": 1426.74,
-            "profit_rate": 0.52,
+            "market_value": 1399.62,
+            "cost": 1466.74,
+            "profit_rate": -4.58,
             "valuation_pct": 6.85
           }
         },
@@ -1166,9 +1166,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1318.4,
+            "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -3.11,
+            "profit_rate": -7.91,
             "valuation_pct": 76.96
           }
         },
@@ -1179,21 +1179,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1149.84,
+            "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.57
-          }
-        },
-        {
-          "fund_code": "017491",
-          "fund_name": "财通景气甄选一年持有C",
-          "action": "持有",
-          "amount": null,
-          "reason": "存量管理",
-          "params": {
-            "market_value": 1060.25,
-            "cost": 1489.5,
-            "profit_rate": -28.82
+            "profit_rate": -7.72
           }
         },
         {
@@ -1203,9 +1191,21 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 920.04,
+            "market_value": 891.92,
             "cost": 1121.0,
-            "profit_rate": -17.93
+            "profit_rate": -20.44
+          }
+        },
+        {
+          "fund_code": "017491",
+          "fund_name": "财通景气甄选一年持有C",
+          "action": "持有",
+          "amount": null,
+          "reason": "存量管理",
+          "params": {
+            "market_value": 887.82,
+            "cost": 1489.5,
+            "profit_rate": -40.39
           }
         },
         {
@@ -1215,9 +1215,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 789.99,
+            "market_value": 686.92,
             "cost": 1116.0,
-            "profit_rate": -29.21
+            "profit_rate": -38.45
           }
         },
         {
@@ -1227,62 +1227,55 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 253.99,
-            "cost": 270.0,
-            "profit_rate": -5.93,
-            "valuation_pct": 0.0
+            "market_value": 259.98,
+            "cost": 295.0,
+            "profit_rate": -11.87,
+            "valuation_pct": 36.8
           }
         }
       ],
       "stop_signals": [],
       "allocation": {
         "amounts": {
-          "权益": 6437.25,
-          "债券": 13241.69,
-          "商品": 1318.4,
-          "养老FOF": 1149.84,
+          "权益": 6157.169999999999,
+          "债券": 13021.65,
+          "商品": 1253.06,
+          "养老FOF": 1147.97,
           "现金": 0.0
         },
-        "total": 22147.18,
+        "total": 21579.85,
         "weights": {
-          "权益": 29.07,
-          "债券": 59.79,
-          "商品": 5.95,
-          "养老FOF": 5.19,
+          "权益": 28.53,
+          "债券": 60.34,
+          "商品": 5.81,
+          "养老FOF": 5.32,
           "现金": 0.0
         }
       },
       "artifacts": {
         "rebalance": {
-          "erp_state": "high",
-          "erp_label": "高估",
+          "erp_state": "unknown",
+          "erp_label": "中性",
           "flows": {
-            "equity": 630.0,
-            "debt": 990.0,
+            "equity": 900.0,
+            "debt": 720.0,
             "cash": 180.0
           },
           "monthly_budget": 1800.0,
-          "debt_market": 13241.69,
-          "debt_weight": 59.78950819020752,
-          "debt_target": 55.00000000000001,
-          "start_line": 65.0,
-          "lower_line": 45.00000000000001,
+          "debt_market": 13021.65,
+          "debt_weight": 60.341707657838214,
+          "debt_target": 40.0,
+          "start_line": 50.0,
+          "lower_line": 30.0,
           "active": true,
           "mode": "active",
-          "daily_reference": 45.0,
-          "rank1_fund_code": "017140",
-          "target_fund_name": "华宝中证有色金属ETF联接A",
-          "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+          "daily_reference": 33.0,
+          "rank1_fund_code": "024328",
+          "target_fund_name": "易方达恒生港股通创新药ETF联接A",
+          "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
           "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
         },
         "funding_review": [
-          {
-            "fund_code": "017140",
-            "fund_name": "华宝中证有色金属ETF联接A",
-            "decision": "维持定投",
-            "reason": "定投中",
-            "valuation": 0.0
-          },
           {
             "fund_code": "024328",
             "fund_name": "易方达恒生港股通创新药ETF联接A",
@@ -1296,6 +1289,13 @@
             "decision": "维持定投",
             "reason": "定投中",
             "valuation": 6.85
+          },
+          {
+            "fund_code": "017140",
+            "fund_name": "华宝中证有色金属ETF联接A",
+            "decision": "维持定投",
+            "reason": "定投中",
+            "valuation": 36.8
           },
           {
             "fund_code": "004253",
@@ -1315,19 +1315,19 @@
             "fund_code": "009290",
             "fund_name": "富国添享一年持有债券A",
             "decision": "暂停新增日投，执行渐进再平衡",
-            "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
-            "valuation": null
-          },
-          {
-            "fund_code": "017491",
-            "fund_name": "财通景气甄选一年持有C",
-            "decision": "维持暂停，保留下月复核",
-            "reason": "存量管理",
+            "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
             "valuation": null
           },
           {
             "fund_code": "010340",
             "fund_name": "易方达高质量严选三年持有",
+            "decision": "维持暂停，保留下月复核",
+            "reason": "存量管理",
+            "valuation": null
+          },
+          {
+            "fund_code": "017491",
+            "fund_name": "财通景气甄选一年持有C",
             "decision": "维持暂停，保留下月复核",
             "reason": "存量管理",
             "valuation": null
@@ -1347,11 +1347,11 @@
               "index_code": "930708",
               "fund_code": "017140",
               "fund_name": "华宝中证有色金属ETF联接A",
-              "note": "华宝中证有色金属ETF联接A",
-              "valuation": 0.0,
-              "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "低估候选",
+              "note": "PB口径(周期股禁PE判低估:PE0%=景气顶部风险)",
+              "valuation": 36.8,
+              "date": "2026-11-17",
+              "source": "AI涨乐schema·PB分位",
+              "status": "持仓",
               "existing": true
             },
             {
@@ -1360,10 +1360,10 @@
               "fund_code": "011613",
               "fund_name": "华夏科创50ETF联接C",
               "note": "华夏科创50ETF联接C",
-              "valuation": 1.98,
-              "date": "2026-11-16",
-              "source": "AI涨乐",
-              "status": "低估候选",
+              "valuation": 66.32,
+              "date": "2026-11-15",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1374,7 +1374,7 @@
               "note": "易方达恒生港股通创新药ETF联接A",
               "valuation": 5.75,
               "date": "2026-11-15",
-              "source": "AI涨乐",
+              "source": "AI涨乐schema",
               "status": "低估候选",
               "existing": true
             },
@@ -1386,7 +1386,7 @@
               "note": "嘉实中证新能源汽车指数C",
               "valuation": 6.85,
               "date": "2026-11-15",
-              "source": "AI涨乐",
+              "source": "AI涨乐schema",
               "status": "低估候选",
               "existing": true
             },
@@ -1398,7 +1398,7 @@
               "note": "易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
               "valuation": 12.1,
               "date": "2026-11-15",
-              "source": "AI涨乐",
+              "source": "AI涨乐schema",
               "status": "低估候选",
               "existing": false
             },
@@ -1410,7 +1410,7 @@
               "note": "广发中证医疗ETF联接C(7.8亿)",
               "valuation": 21.58,
               "date": "2026-11-15",
-              "source": "AI涨乐",
+              "source": "AI涨乐schema",
               "status": "低估候选",
               "existing": false
             },
@@ -1422,7 +1422,7 @@
               "note": "国联安中证全指半导体ETF联接A(007300/C:007301)",
               "valuation": 24.26,
               "date": "2026-11-15",
-              "source": "AI涨乐",
+              "source": "AI涨乐schema",
               "status": "低估候选",
               "existing": false
             },
@@ -1434,7 +1434,7 @@
               "note": "广发中证军工ETF联接C",
               "valuation": 28.81,
               "date": "2026-11-15",
-              "source": "AI涨乐",
+              "source": "AI涨乐schema",
               "status": "低估候选",
               "existing": false
             },
@@ -1444,10 +1444,10 @@
               "fund_code": "007077",
               "fund_name": "汇添富中证医药ETF联接C",
               "note": "汇添富中证医药ETF联接C",
-              "valuation": 34.35,
-              "date": "2026-11-16",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "valuation": 26.83,
+              "date": "2026-11-15",
+              "source": "AI涨乐schema",
+              "status": "低估候选",
               "existing": false
             },
             {
@@ -1458,8 +1458,8 @@
               "note": "博时中证新能源ETF发起式联接C",
               "valuation": 39.1,
               "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1470,8 +1470,8 @@
               "note": "招商中证白酒指数A(209.5亿,A类限频≥30日)",
               "valuation": 47.7,
               "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1480,10 +1480,10 @@
               "fund_code": "160119",
               "fund_name": "南方中证500ETF联接(LOF)A(66.3亿)",
               "note": "南方中证500ETF联接(LOF)A(66.3亿)",
-              "valuation": 55.82,
-              "date": "2026-11-16",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "valuation": 63.91,
+              "date": "2026-11-15",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1494,8 +1494,8 @@
               "note": "华夏恒生ETF联接A(33.9亿,A类限频≥30日)",
               "valuation": 71.62,
               "date": "2026-11-16",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1506,8 +1506,8 @@
               "note": "易方达沪深300ETF联接A(158.2亿,A类限频≥30日)",
               "valuation": 74.1,
               "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1518,8 +1518,8 @@
               "note": "华夏上证50ETF联接A(10.2亿,A类限频≥30日)",
               "valuation": 91.35,
               "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1530,8 +1530,8 @@
               "note": "华夏港股通央企红利ETF联接C(4.6亿,曾持有2026-10-21已清仓,再纳入须过四项对比+复盘清仓理由)",
               "valuation": 95.18,
               "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1554,8 +1554,8 @@
               "note": "易方达中证红利ETF联接C(23.2亿)",
               "valuation": 99.56,
               "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1566,8 +1566,8 @@
               "note": "华泰柏瑞红利低波ETF联接C(A类75亿同源)",
               "valuation": 99.56,
               "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1578,8 +1578,8 @@
               "note": "天弘中证银行ETF联接C(23.6亿)",
               "valuation": 99.78,
               "date": "2026-11-15",
-              "source": "AI涨乐",
-              "status": "未进低估区",
+              "source": "AI涨乐schema",
+              "status": "合理·非候选",
               "existing": false
             },
             {
@@ -1687,11 +1687,10 @@
           "invest_total": 878.0,
           "record_count": 40,
           "snapshot_dates": [
-            "2026-11-12",
-            "2026-11-13"
+            "2026-11-17"
           ],
-          "missing_scale_count": 9,
-          "completeness": "持仓市值可复核；基金规模数据不完整，清盘风险不能判为通过"
+          "missing_scale_count": 0,
+          "completeness": "持仓与规模数据完整"
         },
         "unlock_review": [
           {
@@ -1706,39 +1705,81 @@
             "lock_end_date": "2028-10-15",
             "within_6m": false
           }
+        ],
+        "period_summary": {
+          "start": "2026-09-20",
+          "end": "2026-10-19",
+          "period_id": "2026-10",
+          "rows": [
+            {
+              "action": "定投",
+              "count": 15,
+              "amount": 410.4
+            },
+            {
+              "action": "定投金额设定",
+              "count": 1,
+              "amount": 0.0
+            },
+            {
+              "action": "暂停定投",
+              "count": 1,
+              "amount": 0.0
+            },
+            {
+              "action": "调基准",
+              "count": 1,
+              "amount": 10.0
+            },
+            {
+              "action": "转换(组合外→组合内)",
+              "count": 1,
+              "amount": 141.02
+            }
+          ]
+        },
+        "take_profit": [
+          {
+            "fund_code": "009290",
+            "fund_name": "富国添享一年持有债券A",
+            "annual_return": -5.47,
+            "bond10": null,
+            "days": 40,
+            "decision": "未达止盈条件(年化-5.47%未达5.0%、十年国债待数据、持有40天未满1年)"
+          }
         ]
       },
       "source_file": "band_monthly_judgment.json"
     },
     "band_quarter": {
       "title": "季度档 · 配置复核",
-      "summary": "测试预览 · 富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+      "summary": "测试预览 · 富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
       "run_mode": "test",
       "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T02:53:57",
+      "generated_at": "2026-11-17T14:39:48",
       "items": [
-        {
-          "fund_code": "010363",
-          "fund_name": "信澳匠心臻选两年持有",
-          "action": "持有",
-          "amount": null,
-          "reason": "仍处深亏区，按规则继续持有观察",
-          "params": {
-            "profit_rate": -29.21,
-            "market_value": 686.92,
-            "cost": 1116.0
-          }
-        },
         {
           "fund_code": "017491",
           "fund_name": "财通景气甄选一年持有C",
-          "action": "持有",
+          "action": "观察",
           "amount": null,
-          "reason": "仍处深亏区，按规则继续持有观察",
+          "reason": "已到持有观察止损线，启动退出评估",
           "params": {
-            "profit_rate": -28.82,
+            "profit_rate": -40.39,
             "market_value": 887.82,
             "cost": 1489.5
+          }
+        },
+        {
+          "fund_code": "010363",
+          "fund_name": "信澳匠心臻选两年持有",
+          "action": "观察",
+          "amount": null,
+          "reason": "已到持有观察止损线，启动退出评估",
+          "params": {
+            "profit_rate": -38.45,
+            "market_value": 686.92,
+            "cost": 1116.0
           }
         },
         {
@@ -1811,7 +1852,7 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "valuation_pct": 0.0,
+            "valuation_pct": 36.8,
             "market_value": 259.98,
             "cost": 295.0,
             "profit_rate": -11.87
@@ -1822,28 +1863,28 @@
           "fund_name": "富国添享一年持有债券A",
           "action": "再平衡",
           "amount": null,
-          "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+          "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
           "params": {
             "rebalance": {
-              "erp_state": "high",
-              "erp_label": "高估",
+              "erp_state": "unknown",
+              "erp_label": "中性",
               "flows": {
-                "equity": 630.0,
-                "debt": 990.0,
+                "equity": 900.0,
+                "debt": 720.0,
                 "cash": 180.0
               },
               "monthly_budget": 1800.0,
-              "debt_market": 13241.69,
-              "debt_weight": 59.78950819020752,
-              "debt_target": 55.00000000000001,
-              "start_line": 65.0,
-              "lower_line": 45.00000000000001,
+              "debt_market": 13021.65,
+              "debt_weight": 60.341707657838214,
+              "debt_target": 40.0,
+              "start_line": 50.0,
+              "lower_line": 30.0,
               "active": true,
               "mode": "active",
-              "daily_reference": 45.0,
-              "rank1_fund_code": "017140",
-              "target_fund_name": "华宝中证有色金属ETF联接A",
-              "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+              "daily_reference": 33.0,
+              "rank1_fund_code": "024328",
+              "target_fund_name": "易方达恒生港股通创新药ETF联接A",
+              "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
               "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
             },
             "market_value": 13021.65,
@@ -1854,27 +1895,27 @@
       ],
       "attention_items": [
         {
-          "fund_code": "010363",
-          "fund_name": "信澳匠心臻选两年持有",
-          "action": "持有",
+          "fund_code": "017491",
+          "fund_name": "财通景气甄选一年持有C",
+          "action": "观察",
           "amount": null,
-          "reason": "仍处深亏区，按规则继续持有观察",
+          "reason": "已到持有观察止损线，启动退出评估",
           "params": {
-            "profit_rate": -29.21,
-            "market_value": 686.92,
-            "cost": 1116.0
+            "profit_rate": -40.39,
+            "market_value": 887.82,
+            "cost": 1489.5
           }
         },
         {
-          "fund_code": "017491",
-          "fund_name": "财通景气甄选一年持有C",
-          "action": "持有",
+          "fund_code": "010363",
+          "fund_name": "信澳匠心臻选两年持有",
+          "action": "观察",
           "amount": null,
-          "reason": "仍处深亏区，按规则继续持有观察",
+          "reason": "已到持有观察止损线，启动退出评估",
           "params": {
-            "profit_rate": -28.82,
-            "market_value": 887.82,
-            "cost": 1489.5
+            "profit_rate": -38.45,
+            "market_value": 686.92,
+            "cost": 1116.0
           }
         },
         {
@@ -1882,28 +1923,28 @@
           "fund_name": "富国添享一年持有债券A",
           "action": "再平衡",
           "amount": null,
-          "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+          "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
           "params": {
             "rebalance": {
-              "erp_state": "high",
-              "erp_label": "高估",
+              "erp_state": "unknown",
+              "erp_label": "中性",
               "flows": {
-                "equity": 630.0,
-                "debt": 990.0,
+                "equity": 900.0,
+                "debt": 720.0,
                 "cash": 180.0
               },
               "monthly_budget": 1800.0,
-              "debt_market": 13241.69,
-              "debt_weight": 59.78950819020752,
-              "debt_target": 55.00000000000001,
-              "start_line": 65.0,
-              "lower_line": 45.00000000000001,
+              "debt_market": 13021.65,
+              "debt_weight": 60.341707657838214,
+              "debt_target": 40.0,
+              "start_line": 50.0,
+              "lower_line": 30.0,
               "active": true,
               "mode": "active",
-              "daily_reference": 45.0,
-              "rank1_fund_code": "017140",
-              "target_fund_name": "华宝中证有色金属ETF联接A",
-              "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+              "daily_reference": 33.0,
+              "rank1_fund_code": "024328",
+              "target_fund_name": "易方达恒生港股通创新药ETF联接A",
+              "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
               "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
             },
             "market_value": 13021.65,
@@ -1983,88 +2024,99 @@
           "amount": null,
           "reason": "纳入季度配置复核",
           "params": {
-            "valuation_pct": 0.0,
+            "valuation_pct": 36.8,
             "market_value": 259.98,
             "cost": 295.0,
             "profit_rate": -11.87
           }
         }
       ],
-      "stop_signals": [],
+      "stop_signals": [
+        {
+          "fund_code": "017491",
+          "action": "观察",
+          "amount": null,
+          "reason": "已到持有观察止损线，启动退出评估",
+          "params": {
+            "profit_rate": -40.39
+          },
+          "run_mode": "test"
+        },
+        {
+          "fund_code": "010363",
+          "action": "观察",
+          "amount": null,
+          "reason": "已到持有观察止损线，启动退出评估",
+          "params": {
+            "profit_rate": -38.45
+          },
+          "run_mode": "test"
+        }
+      ],
       "allocation": {
         "amounts": {
-          "权益": 6437.25,
-          "债券": 13241.69,
-          "商品": 1318.4,
-          "养老FOF": 1149.84,
+          "权益": 6157.169999999999,
+          "债券": 13021.65,
+          "商品": 1253.06,
+          "养老FOF": 1147.97,
           "现金": 0.0
         },
-        "total": 22147.18,
+        "total": 21579.85,
         "weights": {
-          "权益": 29.07,
-          "债券": 59.79,
-          "商品": 5.95,
-          "养老FOF": 5.19,
+          "权益": 28.53,
+          "债券": 60.34,
+          "商品": 5.81,
+          "养老FOF": 5.32,
           "现金": 0.0
         }
       },
       "artifacts": {
         "rebalance": {
-          "erp_state": "high",
-          "erp_label": "高估",
+          "erp_state": "unknown",
+          "erp_label": "中性",
           "flows": {
-            "equity": 630.0,
-            "debt": 990.0,
+            "equity": 900.0,
+            "debt": 720.0,
             "cash": 180.0
           },
           "monthly_budget": 1800.0,
-          "debt_market": 13241.69,
-          "debt_weight": 59.78950819020752,
-          "debt_target": 55.00000000000001,
-          "start_line": 65.0,
-          "lower_line": 45.00000000000001,
+          "debt_market": 13021.65,
+          "debt_weight": 60.341707657838214,
+          "debt_target": 40.0,
+          "start_line": 50.0,
+          "lower_line": 30.0,
           "active": true,
           "mode": "active",
-          "daily_reference": 45.0,
-          "rank1_fund_code": "017140",
-          "target_fund_name": "华宝中证有色金属ETF联接A",
-          "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
+          "daily_reference": 33.0,
+          "rank1_fund_code": "024328",
+          "target_fund_name": "易方达恒生港股通创新药ETF联接A",
+          "action": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
           "actual_amount_note": "平台仅支持按份额转换，不为兴全预留或拆份额；兴全定投由权益预算独立执行。实际转换金额以转换成功结果为准；存量转换不占月度预算。"
         },
         "exit_reviews": [
           {
             "fund_code": "017491",
             "fund_name": "财通景气甄选一年持有C",
-            "action": "持有",
-            "reason": "仍处深亏区，按规则继续持有观察"
+            "action": "观察",
+            "reason": "已到持有观察止损线，启动退出评估"
           },
           {
             "fund_code": "010363",
             "fund_name": "信澳匠心臻选两年持有",
-            "action": "持有",
-            "reason": "仍处深亏区，按规则继续持有观察"
+            "action": "观察",
+            "reason": "已到持有观察止损线，启动退出评估"
           },
           {
             "fund_code": "009290",
             "fund_name": "富国添享一年持有债券A",
             "action": "再平衡",
-            "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运"
+            "reason": "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运"
           }
         ],
         "scale_review": {
-          "missing_count": 9,
-          "fund_names": [
-            "财通景气甄选一年持有C",
-            "信澳匠心臻选两年持有",
-            "易方达恒生港股通创新药ETF联接A",
-            "易方达高质量严选三年持有",
-            "兴全安泰积极养老目标五年FOF A",
-            "华宝中证有色金属ETF联接A",
-            "嘉实中证新能源汽车指数C",
-            "国泰黄金ETF联接C",
-            "富国添享一年持有债券A"
-          ],
-          "status": "数据不完整，需补基金规模后判定"
+          "missing_count": 0,
+          "fund_names": [],
+          "status": "已完成规模复核"
         },
         "backtest": {
           "signal_count": 4,
@@ -2072,9 +2124,8 @@
           "status": "有信号流水但无信号后收益结果，本季度不能计算胜率；不以0%冒充回测结论"
         },
         "action_checklist": [
-          "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名华宝中证有色金属ETF联接A；债比回到55%退出搬运",
-          "持有期基金按深亏与解锁规则处理，本季度不新增一刀切赎回",
-          "基金规模数据未齐，不出具“清盘风险已通过”结论"
+          "富国暂停新增日投；兴全按30元/周从权益定投预算独立执行；每周按理财通实际可转换份额全部转换至当期第1名易方达恒生港股通创新药ETF联接A；债比回到40%退出搬运",
+          "持有期基金按深亏与解锁规则处理，本季度不新增一刀切赎回"
         ]
       },
       "source_file": "band_quarter_judgment.json"

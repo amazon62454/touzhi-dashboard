@@ -91,7 +91,7 @@ const R = {
     if (!raw) return '';
     const cl = Array.isArray(raw) ? raw : [raw];
     if (!cl.length) return '';
-    const rows = cl.map(x => `<div class="money-row"><span>${esc(x.date || '')}</span><strong style="font-weight:400;font-size:var(--fs-sm);text-align:right">${esc(x.summary || x.text || '')}</strong></div>`).join('');
+    const rows = cl.map(x => `<div class="changelog-row"><div class="changelog-date">${esc(x.date || '')}</div><div class="changelog-text">${esc(x.summary || x.text || '')}</div></div>`).join('');
     return C.card(U.ui_h2_changelog || '最近系统改了什么', rows);
   },
   health() {

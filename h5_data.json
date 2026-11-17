@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-18T03:02:25",
-  "base_date": "2026-11-17",
+  "generated_at": "2026-11-18T03:31:17",
+  "base_date": "2026-11-18",
   "status": {
     "run_mode": "test",
     "is_test": true,
@@ -16,7 +16,7 @@
         "id": "band_daily",
         "title": "每日档 · 风控监控",
         "summary": "测试预览 · 2项风控关注,其余7只未触发风控",
-        "base_date": "2026-11-17",
+        "base_date": "2026-11-18",
         "run_mode": "test"
       },
       {
@@ -195,8 +195,8 @@
       "title": "每日档 · 风控监控",
       "summary": "测试预览 · 2项风控关注,其余7只未触发风控",
       "run_mode": "test",
-      "base_date": "2026-11-17",
-      "generated_at": "2026-11-17T23:50:35",
+      "base_date": "2026-11-18",
+      "generated_at": "2026-11-18T03:30:48",
       "items": [
         {
           "fund_code": "017491",
@@ -246,7 +246,7 @@
           "params": {
             "profit_rate": -11.87,
             "drawdown": null,
-            "valuation_pct": 36.8,
+            "valuation_pct": 37.08,
             "market_value": 259.98,
             "cost": 295.0
           }
@@ -260,7 +260,7 @@
           "params": {
             "profit_rate": -7.91,
             "drawdown": null,
-            "valuation_pct": 76.96,
+            "valuation_pct": 1.0,
             "market_value": 1253.06,
             "cost": 1360.7
           }
@@ -287,7 +287,7 @@
           "params": {
             "profit_rate": -5.41,
             "drawdown": null,
-            "valuation_pct": 5.75,
+            "valuation_pct": 5.37,
             "market_value": 2030.91,
             "cost": 2146.98
           }
@@ -301,7 +301,7 @@
           "params": {
             "profit_rate": -4.58,
             "drawdown": null,
-            "valuation_pct": 6.85,
+            "valuation_pct": 6.63,
             "market_value": 1399.62,
             "cost": 1466.74
           }
@@ -371,7 +371,7 @@
           "params": {
             "profit_rate": -11.87,
             "drawdown": null,
-            "valuation_pct": 36.8,
+            "valuation_pct": 37.08,
             "market_value": 259.98,
             "cost": 295.0
           }
@@ -385,7 +385,7 @@
           "params": {
             "profit_rate": -7.91,
             "drawdown": null,
-            "valuation_pct": 76.96,
+            "valuation_pct": 1.0,
             "market_value": 1253.06,
             "cost": 1360.7
           }
@@ -412,7 +412,7 @@
           "params": {
             "profit_rate": -5.41,
             "drawdown": null,
-            "valuation_pct": 5.75,
+            "valuation_pct": 5.37,
             "market_value": 2030.91,
             "cost": 2146.98
           }
@@ -426,7 +426,7 @@
           "params": {
             "profit_rate": -4.58,
             "drawdown": null,
-            "valuation_pct": 6.85,
+            "valuation_pct": 6.63,
             "market_value": 1399.62,
             "cost": 1466.74
           }
@@ -488,19 +488,19 @@
       ],
       "allocation": {
         "amounts": {
-          "养老FOF": 1147.97,
-          "商品": 1253.06,
           "现金": 0.0,
+          "权益": 6157.169999999999,
+          "商品": 1253.06,
           "债券": 13021.65,
-          "权益": 6157.169999999999
+          "养老FOF": 1147.97
         },
         "total": 21579.85,
         "weights": {
-          "养老FOF": 5.32,
-          "商品": 5.81,
           "现金": 0.0,
+          "权益": 28.53,
+          "商品": 5.81,
           "债券": 60.34,
-          "权益": 28.53
+          "养老FOF": 5.32
         }
       },
       "artifacts": {
@@ -528,7 +528,7 @@
           {
             "name": "持仓估值越档",
             "status": "🔴",
-            "detail": "024328:5.75%→极度低估；012544:6.85%→极度低估；004253:76.96%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作"
+            "detail": "024328:5.37%→极度低估；012544:6.63%→极度低估；004253:1.0%→极度低估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作"
           },
           {
             "name": "重大事件/黑天鹅",
@@ -538,12 +538,12 @@
           {
             "name": "利好加仓信号(低估候选)",
             "status": "💰",
-            "detail": "新增低估候选:024328,012544(共2只);周日档自动五维评分,达门槛才加仓"
+            "detail": "新增低估候选:024328,012544,004253(共3只);周日档自动五维评分,达门槛才加仓"
           },
           {
             "name": "债券净值连跌",
-            "status": "待数据",
-            "detail": "AI涨乐未取到009290净值"
+            "status": "🟢",
+            "detail": "债基009290连续4日下跌(阈值10日)"
           },
           {
             "name": "减仓预警",
@@ -573,7 +573,7 @@
           {
             "name": "持仓估值越档",
             "status": "🔴",
-            "detail": "024328:5.75%→极度低估；012544:6.85%→极度低估；004253:76.96%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作"
+            "detail": "024328:5.37%→极度低估；012544:6.63%→极度低估；004253:1.0%→极度低估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作"
           },
           {
             "name": "利率倒挂监控",
@@ -588,7 +588,7 @@
         ]
       },
       "market_env": {
-        "hs300_pe_pct": 74.1,
+        "hs300_pe_pct": 74.37,
         "erp_state": "high"
       },
       "next_review": [

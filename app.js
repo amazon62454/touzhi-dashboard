@@ -182,10 +182,10 @@ function addOnCard(rows, summary) {
     return `${d.value}${date}`;
   };
   const dataKey = {'趋势':'trend','资金':'flows','基本面':'fundamentals','情绪':'sentiments'};
-  return `<div class="card"><h2>低估加仓评分</h2><p class="lead">${esc(summary || '')}</p>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${x.score} / ${x.threshold}分</strong></div>
-    <div class="money-row"><span>估值 · 分位 ${pct(x.valuation)}</span><strong>${x.scores['估值']}分</strong></div>
-    ${['趋势','资金','基本面','情绪'].map(k => `<div class="money-row"><span>${k} · ${esc(valueText(k, x.dimensions[dataKey[k]]))}</span><strong>${x.scores[k]}分</strong></div>`).join('')}
-    <div class="fund-numbers">${esc(x.decision)}${x.missing.length ? ` · 缺：${esc(x.missing.join('、'))}` : ''}</div></div>`).join('')}</div>`;
+  return `<div class="card"><h2>低估加仓评分</h2><p class="lead">${esc(summary || '')}</p>${rows.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name)}</strong><strong>${x.score ?? '—'} / ${x.threshold}分</strong></div>
+    <div class="money-row"><span>估值 · 分位 ${pct(x.valuation)}</span><strong>${(x.scores || {})['估值'] ?? '—'}分</strong></div>
+    ${x.dimensions ? ['趋势','资金','基本面','情绪'].map(k => `<div class="money-row"><span>${k} · ${esc(valueText(k, x.dimensions[dataKey[k]]))}</span><strong>${(x.scores || {})[k] ?? '—'}分</strong></div>`).join('') : ''}
+    <div class="fund-numbers">${esc(x.decision)}${(x.missing || []).length ? ` · 缺：${esc(x.missing.join('、'))}` : ''}</div></div>`).join('')}</div>`;
 }
 function executionCard(r, unlocks) {
   if (!r) return '';

@@ -113,9 +113,15 @@ function renderBands() {
         <div class="card"><details><summary>其余 ${b.normal_items.length} 只：完成配置复核</summary>${actionRows(b.normal_items)}</details></div>`;
     } else {
       const a = b.artifacts || {};
-      content = `<div class="card"><h2>本期定投结论</h2>${actionRows(b.items.filter(x => x.action !== '暂停' || !String(x.reason).includes('富国')))}</div>
+      const evalRows = b.items.filter(x => x.action !== '暂停' || !String(x.reason).includes('富国')).map(x => {
+        const pct = x.params && x.params.valuation_pct != null ? x.params.valuation_pct + '%' : '—';
+        const amt = x.amount != null ? x.amount + '元' : '—';
+        return `<div class="money-row"><span>${esc(x.fund_name)}</span><strong>${esc(x.action)} ${amt}</strong></div><p class="lead">分位${pct} · ${esc(x.reason || '')}</p>`;
+      }).join('');
+      content = `<div class="card"><h2>本期定投金额(集中制排序)</h2><p class="muted">分位低→高,主动/FOF表末;下周一前理财通改额</p>${evalRows}</div>
         ${rebalanceCard(a.rebalance)}
-        ${addOnCard(a.add_on_reviews, a.add_on_summary)}`;
+        ${addOnCard(a.add_on_reviews, a.add_on_summary)}
+        <div class="card"><h2>需你本人做</h2><p class="lead">下周一前理财通按上表改额;执行后回传实际金额记台账</p></div>`;
     }
     page.querySelector('.band-content').innerHTML = content;
     // 止损止盈独立卡片(2026-11-17 Q7):止损/止盈/减仓从报告文本提为显著卡片,不再埋没

@@ -280,8 +280,13 @@ const R = {
   },
   netAddition(n) {
     if (!n) return '';
-    const rows = Object.entries(n).map(([k, v]) => C.kv(k, esc(typeof v === 'object' ? JSON.stringify(v) : v))).join('');
-    return C.card(U.ui_h2_net_add, rows);
+    // 旧写法 Object.entries 平铺：英文key(triggered/fund/weight/p102/fire)+P码直接暴露给用户。
+    // 改为读台账结构化文案（与文字报告同源），不展示任何键名/P码。
+    const fire = n.fire ? (U.net_add_fire_yes || '') : (U.net_add_fire_no || '');
+    const tpl = n.triggered ? U.net_add_trigger : U.net_add_none;
+    if (!tpl) return '';
+    const text = fmt(tpl, { fund: n.fund || '—', w: Number(n.weight), p102: Number(n.p102), fire });
+    return C.card(U.ui_h2_net_add, `<p class="muted">${esc(text.replace(/^-\s*/, ''))}</p>`);
   },
   marketEnv(env) {
     if (!env) return '';
@@ -313,16 +318,18 @@ const R = {
     return C.card(U.ui_h2_eval_amount, `<p class="muted">分位低→高，主动/FOF表末；下周一前理财通改额</p>${body}`);
   },
   addOn(rows, summary) {
-    if (!rows || !rows.length) return '';
-    const body = rows.map(x => {
-      const sc = has(x.score) ? Number(x.score) : null;
+    // 只展示参与评分(有评分)的基金；"不参与"(FOF/主动/持有期/未进低估区)不占版面(用户2026-11-18要求)。
+    const list = (rows || []).filter(x => has(x.score));
+    const sm = summary ? `<p class="muted">${esc(typeof summary === 'string' ? summary : JSON.stringify(summary))}</p>` : '';
+    if (!list.length) return sm ? C.card(U.ui_h2_addon_score, sm) : '';
+    const body = list.map(x => {
+      const sc = Number(x.score);
       const th = has(x.threshold) ? Number(x.threshold) : null;
-      const hit = sc != null && th != null && sc >= th;
+      const hit = th != null && sc >= th;
       return `<div class="fund-row">
-        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong><strong>${sc != null ? sc : U.ui_no_score}</strong></div>
+        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong><strong>${sc}</strong></div>
         <div class="fund-numbers">${esc(x.fund_code || '')}${th != null ? ` · 门槛${th}` : ''}${x.decision ? ` · ${esc(x.decision)}` : ''}${hit ? ' ' + C.badge('达标', 'ok') : ''}</div></div>`;
     }).join('');
-    const sm = summary ? `<p class="muted">${esc(typeof summary === 'string' ? summary : JSON.stringify(summary))}</p>` : '';
     return C.card(U.ui_h2_addon_score, body + sm);
   },
   evalActionList() {

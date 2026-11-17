@@ -124,7 +124,13 @@ header strong { font-size: var(--fs-md); }
 }
 .money-row:last-of-type { border-bottom: none; }
 .money-row span { color: var(--c-text-2); min-width: 0; }
-.money-row strong { font-size: var(--fs-md); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.money-row strong { font-size: var(--fs-md); font-variant-numeric: tabular-nums; white-space: normal; overflow-wrap: anywhere; text-align: right; }
+
+/* 变更记录：日期在上、摘要换行，避免长文本 nowrap 挤成一团 */
+.changelog-row { padding: var(--sp-2) 0; border-bottom: 1px dashed var(--c-border); }
+.changelog-row:last-child { border-bottom: none; }
+.changelog-date { font-size: var(--fs-xs); color: var(--c-text-3); }
+.changelog-text { font-size: var(--fs-base); line-height: 1.65; overflow-wrap: anywhere; margin-top: 2px; }
 
 /* ---------- 6. 指标格 ---------- */
 .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--sp-3); }

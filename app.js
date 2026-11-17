@@ -85,7 +85,10 @@ function renderBands() {
       <div class="band-meta"><span class="badge ${b.run_mode === 'test' ? 'test' : ''}">${b.run_mode === 'test' ? '测试·非正式' : '正式'}</span> 基准 ${esc(dateText(b.base_date))}${b.generated_at ? ` · 生成 ${esc(b.generated_at)}` : ''}</div>`;
     let content = '';
     if (key === 'band_daily') {
-      content = `<div class="card"><h2>需要关注</h2>${actionRows(b.attention_items)}</div>
+      const checks = (b.artifacts && b.artifacts.daily_checks) || [];
+      const checkRows = checks.map(c => `<div class="money-row"><span>${esc(c['名称'])}</span><strong>${esc(c['状态'])}</strong></div><p class="lead">${esc(c['说明'])}</p>`).join('');
+      const checkCard = checkRows ? `<div class="card"><h2>触发项扫描（${checks.length}项）</h2>${checkRows}</div>` : '';
+      content = `${checkCard}<div class="card"><h2>需要关注</h2>${actionRows(b.attention_items)}</div>
         <div class="card"><details><summary>其余 ${b.normal_items.length} 只基金：未触发风控</summary>${actionRows(b.normal_items)}</details></div>`;
     } else if (key === 'band_monthly') {
       const f = D.funds_page;

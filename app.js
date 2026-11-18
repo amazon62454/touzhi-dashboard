@@ -55,6 +55,22 @@ const C = {
         <div class="action-amount">${has(x.amount) && Number(x.amount) !== 0 ? money(x.amount) : ''}${x.params && has(x.params.valuation_pct) ? `<small>估值 ${pct(x.params.valuation_pct)}</small>` : ''}</div>
       </div>`).join('')}</div>`;
   },
+  validityList(items) {
+    if (!items || !items.length) return '';
+    return `<div class="action-list">${items.map(x => {
+      const amount = has(x.amount) && Number(x.amount) !== 0 ? money(x.amount) : '';
+      const schedule = x.actual_execution_date ? `<div class="fund-numbers">${esc(U.ui_label_execute_date || '')} ${esc(x.actual_execution_date)}${x.is_postponed ? ` · ${esc(fmt(U.ui_label_postponed, { n: x.postpone_days }))}` : ''}${x.valid_until ? ` · ${esc(U.ui_label_deadline || '')} ${esc(x.valid_until)}` : ''}</div>` : '';
+      return `<div class="action-row"><div><div class="action-name">${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}${x.fund_code ? `<span class="action-code">${esc(x.fund_code)}</span>` : ''}</div><div class="action-reason">${esc(x.band_title || '')} · ${esc(x.action || '')}${x.reason ? ' · ' + esc(shortReason(x.reason)) : ''}</div>${schedule}</div><div class="action-amount">${amount}</div></div>`;
+    }).join('')}</div>`;
+  },
+  blockedList(items) {
+    if (!items || !items.length) return '';
+    return items.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong>${C.badge(x.action || '', 'warn')}</div><div class="fund-numbers">${esc(x.blocked_reason || '')}</div></div>`).join('');
+  },
+  expiredList(items) {
+    if (!items || !items.length) return '';
+    return items.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong><strong>${esc(x.action || '')}</strong></div><div class="fund-numbers">${esc(x.band_title || '')} · ${esc(x.actual_execution_date || '')}</div></div>`).join('');
+  },
   orderedList(items) {
     if (!items || !items.length) return '';
     return `<ol class="action-list">${items.map(x => `<li>${esc(x)}</li>`).join('')}</ol>`;
@@ -75,15 +91,25 @@ const R = {
   // 首页
   homeHero() {
     const h = D.home || {};
-    const actions = (h.actions || []).length ? C.actionList(h.actions) : '';
-    const total = has(h.total_action_amount) ? C.kv('合计待执行金额', money(h.total_action_amount)) : '';
-    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(h.headline || '')}</h1>${actions}${total}`, 'accent');
+    const actions = C.validityList(h.actions);
+    const total = has(h.total_action_amount) ? C.kv(U.ui_home_total, money(h.total_action_amount)) : '';
+    const feedback = (h.actions || []).length ? `<p class="muted">${esc(U.ui_action_feedback || '')}</p>` : '';
+    const next = h.next_review_date ? C.kv(U.ui_label_next_review, esc(h.next_review_date)) : '';
+    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(h.headline || '')}</h1>${actions}${total}${feedback}${next}`, 'accent');
+  },
+  homeBlocked() {
+    const items = (D.home && D.home.blocked) || [];
+    return items.length ? C.card(U.ui_h2_blocked_actions, C.blockedList(items), 'warn') : '';
+  },
+  homeExpired() {
+    const items = (D.home && D.home.expired) || [];
+    return items.length ? C.details(U.ui_h2_expired_actions, C.expiredList(items)) : '';
   },
   bandCards() {
     const cards = (D.home && D.home.cards) || [];
     if (!cards.length) return '';
     return cards.map(c => `<a href="#page-${esc(c.id)}" class="card" style="display:block;color:inherit">
-      <div class="fund-top"><strong>${esc(c.title)}</strong>${C.badge(c.run_mode === 'test' ? (D.status && D.status.label) || '测试' : '正式', c.run_mode === 'test' ? 'warn' : 'ok')}</div>
+      <div class="fund-top"><strong>${esc(c.title)}</strong>${C.badge(U['ui_state_' + c.validity_state] || '', c.validity_state === 'blocked' ? 'warn' : c.validity_state === 'active' || c.validity_state === 'partial' ? 'ok' : 'muted')}</div>
       <div class="fund-numbers">${esc(c.summary || '')} · 基准 ${esc(dateText(c.base_date))}</div></a>`).join('');
   },
   changelog() {
@@ -96,6 +122,8 @@ const R = {
   },
   health() {
     const hs = (D.home && D.home.health) || [];
+    if (!hs.length && D.home && D.home.state === 'awaiting') return C.card(U.ui_h2_health || '', C.empty('', U.ui_data_awaiting || ''));
+    if (!hs.length && D.home && D.home.blocked && D.home.blocked.length) return C.card(U.ui_h2_health || '', C.empty('', U.ui_data_partial || ''));
     if (!hs.length) return C.card(U.ui_h2_health || '本次数据是否齐全', C.empty('', '数据源全部正常'));
     const rows = hs.map(x => `<div class="money-row"><span>${esc(x.name)} · ${esc(x.detail || '')}</span>${C.statusBadge(x.status)}</div>`).join('');
     return C.card(U.ui_h2_health || '本次数据是否齐全', rows);
@@ -104,13 +132,25 @@ const R = {
   // 档位页公共头
   bandHeader(band) {
     const b = (D.bands || {})[band] || {};
+    const v = b.validity || {};
     return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>
-      <p class="lead">${esc(b.summary || '')}</p>
-      <div class="muted">${C.badge(b.run_mode === 'test' ? ((D.status && D.status.label) || '测试') : '正式', b.run_mode === 'test' ? 'warn' : 'ok')} 基准 ${esc(dateText(b.base_date))}</div></div>`;
+      <p class="lead">${esc(v.headline || b.summary || '')}</p>
+      <div class="muted">${C.badge(U['ui_state_' + v.state] || '', v.state === 'blocked' ? 'warn' : 'muted')} 基准 ${esc(dateText(b.base_date))}</div>
+      ${v.next_review_date ? `<p class="muted">${esc(U.ui_label_next_review || '')} ${esc(v.next_review_date)}</p>` : ''}</div>`;
+  },
+
+  bandBlocked(b) {
+    const items = ((b || {}).validity || {}).blocked || [];
+    return items.length ? C.card(U.ui_h2_blocked_actions, C.blockedList(items), 'warn') : '';
+  },
+  bandExpired(b) {
+    const items = ((b || {}).validity || {}).expired || [];
+    return items.length ? C.details(U.ui_h2_expired_actions, C.expiredList(items)) : '';
   },
 
   // 每日档
   checkScan(b) {
+    if (['expired', 'awaiting', 'test'].includes((b.validity || {}).state)) return '';
     const checks = (b.artifacts && b.artifacts.daily_checks) || [];
     if (!checks.length) return '';
     const rows = checks.map(c => `<div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>`).join('');
@@ -118,8 +158,10 @@ const R = {
   },
   attention(b) { return C.card(U.ui_h2_attention, C.actionList(b.attention_items)); },
   yourAction(b) {
-    const txt = (b.attention_items && b.attention_items.length) ? '按上方需要关注项处置，执行后回传我记台账' : '无';
-    return C.card(U.ui_h2_your_action, `<p class="lead">${esc(txt)}</p>`, 'accent');
+    const state = (b.validity || {}).state;
+    const active = state === 'active' || state === 'partial';
+    const txt = active ? U.ui_action_feedback : ((b.validity || {}).headline || U.ui_empty_none);
+    return C.card(U.ui_h2_your_action, `<p class="lead">${esc(txt || '')}</p>`, 'accent');
   },
   normalItems(b) {
     const items = b.normal_items || [];
@@ -284,8 +326,9 @@ const R = {
   },
 
   // 季度档
-  quarterAction(a) {
-    return a && a.action_checklist ? C.card(U.ui_h2_quarter_action, C.orderedList(a.action_checklist), 'accent') : '';
+  quarterAction(a, validity) {
+    const state = (validity || {}).state;
+    return (state === 'active' || state === 'partial') && a && a.action_checklist ? C.card(U.ui_h2_quarter_action, C.orderedList(a.action_checklist), 'accent') : '';
   },
   allocation(b) {
     const weights = (b.allocation || {}).weights || {};
@@ -369,7 +412,9 @@ const R = {
 
   // 周日档
   evalAmount(b) {
-    const items = (b.items || []).filter(x => x.action !== '暂停' || !String(x.reason || '').includes('富国'));
+    const state = (b.validity || {}).state;
+    if (state !== 'active' && state !== 'partial') return '';
+    const items = ((b.validity || {}).actions || []).filter(x => x.action !== '暂停' || !String(x.reason || '').includes('富国'));
     if (!items.length) return '';
     const body = items.map(x => {
       const vp = x.params && has(x.params.valuation_pct) ? pct(x.params.valuation_pct) : '—';
@@ -394,6 +439,8 @@ const R = {
     return C.card(U.ui_h2_eval_amount, `<p class="muted">分位低→高，主动/FOF表末；下周一前理财通改额</p>${body}`);
   },
   addOn(rows, summary) {
+    const state = (((D.bands || {}).band_eval || {}).validity || {}).state;
+    if (state !== 'active' && state !== 'partial') return '';
     // 只展示参与评分(有评分)的基金；"不参与"(FOF/主动/持有期/未进低估区)不占版面(用户2026-11-18要求)。
     // 排序跟主题走(M11):加仓→分位升序+评分降序
     const list = (rows || []).filter(x => has(x.score)).sort((p1, p2) => {
@@ -466,16 +513,16 @@ const R = {
 // ---------- 声明式页面 Schema（页面 = 区块有序列表，加区块只改这里） ----------
 const PAGE_SCHEMA = {
   'page-home': [
-    { fn: 'homeHero' }, { fn: 'bandCards' }, { fn: 'changelog' }, { fn: 'health' },
+    { fn: 'homeHero' }, { fn: 'homeBlocked' }, { fn: 'homeExpired' }, { fn: 'bandCards' }, { fn: 'changelog' }, { fn: 'health' },
   ],
   'page-band_daily': [
-    { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
+    { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandBlocked', from: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
     { fn: 'attention', from: 'band_daily' }, { fn: 'nextReview', from: 'band_daily' },
     { fn: 'ledgerFlow' }, { fn: 'marketEnv', from: 'band_daily' }, { fn: 'yourAction', from: 'band_daily' },
     { fn: 'normalItems', from: 'band_daily' },
   ],
   'page-band_eval': [
-    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'evalAmount', from: 'band_eval' },
+    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandBlocked', from: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' }, { fn: 'evalAmount', from: 'band_eval' },
     { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
     { fn: 'addOn', from: 'band_eval' }, { fn: 'attention', from: 'band_eval' },
   ],
@@ -538,7 +585,7 @@ function renderPage(pageId) {
         if (node.fn === 'marketEnv') return fn(b.market_env);
         if (node.fn === 'allocation') return fn(b);
         if (node.fn === 'quarterReview') return fn(a);
-        if (node.fn === 'quarterAction') return fn(a);
+        if (node.fn === 'quarterAction') return fn(a, b.validity);
         if (node.fn === 'rebalance') return fn(a.rebalance);
         if (node.fn === 'flow') return fn(a.rebalance);
         if (node.fn === 'concentration') return fn(a.concentration);
@@ -640,7 +687,7 @@ function renderShell() {
   const banner = $('global-status');
   if (st.label) {
     banner.hidden = false;
-    banner.className = 'status-banner' + (st.is_test ? '' : ' live');
+    banner.className = 'status-banner live';
     banner.textContent = `${st.label}${st.description ? ' · ' + st.description : ''} · 页面生成 ${D.generated_at || ''}`;
   }
 }

@@ -59,17 +59,21 @@ const C = {
         <div class="action-amount">${has(x.amount) && Number(x.amount) !== 0 ? money(x.amount) : ''}${x.params && has(x.params.valuation_pct) ? `<small>估值 ${pct(x.params.valuation_pct)}</small>` : ''}</div>
       </div>`).join('')}</div>`;
   },
-  validityList(items) {
+  validityList(items, linkActions = false) {
     if (!items || !items.length) return '';
     return `<div class="action-list">${items.map(x => {
       const amount = has(x.amount) && Number(x.amount) !== 0 ? money(x.amount) : '';
       const schedule = x.actual_execution_date ? `<div class="fund-numbers">${esc(U.ui_label_execute_date || '')} ${esc(x.actual_execution_date)}${x.is_postponed ? ` · ${esc(fmt(U.ui_label_postponed, { n: x.postpone_days }))}` : ''}${x.valid_until ? ` · ${esc(U.ui_label_deadline || '')} ${esc(dateTimeText(x.valid_until))}` : ''}</div>` : '';
-      return `<div class="action-row"><div><div class="action-name">${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}${x.fund_code ? `<span class="action-code">${esc(x.fund_code)}</span>` : ''}</div><div class="action-reason">${esc(x.band_title || '')} · ${esc(x.action || '')}${x.reason ? ' · ' + esc(shortReason(x.reason)) : ''}</div>${schedule}</div><div class="action-amount">${amount}</div></div>`;
+      const content = `<div><div class="action-name">${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}${x.fund_code ? `<span class="action-code">${esc(x.fund_code)}</span>` : ''}</div><div class="action-reason">${esc(x.band_title || '')} · ${esc(x.action || '')}${x.reason ? ' · ' + esc(shortReason(x.reason)) : ''}</div>${schedule}</div><div class="action-amount">${amount}</div>`;
+      return linkActions && x.band ? `<a class="action-row action-row-link" href="#page-${esc(x.band)}">${content}</a>` : `<div class="action-row">${content}</div>`;
     }).join('')}</div>`;
   },
-  blockedList(items) {
+  blockedList(items, linkActions = false) {
     if (!items || !items.length) return '';
-    return items.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong>${C.badge(x.action || '', 'warn')}</div><div class="fund-numbers">${esc(x.blocked_reason || '')}</div></div>`).join('');
+    return items.map(x => {
+      const content = `<div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong>${C.badge(x.action || '', 'warn')}</div><div class="fund-numbers">${esc(x.blocked_reason || '')}</div>`;
+      return linkActions && x.band ? `<a class="fund-row action-row-link" href="#page-${esc(x.band)}">${content}</a>` : `<div class="fund-row">${content}</div>`;
+    }).join('');
   },
   expiredList(items) {
     if (!items || !items.length) return '';
@@ -100,7 +104,7 @@ const R = {
   homeHero() {
     const h = D.home || {};
     const expired = resultExpired(h);
-    const actions = expired ? '' : C.validityList(h.actions);
+    const actions = expired ? '' : C.validityList(h.actions, true);
     const total = !expired && has(h.total_action_amount) ? C.kv(U.ui_home_total, money(h.total_action_amount)) : '';
     const feedback = !expired && (h.actions || []).length ? `<p class="muted">${esc(U.ui_action_feedback || '')}</p>` : '';
     const detailBands = [];
@@ -109,21 +113,21 @@ const R = {
         if (item.band && !detailBands.some(x => x.band === item.band)) detailBands.push(item);
       }
     }
-    const detailLinks = detailBands.map(item => {
-      const label = String(U.ui_link_band_detail || '').replace('{band}', item.band_title || item.band);
-      return `<a class="action-detail-link" href="#page-${esc(item.band)}">${esc(label)}</a>`;
-    }).join('');
+    const headlineText = expired ? U.ui_result_expired_headline : h.headline || '';
+    const headline = detailBands.length === 1
+      ? `<a class="home-action-headline" href="#page-${esc(detailBands[0].band)}">${esc(headlineText)}</a>`
+      : esc(headlineText);
     let timeLine = '';
     if (expired) timeLine = h.result_visible_until ? C.kv(U.ui_label_result_expired_at, esc(dateTimeText(h.result_visible_until))) : '';
     else if (h.result_visible_until && h.result_effective_from) timeLine = C.kv(U.ui_label_result_period, `${esc(dateTimeText(h.result_effective_from))} 至 ${esc(dateTimeText(h.result_visible_until))}`);
     else if (h.result_visible_until) timeLine = C.kv(U.ui_label_result_effective, esc(dateTimeText(h.result_visible_until)));
     else if (h.next_review_at) timeLine = C.kv(U.ui_label_next_review, esc(dateTimeText(h.next_review_at)));
-    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(expired ? U.ui_result_expired_headline : h.headline || '')}</h1>${actions}${total}${feedback}${timeLine}${detailLinks ? `<div class="action-detail-links">${detailLinks}</div>` : ''}`, 'accent');
+    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${headline}</h1>${actions}${total}${feedback}${timeLine}`, 'accent');
   },
   homeBlocked() {
     const items = (D.home && D.home.blocked) || [];
     if (resultExpired(D.home)) return '';
-    return items.length ? C.card(U.ui_h2_blocked_actions, C.blockedList(items), 'warn') : '';
+    return items.length ? C.card(U.ui_h2_blocked_actions, C.blockedList(items, true), 'warn') : '';
   },
   homeExpired() {
     const items = (D.home && D.home.expired) || [];

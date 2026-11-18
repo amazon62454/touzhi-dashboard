@@ -148,7 +148,9 @@ const R = {
     if (!mr) return '';
     const ret = mr.item2_收益率 || {};
     const cum = ret['累计'] || {};
-    const cumRows = Object.entries(cum).map(([fc, r]) =>
+    const cumRows = Object.entries(cum)
+      .sort((a, b) => (Number(a[1]) || 0) - (Number(b[1]) || 0))
+      .map(([fc, r]) =>
       C.kv(fundName(fc) || fc, pct(r), fc)).join('');
     const mom = (ret['月度(快照对比)'] || {}).TOTAL;
     const inv = mr.item4_定投统计 || {};

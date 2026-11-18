@@ -49,6 +49,14 @@ const C = {
       `<div class="metric ${tone}"><div class="metric-label">${esc(label)}</div><div class="metric-value ${tone}">${esc(value)}</div></div>`).join('');
     return rows ? `<div class="metric-grid">${rows}</div>` : '';
   },
+  checkMetrics(items) {
+    if (!items || !items.length) return '';
+    const rows = items.map(m => {
+      const value = m.unit === '元' ? money(m.value) : `${esc(m.value)}${esc(m.unit || '')}`;
+      return `<span class="check-metric"><span>${esc(m.label || '')}</span><strong class="num ${esc(m.tone || 'info')}">${value}</strong></span>`;
+    }).join('');
+    return `<div class="check-metrics">${rows}</div>`;
+  },
   actionList(items, opts = {}) {
     if (!items || !items.length) return C.empty(U.ui_empty_none);
     return `<div class="action-list">${items.map(x => `
@@ -134,7 +142,7 @@ const R = {
     if (['expired', 'awaiting', 'test'].includes((b.validity || {}).state)) return '';
     const checks = (b.artifacts && b.artifacts.daily_checks) || [];
     if (!checks.length) return '';
-    const rows = checks.map(c => `<div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>`).join('');
+    const rows = checks.map(c => `<div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>${C.checkMetrics(c.metrics)}`).join('');
     return C.card(fmt(U.ui_h2_check_scan, { n: checks.length }), rows);
   },
   attention(b) {
@@ -517,7 +525,7 @@ R.retirementPage = function () {
   ]);
   const funds = C.card(U.ui_h2_position_detail || '持仓明细', C.fundRows(r.funds));
   const note = r.return_note ? `<p class="muted">${esc(r.return_note)}</p>` : '';
-  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${R.retirementProjection()}${funds}${note}${R.retirementFunds()}${R.fundDest()}`;
+  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${R.retirementProjection()}${funds}${note}${R.retirementFunds()}`;
 };
 
 // ---------- 页面渲染引擎 ----------

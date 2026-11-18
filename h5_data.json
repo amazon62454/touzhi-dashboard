@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T07:40:07",
+  "generated_at": "2026-11-19T07:40:54",
   "base_date": "2026-11-19",
   "status": {
     "label": "数据完整",
@@ -107,7 +107,8 @@
     "projected_profit": 121124,
     "covered_fund_count": 6,
     "holding_fund_count": 9,
-    "coverage_rate": 66.67,
+    "coverage_rate": 100.0,
+    "investing_fund_count": 6,
     "missing_funds": [],
     "excluded_funds": [
       {

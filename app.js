@@ -14,8 +14,12 @@ const fmt = (t, o) => String(t || '').replace(/\{(\w+)\}/g, (_, k) => (o && o[k]
 const money = v => (v === null || v === undefined || v === '') ? '—' : `${Number(v).toLocaleString('zh-CN', { maximumFractionDigits: 2 })}元`;
 const pct = v => (v === null || v === undefined || v === '') ? '—' : `${Number(v).toFixed(2)}%`;
 const dateText = v => (v && v !== '未记录基准日') ? v : '未记录基准日';
+const dateTimeText = v => has(v) ? String(v).replace('T', ' ').replace(/(\d{2}:\d{2}):\d{2}$/, '$1') : '';
 const shortReason = v => v || '按SOP规则判定';
 const has = v => v !== null && v !== undefined && v !== '';
+// 只执行引擎下发的结果展示期限；不计算动作有效期，不自行猜排程。
+const resultExpired = v => has(v && v.result_visible_until)
+  && Number.isFinite(Date.parse(v.result_visible_until)) && Date.now() >= Date.parse(v.result_visible_until);
 const fundName = (fc, fallback) => {
   const f = ((D && D.retirement && D.retirement.funds) || []).find(x => String(x.fund_code) === String(fc));
   return (f && f.fund_name) || fallback || '';
@@ -59,7 +63,7 @@ const C = {
     if (!items || !items.length) return '';
     return `<div class="action-list">${items.map(x => {
       const amount = has(x.amount) && Number(x.amount) !== 0 ? money(x.amount) : '';
-      const schedule = x.actual_execution_date ? `<div class="fund-numbers">${esc(U.ui_label_execute_date || '')} ${esc(x.actual_execution_date)}${x.is_postponed ? ` · ${esc(fmt(U.ui_label_postponed, { n: x.postpone_days }))}` : ''}${x.valid_until ? ` · ${esc(U.ui_label_deadline || '')} ${esc(x.valid_until)}` : ''}</div>` : '';
+      const schedule = x.actual_execution_date ? `<div class="fund-numbers">${esc(U.ui_label_execute_date || '')} ${esc(x.actual_execution_date)}${x.is_postponed ? ` · ${esc(fmt(U.ui_label_postponed, { n: x.postpone_days }))}` : ''}${x.valid_until ? ` · ${esc(U.ui_label_deadline || '')} ${esc(dateTimeText(x.valid_until))}` : ''}</div>` : '';
       return `<div class="action-row"><div><div class="action-name">${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}${x.fund_code ? `<span class="action-code">${esc(x.fund_code)}</span>` : ''}</div><div class="action-reason">${esc(x.band_title || '')} · ${esc(x.action || '')}${x.reason ? ' · ' + esc(shortReason(x.reason)) : ''}</div>${schedule}</div><div class="action-amount">${amount}</div></div>`;
     }).join('')}</div>`;
   },
@@ -95,19 +99,24 @@ const R = {
   // 首页
   homeHero() {
     const h = D.home || {};
-    const actions = C.validityList(h.actions);
-    const total = has(h.total_action_amount) ? C.kv(U.ui_home_total, money(h.total_action_amount)) : '';
-    const feedback = (h.actions || []).length ? `<p class="muted">${esc(U.ui_action_feedback || '')}</p>` : '';
-    const next = h.next_review_at ? C.kv(U.ui_label_next_review, esc(h.next_review_at)) : '';
-    const retention = h.result_retention ? `<p class="muted">${esc(h.result_retention)}</p>` : '';
-    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(h.headline || '')}</h1>${actions}${total}${feedback}${next}${retention}`, 'accent');
+    const expired = resultExpired(h);
+    const actions = expired ? '' : C.validityList(h.actions);
+    const total = !expired && has(h.total_action_amount) ? C.kv(U.ui_home_total, money(h.total_action_amount)) : '';
+    const feedback = !expired && (h.actions || []).length ? `<p class="muted">${esc(U.ui_action_feedback || '')}</p>` : '';
+    const next = h.next_review_at ? C.kv(expired ? U.ui_label_original_review : U.ui_label_next_review, esc(dateTimeText(h.next_review_at))) : '';
+    const visibleUntil = h.result_visible_until ? C.kv(U.ui_label_result_until, esc(dateTimeText(h.result_visible_until))) : '';
+    const retentionText = expired ? U.ui_result_expired_note : (h.result_visible_until ? h.result_retention : U.ui_result_none_note);
+    const retention = retentionText ? `<p class="muted">${esc(retentionText)}</p>` : '';
+    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(expired ? U.ui_result_expired_headline : h.headline || '')}</h1>${actions}${total}${feedback}${next}${visibleUntil}${retention}`, 'accent');
   },
   homeBlocked() {
     const items = (D.home && D.home.blocked) || [];
+    if (resultExpired(D.home)) return '';
     return items.length ? C.card(U.ui_h2_blocked_actions, C.blockedList(items), 'warn') : '';
   },
   homeExpired() {
     const items = (D.home && D.home.expired) || [];
+    if (resultExpired(D.home)) return '';
     return items.length ? C.details(U.ui_h2_expired_actions, C.expiredList(items)) : '';
   },
   bandCards() {
@@ -115,7 +124,7 @@ const R = {
     if (!cards.length) return '';
     return cards.map(c => `<a href="#page-${esc(c.id)}" class="card" style="display:block;color:inherit">
       <div class="fund-top"><strong>${esc(c.title)}</strong>${C.badge(U['ui_state_' + c.validity_state] || '', c.validity_state === 'blocked' ? 'warn' : c.validity_state === 'active' || c.validity_state === 'partial' ? 'ok' : 'muted')}</div>
-      <div class="fund-numbers">${esc(c.summary || '')} · 基准 ${esc(dateText(c.base_date))}</div></a>`).join('');
+      <div class="fund-numbers">${esc(resultExpired(c) ? U.ui_result_expired_headline : c.summary || '')} · 基准 ${esc(dateText(c.base_date))}</div></a>`).join('');
   },
   changelog() {
     const raw = (D.home && D.home.changelog) || null;
@@ -138,14 +147,17 @@ const R = {
   bandHeader(band) {
     const b = (D.bands || {})[band] || {};
     const v = b.validity || {};
+    const expired = resultExpired(v);
     const nextAt = v.next_review_at || ((D.home || {}).next_review_at || '');
-    const nextLabel = v.next_review_at ? U.ui_label_next_review : U.ui_label_next_engine_run;
-    const retention = v.result_retention || ((D.home || {}).result_retention || '');
+    const nextLabel = expired ? U.ui_label_original_review : (v.next_review_at ? U.ui_label_next_review : U.ui_label_next_engine_run);
+    const visibleUntil = v.result_visible_until ? C.kv(U.ui_label_result_until, esc(dateTimeText(v.result_visible_until))) : '';
+    const retentionText = expired ? U.ui_result_expired_note : (visibleUntil ? (v.result_retention || ((D.home || {}).result_retention || '')) : U.ui_result_none_note);
     return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>
-      <p class="lead">${esc(v.headline || b.summary || '')}</p>
+      <p class="lead">${esc(expired ? U.ui_result_expired_headline : v.headline || b.summary || '')}</p>
       <div class="muted">${C.badge(U['ui_state_' + v.state] || '', v.state === 'blocked' ? 'warn' : 'muted')} 基准 ${esc(dateText(b.base_date))}</div>
-      ${nextAt ? `<p class="muted">${esc(nextLabel || '')} ${esc(nextAt)}</p>` : ''}
-      ${retention ? `<p class="muted">${esc(retention)}</p>` : ''}</div>`;
+      ${nextAt ? `<p class="muted">${esc(nextLabel || '')} ${esc(dateTimeText(nextAt))}</p>` : ''}
+      ${visibleUntil}
+      ${retentionText ? `<p class="muted">${esc(retentionText)}</p>` : ''}</div>`;
   },
 
   bandActions(b) {
@@ -548,6 +560,7 @@ function renderPage(pageId) {
       if (node.from) {
         const b = (D.bands || {})[node.from] || {};
         const a = b.artifacts || {};
+        if (resultExpired(b.validity) && node.fn !== 'bandHeader') return '';
         if (node.fn === 'checkScan') return fn(b);
         if (node.fn === 'attention') return fn(b);
         if (node.fn === 'yourAction') return fn(b);
@@ -633,6 +646,22 @@ function bindRuleSearch() {
   });
 }
 
+let expiryTimer = null;
+function scheduleResultExpiry() {
+  if (expiryTimer) clearTimeout(expiryTimer);
+  const sources = [D.home, ...Object.values(D.bands || {}).map(b => b.validity || {})];
+  const future = sources.map(v => Date.parse(v.result_visible_until || ''))
+    .filter(t => Number.isFinite(t) && t > Date.now());
+  if (!future.length) return;
+  const delay = Math.max(0, Math.min(...future) - Date.now()) + 50;
+  expiryTimer = setTimeout(() => {
+    document.querySelectorAll('.page').forEach(p => { delete p.dataset.rendered; });
+    const active = document.querySelector('.page.active');
+    if (active) renderPage(active.id);
+    scheduleResultExpiry();
+  }, Math.min(delay, 2147483647));
+}
+
 // ---------- 四态：加载 / 正常 / 空 / 错误 ----------
 async function init() {
   try {
@@ -644,6 +673,7 @@ async function init() {
     renderNav();
     $('boot-skeleton').remove();
     showPage(location.hash.slice(1) || 'page-home');
+    scheduleResultExpiry();
     window.addEventListener('hashchange', () => showPage(location.hash.slice(1) || 'page-home'));
   } catch (e) {
     $('boot-skeleton').remove();
@@ -658,7 +688,7 @@ function renderShell() {
   if (st.label) {
     banner.hidden = false;
     banner.className = 'status-banner live';
-    banner.textContent = `${st.label}${st.description ? ' · ' + st.description : ''} · 页面生成 ${D.generated_at || ''}`;
+    banner.textContent = `${st.label}${st.description ? ' · ' + st.description : ''} · 页面生成 ${dateTimeText(D.generated_at)}`;
   }
 }
 

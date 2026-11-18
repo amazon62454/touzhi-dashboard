@@ -395,6 +395,13 @@ const R = {
     const rows = `${C.kv('周期', esc(f.period || '—'))}${C.kv('注入', money(f.injection))}${C.kv('已用', money(f.spent))}${C.kv('剩余', money(f.remaining))}`;
     return C.card(U.ui_h2_ledger_flow, rows);
   },
+  retirementFunds() {
+    const f = D.funds_page || {};
+    const cd = f.cash_detail || {};
+    const rows = `${C.kv('周期', esc(f.period || '—'))}${C.kv('注入', money(f.injection))}${C.kv('已用', money(f.spent))}${C.kv('剩余', money(f.remaining))}${C.kv('现金池', money(f.cash_pool))}`;
+    const note = cd.last_period_note ? `<p class="muted">上期结余：${esc(cd.last_period_note)}</p>` : '';
+    return C.card(U.ui_funds_title, rows + note);
+  },
 
   // 周日档
   addOn(rows, summary) {
@@ -480,6 +487,25 @@ const PAGE_SCHEMA = {
 };
 
 // ---------- 特殊页渲染 ----------
+R.retirementProjection = function () {
+  const p = D.retirement_projection || {};
+  const coverage = fmt(U.ui_retirement_coverage || '', {
+    covered: p.covered_fund_count || 0, total: p.holding_fund_count || 0,
+  });
+  if (!p.available) return C.card(U.ui_h2_retirement_projection, C.empty(coverage, U.ui_data_awaiting));
+  const rows = [
+    C.kv(U.ui_retirement_target, money(p.target_amount)),
+    C.kv(U.ui_retirement_annual, pct(p.annual_rate)),
+    C.kv(U.ui_retirement_date, esc(p.retire_date)),
+    C.kv(U.ui_retirement_remaining, fmt(U.ui_retirement_years || '', { years: p.years_remaining })),
+    C.kv(U.ui_retirement_contribution, money(p.monthly_budget)),
+    C.kv(U.ui_retirement_principal, money(p.principal)),
+    C.kv(U.ui_retirement_profit, money(p.projected_profit)),
+  ].join('');
+  const note = `<p class="muted">${esc(coverage)}</p><p class="muted">${esc(U.ui_retirement_assumption || '')}</p>`;
+  return C.card(U.ui_h2_retirement_projection, rows + note);
+};
+
 R.retirementPage = function () {
   const r = D.retirement || {};
   const metrics = C.metricGrid([
@@ -487,11 +513,10 @@ R.retirementPage = function () {
     ['持仓成本', money(r.total_cost)],
     ['持仓收益', money(r.total_profit)],
     ['持仓收益率', pct(r.total_profit_rate)],
-    ['每月投入上限', money(r.monthly_budget)],
   ]);
   const funds = C.card(U.ui_h2_position_detail || '持仓明细', C.fundRows(r.funds));
   const note = r.return_note ? `<p class="muted">${esc(r.return_note)}</p>` : '';
-  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${funds}${note}<h2>${esc(U.ui_funds_title || '本周期资金')}</h2>${R.fundsMetrics()}${R.cashDetail()}${R.ledgerFlow()}${R.fundDest()}`;
+  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${R.retirementProjection()}${funds}${note}${R.retirementFunds()}${R.fundDest()}`;
 };
 
 // ---------- 页面渲染引擎 ----------
@@ -545,11 +570,11 @@ function renderPage(pageId) {
 
 // ---------- 导航（配置驱动） ----------
 const NAV = [
+  { id: 'page-retirement', label: '养老' },
   { id: 'page-band_daily', label: '每日' },
   { id: 'page-band_eval', label: '周日' },
   { id: 'page-band_monthly', label: '月度' },
   { id: 'page-band_quarter', label: '季度' },
-  { id: 'page-retirement', label: '养老' },
 ];
 
 function renderNav() {

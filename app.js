@@ -105,6 +105,7 @@ const R = {
     const feedback = !expired && (h.actions || []).length ? `<p class="muted">${esc(U.ui_action_feedback || '')}</p>` : '';
     let timeLine = '';
     if (expired) timeLine = h.result_visible_until ? C.kv(U.ui_label_result_expired_at, esc(dateTimeText(h.result_visible_until))) : '';
+    else if (h.result_visible_until && h.result_effective_from) timeLine = C.kv(U.ui_label_result_period, `${esc(dateTimeText(h.result_effective_from))} 至 ${esc(dateTimeText(h.result_visible_until))}`);
     else if (h.result_visible_until) timeLine = C.kv(U.ui_label_result_effective, esc(dateTimeText(h.result_visible_until)));
     else if (h.next_review_at) timeLine = C.kv(U.ui_label_next_review, esc(dateTimeText(h.next_review_at)));
     return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(expired ? U.ui_result_expired_headline : h.headline || '')}</h1>${actions}${total}${feedback}${timeLine}`, 'accent');
@@ -151,6 +152,7 @@ const R = {
     const nextAt = v.next_review_at || '';
     let timeLine = '';
     if (expired) timeLine = v.result_visible_until ? C.kv(U.ui_label_result_expired_at, esc(dateTimeText(v.result_visible_until))) : '';
+    else if (v.result_visible_until && v.result_effective_from) timeLine = C.kv(U.ui_label_result_period, `${esc(dateTimeText(v.result_effective_from))} 至 ${esc(dateTimeText(v.result_visible_until))}`);
     else if (v.result_visible_until) timeLine = C.kv(U.ui_label_result_effective, esc(dateTimeText(v.result_visible_until)));
     else if (nextAt) timeLine = C.kv(U.ui_label_next_review, esc(dateTimeText(nextAt)));
     return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>

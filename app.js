@@ -130,9 +130,19 @@ const R = {
   // 债基再平衡
   rebalance(r) {
     if (!r) return '';
+    // 目标 55% 的依据内联在此（自含依据），每日档市场环境块因此不再重复目标数值
+    const env = (((D.bands || {}).band_monthly || {}).market_env) || null;
+    const im = env && env.impact;
+    let basis = '';
+    if (im && has(env.hs300_pe_pct) && has(im.threshold) && im.label !== '中性' && env.template_basis) {
+      const cmp = Number(env.hs300_pe_pct) > Number(im.threshold) ? '>' : '<';
+      basis = env.template_basis.replace('{debt}', im.debt_target).replace('{label}', im.label)
+        .replace('{pct}', pct(env.hs300_pe_pct)).replace('{cmp}', cmp).replace('{th}', im.threshold);
+    }
     const body = `<p class="lead">${esc(r.action || '')}</p>
       ${C.kv('当前债比 / ERP目标', `${pct(r.debt_weight)} / ${pct(r.debt_target)}`)}
       ${C.kv('启动线 / 补债下沿', `${pct(r.start_line)} / ${pct(r.lower_line)}`)}
+      ${basis ? `<p class="muted">${esc(basis)}</p>` : ''}
       ${r.actual_amount_note ? `<p class="muted">${esc(r.actual_amount_note)}</p>` : ''}`;
     return C.card(U.ui_h2_rebalance, body, r.active ? 'warn' : '');
   },

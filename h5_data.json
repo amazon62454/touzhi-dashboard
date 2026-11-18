@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T21:32:29",
+  "generated_at": "2026-11-18T21:56:22",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -95,6 +95,20 @@
       }
     ],
     "return_note": "周/月/年收益需历史快照,数据不足时不展示,避免用估值涨跌冒充真实收益。"
+  },
+  "retirement_projection": {
+    "available": true,
+    "retire_date": "2046-10-05",
+    "years_remaining": 19.9,
+    "annual_rate": 3.75,
+    "monthly_budget": 1800.0,
+    "target_amount": 681551,
+    "principal": 450978,
+    "projected_profit": 230573,
+    "covered_fund_count": 9,
+    "holding_fund_count": 9,
+    "coverage_rate": 100.0,
+    "missing_funds": []
   },
   "funds_page": {
     "period": "10-20~11-19",
@@ -3084,6 +3098,17 @@
     "ui_label_result_effective": "本次结果有效至",
     "ui_label_result_expired_at": "本次结果失效于",
     "ui_label_result_period": "本次结果有效期间",
-    "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页"
+    "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页",
+    "ui_h2_retirement_projection": "退休目标测算",
+    "ui_retirement_target": "退休目标（动态测算）",
+    "ui_retirement_annual": "组合历史年化",
+    "ui_retirement_date": "退休时间",
+    "ui_retirement_remaining": "距退休",
+    "ui_retirement_contribution": "每月持续投入",
+    "ui_retirement_principal": "测算本金",
+    "ui_retirement_profit": "测算收益",
+    "ui_retirement_years": "{years}年",
+    "ui_retirement_assumption": "按全部持仓基金成立以来年化×当前市值权重，含当前持仓和每月持续投入；随数据更新，非收益承诺。",
+    "ui_retirement_coverage": "年化数据覆盖 {covered}/{total} 只持仓基金"
   }
 }

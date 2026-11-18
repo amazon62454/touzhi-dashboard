@@ -148,8 +148,8 @@ const R = {
     const b = (D.bands || {})[band] || {};
     const v = b.validity || {};
     const expired = resultExpired(v);
-    const nextAt = v.next_review_at || ((D.home || {}).next_review_at || '');
-    const nextLabel = expired ? U.ui_label_original_review : (v.next_review_at ? U.ui_label_next_review : U.ui_label_next_engine_run);
+    const nextAt = v.next_review_at || '';
+    const nextLabel = expired ? U.ui_label_original_review : U.ui_label_next_review;
     const visibleUntil = v.result_visible_until ? C.kv(U.ui_label_result_until, esc(dateTimeText(v.result_visible_until))) : '';
     const retentionText = expired ? U.ui_result_expired_note : (visibleUntil ? (v.result_retention || ((D.home || {}).result_retention || '')) : U.ui_result_none_note);
     return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>
@@ -560,6 +560,7 @@ function renderPage(pageId) {
       if (node.from) {
         const b = (D.bands || {})[node.from] || {};
         const a = b.artifacts || {};
+        if (b.validity && b.validity.state === 'awaiting' && node.fn !== 'bandHeader') return '';
         if (resultExpired(b.validity) && node.fn !== 'bandHeader') return '';
         if (node.fn === 'checkScan') return fn(b);
         if (node.fn === 'attention') return fn(b);

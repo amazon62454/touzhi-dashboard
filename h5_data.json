@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T19:07:08",
+  "generated_at": "2026-11-18T19:14:34",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -14,7 +14,8 @@
     "total_action_amount": null,
     "next_review_date": "2026-11-19",
     "next_review_at": "2026-11-19T03:30:00",
-    "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档",
+    "result_visible_until": "2026-11-19T03:30:00",
+    "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档",
     "cards": [
       {
         "id": "band_daily",
@@ -22,7 +23,8 @@
         "summary": "今天无需操作",
         "base_date": "2026-11-18",
         "validity_state": "no_action",
-        "next_review_date": "2026-11-19"
+        "next_review_date": "2026-11-19",
+        "result_visible_until": "2026-11-19T03:30:00"
       },
       {
         "id": "band_eval",
@@ -30,7 +32,8 @@
         "summary": "等待下一次正式评估，当前不展示操作指令",
         "base_date": "未记录基准日",
         "validity_state": "awaiting",
-        "next_review_date": null
+        "next_review_date": null,
+        "result_visible_until": null
       },
       {
         "id": "band_monthly",
@@ -38,7 +41,8 @@
         "summary": "等待下一次正式评估，当前不展示操作指令",
         "base_date": "未记录基准日",
         "validity_state": "awaiting",
-        "next_review_date": null
+        "next_review_date": null,
+        "result_visible_until": null
       },
       {
         "id": "band_quarter",
@@ -46,12 +50,13 @@
         "summary": "等待下一次正式评估，当前不展示操作指令",
         "base_date": "未记录基准日",
         "validity_state": "awaiting",
-        "next_review_date": null
+        "next_review_date": null,
+        "result_visible_until": null
       }
     ],
     "changelog": {
       "date": "2026-11-18",
-      "summary": "空结果页新增下次正式评估日期+具体时点及结果保留规则；复用统一排程与交易日历，16项H5契约锁和全量校验通过",
+      "summary": "空结果页显示具体评估时点与固定结果失效时间，到点自动撤下旧结果；全页面日期时间统一YYYY-MM-DD HH:mm去T和秒数",
       "categories": "页面展示"
     },
     "health": []
@@ -198,7 +203,8 @@
         "postpone_days": 0,
         "valid_until": "2026-11-19T10:30:00",
         "next_review_at": "2026-11-19T03:30:00",
-        "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档"
+        "result_visible_until": "2026-11-19T03:30:00",
+        "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-18",
       "generated_at": "2026-11-18T18:51:39",
@@ -609,7 +615,8 @@
         "blocked": [],
         "expired": [],
         "next_review_date": null,
-        "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档"
+        "result_visible_until": null,
+        "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
       "generated_at": "",
@@ -644,7 +651,8 @@
         "blocked": [],
         "expired": [],
         "next_review_date": null,
-        "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档"
+        "result_visible_until": null,
+        "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
       "generated_at": "",
@@ -683,7 +691,8 @@
         "blocked": [],
         "expired": [],
         "next_review_date": null,
-        "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档"
+        "result_visible_until": null,
+        "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
       "generated_at": "",
@@ -3119,8 +3128,13 @@
     "ui_state_test": "不发布",
     "ui_home_total": "合计待执行金额",
     "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页",
-    "ui_result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档",
     "ui_label_next_engine_run": "统一引擎下次正式评估",
-    "ui_label_next_review": "下次正式评估"
+    "ui_label_next_review": "下次正式评估",
+    "ui_result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档",
+    "ui_label_result_until": "本次结果展示至",
+    "ui_result_none_note": "当前没有保留中的旧结果；新结果产生后会同时显示固定失效时间",
+    "ui_label_original_review": "原定正式评估",
+    "ui_result_expired_headline": "本次结果已到期，等待新的正式评估",
+    "ui_result_expired_note": "旧结果已在固定时间撤下；新结果发布后自动更新"
   }
 }

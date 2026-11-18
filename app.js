@@ -447,6 +447,34 @@ const R = {
     }).join('');
     return C.card(U.ui_h2_addon_score, body + sm);
   },
+  weeklyBudget(a) {
+    const w = a && a.weekly_budget;
+    if (!w) return '';
+    const dailyValues = Object.values(w.daily_amounts || {});
+    const daily = dailyValues.length ? dailyValues[0] : null;
+    const blocked = Number(w.shortfall) > 0;
+    const decision = blocked
+      ? `原计划不可全额执行，缺口 ${money(w.shortfall)}`
+      : daily != null ? `每个交易日 ${money(daily)}，下周共 ${money(w.debt_total)}` : '暂停，0元';
+    let html = C.kv('下周债基结论', decision, blocked ? 'neg' : 'pos')
+      + C.kv('本周需求', `权益 ${money(w.equity_total)} + 债基 ${money(w.debt_total)} = ${money(w.total)}`, 'info')
+      + C.kv('本周债基实际执行', money(w.debt_actual_amount), numTone(w.debt_actual_amount));
+    (w.cycles || []).forEach(g => {
+      const lock = g.budget_lock || {};
+      html += `<div class="flow-line"><b>${esc(g.period_start)} ~ ${esc(g.period_end)}</b> · ${lock.locked ? '预算已锁定' : '预算预览，待20日锁定'}</div>`;
+      html += C.kv('本周可用 / 投后余', `${money(g.available)} / ${money(g.remaining_after)}`, numTone(g.remaining_after));
+      const cycleInfo = g.full_cycle;
+      if (cycleInfo) {
+        html += C.kv('整周期权益', `${money(cycleInfo.projected_equity)} / 预算 ${money(cycleInfo.equity_budget)}`, cycleInfo.equity_excess > 0 ? 'neg' : 'pos');
+        html += C.kv('整周期债基', `${money(cycleInfo.projected_debt)} / 预算 ${money(cycleInfo.debt_budget)}`, cycleInfo.debt_excess > 0 ? 'neg' : 'pos');
+        html += C.kv('现金预留 / 预计全周期余', `${money(cycleInfo.cash_reserved)} / ${money(cycleInfo.projected_remaining)}`, numTone(cycleInfo.projected_remaining));
+        html += `<div class="lead">${esc(cycleInfo.note || '')}</div>`;
+      }
+    });
+    if (w.debt_actual_note) html += C.kv('待对账', esc(w.debt_actual_note), 'warn');
+    html += `<div class="lead">${esc(w.scope_note || '')}</div>`;
+    return C.card('本周资金结论（20日先定整周期）', html);
+  },
   evalCash(a) {
     const cash = a.cash_pool;
     if (cash === null || cash === undefined) return '';
@@ -473,7 +501,7 @@ const PAGE_SCHEMA = {
   ],
   'page-band_eval': [
     { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandActions', from: 'band_eval' }, { fn: 'bandBlocked', from: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' },
-    { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
+    { fn: 'weeklyBudget', from: 'band_eval' }, { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
     { fn: 'addOn', from: 'band_eval' },
   ],
   'page-band_monthly': [

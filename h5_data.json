@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T19:31:43",
+  "generated_at": "2026-11-18T19:54:06",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -13,6 +13,7 @@
     "expired": [],
     "total_action_amount": null,
     "next_review_date": "2026-11-19",
+    "result_effective_from": "2026-11-18T18:51:39",
     "next_review_at": "2026-11-19T03:30:00",
     "result_visible_until": "2026-11-19T03:30:00",
     "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档",
@@ -56,7 +57,7 @@
     ],
     "changelog": {
       "date": "2026-11-18",
-      "summary": "H5等待态只显示下次本档评估，不伪造结果有效至；各档独立排程与单一时间口径契约锁22项通过",
+      "summary": "H5有正式结果统一展示本次结果生效至失效的完整区间，无结果只显示下次评估；每日及各周期档均保留独立展示期",
       "categories": "页面展示"
     },
     "health": []
@@ -204,6 +205,7 @@
         "valid_until": "2026-11-19T10:30:00",
         "next_review_at": "2026-11-19T03:30:00",
         "result_visible_until": "2026-11-19T03:30:00",
+        "result_effective_from": "2026-11-18T18:51:39",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-18",
@@ -617,6 +619,7 @@
         "next_review_date": null,
         "next_review_at": "2026-11-22T03:30:00",
         "result_visible_until": null,
+        "result_effective_from": null,
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
@@ -654,6 +657,7 @@
         "next_review_date": null,
         "next_review_at": "2026-11-20T03:30:00",
         "result_visible_until": null,
+        "result_effective_from": null,
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
@@ -695,6 +699,7 @@
         "next_review_date": null,
         "next_review_at": "2026-12-25T03:30:00",
         "result_visible_until": null,
+        "result_effective_from": null,
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
@@ -3139,6 +3144,7 @@
     "ui_result_expired_headline": "本次结果已到期，等待新的正式评估",
     "ui_result_expired_note": "旧结果已在固定时间撤下；新结果发布后自动更新",
     "ui_label_result_effective": "本次结果有效至",
-    "ui_label_result_expired_at": "本次结果失效于"
+    "ui_label_result_expired_at": "本次结果失效于",
+    "ui_label_result_period": "本次结果有效期间"
   }
 }

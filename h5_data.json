@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T23:31:57",
+  "generated_at": "2026-11-19T03:03:37",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -102,9 +102,9 @@
     "years_remaining": 19.9,
     "annual_rate": 3.75,
     "monthly_budget": 1800.0,
-    "target_amount": 681551,
-    "principal": 450978,
-    "projected_profit": 230573,
+    "target_amount": 681422,
+    "principal": 450919,
+    "projected_profit": 230503,
     "covered_fund_count": 9,
     "holding_fund_count": 9,
     "coverage_rate": 100.0,

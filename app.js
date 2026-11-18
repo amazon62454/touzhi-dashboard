@@ -17,6 +17,7 @@ const dateText = v => (v && v !== '未记录基准日') ? v : '未记录基准�
 const dateTimeText = v => has(v) ? String(v).replace('T', ' ').replace(/(\d{2}:\d{2}):\d{2}$/, '$1') : '';
 const shortReason = v => v || '按SOP规则判定';
 const has = v => v !== null && v !== undefined && v !== '';
+const numTone = v => !has(v) || !Number.isFinite(Number(v)) ? 'zero' : Number(v) > 0 ? 'pos' : Number(v) < 0 ? 'neg' : 'zero';
 // 只执行引擎下发的结果展示期限；不计算动作有效期，不自行猜排程。
 const resultExpired = v => has(v && v.result_visible_until)
   && Number.isFinite(Date.parse(v.result_visible_until)) && Date.now() >= Date.parse(v.result_visible_until);
@@ -31,8 +32,8 @@ const C = {
     if (!body) return '';
     return `<div class="card ${kind}">${title ? `<h2>${title}</h2>` : ''}${body}</div>`;
   },
-  kv(label, value, note) {
-    return `<div class="money-row"><span>${esc(label)}${note ? `<small> ${esc(note)}</small>` : ''}</span><strong>${value}</strong></div>`;
+  kv(label, value, tone = '', note = '') {
+    return `<div class="money-row"><span>${esc(label)}${note ? `<small> ${esc(note)}</small>` : ''}</span><strong class="num ${tone}">${value}</strong></div>`;
   },
   badge(text, kind = 'info') { return `<span class="badge ${kind}">${esc(text)}</span>`; },
   statusBadge(status) {
@@ -44,8 +45,8 @@ const C = {
     return `<div class="empty">${title ? `<div class="empty-title">${esc(title)}</div>` : ''}${note ? esc(note) : ''}</div>`;
   },
   metricGrid(items) {
-    const rows = (items || []).filter(x => x).map(([label, value]) =>
-      `<div class="metric"><div class="metric-label">${esc(label)}</div><div class="metric-value">${esc(value)}</div></div>`).join('');
+    const rows = (items || []).filter(x => x).map(([label, value, tone = '']) =>
+      `<div class="metric ${tone}"><div class="metric-label">${esc(label)}</div><div class="metric-value ${tone}">${esc(value)}</div></div>`).join('');
     return rows ? `<div class="metric-grid">${rows}</div>` : '';
   },
   actionList(items, opts = {}) {
@@ -87,8 +88,8 @@ const C = {
     if (!rows || !rows.length) return C.empty(U.ui_empty_no_position);
     return rows.map(x => `
       <div class="fund-row">
-        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong><strong>${has(x.market_value) ? money(x.market_value) : ''}</strong></div>
-        <div class="fund-numbers">${esc(x.fund_code || '')}${has(x.profit) ? ` · 收益 ${money(x.profit)}` : ''}${has(x.profit_rate) ? ` · ${pct(x.profit_rate)}` : ''}${x.status ? ` · ${esc(x.status)}` : ''}</div>
+        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong><strong class="num info">${has(x.market_value) ? money(x.market_value) : ''}</strong></div>
+        <div class="fund-numbers">${esc(x.fund_code || '')}${has(x.profit) ? ` · 收益 <span class="num ${numTone(x.profit)}">${money(x.profit)}</span>` : ''}${has(x.profit_rate) ? ` · <span class="num ${numTone(x.profit_rate)}">${pct(x.profit_rate)}</span>` : ''}${x.status ? ` · ${esc(x.status)}` : ''}</div>
       </div>`).join('');
   },
   details(summary, body) { return body ? `<details><summary>${esc(summary)}</summary>${body}</details>` : ''; },
@@ -191,12 +192,12 @@ const R = {
     const worst = cumSorted[0];
     const best = cumSorted[cumSorted.length - 1];
     const cumRows = (worst && best && cumSorted.length > 2)
-      ? C.kv('最差', `${fundName(worst[0]) || worst[0]} ${pct(worst[1])}`) + C.kv('最好', `${fundName(best[0]) || best[0]} ${pct(best[1])}`)
-      : cumSorted.map(([fc, r]) => C.kv(fundName(fc) || fc, pct(r), fc)).join('');
+      ? C.kv('最差', `${fundName(worst[0]) || worst[0]} ${pct(worst[1])}`, numTone(worst[1])) + C.kv('最好', `${fundName(best[0]) || best[0]} ${pct(best[1])}`, numTone(best[1]))
+      : cumSorted.map(([fc, r]) => C.kv(fundName(fc) || fc, pct(r), numTone(r), fc)).join('');
     const mom = (ret['月度(快照对比)'] || {}).TOTAL;
     const inv = mr.item4_定投统计 || {};
     const body = `${C.kv('数据完整性', esc(mr.item1_完整性))}
-      ${C.kv('本月组合收益率', mom != null ? pct(mom) : '—')}
+      ${C.kv('本月组合收益率', mom != null ? pct(mom) : '—', numTone(mom))}
       ${cumRows}
       ${C.kv('定投执行', inv['次数'] != null ? `${esc(inv['次数'])}笔 / ${money(inv['金额'])}` : '—')}
       <p class="lead">${esc(mr.item3_加减仓回顾 || '')}</p>
@@ -279,7 +280,7 @@ const R = {
       const act = _dec[x.fund_code] || (x.action && x.action !== '—' ? x.action : '');
       return `<div class="fund-row">
         <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></strong>${act ? C.badge(act, act === '暂停' ? 'warn' : '') : ''}</div>
-        <div class="fund-numbers">市值 ${mv} · 收益率 ${pr} · 分位 ${vp}</div>
+        <div class="fund-numbers">市值 <span class="num info">${mv}</span> · 收益率 <span class="num ${numTone(x.params && x.params.profit_rate)}">${pr}</span> · 分位 ${vp}</div>
         ${(x.reason && String(x.reason) !== String(act)) ? `<p class="lead">${esc(x.reason)}</p>` : ''}</div>`;
     }).join('');
     return C.card(U.ui_h2_position_health, `<p class="muted">按市值降序；动作=本期该只怎么做</p>${rows}`);
@@ -289,23 +290,23 @@ const R = {
     const rows = (f.channels || []).map(x => {
       const v = x.value;
       const val = (v === null || v === undefined || v === '') ? '—' : (Number.isFinite(Number(v)) ? money(Number(v)) : esc(String(v)));
-      return C.kv(x.name, val);
+      return C.kv(x.name, val, 'info');
     }).join('');
     return C.card(U.ui_h2_fund_dest, rows);
   },
   fundsMetrics() {
     const f = D.funds_page || {};
     return C.metricGrid([
-      ['本周期剩余', money(f.remaining)],
-      ['现金池', money(f.cash_pool)],
+      ['本周期剩余', money(f.remaining), numTone(f.remaining)],
+      ['现金池', money(f.cash_pool), numTone(f.cash_pool)],
     ]);
   },
   cashDetail() {
     const cd = (D.funds_page || {}).cash_detail;
     if (!cd) return '';
     const parts = [
-      C.kv('现金池累计余额', money(cd.balance)),
-      cd.monthly_inject != null ? C.kv('月度注入额', money(cd.monthly_inject)) : '',
+      C.kv('现金池累计余额', money(cd.balance), numTone(cd.balance)),
+      cd.monthly_inject != null ? C.kv('月度注入额', money(cd.monthly_inject), 'info') : '',
       cd.last_period_note ? `<p class="muted">上期结余：${esc(cd.last_period_note)}</p>` : '',
     ].join('');
     return C.card(U.ui_h2_cash_pool, parts);
@@ -320,13 +321,13 @@ const R = {
     const weights = (b.allocation || {}).weights || {};
     const keys = Object.keys(weights);
     if (!keys.length) return C.card(U.ui_h2_allocation, C.empty('', '配置数据不足。'));
-    const rows = keys.map(k => C.kv(k, pct(weights[k]))).join('');
+    const rows = keys.map(k => C.kv(k, pct(weights[k]), 'info')).join('');
     return C.card(U.ui_h2_allocation, rows);
   },
   concentration(c) {
     if (!c) return '';
     const secs = Array.isArray(c.sectors) ? c.sectors : Object.entries(c.sectors || {}).map(([k, v]) => ({ sector: k, weight: v }));
-    const rows = secs.map(x => `<div class="money-row"><span>${esc(x.sector || '')}${x.over ? ' ' + C.badge('超限', 'danger') : ''}</span><strong>${pct(x.weight)}</strong></div>`).join('');
+    const rows = secs.map(x => `<div class="money-row"><span>${esc(x.sector || '')}${x.over ? ' ' + C.badge('超限', 'danger') : ''}</span><strong class="num ${x.over ? 'neg' : 'info'}">${pct(x.weight)}</strong></div>`).join('');
     const total = c.total ?? c.total_market_value;
     return C.card(fmt(U.ui_h2_concentration, { limit: pct(c.limit) }), `${rows}${total ? `<p class="muted">组合总市值 ${money(total)}</p>` : ''}`);
   },
@@ -392,13 +393,13 @@ const R = {
   },
   ledgerFlow() {
     const f = D.funds_page || {};
-    const rows = `${C.kv('周期', esc(f.period || '—'))}${C.kv('注入', money(f.injection))}${C.kv('已用', money(f.spent))}${C.kv('剩余', money(f.remaining))}`;
+    const rows = `${C.kv('周期', esc(f.period || '—'))}${C.kv('注入', money(f.injection), 'info')}${C.kv('已用', money(f.spent), 'info')}${C.kv('剩余', money(f.remaining), numTone(f.remaining))}`;
     return C.card(U.ui_h2_ledger_flow, rows);
   },
   retirementFunds() {
     const f = D.funds_page || {};
     const cd = f.cash_detail || {};
-    const rows = `${C.kv('周期', esc(f.period || '—'))}${C.kv('注入', money(f.injection))}${C.kv('已用', money(f.spent))}${C.kv('剩余', money(f.remaining))}${C.kv('现金池', money(f.cash_pool))}`;
+    const rows = `${C.kv('周期', esc(f.period || '—'))}${C.kv('注入', money(f.injection), 'info')}${C.kv('已用', money(f.spent), 'info')}${C.kv('剩余', money(f.remaining), numTone(f.remaining))}${C.kv('现金池', money(f.cash_pool), numTone(f.cash_pool))}`;
     const note = cd.last_period_note ? `<p class="muted">上期结余：${esc(cd.last_period_note)}</p>` : '';
     return C.card(U.ui_funds_title, rows + note);
   },
@@ -432,7 +433,7 @@ const R = {
         (() => { const m = dm.sentiments || {}; const v = Number(m.value); return isNaN(v) ? `情绪 ${n1(sc5['情绪'])}分` : `情绪 ${n1(sc5['情绪'])}分（成交额分位${n1(v)}%）`; })()
       ].join(' · ');
       return `<div class="fund-row">
-        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong><strong>${sc}</strong></div>
+        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong><strong class="num ${hit ? 'pos' : 'warn'}">${sc}</strong></div>
         <div class="fund-numbers">${esc(x.fund_code || '')}${th != null ? ` · 门槛${th}` : ''}${x.decision ? ` · ${esc(x.decision)}` : ''}${hit ? ' ' + C.badge('达标', 'ok') : ''}</div>
         <p class="lead">${dimLine}</p></div>`;
     }).join('');
@@ -441,7 +442,7 @@ const R = {
   evalCash(a) {
     const cash = a.cash_pool;
     if (cash === null || cash === undefined) return '';
-    return C.card(U.ui_h2_cash_pool, C.kv('现金池余额', money(cash)));
+    return C.card(U.ui_h2_cash_pool, C.kv('现金池余额', money(cash), numTone(cash)));
   },
 
   // 规则查询
@@ -494,13 +495,13 @@ R.retirementProjection = function () {
   });
   if (!p.available) return C.card(U.ui_h2_retirement_projection, C.empty(coverage, U.ui_data_awaiting));
   const rows = [
-    C.kv(U.ui_retirement_target, money(p.target_amount)),
-    C.kv(U.ui_retirement_annual, pct(p.annual_rate)),
+    C.kv(U.ui_retirement_target, money(p.target_amount), 'info'),
+    C.kv(U.ui_retirement_annual, pct(p.annual_rate), numTone(p.annual_rate)),
     C.kv(U.ui_retirement_date, esc(p.retire_date)),
     C.kv(U.ui_retirement_remaining, fmt(U.ui_retirement_years || '', { years: p.years_remaining })),
-    C.kv(U.ui_retirement_contribution, money(p.monthly_budget)),
-    C.kv(U.ui_retirement_principal, money(p.principal)),
-    C.kv(U.ui_retirement_profit, money(p.projected_profit)),
+    C.kv(U.ui_retirement_contribution, money(p.monthly_budget), 'info'),
+    C.kv(U.ui_retirement_principal, money(p.principal), 'info'),
+    C.kv(U.ui_retirement_profit, money(p.projected_profit), numTone(p.projected_profit)),
   ].join('');
   const note = `<p class="muted">${esc(coverage)}</p><p class="muted">${esc(U.ui_retirement_assumption || '')}</p>`;
   return C.card(U.ui_h2_retirement_projection, rows + note);
@@ -509,10 +510,10 @@ R.retirementProjection = function () {
 R.retirementPage = function () {
   const r = D.retirement || {};
   const metrics = C.metricGrid([
-    ['当前持有市值', money(r.total_market_value)],
-    ['持仓成本', money(r.total_cost)],
-    ['持仓收益', money(r.total_profit)],
-    ['持仓收益率', pct(r.total_profit_rate)],
+    ['当前持有市值', money(r.total_market_value), 'info'],
+    ['持仓成本', money(r.total_cost), 'info'],
+    ['持仓收益', money(r.total_profit), numTone(r.total_profit)],
+    ['持仓收益率', pct(r.total_profit_rate), numTone(r.total_profit_rate)],
   ]);
   const funds = C.card(U.ui_h2_position_detail || '持仓明细', C.fundRows(r.funds));
   const note = r.return_note ? `<p class="muted">${esc(r.return_note)}</p>` : '';

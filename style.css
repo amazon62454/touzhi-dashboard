@@ -259,3 +259,8 @@ details[open] > summary { margin-bottom: var(--sp-2); }
   body { padding-bottom: var(--sp-5); }
   .card { padding: var(--sp-5); }
 }
+
+/* 触发项扫描：虚线只分隔"整项"，项内名称行不画线 */
+.check-item { padding: var(--sp-2) 0; border-bottom: 1px dashed var(--c-border); }
+.check-item:last-child { border-bottom: none; }
+.check-item .money-row { border-bottom: none; padding: 0; }

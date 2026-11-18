@@ -148,10 +148,13 @@ const R = {
     if (!mr) return '';
     const ret = mr.item2_收益率 || {};
     const cum = ret['累计'] || {};
-    const cumRows = Object.entries(cum)
-      .sort((a, b) => (Number(a[1]) || 0) - (Number(b[1]) || 0))
-      .map(([fc, r]) =>
-      C.kv(fundName(fc) || fc, pct(r), fc)).join('');
+    // 逐只收益率已并入"持仓总表"，此处只留最差/最好两只作摘要，避免9只表重复
+    const cumSorted = Object.entries(cum).sort((a, b) => (Number(a[1]) || 0) - (Number(b[1]) || 0));
+    const worst = cumSorted[0];
+    const best = cumSorted[cumSorted.length - 1];
+    const cumRows = (worst && best && cumSorted.length > 2)
+      ? C.kv('最差', `${fundName(worst[0]) || worst[0]} ${pct(worst[1])}`) + C.kv('最好', `${fundName(best[0]) || best[0]} ${pct(best[1])}`)
+      : cumSorted.map(([fc, r]) => C.kv(fundName(fc) || fc, pct(r), fc)).join('');
     const mom = (ret['月度(快照对比)'] || {}).TOTAL;
     const inv = mr.item4_定投统计 || {};
     const body = `${C.kv('数据完整性', esc(mr.item1_完整性))}
@@ -218,7 +221,30 @@ const R = {
     return parts.length ? C.card(U.ui_h2_execution || '执行与解锁', parts.join('')) : '';
   },
   positionRows(items) {
-    return C.card(U.ui_h2_position_health, C.actionList(items));
+    // 月度档唯一持仓总表：市值/收益率/本期动作，替代原来三张各列9只的重复表
+    const list = (items || []).slice().sort((x, y) => {
+      const mx = Number((x.params || {}).market_value);
+      const my = Number((y.params || {}).market_value);
+      return (isNaN(my) ? -1 : my) - (isNaN(mx) ? -1 : mx);
+    });
+    if (!list.length) return '';
+    // 本期动作取资金评审的真实决策（"维持定投/暂停定投等估值回到可投区/维持暂停保留下月复核"），
+    // 比 items.action 的"持有"信息量大；评审区块本身已合并进本表，不再单独渲染。
+    const _fr = (((D.bands || {}).band_monthly || {}).artifacts || {}).funding_review || [];
+    const _dec = {};
+    _fr.forEach(z => { if (z && z.fund_code) _dec[z.fund_code] = z.decision; });
+    const rows = list.map(x => {
+      const p = x.params || {};
+      const mv = has(p.market_value) ? money(Number(p.market_value)) : '—';
+      const pr = has(p.profit_rate) ? pct(Number(p.profit_rate)) : '—';
+      const vp = has(p.valuation_pct) ? pct(Number(p.valuation_pct)) : '—';
+      const act = _dec[x.fund_code] || (x.action && x.action !== '—' ? x.action : '');
+      return `<div class="fund-row">
+        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></strong>${act ? C.badge(act, act === '暂停' ? 'warn' : '') : ''}</div>
+        <div class="fund-numbers">市值 ${mv} · 收益率 ${pr} · 分位 ${vp}</div>
+        ${x.reason ? `<p class="lead">${esc(x.reason)}</p>` : ''}</div>`;
+    }).join('');
+    return C.card(U.ui_h2_position_health, `<p class="muted">按市值降序；动作=本期该只怎么做</p>${rows}`);
   },
   fundDest() {
     const f = D.funds_page || {};
@@ -325,7 +351,17 @@ const R = {
       // 排名类说明压成短标签（分位+排名第N），不再把整句套话另起一行阻断列表；
       // 非排名类（养老固定额/债基/高估暂停等）保留原因，因为它是该只为何这个金额的唯一解释。
       const brief = m ? `分位 ${vp} · ${m[0]}` : `分位 ${vp}${r ? ' · ' + r : ''}`;
-      return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></strong><strong>${esc(x.action || '')} ${amt}</strong></div><div class="fund-numbers">${esc(brief)}</div></div>`;
+      // 当前→本期 + 动作（原"操作清单"区块合并至此，避免同一批基金列两遍）
+      const cur = has(x.params && x.params.current_amount) ? Number(x.params.current_amount) : null;
+      const next = has(x.amount) ? Number(x.amount) : null;
+      let verb = '不变', cls = '';
+      if (x.action === '暂停' || next === 0) { verb = '暂停'; cls = 'warn'; }
+      else if (cur != null && next != null) {
+        if (next > cur) { verb = '调高'; cls = 'ok'; }
+        else if (next < cur) { verb = '调低'; cls = 'warn'; }
+      }
+      const flow = (cur != null && next != null) ? `当前 ${money(cur)} → 本期 ${money(next)}` : '';
+      return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></strong>${C.badge(verb, cls)}</div><div class="fund-numbers">${esc(flow ? flow + ' · ' : '')}${esc(brief)}</div></div>`;
     }).join('');
     return C.card(U.ui_h2_eval_amount, `<p class="muted">分位低→高，主动/FOF表末；下周一前理财通改额</p>${body}`);
   },
@@ -413,14 +449,13 @@ const PAGE_SCHEMA = {
   'page-band_eval': [
     { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'evalAmount', from: 'band_eval' },
     { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
-    { fn: 'evalActionList', from: 'band_eval' }, { fn: 'addOn', from: 'band_eval' }, { fn: 'attention', from: 'band_eval' },
-    { fn: 'normalItems', from: 'band_eval' },
+    { fn: 'addOn', from: 'band_eval' }, { fn: 'attention', from: 'band_eval' },
   ],
   'page-band_monthly': [
     { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'fundsMetrics' },
     { fn: 'rebalance', from: 'band_monthly' }, { fn: 'flow', from: 'band_monthly' },
     { fn: 'monthlyReview', from: 'band_monthly' }, { fn: 'periodSummary', from: 'band_monthly' },
-    { fn: 'takeProfit', from: 'band_monthly' }, { fn: 'fundingReview', from: 'band_monthly' },
+    { fn: 'takeProfit', from: 'band_monthly' },
     { fn: 'scan', from: 'band_monthly' }, { fn: 'positionRows', from: 'band_monthly' },
     { fn: 'execution', from: 'band_monthly' }, { fn: 'fundDest' },
   ],

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-19T03:03:37",
-  "base_date": "2026-11-18",
+  "generated_at": "2026-11-19T03:32:27",
+  "base_date": "2026-11-19",
   "status": {
     "label": "数据完整",
     "description": "只显示当前有效结论"
@@ -146,8 +146,8 @@
       "summary": "今天无需操作",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-18T18:51:39",
-        "next_review_date": "2026-11-19",
+        "as_of": "2026-11-19T03:31:35",
+        "next_review_date": "2026-11-20",
         "source_param": "P142/P206",
         "state": "no_action",
         "headline": "今天无需操作",
@@ -155,18 +155,18 @@
         "actions": [],
         "blocked": [],
         "expired": [],
-        "planned_execution_date": "2026-11-19",
-        "actual_execution_date": "2026-11-19",
+        "planned_execution_date": "2026-11-20",
+        "actual_execution_date": "2026-11-20",
         "is_postponed": false,
         "postpone_days": 0,
-        "valid_until": "2026-11-19T10:30:00",
-        "next_review_at": "2026-11-19T03:30:00",
-        "result_visible_until": "2026-11-19T03:30:00",
-        "result_effective_from": "2026-11-18T18:51:39",
+        "valid_until": "2026-11-20T10:30:00",
+        "next_review_at": "2026-11-23T03:30:00",
+        "result_visible_until": "2026-11-23T03:30:00",
+        "result_effective_from": "2026-11-19T03:31:35",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
-      "base_date": "2026-11-18",
-      "generated_at": "2026-11-18T18:51:39",
+      "base_date": "2026-11-19",
+      "generated_at": "2026-11-19T03:31:35",
       "items": [
         {
           "fund_code": "017491",
@@ -219,7 +219,7 @@
           "params": {
             "profit_rate": -11.87,
             "drawdown": null,
-            "valuation_pct": 37.08,
+            "valuation_pct": 29.46,
             "market_value": 259.98,
             "cost": 295.0,
             "current_amount": 25.0
@@ -234,7 +234,7 @@
           "params": {
             "profit_rate": -7.91,
             "drawdown": null,
-            "valuation_pct": 76.73,
+            "valuation_pct": 76.26,
             "market_value": 1253.06,
             "cost": 1360.7,
             "current_amount": 0.0
@@ -263,7 +263,7 @@
           "params": {
             "profit_rate": -5.41,
             "drawdown": null,
-            "valuation_pct": 5.37,
+            "valuation_pct": 4.82,
             "market_value": 2030.91,
             "cost": 2146.98,
             "current_amount": 65.0
@@ -278,7 +278,7 @@
           "params": {
             "profit_rate": -4.58,
             "drawdown": null,
-            "valuation_pct": 6.63,
+            "valuation_pct": 6.41,
             "market_value": 1399.62,
             "cost": 1466.74,
             "current_amount": 40.0
@@ -324,7 +324,7 @@
           "params": {
             "profit_rate": -11.87,
             "drawdown": null,
-            "valuation_pct": 37.08,
+            "valuation_pct": 29.46,
             "market_value": 259.98,
             "cost": 295.0,
             "current_amount": 25.0
@@ -339,7 +339,7 @@
           "params": {
             "profit_rate": -7.91,
             "drawdown": null,
-            "valuation_pct": 76.73,
+            "valuation_pct": 76.26,
             "market_value": 1253.06,
             "cost": 1360.7,
             "current_amount": 0.0
@@ -368,7 +368,7 @@
           "params": {
             "profit_rate": -5.41,
             "drawdown": null,
-            "valuation_pct": 5.37,
+            "valuation_pct": 4.82,
             "market_value": 2030.91,
             "cost": 2146.98,
             "current_amount": 65.0
@@ -383,7 +383,7 @@
           "params": {
             "profit_rate": -4.58,
             "drawdown": null,
-            "valuation_pct": 6.63,
+            "valuation_pct": 6.41,
             "market_value": 1399.62,
             "cost": 1466.74,
             "current_amount": 40.0
@@ -438,25 +438,25 @@
           "metrics": [
             {
               "label": "易方达恒生港股通创新药ETF联接A",
-              "value": 5.37,
+              "value": 4.82,
               "unit": "%",
               "tone": "info"
             },
             {
               "label": "嘉实中证新能源汽车指数C",
-              "value": 6.63,
+              "value": 6.41,
               "unit": "%",
               "tone": "info"
             },
             {
               "label": "华宝中证有色金属ETF联接A",
-              "value": 37.08,
+              "value": 29.46,
               "unit": "%",
               "tone": "info"
             },
             {
               "label": "国泰黄金ETF联接C",
-              "value": 76.73,
+              "value": 76.26,
               "unit": "%",
               "tone": "info"
             },
@@ -500,19 +500,19 @@
       ],
       "allocation": {
         "amounts": {
-          "现金": 0.0,
-          "养老FOF": 1147.97,
           "权益": 6157.169999999999,
-          "债券": 13021.65,
-          "商品": 1253.06
+          "养老FOF": 1147.97,
+          "商品": 1253.06,
+          "现金": 0.0,
+          "债券": 13021.65
         },
         "total": 21579.85,
         "weights": {
-          "现金": 0.0,
-          "养老FOF": 5.32,
           "权益": 28.53,
-          "债券": 60.34,
-          "商品": 5.81
+          "养老FOF": 5.32,
+          "商品": 5.81,
+          "现金": 0.0,
+          "债券": 60.34
         }
       },
       "artifacts": {
@@ -644,29 +644,29 @@
           {
             "name": "持仓估值越档",
             "status": "🔴",
-            "detail": "024328:5.37%→极度低估；012544:6.63%→极度低估；004253:76.73%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
+            "detail": "024328:4.82%→极度低估；012544:6.41%→极度低估；004253:76.26%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": 5.37,
+                "value": 4.82,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": 6.63,
+                "value": 6.41,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": 37.08,
+                "value": 29.46,
                 "unit": "%",
-                "tone": "info"
+                "tone": "pos"
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": 76.73,
+                "value": 76.26,
                 "unit": "%",
                 "tone": "warn"
               }
@@ -694,11 +694,11 @@
           {
             "name": "利好加仓信号(低估候选)",
             "status": "💰",
-            "detail": "新增低估候选:024328,012544(共2只);周日档自动五维评分,达门槛才加仓",
+            "detail": "新增低估候选:017140(共3只);周日档自动五维评分,达门槛才加仓",
             "metrics": [
               {
                 "label": "低估候选",
-                "value": 2,
+                "value": 3,
                 "unit": "只",
                 "tone": "pos"
               },
@@ -713,11 +713,11 @@
           {
             "name": "债券净值连跌",
             "status": "🟢",
-            "detail": "债基009290连续4日下跌(阈值10日)",
+            "detail": "债基009290连续5日下跌(阈值10日)",
             "metrics": [
               {
                 "label": "连续下跌",
-                "value": 4,
+                "value": 5,
                 "unit": "日",
                 "tone": "warn"
               },
@@ -736,25 +736,25 @@
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": 5.37,
+                "value": 4.82,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": 6.63,
+                "value": 6.41,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": 37.08,
+                "value": 29.46,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": 76.73,
+                "value": 76.26,
                 "unit": "%",
                 "tone": "info"
               },
@@ -811,29 +811,29 @@
           {
             "name": "持仓估值越档",
             "status": "🔴",
-            "detail": "024328:5.37%→极度低估；012544:6.63%→极度低估；004253:76.73%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
+            "detail": "024328:4.82%→极度低估；012544:6.41%→极度低估；004253:76.26%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": 5.37,
+                "value": 4.82,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": 6.63,
+                "value": 6.41,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": 37.08,
+                "value": 29.46,
                 "unit": "%",
-                "tone": "info"
+                "tone": "pos"
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": 76.73,
+                "value": 76.26,
                 "unit": "%",
                 "tone": "warn"
               }
@@ -842,23 +842,23 @@
           {
             "name": "利率倒挂监控",
             "status": "🟢",
-            "detail": "1年期1.1717%/10年期1.6146%,利差-44bp,未严重倒挂(阈值50bp)",
+            "detail": "1年期1.1755%/10年期1.5976%,利差-42bp,未严重倒挂(阈值50bp)",
             "metrics": [
               {
                 "label": "1年期",
-                "value": 1.1717,
+                "value": 1.1755,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "10年期",
-                "value": 1.6146,
+                "value": 1.5976,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "利差",
-                "value": -44,
+                "value": -42,
                 "unit": "bp",
                 "tone": "pos"
               },

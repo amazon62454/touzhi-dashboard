@@ -74,9 +74,6 @@ body {
 }
 h1, h2, h3 { margin: 0; font-weight: 600; line-height: 1.35; }
 a { color: var(--c-primary); text-decoration: none; }
-.home-action-headline { color: inherit; text-decoration: underline; text-underline-offset: 5px; }
-.home-action-headline::after { content: ' →'; }
-.action-row-link { color: inherit; }
 small { font-size: var(--fs-xs); color: var(--c-text-3); font-weight: 400; }
 
 /* ---------- 3. 布局 ---------- */

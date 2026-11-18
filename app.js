@@ -142,7 +142,9 @@ const R = {
     if (['expired', 'awaiting', 'test'].includes((b.validity || {}).state)) return '';
     const checks = (b.artifacts && b.artifacts.daily_checks) || [];
     if (!checks.length) return '';
-    const rows = checks.map(c => `<div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>${C.checkMetrics(c.metrics)}`).join('');
+    // 每项=一个整体块（名称+状态+说明+指标），虚线只画在块与块之间；
+    // 原来虚线画在名称行下方、说明文字跑到线外，看起来像说明属于下一项（用户 2026-11-19 指出）
+    const rows = checks.map(c => `<div class="check-item"><div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>${C.checkMetrics(c.metrics)}</div>`).join('');
     return C.card(fmt(U.ui_h2_check_scan, { n: checks.length }), rows);
   },
   attention(b) {
@@ -553,8 +555,11 @@ R.retirementProjection = function () {
     C.kv(U.ui_retirement_contribution, money(p.monthly_budget), 'info'),
     C.kv(U.ui_retirement_principal, money(p.principal), 'info'),
     C.kv(U.ui_retirement_profit, money(p.projected_profit), numTone(p.projected_profit)),
+    has(p.zero_return_principal) ? C.kv(U.ui_retirement_zero || '若未来零收益（只算本金）', money(p.zero_return_principal), 'info') : '',
   ].join('');
-  const note = `<p class="muted">${esc(coverage)}</p><p class="muted">${esc(U.ui_retirement_assumption || '')}</p>`;
+  const ex = (p.excluded_funds || []).map(x => `${x.fund_name || x.fund_code}(${pct(x.hist_annual_return)})`).join('、');
+  const exLine = ex ? `<p class="muted">${esc(fmt(U.ui_retirement_excluded || '', { n: (p.excluded_funds || []).length, names: ex }))}</p>` : '';
+  const note = `<p class="muted">${esc(coverage)}</p>${exLine}<p class="muted">${esc(U.ui_retirement_assumption || '')}</p>`;
   return C.card(U.ui_h2_retirement_projection, rows + note);
 };
 

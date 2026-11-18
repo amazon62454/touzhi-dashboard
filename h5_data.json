@@ -1,28 +1,9 @@
 {
-  "generated_at": "2026-11-18T21:05:45",
+  "generated_at": "2026-11-18T21:27:28",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
     "description": "只显示当前有效结论"
-  },
-  "home": {
-    "state": "no_action",
-    "headline": "今天无需操作",
-    "actions": [],
-    "blocked": [],
-    "expired": [],
-    "total_action_amount": null,
-    "next_review_date": "2026-11-19",
-    "result_effective_from": "2026-11-18T18:51:39",
-    "next_review_at": "2026-11-19T03:30:00",
-    "result_visible_until": "2026-11-19T03:30:00",
-    "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档",
-    "changelog": {
-      "date": "2026-11-18",
-      "summary": "H5首页移除与底部导航重复的档位卡，保留跨档行动中心，不合并单档且不复制养老资金指标",
-      "categories": "资金、页面展示"
-    },
-    "health": []
   },
   "retirement": {
     "total_market_value": 21579.85,
@@ -3062,10 +3043,7 @@
     "ui_empty_no_ledger": "暂无资金流水。",
     "ui_no_score": "不参与评分",
     "ui_wait_data": "待数据",
-    "ui_h2_changelog": "最近系统改了什么",
-    "ui_h2_health": "本次数据是否齐全",
     "ui_normal_rest": "其余 {n} 只：未触发风控",
-    "ui_home_eyebrow": "今天要你做什么",
     "ui_retirement_title": "现在积累了多少",
     "ui_funds_title": "本周期资金",
     "ui_h2_position_detail": "持仓明细",
@@ -3096,8 +3074,6 @@
     "ui_state_observation": "查看详情",
     "ui_state_awaiting": "待评估",
     "ui_state_test": "不发布",
-    "ui_home_total": "合计待执行金额",
-    "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页",
     "ui_label_next_review": "下次正式评估",
     "ui_result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档",
     "ui_label_result_until": "本次结果展示至",
@@ -3107,6 +3083,7 @@
     "ui_result_expired_note": "旧结果已在固定时间撤下；新结果发布后自动更新",
     "ui_label_result_effective": "本次结果有效至",
     "ui_label_result_expired_at": "本次结果失效于",
-    "ui_label_result_period": "本次结果有效期间"
+    "ui_label_result_period": "本次结果有效期间",
+    "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页"
   }
 }

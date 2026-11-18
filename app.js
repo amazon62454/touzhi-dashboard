@@ -332,11 +332,11 @@ const R = {
   addOn(rows, summary) {
     // 只展示参与评分(有评分)的基金；"不参与"(FOF/主动/持有期/未进低估区)不占版面(用户2026-11-18要求)。
     // 排序跟主题走(M11):加仓→分位升序+评分降序
-    const list = (rows || []).filter(x => has(x.score)).sort((a, b) => {
-      const va = has(a.valuation) ? Number(a.valuation) : 999;
-      const vb = has(b.valuation) ? Number(b.valuation) : 999;
-      if (va !== vb) return va - vb;
-      return (Number(b.score) || 0) - (Number(a.score) || 0);
+    const list = (rows || []).filter(x => has(x.score)).sort((p1, p2) => {
+      const v1 = has(p1.valuation) ? Number(p1.valuation) : 999;
+      const v2 = has(p2.valuation) ? Number(p2.valuation) : 999;
+      if (v1 !== v2) return v1 - v2;
+      return (Number(p2.score) || 0) - (Number(p1.score) || 0);
     });
     const sm = summary ? `<p class="muted">${esc(typeof summary === 'string' ? summary : JSON.stringify(summary))}</p>` : '';
     if (!list.length) return sm ? C.card(U.ui_h2_addon_score, sm) : '';

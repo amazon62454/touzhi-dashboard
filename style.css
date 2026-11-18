@@ -70,7 +70,7 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--c-bg); color: var(--c-text);
   font: var(--fs-base)/1.6 -apple-system, BlinkMacSystemFont, "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  padding-bottom: 76px; /* 底部导航留白 */
+  padding-bottom: var(--sp-3);
 }
 h1, h2, h3 { margin: 0; font-weight: 600; line-height: 1.35; }
 a { color: var(--c-primary); text-decoration: none; }
@@ -81,9 +81,11 @@ small { font-size: var(--fs-xs); color: var(--c-text-3); font-weight: 400; }
 
 /* 顶栏 */
 header {
-  position: sticky; top: 0; z-index: 20;
   display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2);
   padding: var(--sp-3) var(--sp-4);
+}
+.top-shell {
+  position: sticky; top: 0; z-index: 30;
   background: color-mix(in srgb, var(--c-surface) 92%, transparent);
   backdrop-filter: blur(12px); border-bottom: 1px solid var(--c-border);
 }
@@ -126,6 +128,20 @@ header strong { font-size: var(--fs-md); }
 .money-row span { color: var(--c-text-2); min-width: 0; }
 .money-row strong { font-size: var(--fs-md); font-variant-numeric: tabular-nums; white-space: normal; overflow-wrap: anywhere; text-align: right; }
 
+/* 数值语义色：负值红、正值绿、提醒黄、中性蓝、零值灰；逐值独立，不整行染色 */
+.num { display: inline-block; padding: 0 var(--sp-1); border-radius: var(--radius-s); font-weight: 650; }
+.num.pos, .metric-value.pos { color: var(--c-success); }
+.num.neg, .metric-value.neg { color: var(--c-danger); }
+.num.warn, .metric-value.warn { color: var(--c-warn); }
+.num.info, .metric-value.info { color: var(--c-info); }
+.num.zero, .metric-value.zero { color: var(--c-text-3); }
+.num.pos { background: var(--c-success-weak); }
+.num.neg { background: var(--c-danger-weak); }
+.num.warn { background: var(--c-warn-weak); }
+.num.info { background: var(--c-primary-weak); }
+.num.zero { background: var(--c-surface-2); }
+.fund-numbers .num { font-size: var(--fs-sm); }
+
 /* 变更记录：日期在上、摘要换行，避免长文本 nowrap 挤成一团 */
 .changelog-row { padding: var(--sp-2) 0; border-bottom: 1px dashed var(--c-border); }
 .changelog-row:last-child { border-bottom: none; }
@@ -140,6 +156,11 @@ header strong { font-size: var(--fs-md); }
 }
 .metric-label { font-size: var(--fs-xs); color: var(--c-text-3); margin-bottom: var(--sp-1); }
 .metric-value { font-size: var(--fs-lg); font-weight: 600; font-variant-numeric: tabular-nums; }
+.metric.pos { background: var(--c-success-weak); border-color: color-mix(in srgb, var(--c-success) 25%, transparent); }
+.metric.neg { background: var(--c-danger-weak); border-color: color-mix(in srgb, var(--c-danger) 25%, transparent); }
+.metric.warn { background: var(--c-warn-weak); border-color: color-mix(in srgb, var(--c-warn) 25%, transparent); }
+.metric.info { background: var(--c-primary-weak); border-color: color-mix(in srgb, var(--c-info) 25%, transparent); }
+.metric.zero { background: var(--c-surface-2); }
 
 /* ---------- 7. 行动列表 ---------- */
 .action-list { display: flex; flex-direction: column; gap: var(--sp-2); }
@@ -151,7 +172,7 @@ header strong { font-size: var(--fs-md); }
 .action-name { font-weight: 600; font-size: var(--fs-base); }
 .action-code { font-size: var(--fs-xs); color: var(--c-text-3); margin-left: var(--sp-2); font-weight: 400; }
 .action-reason { font-size: var(--fs-sm); color: var(--c-text-2); margin-top: var(--sp-1); }
-.action-amount { font-size: var(--fs-md); font-weight: 700; color: var(--c-money); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.action-amount { font-size: var(--fs-md); font-weight: 700; color: var(--c-info); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .action-amount small { display: block; color: var(--c-text-3); font-weight: 400; text-align: right; }
 
 /* 有序行动清单 */
@@ -202,21 +223,19 @@ ol.action-list li::before {
 .error-state button { margin-top: var(--sp-3); min-height: var(--tap); padding: 0 var(--sp-5);
   border: none; border-radius: var(--radius-s); background: var(--c-primary); color: #fff; font-size: var(--fs-base); font-weight: 600; }
 
-/* ---------- 11. 底部导航（移动端） ---------- */
-nav.bottom {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
-  display: flex; justify-content: space-around; align-items: center;
-  background: color-mix(in srgb, var(--c-surface) 94%, transparent);
-  backdrop-filter: blur(12px); border-top: 1px solid var(--c-border);
-  padding: var(--sp-1) 0 max(var(--sp-1), env(safe-area-inset-bottom));
+/* ---------- 11. 顶部导航（移动端紧凑触控） ---------- */
+nav.top {
+  display: flex; justify-content: center; align-items: center; gap: var(--sp-1);
+  max-width: 100%; margin: 0 auto; padding: 0 var(--sp-3) var(--sp-2);
+  overflow-x: auto;
 }
-nav.bottom a {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  min-width: var(--tap); min-height: var(--tap); padding: var(--sp-1) var(--sp-2);
-  font-size: var(--fs-xs); color: var(--c-text-3); border-radius: var(--radius-s);
+nav.top a {
+  display: flex; align-items: center; justify-content: center;
+  flex: 0 1 64px; min-width: 52px; min-height: var(--tap); padding: var(--sp-2);
+  font-size: var(--fs-sm); color: var(--c-text-3); border-radius: var(--radius-s);
   transition: color var(--dur) var(--ease);
 }
-nav.bottom a.active { color: var(--c-primary); font-weight: 700; }
+nav.top a.active { color: var(--c-primary); background: var(--c-primary-weak); font-weight: 700; }
 
 /* ---------- 12. 页面切换 ---------- */
 .page { display: none; }
@@ -235,6 +254,5 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 /* ---------- 15. 桌面增强 ---------- */
 @media (min-width: 768px) {
   body { padding-bottom: var(--sp-5); }
-  nav.bottom { position: sticky; bottom: 0; }
   .card { padding: var(--sp-5); }
 }

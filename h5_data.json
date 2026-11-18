@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T10:10:36",
+  "generated_at": "2026-11-18T10:15:25",
   "base_date": "2026-11-18",
   "status": {
     "run_mode": "test",
@@ -595,7 +595,8 @@
           "equity_base": 50.0,
           "debt_target": 55.0
         },
-        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → {label}态生效：权益目标 {eq}%、债券 {debt}%（基准 {base}%）"
+        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → ERP {label}态（权益降配、债券升配；目标值见月度档再平衡）",
+        "template_basis": "目标 {debt}% 来自 ERP {label}态（沪深300 PE 分位 {pct} {cmp} 阈值 {th}%）"
       },
       "next_review": [
         {
@@ -1062,7 +1063,8 @@
           "equity_base": 50.0,
           "debt_target": 55.0
         },
-        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → {label}态生效：权益目标 {eq}%、债券 {debt}%（基准 {base}%）"
+        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → ERP {label}态（权益降配、债券升配；目标值见月度档再平衡）",
+        "template_basis": "目标 {debt}% 来自 ERP {label}态（沪深300 PE 分位 {pct} {cmp} 阈值 {th}%）"
       },
       "next_review": [
         {
@@ -2036,7 +2038,8 @@
           "equity_base": 50.0,
           "debt_target": 55.0
         },
-        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → {label}态生效：权益目标 {eq}%、债券 {debt}%（基准 {base}%）"
+        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → ERP {label}态（权益降配、债券升配；目标值见月度档再平衡）",
+        "template_basis": "目标 {debt}% 来自 ERP {label}态（沪深300 PE 分位 {pct} {cmp} 阈值 {th}%）"
       },
       "next_review": [
         {
@@ -2502,7 +2505,8 @@
           "equity_base": 50.0,
           "debt_target": 55.0
         },
-        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → {label}态生效：权益目标 {eq}%、债券 {debt}%（基准 {base}%）"
+        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → ERP {label}态（权益降配、债券升配；目标值见月度档再平衡）",
+        "template_basis": "目标 {debt}% 来自 ERP {label}态（沪深300 PE 分位 {pct} {cmp} 阈值 {th}%）"
       },
       "next_review": [
         {
@@ -4909,7 +4913,8 @@
     "ui_h2_execution": "执行与解锁",
     "ui_normal_rest_eval": "其余 {n} 只：正常定投，无需额外操作",
     "ui_h2_market_env": "市场环境（ERP 驱动配置目标）",
-    "ui_market_env_impact": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → {label}态生效：权益目标 {eq}%、债券 {debt}%（基准 {base}%）",
-    "ui_market_env_neutral": "沪深300 PE 5年分位 {pct} 在中性区 → 机械再平衡，权益目标维持 {eq}%"
+    "ui_market_env_impact": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → ERP {label}态（权益降配、债券升配；目标值见月度档再平衡）",
+    "ui_market_env_neutral": "沪深300 PE 5年分位 {pct} 在中性区 → 机械再平衡，权益目标维持 {eq}%",
+    "ui_rb_erp_basis": "目标 {debt}% 来自 ERP {label}态（沪深300 PE 分位 {pct} {cmp} 阈值 {th}%）"
   }
 }

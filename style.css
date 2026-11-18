@@ -141,6 +141,9 @@ header strong { font-size: var(--fs-md); }
 .num.info { background: var(--c-primary-weak); }
 .num.zero { background: var(--c-surface-2); }
 .fund-numbers .num { font-size: var(--fs-sm); }
+.check-metrics { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: calc(-1 * var(--sp-1)) 0 var(--sp-3); }
+.check-metric { display: inline-flex; align-items: center; gap: var(--sp-1); font-size: var(--fs-xs); color: var(--c-text-3); }
+.check-metric .num { font-size: var(--fs-xs); }
 
 /* 变更记录：日期在上、摘要换行，避免长文本 nowrap 挤成一团 */
 .changelog-row { padding: var(--sp-2) 0; border-bottom: 1px dashed var(--c-border); }

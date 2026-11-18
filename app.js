@@ -59,21 +59,17 @@ const C = {
         <div class="action-amount">${has(x.amount) && Number(x.amount) !== 0 ? money(x.amount) : ''}${x.params && has(x.params.valuation_pct) ? `<small>估值 ${pct(x.params.valuation_pct)}</small>` : ''}</div>
       </div>`).join('')}</div>`;
   },
-  validityList(items, linkActions = false) {
+  validityList(items) {
     if (!items || !items.length) return '';
     return `<div class="action-list">${items.map(x => {
       const amount = has(x.amount) && Number(x.amount) !== 0 ? money(x.amount) : '';
       const schedule = x.actual_execution_date ? `<div class="fund-numbers">${esc(U.ui_label_execute_date || '')} ${esc(x.actual_execution_date)}${x.is_postponed ? ` · ${esc(fmt(U.ui_label_postponed, { n: x.postpone_days }))}` : ''}${x.valid_until ? ` · ${esc(U.ui_label_deadline || '')} ${esc(dateTimeText(x.valid_until))}` : ''}</div>` : '';
-      const content = `<div><div class="action-name">${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}${x.fund_code ? `<span class="action-code">${esc(x.fund_code)}</span>` : ''}</div><div class="action-reason">${esc(x.band_title || '')} · ${esc(x.action || '')}${x.reason ? ' · ' + esc(shortReason(x.reason)) : ''}</div>${schedule}</div><div class="action-amount">${amount}</div>`;
-      return linkActions && x.band ? `<a class="action-row action-row-link" href="#page-${esc(x.band)}">${content}</a>` : `<div class="action-row">${content}</div>`;
+      return `<div class="action-row"><div><div class="action-name">${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}${x.fund_code ? `<span class="action-code">${esc(x.fund_code)}</span>` : ''}</div><div class="action-reason">${esc(x.band_title || '')} · ${esc(x.action || '')}${x.reason ? ' · ' + esc(shortReason(x.reason)) : ''}</div>${schedule}</div><div class="action-amount">${amount}</div></div>`;
     }).join('')}</div>`;
   },
-  blockedList(items, linkActions = false) {
+  blockedList(items) {
     if (!items || !items.length) return '';
-    return items.map(x => {
-      const content = `<div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong>${C.badge(x.action || '', 'warn')}</div><div class="fund-numbers">${esc(x.blocked_reason || '')}</div>`;
-      return linkActions && x.band ? `<a class="fund-row action-row-link" href="#page-${esc(x.band)}">${content}</a>` : `<div class="fund-row">${content}</div>`;
-    }).join('');
+    return items.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong>${C.badge(x.action || '', 'warn')}</div><div class="fund-numbers">${esc(x.blocked_reason || '')}</div></div>`).join('');
   },
   expiredList(items) {
     if (!items || !items.length) return '';
@@ -100,57 +96,6 @@ const C = {
 
 // ---------- 渲染器（业务区块：数据 → 组件组合） ----------
 const R = {
-  // 首页
-  homeHero() {
-    const h = D.home || {};
-    const expired = resultExpired(h);
-    const actions = expired ? '' : C.validityList(h.actions, true);
-    const total = !expired && has(h.total_action_amount) ? C.kv(U.ui_home_total, money(h.total_action_amount)) : '';
-    const feedback = !expired && (h.actions || []).length ? `<p class="muted">${esc(U.ui_action_feedback || '')}</p>` : '';
-    const detailBands = [];
-    if (!expired) {
-      for (const item of [...(h.actions || []), ...(h.blocked || [])]) {
-        if (item.band && !detailBands.some(x => x.band === item.band)) detailBands.push(item);
-      }
-    }
-    const headlineText = expired ? U.ui_result_expired_headline : h.headline || '';
-    const headline = detailBands.length === 1
-      ? `<a class="home-action-headline" href="#page-${esc(detailBands[0].band)}">${esc(headlineText)}</a>`
-      : esc(headlineText);
-    let timeLine = '';
-    if (expired) timeLine = h.result_visible_until ? C.kv(U.ui_label_result_expired_at, esc(dateTimeText(h.result_visible_until))) : '';
-    else if (h.result_visible_until && h.result_effective_from) timeLine = C.kv(U.ui_label_result_period, `${esc(dateTimeText(h.result_effective_from))} 至 ${esc(dateTimeText(h.result_visible_until))}`);
-    else if (h.result_visible_until) timeLine = C.kv(U.ui_label_result_effective, esc(dateTimeText(h.result_visible_until)));
-    else if (h.next_review_at) timeLine = C.kv(U.ui_label_next_review, esc(dateTimeText(h.next_review_at)));
-    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${headline}</h1>${actions}${total}${feedback}${timeLine}`, 'accent');
-  },
-  homeBlocked() {
-    const items = (D.home && D.home.blocked) || [];
-    if (resultExpired(D.home)) return '';
-    return items.length ? C.card(U.ui_h2_blocked_actions, C.blockedList(items, true), 'warn') : '';
-  },
-  homeExpired() {
-    const items = (D.home && D.home.expired) || [];
-    if (resultExpired(D.home)) return '';
-    return items.length ? C.details(U.ui_h2_expired_actions, C.expiredList(items)) : '';
-  },
-  changelog() {
-    const raw = (D.home && D.home.changelog) || null;
-    if (!raw) return '';
-    const cl = Array.isArray(raw) ? raw : [raw];
-    if (!cl.length) return '';
-    const rows = cl.map(x => `<div class="changelog-row"><div class="changelog-date">${esc(x.date || '')}</div><div class="changelog-text">${esc(x.summary || x.text || '')}</div></div>`).join('');
-    return C.card(U.ui_h2_changelog || '最近系统改了什么', rows);
-  },
-  health() {
-    const hs = (D.home && D.home.health) || [];
-    if (!hs.length && D.home && D.home.state === 'awaiting') return C.card(U.ui_h2_health || '', C.empty('', U.ui_data_awaiting || ''));
-    if (!hs.length && D.home && D.home.blocked && D.home.blocked.length) return C.card(U.ui_h2_health || '', C.empty('', U.ui_data_partial || ''));
-    if (!hs.length) return C.card(U.ui_h2_health || '本次数据是否齐全', C.empty('', '数据源全部正常'));
-    const rows = hs.map(x => `<div class="money-row"><span>${esc(x.name)} · ${esc(x.detail || '')}</span>${C.statusBadge(x.status)}</div>`).join('');
-    return C.card(U.ui_h2_health || '本次数据是否齐全', rows);
-  },
-
   // 档位页公共头
   bandHeader(band) {
     const b = (D.bands || {})[band] || {};
@@ -504,9 +449,6 @@ const R = {
 
 // ---------- 声明式页面 Schema（页面 = 区块有序列表，加区块只改这里） ----------
 const PAGE_SCHEMA = {
-  'page-home': [
-    { fn: 'homeHero' }, { fn: 'homeBlocked' }, { fn: 'homeExpired' }, { fn: 'changelog' }, { fn: 'health' },
-  ],
   'page-band_daily': [
     { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandActions', from: 'band_daily' }, { fn: 'bandBlocked', from: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
     { fn: 'nextReview', from: 'band_daily' },
@@ -534,7 +476,6 @@ const PAGE_SCHEMA = {
     { fn: 'normalItems', from: 'band_quarter' },
   ],
   'page-retirement': [{ fn: 'retirementPage' }],
-  'page-funds': [{ fn: 'fundsPage' }],
   'page-rules': [{ fn: 'ruleList' }],
 };
 
@@ -550,10 +491,7 @@ R.retirementPage = function () {
   ]);
   const funds = C.card(U.ui_h2_position_detail || '持仓明细', C.fundRows(r.funds));
   const note = r.return_note ? `<p class="muted">${esc(r.return_note)}</p>` : '';
-  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${funds}${note}`;
-};
-R.fundsPage = function () {
-  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_funds_title || '本周期资金')}</h1></div>${R.fundsMetrics()}${R.cashDetail()}${R.ledgerFlow()}${R.fundDest()}`;
+  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${funds}${note}<h2>${esc(U.ui_funds_title || '本周期资金')}</h2>${R.fundsMetrics()}${R.cashDetail()}${R.ledgerFlow()}${R.fundDest()}`;
 };
 
 // ---------- 页面渲染引擎 ----------
@@ -607,13 +545,11 @@ function renderPage(pageId) {
 
 // ---------- 导航（配置驱动） ----------
 const NAV = [
-  { id: 'page-home', label: '今日' },
   { id: 'page-band_daily', label: '每日' },
   { id: 'page-band_eval', label: '周日' },
   { id: 'page-band_monthly', label: '月度' },
   { id: 'page-band_quarter', label: '季度' },
   { id: 'page-retirement', label: '养老' },
-  { id: 'page-funds', label: '资金' },
 ];
 
 function renderNav() {
@@ -622,7 +558,7 @@ function renderNav() {
 
 function showPage(pageId) {
   const valid = NAV.some(n => n.id === pageId) || pageId === 'page-rules';
-  const target = valid ? pageId : 'page-home';
+  const target = valid ? pageId : 'page-retirement';
   document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === target));
   document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('active', a.dataset.page === target));
   if (!$(target).dataset.rendered) {
@@ -658,7 +594,7 @@ function bindRuleSearch() {
 let expiryTimer = null;
 function scheduleResultExpiry() {
   if (expiryTimer) clearTimeout(expiryTimer);
-  const sources = [D.home, ...Object.values(D.bands || {}).map(b => b.validity || {})];
+  const sources = Object.values(D.bands || {}).map(b => b.validity || {});
   const future = sources.map(v => Date.parse(v.result_visible_until || ''))
     .filter(t => Number.isFinite(t) && t > Date.now());
   if (!future.length) return;
@@ -681,9 +617,9 @@ async function init() {
     renderShell();
     renderNav();
     $('boot-skeleton').remove();
-    showPage(location.hash.slice(1) || 'page-home');
+    showPage(location.hash.slice(1) || 'page-retirement');
     scheduleResultExpiry();
-    window.addEventListener('hashchange', () => showPage(location.hash.slice(1) || 'page-home'));
+    window.addEventListener('hashchange', () => showPage(location.hash.slice(1) || 'page-retirement'));
   } catch (e) {
     $('boot-skeleton').remove();
     $('main').innerHTML = `<div class="error-state"><div>页面数据读取失败：${esc(e.message)}</div><button onclick="location.reload()">重试</button></div>`;

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T19:24:42",
+  "generated_at": "2026-11-18T19:28:53",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -56,7 +56,7 @@
     ],
     "changelog": {
       "date": "2026-11-18",
-      "summary": "H5各档位独立排程显示下次评估，等待态不再借用统一时间或渲染空配置区块；H5契约锁20项通过",
+      "summary": "H5同一页面只保留一个结果时间口径：有结果显示有效至、无结果显示下次评估，不再并列重复时点；契约锁21项通过",
       "categories": "页面展示"
     },
     "health": []
@@ -3137,6 +3137,8 @@
     "ui_result_none_note": "当前没有保留中的旧结果；新结果产生后会同时显示固定失效时间",
     "ui_label_original_review": "原定正式评估",
     "ui_result_expired_headline": "本次结果已到期，等待新的正式评估",
-    "ui_result_expired_note": "旧结果已在固定时间撤下；新结果发布后自动更新"
+    "ui_result_expired_note": "旧结果已在固定时间撤下；新结果发布后自动更新",
+    "ui_label_result_effective": "本次结果有效至",
+    "ui_label_result_expired_at": "本次结果失效于"
   }
 }

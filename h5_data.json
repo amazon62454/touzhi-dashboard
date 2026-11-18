@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T07:37:52",
+  "generated_at": "2026-11-19T07:40:07",
   "base_date": "2026-11-19",
   "status": {
     "label": "数据完整",
@@ -100,15 +100,34 @@
     "available": true,
     "retire_date": "2046-10-05",
     "years_remaining": 19.9,
-    "annual_rate": 3.75,
+    "annual_rate": 2.23,
     "monthly_budget": 1800.0,
-    "target_amount": 681422,
-    "principal": 450919,
-    "projected_profit": 230503,
-    "covered_fund_count": 9,
+    "target_amount": 569576,
+    "principal": 448452,
+    "projected_profit": 121124,
+    "covered_fund_count": 6,
     "holding_fund_count": 9,
-    "coverage_rate": 100.0,
-    "missing_funds": []
+    "coverage_rate": 66.67,
+    "missing_funds": [],
+    "excluded_funds": [
+      {
+        "fund_code": "017491",
+        "fund_name": "财通景气甄选一年持有C",
+        "hist_annual_return": 38.86
+      },
+      {
+        "fund_code": "010363",
+        "fund_name": "信澳匠心臻选两年持有",
+        "hist_annual_return": 8.04
+      },
+      {
+        "fund_code": "010340",
+        "fund_name": "易方达高质量严选三年持有",
+        "hist_annual_return": -2.1
+      }
+    ],
+    "investing_market": 19113.19,
+    "zero_return_principal": 448452
   },
   "funds_page": {
     "period": "10-20~11-19",
@@ -3473,7 +3492,9 @@
     "ui_retirement_principal": "测算本金",
     "ui_retirement_profit": "测算收益",
     "ui_retirement_years": "{years}年",
-    "ui_retirement_assumption": "按全部持仓基金成立以来年化×当前市值权重，含当前持仓和每月持续投入；随数据更新，非收益承诺。",
-    "ui_retirement_coverage": "年化数据覆盖 {covered}/{total} 只持仓基金"
+    "ui_retirement_assumption": "按「当前仍在定投」基金的成立以来年化×市值权重测算，起点=当前市值（已含现有浮亏）；已暂停/待退出基金的历史业绩不计入。历史年化≠未来收益，非承诺。",
+    "ui_retirement_coverage": "年化数据覆盖 {covered}/{total} 只在投基金",
+    "ui_retirement_zero": "若未来零收益（只算本金）",
+    "ui_retirement_excluded": "已剔除 {n} 只暂停/退出基金的历史业绩：{names}"
   }
 }

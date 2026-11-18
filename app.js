@@ -123,7 +123,8 @@ const R = {
   },
   normalItems(b) {
     const items = b.normal_items || [];
-    return C.details(fmt(U.ui_normal_rest || '其余 {n} 只：未触发风控', { n: items.length }), C.actionList(items));
+    const label = b.normal_label || U.ui_normal_rest || '其余 {n} 只：未触发风控';
+    return C.details(fmt(label, { n: items.length }), C.actionList(items));
   },
 
   // 债基再平衡

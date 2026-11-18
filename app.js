@@ -139,6 +139,12 @@ const R = {
       ${v.next_review_date ? `<p class="muted">${esc(U.ui_label_next_review || '')} ${esc(v.next_review_date)}</p>` : ''}</div>`;
   },
 
+  bandActions(b) {
+    const v = (b || {}).validity || {};
+    if (!['active', 'partial'].includes(v.state)) return '';
+    const items = v.actions || [];
+    return items.length ? C.card(U.ui_h2_current_actions, C.validityList(items), 'accent') : '';
+  },
   bandBlocked(b) {
     const items = ((b || {}).validity || {}).blocked || [];
     return items.length ? C.card(U.ui_h2_blocked_actions, C.blockedList(items), 'warn') : '';
@@ -156,7 +162,11 @@ const R = {
     const rows = checks.map(c => `<div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>`).join('');
     return C.card(fmt(U.ui_h2_check_scan, { n: checks.length }), rows);
   },
-  attention(b) { return C.card(U.ui_h2_attention, C.actionList(b.attention_items)); },
+  attention(b) {
+    const v = b.validity || {};
+    if (v.state && !['active', 'partial'].includes(v.state)) return '';
+    return C.card(U.ui_h2_attention, C.actionList(b.attention_items));
+  },
   yourAction(b) {
     const state = (b.validity || {}).state;
     const active = state === 'active' || state === 'partial';
@@ -164,6 +174,8 @@ const R = {
     return C.card(U.ui_h2_your_action, `<p class="lead">${esc(txt || '')}</p>`, 'accent');
   },
   normalItems(b) {
+    const v = b.validity || {};
+    if (['expired', 'awaiting', 'test'].includes(v.state)) return '';
     const items = b.normal_items || [];
     const label = b.normal_label || U.ui_normal_rest || '其余 {n} 只：未触发风控';
     return C.details(fmt(label, { n: items.length }), C.actionList(items));
@@ -411,33 +423,6 @@ const R = {
   },
 
   // 周日档
-  evalAmount(b) {
-    const state = (b.validity || {}).state;
-    if (state !== 'active' && state !== 'partial') return '';
-    const items = ((b.validity || {}).actions || []).filter(x => x.action !== '暂停' || !String(x.reason || '').includes('富国'));
-    if (!items.length) return '';
-    const body = items.map(x => {
-      const vp = x.params && has(x.params.valuation_pct) ? pct(x.params.valuation_pct) : '—';
-      const amt = has(x.amount) ? `${x.amount}元` : '—';
-      const r = String(x.reason || '');
-      const m = r.match(/排名第\s*\d+/);
-      // 排名类说明压成短标签（分位+排名第N），不再把整句套话另起一行阻断列表；
-      // 非排名类（养老固定额/债基/高估暂停等）保留原因，因为它是该只为何这个金额的唯一解释。
-      const brief = m ? `分位 ${vp} · ${m[0]}` : `分位 ${vp}${r ? ' · ' + r : ''}`;
-      // 当前→本期 + 动作（原"操作清单"区块合并至此，避免同一批基金列两遍）
-      const cur = has(x.params && x.params.current_amount) ? Number(x.params.current_amount) : null;
-      const next = has(x.amount) ? Number(x.amount) : null;
-      let verb = '不变', cls = '';
-      if (x.action === '暂停' || next === 0) { verb = '暂停'; cls = 'warn'; }
-      else if (cur != null && next != null) {
-        if (next > cur) { verb = '调高'; cls = 'ok'; }
-        else if (next < cur) { verb = '调低'; cls = 'warn'; }
-      }
-      const flow = (cur != null && next != null) ? `当前 ${money(cur)} → 本期 ${money(next)}` : '';
-      return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></strong>${C.badge(verb, cls)}</div><div class="fund-numbers">${esc(flow ? flow + ' · ' : '')}${esc(brief)}</div></div>`;
-    }).join('');
-    return C.card(U.ui_h2_eval_amount, `<p class="muted">分位低→高，主动/FOF表末；下周一前理财通改额</p>${body}`);
-  },
   addOn(rows, summary) {
     const state = (((D.bands || {}).band_eval || {}).validity || {}).state;
     if (state !== 'active' && state !== 'partial') return '';
@@ -472,28 +457,6 @@ const R = {
     }).join('');
     return C.card(U.ui_h2_addon_score, body + sm);
   },
-  evalActionList(b) {
-    const items = (b && b.items) || [];
-    const lead = `<p class="lead">按下表逐只改理财通定投额：调高/调低/暂停/恢复；只改金额不改策略</p>`;
-    if (!items.length) return C.card(U.ui_h2_action_list, lead);
-    const rows = items.map(x => {
-      const p = x.params || {};
-      const cur = has(p.current_amount) ? Number(p.current_amount) : null;
-      const next = has(x.amount) ? Number(x.amount) : null;
-      let verb = '不变';
-      let cls = '';
-      if (x.action === '暂停' || next === 0) { verb = '暂停'; cls = 'warn'; }
-      else if (cur == null || next == null) { verb = '—'; }
-      else if (next > cur) { verb = '调高'; cls = 'ok'; }
-      else if (next < cur) { verb = '调低'; cls = 'warn'; }
-      return `<div class="fund-row">
-        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong>${C.badge(verb, cls)}</div>
-        <div class="fund-numbers">${esc(x.fund_code || '')} · 当前 ${cur == null ? '—' : money(cur)} → 本期 ${next == null ? '—' : money(next)}</div>
-        ${(x.reason && String(x.reason) !== String(act)) ? `<p class="lead">${esc(x.reason)}</p>` : ''}</div>`;
-    }).join('');
-    return C.card(U.ui_h2_action_list, lead + rows);
-  },
-
   evalCash(a) {
     const cash = a.cash_pool;
     if (cash === null || cash === undefined) return '';
@@ -516,18 +479,18 @@ const PAGE_SCHEMA = {
     { fn: 'homeHero' }, { fn: 'homeBlocked' }, { fn: 'homeExpired' }, { fn: 'bandCards' }, { fn: 'changelog' }, { fn: 'health' },
   ],
   'page-band_daily': [
-    { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandBlocked', from: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
-    { fn: 'attention', from: 'band_daily' }, { fn: 'nextReview', from: 'band_daily' },
+    { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandActions', from: 'band_daily' }, { fn: 'bandBlocked', from: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
+    { fn: 'nextReview', from: 'band_daily' },
     { fn: 'ledgerFlow' }, { fn: 'marketEnv', from: 'band_daily' }, { fn: 'yourAction', from: 'band_daily' },
     { fn: 'normalItems', from: 'band_daily' },
   ],
   'page-band_eval': [
-    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandBlocked', from: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' }, { fn: 'evalAmount', from: 'band_eval' },
+    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandActions', from: 'band_eval' }, { fn: 'bandBlocked', from: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' },
     { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
-    { fn: 'addOn', from: 'band_eval' }, { fn: 'attention', from: 'band_eval' },
+    { fn: 'addOn', from: 'band_eval' },
   ],
   'page-band_monthly': [
-    { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'fundsMetrics' },
+    { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandActions', from: 'band_monthly' }, { fn: 'bandBlocked', from: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
     { fn: 'rebalance', from: 'band_monthly' }, { fn: 'flow', from: 'band_monthly' },
     { fn: 'monthlyReview', from: 'band_monthly' }, { fn: 'periodSummary', from: 'band_monthly' },
     { fn: 'takeProfit', from: 'band_monthly' },
@@ -535,7 +498,7 @@ const PAGE_SCHEMA = {
     { fn: 'execution', from: 'band_monthly' }, { fn: 'fundDest' },
   ],
   'page-band_quarter': [
-    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
+    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandActions', from: 'band_quarter' }, { fn: 'bandBlocked', from: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
     { fn: 'allocation', from: 'band_quarter' }, { fn: 'rebalance', from: 'band_quarter' },
     { fn: 'concentration', from: 'band_quarter' }, { fn: 'exitReviews', from: 'band_quarter' },
     { fn: 'quarterReview', from: 'band_quarter' }, { fn: 'yourAction', from: 'band_quarter' },
@@ -596,10 +559,8 @@ function renderPage(pageId) {
         if (node.fn === 'fundingReview') return fn(a.funding_review);
         if (node.fn === 'scan') return fn(a.scan);
         if (node.fn === 'execution') return fn(a.execution_review, a.unlock_review);
-        if (node.fn === 'evalAmount') return fn(b);
         if (node.fn === 'addOn') return fn(a.add_on_reviews, a.add_on_summary);
         if (node.fn === 'evalCash') return fn(a);
-        if (node.fn === 'evalActionList') return fn(b);
         if (node.fn === 'netAddition') return fn(a.net_addition);
         // 兜底：未登记的区块直接传整档数据，避免"schema 加了、白名单漏了"导致区块静默消失
         return fn(b);

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T20:28:52",
+  "generated_at": "2026-11-18T20:54:14",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -57,7 +57,7 @@
     ],
     "changelog": {
       "date": "2026-11-18",
-      "summary": "H5首页待办与待补数据按所属档位显示详情链接，多档分别跳转，无动作不显示",
+      "summary": "H5首页待办句本体跳转对应档位：单档整句可点，多档逐条可点，移除独立详情按钮",
       "categories": "页面展示"
     },
     "health": []
@@ -3145,7 +3145,6 @@
     "ui_result_expired_note": "旧结果已在固定时间撤下；新结果发布后自动更新",
     "ui_label_result_effective": "本次结果有效至",
     "ui_label_result_expired_at": "本次结果失效于",
-    "ui_label_result_period": "本次结果有效期间",
-    "ui_link_band_detail": "查看{band}详细内容 →"
+    "ui_label_result_period": "本次结果有效期间"
   }
 }

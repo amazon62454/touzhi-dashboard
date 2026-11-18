@@ -424,7 +424,7 @@ const R = {
       return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></strong>${C.badge(verb, cls)}</div>
         <div class="fund-numbers">计划 ${money(x.plan)} → 本期 ${money(x.alloc)}${note}</div></div>`;
     }).join('');
-    const head = `<p class="lead">整周权益需求 ${money(g.equity_need)} 元 > 本期可用 ${money(g.avail)} 元，缺口 ${money(g.shortfall)} 元 → 按「估值分位升序+评分降序」重排，发完即止</p>`;
+    const head = `<p class="lead">整周权益需求 ${money(g.equity_need)} > 本期可用 ${money(g.avail)}，缺口 ${money(g.shortfall)} → 按「估值分位升序+评分降序」重排，发完即止</p>`;
     const src = g.cash_override ? '<p class="muted">可用金额取自你告知的实际现金</p>' : `<p class="muted">按本周期权益额度剩余计算（额度 ${money(g.equity_month)} − 已投 ${money(g.spent)}）；若有实际现金余额，告诉我按实际重算</p>`;
     return C.card('资金不足·优先级重算', head + rows + src);
   },

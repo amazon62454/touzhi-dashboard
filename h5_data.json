@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T08:23:21",
+  "generated_at": "2026-11-18T08:27:15",
   "base_date": "2026-11-18",
   "status": {
     "run_mode": "test",
@@ -187,7 +187,8 @@
             "profit_rate": -40.39,
             "stop_line": -25.0,
             "market_value": 887.82,
-            "cost": 1489.5
+            "cost": 1489.5,
+            "current_amount": null
           }
         },
         {
@@ -200,7 +201,8 @@
             "profit_rate": -38.45,
             "stop_line": -25.0,
             "market_value": 686.92,
-            "cost": 1116.0
+            "cost": 1116.0,
+            "current_amount": null
           }
         },
         {
@@ -213,7 +215,8 @@
             "profit_rate": -20.44,
             "drawdown": null,
             "market_value": 891.92,
-            "cost": 1121.0
+            "cost": 1121.0,
+            "current_amount": null
           }
         },
         {
@@ -227,7 +230,8 @@
             "drawdown": null,
             "valuation_pct": 37.08,
             "market_value": 259.98,
-            "cost": 295.0
+            "cost": 295.0,
+            "current_amount": 25.0
           }
         },
         {
@@ -241,7 +245,8 @@
             "drawdown": null,
             "valuation_pct": 76.73,
             "market_value": 1253.06,
-            "cost": 1360.7
+            "cost": 1360.7,
+            "current_amount": 0.0
           }
         },
         {
@@ -254,7 +259,8 @@
             "profit_rate": -7.72,
             "drawdown": null,
             "market_value": 1147.97,
-            "cost": 1244.0
+            "cost": 1244.0,
+            "current_amount": 30.0
           }
         },
         {
@@ -268,7 +274,8 @@
             "drawdown": null,
             "valuation_pct": 5.37,
             "market_value": 2030.91,
-            "cost": 2146.98
+            "cost": 2146.98,
+            "current_amount": 65.0
           }
         },
         {
@@ -282,7 +289,8 @@
             "drawdown": null,
             "valuation_pct": 6.63,
             "market_value": 1399.62,
-            "cost": 1466.74
+            "cost": 1466.74,
+            "current_amount": 40.0
           }
         },
         {
@@ -295,7 +303,8 @@
             "profit_rate": -0.6,
             "drawdown": null,
             "market_value": 13021.65,
-            "cost": 13100.78
+            "cost": 13100.78,
+            "current_amount": 45.0
           }
         }
       ],
@@ -310,7 +319,8 @@
             "profit_rate": -40.39,
             "stop_line": -25.0,
             "market_value": 887.82,
-            "cost": 1489.5
+            "cost": 1489.5,
+            "current_amount": null
           }
         },
         {
@@ -323,7 +333,8 @@
             "profit_rate": -38.45,
             "stop_line": -25.0,
             "market_value": 686.92,
-            "cost": 1116.0
+            "cost": 1116.0,
+            "current_amount": null
           }
         }
       ],
@@ -338,7 +349,8 @@
             "profit_rate": -20.44,
             "drawdown": null,
             "market_value": 891.92,
-            "cost": 1121.0
+            "cost": 1121.0,
+            "current_amount": null
           }
         },
         {
@@ -352,7 +364,8 @@
             "drawdown": null,
             "valuation_pct": 37.08,
             "market_value": 259.98,
-            "cost": 295.0
+            "cost": 295.0,
+            "current_amount": 25.0
           }
         },
         {
@@ -366,7 +379,8 @@
             "drawdown": null,
             "valuation_pct": 76.73,
             "market_value": 1253.06,
-            "cost": 1360.7
+            "cost": 1360.7,
+            "current_amount": 0.0
           }
         },
         {
@@ -379,7 +393,8 @@
             "profit_rate": -7.72,
             "drawdown": null,
             "market_value": 1147.97,
-            "cost": 1244.0
+            "cost": 1244.0,
+            "current_amount": 30.0
           }
         },
         {
@@ -393,7 +408,8 @@
             "drawdown": null,
             "valuation_pct": 5.37,
             "market_value": 2030.91,
-            "cost": 2146.98
+            "cost": 2146.98,
+            "current_amount": 65.0
           }
         },
         {
@@ -407,7 +423,8 @@
             "drawdown": null,
             "valuation_pct": 6.63,
             "market_value": 1399.62,
-            "cost": 1466.74
+            "cost": 1466.74,
+            "current_amount": 40.0
           }
         },
         {
@@ -420,7 +437,8 @@
             "profit_rate": -0.6,
             "drawdown": null,
             "market_value": 13021.65,
-            "cost": 13100.78
+            "cost": 13100.78,
+            "current_amount": 45.0
           }
         }
       ],
@@ -605,7 +623,8 @@
             "valuation_band": "极度低估",
             "market_value": 2030.91,
             "cost": 2146.98,
-            "profit_rate": -5.41
+            "profit_rate": -5.41,
+            "current_amount": 65.0
           }
         },
         {
@@ -621,7 +640,8 @@
             "valuation_band": "极度低估",
             "market_value": 1399.62,
             "cost": 1466.74,
-            "profit_rate": -4.58
+            "profit_rate": -4.58,
+            "current_amount": 40.0
           }
         },
         {
@@ -637,7 +657,8 @@
             "valuation_band": "合理",
             "market_value": 259.98,
             "cost": 295.0,
-            "profit_rate": -11.87
+            "profit_rate": -11.87,
+            "current_amount": 25.0
           }
         },
         {
@@ -650,7 +671,8 @@
             "fixed_amount": 30.0,
             "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.72
+            "profit_rate": -7.72,
+            "current_amount": 30.0
           }
         },
         {
@@ -685,7 +707,8 @@
             },
             "market_value": 13021.65,
             "cost": 13100.78,
-            "profit_rate": -0.6
+            "profit_rate": -0.6,
+            "current_amount": 45.0
           }
         },
         {
@@ -699,7 +722,8 @@
             "valuation_band": "高估",
             "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -7.91
+            "profit_rate": -7.91,
+            "current_amount": 0.0
           }
         }
       ],
@@ -715,7 +739,8 @@
             "valuation_band": "高估",
             "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -7.91
+            "profit_rate": -7.91,
+            "current_amount": 0.0
           }
         }
       ],
@@ -733,7 +758,8 @@
             "valuation_band": "极度低估",
             "market_value": 2030.91,
             "cost": 2146.98,
-            "profit_rate": -5.41
+            "profit_rate": -5.41,
+            "current_amount": 65.0
           }
         },
         {
@@ -749,7 +775,8 @@
             "valuation_band": "极度低估",
             "market_value": 1399.62,
             "cost": 1466.74,
-            "profit_rate": -4.58
+            "profit_rate": -4.58,
+            "current_amount": 40.0
           }
         },
         {
@@ -765,7 +792,8 @@
             "valuation_band": "合理",
             "market_value": 259.98,
             "cost": 295.0,
-            "profit_rate": -11.87
+            "profit_rate": -11.87,
+            "current_amount": 25.0
           }
         },
         {
@@ -778,7 +806,8 @@
             "fixed_amount": 30.0,
             "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.72
+            "profit_rate": -7.72,
+            "current_amount": 30.0
           }
         },
         {
@@ -813,7 +842,8 @@
             },
             "market_value": 13021.65,
             "cost": 13100.78,
-            "profit_rate": -0.6
+            "profit_rate": -0.6,
+            "current_amount": 45.0
           }
         }
       ],
@@ -1065,7 +1095,8 @@
             },
             "market_value": 13021.65,
             "cost": 13100.78,
-            "profit_rate": -0.6
+            "profit_rate": -0.6,
+            "current_amount": 45.0
           }
         },
         {
@@ -1078,7 +1109,8 @@
             "market_value": 2030.91,
             "cost": 2146.98,
             "profit_rate": -5.41,
-            "valuation_pct": 5.37
+            "valuation_pct": 5.37,
+            "current_amount": 65.0
           }
         },
         {
@@ -1091,7 +1123,8 @@
             "market_value": 1399.62,
             "cost": 1466.74,
             "profit_rate": -4.58,
-            "valuation_pct": 6.63
+            "valuation_pct": 6.63,
+            "current_amount": 40.0
           }
         },
         {
@@ -1104,7 +1137,8 @@
             "market_value": 1253.06,
             "cost": 1360.7,
             "profit_rate": -7.91,
-            "valuation_pct": 76.73
+            "valuation_pct": 76.73,
+            "current_amount": 0.0
           }
         },
         {
@@ -1116,7 +1150,8 @@
           "params": {
             "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.72
+            "profit_rate": -7.72,
+            "current_amount": 30.0
           }
         },
         {
@@ -1128,7 +1163,8 @@
           "params": {
             "market_value": 891.92,
             "cost": 1121.0,
-            "profit_rate": -20.44
+            "profit_rate": -20.44,
+            "current_amount": null
           }
         },
         {
@@ -1140,7 +1176,8 @@
           "params": {
             "market_value": 887.82,
             "cost": 1489.5,
-            "profit_rate": -40.39
+            "profit_rate": -40.39,
+            "current_amount": null
           }
         },
         {
@@ -1152,7 +1189,8 @@
           "params": {
             "market_value": 686.92,
             "cost": 1116.0,
-            "profit_rate": -38.45
+            "profit_rate": -38.45,
+            "current_amount": null
           }
         },
         {
@@ -1165,7 +1203,8 @@
             "market_value": 259.98,
             "cost": 295.0,
             "profit_rate": -11.87,
-            "valuation_pct": 37.08
+            "valuation_pct": 37.08,
+            "current_amount": 25.0
           }
         }
       ],
@@ -1201,7 +1240,8 @@
             },
             "market_value": 13021.65,
             "cost": 13100.78,
-            "profit_rate": -0.6
+            "profit_rate": -0.6,
+            "current_amount": 45.0
           }
         }
       ],
@@ -1216,7 +1256,8 @@
             "market_value": 2030.91,
             "cost": 2146.98,
             "profit_rate": -5.41,
-            "valuation_pct": 5.37
+            "valuation_pct": 5.37,
+            "current_amount": 65.0
           }
         },
         {
@@ -1229,7 +1270,8 @@
             "market_value": 1399.62,
             "cost": 1466.74,
             "profit_rate": -4.58,
-            "valuation_pct": 6.63
+            "valuation_pct": 6.63,
+            "current_amount": 40.0
           }
         },
         {
@@ -1242,7 +1284,8 @@
             "market_value": 1253.06,
             "cost": 1360.7,
             "profit_rate": -7.91,
-            "valuation_pct": 76.73
+            "valuation_pct": 76.73,
+            "current_amount": 0.0
           }
         },
         {
@@ -1254,7 +1297,8 @@
           "params": {
             "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.72
+            "profit_rate": -7.72,
+            "current_amount": 30.0
           }
         },
         {
@@ -1266,7 +1310,8 @@
           "params": {
             "market_value": 891.92,
             "cost": 1121.0,
-            "profit_rate": -20.44
+            "profit_rate": -20.44,
+            "current_amount": null
           }
         },
         {
@@ -1278,7 +1323,8 @@
           "params": {
             "market_value": 887.82,
             "cost": 1489.5,
-            "profit_rate": -40.39
+            "profit_rate": -40.39,
+            "current_amount": null
           }
         },
         {
@@ -1290,7 +1336,8 @@
           "params": {
             "market_value": 686.92,
             "cost": 1116.0,
-            "profit_rate": -38.45
+            "profit_rate": -38.45,
+            "current_amount": null
           }
         },
         {
@@ -1303,7 +1350,8 @@
             "market_value": 259.98,
             "cost": 295.0,
             "profit_rate": -11.87,
-            "valuation_pct": 37.08
+            "valuation_pct": 37.08,
+            "current_amount": 25.0
           }
         }
       ],
@@ -1991,7 +2039,8 @@
           "params": {
             "profit_rate": -40.39,
             "market_value": 887.82,
-            "cost": 1489.5
+            "cost": 1489.5,
+            "current_amount": null
           }
         },
         {
@@ -2003,7 +2052,8 @@
           "params": {
             "profit_rate": -38.45,
             "market_value": 686.92,
-            "cost": 1116.0
+            "cost": 1116.0,
+            "current_amount": null
           }
         },
         {
@@ -2016,7 +2066,8 @@
             "valuation_pct": 5.75,
             "market_value": 2030.91,
             "cost": 2146.98,
-            "profit_rate": -5.41
+            "profit_rate": -5.41,
+            "current_amount": 65.0
           }
         },
         {
@@ -2029,7 +2080,8 @@
             "valuation_pct": 6.85,
             "market_value": 1399.62,
             "cost": 1466.74,
-            "profit_rate": -4.58
+            "profit_rate": -4.58,
+            "current_amount": 40.0
           }
         },
         {
@@ -2042,7 +2094,8 @@
             "valuation_pct": 76.96,
             "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -7.91
+            "profit_rate": -7.91,
+            "current_amount": 0.0
           }
         },
         {
@@ -2054,7 +2107,8 @@
           "params": {
             "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.72
+            "profit_rate": -7.72,
+            "current_amount": 30.0
           }
         },
         {
@@ -2066,7 +2120,8 @@
           "params": {
             "market_value": 891.92,
             "cost": 1121.0,
-            "profit_rate": -20.44
+            "profit_rate": -20.44,
+            "current_amount": null
           }
         },
         {
@@ -2079,7 +2134,8 @@
             "valuation_pct": 36.8,
             "market_value": 259.98,
             "cost": 295.0,
-            "profit_rate": -11.87
+            "profit_rate": -11.87,
+            "current_amount": 25.0
           }
         },
         {
@@ -2113,7 +2169,8 @@
             },
             "market_value": 13021.65,
             "cost": 13100.78,
-            "profit_rate": -0.6
+            "profit_rate": -0.6,
+            "current_amount": 45.0
           }
         }
       ],
@@ -2127,7 +2184,8 @@
           "params": {
             "profit_rate": -40.39,
             "market_value": 887.82,
-            "cost": 1489.5
+            "cost": 1489.5,
+            "current_amount": null
           }
         },
         {
@@ -2139,7 +2197,8 @@
           "params": {
             "profit_rate": -38.45,
             "market_value": 686.92,
-            "cost": 1116.0
+            "cost": 1116.0,
+            "current_amount": null
           }
         },
         {
@@ -2173,7 +2232,8 @@
             },
             "market_value": 13021.65,
             "cost": 13100.78,
-            "profit_rate": -0.6
+            "profit_rate": -0.6,
+            "current_amount": 45.0
           }
         }
       ],
@@ -2188,7 +2248,8 @@
             "valuation_pct": 5.75,
             "market_value": 2030.91,
             "cost": 2146.98,
-            "profit_rate": -5.41
+            "profit_rate": -5.41,
+            "current_amount": 65.0
           }
         },
         {
@@ -2201,7 +2262,8 @@
             "valuation_pct": 6.85,
             "market_value": 1399.62,
             "cost": 1466.74,
-            "profit_rate": -4.58
+            "profit_rate": -4.58,
+            "current_amount": 40.0
           }
         },
         {
@@ -2214,7 +2276,8 @@
             "valuation_pct": 76.96,
             "market_value": 1253.06,
             "cost": 1360.7,
-            "profit_rate": -7.91
+            "profit_rate": -7.91,
+            "current_amount": 0.0
           }
         },
         {
@@ -2226,7 +2289,8 @@
           "params": {
             "market_value": 1147.97,
             "cost": 1244.0,
-            "profit_rate": -7.72
+            "profit_rate": -7.72,
+            "current_amount": 30.0
           }
         },
         {
@@ -2238,7 +2302,8 @@
           "params": {
             "market_value": 891.92,
             "cost": 1121.0,
-            "profit_rate": -20.44
+            "profit_rate": -20.44,
+            "current_amount": null
           }
         },
         {
@@ -2251,7 +2316,8 @@
             "valuation_pct": 36.8,
             "market_value": 259.98,
             "cost": 295.0,
-            "profit_rate": -11.87
+            "profit_rate": -11.87,
+            "current_amount": 25.0
           }
         }
       ],

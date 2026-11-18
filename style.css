@@ -130,13 +130,13 @@ header strong { font-size: var(--fs-md); }
 
 /* 数值语义色：负值红、正值绿、提醒黄、中性蓝、零值灰；逐值独立，不整行染色 */
 .num { display: inline-block; padding: 0 var(--sp-1); border-radius: var(--radius-s); font-weight: 650; }
-.num.pos, .metric-value.pos { color: var(--c-success); }
-.num.neg, .metric-value.neg { color: var(--c-danger); }
+.num.pos, .metric-value.pos { color: var(--c-danger); }
+.num.neg, .metric-value.neg { color: var(--c-success); }
 .num.warn, .metric-value.warn { color: var(--c-warn); }
 .num.info, .metric-value.info { color: var(--c-info); }
 .num.zero, .metric-value.zero { color: var(--c-text-3); }
-.num.pos { background: var(--c-success-weak); }
-.num.neg { background: var(--c-danger-weak); }
+.num.pos { background: var(--c-danger-weak); }
+.num.neg { background: var(--c-success-weak); }
 .num.warn { background: var(--c-warn-weak); }
 .num.info { background: var(--c-primary-weak); }
 .num.zero { background: var(--c-surface-2); }
@@ -159,8 +159,8 @@ header strong { font-size: var(--fs-md); }
 }
 .metric-label { font-size: var(--fs-xs); color: var(--c-text-3); margin-bottom: var(--sp-1); }
 .metric-value { font-size: var(--fs-lg); font-weight: 600; font-variant-numeric: tabular-nums; }
-.metric.pos { background: var(--c-success-weak); border-color: color-mix(in srgb, var(--c-success) 25%, transparent); }
-.metric.neg { background: var(--c-danger-weak); border-color: color-mix(in srgb, var(--c-danger) 25%, transparent); }
+.metric.pos { background: var(--c-danger-weak); border-color: color-mix(in srgb, var(--c-danger) 25%, transparent); }
+.metric.neg { background: var(--c-success-weak); border-color: color-mix(in srgb, var(--c-success) 25%, transparent); }
 .metric.warn { background: var(--c-warn-weak); border-color: color-mix(in srgb, var(--c-warn) 25%, transparent); }
 .metric.info { background: var(--c-primary-weak); border-color: color-mix(in srgb, var(--c-info) 25%, transparent); }
 .metric.zero { background: var(--c-surface-2); }

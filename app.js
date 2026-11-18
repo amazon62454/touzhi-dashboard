@@ -98,8 +98,9 @@ const R = {
     const actions = C.validityList(h.actions);
     const total = has(h.total_action_amount) ? C.kv(U.ui_home_total, money(h.total_action_amount)) : '';
     const feedback = (h.actions || []).length ? `<p class="muted">${esc(U.ui_action_feedback || '')}</p>` : '';
-    const next = h.next_review_date ? C.kv(U.ui_label_next_review, esc(h.next_review_date)) : '';
-    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(h.headline || '')}</h1>${actions}${total}${feedback}${next}`, 'accent');
+    const next = h.next_review_at ? C.kv(U.ui_label_next_review, esc(h.next_review_at)) : '';
+    const retention = h.result_retention ? `<p class="muted">${esc(h.result_retention)}</p>` : '';
+    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(h.headline || '')}</h1>${actions}${total}${feedback}${next}${retention}`, 'accent');
   },
   homeBlocked() {
     const items = (D.home && D.home.blocked) || [];
@@ -137,10 +138,14 @@ const R = {
   bandHeader(band) {
     const b = (D.bands || {})[band] || {};
     const v = b.validity || {};
+    const nextAt = v.next_review_at || ((D.home || {}).next_review_at || '');
+    const nextLabel = v.next_review_at ? U.ui_label_next_review : U.ui_label_next_engine_run;
+    const retention = v.result_retention || ((D.home || {}).result_retention || '');
     return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>
       <p class="lead">${esc(v.headline || b.summary || '')}</p>
       <div class="muted">${C.badge(U['ui_state_' + v.state] || '', v.state === 'blocked' ? 'warn' : 'muted')} 基准 ${esc(dateText(b.base_date))}</div>
-      ${v.next_review_date ? `<p class="muted">${esc(U.ui_label_next_review || '')} ${esc(v.next_review_date)}</p>` : ''}</div>`;
+      ${nextAt ? `<p class="muted">${esc(nextLabel || '')} ${esc(nextAt)}</p>` : ''}
+      ${retention ? `<p class="muted">${esc(retention)}</p>` : ''}</div>`;
   },
 
   bandActions(b) {

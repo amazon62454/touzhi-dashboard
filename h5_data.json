@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T08:04:13",
+  "generated_at": "2026-11-18T08:09:42",
   "base_date": "2026-11-18",
   "status": {
     "run_mode": "test",
@@ -424,6 +424,7 @@
           }
         }
       ],
+      "normal_label": "",
       "stop_signals": [
         {
           "name": "止损已评估",
@@ -704,6 +705,22 @@
       ],
       "attention_items": [
         {
+          "fund_code": "004253",
+          "fund_name": "国泰黄金ETF联接C",
+          "action": "暂停",
+          "amount": 0.0,
+          "reason": "估值高估，本期暂停定投",
+          "params": {
+            "valuation_pct": 76.73,
+            "valuation_band": "高估",
+            "market_value": 1253.06,
+            "cost": 1360.7,
+            "profit_rate": -7.91
+          }
+        }
+      ],
+      "normal_items": [
+        {
           "fund_code": "024328",
           "fund_name": "易方达恒生港股通创新药ETF联接A",
           "action": "定投",
@@ -798,23 +815,9 @@
             "cost": 13100.78,
             "profit_rate": -0.6
           }
-        },
-        {
-          "fund_code": "004253",
-          "fund_name": "国泰黄金ETF联接C",
-          "action": "暂停",
-          "amount": 0.0,
-          "reason": "估值高估，本期暂停定投",
-          "params": {
-            "valuation_pct": 76.73,
-            "valuation_band": "高估",
-            "market_value": 1253.06,
-            "cost": 1360.7,
-            "profit_rate": -7.91
-          }
         }
       ],
-      "normal_items": [],
+      "normal_label": "其余 {n} 只：正常定投，无需额外操作",
       "stop_signals": [],
       "allocation": {
         "amounts": {
@@ -1016,31 +1019,6 @@
         "erp_state": "high"
       },
       "next_review": [
-        {
-          "fund_name": "易方达恒生港股通创新药ETF联接A",
-          "action": "定投",
-          "reason": "估值分位排名第1，按对应档位定投"
-        },
-        {
-          "fund_name": "嘉实中证新能源汽车指数C",
-          "action": "定投",
-          "reason": "估值分位排名第2，按对应档位定投"
-        },
-        {
-          "fund_name": "华宝中证有色金属ETF联接A",
-          "action": "定投",
-          "reason": "估值分位排名第3，按对应档位定投"
-        },
-        {
-          "fund_name": "兴全安泰积极养老目标五年FOF A",
-          "action": "定投",
-          "reason": "养老目标基金按固定金额定投"
-        },
-        {
-          "fund_name": "富国添享一年持有债券A",
-          "action": "定投",
-          "reason": "债比在目标容忍带内，富国按每交易日45元参考额定投"
-        },
         {
           "fund_name": "国泰黄金ETF联接C",
           "action": "暂停",
@@ -1329,6 +1307,7 @@
           }
         }
       ],
+      "normal_label": "",
       "stop_signals": [],
       "allocation": {
         "amounts": {
@@ -2082,6 +2061,7 @@
           }
         }
       ],
+      "normal_label": "",
       "stop_signals": [
         {
           "fund_code": "017491",
@@ -4635,6 +4615,7 @@
     "ui_funds_title": "本周期资金",
     "ui_h2_position_detail": "持仓明细",
     "ui_h2_period_summary": "本周期总结",
-    "ui_h2_execution": "执行与解锁"
+    "ui_h2_execution": "执行与解锁",
+    "ui_normal_rest_eval": "其余 {n} 只：正常定投，无需额外操作"
   }
 }

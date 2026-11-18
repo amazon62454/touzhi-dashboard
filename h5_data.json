@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T20:54:14",
+  "generated_at": "2026-11-18T21:05:45",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -17,48 +17,10 @@
     "next_review_at": "2026-11-19T03:30:00",
     "result_visible_until": "2026-11-19T03:30:00",
     "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档",
-    "cards": [
-      {
-        "id": "band_daily",
-        "title": "每日档 · 风控监控",
-        "summary": "今天无需操作",
-        "base_date": "2026-11-18",
-        "validity_state": "no_action",
-        "next_review_date": "2026-11-19",
-        "result_visible_until": "2026-11-19T03:30:00"
-      },
-      {
-        "id": "band_eval",
-        "title": "周日档 · 定投评估",
-        "summary": "等待下一次正式评估，当前不展示操作指令",
-        "base_date": "未记录基准日",
-        "validity_state": "awaiting",
-        "next_review_date": null,
-        "result_visible_until": null
-      },
-      {
-        "id": "band_monthly",
-        "title": "月度档 · 资金评审",
-        "summary": "等待下一次正式评估，当前不展示操作指令",
-        "base_date": "未记录基准日",
-        "validity_state": "awaiting",
-        "next_review_date": null,
-        "result_visible_until": null
-      },
-      {
-        "id": "band_quarter",
-        "title": "季度档 · 配置复核",
-        "summary": "等待下一次正式评估，当前不展示操作指令",
-        "base_date": "未记录基准日",
-        "validity_state": "awaiting",
-        "next_review_date": null,
-        "result_visible_until": null
-      }
-    ],
     "changelog": {
       "date": "2026-11-18",
-      "summary": "H5首页待办句本体跳转对应档位：单档整句可点，多档逐条可点，移除独立详情按钮",
-      "categories": "页面展示"
+      "summary": "H5首页移除与底部导航重复的档位卡，保留跨档行动中心，不合并单档且不复制养老资金指标",
+      "categories": "资金、页面展示"
     },
     "health": []
   },

@@ -103,11 +103,11 @@ const R = {
     const actions = expired ? '' : C.validityList(h.actions);
     const total = !expired && has(h.total_action_amount) ? C.kv(U.ui_home_total, money(h.total_action_amount)) : '';
     const feedback = !expired && (h.actions || []).length ? `<p class="muted">${esc(U.ui_action_feedback || '')}</p>` : '';
-    const next = h.next_review_at ? C.kv(expired ? U.ui_label_original_review : U.ui_label_next_review, esc(dateTimeText(h.next_review_at))) : '';
-    const visibleUntil = h.result_visible_until ? C.kv(U.ui_label_result_until, esc(dateTimeText(h.result_visible_until))) : '';
-    const retentionText = expired ? U.ui_result_expired_note : (h.result_visible_until ? h.result_retention : U.ui_result_none_note);
-    const retention = retentionText ? `<p class="muted">${esc(retentionText)}</p>` : '';
-    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(expired ? U.ui_result_expired_headline : h.headline || '')}</h1>${actions}${total}${feedback}${next}${visibleUntil}${retention}`, 'accent');
+    let timeLine = '';
+    if (expired) timeLine = h.result_visible_until ? C.kv(U.ui_label_result_expired_at, esc(dateTimeText(h.result_visible_until))) : '';
+    else if (h.result_visible_until) timeLine = C.kv(U.ui_label_result_effective, esc(dateTimeText(h.result_visible_until)));
+    else if (h.next_review_at) timeLine = C.kv(U.ui_label_next_review, esc(dateTimeText(h.next_review_at)));
+    return C.card('', `<div class="lead" style="margin:0 0 8px">${esc(U.ui_home_eyebrow || '')}</div><h1>${esc(expired ? U.ui_result_expired_headline : h.headline || '')}</h1>${actions}${total}${feedback}${timeLine}`, 'accent');
   },
   homeBlocked() {
     const items = (D.home && D.home.blocked) || [];
@@ -149,15 +149,14 @@ const R = {
     const v = b.validity || {};
     const expired = resultExpired(v);
     const nextAt = v.next_review_at || '';
-    const nextLabel = expired ? U.ui_label_original_review : U.ui_label_next_review;
-    const visibleUntil = v.result_visible_until ? C.kv(U.ui_label_result_until, esc(dateTimeText(v.result_visible_until))) : '';
-    const retentionText = expired ? U.ui_result_expired_note : (visibleUntil ? (v.result_retention || ((D.home || {}).result_retention || '')) : U.ui_result_none_note);
+    let timeLine = '';
+    if (expired) timeLine = v.result_visible_until ? C.kv(U.ui_label_result_expired_at, esc(dateTimeText(v.result_visible_until))) : '';
+    else if (v.result_visible_until) timeLine = C.kv(U.ui_label_result_effective, esc(dateTimeText(v.result_visible_until)));
+    else if (nextAt) timeLine = C.kv(U.ui_label_next_review, esc(dateTimeText(nextAt)));
     return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>
       <p class="lead">${esc(expired ? U.ui_result_expired_headline : v.headline || b.summary || '')}</p>
       <div class="muted">${C.badge(U['ui_state_' + v.state] || '', v.state === 'blocked' ? 'warn' : 'muted')} 基准 ${esc(dateText(b.base_date))}</div>
-      ${nextAt ? `<p class="muted">${esc(nextLabel || '')} ${esc(dateTimeText(nextAt))}</p>` : ''}
-      ${visibleUntil}
-      ${retentionText ? `<p class="muted">${esc(retentionText)}</p>` : ''}</div>`;
+      ${timeLine ? `<p class="muted">${timeLine}</p>` : ''}</div>`;
   },
 
   bandActions(b) {

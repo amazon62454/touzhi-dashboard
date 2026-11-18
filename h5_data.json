@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T19:14:34",
+  "generated_at": "2026-11-18T19:24:42",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -33,7 +33,7 @@
         "base_date": "未记录基准日",
         "validity_state": "awaiting",
         "next_review_date": null,
-        "result_visible_until": null
+        "result_visible_until": "2026-11-22T03:30:00"
       },
       {
         "id": "band_monthly",
@@ -42,7 +42,7 @@
         "base_date": "未记录基准日",
         "validity_state": "awaiting",
         "next_review_date": null,
-        "result_visible_until": null
+        "result_visible_until": "2026-11-20T03:30:00"
       },
       {
         "id": "band_quarter",
@@ -51,12 +51,12 @@
         "base_date": "未记录基准日",
         "validity_state": "awaiting",
         "next_review_date": null,
-        "result_visible_until": null
+        "result_visible_until": "2026-12-25T03:30:00"
       }
     ],
     "changelog": {
       "date": "2026-11-18",
-      "summary": "空结果页显示具体评估时点与固定结果失效时间，到点自动撤下旧结果；全页面日期时间统一YYYY-MM-DD HH:mm去T和秒数",
+      "summary": "H5各档位独立排程显示下次评估，等待态不再借用统一时间或渲染空配置区块；H5契约锁20项通过",
       "categories": "页面展示"
     },
     "health": []
@@ -615,7 +615,8 @@
         "blocked": [],
         "expired": [],
         "next_review_date": null,
-        "result_visible_until": null,
+        "next_review_at": "2026-11-22T03:30:00",
+        "result_visible_until": "2026-11-22T03:30:00",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
@@ -651,7 +652,8 @@
         "blocked": [],
         "expired": [],
         "next_review_date": null,
-        "result_visible_until": null,
+        "next_review_at": "2026-11-20T03:30:00",
+        "result_visible_until": "2026-11-20T03:30:00",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
@@ -691,7 +693,8 @@
         "blocked": [],
         "expired": [],
         "next_review_date": null,
-        "result_visible_until": null,
+        "next_review_at": "2026-12-25T03:30:00",
+        "result_visible_until": "2026-12-25T03:30:00",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
@@ -3128,7 +3131,6 @@
     "ui_state_test": "不发布",
     "ui_home_total": "合计待执行金额",
     "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页",
-    "ui_label_next_engine_run": "统一引擎下次正式评估",
     "ui_label_next_review": "下次正式评估",
     "ui_result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档",
     "ui_label_result_until": "本次结果展示至",

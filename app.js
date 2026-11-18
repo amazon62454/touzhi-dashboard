@@ -342,8 +342,26 @@ const R = {
     }).join('');
     return C.card(U.ui_h2_addon_score, body + sm);
   },
-  evalActionList() {
-    return C.card(U.ui_h2_action_list, `<p class="lead">按下表逐只改理财通定投额：调高/调低/暂停/恢复；只改金额不改策略</p>`);
+  evalActionList(b) {
+    const items = (b && b.items) || [];
+    const lead = `<p class="lead">按下表逐只改理财通定投额：调高/调低/暂停/恢复；只改金额不改策略</p>`;
+    if (!items.length) return C.card(U.ui_h2_action_list, lead);
+    const rows = items.map(x => {
+      const p = x.params || {};
+      const cur = has(p.current_amount) ? Number(p.current_amount) : null;
+      const next = has(x.amount) ? Number(x.amount) : null;
+      let verb = '不变';
+      let cls = '';
+      if (x.action === '暂停' || next === 0) { verb = '暂停'; cls = 'warn'; }
+      else if (cur == null || next == null) { verb = '—'; }
+      else if (next > cur) { verb = '调高'; cls = 'ok'; }
+      else if (next < cur) { verb = '调低'; cls = 'warn'; }
+      return `<div class="fund-row">
+        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong>${C.badge(verb, cls)}</div>
+        <div class="fund-numbers">${esc(x.fund_code || '')} · 当前 ${cur == null ? '—' : money(cur)} → 本期 ${next == null ? '—' : money(next)}</div>
+        ${x.reason ? `<p class="lead">${esc(x.reason)}</p>` : ''}</div>`;
+    }).join('');
+    return C.card(U.ui_h2_action_list, lead + rows);
   },
 
   evalCash(a) {
@@ -376,7 +394,7 @@ const PAGE_SCHEMA = {
   'page-band_eval': [
     { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'evalAmount', from: 'band_eval' },
     { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
-    { fn: 'evalActionList' }, { fn: 'addOn', from: 'band_eval' }, { fn: 'attention', from: 'band_eval' },
+    { fn: 'evalActionList', from: 'band_eval' }, { fn: 'addOn', from: 'band_eval' }, { fn: 'attention', from: 'band_eval' },
     { fn: 'normalItems', from: 'band_eval' },
   ],
   'page-band_monthly': [

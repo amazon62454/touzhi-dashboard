@@ -134,13 +134,6 @@ const R = {
     if (resultExpired(D.home)) return '';
     return items.length ? C.details(U.ui_h2_expired_actions, C.expiredList(items)) : '';
   },
-  bandCards() {
-    const cards = (D.home && D.home.cards) || [];
-    if (!cards.length) return '';
-    return cards.map(c => `<a href="#page-${esc(c.id)}" class="card" style="display:block;color:inherit">
-      <div class="fund-top"><strong>${esc(c.title)}</strong>${C.badge(U['ui_state_' + c.validity_state] || '', c.validity_state === 'blocked' ? 'warn' : c.validity_state === 'active' || c.validity_state === 'partial' ? 'ok' : 'muted')}</div>
-      <div class="fund-numbers">${esc(resultExpired(c) ? U.ui_result_expired_headline : c.summary || '')} · 基准 ${esc(dateText(c.base_date))}</div></a>`).join('');
-  },
   changelog() {
     const raw = (D.home && D.home.changelog) || null;
     if (!raw) return '';
@@ -512,7 +505,7 @@ const R = {
 // ---------- 声明式页面 Schema（页面 = 区块有序列表，加区块只改这里） ----------
 const PAGE_SCHEMA = {
   'page-home': [
-    { fn: 'homeHero' }, { fn: 'homeBlocked' }, { fn: 'homeExpired' }, { fn: 'bandCards' }, { fn: 'changelog' }, { fn: 'health' },
+    { fn: 'homeHero' }, { fn: 'homeBlocked' }, { fn: 'homeExpired' }, { fn: 'changelog' }, { fn: 'health' },
   ],
   'page-band_daily': [
     { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandActions', from: 'band_daily' }, { fn: 'bandBlocked', from: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },

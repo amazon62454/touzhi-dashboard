@@ -343,7 +343,7 @@ const R = {
         `估值 ${n1(sc5['估值'])}分（分位${n1(x.valuation)}%）`,
         (() => { const t = dm.trend || {}; const v = Number(t.value); return isNaN(v) ? `趋势 ${n1(sc5['趋势'])}分` : `趋势 ${n1(sc5['趋势'])}分（${v < 0 ? '低于' : '高于'}20日线${n1(Math.abs(v))}%）`; })(),
         (() => { const f = dm.flows || {}; const v = Number(f.value); return isNaN(v) ? `资金 ${n1(sc5['资金'])}分` : `资金 ${n1(sc5['资金'])}分（5日净${v < 0 ? '流出' : '流入'}${n1(Math.abs(v))}亿）`; })(),
-        (() => { const b = dm.fundamentals || {}; return `基本面 ${n1(sc5['基本面'])}分（${esc(b.caliber || '—')}）`; })(),
+        (() => { const fd = dm.fundamentals || {}; return `基本面 ${n1(sc5['基本面'])}分（${esc(fd.caliber || '—')}）`; })(),
         (() => { const m = dm.sentiments || {}; const v = Number(m.value); return isNaN(v) ? `情绪 ${n1(sc5['情绪'])}分` : `情绪 ${n1(sc5['情绪'])}分（成交额分位${n1(v)}%）`; })()
       ].join(' · ');
       return `<div class="fund-row">

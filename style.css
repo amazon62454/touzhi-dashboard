@@ -74,8 +74,9 @@ body {
 }
 h1, h2, h3 { margin: 0; font-weight: 600; line-height: 1.35; }
 a { color: var(--c-primary); text-decoration: none; }
-.action-detail-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.action-detail-link { display: inline-flex; align-items: center; padding: 10px 14px; border-radius: 10px; background: var(--c-primary); color: #fff; font-weight: 600; }
+.home-action-headline { color: inherit; text-decoration: underline; text-underline-offset: 5px; }
+.home-action-headline::after { content: ' →'; }
+.action-row-link { color: inherit; }
 small { font-size: var(--fs-xs); color: var(--c-text-3); font-weight: 400; }
 
 /* ---------- 3. 布局 ---------- */

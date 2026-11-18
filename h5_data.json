@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T19:28:53",
+  "generated_at": "2026-11-18T19:31:43",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -33,7 +33,7 @@
         "base_date": "未记录基准日",
         "validity_state": "awaiting",
         "next_review_date": null,
-        "result_visible_until": "2026-11-22T03:30:00"
+        "result_visible_until": null
       },
       {
         "id": "band_monthly",
@@ -42,7 +42,7 @@
         "base_date": "未记录基准日",
         "validity_state": "awaiting",
         "next_review_date": null,
-        "result_visible_until": "2026-11-20T03:30:00"
+        "result_visible_until": null
       },
       {
         "id": "band_quarter",
@@ -51,12 +51,12 @@
         "base_date": "未记录基准日",
         "validity_state": "awaiting",
         "next_review_date": null,
-        "result_visible_until": "2026-12-25T03:30:00"
+        "result_visible_until": null
       }
     ],
     "changelog": {
       "date": "2026-11-18",
-      "summary": "H5同一页面只保留一个结果时间口径：有结果显示有效至、无结果显示下次评估，不再并列重复时点；契约锁21项通过",
+      "summary": "H5等待态只显示下次本档评估，不伪造结果有效至；各档独立排程与单一时间口径契约锁22项通过",
       "categories": "页面展示"
     },
     "health": []
@@ -616,7 +616,7 @@
         "expired": [],
         "next_review_date": null,
         "next_review_at": "2026-11-22T03:30:00",
-        "result_visible_until": "2026-11-22T03:30:00",
+        "result_visible_until": null,
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
@@ -653,7 +653,7 @@
         "expired": [],
         "next_review_date": null,
         "next_review_at": "2026-11-20T03:30:00",
-        "result_visible_until": "2026-11-20T03:30:00",
+        "result_visible_until": null,
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",
@@ -694,7 +694,7 @@
         "expired": [],
         "next_review_date": null,
         "next_review_at": "2026-12-25T03:30:00",
-        "result_visible_until": "2026-12-25T03:30:00",
+        "result_visible_until": null,
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "未记录基准日",

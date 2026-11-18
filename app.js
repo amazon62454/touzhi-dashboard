@@ -242,7 +242,7 @@ const R = {
       return `<div class="fund-row">
         <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></strong>${act ? C.badge(act, act === '暂停' ? 'warn' : '') : ''}</div>
         <div class="fund-numbers">市值 ${mv} · 收益率 ${pr} · 分位 ${vp}</div>
-        ${x.reason ? `<p class="lead">${esc(x.reason)}</p>` : ''}</div>`;
+        ${(x.reason && String(x.reason) !== String(act)) ? `<p class="lead">${esc(x.reason)}</p>` : ''}</div>`;
     }).join('');
     return C.card(U.ui_h2_position_health, `<p class="muted">按市值降序；动作=本期该只怎么做</p>${rows}`);
   },
@@ -414,7 +414,7 @@ const R = {
       return `<div class="fund-row">
         <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong>${C.badge(verb, cls)}</div>
         <div class="fund-numbers">${esc(x.fund_code || '')} · 当前 ${cur == null ? '—' : money(cur)} → 本期 ${next == null ? '—' : money(next)}</div>
-        ${x.reason ? `<p class="lead">${esc(x.reason)}</p>` : ''}</div>`;
+        ${(x.reason && String(x.reason) !== String(act)) ? `<p class="lead">${esc(x.reason)}</p>` : ''}</div>`;
     }).join('');
     return C.card(U.ui_h2_action_list, lead + rows);
   },

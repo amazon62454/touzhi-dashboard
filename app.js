@@ -69,7 +69,11 @@ const C = {
   },
   expiredList(items) {
     if (!items || !items.length) return '';
-    return items.map(x => `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong><strong>${esc(x.action || '')}</strong></div><div class="fund-numbers">${esc(x.band_title || '')} · ${esc(x.actual_execution_date || '')}</div></div>`).join('');
+    return items.map(x => {
+      const date = x.actual_execution_date || x.planned_execution_date || '';
+      const reason = x.invalid_reason ? ` · ${esc(x.invalid_reason)}` : '';
+      return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong><strong>${esc(x.action || '')}</strong></div><div class="fund-numbers">${esc(x.band_title || '')}${date ? ' · ' + esc(date) : ''}${reason}</div></div>`;
+    }).join('');
   },
   orderedList(items) {
     if (!items || !items.length) return '';

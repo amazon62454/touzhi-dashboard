@@ -323,8 +323,26 @@ const R = {
   },
   marketEnv(env) {
     if (!env) return '';
-    const rows = `${C.kv('沪深300估值分位', pct(env.hs300_pe_pct))}${C.kv('ERP态', esc(env.erp_state || ''))}`;
-    return C.card(U.ui_h2_market_env, rows);
+    const im = env.impact || null;
+    let impactLine = '';
+    if (im && has(env.hs300_pe_pct)) {
+      const tpl = env.template;
+      if (im.label === '中性') {
+        impactLine = tpl
+          ? tpl.replace('{pct}', pct(env.hs300_pe_pct)).replace('{lo}', im.threshold || '').replace('{hi}', '').replace('{eq}', im.equity_target)
+          : '';
+      } else if (has(im.threshold)) {
+        const cmp = Number(env.hs300_pe_pct) > Number(im.threshold) ? '>' : '<';
+        impactLine = tpl
+          ? tpl.replace('{pct}', pct(env.hs300_pe_pct)).replace('{cmp}', cmp).replace('{th}', im.threshold)
+               .replace('{label}', im.label).replace('{eq}', im.equity_target)
+               .replace('{debt}', im.debt_target).replace('{base}', im.equity_base)
+          : '';
+      }
+    }
+    const body = `${C.kv('沪深300 PE 5年分位', pct(env.hs300_pe_pct))}${C.kv('ERP态', esc(im ? im.label : (env.erp_state || '')))}`
+      + (impactLine ? `<p class="lead">${esc(impactLine)}</p>` : '');
+    return C.card(U.ui_h2_market_env, body);
   },
   nextReview(rows) {
     if (!rows || !rows.length) return '';

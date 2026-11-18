@@ -413,6 +413,21 @@ const R = {
   },
 
   // 周日档
+  weekGate(g) {
+    // 资金闸门：仅在"整周权益需求 > 本期可用"时展示（未触发不占版面）
+    if (!g || !g.triggered) return '';
+    const rows = (g.alloc || []).map(x => {
+      const isDebt = x.kind === 'debt';
+      const verb = x.alloc === 0 ? '本期不投' : (x.cut ? '削减' : '足额');
+      const cls = x.alloc === 0 ? 'warn' : (x.cut ? 'warn' : 'ok');
+      const note = isDebt ? '（债券层，资金紧张时排最后）' : '';
+      return `<div class="fund-row"><div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></strong>${C.badge(verb, cls)}</div>
+        <div class="fund-numbers">计划 ${money(x.plan)} → 本期 ${money(x.alloc)}${note}</div></div>`;
+    }).join('');
+    const head = `<p class="lead">整周权益需求 ${money(g.equity_need)} 元 > 本期可用 ${money(g.avail)} 元，缺口 ${money(g.shortfall)} 元 → 按「估值分位升序+评分降序」重排，发完即止</p>`;
+    const src = g.cash_override ? '<p class="muted">可用金额取自你告知的实际现金</p>' : `<p class="muted">按本周期权益额度剩余计算（额度 ${money(g.equity_month)} − 已投 ${money(g.spent)}）；若有实际现金余额，告诉我按实际重算</p>`;
+    return C.card('资金不足·优先级重算', head + rows + src);
+  },
   addOn(rows, summary) {
     const state = (((D.bands || {}).band_eval || {}).validity || {}).state;
     if (state !== 'active' && state !== 'partial') return '';
@@ -592,6 +607,7 @@ function renderPage(pageId) {
         if (node.fn === 'execution') return fn(a.execution_review, a.unlock_review);
         if (node.fn === 'addOn') return fn(a.add_on_reviews, a.add_on_summary);
         if (node.fn === 'evalCash') return fn(a);
+        if (node.fn === 'weekGate') return fn(a.week_gate);
         if (node.fn === 'netAddition') return fn(a.net_addition);
         // 兜底：未登记的区块直接传整档数据，避免"schema 加了、白名单漏了"导致区块静默消失
         return fn(b);

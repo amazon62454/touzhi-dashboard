@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T18:51:42",
+  "generated_at": "2026-11-18T19:07:08",
   "base_date": "2026-11-18",
   "status": {
     "label": "数据完整",
@@ -13,6 +13,8 @@
     "expired": [],
     "total_action_amount": null,
     "next_review_date": "2026-11-19",
+    "next_review_at": "2026-11-19T03:30:00",
+    "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档",
     "cards": [
       {
         "id": "band_daily",
@@ -49,8 +51,8 @@
     ],
     "changelog": {
       "date": "2026-11-18",
-      "summary": "R388补齐V2变更传播定位器与升版失败非零机制，新增升版收尾链机器锁；P4浏览器四态、23项校验、线上版本与云同步均实测",
-      "categories": "规则与执行链路"
+      "summary": "空结果页新增下次正式评估日期+具体时点及结果保留规则；复用统一排程与交易日历，16项H5契约锁和全量校验通过",
+      "categories": "页面展示"
     },
     "health": []
   },
@@ -194,7 +196,9 @@
         "actual_execution_date": "2026-11-19",
         "is_postponed": false,
         "postpone_days": 0,
-        "valid_until": "2026-11-19T10:30:00"
+        "valid_until": "2026-11-19T10:30:00",
+        "next_review_at": "2026-11-19T03:30:00",
+        "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档"
       },
       "base_date": "2026-11-18",
       "generated_at": "2026-11-18T18:51:39",
@@ -604,7 +608,8 @@
         "actions": [],
         "blocked": [],
         "expired": [],
-        "next_review_date": null
+        "next_review_date": null,
+        "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档"
       },
       "base_date": "未记录基准日",
       "generated_at": "",
@@ -638,7 +643,8 @@
         "actions": [],
         "blocked": [],
         "expired": [],
-        "next_review_date": null
+        "next_review_date": null,
+        "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档"
       },
       "base_date": "未记录基准日",
       "generated_at": "",
@@ -676,7 +682,8 @@
         "actions": [],
         "blocked": [],
         "expired": [],
-        "next_review_date": null
+        "next_review_date": null,
+        "result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档"
       },
       "base_date": "未记录基准日",
       "generated_at": "",
@@ -3096,7 +3103,6 @@
     "ui_label_execute_date": "实际执行日",
     "ui_label_plan_date": "计划执行日",
     "ui_label_deadline": "执行期限",
-    "ui_label_next_review": "下次评估",
     "ui_label_postponed": "顺延 {n} 天",
     "ui_label_no_postpone": "无需顺延",
     "ui_data_complete": "数据完整",
@@ -3112,6 +3118,9 @@
     "ui_state_awaiting": "待评估",
     "ui_state_test": "不发布",
     "ui_home_total": "合计待执行金额",
-    "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页"
+    "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页",
+    "ui_result_retention": "结果保留至下次正式评估，新结果发布即替换；操作动作到执行期限会先撤下并归档",
+    "ui_label_next_engine_run": "统一引擎下次正式评估",
+    "ui_label_next_review": "下次正式评估"
   }
 }

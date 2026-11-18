@@ -481,8 +481,10 @@ function renderPage(pageId) {
         if (node.fn === 'evalAmount') return fn(b);
         if (node.fn === 'addOn') return fn(a.add_on_reviews, a.add_on_summary);
         if (node.fn === 'evalCash') return fn(a);
+        if (node.fn === 'evalActionList') return fn(b);
         if (node.fn === 'netAddition') return fn(a.net_addition);
-        return '';
+        // 兜底：未登记的区块直接传整档数据，避免"schema 加了、白名单漏了"导致区块静默消失
+        return fn(b);
       }
       return fn(node.arg);
     } catch (e) {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T07:12:23",
+  "generated_at": "2026-11-20T07:14:30",
   "base_date": "2026-11-19",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -147,7 +147,7 @@
       },
       {
         "name": "减仓",
-        "value": ""
+        "value": null
       }
     ],
     "cash_detail": {

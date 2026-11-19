@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T23:49:15",
+  "generated_at": "2026-11-20T00:01:27",
   "base_date": "2026-11-19",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -116,15 +116,15 @@
     "years_remaining": 19.9,
     "annual_rate": 3.75,
     "monthly_budget": 1800.0,
-    "target_amount": 681422,
-    "principal": 450919,
-    "projected_profit": 230503,
+    "target_amount": 681293,
+    "principal": 450860,
+    "projected_profit": 230434,
     "covered_fund_count": 9,
     "holding_fund_count": 9,
     "coverage_rate": 100.0,
     "missing_funds": [],
     "start_market": 21579.85,
-    "zero_return_principal": 450919
+    "zero_return_principal": 450860
   },
   "funds_page": {
     "period": "10-20~11-19",

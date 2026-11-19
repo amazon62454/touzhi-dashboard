@@ -400,24 +400,24 @@ const R = {
       { aligns: ['left', 'right', 'right', 'right'] }) + proxy + blocked;
     return C.card(U.ui_h2_asset_allocation, body, allocation.valid === false ? 'warn' : '');
   },
-  equityStructure(s) {
-    if (!s) return '';
-    const core = (s.core_funds || []).map(x =>
+  equityStructure(structure) {
+    if (!structure) return '';
+    const core = (structure.core_funds || []).map(x =>
       `${esc(fundName(x.fund_code, x.fund_name))}${x.buy_allowed ? '' : `（${esc(U.ui_lbl_buy_blocked)}）`}`
     ).join(' · ');
-    const rows = (s.satellite_funds || []).map((x, index) => [
+    const rows = (structure.satellite_funds || []).map((x, index) => [
       String(x.rank ?? index + 1), fundName(x.fund_code, x.fund_name),
       x.buy_allowed ? U.ui_lbl_buy_allowed : U.ui_lbl_buy_blocked,
     ]);
-    const lockText = s.locked ? U.ui_yes : U.ui_no;
-    const body = C.kv(U.ui_lbl_core_ratio, pct(s.core_ratio))
+    const lockText = structure.locked ? U.ui_yes : U.ui_no;
+    const body = C.kv(U.ui_lbl_core_ratio, pct(structure.core_ratio))
       + C.kv(U.ui_lbl_locked, esc(lockText))
       + C.kv(U.ui_lbl_core_funds, core)
       + C.table([U.ui_lbl_rank, U.ui_lbl_fund, U.ui_lbl_status], rows,
         { aligns: ['right', 'left', 'left'] });
-    const exclusions = (s.exclusions || []).length
-      ? `<p class="muted">${esc(U.ui_lbl_exclusions)}：${esc(s.exclusions.map(x => x.fund_code || x.code || '').join(' · '))}</p>` : '';
-    return C.card(U.ui_h2_equity_structure, body + exclusions, s.valid === false ? 'warn' : '');
+    const exclusions = (structure.exclusions || []).length
+      ? `<p class="muted">${esc(U.ui_lbl_exclusions)}：${esc(structure.exclusions.map(x => x.fund_code || x.code || '').join(' · '))}</p>` : '';
+    return C.card(U.ui_h2_equity_structure, body + exclusions, structure.valid === false ? 'warn' : '');
   },
   satelliteExecution(e) {
     if (!e) return '';

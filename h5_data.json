@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T16:29:28",
+  "generated_at": "2026-11-19T16:30:47",
   "base_date": "2026-11-19",
   "status": {
     "label": "数据完整",
@@ -919,10 +919,11 @@
           "threshold": 70.0,
           "equity_target": 31.11,
           "equity_base": 44.44,
-          "debt_target": 58.89
+          "gold_target": 10.0,
+          "debt_target": 48.89
         },
-        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → ERP {label}态（权益降配、债券升配；目标值见月度档再平衡）",
-        "template_basis": "目标 {debt}% 来自 ERP {label}态（沪深300 PE 分位 {pct} {cmp} 阈值 {th}%）"
+        "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → 四资产ERP {label}态（权益/债券调整，黄金与现金保持战略锚）",
+        "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金P218和现金P195；完整配置见月度档再平衡"
       },
       "next_review": [],
       "source_file": "band_daily_judgment.json"
@@ -3329,9 +3330,9 @@
     "ui_h2_execution": "执行与解锁",
     "ui_normal_rest_eval": "其余 {n} 只：正常定投，无需额外操作",
     "ui_h2_market_env": "市场环境（ERP 驱动配置目标）",
-    "ui_market_env_impact": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → ERP {label}态（权益降配、债券升配；目标值见月度档再平衡）",
+    "ui_market_env_impact": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → 四资产ERP {label}态（权益/债券调整，黄金与现金保持战略锚）",
     "ui_market_env_neutral": "沪深300 PE 5年分位 {pct} 在中性区 → 机械再平衡，权益目标维持 {eq}%",
-    "ui_rb_erp_basis": "目标 {debt}% 来自 ERP {label}态（沪深300 PE 分位 {pct} {cmp} 阈值 {th}%）",
+    "ui_rb_erp_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金P218和现金P195；完整配置见月度档再平衡",
     "ui_h2_current_actions": "当前需要你做",
     "ui_h2_blocked_actions": "本次不操作：数据不足",
     "ui_h2_expired_actions": "历史记录（已失效，仅供追溯）",

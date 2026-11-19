@@ -22,8 +22,9 @@ const numTone = v => !has(v) || !Number.isFinite(Number(v)) ? 'zero' : Number(v)
 const resultExpired = v => has(v && v.result_visible_until)
   && Number.isFinite(Date.parse(v.result_visible_until)) && Date.now() >= Date.parse(v.result_visible_until);
 const fundName = (fc, fallback) => {
+  const mapped = D && D.fund_names && D.fund_names[String(fc)];
   const f = ((D && D.retirement && D.retirement.funds) || []).find(x => String(x.fund_code) === String(fc));
-  return (f && f.fund_name) || fallback || '';
+  return mapped || (f && f.fund_name) || fallback || (fc ? String(fc) : '');
 };
 
 // ---------- 组件库（纯函数 → HTML，样式全部走 class 不写行内样式） ----------
@@ -99,6 +100,15 @@ const C = {
         <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong><strong class="num info">${has(x.market_value) ? money(x.market_value) : ''}</strong></div>
         <div class="fund-numbers">${esc(x.fund_code || '')}${has(x.profit) ? ` · 收益 <span class="num ${numTone(x.profit)}">${money(x.profit)}</span>` : ''}${has(x.profit_rate) ? ` · <span class="num ${numTone(x.profit_rate)}">${pct(x.profit_rate)}</span>` : ''}${x.status ? ` · ${esc(x.status)}` : ''}</div>
       </div>`).join('');
+  },
+  table(headers, rows, options = {}) {
+    if (!rows || !rows.length) return '';
+    const aligns = options.aligns || [];
+    const style = index => aligns[index] ? ` style="text-align:${esc(aligns[index])}"` : '';
+    const head = headers.map((label, index) => `<th${style(index)}>${esc(label)}</th>`).join('');
+    const body = rows.map(row => `<tr>${row.map((value, index) =>
+      `<td${style(index)}>${esc(value ?? '—')}</td>`).join('')}</tr>`).join('');
+    return `<div class="table-scroll"><table class="data-table"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
   },
   details(summary, body) { return body ? `<details><summary>${esc(summary)}</summary>${body}</details>` : ''; },
 };
@@ -371,6 +381,71 @@ const R = {
     const text = fmt(tpl, { fund: n.fund || '—', w: Number(n.weight), p102: Number(n.p102), fire });
     return C.card(U.ui_h2_net_add, `<p class="muted">${esc(text.replace(/^-\s*/, ''))}</p>`);
   },
+  assetAllocation(a) {
+    if (!a) return '';
+    const assets = [
+      ['equity', U.ui_asset_equity], ['debt', U.ui_asset_debt],
+      ['gold', U.ui_asset_gold], ['cash', U.ui_asset_cash],
+    ];
+    const rows = assets.map(([key, label]) => [
+      label, pct((a.targets || {})[key]), pct((a.actual || {})[key]), pct((a.gaps || {})[key]),
+    ]);
+    const proxy = Object.values(a.fof_proxy || {}).some(Boolean)
+      ? `<p class="muted">${esc(U.ui_lbl_proxy)}</p>` : '';
+    const blocked = a.valid === false
+      ? C.empty(U.ui_lbl_p2_readonly, (a.missing || []).join(' · ')) : '';
+    const body = C.table(
+      [U.ui_lbl_asset, U.ui_lbl_target, U.ui_lbl_actual, U.ui_lbl_gap], rows,
+      { aligns: ['left', 'right', 'right', 'right'] }) + proxy + blocked;
+    return C.card(U.ui_h2_asset_allocation, body, a.valid === false ? 'warn' : '');
+  },
+  equityStructure(s) {
+    if (!s) return '';
+    const core = (s.core_funds || []).map(x =>
+      `${esc(fundName(x.fund_code, x.fund_name))}${x.buy_allowed ? '' : `（${esc(U.ui_lbl_buy_blocked)}）`}`
+    ).join(' · ');
+    const rows = (s.satellite_funds || []).map((x, index) => [
+      String(x.rank ?? index + 1), fundName(x.fund_code, x.fund_name),
+      x.buy_allowed ? U.ui_lbl_buy_allowed : U.ui_lbl_buy_blocked,
+    ]);
+    const lockText = s.locked ? U.ui_yes : U.ui_no;
+    const body = C.kv(U.ui_lbl_core_ratio, pct(s.core_ratio))
+      + C.kv(U.ui_lbl_locked, esc(lockText))
+      + C.kv(U.ui_lbl_core_funds, core)
+      + C.table([U.ui_lbl_rank, U.ui_lbl_fund, U.ui_lbl_status], rows,
+        { aligns: ['right', 'left', 'left'] });
+    const exclusions = (s.exclusions || []).length
+      ? `<p class="muted">${esc(U.ui_lbl_exclusions)}：${esc(s.exclusions.map(x => x.fund_code || x.code || '').join(' · '))}</p>` : '';
+    return C.card(U.ui_h2_equity_structure, body + exclusions, s.valid === false ? 'warn' : '');
+  },
+  satelliteExecution(e) {
+    if (!e) return '';
+    const summary = C.kv(U.ui_lbl_satellite_budget, money(e.satellite_week_budget))
+      + C.kv(U.ui_lbl_satellite_unallocated, money(e.satellite_week_unallocated))
+      + C.kv(U.ui_lbl_cash_retained, money(e.cash_retained));
+    const rows = (e.satellite_allocation_trace || []).map(x => [
+      fundName(x.fund_code), money(x.allocated), money(x.amount), x.reason || x.reason_code || '',
+    ]);
+    const table = rows.length ? C.table(
+      [U.ui_lbl_fund, U.ui_lbl_allocated, U.ui_lbl_structural_room, U.ui_lbl_reason], rows,
+      { aligns: ['left', 'right', 'right', 'left'] }) : '';
+    return C.card(U.ui_h2_satellite_execution, summary + table, e.valid === false ? 'warn' : '');
+  },
+  settledCash(r) {
+    if (!r) return '';
+    const pending = Array.isArray(r.pending_redemption) ? r.pending_redemption.length : null;
+    const body = C.kv(U.ui_lbl_pending, pending === null ? '—' : String(pending))
+      + C.kv(U.ui_lbl_settled, money(r.unallocated_cash))
+      + C.kv(U.ui_lbl_planned, money(r.planned_total))
+      + C.kv(U.ui_lbl_after, money(r.cash_after_plan));
+    const rows = (r.allocation_plan || []).map(x => [
+      fundName(x.target_fund_code), x.role || x.target_asset || '', money(x.amount),
+    ]);
+    const table = rows.length ? C.table(
+      [U.ui_lbl_fund, U.ui_lbl_role, U.ui_lbl_allocated], rows,
+      { aligns: ['left', 'left', 'right'] }) : '';
+    return C.card(U.ui_h2_settled_cash, body + table, r.valid === false ? 'warn' : '');
+  },
   marketEnv(env) {
     if (!env) return '';
     const im = env.impact || null;
@@ -518,12 +593,15 @@ const PAGE_SCHEMA = {
   ],
   'page-band_eval': [
     { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandActions', from: 'band_eval' }, { fn: 'bandBlocked', from: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' },
-    { fn: 'weeklyBudget', from: 'band_eval' }, { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
+    { fn: 'weeklyBudget', from: 'band_eval' }, { fn: 'equityStructure', from: 'band_eval' },
+    { fn: 'satelliteExecution', from: 'band_eval' }, { fn: 'settledCash', from: 'band_eval' },
+    { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
     { fn: 'addOn', from: 'band_eval' },
   ],
   'page-band_monthly': [
     { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandActions', from: 'band_monthly' }, { fn: 'bandBlocked', from: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
-    { fn: 'rebalance', from: 'band_monthly' }, { fn: 'flow', from: 'band_monthly' },
+    { fn: 'assetAllocation', from: 'band_monthly' }, { fn: 'equityStructure', from: 'band_monthly' },
+    { fn: 'settledCash', from: 'band_monthly' }, { fn: 'rebalance', from: 'band_monthly' }, { fn: 'flow', from: 'band_monthly' },
     { fn: 'monthlyReview', from: 'band_monthly' }, { fn: 'periodSummary', from: 'band_monthly' },
     { fn: 'takeProfit', from: 'band_monthly' },
     { fn: 'scan', from: 'band_monthly' }, { fn: 'positionRows', from: 'band_monthly' },
@@ -531,7 +609,8 @@ const PAGE_SCHEMA = {
   ],
   'page-band_quarter': [
     { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandActions', from: 'band_quarter' }, { fn: 'bandBlocked', from: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
-    { fn: 'allocation', from: 'band_quarter' }, { fn: 'rebalance', from: 'band_quarter' },
+    { fn: 'assetAllocation', from: 'band_quarter' }, { fn: 'equityStructure', from: 'band_quarter' },
+    { fn: 'settledCash', from: 'band_quarter' }, { fn: 'allocation', from: 'band_quarter' }, { fn: 'rebalance', from: 'band_quarter' },
     { fn: 'concentration', from: 'band_quarter' }, { fn: 'exitReviews', from: 'band_quarter' },
     { fn: 'quarterReview', from: 'band_quarter' }, { fn: 'yourAction', from: 'band_quarter' },
     { fn: 'normalItems', from: 'band_quarter' },
@@ -595,6 +674,10 @@ function renderPage(pageId) {
         if (node.fn === 'positionRows') return fn(b.items);
         if (node.fn === 'nextReview') return fn(b.next_review);
         if (node.fn === 'marketEnv') return fn(b.market_env);
+        if (node.fn === 'assetAllocation') return fn(b.asset_allocation);
+        if (node.fn === 'equityStructure') return fn(b.equity_structure);
+        if (node.fn === 'satelliteExecution') return fn(b.execution_plan);
+        if (node.fn === 'settledCash') return fn(b.rebalance_cash);
         if (node.fn === 'allocation') return fn(b);
         if (node.fn === 'quarterReview') return fn(a);
         if (node.fn === 'quarterAction') return fn(a, b.validity);

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T19:50:23",
+  "generated_at": "2026-11-19T19:51:28",
   "base_date": "2026-11-19",
   "status": {
     "label": "数据完整",
@@ -517,6 +517,13 @@
           "债券": 60.34
         }
       },
+      "asset_allocation": null,
+      "equity_structure": null,
+      "gold_layer": null,
+      "execution_plan": null,
+      "amount_groups": null,
+      "rebalance_cash": null,
+      "five_dimension_scores": null,
       "artifacts": {
         "daily_checks": [
           {
@@ -939,6 +946,13 @@
       "normal_label": "其余 {n} 只：正常定投，无需额外操作",
       "stop_signals": [],
       "allocation": {},
+      "asset_allocation": null,
+      "equity_structure": null,
+      "gold_layer": null,
+      "execution_plan": null,
+      "amount_groups": null,
+      "rebalance_cash": null,
+      "five_dimension_scores": null,
       "artifacts": {
         "add_on_reviews": [],
         "add_on_summary": "",
@@ -979,6 +993,13 @@
       "normal_label": "",
       "stop_signals": [],
       "allocation": {},
+      "asset_allocation": null,
+      "equity_structure": null,
+      "gold_layer": null,
+      "execution_plan": null,
+      "amount_groups": null,
+      "rebalance_cash": null,
+      "five_dimension_scores": null,
       "artifacts": {
         "rebalance": null,
         "monthly_review": null,
@@ -1021,6 +1042,13 @@
       "normal_label": "",
       "stop_signals": [],
       "allocation": {},
+      "asset_allocation": null,
+      "equity_structure": null,
+      "gold_layer": null,
+      "execution_plan": null,
+      "amount_groups": null,
+      "rebalance_cash": null,
+      "five_dimension_scores": null,
       "artifacts": {
         "action_checklist": [],
         "concentration": null,
@@ -3379,6 +3407,18 @@
     "ui_lbl_locked": "结构锁",
     "ui_lbl_exclusions": "剔除项",
     "ui_lbl_proxy": "FOF使用代理穿透",
-    "ui_lbl_p2_readonly": "数据不完整时仅展示原因，不生成动作"
+    "ui_lbl_p2_readonly": "数据不完整时仅展示原因，不生成动作",
+    "ui_lbl_asset": "资产",
+    "ui_lbl_core_funds": "核心基金",
+    "ui_lbl_satellite_funds": "卫星基金",
+    "ui_lbl_buy_allowed": "可投",
+    "ui_lbl_buy_blocked": "暂停",
+    "ui_lbl_rank": "排名",
+    "ui_lbl_structural_room": "结构额度",
+    "ui_lbl_allocated": "本次分配",
+    "ui_lbl_reason": "原因",
+    "ui_lbl_fund": "基金",
+    "ui_lbl_role": "角色",
+    "ui_lbl_status": "状态"
   }
 }

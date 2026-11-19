@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T19:48:12",
+  "generated_at": "2026-11-19T19:50:23",
   "base_date": "2026-11-19",
   "status": {
     "label": "数据完整",
@@ -3356,6 +3356,29 @@
     "ui_retirement_coverage": "年化数据覆盖 {covered}/{total} 只当前持仓",
     "ui_retirement_zero": "若未来零收益（只算本金）",
     "ui_retirement_principal": "累计投入（当前市值＋未来每月投入）",
-    "ui_retirement_start": "当前持仓市值（测算起点）"
+    "ui_retirement_start": "当前持仓市值（测算起点）",
+    "ui_h2_asset_allocation": "四资产目标与实际",
+    "ui_h2_equity_structure": "核心与卫星结构",
+    "ui_h2_satellite_execution": "卫星集中度与顺延",
+    "ui_h2_settled_cash": "已到账再平衡",
+    "ui_asset_equity": "权益",
+    "ui_asset_debt": "债券",
+    "ui_asset_gold": "黄金",
+    "ui_asset_cash": "现金",
+    "ui_lbl_target": "目标",
+    "ui_lbl_actual": "实际",
+    "ui_lbl_gap": "缺口",
+    "ui_lbl_core_ratio": "核心比例",
+    "ui_lbl_satellite_budget": "卫星本期预算",
+    "ui_lbl_satellite_unallocated": "卫星未分配",
+    "ui_lbl_cash_retained": "现金留存",
+    "ui_lbl_pending": "待到账（不计可用）",
+    "ui_lbl_settled": "已到账未分配",
+    "ui_lbl_planned": "本次计划",
+    "ui_lbl_after": "分配后现金",
+    "ui_lbl_locked": "结构锁",
+    "ui_lbl_exclusions": "剔除项",
+    "ui_lbl_proxy": "FOF使用代理穿透",
+    "ui_lbl_p2_readonly": "数据不完整时仅展示原因，不生成动作"
   }
 }

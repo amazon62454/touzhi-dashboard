@@ -381,23 +381,24 @@ const R = {
     const text = fmt(tpl, { fund: n.fund || '—', w: Number(n.weight), p102: Number(n.p102), fire });
     return C.card(U.ui_h2_net_add, `<p class="muted">${esc(text.replace(/^-\s*/, ''))}</p>`);
   },
-  assetAllocation(a) {
-    if (!a) return '';
+  assetAllocation(allocation) {
+    if (!allocation) return '';
     const assets = [
       ['equity', U.ui_asset_equity], ['debt', U.ui_asset_debt],
       ['gold', U.ui_asset_gold], ['cash', U.ui_asset_cash],
     ];
     const rows = assets.map(([key, label]) => [
-      label, pct((a.targets || {})[key]), pct((a.actual || {})[key]), pct((a.gaps || {})[key]),
+      label, pct((allocation.targets || {})[key]),
+      pct((allocation.actual || {})[key]), pct((allocation.gaps || {})[key]),
     ]);
-    const proxy = Object.values(a.fof_proxy || {}).some(Boolean)
+    const proxy = Object.values(allocation.fof_proxy || {}).some(Boolean)
       ? `<p class="muted">${esc(U.ui_lbl_proxy)}</p>` : '';
-    const blocked = a.valid === false
-      ? C.empty(U.ui_lbl_p2_readonly, (a.missing || []).join(' · ')) : '';
+    const blocked = allocation.valid === false
+      ? C.empty(U.ui_lbl_p2_readonly, (allocation.missing || []).join(' · ')) : '';
     const body = C.table(
       [U.ui_lbl_asset, U.ui_lbl_target, U.ui_lbl_actual, U.ui_lbl_gap], rows,
       { aligns: ['left', 'right', 'right', 'right'] }) + proxy + blocked;
-    return C.card(U.ui_h2_asset_allocation, body, a.valid === false ? 'warn' : '');
+    return C.card(U.ui_h2_asset_allocation, body, allocation.valid === false ? 'warn' : '');
   },
   equityStructure(s) {
     if (!s) return '';

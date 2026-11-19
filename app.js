@@ -700,11 +700,48 @@ async function init() {
     $('boot-skeleton').remove();
     showPage(location.hash.slice(1) || 'page-retirement');
     scheduleResultExpiry();
+    startAutoRefresh();
     window.addEventListener('hashchange', () => showPage(location.hash.slice(1) || 'page-retirement'));
   } catch (e) {
     $('boot-skeleton').remove();
     $('main').innerHTML = `<div class="error-state"><div>页面数据读取失败：${esc(e.message)}</div><button onclick="location.reload()">重试</button></div>`;
   }
+}
+
+const AUTO_REFRESH_MS = 15000;
+let lastGeneratedAt = null;
+
+async function pollForUpdates() {
+  if (document.visibilityState !== 'visible' || !lastGeneratedAt) return;
+  if (document.activeElement && document.activeElement.id === 'rule-search') return;
+  try {
+    const r = await fetch(`h5_data.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (!r.ok) return;
+    const next = await r.json();
+    if (!next.generated_at || next.generated_at === lastGeneratedAt) return;
+    const active = document.querySelector('.page.active');
+    const scrollY = window.scrollY;
+    D = next;
+    U = D.ui_labels || {};
+    lastGeneratedAt = D.generated_at;
+    renderShell();
+    document.querySelectorAll('.page').forEach(p => { delete p.dataset.rendered; });
+    if (active) {
+      renderPage(active.id);
+      active.dataset.rendered = '1';
+    }
+    scheduleResultExpiry();
+    window.scrollTo({ top: scrollY });
+  } catch (e) {
+    // 自动刷新失败保留当前可用页面，下一轮再试；不清空、不伪装无数据。
+    console.warn('H5自动刷新暂未成功', e);
+  }
+}
+
+function startAutoRefresh() {
+  lastGeneratedAt = D.generated_at || null;
+  window.setInterval(pollForUpdates, AUTO_REFRESH_MS);
+  document.addEventListener('visibilitychange', pollForUpdates);
 }
 
 function renderShell() {

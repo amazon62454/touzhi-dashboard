@@ -557,9 +557,7 @@ R.retirementProjection = function () {
     C.kv(U.ui_retirement_principal, money(p.principal), 'info'),
     C.kv(U.ui_retirement_profit, money(p.projected_profit), numTone(p.projected_profit)),
   ].join('');
-  const ex = (p.excluded_funds || []).map(x => `${x.fund_name || x.fund_code}(${pct(x.hist_annual_return)})`).join('、');
-  const exLine = ex ? `<p class="muted">${esc(fmt(U.ui_retirement_excluded || '', { n: (p.excluded_funds || []).length, names: ex }))}</p>` : '';
-  const note = `<p class="muted">${esc(coverage)}</p>${exLine}<p class="muted">${esc(U.ui_retirement_assumption || '')}</p>`;
+  const note = `<p class="muted">${esc(coverage)}</p><p class="muted">${esc(U.ui_retirement_assumption || '')}</p>`;
   return C.card(U.ui_h2_retirement_projection, rows + note);
 };
 

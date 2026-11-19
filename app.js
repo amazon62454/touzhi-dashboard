@@ -553,9 +553,9 @@ R.retirementProjection = function () {
     C.kv(U.ui_retirement_date, esc(p.retire_date)),
     C.kv(U.ui_retirement_remaining, fmt(U.ui_retirement_years || '', { years: p.years_remaining })),
     C.kv(U.ui_retirement_contribution, money(p.monthly_budget), 'info'),
+    C.kv(U.ui_retirement_start || '当前持仓市值（测算起点）', money(p.start_market), 'info'),
     C.kv(U.ui_retirement_principal, money(p.principal), 'info'),
     C.kv(U.ui_retirement_profit, money(p.projected_profit), numTone(p.projected_profit)),
-    has(p.zero_return_principal) ? C.kv(U.ui_retirement_zero || '若未来零收益（只算本金）', money(p.zero_return_principal), 'info') : '',
   ].join('');
   const ex = (p.excluded_funds || []).map(x => `${x.fund_name || x.fund_code}(${pct(x.hist_annual_return)})`).join('、');
   const exLine = ex ? `<p class="muted">${esc(fmt(U.ui_retirement_excluded || '', { n: (p.excluded_funds || []).length, names: ex }))}</p>` : '';

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T22:25:36",
+  "generated_at": "2026-11-20T22:28:55",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -6836,7 +6836,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T22:25:36",
+    "generated_at": "2026-11-20T22:28:55",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -9762,7 +9762,6 @@
     "ui_h2_scan": "全市场扫描与比较置换",
     "ui_h2_addon_score": "低估加仓评分",
     "ui_h2_monthly_review": "上周期执行复盘与数据完整性",
-    "ui_h2_quarter_action": "本季度要做什么",
     "ui_h2_scale_backtest": "规模风险与季度回测",
     "ui_h2_exit_review": "存量去留结论",
     "ui_h2_net_add": "净增评估",
@@ -9904,6 +9903,15 @@
     "ui_check_scan_rest": "展开其余 {n} 项正常/未触发检查",
     "ui_monthly_details": "月度资金、复盘与持仓证据（按需展开）",
     "ui_data_scale_partial": "基金规模数据待补",
-    "ui_rebalance_data_missing": "债券占比或目标待补，本次仅展示已确认规则状态"
+    "ui_rebalance_data_missing": "债券占比或目标待补，本次仅展示已确认规则状态",
+    "ui_h2_quarter_action": "季度行动结论",
+    "ui_quarter_no_trade": "本季度不用买卖",
+    "ui_quarter_evidence": "查看配置与复核依据（默认收起）",
+    "ui_quarter_observation_only": "仅观察，不直接赎回",
+    "ui_no_blockers": "无新增阻断",
+    "ui_action_now": "① 你要做什么",
+    "ui_action_progress": "② 已完成到哪",
+    "ui_action_blocked": "③ 为什么还没完成",
+    "ui_action_next": "④ 何时再看"
   }
 }

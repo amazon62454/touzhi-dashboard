@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T15:34:55",
+  "generated_at": "2026-11-20T15:46:21",
   "base_date": "2026-11-19",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -997,8 +997,8 @@
         "actions": [],
         "blocked": [],
         "expired": [],
-        "next_review_at": "2027-01-20T03:30:00",
-        "result_visible_until": "2027-01-20T03:30:00",
+        "next_review_at": "2026-12-20T03:30:00",
+        "result_visible_until": "2026-12-20T03:30:00",
         "result_effective_from": "2026-11-20T03:34:02",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },

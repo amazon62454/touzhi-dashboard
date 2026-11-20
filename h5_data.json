@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T00:17:47",
+  "generated_at": "2026-11-21T00:18:54",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -6393,10 +6393,6 @@
         }
       },
       "artifacts": {
-        "action_checklist": [
-          "持有期基金按深亏与解锁规则处理，本季度不新增一刀切赎回",
-          "基金规模数据未齐，不出具清盘风险已通过结论"
-        ],
         "concentration": {
           "sectors": [
             {
@@ -6908,7 +6904,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T00:17:47",
+    "generated_at": "2026-11-21T00:18:54",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

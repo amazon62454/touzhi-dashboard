@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T20:25:38",
+  "generated_at": "2026-11-20T20:29:24",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -158,6 +158,7 @@
   },
   "bands": {
     "band_daily": {
+      "band": "band_daily",
       "title": "每日档 · 风控监控",
       "summary": "今天无需操作",
       "validity": {
@@ -1366,6 +1367,7 @@
       "source_file": "band_daily_judgment.json"
     },
     "band_eval": {
+      "band": "band_eval",
       "title": "周日档 · 定投评估",
       "summary": "部分操作可执行，其余因数据不足已拦截",
       "validity": {
@@ -3387,6 +3389,7 @@
       "source_file": "band_eval_judgment.json"
     },
     "band_monthly": {
+      "band": "band_monthly",
       "title": "月度档 · 资金评审",
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
@@ -5460,6 +5463,7 @@
       "source_file": "band_monthly_judgment.json"
     },
     "band_quarter": {
+      "band": "band_quarter",
       "title": "季度档 · 配置复核",
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
@@ -6843,7 +6847,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T20:25:38",
+    "generated_at": "2026-11-20T20:29:24",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -9861,6 +9865,7 @@
     "ui_chain_open_flow": "进入主责档查看",
     "ui_chain_back_directory": "返回流程总目录",
     "ui_chain_band_flows": "本档操作流程",
-    "ui_chain_related_evidence": "本档关联流程（仅提供评估证据，不重复完整步骤）"
+    "ui_chain_related_evidence": "本档关联流程（仅提供评估证据，不重复完整步骤）",
+    "ui_check_scan_rest": "展开其余 {n} 项正常/未触发检查"
   }
 }

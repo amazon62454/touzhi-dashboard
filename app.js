@@ -637,15 +637,17 @@ const PAGE_SCHEMA = {
 // ---------- 特殊页渲染 ----------
 // 2026-11-20 R101:参数链拓扑图(季度→月度→周日→每日→闭环,动态显示各档输入/输出/传递状态)
 R.chainPage = function () {
-  const pc = D.param_chain || {};
-  const visual = pc.visual || {};
-  const visualSteps = (visual.steps || []).map((s, index, all) => `<div class="visual-step ${esc(s.status)}"><div class="visual-step-head"><span class="visual-step-title">${esc(s.title)}</span><span class="visual-step-state">${esc(s.status_label)}</span></div><div class="visual-step-lines">${(s.lines || []).map(line => `<div>${esc(line)}</div>`).join('')}</div><p>${esc(s.reason)}</p></div>${index < all.length - 1 ? `<div class="visual-arrow"><b>↓</b><span>${esc(s.out_label)}</span></div>` : ''}`).join('');
-  const visualHtml = visualSteps ? C.card(visual.title || '', `<div class="visual-now"><div><small>现在执行到</small><strong>${esc(visual.current_text)}</strong></div><div><small>下一步</small><strong>${esc(visual.next_action)}</strong></div></div><div class="visual-missing"><strong>还没闭环，差这些</strong>${(visual.missing || []).map(x => `<div>• ${esc(x)}</div>`).join('')}</div><div class="visual-flow">${visualSteps}</div><div class="visual-loop">↩ 台账反馈后回到①，进入下一周期</div>`) : '';
-  const cadence = (visual.cadence || []).map(x => `<section class="cadence-item ${esc(x.status)}"><div class="cadence-head"><strong>${esc(x.title)}</strong><span>${esc(x.status_label)}</span></div><small>${esc(x.schedule)}</small><p><b>触发条件：</b>${esc(x.condition)}</p><p><b>本档动作：</b>${esc(x.action)}</p><div class="cadence-current">${(x.current || []).map(line => `<div>${esc(line)}</div>`).join('')}</div></section>`).join('');
-  const cadenceHtml = cadence ? C.card('四档节奏｜各自什么条件下做什么', `<div class="cadence-grid">${cadence}</div>`) : '';
-  const branches = (visual.action_branches || []).map(x => `<section class="action-branch ${esc(x.status)}"><div class="action-branch-head"><strong>${esc(x.title)}</strong><span>${esc(x.status_label)}</span></div><p>${esc(x.condition)}</p><div class="action-branch-lines">${(x.lines || []).map(line => `<div>${esc(line)}</div>`).join('')}</div></section>`).join('');
-  const branchesHtml = branches ? C.card('动作分支｜定投、加仓、再平衡、减仓分别怎么走', `<div class="action-branch-grid">${branches}</div>`) : '';
-  return visualHtml + cadenceHtml + branchesHtml || C.card('V2执行全景图', C.empty('', ''));
+  const visual = (D.param_chain || {}).visual || {};
+  const labels = {done: '已完成', current: '当前步骤', blocked: '阻断｜本步未完成', pending: '未完成'};
+  const flows = (visual.workflows || []).map(flow => {
+    const steps = flow.steps || [];
+    const currentStep = steps[(flow.current || 1) - 1] || {};
+    const stepsHtml = steps.map((step, index) => `<div class="workflow-step ${esc(step.status)}"><span class="workflow-index">${index + 1}</span><div><strong>${esc(step.name)}｜${esc(labels[step.status] || step.status)}</strong><p>${esc(step.detail)}</p></div></div>${index < steps.length - 1 ? '<div class="workflow-arrow">↓</div>' : ''}`).join('');
+    const detailLines = ['regular', 'addon'].includes(flow.id) && (flow.lines || []).length
+      ? `<div class="workflow-lines"><strong>逐只基金明细</strong>${flow.lines.map(line => `<div>${esc(line)}</div>`).join('')}</div>` : '';
+    return `<section class="card workflow-card ${esc(flow.id)}"><div class="workflow-head"><h2>${esc(flow.title)}</h2><span>${esc(flow.state)}</span></div><p class="workflow-cadence">${esc(flow.cadence)}</p><div class="workflow-current"><strong>当前第${esc(flow.current)}步：${esc(currentStep.name || '')}</strong><p>下一步：${esc(flow.next)}</p></div><div class="workflow-steps">${stepsHtml}</div>${detailLines}</section>`;
+  }).join('');
+  return flows || C.card('参数链｜各操作流程当前进度', C.empty('', ''));
 };
 
 R.monthlyClose = function (close) {

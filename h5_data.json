@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T20:29:24",
+  "generated_at": "2026-11-20T20:31:18",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -6847,7 +6847,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T20:29:24",
+    "generated_at": "2026-11-20T20:31:18",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -9866,6 +9866,7 @@
     "ui_chain_back_directory": "返回流程总目录",
     "ui_chain_band_flows": "本档操作流程",
     "ui_chain_related_evidence": "本档关联流程（仅提供评估证据，不重复完整步骤）",
-    "ui_check_scan_rest": "展开其余 {n} 项正常/未触发检查"
+    "ui_check_scan_rest": "展开其余 {n} 项正常/未触发检查",
+    "ui_monthly_details": "月度复盘、候选池与持仓明细（按需展开）"
   }
 }

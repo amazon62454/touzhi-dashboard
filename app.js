@@ -165,11 +165,16 @@ const R = {
     const checks = (b.artifacts && b.artifacts.daily_checks) || [];
     if (!checks.length) return '';
     // 每日保留完整扫描；其余档只保留异常/行动/待补数据，正常项不跨档重复。
-    const visible = b.band === 'band_daily' ? checks
-      : checks.filter(c => { const s = String(c.status || ''); return s.includes('🔴') || s.includes('⚠️') || s.includes('待数据'); });
-    if (!visible.length) return '';
-    const rows = visible.map(c => `<div class="check-item"><div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>${C.checkMetrics(c.metrics)}</div>`).join('');
-    return C.card(fmt(U.ui_h2_check_scan, { n: visible.length }), rows);
+    const isAttention = c => { const s = String(c.status || ''); return s.includes('🔴') || s.includes('⚠️') || s.includes('待数据'); };
+    const attention = checks.filter(isAttention);
+    const normal = checks.filter(c => !isAttention(c));
+    if (!attention.length && b.band !== 'band_daily') return '';
+    const renderRows = rows => rows.map(c => `<div class="check-item"><div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>${C.checkMetrics(c.metrics)}</div>`).join('');
+    let rows = renderRows(attention);
+    if (b.band === 'band_daily' && normal.length) {
+      rows += `<details class="check-normal-rest"><summary>${esc(fmt(U.ui_check_scan_rest, { n: normal.length }))}</summary>${renderRows(normal)}</details>`;
+    }
+    return C.card(fmt(U.ui_h2_check_scan, { n: b.band === 'band_daily' ? checks.length : attention.length }), rows);
   },
   attention(b) {
     const v = b.validity || {};
@@ -632,6 +637,16 @@ const PAGE_SCHEMA = {
 };
 
 // ---------- 特殊页渲染 ----------
+R.monthlyDetails = function (b) {
+  const a = b.artifacts || {};
+  const content = [
+    R.monthlyReview(a.monthly_review), R.periodSummary(a.period_summary),
+    R.takeProfit(a.take_profit), R.scan(a.scan, b.market_env), R.positionRows(b.items),
+    R.execution(a.execution_review, a.unlock_review), R.fundDest(),
+  ].join('');
+  return content ? C.details(U.ui_monthly_details, content) : '';
+};
+
 // 参数链只作跨档流程目录；完整步骤在主责档，避免两处重复。
 function workflowBandTitle(id) {
   return (((D.bands || {})[id] || {}).title) || id;

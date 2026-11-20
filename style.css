@@ -361,3 +361,20 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 .workflow-arrow { text-align: center; color: var(--c-primary); font-size: var(--fs-lg); line-height: 1.4; }
 .workflow-lines { margin-top: var(--sp-3); padding: var(--sp-3); border: 1px solid var(--c-border); border-radius: var(--radius-s); font-size: var(--fs-sm); }
 .workflow-lines > div { margin-top: var(--sp-2); }
+
+/* 17. 参数链紧凑总览＋单流程视图（M40） */
+.flow-overview-list { display: grid; gap: var(--sp-2); }
+.flow-overview { width: 100%; text-align: left; border: 1px solid var(--c-border); border-radius: var(--radius-s); background: var(--c-surface); padding: var(--sp-3); color: var(--c-text-1); min-height: var(--tap); }
+.flow-overview.active { border-color: var(--c-primary); background: var(--c-primary-soft, #eaf3ff); }
+.flow-overview-top { display: flex; flex-wrap: wrap; gap: var(--sp-2); justify-content: space-between; }
+.flow-overview-top em { font-size: var(--fs-sm); font-style: normal; color: var(--c-primary); font-weight: 700; }
+.flow-overview-current, .flow-overview-next { display: block; margin-top: var(--sp-1); font-size: var(--fs-sm); }
+.flow-overview-next { color: var(--c-text-2); }
+.compact-steps { display: grid; gap: var(--sp-2); }
+.compact-step { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: var(--sp-2); padding: var(--sp-2); border-radius: var(--radius-s); background: var(--c-bg-soft, #f6f8fa); }
+.compact-step.current { background: var(--c-primary-soft, #eaf3ff); }
+.compact-step.blocked { background: var(--c-warning-soft, #fff5df); }
+.compact-step.pending { opacity: .68; }
+.compact-step strong { margin-right: var(--sp-2); }
+.compact-step em { font-style: normal; font-size: var(--fs-sm); color: var(--c-text-3); }
+.compact-step p { margin: var(--sp-1) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }

@@ -165,7 +165,7 @@ const R = {
     const checks = (b.artifacts && b.artifacts.daily_checks) || [];
     if (!checks.length) return '';
     // 每日保留完整扫描；其余档只保留异常/行动/待补数据，正常项不跨档重复。
-    const isAttention = c => { const s = String(c.status || ''); return s.includes('🔴') || s.includes('⚠️') || s.includes('待数据'); };
+    const isAttention = c => { const s = String(c.status || ''); return (s.includes('🔴') || s.includes('⚠️') || s.includes('待数据')) && (b.band === 'band_daily' || c.name !== '规模预警'); };
     const attention = checks.filter(isAttention);
     const normal = checks.filter(c => !isAttention(c));
     if (!attention.length && b.band !== 'band_daily') return '';
@@ -613,16 +613,14 @@ const PAGE_SCHEMA = {
   'page-band_eval': [
     { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandFlows', arg: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' }, { fn: 'checkScan', from: 'band_eval' },
     { fn: 'weeklyBudget', from: 'band_eval' }, { fn: 'equityStructure', from: 'band_eval' },
-    { fn: 'satelliteExecution', from: 'band_eval' }, { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
+    { fn: 'satelliteExecution', from: 'band_eval' }, { fn: 'evalCash', from: 'band_eval' },
     { fn: 'addOn', from: 'band_eval' },
   ],
   'page-band_monthly': [
     { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandFlows', arg: 'band_monthly' }, { fn: 'bandActions', from: 'band_monthly' }, { fn: 'bandBlocked', from: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
     { fn: 'checkScan', from: 'band_monthly' }, { fn: 'assetAllocation', from: 'band_monthly' }, { fn: 'equityStructure', from: 'band_monthly' },
     { fn: 'settledCash', from: 'band_monthly' }, { fn: 'rebalance', from: 'band_monthly' },
-    { fn: 'monthlyReview', from: 'band_monthly' }, { fn: 'periodSummary', from: 'band_monthly' },
-    { fn: 'takeProfit', from: 'band_monthly' }, { fn: 'scan', from: 'band_monthly' }, { fn: 'positionRows', from: 'band_monthly' },
-    { fn: 'execution', from: 'band_monthly' }, { fn: 'fundDest' },
+    { fn: 'monthlyDetails', from: 'band_monthly' },
   ],
   'page-band_quarter': [
     { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandFlows', arg: 'band_quarter' }, { fn: 'bandActions', from: 'band_quarter' }, { fn: 'bandBlocked', from: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'checkScan', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
@@ -779,6 +777,7 @@ function renderPage(pageId) {
         if (node.fn === 'flow') return fn(a.rebalance);
         if (node.fn === 'concentration') return fn(a.concentration);
         if (node.fn === 'exitReviews') return fn(a.exit_reviews);
+        if (node.fn === 'monthlyDetails') return fn(b);
         if (node.fn === 'monthlyReview') return fn(a.monthly_review);
         if (node.fn === 'monthlyClose') return fn(a.monthly_close || b.monthly_close);
         if (node.fn === 'periodSummary') return fn(a.period_summary);

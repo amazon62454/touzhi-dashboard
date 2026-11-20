@@ -370,6 +370,20 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 .flow-overview-top em { font-size: var(--fs-sm); font-style: normal; color: var(--c-primary); font-weight: 700; }
 .flow-overview-current, .flow-overview-next { display: block; margin-top: var(--sp-1); font-size: var(--fs-sm); }
 .flow-overview-next { color: var(--c-text-2); }
+.flow-overview-band, .flow-overview-open { display: block; margin-top: var(--sp-1); font-size: var(--fs-xs); color: var(--c-text-3); }
+.flow-overview-open { color: var(--c-primary); font-weight: 700; }
+.band-flow-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); margin-bottom: var(--sp-3); }
+.band-flow-tabs button { border: 1px solid var(--c-border); border-radius: var(--radius-s); background: var(--c-surface); padding: var(--sp-2); text-align: left; min-height: var(--tap); }
+.band-flow-tabs button.active { border-color: var(--c-primary); background: var(--c-primary-weak); }
+.band-flow-tabs strong, .band-flow-tabs span { display: block; }
+.band-flow-tabs span { font-size: var(--fs-xs); color: var(--c-text-2); margin-top: var(--sp-1); }
+.band-flow-current { padding: var(--sp-2); border-left: 3px solid var(--c-primary); background: var(--c-surface-2); margin-bottom: var(--sp-2); }
+.band-flow-current p { margin: var(--sp-1) 0 0; color: var(--c-text-2); }
+.band-flow-related { margin-top: var(--sp-3); padding-top: var(--sp-3); border-top: 1px solid var(--c-border); }
+.band-flow-related > strong { display: block; margin-bottom: var(--sp-2); font-size: var(--fs-sm); }
+.band-flow-related button { display: block; width: 100%; border: 0; border-bottom: 1px solid var(--c-border); background: transparent; text-align: left; padding: var(--sp-2) 0; }
+.band-flow-related small { display: block; color: var(--c-text-3); margin-top: var(--sp-1); }
+.flow-back { display: inline-block; margin-top: var(--sp-3); color: var(--c-primary); font-size: var(--fs-sm); }
 .compact-steps { display: grid; gap: var(--sp-2); }
 .compact-step { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: var(--sp-2); padding: var(--sp-2); border-radius: var(--radius-s); background: var(--c-bg-soft, #f6f8fa); }
 .compact-step.current { background: var(--c-primary-soft, #eaf3ff); }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T17:54:58",
+  "generated_at": "2026-11-20T17:56:04",
   "base_date": "2026-11-19",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1723,7 +1723,7 @@
         "mode": "rebalance_required"
       },
       "monthly_close": {
-        "status": "already_closed",
+        "status": "closed",
         "old_period": "2026-11",
         "new_period": "2026-12",
         "old_label": "10-20~11-19",
@@ -1892,34 +1892,84 @@
           "item6_赛道跟踪": "扫描21个方向,9个进入低估观察;本期无新基金正式纳入,6只待四项复核"
         },
         "period_summary": {
-          "start": "2026-09-20",
-          "end": "2026-10-19",
-          "period_id": "2026-10",
+          "start": "2026-10-20",
+          "end": "2026-11-19",
+          "period_id": "2026-11",
           "rows": [
             {
-              "action": "定投",
-              "count": 15,
-              "amount": 410.4
+              "action": "事件监控(临时审视)",
+              "count": 2,
+              "amount": 0.0
             },
             {
-              "action": "定投金额设定",
+              "action": "债基轮转(超级转换)",
+              "count": 2,
+              "amount": 341.75
+            },
+            {
+              "action": "加仓(机动加仓金)",
+              "count": 1,
+              "amount": 122.0
+            },
+            {
+              "action": "加仓(现金池结余)",
+              "count": 1,
+              "amount": 630.0
+            },
+            {
+              "action": "基准上移",
+              "count": 1,
+              "amount": 21190.0
+            },
+            {
+              "action": "定投(提前执行)",
+              "count": 1,
+              "amount": 65.0
+            },
+            {
+              "action": "定投执行(周一)",
+              "count": 5,
+              "amount": 170.0
+            },
+            {
+              "action": "定投执行(周四)",
+              "count": 18,
+              "amount": 643.0
+            },
+            {
+              "action": "定投金额建议",
               "count": 1,
               "amount": 0.0
             },
             {
-              "action": "暂停定投",
+              "action": "止损线专项评估(SOP383)",
+              "count": 2,
+              "amount": 0.0
+            },
+            {
+              "action": "记录",
               "count": 1,
               "amount": 0.0
             },
             {
-              "action": "调基准",
+              "action": "评估记录",
               "count": 1,
-              "amount": 10.0
+              "amount": 0.0
             },
             {
-              "action": "转换(组合外→组合内)",
+              "action": "资金结算",
               "count": 1,
-              "amount": 141.02
+              "amount": 1550.4
+            },
+            {
+              "action": "超级转换转入(在途·一笔全转)",
+              "count": 1,
+              "amount": 883.31
+            },
+            {
+              "action": "转换(超级转换转出→012544)",
+              "count": 2,
+              "amount": 961.78
             }
           ]
         },
@@ -2598,7 +2648,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T17:54:58",
+    "generated_at": "2026-11-20T17:56:04",
     "empty": false,
     "nodes": [
       {

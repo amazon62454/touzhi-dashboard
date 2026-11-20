@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T21:46:08",
+  "generated_at": "2026-11-20T21:50:26",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -16,7 +16,7 @@
     "160119": "南方中证500ETF联接(LOF)A"
   },
   "status": {
-    "label": "数据完整",
+    "label": "基金规模数据待补",
     "description": "只显示当前有效结论"
   },
   "retirement": {
@@ -3399,12 +3399,12 @@
         "source_param": "P114",
         "state": "observation",
         "headline": "本期无需直接操作，查看对应评估结论即可",
-        "data_complete": true,
+        "data_complete": false,
         "actions": [],
         "blocked": [],
         "expired": [],
-        "next_review_at": "2027-01-20T03:30:00",
-        "result_visible_until": "2027-01-20T03:30:00",
+        "next_review_at": "2026-12-20T03:30:00",
+        "result_visible_until": "2026-12-20T03:30:00",
         "result_effective_from": "2026-11-20T18:15:48",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
@@ -4301,11 +4301,11 @@
             "cash": 180.0
           },
           "monthly_budget": 1800.0,
-          "debt_market": null,
-          "debt_weight": null,
-          "debt_target": null,
-          "start_line": null,
-          "lower_line": null,
+          "debt_market": 13717.435,
+          "debt_weight": 61.46580795602311,
+          "debt_target": 48.89,
+          "start_line": 58.89,
+          "lower_line": 38.89,
           "active": false,
           "mode": "p2_pending",
           "engine_contract": "four_asset_p1c_gate",
@@ -6430,11 +6430,11 @@
             "cash": 180.0
           },
           "monthly_budget": 1800.0,
-          "debt_market": null,
-          "debt_weight": null,
-          "debt_target": null,
-          "start_line": null,
-          "lower_line": null,
+          "debt_market": 13717.435,
+          "debt_weight": 61.46580795602311,
+          "debt_target": 48.89,
+          "start_line": 58.89,
+          "lower_line": 38.89,
           "active": false,
           "mode": "p2_pending",
           "engine_contract": "four_asset_p1c_gate",
@@ -6847,7 +6847,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T21:46:08",
+    "generated_at": "2026-11-20T21:50:26",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -6878,7 +6878,7 @@
           "title": "② 加仓流程",
           "lines": [
             "本轮未交易｜资金条件阻断",
-            "每日评分 → 低估且评分达标 → 现金池闸门 → 买入回传",
+            "周日评分 → 低估且评分达标 → 现金池闸门 → 买入回传",
             "当前：现金池与买入条件"
           ],
           "status": "blocked",
@@ -6904,7 +6904,7 @@
           "title": "④ 再平衡流程",
           "lines": [
             "本轮未交易｜可赎份额待确认",
-            "每日扫描现金与偏离 → 可赎份额确认 → 买卖指令 → 回传重算",
+            "月度扫描现金与偏离 → 可赎份额确认 → 买卖指令 → 回传重算",
             "当前：确认可赎份额与交易闸门"
           ],
           "status": "blocked",
@@ -6973,7 +6973,7 @@
           "id": "addon",
           "title": "② 加仓流程",
           "state": "本轮未交易｜资金条件阻断",
-          "cadence": "每日评分 → 低估且评分达标 → 现金池闸门 → 买入回传",
+          "cadence": "周日评分 → 低估且评分达标 → 现金池闸门 → 买入回传",
           "current": 2,
           "next": "本轮不买；下个评估日重新计算评分、估值和现金池，不沿用本轮评分补仓。",
           "steps": [
@@ -7051,7 +7051,7 @@
           "id": "rebalance",
           "title": "④ 再平衡流程",
           "state": "本轮未交易｜可赎份额待确认",
-          "cadence": "每日扫描现金与偏离 → 可赎份额确认 → 买卖指令 → 回传重算",
+          "cadence": "月度扫描现金与偏离 → 可赎份额确认 → 买卖指令 → 回传重算",
           "current": 2,
           "next": "四资产再平衡待验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示；未确认可赎份额前，不生成卖出金额，也不把买入计划当成已执行。",
           "steps": [
@@ -7063,7 +7063,7 @@
             {
               "name": "确认可赎份额与交易闸门",
               "status": "blocked",
-              "detail": "四资产再平衡待验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示债券已超过目标容忍带；须先核实可赎份额，当前赎回金额等待正式评估"
+              "detail": "四资产再平衡待验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示；债券已超过目标容忍带；须先核实可赎份额，当前赎回金额等待正式评估"
             },
             {
               "name": "生成买卖指令",
@@ -9864,6 +9864,7 @@
     "ui_chain_band_flows": "本档操作流程",
     "ui_check_scan_rest": "展开其余 {n} 项正常/未触发检查",
     "ui_monthly_details": "月度资金、复盘与持仓证据（按需展开）",
-    "ui_data_scale_partial": "基金规模数据待补"
+    "ui_data_scale_partial": "基金规模数据待补",
+    "ui_rebalance_data_missing": "债券占比或目标待补，本次仅展示已确认规则状态"
   }
 }

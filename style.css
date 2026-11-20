@@ -410,6 +410,8 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 .decision-blockers { margin-top: var(--sp-3); padding: var(--sp-3); border-radius: var(--radius-s); background: var(--c-warning-weak); }
 .decision-blockers strong { color: var(--c-warning); font-size: var(--fs-sm); }
 .decision-blockers p { margin: var(--sp-1) 0 0; color: var(--c-text-2); font-size: var(--fs-sm); line-height: 1.6; }
+.decision-blockers ul { margin: var(--sp-2) 0 0; padding-left: var(--sp-5); color: var(--c-text-2); font-size: var(--fs-sm); line-height: 1.6; }
+.decision-blockers li + li { margin-top: var(--sp-1); }
 @media (max-width: 359px) {
   .compact-steps { grid-template-columns: 1fr; }
 }

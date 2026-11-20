@@ -638,24 +638,14 @@ const PAGE_SCHEMA = {
 // 2026-11-20 R101:参数链拓扑图(季度→月度→周日→每日→闭环,动态显示各档输入/输出/传递状态)
 R.chainPage = function () {
   const pc = D.param_chain || {};
-  const nodes = pc.nodes || [];
-  const edges = pc.edges || [];
-  const statusLabels = pc.status_labels || {};
-  const labels = pc.labels || {};
-  if (!nodes.length) return C.card(pc.title || '', C.empty('', ''));
-  const names = {};
-  nodes.forEach(n => { names[n.id] = n.title; });
-  const renderItems = (items) => (items || []).map(it => `<div class="chain-detail-item"><strong>${esc(it.label)}</strong><span>${esc(it.value)}</span>${it.source ? `<small>${esc(labels.source || '来源')}：${esc(it.source)}</small>` : ''}</div>`).join('');
-  const counts = Object.entries((pc.summary && pc.summary.edge_counts) || {}).map(([key, value]) => `<span class="chain-link-status chain-status-${esc(key)}">${esc(statusLabels[key] || key)} ${value}</span>`).join('');
-  let flow = '';
-  nodes.forEach((n) => {
-    flow += `<details class="chain-node chain-state-${esc(n.state)}"><summary class="chain-node-head"><span class="chain-node-name">${esc(n.title)}</span><span class="chain-node-trigger">${esc(n.trigger)}</span><span class="chain-node-state">${esc(n.state_label)}</span></summary><div class="chain-node-body"><p>${esc(n.detail)}</p><div class="chain-node-meta"><span>${esc(labels.base_date)}：${esc(n.base_date)}</span><span>${esc(labels.review_date)}：${esc(n.review_date)}</span><span>${esc(labels.generated_at)}：${esc(n.generated_at)}</span></div><div class="chain-node-io"><section><h3>${esc(labels.inputs)}</h3>${renderItems(n.inputs)}</section><section><h3>${esc(labels.outputs)}</h3>${renderItems(n.outputs)}</section></div></div></details>`;
-  });
-  const links = edges.map(e => `<details class="chain-edge chain-status-${esc(e.status)}"><summary><span>${esc(names[e.source] || e.source)}</span><b>→</b><span>${esc(names[e.target] || e.target)}</span><em>${esc(e.status_label)}</em></summary><div class="chain-edge-body"><strong>${esc(e.label)}</strong><p>${esc(labels.actual)}：${esc(e.actual)}</p><p>${esc(labels.guidance)}：${esc(e.guidance)}</p></div></details>`).join('');
   const visual = pc.visual || {};
   const visualSteps = (visual.steps || []).map((s, index, all) => `<div class="visual-step ${esc(s.status)}"><div class="visual-step-head"><span class="visual-step-title">${esc(s.title)}</span><span class="visual-step-state">${esc(s.status_label)}</span></div><div class="visual-step-lines">${(s.lines || []).map(line => `<div>${esc(line)}</div>`).join('')}</div><p>${esc(s.reason)}</p></div>${index < all.length - 1 ? `<div class="visual-arrow"><b>↓</b><span>${esc(s.out_label)}</span></div>` : ''}`).join('');
   const visualHtml = visualSteps ? C.card(visual.title || '', `<div class="visual-now"><div><small>现在执行到</small><strong>${esc(visual.current_text)}</strong></div><div><small>下一步</small><strong>${esc(visual.next_action)}</strong></div></div><div class="visual-missing"><strong>还没闭环，差这些</strong>${(visual.missing || []).map(x => `<div>• ${esc(x)}</div>`).join('')}</div><div class="visual-flow">${visualSteps}</div><div class="visual-loop">↩ 台账反馈后回到①，进入下一周期</div>`) : '';
-  return visualHtml + C.card(pc.title || '', `<div class="chain-subtitle">${esc(pc.subtitle || '')}</div><div class="chain-counts">${counts}</div><p class="muted">${esc((pc.summary && pc.summary.guidance) || '')}</p>${pc.empty ? `<div class="status-banner warn">${esc(labels.empty)}</div>` : ''}<h3>${esc(labels.nodes)}</h3><div class="chain-flow">${flow}</div><h3>${esc(labels.edges)}</h3><div class="chain-edges">${links}</div>`);
+  const cadence = (visual.cadence || []).map(x => `<section class="cadence-item ${esc(x.status)}"><div class="cadence-head"><strong>${esc(x.title)}</strong><span>${esc(x.status_label)}</span></div><small>${esc(x.schedule)}</small><p><b>触发条件：</b>${esc(x.condition)}</p><p><b>本档动作：</b>${esc(x.action)}</p><div class="cadence-current">${(x.current || []).map(line => `<div>${esc(line)}</div>`).join('')}</div></section>`).join('');
+  const cadenceHtml = cadence ? C.card('四档节奏｜各自什么条件下做什么', `<div class="cadence-grid">${cadence}</div>`) : '';
+  const branches = (visual.action_branches || []).map(x => `<section class="action-branch ${esc(x.status)}"><div class="action-branch-head"><strong>${esc(x.title)}</strong><span>${esc(x.status_label)}</span></div><p>${esc(x.condition)}</p><div class="action-branch-lines">${(x.lines || []).map(line => `<div>${esc(line)}</div>`).join('')}</div></section>`).join('');
+  const branchesHtml = branches ? C.card('动作分支｜定投、加仓、再平衡、减仓分别怎么走', `<div class="action-branch-grid">${branches}</div>`) : '';
+  return visualHtml + cadenceHtml + branchesHtml || C.card('V2执行全景图', C.empty('', ''));
 };
 
 R.monthlyClose = function (close) {

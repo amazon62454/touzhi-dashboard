@@ -620,7 +620,7 @@ R.monthlyDetails = function (b) {
   return content ? C.details(U.ui_monthly_details, content) : '';
 };
 
-// 参数链只作跨档流程目录；完整步骤在主责档，避免两处重复。
+// 流程导航只作跨档入口；完整步骤在主责档，避免两处重复。
 function workflowBandTitle(id) {
   return (((D.bands || {})[id] || {}).title) || id;
 }
@@ -636,7 +636,7 @@ R.flowSteps = function (flow) {
 R.chainPage = function () {
   const flows = ((D.param_chain || {}).visual || {}).workflows || [];
   if (!flows.length) return C.card(U.ui_chain_directory_hint, C.empty('', ''));
-  const rows = flows.map(flow => `<button type="button" class="flow-overview" data-flow-owner="${esc(flow.owner_band)}" data-flow-id="${esc(flow.id)}"><span class="flow-overview-top"><strong>${esc(flow.title)}</strong><em>${esc(flow.state)}</em></span><span class="flow-overview-band">${esc(U.ui_chain_primary_band)}：${esc(workflowBandTitle(flow.owner_band))}</span><span class="flow-overview-open">${esc(U.ui_chain_open_flow)} →</span></button>`).join('');
+  const rows = flows.map(flow => `<button type="button" class="flow-overview" data-flow-owner="${esc(flow.owner_band)}" data-flow-id="${esc(flow.id)}"><span class="flow-overview-top"><strong>${esc(flow.title)}</strong><em>${esc(flow.state)}</em></span><span class="flow-overview-band">${esc(U.ui_chain_primary_band)}：${esc(workflowBandTitle(flow.owner_band))}</span></button>`).join('');
   return C.card(U.ui_chain_directory_hint, `<div class="flow-overview-list">${rows}</div>`);
 };
 
@@ -772,7 +772,7 @@ function renderPage(pageId) {
 // ---------- 导航（配置驱动） ----------
 const NAV = [
   { id: 'page-retirement', label: '养老' },
-  { id: 'page-chain', label: '参数链' },
+  { id: 'page-chain', label: '流程导航' },
   { id: 'page-band_daily', label: '每日' },
   { id: 'page-band_eval', label: '周日' },
   { id: 'page-band_monthly', label: '月度' },

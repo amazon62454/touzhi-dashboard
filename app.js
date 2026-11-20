@@ -360,23 +360,16 @@ const R = {
     return C.card(U.ui_h2_cash_pool, parts);
   },
 
-  // 季度档：先回答做什么/做到哪/卡在哪/何时再看，证据默认收起。
+  // 季度行动语义完全由引擎 action_view 下发；缺失时 fail-closed，不回退到前端拼接。
   quarterAction(a, validity) {
-    a = a || {};
-    const scale = a.scale_review || {};
-    const missingNames = scale.fund_names || [];
-    const backtest = a.backtest || {};
-    const reasons = [];
-    if (missingNames.length) reasons.push(`规模待补：${missingNames.join('、')}`);
-    if (!Number(backtest.outcome_count)) reasons.push(`回测${backtest.signal_count ?? 0}个信号/${backtest.outcome_count ?? 0}个结果，暂不能计算胜率`);
-    if (!reasons.length) reasons.push(U.ui_no_blockers);
-    const exits = a.exit_reviews || [];
-    const primary = [U.ui_quarter_no_trade];
-    if (exits.length) primary.push(`${exits.map(x => x.fund_name || fundName(x.fund_code)).join('、')}：${U.ui_quarter_observation_only}`);
-    else primary.push(...(a.action_checklist || []));
-    const body = `<div class="decision-main">${esc(primary[0] || U.ui_quarter_no_trade)}</div>
-      ${primary.length > 1 ? `<p class="decision-note">${esc(primary.slice(1).join('；'))}</p>` : ''}
-      <div class="decision-blockers"><strong>为什么还没完成</strong><p>${esc(reasons.join('；'))}</p></div>`;
+    const view = a && a.action_view;
+    if (!view || view.engine_contract !== 'h5_quarter_action_v1' || !view.headline) {
+      return C.card(U.ui_h2_quarter_action, C.empty(U.ui_action_contract_missing, ''), 'warn');
+    }
+    const pending = Array.isArray(view.pending_items) ? view.pending_items : [];
+    const body = `<div class="decision-main">${esc(view.headline)}</div>
+      ${view.note ? `<p class="decision-note">${esc(view.note)}</p>` : ''}
+      ${pending.length ? `<div class="decision-blockers"><strong>${esc(view.pending_title || '')}</strong><ul>${pending.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}`;
     return C.card(U.ui_h2_quarter_action, body, 'accent');
   },
   quarterEvidence(b) {
@@ -407,10 +400,10 @@ const R = {
     return C.card(U.ui_h2_exit_review, body);
   },
   quarterReview(a) {
-    const s = a && a.scale_review, bt = a && a.backtest;
-    if (!s && !bt) return '';
+    const scale = a && a.scale_review, bt = a && a.backtest;
+    if (!scale && !bt) return '';
     const parts = [];
-    if (s) parts.push(C.kv('基金规模复核', esc(s.status || '')));
+    if (scale) parts.push(C.kv('基金规模复核', esc(scale.status || '')));
     if (bt) {
       // 字段名对齐数据：signal_count/outcome_count（旧写 signals/results 不存在→永远显0/0）
       parts.push(C.kv('信号流水 / 有结果样本', `${esc(bt.signal_count ?? 0)} / ${esc(bt.outcome_count ?? 0)}`));
@@ -670,7 +663,8 @@ function shortFlowState(state) {
 }
 
 R.flowSteps = function (flow) {
-  const labels = {done: '已完成', current: '当前', blocked: '阻断', pending: '未完成'};
+  const labels = {done: U.ui_flow_status_done, current: U.ui_flow_status_current,
+    blocked: U.ui_flow_status_blocked, pending: U.ui_flow_status_pending};
   return (flow.steps || []).map((step, index) => {
     return `<div class="compact-step ${esc(step.status)}"><span class="workflow-index">${index + 1}</span><div><strong>${esc(step.name)}</strong><em>${esc(labels[step.status] || step.status)}</em></div></div>`;
   }).join('');
@@ -694,21 +688,21 @@ R.bandFlows = function (band) {
   const steps = active.steps || [];
   const current = steps.find(x => ['current', 'blocked'].includes(x.status));
   const doneSteps = steps.filter(x => x.status === 'done' && x.detail);
-  const doneEvidence = doneSteps.length ? C.details('查看已完成步骤依据', doneSteps.map(x =>
+  const doneEvidence = doneSteps.length ? C.details(U.ui_flow_done_evidence, doneSteps.map(x =>
     `<div class="flow-done-evidence"><strong>${esc(x.name)}</strong><p>${esc(x.detail)}</p></div>`).join('')) : '';
-  const currentDetail = current && current.detail ? `<div class="flow-current-detail ${esc(current.status)}"><strong>${current.status === 'blocked' ? '阻断原因' : '当前步骤'}</strong><p>${esc(current.detail)}</p></div>` : '';
+  const currentDetail = current && current.detail ? `<div class="flow-current-detail ${esc(current.status)}"><strong>${esc(current.status === 'blocked' ? U.ui_flow_blocked_reason : U.ui_flow_current_step)}</strong><p>${esc(current.detail)}</p></div>` : '';
   const validity = (D.bands[band] || {}).validity || {};
   const nextAt = validity.next_review_at || '';
   const visibleUntil = validity.result_visible_until || '';
   let nextLine = '';
   if (nextAt && visibleUntil && nextAt === visibleUntil) {
-    nextLine = `<div class="flow-next-review"><span>下次评估 · 旧结果届时失效</span><strong>${esc(dateTimeText(nextAt))}</strong></div>`;
+    nextLine = `<div class="flow-next-review"><span>${esc(U.ui_flow_next_expiry)}</span><strong>${esc(dateTimeText(nextAt))}</strong></div>`;
   } else {
-    if (nextAt) nextLine += `<div class="flow-next-review"><span>下次评估</span><strong>${esc(dateTimeText(nextAt))}</strong></div>`;
-    if (visibleUntil) nextLine += `<div class="flow-next-review"><span>结果有效至</span><strong>${esc(dateTimeText(visibleUntil))}</strong></div>`;
+    if (nextAt) nextLine += `<div class="flow-next-review"><span>${esc(U.ui_flow_next_review)}</span><strong>${esc(dateTimeText(nextAt))}</strong></div>`;
+    if (visibleUntil) nextLine += `<div class="flow-next-review"><span>${esc(U.ui_flow_valid_until)}</span><strong>${esc(dateTimeText(visibleUntil))}</strong></div>`;
   }
   const tone = current && current.status === 'blocked' ? 'warn' : (current ? 'info' : 'muted');
-  const progress = `${steps.filter(x => x.status === 'done').length}/${steps.length} 步已完成`;
+  const progress = fmt(U.ui_flow_progress, {done: steps.filter(x => x.status === 'done').length, total: steps.length});
   // 多流程的活动页签已显示标题与状态，下方只保留进度，不再复述。
   const heading = owned.length > 1 ? `<div class="flow-progress-line">${progress}</div>`
     : `<div class="band-flow-head"><div><strong>${esc(bandFlowTitle(active.title))}</strong><span>${progress}</span></div>${C.badge(shortFlowState(active.state), tone)}</div>`;

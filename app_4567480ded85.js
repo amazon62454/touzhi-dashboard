@@ -587,7 +587,11 @@ const R = {
     const decision = blocked
       ? `原计划不可全额执行，缺口 ${money(w.shortfall)}`
       : daily != null ? `每个交易日 ${money(daily)}，下周共 ${money(w.debt_total)}` : '暂停，0元';
-    let html = C.kv('下周债基结论', decision, blocked ? 'neg' : 'pos')
+    const debitRows = (w.debits || []).map(x => [fundName(x.fund_code, x.fund_name), x.date, money(x.amount)]);
+    const debitTable = debitRows.length ? C.table(
+      [U.ui_weekly_col_fund, U.ui_weekly_col_date, U.ui_weekly_col_amount], debitRows,
+      { aligns: ['left', 'left', 'right'] }) : '';
+    let html = debitTable + C.kv('下周债基结论', decision, blocked ? 'neg' : 'pos')
       + C.kv('本周需求', `权益与黄金 ${money(w.equity_total)} + 债基 ${money(w.debt_total)} = ${money(w.total)}`, 'info')
       + C.kv('本周债基实际执行', money(w.debt_actual_amount), numTone(w.debt_actual_amount));
     (w.cycles || []).forEach(g => {
@@ -604,7 +608,7 @@ const R = {
     });
     if (w.debt_actual_note) html += C.kv('待对账', esc(w.debt_actual_note), 'warn');
     html += `<div class="lead">${esc(w.scope_note || '')}</div>`;
-    return C.card('本周资金结论（20日先定整周期）', html);
+    return C.card(U.ui_h2_weekly_budget, html);
   },
   evalCash(a) {
     const cash = a.cash_pool;
@@ -834,6 +838,7 @@ function renderPage(pageId) {
         if (node.fn === 'scan') return fn(a.scan);
         if (node.fn === 'execution') return fn(a.execution_review, a.unlock_review);
         if (node.fn === 'addOn') return fn(a.add_on_reviews, a.add_on_summary);
+        if (node.fn === 'weeklyBudget') return fn(a);
         if (node.fn === 'evalCash') return fn(a);
         if (node.fn === 'weekGate') return fn(a.week_gate);
         if (node.fn === 'netAddition') return fn(a.net_addition);

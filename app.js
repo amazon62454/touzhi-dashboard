@@ -638,17 +638,35 @@ const PAGE_SCHEMA = {
 // 2026-11-20 R101:参数链拓扑图(季度→月度→周日→每日→闭环,动态显示各档输入/输出/传递状态)
 R.chainPage = function () {
   const visual = (D.param_chain || {}).visual || {};
-  const labels = {done: '已完成', current: '当前步骤', blocked: '阻断｜本步未完成', pending: '未完成'};
-  const flows = (visual.workflows || []).map(flow => {
-    const steps = flow.steps || [];
-    const currentStep = steps[(flow.current || 1) - 1] || {};
-    const stepsHtml = steps.map((step, index) => `<div class="workflow-step ${esc(step.status)}"><span class="workflow-index">${index + 1}</span><div><strong>${esc(step.name)}｜${esc(labels[step.status] || step.status)}</strong><p>${esc(step.detail)}</p></div></div>${index < steps.length - 1 ? '<div class="workflow-arrow">↓</div>' : ''}`).join('');
-    const detailLines = ['regular', 'addon'].includes(flow.id) && (flow.lines || []).length
-      ? `<div class="workflow-lines"><strong>逐只基金明细</strong>${flow.lines.map(line => `<div>${esc(line)}</div>`).join('')}</div>` : '';
-    return `<section class="card workflow-card ${esc(flow.id)}"><div class="workflow-head"><h2>${esc(flow.title)}</h2><span>${esc(flow.state)}</span></div><p class="workflow-cadence">${esc(flow.cadence)}</p><div class="workflow-current"><strong>当前第${esc(flow.current)}步：${esc(currentStep.name || '')}</strong><p>下一步：${esc(flow.next)}</p></div><div class="workflow-steps">${stepsHtml}</div>${detailLines}</section>`;
+  const flows = visual.workflows || [];
+  if (!flows.length) return C.card('操作流程总览', C.empty('', ''));
+  const activeId = window.__chainActiveFlow || 'regular';
+  const active = flows.find(x => x.id === activeId) || flows[0];
+  const overview = flows.map(flow => {
+    const current = (flow.steps || [])[(flow.current || 1) - 1] || {};
+    return `<button type="button" class="flow-overview ${flow.id === active.id ? 'active' : ''}" data-chain-flow="${esc(flow.id)}"><span class="flow-overview-top"><strong>${esc(flow.title)}</strong><em>${esc(flow.state)}</em></span><span class="flow-overview-current">当前第${esc(flow.current)}步：${esc(current.name || '')}</span><span class="flow-overview-next">下一步：${esc(flow.next)}</span></button>`;
   }).join('');
-  return flows || C.card('参数链｜各操作流程当前进度', C.empty('', ''));
+  const labels = {done: '已完成', current: '当前', blocked: '阻断', pending: '未完成'};
+  const steps = (active.steps || []).map((step, index) => {
+    const showDetail = step.status !== 'pending';
+    return `<div class="compact-step ${esc(step.status)}"><span class="workflow-index">${index + 1}</span><div><strong>${esc(step.name)}</strong><em>${esc(labels[step.status] || step.status)}</em>${showDetail ? `<p>${esc(step.detail)}</p>` : ''}</div></div>`;
+  }).join('');
+  const detailLines = ['regular', 'addon'].includes(active.id) && (active.lines || []).length
+    ? `<div class="workflow-lines"><strong>逐只基金明细</strong>${active.lines.map(line => `<div>${esc(line)}</div>`).join('')}</div>` : '';
+  return C.card('操作流程总览｜点流程查看各自进度', `<div class="flow-overview-list">${overview}</div>`)
+    + C.card(active.title + '｜本流程4步', `<p class="workflow-cadence">${esc(active.cadence)}</p><div class="compact-steps">${steps}</div>${detailLines}`);
 };
+
+R.selectChainFlow = function (id) {
+  window.__chainActiveFlow = id;
+  const el = $('page-chain');
+  if (el) el.innerHTML = R.chainPage();
+};
+
+document.addEventListener('click', event => {
+  const button = event.target.closest('[data-chain-flow]');
+  if (button) R.selectChainFlow(button.dataset.chainFlow);
+});
 
 R.monthlyClose = function (close) {
   if (!close || !['closed', 'already_closed'].includes(close.status)) return '';

@@ -604,6 +604,7 @@ const PAGE_SCHEMA = {
   ],
   'page-band_monthly': [
     { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandActions', from: 'band_monthly' }, { fn: 'bandBlocked', from: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
+    { fn: 'monthlyClose', from: 'band_monthly' },
     { fn: 'assetAllocation', from: 'band_monthly' }, { fn: 'equityStructure', from: 'band_monthly' },
     { fn: 'settledCash', from: 'band_monthly' }, { fn: 'rebalance', from: 'band_monthly' }, { fn: 'flow', from: 'band_monthly' },
     { fn: 'monthlyReview', from: 'band_monthly' }, { fn: 'periodSummary', from: 'band_monthly' },
@@ -629,26 +630,27 @@ const PAGE_SCHEMA = {
 R.chainPage = function () {
   const pc = D.param_chain || {};
   const nodes = pc.nodes || [];
-  const links = pc.links || [];
+  const edges = pc.edges || [];
   const statusLabels = pc.status_labels || {};
+  const labels = pc.labels || {};
   if (!nodes.length) return C.card(pc.title || '', C.empty('', ''));
+  const names = {};
+  nodes.forEach(n => { names[n.id] = n.title; });
+  const renderItems = (items) => (items || []).map(it => `<div class="chain-detail-item"><strong>${esc(it.label)}</strong><span>${esc(it.value)}</span>${it.source ? `<small>${esc(labels.source || '来源')}：${esc(it.source)}</small>` : ''}</div>`).join('');
+  const counts = Object.entries((pc.summary && pc.summary.edge_counts) || {}).map(([key, value]) => `<span class="chain-link-status chain-status-${esc(key)}">${esc(statusLabels[key] || key)} ${value}</span>`).join('');
   let flow = '';
   nodes.forEach((n) => {
-    flow += `<div class="chain-node chain-state-${esc(n.state)}">
-      <div class="chain-node-head"><span class="chain-node-name">${esc(n.name)}</span><span class="chain-node-trigger">${esc(n.trigger)}</span></div>
-      <div class="chain-node-io"><div class="chain-io-in">入：${esc(n.input)}</div><div class="chain-io-out">出：${esc(n.output)}</div></div>
-    </div>`;
-    const link = links.find(l => l.from === n.id);
-    if (link) {
-      flow += `<div class="chain-link">
-        <div class="chain-arrow">↓</div>
-        <div class="chain-link-param">${esc(link.param)}</div>
-        <div class="chain-link-status chain-status-${esc(link.status)}">${esc(statusLabels[link.status] || link.status)}</div>
-        <div class="chain-link-note">${esc(link.note)}</div>
-      </div>`;
-    }
+    flow += `<details class="chain-node chain-state-${esc(n.state)}"><summary class="chain-node-head"><span class="chain-node-name">${esc(n.title)}</span><span class="chain-node-trigger">${esc(n.trigger)}</span><span class="chain-node-state">${esc(n.state_label)}</span></summary><div class="chain-node-body"><p>${esc(n.detail)}</p><div class="chain-node-meta"><span>${esc(labels.base_date)}：${esc(n.base_date)}</span><span>${esc(labels.review_date)}：${esc(n.review_date)}</span><span>${esc(labels.generated_at)}：${esc(n.generated_at)}</span></div><div class="chain-node-io"><section><h3>${esc(labels.inputs)}</h3>${renderItems(n.inputs)}</section><section><h3>${esc(labels.outputs)}</h3>${renderItems(n.outputs)}</section></div></div></details>`;
   });
-  return C.card(pc.title || '', `<div class="chain-subtitle">${esc(pc.subtitle || '')}</div><div class="chain-flow">${flow}</div>`);
+  const links = edges.map(e => `<details class="chain-edge chain-status-${esc(e.status)}"><summary><span>${esc(names[e.source] || e.source)}</span><b>→</b><span>${esc(names[e.target] || e.target)}</span><em>${esc(e.status_label)}</em></summary><div class="chain-edge-body"><strong>${esc(e.label)}</strong><p>${esc(labels.actual)}：${esc(e.actual)}</p><p>${esc(labels.guidance)}：${esc(e.guidance)}</p></div></details>`).join('');
+  return C.card(pc.title || '', `<div class="chain-subtitle">${esc(pc.subtitle || '')}</div><div class="chain-counts">${counts}</div><p class="muted">${esc((pc.summary && pc.summary.guidance) || '')}</p>${pc.empty ? `<div class="status-banner warn">${esc(labels.empty)}</div>` : ''}<h3>${esc(labels.nodes)}</h3><div class="chain-flow">${flow}</div><h3>${esc(labels.edges)}</h3><div class="chain-edges">${links}</div>`);
+};
+
+R.monthlyClose = function (close) {
+  if (!close || !['closed', 'already_closed'].includes(close.status)) return '';
+  return C.card('周期切换封账（已完成）', C.kv('旧周期', `${esc(close.old_label)} · 已花 ${money(close.spent)} · 结余 ${money(close.remaining)}`)
+    + C.kv('现金池', `${money(close.cash_before)} → ${money(close.cash_after)}`, 'pos')
+    + C.kv('新周期', `${esc(close.new_label)} · 预算 ${money(close.new_budget)} · 已花 ${money(0)} · 剩余 ${money(close.new_budget)}`, 'info'));
 };
 R.retirementProjection = function () {
   const p = D.retirement_projection || {};
@@ -716,6 +718,7 @@ function renderPage(pageId) {
         if (node.fn === 'concentration') return fn(a.concentration);
         if (node.fn === 'exitReviews') return fn(a.exit_reviews);
         if (node.fn === 'monthlyReview') return fn(a.monthly_review);
+        if (node.fn === 'monthlyClose') return fn(b.monthly_close || a.monthly_close);
         if (node.fn === 'periodSummary') return fn(a.period_summary);
         if (node.fn === 'takeProfit') return fn(a.take_profit);
         if (node.fn === 'fundingReview') return fn(a.funding_review);

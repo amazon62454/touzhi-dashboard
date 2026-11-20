@@ -117,7 +117,10 @@ const R = {
     const expired = resultExpired(v);
     const nextAt = v.next_review_at || '';
     let timeLine = '';
-    if (expired) timeLine = v.result_visible_until ? C.kv(U.ui_label_result_expired_at, esc(dateTimeText(v.result_visible_until))) : '';
+    // 有正式结果时，时间由流程卡唯一展示；等待/过期/测试态没有流程卡，页头必须保留时间。
+    const passiveHeaderTime = expired || ['awaiting', 'test'].includes(v.state);
+    if (!passiveHeaderTime) timeLine = '';
+    else if (expired) timeLine = v.result_visible_until ? C.kv(U.ui_label_result_expired_at, esc(dateTimeText(v.result_visible_until))) : '';
     else if (v.result_visible_until && v.result_effective_from) timeLine = C.kv(U.ui_label_result_period, `${esc(dateTimeText(v.result_effective_from))} 至 ${esc(dateTimeText(v.result_visible_until))}`);
     else if (v.result_visible_until) timeLine = C.kv(U.ui_label_result_effective, esc(dateTimeText(v.result_visible_until)));
     else if (nextAt) timeLine = C.kv(U.ui_label_next_review, esc(dateTimeText(nextAt)));
@@ -360,11 +363,6 @@ const R = {
   // 季度档：先回答做什么/做到哪/卡在哪/何时再看，证据默认收起。
   quarterAction(a, validity) {
     a = a || {}; const v = validity || {};
-    const flow = (((D.param_chain || {}).visual || {}).workflows || []).find(x => x.id === 'quarter_review') || {};
-    const steps = flow.steps || [];
-    const done = steps.filter(x => x.status === 'done').length;
-    const current = steps.find(x => ['current', 'blocked'].includes(x.status));
-    const progress = `${done}/${steps.length}步已完成${current ? '；当前：' + current.name : ''}`;
     const scale = a.scale_review || {};
     const missingNames = scale.fund_names || [];
     const backtest = a.backtest || {};
@@ -376,10 +374,9 @@ const R = {
     const primary = [U.ui_quarter_no_trade];
     if (exits.length) primary.push(`${exits.map(x => x.fund_name || fundName(x.fund_code)).join('、')}：${U.ui_quarter_observation_only}`);
     else primary.push(...(a.action_checklist || []));
-    const body = `${C.kv(U.ui_action_now, esc(primary.join('；')))}
-      ${C.kv(U.ui_action_progress, esc(progress))}
-      ${C.kv(U.ui_action_blocked, esc(reasons.join('；')))}
-      ${C.kv(U.ui_action_next, esc(dateTimeText(v.next_review_at)))}`;
+    const body = `<div class="decision-main">${esc(primary[0] || U.ui_quarter_no_trade)}</div>
+      ${primary.length > 1 ? `<p class="decision-note">${esc(primary.slice(1).join('；'))}</p>` : ''}
+      <div class="decision-blockers"><strong>${esc(U.ui_action_blocked)}</strong><p>${esc(reasons.join('；'))}</p></div>`;
     return C.card(U.ui_h2_quarter_action, body, 'accent');
   },
   quarterEvidence(b) {
@@ -665,12 +662,17 @@ R.monthlyDetails = function (b) {
 function workflowBandTitle(id) {
   return (((D.bands || {})[id] || {}).title) || id;
 }
+function bandFlowTitle(title) {
+  return String(title || '').replace(/^[①②③④⑤⑥⑦⑧⑨⑩]\s*/, '');
+}
+function shortFlowState(state) {
+  return String(state || '').split('｜')[0];
+}
 
 R.flowSteps = function (flow) {
   const labels = {done: '已完成', current: '当前', blocked: '阻断', pending: '未完成'};
   return (flow.steps || []).map((step, index) => {
-    const showDetail = step.status !== 'pending';
-    return `<div class="compact-step ${esc(step.status)}"><span class="workflow-index">${index + 1}</span><div><strong>${esc(step.name)}</strong><em>${esc(labels[step.status] || step.status)}</em>${showDetail ? `<p>${esc(step.detail)}</p>` : ''}</div></div>`;
+    return `<div class="compact-step ${esc(step.status)}"><span class="workflow-index">${index + 1}</span><div><strong>${esc(step.name)}</strong><em>${esc(labels[step.status] || step.status)}</em></div></div>`;
   }).join('');
 };
 
@@ -688,10 +690,26 @@ R.bandFlows = function (band) {
   window.__bandActiveFlow = window.__bandActiveFlow || {};
   const activeId = window.__bandActiveFlow[band] || (owned[0] || {}).id;
   const active = owned.find(x => x.id === activeId) || owned[0];
-  const tabs = owned.length > 1 ? `<div class="band-flow-tabs">${owned.map(x => `<button type="button" class="${x.id === active.id ? 'active' : ''}" data-band-flow="${esc(x.id)}" data-band="${esc(band)}"><strong>${esc(x.title)}</strong><span>${esc(x.state)}</span></button>`).join('')}</div>` : '';
-  const detail = active ? `<div class="band-flow-current"><strong>${esc(active.title)}</strong><p>${esc(active.state)} · ${esc(active.next)}</p></div><p class="workflow-cadence">${esc(active.cadence)}</p><div class="compact-steps">${R.flowSteps(active)}</div>` : '';
-  const back = `<a class="flow-back" href="#page-chain">← ${esc(U.ui_chain_back_directory)}</a>`;
-  return C.card(U.ui_chain_band_flows, tabs + detail + back);
+  const tabs = owned.length > 1 ? `<div class="band-flow-tabs">${owned.map(x => `<button type="button" class="${x.id === active.id ? 'active' : ''}" data-band-flow="${esc(x.id)}" data-band="${esc(band)}"><strong>${esc(bandFlowTitle(x.title))}</strong><span>${esc(shortFlowState(x.state))}</span></button>`).join('')}</div>` : '';
+  const steps = active.steps || [];
+  const current = steps.find(x => ['current', 'blocked'].includes(x.status));
+  const doneSteps = steps.filter(x => x.status === 'done' && x.detail);
+  const doneEvidence = doneSteps.length ? C.details('查看已完成步骤依据', doneSteps.map(x =>
+    `<div class="flow-done-evidence"><strong>${esc(x.name)}</strong><p>${esc(x.detail)}</p></div>`).join('')) : '';
+  const currentDetail = current && current.detail ? `<div class="flow-current-detail ${esc(current.status)}"><strong>${current.status === 'blocked' ? '阻断原因' : '当前步骤'}</strong><p>${esc(current.detail)}</p></div>` : '';
+  const validity = (D.bands[band] || {}).validity || {};
+  const nextAt = validity.next_review_at || '';
+  const visibleUntil = validity.result_visible_until || '';
+  let nextLine = '';
+  if (nextAt && visibleUntil && nextAt === visibleUntil) {
+    nextLine = `<div class="flow-next-review"><span>下次评估 · 旧结果届时失效</span><strong>${esc(dateTimeText(nextAt))}</strong></div>`;
+  } else {
+    if (nextAt) nextLine += `<div class="flow-next-review"><span>下次评估</span><strong>${esc(dateTimeText(nextAt))}</strong></div>`;
+    if (visibleUntil) nextLine += `<div class="flow-next-review"><span>结果有效至</span><strong>${esc(dateTimeText(visibleUntil))}</strong></div>`;
+  }
+  const tone = current && current.status === 'blocked' ? 'warn' : (current ? 'info' : 'muted');
+  const heading = `<div class="band-flow-head"><div><strong>${esc(bandFlowTitle(active.title))}</strong><span>${steps.filter(x => x.status === 'done').length}/${steps.length} 步已完成</span></div>${C.badge(shortFlowState(active.state), tone)}</div>`;
+  return C.card(U.ui_chain_band_flows, `${tabs}${heading}<div class="compact-steps">${R.flowSteps(active)}</div>${currentDetail}${doneEvidence}${nextLine}`);
 };
 
 R.selectBandFlow = function (band, id) {

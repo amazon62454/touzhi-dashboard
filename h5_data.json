@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T21:37:49",
+  "generated_at": "2026-11-20T21:46:08",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -6847,7 +6847,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T21:37:49",
+    "generated_at": "2026-11-20T21:46:08",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -9722,7 +9722,7 @@
     "ui_h2_funding_review": "月度资金调度台账",
     "ui_h2_scan": "全市场扫描与比较置换",
     "ui_h2_addon_score": "低估加仓评分",
-    "ui_h2_monthly_review": "月度执行复盘与数据完整性",
+    "ui_h2_monthly_review": "上周期执行复盘与数据完整性",
     "ui_h2_quarter_action": "本季度要做什么",
     "ui_h2_scale_backtest": "规模风险与季度回测",
     "ui_h2_exit_review": "存量去留结论",
@@ -9741,7 +9741,7 @@
     "ui_retirement_title": "现在积累了多少",
     "ui_funds_title": "本周期资金",
     "ui_h2_position_detail": "持仓明细",
-    "ui_h2_period_summary": "本周期总结",
+    "ui_h2_period_summary": "上周期事件与执行总结",
     "ui_h2_execution": "执行与解锁",
     "ui_normal_rest_eval": "其余 {n} 只：正常定投，无需额外操作",
     "ui_h2_market_env": "市场环境（ERP 驱动配置目标）",
@@ -9863,6 +9863,7 @@
     "ui_chain_back_directory": "返回流程导航",
     "ui_chain_band_flows": "本档操作流程",
     "ui_check_scan_rest": "展开其余 {n} 项正常/未触发检查",
-    "ui_monthly_details": "月度资金、复盘与持仓证据（按需展开）"
+    "ui_monthly_details": "月度资金、复盘与持仓证据（按需展开）",
+    "ui_data_scale_partial": "基金规模数据待补"
   }
 }

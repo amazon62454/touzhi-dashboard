@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T17:33:50",
+  "generated_at": "2026-11-20T17:42:31",
   "base_date": "2026-11-19",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -2581,6 +2581,87 @@
       "source_file": ""
     }
   },
+  "param_chain": {
+    "nodes": [
+      {
+        "id": "quarter",
+        "name": "季度档 · 配置复核",
+        "trigger": "季末月20号",
+        "input": "ERP状态+持仓+四资产实际占比",
+        "output": "存量锚(配置目标)+配置复核+持有期去留",
+        "state": "awaiting"
+      },
+      {
+        "id": "monthly",
+        "name": "月度档 · 资金评审",
+        "trigger": "每月20号",
+        "input": "存量锚+实际持仓+现金池",
+        "output": "四资产流量锁定+封账+资金评审",
+        "state": "observation"
+      },
+      {
+        "id": "eval",
+        "name": "周日档 · 定投评估",
+        "trigger": "每周日",
+        "input": "月度流量锁定(cycle_budget_lock)",
+        "output": "下周定投分配(权益周投+债基日投)",
+        "state": "awaiting"
+      },
+      {
+        "id": "daily",
+        "name": "每日档 · 风控监控",
+        "trigger": "工作日",
+        "input": "估值+回撤+规模(独立风控)",
+        "output": "日常风控(止损/回撤/规模预警)",
+        "state": "no_action"
+      },
+      {
+        "id": "loop",
+        "name": "闭环·执行回传",
+        "trigger": "执行回传",
+        "input": "各档执行结果",
+        "output": "台账更新→下次评估",
+        "state": "implemented"
+      }
+    ],
+    "links": [
+      {
+        "from": "quarter",
+        "to": "monthly",
+        "param": "存量锚targets",
+        "status": "erp_model",
+        "note": "ERP模型实时计算(配置目标唯一源),季度复核锚点"
+      },
+      {
+        "from": "monthly",
+        "to": "eval",
+        "param": "cycle_budget_lock",
+        "status": "implemented",
+        "note": "月度20号锁定,周日只读快照(唯一硬参数链)"
+      },
+      {
+        "from": "eval",
+        "to": "daily",
+        "param": "定投计划",
+        "status": "independent",
+        "note": "每日独立风控,不读周日计划(分工合理)"
+      },
+      {
+        "from": "daily",
+        "to": "loop",
+        "param": "执行回传",
+        "status": "implemented",
+        "note": "执行回传→台账更新"
+      }
+    ],
+    "title": "参数链拓扑 · 自上而下执行链",
+    "subtitle": "每档结论=下一档输入 · 风控贯穿随时优先",
+    "status_labels": {
+      "implemented": "已实现",
+      "erp_model": "ERP模型驱动",
+      "independent": "独立运行"
+    }
+  },
   "rules": [
     {
       "title": "第一章  总则",
@@ -4937,6 +5018,35 @@
     "ui_lbl_role": "角色",
     "ui_lbl_status": "状态",
     "ui_yes": "是",
-    "ui_no": "否"
+    "ui_no": "否",
+    "ui_chain_quarter_in": "ERP状态+持仓+四资产实际占比",
+    "ui_chain_quarter_out": "存量锚(配置目标)+配置复核+持有期去留",
+    "ui_chain_monthly_in": "存量锚+实际持仓+现金池",
+    "ui_chain_monthly_out": "四资产流量锁定+封账+资金评审",
+    "ui_chain_eval_in": "月度流量锁定(cycle_budget_lock)",
+    "ui_chain_eval_out": "下周定投分配(权益周投+债基日投)",
+    "ui_chain_daily_in": "估值+回撤+规模(独立风控)",
+    "ui_chain_daily_out": "日常风控(止损/回撤/规模预警)",
+    "ui_chain_loop_name": "闭环·执行回传",
+    "ui_chain_loop_in": "各档执行结果",
+    "ui_chain_loop_out": "台账更新→下次评估",
+    "ui_chain_trigger_quarter": "季末月20号",
+    "ui_chain_trigger_monthly": "每月20号",
+    "ui_chain_trigger_eval": "每周日",
+    "ui_chain_trigger_daily": "工作日",
+    "ui_chain_trigger_loop": "执行回传",
+    "ui_chain_link_qm": "ERP模型实时计算(配置目标唯一源),季度复核锚点",
+    "ui_chain_link_me": "月度20号锁定,周日只读快照(唯一硬参数链)",
+    "ui_chain_link_ed": "每日独立风控,不读周日计划(分工合理)",
+    "ui_chain_link_dl": "执行回传→台账更新",
+    "ui_chain_param_qm": "存量锚targets",
+    "ui_chain_param_me": "cycle_budget_lock",
+    "ui_chain_param_ed": "定投计划",
+    "ui_chain_param_dl": "执行回传",
+    "ui_chain_title": "参数链拓扑 · 自上而下执行链",
+    "ui_chain_subtitle": "每档结论=下一档输入 · 风控贯穿随时优先",
+    "ui_chain_status_implemented": "已实现",
+    "ui_chain_status_erp_model": "ERP模型驱动",
+    "ui_chain_status_independent": "独立运行"
   }
 }

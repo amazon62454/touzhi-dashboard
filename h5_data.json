@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T00:26:20",
+  "generated_at": "2026-11-21T00:32:17",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1347,7 +1347,15 @@
             ],
             "change_count": 4
           }
-        ]
+        ],
+        "action_view": {
+          "engine_contract": "h5_band_action_v1",
+          "complete": true,
+          "headline": "今天无需操作",
+          "note": "",
+          "pending_title": "当前限制与未执行项",
+          "pending_items": []
+        }
       },
       "market_env": {
         "hs300_pe_pct": 74.97,
@@ -3369,7 +3377,21 @@
             ],
             "change_count": 4
           }
-        ]
+        ],
+        "action_view": {
+          "engine_contract": "h5_band_action_v1",
+          "complete": false,
+          "headline": "2026-11-23执行3只，合计106元",
+          "note": "暂停项不补买、不替代扣款；逐只金额见下方执行明细。",
+          "pending_title": "当前限制与未执行项",
+          "pending_items": [
+            "核心买入条件未满足，对应额度留现金",
+            "已达卫星结构上限，新增额度顺延下一名（2只）",
+            "黄金信号未通过或目标不缺，额度留现金",
+            "债券超配或预算不足，本期不新增",
+            "加仓流程：资金条件阻断"
+          ]
+        }
       },
       "market_env": {
         "hs300_pe_pct": 74.97,
@@ -5506,7 +5528,17 @@
             ],
             "change_count": 4
           }
-        ]
+        ],
+        "action_view": {
+          "engine_contract": "h5_band_action_v1",
+          "complete": false,
+          "headline": "本期无需直接操作，查看对应评估结论即可",
+          "note": "",
+          "pending_title": "当前限制与未执行项",
+          "pending_items": [
+            "再平衡流程：可赎份额待确认"
+          ]
+        }
       },
       "market_env": {
         "hs300_pe_pct": 74.97,
@@ -6904,7 +6936,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T00:26:20",
+    "generated_at": "2026-11-21T00:32:17",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -7247,7 +7279,7 @@
         "title": "季度｜战略配置与核心锚",
         "trigger": "3/6/9/12月20日，先跑",
         "state": "blocked",
-        "state_label": "observation",
+        "state_label": "查看详情",
         "detail": "先制定存量配置；不读取同日月度才生成的预算锁。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7260,7 +7292,7 @@
           },
           {
             "label": "ERP状态",
-            "value": "high",
+            "value": "高估",
             "source": "四资产配置"
           }
         ],
@@ -7277,7 +7309,7 @@
           },
           {
             "label": "四资产目标",
-            "value": "{\"equity\": 31.11, \"debt\": 48.89, \"gold\": 10.0, \"cash\": 10.0}",
+            "value": "权益31.11% / 债券48.89% / 黄金10.00% / 现金10.00%",
             "source": "同基准计算；未独立传锁"
           }
         ]
@@ -7287,7 +7319,7 @@
         "title": "月度｜预算与卫星锁",
         "trigger": "每月20日，季度之后",
         "state": "blocked",
-        "state_label": "observation",
+        "state_label": "查看详情",
         "detail": "本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7305,7 +7337,7 @@
           },
           {
             "label": "ERP状态",
-            "value": "high",
+            "value": "高估",
             "source": "同基准重算"
           }
         ],
@@ -7332,7 +7364,7 @@
         "title": "周日｜分批执行计划",
         "trigger": "周日，月度之后",
         "state": "blocked",
-        "state_label": "partial",
+        "state_label": "部分可执行",
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7377,7 +7409,7 @@
         "title": "每日｜独立风控",
         "trigger": "工作日；高层档日合并",
         "state": "blocked",
-        "state_label": "no_action",
+        "state_label": "无需操作",
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7412,7 +7444,7 @@
         "title": "你本人执行｜真实账户",
         "trigger": "按有效报告操作",
         "state": "blocked",
-        "state_label": "partial",
+        "state_label": "部分可执行",
         "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7425,7 +7457,7 @@
           },
           {
             "label": "风控放行状态",
-            "value": "no_action",
+            "value": "无需操作",
             "source": "每日控制链"
           }
         ],
@@ -7442,7 +7474,7 @@
         "title": "台账反馈｜下次评估输入",
         "trigger": "执行后回传并核对",
         "state": "blocked",
-        "state_label": "observation",
+        "state_label": "查看详情",
         "detail": "真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7519,7 +7551,7 @@
         "target": "execution",
         "label": "风控控制信号",
         "status": "control",
-        "actual": "no_action",
+        "actual": "无需操作",
         "guidance": "风控优先于实际动作。",
         "status_label": "独立控制"
       },
@@ -10025,6 +10057,7 @@
     "ui_ret_metric_cost": "持仓成本",
     "ui_ret_metric_profit": "持仓收益",
     "ui_ret_metric_profit_rate": "持仓收益率",
-    "ui_retirement_base": "持仓基准 {date}"
+    "ui_retirement_base": "持仓基准 {date}",
+    "ui_state_valid": "有效"
   }
 }

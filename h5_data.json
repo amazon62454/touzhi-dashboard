@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T15:17:11",
+  "generated_at": "2026-11-20T15:34:55",
   "base_date": "2026-11-19",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -151,8 +151,8 @@
       }
     ],
     "cash_detail": {
-      "balance": null,
-      "monthly_inject": null,
+      "balance": 0.0,
+      "monthly_inject": 180.0,
       "last_period_note": "1389.6已转家用"
     }
   },
@@ -1045,7 +1045,7 @@
                 "debt_daily_reference": 180.0,
                 "locked": true
               },
-              "actual_amount_note": "四资产再平衡P2待验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示"
+              "actual_amount_note": null
             },
             "market_value": 13021.65,
             "cost": 13100.78,
@@ -1846,7 +1846,7 @@
             "debt_daily_reference": 180.0,
             "locked": true
           },
-          "actual_amount_note": "四资产再平衡P2待验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示"
+          "actual_amount_note": null
         },
         "monthly_review": {
           "item1_完整性": "持仓市值可复核；基金规模数据不完整，清盘风险不能判为通过",

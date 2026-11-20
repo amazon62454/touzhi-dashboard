@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T23:12:03",
+  "generated_at": "2026-11-20T23:13:10",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -3394,7 +3394,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-20T18:16:17",
+        "as_of": "2026-11-20T23:12:50",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -3405,12 +3405,12 @@
         "expired": [],
         "next_review_at": "2026-12-20T03:30:00",
         "result_visible_until": "2026-12-20T03:30:00",
-        "result_effective_from": "2026-11-20T18:15:48",
+        "result_effective_from": "2026-11-20T23:11:19",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
-      "base_date": "2026-11-19",
-      "generated_at": "2026-11-20T18:15:48",
-      "run_kind": "scheduled_formal",
+      "base_date": "2026-11-20",
+      "generated_at": "2026-11-20T23:11:19",
+      "run_kind": "manual_formal",
       "items": [
         {
           "fund_code": "009290",
@@ -3454,9 +3454,9 @@
               },
               "actual_amount_note": null
             },
-            "market_value": 13363.99,
+            "market_value": 13002.78,
             "cost": 13100.78,
-            "profit_rate": -0.6,
+            "profit_rate": -0.75,
             "current_amount": 45.0
           }
         },
@@ -3467,9 +3467,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 2084.3,
+            "market_value": 1882.34,
             "cost": 2146.98,
-            "profit_rate": -5.41,
+            "profit_rate": -12.33,
             "valuation_pct": 4.6,
             "current_amount": 65.0
           }
@@ -3481,9 +3481,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1436.42,
+            "market_value": 1331.61,
             "cost": 1466.74,
-            "profit_rate": -4.58,
+            "profit_rate": -9.21,
             "valuation_pct": 6.41,
             "current_amount": 40.0
           }
@@ -3495,9 +3495,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 1286.0,
+            "market_value": 1154.81,
             "cost": 1360.7,
-            "profit_rate": -7.91,
+            "profit_rate": -15.13,
             "valuation_pct": 75.86,
             "current_amount": 0.0
           }
@@ -3509,9 +3509,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1178.15,
-            "cost": 1244.0,
-            "profit_rate": -7.72,
+            "market_value": 1150.32,
+            "cost": 1274.0,
+            "profit_rate": -9.71,
             "current_amount": 30.0
           }
         },
@@ -3522,9 +3522,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 915.37,
+            "market_value": 870.29,
             "cost": 1121.0,
-            "profit_rate": -20.44,
+            "profit_rate": -22.36,
             "current_amount": null
           }
         },
@@ -3535,9 +3535,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 911.16,
+            "market_value": 855.24,
             "cost": 1489.5,
-            "profit_rate": -40.39,
+            "profit_rate": -42.58,
             "current_amount": null
           }
         },
@@ -3548,9 +3548,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 704.98,
+            "market_value": 641.0,
             "cost": 1116.0,
-            "profit_rate": -38.45,
+            "profit_rate": -42.56,
             "current_amount": null
           }
         },
@@ -3561,9 +3561,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 266.81,
+            "market_value": 244.0,
             "cost": 295.0,
-            "profit_rate": -11.87,
+            "profit_rate": -17.29,
             "valuation_pct": 26.29,
             "current_amount": 25.0
           }
@@ -3606,9 +3606,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 2084.3,
+            "market_value": 1882.34,
             "cost": 2146.98,
-            "profit_rate": -5.41,
+            "profit_rate": -12.33,
             "valuation_pct": 4.6,
             "current_amount": 65.0
           }
@@ -3620,9 +3620,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1436.42,
+            "market_value": 1331.61,
             "cost": 1466.74,
-            "profit_rate": -4.58,
+            "profit_rate": -9.21,
             "valuation_pct": 6.41,
             "current_amount": 40.0
           }
@@ -3634,9 +3634,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 1286.0,
+            "market_value": 1154.81,
             "cost": 1360.7,
-            "profit_rate": -7.91,
+            "profit_rate": -15.13,
             "valuation_pct": 75.86,
             "current_amount": 0.0
           }
@@ -3648,9 +3648,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 1178.15,
-            "cost": 1244.0,
-            "profit_rate": -7.72,
+            "market_value": 1150.32,
+            "cost": 1274.0,
+            "profit_rate": -9.71,
             "current_amount": 30.0
           }
         },
@@ -3661,9 +3661,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 915.37,
+            "market_value": 870.29,
             "cost": 1121.0,
-            "profit_rate": -20.44,
+            "profit_rate": -22.36,
             "current_amount": null
           }
         },
@@ -3674,9 +3674,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 911.16,
+            "market_value": 855.24,
             "cost": 1489.5,
-            "profit_rate": -40.39,
+            "profit_rate": -42.58,
             "current_amount": null
           }
         },
@@ -3687,9 +3687,9 @@
           "amount": null,
           "reason": "存量管理",
           "params": {
-            "market_value": 704.98,
+            "market_value": 641.0,
             "cost": 1116.0,
-            "profit_rate": -38.45,
+            "profit_rate": -42.56,
             "current_amount": null
           }
         },
@@ -3700,9 +3700,9 @@
           "amount": null,
           "reason": "定投中",
           "params": {
-            "market_value": 266.81,
+            "market_value": 244.0,
             "cost": 295.0,
-            "profit_rate": -11.87,
+            "profit_rate": -17.29,
             "valuation_pct": 26.29,
             "current_amount": 25.0
           }
@@ -3741,17 +3741,17 @@
         {
           "name": "单只止损",
           "status": "🔴",
-          "detail": "财通景气甄选一年持有C(017491):-40.39%·未评估→触发专项评估；信澳匠心臻选两年持有(010363):-38.45%·未评估→触发专项评估",
+          "detail": "财通景气甄选一年持有C(017491):-42.58%·未评估→触发专项评估；信澳匠心臻选两年持有(010363):-42.56%·未评估→触发专项评估",
           "metrics": [
             {
               "label": "财通景气甄选一年持有C",
-              "value": -40.39,
+              "value": -42.58,
               "unit": "%",
               "tone": "neg"
             },
             {
               "label": "信澳匠心臻选两年持有",
-              "value": -38.45,
+              "value": -42.56,
               "unit": "%",
               "tone": "neg"
             },
@@ -3791,18 +3791,18 @@
       "allocation": {
         "amounts": {
           "现金": 170.0,
-          "养老FOF": 1178.15,
-          "黄金": 1286.0,
-          "权益": 6319.040000000001,
-          "债券": 13363.99
+          "债券": 13002.78,
+          "养老FOF": 1150.32,
+          "黄金": 1154.81,
+          "权益": 5824.48
         },
-        "total": 22317.18,
+        "total": 21302.39,
         "weights": {
-          "现金": 0.76,
-          "养老FOF": 5.28,
-          "黄金": 5.76,
-          "权益": 28.31,
-          "债券": 59.88
+          "现金": 0.8,
+          "债券": 61.04,
+          "养老FOF": 5.4,
+          "黄金": 5.42,
+          "权益": 27.34
         }
       },
       "asset_allocation": {
@@ -3821,34 +3821,34 @@
           "cash": 10.0
         },
         "actual": {
-          "equity": 32.01007026873467,
-          "debt": 61.46580795602311,
-          "gold": 5.7623767877482726,
-          "cash": 0.7617449874939396
+          "equity": 31.121878812659048,
+          "debt": 62.659053749368034,
+          "gold": 5.42103491673939,
+          "cash": 0.798032521233533
         },
         "target_amount": {
-          "equity": 6942.874698,
-          "debt": 10910.869302,
-          "gold": 2231.718,
-          "cash": 2231.718
+          "equity": 6627.173529,
+          "debt": 10414.738471,
+          "gold": 2130.239,
+          "cash": 2130.239
         },
         "actual_amount": {
-          "equity": 7143.745,
-          "debt": 13717.435,
-          "gold": 1286.0,
+          "equity": 6629.704,
+          "debt": 13347.876,
+          "gold": 1154.81,
           "cash": 170.0
         },
         "gaps": {
-          "equity": -0.90007,
-          "debt": -12.575808,
-          "gold": 4.237623,
-          "cash": 9.238255
+          "equity": -0.011879,
+          "debt": -13.769054,
+          "gold": 4.578965,
+          "cash": 9.201967
         },
         "gap_amount": {
-          "equity": -200.870302,
-          "debt": -2806.565698,
-          "gold": 945.718,
-          "cash": 2061.718
+          "equity": -2.530471,
+          "debt": -2933.137529,
+          "gold": 975.429,
+          "cash": 1960.239
         },
         "tolerance": 10.0,
         "fof_proxy": {
@@ -3880,7 +3880,7 @@
           "actual_cash": 170.0,
           "pending_counts_toward_cash": false
         },
-        "total": 22317.18,
+        "total": 21302.39,
         "target_checks": {
           "high": {
             "sum": 100.0,
@@ -4108,7 +4108,7 @@
         "core_lock": {
           "period_start": "2026-10-01",
           "period_end": "2026-12-31",
-          "locked_at": "2026-11-20T18:04:57"
+          "locked_at": "2026-11-20T23:10:43"
         },
         "lock_written": true,
         "preview_only": false,
@@ -4126,8 +4126,8 @@
           "004253"
         ],
         "target": 10.0,
-        "actual": 5.7623767877482726,
-        "gap": 4.237623,
+        "actual": 5.42103491673939,
+        "gap": 4.578965,
         "price_percentile": 75.86,
         "score": {
           "score": 9.0,
@@ -4301,8 +4301,8 @@
             "cash": 180.0
           },
           "monthly_budget": 1800.0,
-          "debt_market": 13717.435,
-          "debt_weight": 61.46580795602311,
+          "debt_market": 13347.876,
+          "debt_weight": 62.659053749368034,
           "debt_target": 48.89,
           "start_line": 58.89,
           "lower_line": 38.89,
@@ -4330,15 +4330,15 @@
           "item1_完整性": "持仓市值可复核；基金规模数据不完整，清盘风险不能判为通过",
           "item2_收益率": {
             "累计": {
-              "017491": -40.39,
-              "010363": -38.45,
-              "010340": -20.44,
-              "017140": -11.87,
-              "004253": -7.91,
-              "010267": -7.72,
-              "024328": -5.41,
-              "012544": -4.58,
-              "009290": -0.6,
+              "017491": -42.58,
+              "010363": -42.56,
+              "010340": -22.36,
+              "017140": -17.29,
+              "004253": -15.13,
+              "024328": -12.33,
+              "010267": -9.71,
+              "012544": -9.21,
+              "009290": -0.75,
               "000051": 0.0,
               "160119": 0.0
             },
@@ -4458,10 +4458,10 @@
           {
             "fund_code": "009290",
             "fund_name": "富国添享一年持有债券A",
-            "annual_return": -5.21,
+            "annual_return": -6.37,
             "bond10": 1.5865,
-            "days": 42,
-            "decision": "未达止盈条件(年化-5.21%未达5.0%、持有42天未满1年)"
+            "days": 43,
+            "decision": "未达止盈条件(年化-6.37%未达5.0%、持有43天未满1年)"
           }
         ],
         "scan": {
@@ -4732,7 +4732,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -4755,6 +4755,16 @@
                   },
                   "更优": "待数据"
                 }
+              },
+              "transfer": {
+                "closed": false,
+                "transfer_allowed": false,
+                "conditions": {
+                  "c1_valuation": false,
+                  "c2_trend": true,
+                  "c3_flows": false,
+                  "c4_alternative": true
+                }
               }
             },
             {
@@ -4769,7 +4779,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -4796,6 +4806,16 @@
                   },
                   "更优": true
                 }
+              },
+              "transfer": {
+                "closed": false,
+                "transfer_allowed": false,
+                "conditions": {
+                  "c1_valuation": false,
+                  "c2_trend": true,
+                  "c3_flows": false,
+                  "c4_alternative": true
+                }
               }
             },
             {
@@ -4810,7 +4830,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -4833,6 +4853,16 @@
                   },
                   "更优": "待数据"
                 }
+              },
+              "transfer": {
+                "closed": false,
+                "transfer_allowed": false,
+                "conditions": {
+                  "c1_valuation": false,
+                  "c2_trend": true,
+                  "c3_flows": false,
+                  "c4_alternative": true
+                }
               }
             },
             {
@@ -4847,7 +4877,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -4874,6 +4904,16 @@
                   },
                   "更优": true
                 }
+              },
+              "transfer": {
+                "closed": false,
+                "transfer_allowed": false,
+                "conditions": {
+                  "c1_valuation": false,
+                  "c2_trend": true,
+                  "c3_flows": false,
+                  "c4_alternative": true
+                }
               }
             },
             {
@@ -4888,7 +4928,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -4911,6 +4951,16 @@
                   },
                   "更优": "待数据"
                 }
+              },
+              "transfer": {
+                "closed": false,
+                "transfer_allowed": false,
+                "conditions": {
+                  "c1_valuation": false,
+                  "c2_trend": true,
+                  "c3_flows": false,
+                  "c4_alternative": true
+                }
               }
             },
             {
@@ -4925,7 +4975,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -4948,6 +4998,16 @@
                   },
                   "更优": "待数据"
                 }
+              },
+              "transfer": {
+                "closed": false,
+                "transfer_allowed": false,
+                "conditions": {
+                  "c1_valuation": false,
+                  "c2_trend": true,
+                  "c3_flows": false,
+                  "c4_alternative": true
+                }
               }
             }
           ],
@@ -4961,8 +5021,8 @@
           "invest_total": 878.0,
           "record_count": 40,
           "snapshot_dates": [
-            "2026-11-17",
-            "2026-11-18"
+            "2026-11-18",
+            "2026-11-20"
           ],
           "missing_scale_count": 2,
           "completeness": "持仓市值可复核；基金规模数据不完整，清盘风险不能判为通过"
@@ -5122,13 +5182,13 @@
           {
             "name": "组合回撤红线",
             "status": "🟢",
-            "detail": "当前回撤1.1%,未触回撤红线(15.0%);回撤解除需回升至高点95%以上 | 回撤已解除(≥95%%),待回撤<10%%且趋势企稳后启动回补(批次30/30/40),再触红线即停",
+            "detail": "当前回撤-3.5%,未触回撤红线(15.0%);回撤解除需回升至高点95%以上 | 回撤已解除(≥95%%),待回撤<10%%且趋势企稳后启动回补(批次30/30/40),再触红线即停",
             "metrics": [
               {
                 "label": "当前回撤",
-                "value": 1.1,
+                "value": -3.5,
                 "unit": "%",
-                "tone": "pos"
+                "tone": "neg"
               },
               {
                 "label": "一级红线",
@@ -5156,7 +5216,7 @@
               },
               {
                 "label": "当前市值",
-                "value": 22147.18,
+                "value": 21132.39,
                 "unit": "元",
                 "tone": "info"
               }
@@ -5165,17 +5225,17 @@
           {
             "name": "单只止损",
             "status": "🔴",
-            "detail": "财通景气甄选一年持有C(017491):-40.39%·未评估→触发专项评估；信澳匠心臻选两年持有(010363):-38.45%·未评估→触发专项评估",
+            "detail": "财通景气甄选一年持有C(017491):-42.58%·未评估→触发专项评估；信澳匠心臻选两年持有(010363):-42.56%·未评估→触发专项评估",
             "metrics": [
               {
                 "label": "财通景气甄选一年持有C",
-                "value": -40.39,
+                "value": -42.58,
                 "unit": "%",
                 "tone": "neg"
               },
               {
                 "label": "信澳匠心臻选两年持有",
-                "value": -38.45,
+                "value": -42.56,
                 "unit": "%",
                 "tone": "neg"
               },
@@ -5328,7 +5388,7 @@
           {
             "name": "持仓快照漂移",
             "status": "账实相符",
-            "detail": "快照2026-11-13:市值22147.18 vs 台账22147.18,漂移0.0%≤2%"
+            "detail": "快照2026-11-20:市值21132.39 vs 台账21132.39,漂移0.0%≤2%"
           },
           {
             "name": "存量基金淘汰评估",
@@ -6836,7 +6896,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T23:12:03",
+    "generated_at": "2026-11-20T23:13:10",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -7209,9 +7269,9 @@
         "state": "blocked",
         "state_label": "observation",
         "detail": "本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
-        "base_date": "2026-11-19",
+        "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-20T18:15:48",
+        "generated_at": "2026-11-20T23:11:19",
         "inputs": [
           {
             "label": "季度核心锁",
@@ -7364,9 +7424,9 @@
         "state": "blocked",
         "state_label": "observation",
         "detail": "真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
-        "base_date": "2026-11-19",
+        "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-20T18:15:48",
+        "generated_at": "2026-11-20T23:11:19",
         "inputs": [
           {
             "label": "最新持仓快照日",

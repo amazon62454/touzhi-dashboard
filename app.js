@@ -401,7 +401,9 @@ const R = {
     if (!rows || !rows.length) return '';
     const body = rows.map(x => `<div class="fund-row">
       <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || '')}</strong>${C.statusBadge(x.action || '')}</div>
-      <div class="fund-numbers">${esc(x.fund_code || '')} · ${esc(x.reason || '')}</div></div>`).join('');
+      <div class="fund-numbers">${esc(x.fund_code || '')} · ${esc(x.reason || '')}</div>
+      ${x.status ? `<div class="fund-numbers">系统状态：${esc(x.status)}${x.next_review_date ? ` · 下次复核：${esc(x.next_review_date)}` : ''}${x.deadline_date ? ` · 本次评估截止：${esc(x.deadline_date)}` : ''}${x.lock_end_date ? ` · 持有期到期：${esc(x.lock_end_date)}` : ''}</div>` : ''}
+      ${x.missing && x.missing.length ? `<div class="fund-numbers">系统待补：${esc(x.missing.join('；'))}</div>` : ''}</div>`).join('');
     return C.card(U.ui_h2_exit_review, body);
   },
   quarterReview(a) {
@@ -411,7 +413,9 @@ const R = {
     if (scale) parts.push(C.kv('基金规模复核', esc(scale.status || '')));
     if (bt) {
       // 字段名对齐数据：signal_count/outcome_count（旧写 signals/results 不存在→永远显0/0）
-      parts.push(C.kv('信号流水 / 有结果样本', `${esc(bt.signal_count ?? 0)} / ${esc(bt.outcome_count ?? 0)}`));
+      const signalCount = bt.signal_count === null || bt.signal_count === undefined ? '待数据' : bt.signal_count;
+      const outcomeCount = bt.outcome_count === null || bt.outcome_count === undefined ? '待数据' : bt.outcome_count;
+      parts.push(C.kv('信号流水 / 有结果样本', `${esc(signalCount)} / ${esc(outcomeCount)}`));
       if (bt.status) parts.push(`<p class="muted">${esc(statusText(bt.status))}</p>`);
       else if (bt.note) parts.push(`<p class="muted">${esc(bt.note)}</p>`);
     }

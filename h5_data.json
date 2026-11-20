@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T00:33:22",
+  "generated_at": "2026-11-21T00:34:27",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -5532,7 +5532,7 @@
         "action_view": {
           "engine_contract": "h5_band_action_v1",
           "complete": false,
-          "headline": "本期无需直接操作，查看对应评估结论即可",
+          "headline": "你本期无需直接操作；再平衡流程：可赎份额待确认",
           "note": "",
           "pending_title": "当前限制与未执行项",
           "pending_items": [
@@ -6936,7 +6936,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T00:33:22",
+    "generated_at": "2026-11-21T00:34:27",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

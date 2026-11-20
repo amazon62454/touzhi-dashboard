@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T17:53:52",
+  "generated_at": "2026-11-20T17:54:58",
   "base_date": "2026-11-19",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1723,7 +1723,7 @@
         "mode": "rebalance_required"
       },
       "monthly_close": {
-        "status": "closed",
+        "status": "already_closed",
         "old_period": "2026-11",
         "new_period": "2026-12",
         "old_label": "10-20~11-19",
@@ -1733,8 +1733,7 @@
         "cash_before": 0.0,
         "cash_after": 170.0,
         "new_budget": 1800.0,
-        "closed_at": "2026-11-20T17:53:45",
-        "writes": 13
+        "writes": 0
       },
       "five_dimension_scores": {
         "000051": {
@@ -2599,7 +2598,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T17:53:52",
+    "generated_at": "2026-11-20T17:54:58",
     "empty": false,
     "nodes": [
       {

@@ -683,7 +683,7 @@ R.chainParameters = function () {
     [U.ui_chain_col_item, U.ui_chain_col_value, U.ui_chain_col_source],
     (items || []).map(x => [x.label, x.value, x.source]));
   const nodeHtml = nodes.map(n => `<details class="parameter-node"><summary><strong>${esc(n.title)}</strong><em>${esc(n.state_label)}</em></summary>
-    <p class="muted">${esc(n.trigger)} · ${esc(n.detail)}</p>${itemTable(n.inputs)}${itemTable(n.outputs)}</details>`).join('');
+    <p class="muted">${esc(n.trigger)} · ${esc(n.detail)}</p><h4>${esc(U.ui_chain_inputs)}</h4>${itemTable(n.inputs)}<h4>${esc(U.ui_chain_outputs)}</h4>${itemTable(n.outputs)}</details>`).join('');
   const nodeName = id => String((nodes.find(n => n.id === id) || {}).title || id).split('｜')[0];
   const edgeTable = C.table(
     [U.ui_chain_col_route, U.ui_chain_col_status, U.ui_chain_col_value, U.ui_chain_col_guidance],

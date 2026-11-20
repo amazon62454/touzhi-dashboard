@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T17:42:31",
+  "generated_at": "2026-11-20T17:51:21",
   "base_date": "2026-11-19",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -2582,84 +2582,352 @@
     }
   },
   "param_chain": {
+    "generated_at": "2026-11-20T17:51:21",
+    "empty": false,
     "nodes": [
       {
         "id": "quarter",
-        "name": "季度档 · 配置复核",
-        "trigger": "季末月20号",
-        "input": "ERP状态+持仓+四资产实际占比",
-        "output": "存量锚(配置目标)+配置复核+持有期去留",
-        "state": "awaiting"
+        "title": "季度｜战略配置与核心锚",
+        "trigger": "3/6/9/12月20日，先跑",
+        "state": "waiting",
+        "state_label": "等待正式评估",
+        "detail": "先制定存量配置；不读取同日月度才生成的预算锁。",
+        "base_date": "等待正式评估",
+        "review_date": "等待正式评估",
+        "generated_at": "等待正式评估",
+        "inputs": [
+          {
+            "label": "市场数据基准",
+            "value": "等待正式评估",
+            "source": "正式判决"
+          },
+          {
+            "label": "ERP状态",
+            "value": "等待正式评估",
+            "source": "四资产配置"
+          }
+        ],
+        "outputs": [
+          {
+            "label": "核心比例",
+            "value": "等待正式评估",
+            "source": "equity_core_lock"
+          },
+          {
+            "label": "核心锁周期",
+            "value": "2026-10-01 → 2026-12-31",
+            "source": "真实SQL锁"
+          },
+          {
+            "label": "四资产目标",
+            "value": "等待正式评估",
+            "source": "同基准计算；未独立传锁"
+          }
+        ]
       },
       {
         "id": "monthly",
-        "name": "月度档 · 资金评审",
-        "trigger": "每月20号",
-        "input": "存量锚+实际持仓+现金池",
-        "output": "四资产流量锁定+封账+资金评审",
-        "state": "observation"
+        "title": "月度｜预算与卫星锁",
+        "trigger": "每月20日，季度之后",
+        "state": "blocked",
+        "state_label": "observation",
+        "detail": "本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
+        "base_date": "2026-11-19",
+        "review_date": "2026-11-20",
+        "generated_at": "2026-11-20T03:34:02",
+        "inputs": [
+          {
+            "label": "季度核心锁",
+            "value": "2026-10-01 → 2026-12-31",
+            "source": "季度→月度：已接线"
+          },
+          {
+            "label": "月度核心比例",
+            "value": "5969.25%",
+            "source": "读取季度核心锁"
+          },
+          {
+            "label": "ERP状态",
+            "value": "high",
+            "source": "同基准重算"
+          }
+        ],
+        "outputs": [
+          {
+            "label": "周期预算锁",
+            "value": "2026-11-20 → 2026-12-19",
+            "source": "cycle_budget_lock"
+          },
+          {
+            "label": "权益/债券/黄金/现金",
+            "value": "560.00元/880.00元/180.00元/180.00元",
+            "source": "月度流量锁"
+          },
+          {
+            "label": "卫星锁周期",
+            "value": "2026-11-20 → 2026-12-19",
+            "source": "equity_satellite_lock"
+          }
+        ]
       },
       {
-        "id": "eval",
-        "name": "周日档 · 定投评估",
-        "trigger": "每周日",
-        "input": "月度流量锁定(cycle_budget_lock)",
-        "output": "下周定投分配(权益周投+债基日投)",
-        "state": "awaiting"
+        "id": "weekly",
+        "title": "周日｜分批执行计划",
+        "trigger": "周日，月度之后",
+        "state": "waiting",
+        "state_label": "等待正式评估",
+        "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
+        "base_date": "等待正式评估",
+        "review_date": "等待正式评估",
+        "generated_at": "等待正式评估",
+        "inputs": [
+          {
+            "label": "周期预算锁",
+            "value": "2026-11-20",
+            "source": "月度→周日：已接线"
+          },
+          {
+            "label": "卫星锁",
+            "value": "2026-11-20 → 2026-12-19",
+            "source": "月度→周日：已接线"
+          },
+          {
+            "label": "核心比例",
+            "value": "等待正式评估",
+            "source": "只读锁结构"
+          }
+        ],
+        "outputs": [
+          {
+            "label": "动作数量",
+            "value": "等待正式评估",
+            "source": "execution_plan"
+          },
+          {
+            "label": "计划金额",
+            "value": "等待正式评估",
+            "source": "execution_plan"
+          },
+          {
+            "label": "计划状态",
+            "value": "等待正式评估",
+            "source": "动作有效期"
+          }
+        ]
       },
       {
         "id": "daily",
-        "name": "每日档 · 风控监控",
-        "trigger": "工作日",
-        "input": "估值+回撤+规模(独立风控)",
-        "output": "日常风控(止损/回撤/规模预警)",
-        "state": "no_action"
+        "title": "每日｜独立风控",
+        "trigger": "工作日；高层档日合并",
+        "state": "blocked",
+        "state_label": "no_action",
+        "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
+        "base_date": "2026-11-19",
+        "review_date": "等待正式评估",
+        "generated_at": "2026-11-19T03:31:35",
+        "inputs": [
+          {
+            "label": "风控数据基准",
+            "value": "2026-11-19",
+            "source": "独立风控输入"
+          },
+          {
+            "label": "周日执行计划",
+            "value": "无直接参数链",
+            "source": "每日不重算周日金额"
+          }
+        ],
+        "outputs": [
+          {
+            "label": "风控检查数",
+            "value": "0",
+            "source": "daily_checks"
+          },
+          {
+            "label": "输出",
+            "value": "止损/回撤/规模等控制信号",
+            "source": "独立控制链"
+          }
+        ]
       },
       {
-        "id": "loop",
-        "name": "闭环·执行回传",
-        "trigger": "执行回传",
-        "input": "各档执行结果",
-        "output": "台账更新→下次评估",
-        "state": "implemented"
+        "id": "execution",
+        "title": "你本人执行｜真实账户",
+        "trigger": "按有效报告操作",
+        "state": "waiting",
+        "state_label": "等待正式评估",
+        "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
+        "base_date": "等待正式评估",
+        "review_date": "等待正式评估",
+        "generated_at": "等待正式评估",
+        "inputs": [
+          {
+            "label": "可执行计划",
+            "value": "等待正式评估",
+            "source": "周日报告"
+          },
+          {
+            "label": "风控放行状态",
+            "value": "no_action",
+            "source": "每日控制链"
+          }
+        ],
+        "outputs": [
+          {
+            "label": "实际扣款/赎回/到账",
+            "value": "等待正式评估",
+            "source": "不自动交易、不伪造成交"
+          }
+        ]
+      },
+      {
+        "id": "ledger",
+        "title": "台账反馈｜下次评估输入",
+        "trigger": "执行后回传并核对",
+        "state": "blocked",
+        "state_label": "observation",
+        "detail": "真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
+        "base_date": "2026-11-19",
+        "review_date": "2026-11-20",
+        "generated_at": "2026-11-20T03:34:02",
+        "inputs": [
+          {
+            "label": "最新持仓快照日",
+            "value": "2026-11-13",
+            "source": "position_snapshots"
+          },
+          {
+            "label": "快照基金数",
+            "value": "1",
+            "source": "真实持仓反馈"
+          }
+        ],
+        "outputs": [
+          {
+            "label": "反馈去向",
+            "value": "台账→派生重算→后续档位",
+            "source": "人工事实反馈闭环"
+          }
+        ]
       }
     ],
-    "links": [
+    "edges": [
       {
-        "from": "quarter",
-        "to": "monthly",
-        "param": "存量锚targets",
-        "status": "erp_model",
-        "note": "ERP模型实时计算(配置目标唯一源),季度复核锚点"
+        "source": "quarter",
+        "target": "monthly",
+        "label": "核心比例与核心锁",
+        "status": "wired",
+        "actual": "2026-10-01 → 2026-12-31",
+        "guidance": "已接线：季度写、月度读。",
+        "status_label": "已接线"
       },
       {
-        "from": "monthly",
-        "to": "eval",
-        "param": "cycle_budget_lock",
-        "status": "implemented",
-        "note": "月度20号锁定,周日只读快照(唯一硬参数链)"
+        "source": "quarter",
+        "target": "monthly",
+        "label": "四资产目标",
+        "status": "derived",
+        "actual": "暂无quarter_allocation_lock",
+        "guidance": "同基准重算，不是独立锚锁；不得误标已传递。",
+        "status_label": "同基准重算"
       },
       {
-        "from": "eval",
-        "to": "daily",
-        "param": "定投计划",
-        "status": "independent",
-        "note": "每日独立风控,不读周日计划(分工合理)"
+        "source": "monthly",
+        "target": "weekly",
+        "label": "周期预算锁",
+        "status": "wired",
+        "actual": "2026-11-20",
+        "guidance": "已接线：周日只读本周期预算锁。",
+        "status_label": "已接线"
       },
       {
-        "from": "daily",
-        "to": "loop",
-        "param": "执行回传",
-        "status": "implemented",
-        "note": "执行回传→台账更新"
+        "source": "monthly",
+        "target": "weekly",
+        "label": "卫星结构锁",
+        "status": "wired",
+        "actual": "2026-11-20 → 2026-12-19",
+        "guidance": "已接线：月度写、周日读。",
+        "status_label": "已接线"
+      },
+      {
+        "source": "weekly",
+        "target": "daily",
+        "label": "周日计划→每日",
+        "status": "none",
+        "actual": "无直接参数链",
+        "guidance": "每日独立风控，不读取或重算周日金额。",
+        "status_label": "无直接链"
+      },
+      {
+        "source": "daily",
+        "target": "execution",
+        "label": "风控控制信号",
+        "status": "control",
+        "actual": "no_action",
+        "guidance": "风控优先于实际动作。",
+        "status_label": "独立控制"
+      },
+      {
+        "source": "weekly",
+        "target": "execution",
+        "label": "有效执行报告",
+        "status": "manual",
+        "actual": "等待正式评估",
+        "guidance": "用户按有效报告在真实账户执行。",
+        "status_label": "人工执行"
+      },
+      {
+        "source": "execution",
+        "target": "ledger",
+        "label": "实际执行结果",
+        "status": "manual",
+        "actual": "2026-11-13",
+        "guidance": "截图/回传→识别核对→台账。",
+        "status_label": "人工执行"
+      },
+      {
+        "source": "ledger",
+        "target": "monthly",
+        "label": "持仓与现金事实反馈",
+        "status": "feedback",
+        "actual": "2026-11-13",
+        "guidance": "台账事实进入后续评估，形成闭环。",
+        "status_label": "事实反馈"
       }
     ],
-    "title": "参数链拓扑 · 自上而下执行链",
-    "subtitle": "每档结论=下一档输入 · 风控贯穿随时优先",
+    "title": "参数链路｜从季度配置到台账闭环",
+    "subtitle": "不是静态宣传图：每个节点和箭头均来自正式判决、真实锁或明确的人工反馈。",
+    "labels": {
+      "nodes": "档位与闭环节点（点击展开）",
+      "edges": "参数传递关系",
+      "inputs": "输入",
+      "outputs": "输出",
+      "base_date": "数据基准",
+      "review_date": "评审日",
+      "generated_at": "产出时间",
+      "actual": "本次实际值",
+      "guidance": "判断依据",
+      "source": "来源",
+      "empty": "当前无正式档位数据，节点保留完整结构并等待正式评估。"
+    },
     "status_labels": {
-      "implemented": "已实现",
-      "erp_model": "ERP模型驱动",
-      "independent": "独立运行"
+      "wired": "已接线",
+      "derived": "同基准重算",
+      "none": "无直接链",
+      "control": "独立控制",
+      "manual": "人工执行",
+      "feedback": "事实反馈"
+    },
+    "summary": {
+      "formal_band_count": 2,
+      "edge_counts": {
+        "wired": 3,
+        "derived": 1,
+        "none": 1,
+        "control": 1,
+        "manual": 2,
+        "feedback": 1
+      },
+      "guidance": "点击各档查看真实输入、输出、锁周期和去向；颜色只表示链路类型，不表示买卖建议。"
     }
   },
   "rules": [

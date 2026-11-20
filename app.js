@@ -620,10 +620,36 @@ const PAGE_SCHEMA = {
     { fn: 'normalItems', from: 'band_quarter' },
   ],
   'page-retirement': [{ fn: 'retirementPage' }],
+  'page-chain': [{ fn: 'chainPage' }],
   'page-rules': [{ fn: 'ruleList' }],
 };
 
 // ---------- 特殊页渲染 ----------
+// 2026-11-20 R101:参数链拓扑图(季度→月度→周日→每日→闭环,动态显示各档输入/输出/传递状态)
+R.chainPage = function () {
+  const pc = D.param_chain || {};
+  const nodes = pc.nodes || [];
+  const links = pc.links || [];
+  const statusLabels = pc.status_labels || {};
+  if (!nodes.length) return C.card(pc.title || '', C.empty('', ''));
+  let flow = '';
+  nodes.forEach((n) => {
+    flow += `<div class="chain-node chain-state-${esc(n.state)}">
+      <div class="chain-node-head"><span class="chain-node-name">${esc(n.name)}</span><span class="chain-node-trigger">${esc(n.trigger)}</span></div>
+      <div class="chain-node-io"><div class="chain-io-in">入：${esc(n.input)}</div><div class="chain-io-out">出：${esc(n.output)}</div></div>
+    </div>`;
+    const link = links.find(l => l.from === n.id);
+    if (link) {
+      flow += `<div class="chain-link">
+        <div class="chain-arrow">↓</div>
+        <div class="chain-link-param">${esc(link.param)}</div>
+        <div class="chain-link-status chain-status-${esc(link.status)}">${esc(statusLabels[link.status] || link.status)}</div>
+        <div class="chain-link-note">${esc(link.note)}</div>
+      </div>`;
+    }
+  });
+  return C.card(pc.title || '', `<div class="chain-subtitle">${esc(pc.subtitle || '')}</div><div class="chain-flow">${flow}</div>`);
+};
 R.retirementProjection = function () {
   const p = D.retirement_projection || {};
   const coverage = fmt(U.ui_retirement_coverage || '', {
@@ -714,6 +740,7 @@ function renderPage(pageId) {
 // ---------- 导航（配置驱动） ----------
 const NAV = [
   { id: 'page-retirement', label: '养老' },
+  { id: 'page-chain', label: '参数链' },
   { id: 'page-band_daily', label: '每日' },
   { id: 'page-band_eval', label: '周日' },
   { id: 'page-band_monthly', label: '月度' },

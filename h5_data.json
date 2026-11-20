@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T02:51:11",
+  "generated_at": "2026-11-21T02:56:39",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -16,7 +16,7 @@
     "160119": "南方中证500ETF联接(LOF)A"
   },
   "status": {
-    "label": "基金规模数据待补",
+    "label": "部分数据不足，受影响动作已拦截",
     "description": "只显示当前有效结论"
   },
   "retirement": {
@@ -3416,22 +3416,29 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-20T23:12:50",
+        "as_of": "2026-11-21T02:51:26",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
-        "state": "observation",
+        "state": "blocked",
         "headline": "本期无需直接操作，查看对应评估结论即可",
         "data_complete": false,
         "actions": [],
-        "blocked": [],
+        "blocked": [
+          {
+            "fund_code": null,
+            "action": "待补数",
+            "blocked_reason": "正式评估关键数据缺失，整档未完成；禁止执行，等待正式补跑"
+          }
+        ],
         "expired": [],
+        "attention_items": [],
         "next_review_at": "2026-12-20T03:30:00",
         "result_visible_until": "2026-12-20T03:30:00",
-        "result_effective_from": "2026-11-20T23:11:19",
+        "result_effective_from": "2026-11-21T02:50:28",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-20T23:11:19",
+      "generated_at": "2026-11-21T02:50:28",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -3763,7 +3770,7 @@
         {
           "name": "单只止损",
           "status": "🔴",
-          "detail": "财通景气甄选一年持有C(017491):-42.58%·未评估→触发专项评估；信澳匠心臻选两年持有(010363):-42.56%·未评估→触发专项评估",
+          "detail": "财通景气甄选一年持有C(017491)累计收益率-42.58%：系统待补证据，评估截止2026-11-24；信澳匠心臻选两年持有(010363)累计收益率-42.56%：系统待补证据，评估截止2026-11-24",
           "metrics": [
             {
               "label": "财通景气甄选一年持有C",
@@ -3812,18 +3819,18 @@
       ],
       "allocation": {
         "amounts": {
-          "现金": 170.0,
-          "债券": 13002.78,
-          "养老FOF": 1150.32,
           "黄金": 1154.81,
+          "现金": 170.0,
+          "养老FOF": 1150.32,
+          "债券": 13002.78,
           "权益": 5824.48
         },
         "total": 21302.39,
         "weights": {
-          "现金": 0.8,
-          "债券": 61.04,
-          "养老FOF": 5.4,
           "黄金": 5.42,
+          "现金": 0.8,
+          "养老FOF": 5.4,
+          "债券": 61.04,
           "权益": 27.34
         }
       },
@@ -3987,12 +3994,12 @@
             "style_role": "satellite",
             "valuation": 6.41,
             "band": "极度低估",
-            "score": 61.5,
+            "score": 58.0,
             "scores": {
               "估值": 45.0,
               "趋势": 0.0,
               "资金": 0.0,
-              "基本面": 12.5,
+              "基本面": 9,
               "情绪": 4.0
             },
             "missing_dimensions": [],
@@ -4007,12 +4014,12 @@
             "style_role": "satellite",
             "valuation": 26.29,
             "band": "低估",
-            "score": 43.0,
+            "score": 46.5,
             "scores": {
               "估值": 30.0,
               "趋势": 0.0,
               "资金": 0.0,
-              "基本面": 9,
+              "基本面": 12.5,
               "情绪": 4.0
             },
             "missing_dimensions": [],
@@ -4093,12 +4100,12 @@
             "style_role": "satellite",
             "valuation": 6.41,
             "band": "极度低估",
-            "score": 61.5,
+            "score": 58.0,
             "scores": {
               "估值": 45.0,
               "趋势": 0.0,
               "资金": 0.0,
-              "基本面": 12.5,
+              "基本面": 9,
               "情绪": 4.0
             },
             "missing_dimensions": [],
@@ -4113,12 +4120,12 @@
             "style_role": "satellite",
             "valuation": 26.29,
             "band": "低估",
-            "score": 43.0,
+            "score": 46.5,
             "scores": {
               "估值": 30.0,
               "趋势": 0.0,
               "资金": 0.0,
-              "基本面": 9,
+              "基本面": 12.5,
               "情绪": 4.0
             },
             "missing_dimensions": [],
@@ -4152,21 +4159,19 @@
         "gap": 4.578965,
         "price_percentile": 75.86,
         "score": {
-          "score": 9.0,
+          "score": 18.5,
           "scores": {
             "估值": 0.0,
             "趋势": 0.0,
             "资金": 0.0,
-            "基本面": 9,
-            "情绪": 0
+            "基本面": 6,
+            "情绪": 12.5
           },
-          "missing": [
-            "情绪"
-          ],
+          "missing": [],
           "threshold": 70.0,
           "eligible": false,
           "overheated": false,
-          "decision": "数据不完整：缺情绪，本笔不操作"
+          "decision": "未达到加仓门槛，本笔不操作"
         },
         "buy_allowed": false,
         "missing": []
@@ -4216,46 +4221,42 @@
       },
       "five_dimension_scores": {
         "000051": {
-          "score": 12.5,
-          "scores": {
-            "估值": 0.0,
-            "趋势": 0.0,
-            "资金": 0.0,
-            "基本面": 12.5,
-            "情绪": 0
-          },
-          "missing": [
-            "情绪"
-          ],
-          "threshold": 70.0,
-          "eligible": false,
-          "overheated": false,
-          "decision": "数据不完整：缺情绪，本笔不操作"
-        },
-        "004253": {
-          "score": 9.0,
+          "score": 21.5,
           "scores": {
             "估值": 0.0,
             "趋势": 0.0,
             "资金": 0.0,
             "基本面": 9,
-            "情绪": 0
+            "情绪": 12.5
           },
-          "missing": [
-            "情绪"
-          ],
+          "missing": [],
           "threshold": 70.0,
           "eligible": false,
           "overheated": false,
-          "decision": "数据不完整：缺情绪，本笔不操作"
+          "decision": "未达到加仓门槛，本笔不操作"
+        },
+        "004253": {
+          "score": 18.5,
+          "scores": {
+            "估值": 0.0,
+            "趋势": 0.0,
+            "资金": 0.0,
+            "基本面": 6,
+            "情绪": 12.5
+          },
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": false,
+          "decision": "未达到加仓门槛，本笔不操作"
         },
         "012544": {
-          "score": 61.5,
+          "score": 58.0,
           "scores": {
             "估值": 45.0,
             "趋势": 0.0,
             "资金": 0.0,
-            "基本面": 12.5,
+            "基本面": 9,
             "情绪": 4.0
           },
           "missing": [],
@@ -4265,12 +4266,12 @@
           "decision": "未达到加仓门槛，本笔不操作"
         },
         "017140": {
-          "score": 43.0,
+          "score": 46.5,
           "scores": {
             "估值": 30.0,
             "趋势": 0.0,
             "资金": 0.0,
-            "基本面": 9,
+            "基本面": 12.5,
             "情绪": 4.0
           },
           "missing": [],
@@ -4295,21 +4296,19 @@
           "decision": "评分与数据闸门通过，再核现金池和频率闸门"
         },
         "160119": {
-          "score": 9.0,
+          "score": 25.0,
           "scores": {
             "估值": 0.0,
             "趋势": 0.0,
             "资金": 0.0,
-            "基本面": 9,
-            "情绪": 0
+            "基本面": 12.5,
+            "情绪": 12.5
           },
-          "missing": [
-            "情绪"
-          ],
+          "missing": [],
           "threshold": 70.0,
           "eligible": false,
           "overheated": false,
-          "decision": "数据不完整：缺情绪，本笔不操作"
+          "decision": "未达到加仓门槛，本笔不操作"
         }
       },
       "artifacts": {
@@ -4349,7 +4348,7 @@
           "actual_amount_note": null
         },
         "monthly_review": {
-          "item1_完整性": "持仓市值可复核；基金规模数据不完整，清盘风险不能判为通过",
+          "item1_完整性": "持仓与规模数据完整",
           "item2_收益率": {
             "累计": {
               "017491": -42.58,
@@ -4365,6 +4364,7 @@
               "160119": 0.0
             },
             "月度(快照对比)": {},
+            "月度状态": null,
             "最近快照变动": {
               "start": "2026-11-12",
               "end": "2026-11-13",
@@ -4388,10 +4388,10 @@
             }
           ],
           "item4_定投统计": {
-            "次数": 24,
+            "次数": 23,
             "金额": 878.0
           },
-          "item5_信号准确率": "信号准确率:数据积累期(同回测,信号后收益跟踪中)",
+          "item5_信号准确率": "买入：样本0，准确率待结算；卖出：样本0，准确率待结算；阈值修订=False",
           "item6_赛道跟踪": "扫描21个方向,9个进入低估观察;本期无新基金正式纳入,6只待四项复核"
         },
         "period_summary": {
@@ -4481,7 +4481,7 @@
             "fund_code": "009290",
             "fund_name": "富国添享一年持有债券A",
             "annual_return": -6.37,
-            "bond10": 1.5865,
+            "bond10": 1.5823,
             "days": 43,
             "decision": "未达止盈条件(年化-6.37%未达5.0%、持有43天未满1年)"
           }
@@ -5039,15 +5039,16 @@
           "missing_count": 0
         },
         "execution_review": {
-          "invest_count": 24,
+          "invest_count": 23,
           "invest_total": 878.0,
-          "record_count": 40,
+          "invest_pending_count": 1,
+          "record_count": 35,
           "snapshot_dates": [
             "2026-11-18",
             "2026-11-20"
           ],
-          "missing_scale_count": 2,
-          "completeness": "持仓市值可复核；基金规模数据不完整，清盘风险不能判为通过"
+          "missing_scale_count": 0,
+          "completeness": "持仓与规模数据完整"
         },
         "unlock_review": [
           {
@@ -5157,6 +5158,64 @@
           "new_budget": 1800.0,
           "writes": 0
         },
+        "stop_reviews": [
+          {
+            "fund_code": "017491",
+            "fund_name": "财通景气甄选一年持有C",
+            "status": "pending",
+            "trigger_kind": "",
+            "review_date": "2026-11-21",
+            "conclusion": null,
+            "next_review_date": "2026-11-24",
+            "cooldown_until": null,
+            "deadline_date": "2026-11-24",
+            "lock_end_date": "2027-06-25",
+            "missing": [
+              "long_performance:基准指数季度不足:中证500指数",
+              "attribution:fund_quality_deteriorating缺少布尔证据"
+            ],
+            "reused": true,
+            "eval_dims": {
+              "manager": "首次建立经理基线；现任金梓才，任职开始2023-07-19，状态在职",
+              "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
+              "long_performance": null,
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491自2026-06-25起最大回撤达63.38%（截至2026-11-17），同期沪深300最大回撤21.41%，超额回撤-52.52%。2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等科技赛道，前十大重仓占比70.55%；近1月净值下跌32.96%，同期沪深300仅跌4.54%，持仓赛道与基金净值同步大幅调整，表明回撤主因为赛道系统性回调。但缺乏基金经理选股能力恶化或持仓质量下降的直接证据，故fund_quality_deteriorating为null。"
+            }
+          },
+          {
+            "fund_code": "010363",
+            "fund_name": "信澳匠心臻选两年持有",
+            "status": "pending",
+            "trigger_kind": "",
+            "review_date": "2026-11-21",
+            "conclusion": null,
+            "next_review_date": "2026-11-24",
+            "cooldown_until": null,
+            "deadline_date": "2026-11-24",
+            "lock_end_date": "2028-10-15",
+            "missing": [
+              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "attribution:fund_quality_deteriorating缺少布尔证据"
+            ],
+            "reused": true,
+            "eval_dims": {
+              "manager": "首次建立经理基线；现任朱然，任职开始2022-08-16，状态在职",
+              "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
+              "long_performance": null,
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近一月回撤-26.50%、近三月-41.75%；2026Q3重仓股集中于电子(26.16%)、机械设备(19.63%)等科技制造赛道，前十大重仓占比48.53%。同期重仓股精智达连续3日跌18.66%、芯碁微装单日跌7.46%、东山精密单日跌6.45%，持仓赛道个股普遍大幅调整，与基金净值跌幅高度吻合。但缺乏基金经理调仓失误或选股能力下降的直接证据，无法判定基金质量恶化。"
+            }
+          }
+        ],
+        "scale_refresh": {
+          "band": "band_monthly",
+          "attempted": 0,
+          "written": 0,
+          "reused": 11,
+          "missing": [],
+          "failures": [],
+          "run_mode": "live",
+          "status": "complete"
+        },
         "daily_checks": [
           {
             "name": "单日大跌>4%",
@@ -5247,7 +5306,7 @@
           {
             "name": "单只止损",
             "status": "🔴",
-            "detail": "财通景气甄选一年持有C(017491):-42.58%·未评估→触发专项评估；信澳匠心臻选两年持有(010363):-42.56%·未评估→触发专项评估",
+            "detail": "财通景气甄选一年持有C(017491)累计收益率-42.58%：系统待补证据，评估截止2026-11-24；信澳匠心臻选两年持有(010363)累计收益率-42.56%：系统待补证据，评估截止2026-11-24",
             "metrics": [
               {
                 "label": "财通景气甄选一年持有C",
@@ -5372,11 +5431,11 @@
           {
             "name": "债券净值连跌",
             "status": "🟢",
-            "detail": "债基009290连续6日下跌(阈值10日)",
+            "detail": "债基009290连续7日下跌(阈值10日)",
             "metrics": [
               {
                 "label": "连续下跌",
-                "value": 6,
+                "value": 7,
                 "unit": "日",
                 "tone": "warn"
               },
@@ -5414,8 +5473,8 @@
           },
           {
             "name": "存量基金淘汰评估",
-            "status": "未触发",
-            "detail": "各持仓未触发淘汰评估(持续高估/连续跑输/规模不足)"
+            "status": "触发专项评估",
+            "detail": "华宝中证有色金属ETF联接A(规模不足)——触发\"留存or赎回\"专项评估(在窗口内完成),不直接赎回"
           },
           {
             "name": "大盘异动",
@@ -5430,7 +5489,7 @@
           {
             "name": "规模预警",
             "status": "⚠️",
-            "detail": "新能车012544:≈2.32亿(C类基金整体)(关注(接近2亿线,单季-21.55%))"
+            "detail": "有色017140:≈1.98亿(2026-06-30基金资产净值)(规模预警⚠️)"
           },
           {
             "name": "单只占比上限",
@@ -5458,23 +5517,23 @@
           {
             "name": "利率倒挂监控",
             "status": "🟢",
-            "detail": "1年期1.1751%/10年期1.5865%,利差-41bp,未严重倒挂(阈值50bp)",
+            "detail": "1年期1.178%/10年期1.5823%,利差-40bp,未严重倒挂(阈值50bp)",
             "metrics": [
               {
                 "label": "1年期",
-                "value": 1.1751,
+                "value": 1.178,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "10年期",
-                "value": 1.5865,
+                "value": 1.5823,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "利差",
-                "value": -41,
+                "value": -40,
                 "unit": "bp",
                 "tone": "pos"
               },
@@ -5529,13 +5588,16 @@
             "change_count": 4
           }
         ],
+        "forward_validation": null,
         "action_view": {
           "engine_contract": "h5_band_action_v1",
-          "complete": true,
-          "headline": "本期无需直接操作，查看对应评估结论即可",
+          "complete": false,
+          "headline": "本期无可执行操作，1项未执行",
           "note": "",
           "pending_title": "当前限制与未执行项",
-          "pending_items": []
+          "pending_items": [
+            "正式评估关键数据缺失，整档未完成；禁止执行，等待正式补跑"
+          ]
         }
       },
       "market_env": {
@@ -6945,7 +7007,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T02:51:11",
+    "generated_at": "2026-11-21T02:56:39",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -7210,7 +7272,7 @@
             {
               "name": "封账与执行对账",
               "status": "current",
-              "detail": "10-20~11-19结余170.00元；月度执行复核40笔流水；最新持仓快照2026-11-20。"
+              "detail": "10-20~11-19结余170.00元；月度执行复核35笔流水；最新持仓快照2026-11-20。"
             },
             {
               "name": "新钱与持有期复核",
@@ -7332,7 +7394,7 @@
         "detail": "本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-20T23:11:19",
+        "generated_at": "2026-11-21T02:50:28",
         "inputs": [
           {
             "label": "季度核心锁",
@@ -7492,7 +7554,7 @@
         "detail": "真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-20T23:11:19",
+        "generated_at": "2026-11-21T02:50:28",
         "inputs": [
           {
             "label": "最新持仓快照日",

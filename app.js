@@ -357,10 +357,36 @@ const R = {
     return C.card(U.ui_h2_cash_pool, parts);
   },
 
-  // 季度档
+  // 季度档：先回答做什么/做到哪/卡在哪/何时再看，证据默认收起。
   quarterAction(a, validity) {
-    const state = (validity || {}).state;
-    return (state === 'active' || state === 'partial') && a && a.action_checklist ? C.card(U.ui_h2_quarter_action, C.orderedList(a.action_checklist), 'accent') : '';
+    a = a || {}; const v = validity || {};
+    const flow = (((D.param_chain || {}).visual || {}).workflows || []).find(x => x.id === 'quarter_review') || {};
+    const steps = flow.steps || [];
+    const done = steps.filter(x => x.status === 'done').length;
+    const current = steps.find(x => ['current', 'blocked'].includes(x.status));
+    const progress = `${done}/${steps.length}步已完成${current ? '；当前：' + current.name : ''}`;
+    const scale = a.scale_review || {};
+    const missingNames = scale.fund_names || [];
+    const backtest = a.backtest || {};
+    const reasons = [];
+    if (missingNames.length) reasons.push(`规模待补：${missingNames.join('、')}`);
+    if (!Number(backtest.outcome_count)) reasons.push(`回测${backtest.signal_count ?? 0}个信号/${backtest.outcome_count ?? 0}个结果，暂不能计算胜率`);
+    if (!reasons.length) reasons.push(U.ui_no_blockers);
+    const exits = a.exit_reviews || [];
+    const primary = [U.ui_quarter_no_trade];
+    if (exits.length) primary.push(`${exits.map(x => x.fund_name || fundName(x.fund_code)).join('、')}：${U.ui_quarter_observation_only}`);
+    else primary.push(...(a.action_checklist || []));
+    const body = `${C.kv(U.ui_action_now, esc(primary.join('；')))}
+      ${C.kv(U.ui_action_progress, esc(progress))}
+      ${C.kv(U.ui_action_blocked, esc(reasons.join('；')))}
+      ${C.kv(U.ui_action_next, esc(dateTimeText(v.next_review_at)))}`;
+    return C.card(U.ui_h2_quarter_action, body, 'accent');
+  },
+  quarterEvidence(b) {
+    const a = b.artifacts || {};
+    const content = [R.equityStructure(b.equity_structure), R.assetAllocation(b.asset_allocation),
+      R.concentration(a.concentration), R.exitReviews(a.exit_reviews), R.quarterReview(a)].join('');
+    return content ? C.details(U.ui_quarter_evidence, content) : '';
   },
   allocation(b) {
     const weights = (b.allocation || {}).weights || {};
@@ -616,9 +642,8 @@ const PAGE_SCHEMA = {
     { fn: 'monthlyDetails', from: 'band_monthly' },
   ],
   'page-band_quarter': [
-    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandFlows', arg: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
-    { fn: 'equityStructure', from: 'band_quarter' }, { fn: 'assetAllocation', from: 'band_quarter' },
-    { fn: 'concentration', from: 'band_quarter' }, { fn: 'exitReviews', from: 'band_quarter' }, { fn: 'quarterReview', from: 'band_quarter' },
+    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
+    { fn: 'bandFlows', arg: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'quarterEvidence', from: 'band_quarter' },
   ],
   'page-retirement': [{ fn: 'retirementPage' }],
   'page-chain': [{ fn: 'chainPage' }],
@@ -756,6 +781,7 @@ function renderPage(pageId) {
         if (node.fn === 'allocation') return fn(b);
         if (node.fn === 'quarterReview') return fn(a);
         if (node.fn === 'quarterAction') return fn(a, b.validity);
+        if (node.fn === 'quarterEvidence') return fn(b);
         if (node.fn === 'rebalance') return fn(a.rebalance);
         if (node.fn === 'flow') return fn(a.rebalance);
         if (node.fn === 'concentration') return fn(a.concentration);

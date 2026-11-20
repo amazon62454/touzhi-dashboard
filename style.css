@@ -372,6 +372,10 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 .flow-overview-next { color: var(--c-text-2); }
 .flow-overview-band, .flow-overview-open { display: block; margin-top: var(--sp-1); font-size: var(--fs-xs); color: var(--c-text-3); }
 .flow-overview-open { color: var(--c-primary); font-weight: 700; }
+.parameter-node { margin-top: var(--sp-2); border: 1px solid var(--c-border); border-radius: var(--radius-s); padding: var(--sp-2) var(--sp-3); }
+.parameter-node > summary { display: flex; flex-wrap: wrap; gap: var(--sp-2); justify-content: space-between; min-height: var(--tap); align-items: center; }
+.parameter-node > summary em { font-style: normal; color: var(--c-primary); font-size: var(--fs-sm); }
+.parameter-node .table-scroll { margin-top: var(--sp-2); }
 .band-flow-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); margin-bottom: var(--sp-3); }
 .band-flow-tabs button { border: 1px solid var(--c-border); border-radius: var(--radius-s); background: var(--c-surface); padding: var(--sp-2); text-align: left; min-height: var(--tap); }
 .band-flow-tabs button.active { border-color: var(--c-primary); background: var(--c-primary-weak); }

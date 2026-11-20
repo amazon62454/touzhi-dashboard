@@ -9,6 +9,9 @@ let U = {};               // 界面文案（text_templates ui_ 前缀）
 const $ = id => document.getElementById(id);
 
 // ---------- 工具 ----------
+const STATUS_LABELS = { '🔴': '【行动】', '⚠️': '【观察】', '🟢': '【正常】', '🟡': '【提示】', '💰': '【资金】' };
+const statusText = v => String(v ?? '').replace(/🔴|⚠️|🟢|🟡|💰/g, c => STATUS_LABELS[c] || c);
+// esc仅做HTML转义;状态emoji在显示文本时经statusText替换为文字(颜色只表达数值红涨绿跌,不表达状态)。
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fmt = (t, o) => String(t || '').replace(/\{(\w+)\}/g, (_, k) => (o && o[k] != null) ? o[k] : '');
 const money = v => (v === null || v === undefined || v === '') ? '—' : `${Number(v).toLocaleString('zh-CN', { maximumFractionDigits: 2 })}元`;
@@ -40,7 +43,7 @@ const C = {
   statusBadge(status) {
     const s = String(status || '');
     const kind = /🔴/.test(s) ? 'danger' : /⚠️/.test(s) ? 'warn' : /💰/.test(s) ? 'info' : /🟢/.test(s) ? 'ok' : 'muted';
-    return C.badge(s || '—', kind);
+    return C.badge(statusText(s) || '—', kind);
   },
   empty(title, note) {
     return `<div class="empty">${title ? `<div class="empty-title">${esc(title)}</div>` : ''}${note ? esc(note) : ''}</div>`;
@@ -98,7 +101,7 @@ const C = {
     return rows.map(x => `
       <div class="fund-row">
         <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong><strong class="num info">${has(x.market_value) ? money(x.market_value) : ''}</strong></div>
-        <div class="fund-numbers">${esc(x.fund_code || '')}${has(x.profit) ? ` · 收益 <span class="num ${numTone(x.profit)}">${money(x.profit)}</span>` : ''}${has(x.profit_rate) ? ` · <span class="num ${numTone(x.profit_rate)}">${pct(x.profit_rate)}</span>` : ''}${x.status ? ` · ${esc(x.status)}` : ''}</div>
+        <div class="fund-numbers">${esc(x.fund_code || '')}${has(x.profit) ? ` · 收益 <span class="num ${numTone(x.profit)}">${money(x.profit)}</span>` : ''}${has(x.profit_rate) ? ` · <span class="num ${numTone(x.profit_rate)}">${pct(x.profit_rate)}</span>` : ''}${x.status ? ` · ${esc(statusText(x.status))}` : ''}</div>
       </div>`).join('');
   },
   table(headers, rows, options = {}) {
@@ -366,7 +369,7 @@ const R = {
     if (bt) {
       // 字段名对齐数据：signal_count/outcome_count（旧写 signals/results 不存在→永远显0/0）
       parts.push(C.kv('信号流水 / 有结果样本', `${esc(bt.signal_count ?? 0)} / ${esc(bt.outcome_count ?? 0)}`));
-      if (bt.status) parts.push(`<p class="muted">${esc(bt.status)}</p>`);
+      if (bt.status) parts.push(`<p class="muted">${esc(statusText(bt.status))}</p>`);
       else if (bt.note) parts.push(`<p class="muted">${esc(bt.note)}</p>`);
     }
     return C.card(U.ui_h2_scale_backtest, parts.join(''));

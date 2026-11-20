@@ -360,17 +360,22 @@ const R = {
     return C.card(U.ui_h2_cash_pool, parts);
   },
 
-  // 季度行动语义完全由引擎 action_view 下发；缺失时 fail-closed，不回退到前端拼接。
-  quarterAction(a, validity) {
-    const view = a && a.action_view;
-    if (!view || view.engine_contract !== 'h5_quarter_action_v1' || !view.headline) {
-      return C.card(U.ui_h2_quarter_action, C.empty(U.ui_action_contract_missing, ''), 'warn');
+  // 四档行动共用纯渲染组件；契约缺失时 fail-closed，不在前端补业务判断。
+  actionCard(view, title, contract) {
+    if (!view || view.engine_contract !== contract || !view.headline) {
+      return C.card(title, C.empty(U.ui_action_contract_missing, ''), 'warn');
     }
     const pending = Array.isArray(view.pending_items) ? view.pending_items : [];
     const body = `<div class="decision-main">${esc(view.headline)}</div>
       ${view.note ? `<p class="decision-note">${esc(view.note)}</p>` : ''}
       ${pending.length ? `<div class="decision-blockers"><strong>${esc(view.pending_title || '')}</strong><ul>${pending.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}`;
-    return C.card(U.ui_h2_quarter_action, body, 'accent');
+    return C.card(title, body, 'accent');
+  },
+  quarterAction(a, validity) {
+    return R.actionCard(a && a.action_view, U.ui_h2_quarter_action, 'h5_quarter_action_v1');
+  },
+  bandAction(a) {
+    return R.actionCard(a && a.action_view, U.ui_h2_band_action, 'h5_band_action_v1');
   },
   quarterEvidence(b) {
     const a = b.artifacts || {};
@@ -620,15 +625,15 @@ const R = {
 // ---------- 声明式页面 Schema（页面 = 区块有序列表，加区块只改这里） ----------
 const PAGE_SCHEMA = {
   'page-band_daily': [
-    { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandFlows', arg: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
+    { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandAction', from: 'band_daily' }, { fn: 'bandFlows', arg: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
     { fn: 'nextReview', from: 'band_daily' },
   ],
   'page-band_eval': [
-    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandFlows', arg: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' },
+    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandAction', from: 'band_eval' }, { fn: 'bandFlows', arg: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' },
     { fn: 'weeklyBudget', from: 'band_eval' }, { fn: 'satelliteExecution', from: 'band_eval' }, { fn: 'addOn', from: 'band_eval' },
   ],
   'page-band_monthly': [
-    { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandFlows', arg: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
+    { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandAction', from: 'band_monthly' }, { fn: 'bandFlows', arg: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
     { fn: 'monthlyDetails', from: 'band_monthly' },
   ],
   'page-band_quarter': [
@@ -670,11 +675,28 @@ R.flowSteps = function (flow) {
   }).join('');
 };
 
+R.chainParameters = function () {
+  const chain = D.param_chain || {};
+  const nodes = chain.nodes || [], edges = chain.edges || [];
+  if (!nodes.length && !edges.length) return '';
+  const itemTable = items => C.table(
+    [U.ui_chain_col_item, U.ui_chain_col_value, U.ui_chain_col_source],
+    (items || []).map(x => [x.label, x.value, x.source]));
+  const nodeHtml = nodes.map(n => `<details class="parameter-node"><summary><strong>${esc(n.title)}</strong><em>${esc(n.state_label)}</em></summary>
+    <p class="muted">${esc(n.trigger)} · ${esc(n.detail)}</p>${itemTable(n.inputs)}${itemTable(n.outputs)}</details>`).join('');
+  const nodeName = id => String((nodes.find(n => n.id === id) || {}).title || id).split('｜')[0];
+  const edgeTable = C.table(
+    [U.ui_chain_col_route, U.ui_chain_col_status, U.ui_chain_col_value, U.ui_chain_col_guidance],
+    edges.map(e => [`${nodeName(e.source)} → ${nodeName(e.target)} · ${e.label}`, e.status_label, e.actual, e.guidance]));
+  return C.details(U.ui_chain_parameters,
+    `<h3>${esc(U.ui_chain_nodes)}</h3>${nodeHtml}<h3>${esc(U.ui_chain_edges)}</h3>${edgeTable}`);
+};
+
 R.chainPage = function () {
   const flows = ((D.param_chain || {}).visual || {}).workflows || [];
   if (!flows.length) return C.card(U.ui_chain_directory_hint, C.empty('', ''));
   const rows = flows.map(flow => `<button type="button" class="flow-overview" data-flow-owner="${esc(flow.owner_band)}" data-flow-id="${esc(flow.id)}"><span class="flow-overview-top"><strong>${esc(flow.title)}</strong><em>${esc(flow.state)}</em></span><span class="flow-overview-band">${esc(U.ui_chain_primary_band)}：${esc(workflowBandTitle(flow.owner_band))}</span></button>`).join('');
-  return C.card(U.ui_chain_directory_hint, `<div class="flow-overview-list">${rows}</div>`);
+  return C.card(U.ui_chain_directory_hint, `<div class="flow-overview-list">${rows}</div>`) + R.chainParameters();
 };
 
 R.bandFlows = function (band) {
@@ -759,13 +781,14 @@ R.retirementProjection = function () {
 R.retirementPage = function () {
   const r = D.retirement || {};
   const metrics = C.metricGrid([
-    ['当前持有市值', money(r.total_market_value), 'info'],
-    ['持仓成本', money(r.total_cost), 'info'],
-    ['持仓收益', money(r.total_profit), numTone(r.total_profit)],
-    ['持仓收益率', pct(r.total_profit_rate), numTone(r.total_profit_rate)],
+    [U.ui_ret_metric_market, money(r.total_market_value), 'info'],
+    [U.ui_ret_metric_cost, money(r.total_cost), 'info'],
+    [U.ui_ret_metric_profit, money(r.total_profit), numTone(r.total_profit)],
+    [U.ui_ret_metric_profit_rate, pct(r.total_profit_rate), numTone(r.total_profit_rate)],
   ]);
   const note = r.return_note ? `<p class="muted">${esc(r.return_note)}</p>` : '';
-  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${R.retirementProjection()}${note}`;
+  const base = `<div class="muted">${esc(fmt(U.ui_retirement_base, {date: dateText(D.base_date)}))}</div>`;
+  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '')}</h1>${base}</div>${metrics}${R.retirementProjection()}${note}`;
 };
 
 // ---------- 页面渲染引擎 ----------
@@ -795,6 +818,7 @@ function renderPage(pageId) {
         if (node.fn === 'settledCash') return fn(b.rebalance_cash);
         if (node.fn === 'allocation') return fn(b);
         if (node.fn === 'quarterReview') return fn(a);
+        if (node.fn === 'bandAction') return fn(a);
         if (node.fn === 'quarterAction') return fn(a, b.validity);
         if (node.fn === 'quarterEvidence') return fn(b);
         if (node.fn === 'rebalance') return fn(a.rebalance);

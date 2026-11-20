@@ -144,7 +144,29 @@ header strong { font-size: var(--fs-md); }
 .chain-status-control { background: #F8CBAD; color: #8a3b12; }
 .chain-status-manual { background: #CCE5FF; color: #2C6FAC; }
 .chain-status-feedback { background: #E4DFEC; color: #5b477a; }
-@media (max-width: 640px) { .chain-node-io { grid-template-columns: 1fr; } .chain-edge > summary em { width: 100%; margin-left: 0; } }
+/* 人读执行全景图：常显步骤与箭头，当前/下一步/缺口一眼可见 */
+.visual-now { display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--sp-3); margin-bottom: var(--sp-3); }
+.visual-now > div { padding: var(--sp-3); border-radius: 8px; background: var(--c-info-weak, #CCE5FF); }
+.visual-now small, .visual-now strong { display: block; }
+.visual-now strong { margin-top: 4px; font-size: var(--fs-md); line-height: 1.45; }
+.visual-missing { padding: var(--sp-3); margin-bottom: var(--sp-3); border-left: 4px solid var(--c-warn); background: var(--c-warn-weak); line-height: 1.7; }
+.visual-missing strong { display: block; margin-bottom: 4px; }
+.visual-flow { display: flex; flex-direction: column; align-items: stretch; }
+.visual-step { border: 2px solid var(--c-border); border-radius: 10px; padding: var(--sp-3); background: var(--c-card); }
+.visual-step.done { border-color: var(--c-success); }
+.visual-step.current { border-color: var(--c-info); box-shadow: 0 0 0 3px var(--c-info-weak, #CCE5FF); background: var(--c-info-weak, #CCE5FF); }
+.visual-step.waiting { border-style: dashed; opacity: .78; }
+.visual-step.blocked { border-color: var(--c-danger); }
+.visual-step-head { display: flex; justify-content: space-between; gap: var(--sp-2); align-items: center; }
+.visual-step-title { font-size: var(--fs-md); font-weight: 700; }
+.visual-step-state { flex: none; padding: 2px 8px; border-radius: 10px; background: var(--c-bg); font-size: var(--fs-xs); }
+.visual-step-lines { display: grid; gap: 4px; margin-top: var(--sp-2); color: var(--c-text); font-size: var(--fs-base); line-height: 1.5; overflow-wrap: anywhere; }
+.visual-step p { margin: var(--sp-2) 0 0; color: var(--c-text-2); font-size: var(--fs-sm); }
+.visual-arrow { display: flex; align-items: center; justify-content: center; gap: var(--sp-2); min-height: 42px; color: var(--c-primary); text-align: center; }
+.visual-arrow b { font-size: 22px; }
+.visual-arrow span { font-size: var(--fs-sm); font-weight: 600; }
+.visual-loop { margin-top: var(--sp-3); padding: var(--sp-3); text-align: center; border-radius: 8px; color: var(--c-primary); background: var(--c-bg); font-weight: 600; }
+@media (max-width: 640px) { .chain-node-io { grid-template-columns: 1fr; } .chain-edge > summary em { width: 100%; margin-left: 0; } .visual-now { grid-template-columns: 1fr; } }
 .card.danger { border-left: 4px solid var(--c-danger); }
 .card.warn { border-left: 4px solid var(--c-warn); }
 

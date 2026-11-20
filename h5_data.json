@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T02:42:00",
+  "generated_at": "2026-11-21T02:51:11",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -6461,12 +6461,19 @@
             "action": "观察",
             "reason": "已到持有观察止损线，启动退出评估",
             "eval_dims": {
-              "估值高估": "待数据(主动基金无指数分位)",
-              "业绩跑输": "待数据(需连续4季度业绩对比,基准见fund_benchmark)",
-              "基本面": "待数据",
-              "规模风险": "达标✅(高于规模预警线)·≈8.88亿(2026-06-30基金资产净值)",
-              "价格行为": "收益率-42.58%"
-            }
+              "基金经理": "首次建立经理基线；现任金梓才，任职开始2023-07-19，状态在职",
+              "规模风险": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
+              "长期业绩": "无回测数据",
+              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金017491自2026-06-25起最大回撤达63.38%（截至2026-11-17），同期沪深300最大回撤21.41%，超额回撤-52.52%。2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等科技赛道，前十大重仓占比70.55%；近1月净值下跌32.96%，同期沪深300仅跌4.54%，持仓赛道与基金净值同步大幅调整，表明回撤主因为赛道系统性回调。但缺乏基金经理选股能力恶化或持仓质量下降的直接证据，故fund_quality_deteriorating为null。"
+            },
+            "status": "pending",
+            "trigger_kind": "",
+            "next_review_date": "2026-11-24",
+            "cooldown_until": null,
+            "missing": [
+              "long_performance:基准指数季度不足:中证500指数",
+              "attribution:fund_quality_deteriorating缺少布尔证据"
+            ]
           },
           {
             "fund_code": "010363",
@@ -6474,12 +6481,19 @@
             "action": "观察",
             "reason": "已到持有观察止损线，启动退出评估",
             "eval_dims": {
-              "估值高估": "待数据(主动基金无指数分位)",
-              "业绩跑输": "待数据(需连续4季度业绩对比,基准见fund_benchmark)",
-              "基本面": "待数据",
-              "规模风险": "达标✅(高于规模预警线)·≈17.15亿(2026-06-30基金资产净值)",
-              "价格行为": "收益率-42.56%"
-            }
+              "基金经理": "首次建立经理基线；现任朱然，任职开始2022-08-16，状态在职",
+              "规模风险": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
+              "长期业绩": "无回测数据",
+              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近一月回撤-26.50%、近三月-41.75%；2026Q3重仓股集中于电子(26.16%)、机械设备(19.63%)等科技制造赛道，前十大重仓占比48.53%。同期重仓股精智达连续3日跌18.66%、芯碁微装单日跌7.46%、东山精密单日跌6.45%，持仓赛道个股普遍大幅调整，与基金净值跌幅高度吻合。但缺乏基金经理调仓失误或选股能力下降的直接证据，无法判定基金质量恶化。"
+            },
+            "status": "pending",
+            "trigger_kind": "",
+            "next_review_date": "2026-11-24",
+            "cooldown_until": null,
+            "missing": [
+              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "attribution:fund_quality_deteriorating缺少布尔证据"
+            ]
           }
         ],
         "scale_review": {
@@ -6492,7 +6506,6 @@
           "outcome_count": 0,
           "pending_count": 0,
           "accuracy": null,
-          "legacy_trade_signal_count": 4,
           "status": "前向信号样本由系统持续积累；当前无待结算样本，不计算胜率"
         },
         "action_view": {
@@ -6932,14 +6945,14 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T02:42:00",
+    "generated_at": "2026-11-21T02:51:11",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
       "action_branches": [],
       "current_step": "execution",
       "current_text": "① 定投流程·本人真实账户执行",
-      "completed_formal_bands": 4,
+      "completed_formal_bands": 3,
       "next_action": "2026-11-23按106元计划执行，完成后回传实际扣款。",
       "missing": [
         "本轮无加仓指令",
@@ -7003,14 +7016,14 @@
           "id": "monthly_cash",
           "title": "⑤ 月结与资金入账流程",
           "lines": [
-            "月结已完成｜现金等待加仓条件",
+            "月结未完成｜等待正式封账证据",
             "每月20日封账切月 → 预算/卫星锁 → 现金池入账 → 后续加仓使用",
-            "当前：等待合规加仓机会"
+            "当前：封账与执行对账"
           ],
-          "status": "done",
-          "status_label": "月结已完成｜现金等待加仓条件",
+          "status": "waiting",
+          "status_label": "月结未完成｜等待正式封账证据",
           "out_label": "下一步",
-          "reason": "现金池不自动并入定投；等待加仓流程的评分、低估和资金闸门同时通过。"
+          "reason": "先完成同周期正式封账与执行对账。"
         },
         {
           "id": "quarter_review",
@@ -7157,7 +7170,7 @@
           "steps": [
             {
               "name": "扫描现金与资产偏离",
-              "status": "done",
+              "status": "current",
               "detail": "待到账0笔；已到账未分配0.00元；赛道集中度证据归季度档，不在本流程重复。"
             },
             {
@@ -7189,29 +7202,29 @@
         {
           "id": "monthly_cash",
           "title": "⑤ 月结与资金入账流程",
-          "state": "月结已完成｜现金等待加仓条件",
+          "state": "月结未完成｜等待正式封账证据",
           "cadence": "每月20日封账切月 → 预算/卫星锁 → 现金池入账 → 后续加仓使用",
-          "current": 4,
-          "next": "现金池不自动并入定投；等待加仓流程的评分、低估和资金闸门同时通过。",
+          "current": 1,
+          "next": "先完成同周期正式封账与执行对账。",
           "steps": [
             {
               "name": "封账与执行对账",
-              "status": "done",
+              "status": "current",
               "detail": "10-20~11-19结余170.00元；月度执行复核40笔流水；最新持仓快照2026-11-20。"
             },
             {
               "name": "新钱与持有期复核",
-              "status": "done",
+              "status": "pending",
               "detail": "新周期2026-11-20→2026-12-19；权益560.00元/债券880.00元/黄金180.00元/现金180.00元；资金评审11只；最近解锁：财通景气甄选一年持有C（2027-06-25）。"
             },
             {
               "name": "现金池入账",
-              "status": "done",
+              "status": "pending",
               "detail": "当前现金池170.00元，已纳入月结资金账本。"
             },
             {
               "name": "等待合规加仓机会",
-              "status": "current",
+              "status": "pending",
               "detail": "现金留存不是必须花掉的余额；无有效指令不记成交。"
             }
           ],
@@ -7314,8 +7327,8 @@
         "id": "monthly",
         "title": "月度｜预算与卫星锁",
         "trigger": "每月20日，季度之后",
-        "state": "ready",
-        "state_label": "正式数据已生成",
+        "state": "blocked",
+        "state_label": "正式评估缺数未完成",
         "detail": "本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7474,8 +7487,8 @@
         "id": "ledger",
         "title": "台账反馈｜下次评估输入",
         "trigger": "执行后回传并核对",
-        "state": "ready",
-        "state_label": "正式数据已生成",
+        "state": "blocked",
+        "state_label": "正式评估缺数未完成",
         "detail": "真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7506,10 +7519,10 @@
         "source": "quarter",
         "target": "monthly",
         "label": "核心比例与核心锁",
-        "status": "wired",
+        "status": "missing",
         "actual": "2026-10-01 → 2026-12-31",
-        "guidance": "已接线：季度写、月度读。",
-        "status_label": "已接线"
+        "guidance": "锁或完成证据缺失。",
+        "status_label": "未接线"
       },
       {
         "source": "quarter",
@@ -7524,19 +7537,19 @@
         "source": "monthly",
         "target": "weekly",
         "label": "周期预算锁",
-        "status": "wired",
+        "status": "missing",
         "actual": "2026-11-20",
-        "guidance": "已接线：周日只读本周期预算锁。",
-        "status_label": "已接线"
+        "guidance": "预算锁或完成证据缺失。",
+        "status_label": "未接线"
       },
       {
         "source": "monthly",
         "target": "weekly",
         "label": "卫星结构锁",
-        "status": "wired",
+        "status": "missing",
         "actual": "2026-11-20 → 2026-12-19",
-        "guidance": "已接线：月度写、周日读。",
-        "status_label": "已接线"
+        "guidance": "卫星锁或完成证据缺失。",
+        "status_label": "未接线"
       },
       {
         "source": "weekly",
@@ -7611,13 +7624,13 @@
     "summary": {
       "formal_band_count": 4,
       "edge_counts": {
-        "wired": 3,
+        "wired": 0,
         "derived": 1,
         "none": 1,
         "control": 1,
         "manual": 2,
         "feedback": 1,
-        "missing": 0
+        "missing": 3
       },
       "guidance": "点击各档查看真实输入、输出、锁周期和去向；颜色只表示链路类型，不表示买卖建议。"
     }

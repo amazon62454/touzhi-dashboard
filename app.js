@@ -654,10 +654,46 @@ const PAGE_SCHEMA = {
 };
 
 // ---------- 特殊页渲染 ----------
+R.monthlyEngineEvidence = function (a) {
+  if (!a || (!Object.prototype.hasOwnProperty.call(a, 'scale_refresh')
+      && !Object.prototype.hasOwnProperty.call(a, 'stop_reviews')
+      && !Object.prototype.hasOwnProperty.call(a, 'forward_validation'))) return '';
+  const scale = a.scale_refresh;
+  const scaleHtml = scale ? C.kv('规模自动取数',
+    `写入${Number(scale.written || 0)}只 · 复用${Number(scale.reused || 0)}只 · 缺失${(scale.missing || []).length}只`,
+    (scale.missing || []).length ? 'neg' : 'pos') : C.kv('规模自动取数', '待数据', 'warn');
+  const missingNames = {long_performance: '长期业绩', attribution: '归因证据', manager: '基金经理', scale_risk: '规模'};
+  const reviewHtml = (a.stop_reviews || []).map(item => {
+    const missing = [...new Set((item.missing || []).map(x => missingNames[String(x).split(':')[0]] || '其他证据'))].join('、');
+    const state = item.status === 'completed' ? '已完成' : (item.status === 'pending' ? '缺数待补' : '待评估');
+    const deadline = item.status === 'completed' ? item.next_review_date : (item.deadline_date || item.next_review_date);
+    return `<div class="flow-line"><b>${esc(item.fund_name || item.fund_code)}</b> · ${esc(state)}</div>`
+      + C.kv(item.status === 'completed' ? '下次复核' : '评估截止', esc(deadline || '待数据'), item.status === 'completed' ? '' : 'warn')
+      + C.kv('可赎回日期', esc(item.lock_end_date || '不适用'))
+      + (missing ? C.kv('待补证据', esc(missing), 'warn') : '');
+  }).join('');
+  const forward = a.forward_validation;
+  let forwardHtml;
+  if (!forward) {
+    forwardHtml = C.kv('前向信号结算', '本档未执行；未到期信号继续观察');
+  } else {
+    const stats = forward.stats || {};
+    const statText = ['buy', 'sell'].map(kind => {
+      const item = stats[kind] || {};
+      const accuracy = item.accuracy === null || item.accuracy === undefined ? '准确率待积累' : `准确率${item.accuracy}%`;
+      return `${kind === 'buy' ? '买入' : '卖出'}样本${item.sample === undefined ? '待数据' : item.sample}个，${accuracy}`;
+    }).join('；');
+    const settled = forward.settled === undefined ? '待数据' : Number(forward.settled);
+    forwardHtml = C.kv('前向信号结算', `本次结算${settled}笔；${statText}`);
+  }
+  return C.card('系统取数与复核证据', scaleHtml + reviewHtml + forwardHtml);
+};
+
 R.monthlyDetails = function (b) {
   const a = b.artifacts || {};
   const content = [
     R.settledCash(b.rebalance_cash), R.rebalance(a.rebalance),
+    R.monthlyEngineEvidence(a),
     R.monthlyReview(a.monthly_review, a.execution_review, a.unlock_review), R.periodSummary(a.period_summary),
     R.takeProfit(a.take_profit), R.scan(a.scan, b.market_env), R.positionRows(b.items), R.fundDest(),
   ].join('');

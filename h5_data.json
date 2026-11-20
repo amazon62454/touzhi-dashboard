@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T00:18:54",
+  "generated_at": "2026-11-21T00:26:20",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -6904,7 +6904,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T00:18:54",
+    "generated_at": "2026-11-21T00:26:20",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -10004,6 +10004,27 @@
     "ui_flow_status_current": "当前",
     "ui_flow_status_blocked": "阻断",
     "ui_flow_status_pending": "未完成",
-    "ui_action_contract_missing": "等待引擎生成行动结论"
+    "ui_action_contract_missing": "等待引擎生成行动结论",
+    "ui_h2_band_action": "本期行动结论",
+    "ui_chain_parameters": "查看档位参数与传递关系",
+    "ui_chain_nodes": "档位输入与输出",
+    "ui_chain_edges": "参数传递关系",
+    "ui_chain_col_item": "项目",
+    "ui_chain_col_value": "当前值",
+    "ui_chain_col_source": "来源",
+    "ui_chain_col_route": "传递路径",
+    "ui_chain_col_status": "状态",
+    "ui_chain_col_guidance": "说明",
+    "ui_chain_status_wired": "已接线",
+    "ui_chain_status_derived": "同基准重算",
+    "ui_chain_status_none": "无直接链",
+    "ui_chain_status_control": "独立控制",
+    "ui_chain_status_manual": "人工执行",
+    "ui_chain_status_feedback": "事实反馈",
+    "ui_ret_metric_market": "当前持有市值",
+    "ui_ret_metric_cost": "持仓成本",
+    "ui_ret_metric_profit": "持仓收益",
+    "ui_ret_metric_profit_rate": "持仓收益率",
+    "ui_retirement_base": "持仓基准 {date}"
   }
 }

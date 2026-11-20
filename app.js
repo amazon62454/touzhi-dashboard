@@ -212,7 +212,7 @@ const R = {
   },
 
   // 月度档
-  monthlyReview(mr) {
+  monthlyReview(mr, execution, unlocks) {
     if (!mr) return '';
     const ret = mr.item2_收益率 || {};
     const cum = ret['累计'] || {};
@@ -234,11 +234,17 @@ const R = {
         return `<div class="money-row"><span>${esc(x.trade_date || '')} · ${esc(x.fund_name || fundName(x.fund_code))}<small> ${esc(x.action || '')}</small></span><strong>${amount}</strong></div>`;
       }).join('') : `<p class="lead">${esc(rawReview || '')}</p>`;
     const inv = mr.item4_定投统计 || {};
-    const body = `${C.kv('数据完整性', esc(mr.item1_完整性))}
+    const ex = execution && typeof execution === 'object' ? execution : {};
+    const completeness = ex.completeness || mr.item1_完整性;
+    const reviewMeta = `${ex.record_count != null ? C.kv('流水记录数', esc(ex.record_count)) : ''}${ex.missing_scale_count != null ? C.kv('缺规模数据', `${esc(ex.missing_scale_count)} 只`) : ''}`;
+    const ul = Array.isArray(unlocks) ? unlocks : (unlocks ? [unlocks] : []);
+    const unlockRows = ul.map(x => `<div class="money-row"><span>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></span><strong>${esc(x.lock_end_date || '')}${x.within_6m ? ' ' + C.badge('临近解锁', 'warn') : ''}</strong></div>`).join('');
+    const body = `${C.kv('数据完整性', esc(completeness))}
       ${C.kv('本月组合收益率', mom != null ? pct(mom) : '待数据', numTone(mom))}
       ${snapLine}
       ${cumRows}
       ${C.kv('定投执行', inv['次数'] != null ? `${esc(inv['次数'])}笔 / ${money(inv['金额'])}` : '—')}
+      ${reviewMeta}${unlockRows}
       ${reviewHtml}
       <p class="muted">${esc(mr.item5_信号准确率 || '')}</p>
       <p class="muted">${esc(mr.item6_赛道跟踪 || '')}</p>`;
@@ -599,7 +605,7 @@ const R = {
 const PAGE_SCHEMA = {
   'page-band_daily': [
     { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandFlows', arg: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
-    { fn: 'nextReview', from: 'band_daily' }, { fn: 'marketEnv', from: 'band_daily' },
+    { fn: 'nextReview', from: 'band_daily' },
   ],
   'page-band_eval': [
     { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandFlows', arg: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' },
@@ -607,11 +613,11 @@ const PAGE_SCHEMA = {
   ],
   'page-band_monthly': [
     { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandFlows', arg: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
-    { fn: 'assetAllocation', from: 'band_monthly' }, { fn: 'monthlyDetails', from: 'band_monthly' },
+    { fn: 'monthlyDetails', from: 'band_monthly' },
   ],
   'page-band_quarter': [
-    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
-    { fn: 'equityStructure', from: 'band_quarter' }, { fn: 'allocation', from: 'band_quarter' },
+    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandFlows', arg: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
+    { fn: 'equityStructure', from: 'band_quarter' }, { fn: 'assetAllocation', from: 'band_quarter' },
     { fn: 'concentration', from: 'band_quarter' }, { fn: 'exitReviews', from: 'band_quarter' }, { fn: 'quarterReview', from: 'band_quarter' },
   ],
   'page-retirement': [{ fn: 'retirementPage' }],
@@ -624,9 +630,8 @@ R.monthlyDetails = function (b) {
   const a = b.artifacts || {};
   const content = [
     R.settledCash(b.rebalance_cash), R.rebalance(a.rebalance),
-    R.monthlyReview(a.monthly_review), R.periodSummary(a.period_summary),
-    R.takeProfit(a.take_profit), R.scan(a.scan, b.market_env), R.positionRows(b.items),
-    R.execution(a.execution_review, a.unlock_review), R.fundDest(),
+    R.monthlyReview(a.monthly_review, a.execution_review, a.unlock_review), R.periodSummary(a.period_summary),
+    R.takeProfit(a.take_profit), R.scan(a.scan, b.market_env), R.positionRows(b.items), R.fundDest(),
   ].join('');
   return content ? C.details(U.ui_monthly_details, content) : '';
 };
@@ -704,7 +709,6 @@ R.retirementProjection = function () {
     C.kv(U.ui_retirement_date, esc(p.retire_date)),
     C.kv(U.ui_retirement_remaining, fmt(U.ui_retirement_years || '', { years: p.years_remaining })),
     C.kv(U.ui_retirement_contribution, money(p.monthly_budget), 'info'),
-    C.kv(U.ui_retirement_start || '当前持仓市值（测算起点）', money(p.start_market), 'info'),
     C.kv(U.ui_retirement_principal, money(p.principal), 'info'),
     C.kv(U.ui_retirement_profit, money(p.projected_profit), numTone(p.projected_profit)),
   ].join('');

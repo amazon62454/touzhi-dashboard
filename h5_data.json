@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T18:51:20",
+  "generated_at": "2026-11-20T18:52:26",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1370,7 +1370,7 @@
       "summary": "部分操作可执行，其余因数据不足已拦截",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-20T18:34:25",
+        "as_of": "2026-11-20T18:51:46",
         "next_review_date": "2026-11-22",
         "source_param": "P110/P206",
         "state": "partial",
@@ -1391,7 +1391,7 @@
             "is_postponed": false,
             "postpone_days": 0,
             "valid_until": "2026-11-23T08:00:00",
-            "amount": 32.83,
+            "amount": 32.0,
             "archive_label": ""
           },
           {
@@ -1414,7 +1414,7 @@
             "is_postponed": false,
             "postpone_days": 0,
             "valid_until": "2026-11-23T08:00:00",
-            "amount": 44.34,
+            "amount": 44.0,
             "archive_label": ""
           },
           {
@@ -1528,11 +1528,11 @@
         "valid_until": "2026-11-23T08:00:00",
         "next_review_at": "2026-11-22T03:30:00",
         "result_visible_until": "2026-11-22T03:30:00",
-        "result_effective_from": "2026-11-20T18:33:59",
+        "result_effective_from": "2026-11-20T18:51:15",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-20T18:33:59",
+      "generated_at": "2026-11-20T18:51:15",
       "run_kind": "release_bootstrap",
       "items": [
         {
@@ -1819,19 +1819,19 @@
       ],
       "allocation": {
         "amounts": {
-          "债券": 13363.99,
+          "权益": 6319.040000000001,
           "养老FOF": 1178.15,
-          "黄金": 1286.0,
           "现金": 170.0,
-          "权益": 6319.040000000001
+          "债券": 13363.99,
+          "黄金": 1286.0
         },
         "total": 22317.18,
         "weights": {
-          "债券": 59.88,
+          "权益": 28.31,
           "养老FOF": 5.28,
-          "黄金": 5.76,
           "现金": 0.76,
-          "权益": 28.31
+          "债券": 59.88,
+          "黄金": 5.76
         }
       },
       "asset_allocation": {
@@ -2240,7 +2240,7 @@
           "160119": {
             "fund_code": "160119",
             "fund_name": "南方中证500ETF联接(LOF)A",
-            "amount": 32.83,
+            "amount": 32.0,
             "role": "core",
             "reason_code": "core_locked_ratio",
             "allowed": true,
@@ -2273,7 +2273,7 @@
           "017140": {
             "fund_code": "017140",
             "fund_name": "华宝中证有色金属ETF联接A",
-            "amount": 44.34,
+            "amount": 44.0,
             "role": "satellite",
             "reason_code": "satellite_structure_partial_cascade",
             "allowed": true,
@@ -2330,7 +2330,7 @@
             {
               "fund_code": "160119",
               "fund_name": "南方中证500ETF联接(LOF)A",
-              "amount": 32.83,
+              "amount": 32.0,
               "role": "core",
               "reason_code": "core_locked_ratio",
               "allowed": true,
@@ -2362,7 +2362,7 @@
             {
               "fund_code": "017140",
               "fund_name": "华宝中证有色金属ETF联接A",
-              "amount": 44.34,
+              "amount": 44.0,
               "role": "satellite",
               "reason_code": "satellite_structure_partial_cascade",
               "allowed": true,
@@ -2410,14 +2410,14 @@
             {
               "fund_code": null,
               "fund_name": "现金留存",
-              "amount": 342.83,
+              "amount": 344.0,
               "role": "cash",
               "reason_code": "strategic_cash_and_withheld_budget"
             }
           ]
         },
-        "weekly_total": 107.17,
-        "cash_retained": 342.83,
+        "weekly_total": 106.0,
+        "cash_retained": 344.0,
         "blockers": [],
         "scope_note": "普通定投按周期锁与实际扣款核销；再平衡待分配现金另走rebalance_cash，不重复占月预算"
       },
@@ -2436,7 +2436,7 @@
           {
             "fund_code": "160119",
             "fund_name": "南方中证500ETF联接(LOF)A",
-            "amount": 32.83,
+            "amount": 32.0,
             "role": "core",
             "reason_code": "core_locked_ratio",
             "allowed": true,
@@ -2468,7 +2468,7 @@
           {
             "fund_code": "017140",
             "fund_name": "华宝中证有色金属ETF联接A",
-            "amount": 44.34,
+            "amount": 44.0,
             "role": "satellite",
             "reason_code": "satellite_structure_partial_cascade",
             "allowed": true,
@@ -2516,7 +2516,7 @@
           {
             "fund_code": null,
             "fund_name": "现金留存",
-            "amount": 342.83,
+            "amount": 344.0,
             "role": "cash",
             "reason_code": "strategic_cash_and_withheld_budget"
           }
@@ -2890,10 +2890,10 @@
           ],
           "trade_days": 5,
           "daily_amounts": {},
-          "equity_total": 107.17,
+          "equity_total": 106.0,
           "gold_total": 0,
           "debt_total": 0,
-          "total": 107.17,
+          "total": 106.0,
           "shortfall": 0.0,
           "status": "预算可覆盖",
           "current_period_start": "2026-11-20",
@@ -2912,9 +2912,9 @@
               "period_start": "2026-11-20",
               "period_end": "2026-12-19",
               "is_current_period": true,
-              "equity_total": 107.17,
+              "equity_total": 106.0,
               "debt_total": 0,
-              "total": 107.17,
+              "total": 106.0,
               "debt_days": 0,
               "debit_dates": [
                 "2026-11-23"
@@ -2930,7 +2930,7 @@
               },
               "available": 1800.0,
               "available_source": "P2本周期剩余",
-              "remaining_after": 1692.83,
+              "remaining_after": 1694.0,
               "shortfall": 0.0,
               "status": "预算可覆盖",
               "full_cycle": {
@@ -2940,11 +2940,11 @@
                 "debt_budget": 880.0,
                 "gold_reserved": 180.0,
                 "cash_reserved": 180.0,
-                "projected_equity": 428.68,
+                "projected_equity": 424.0,
                 "projected_debt": 0,
                 "projected_gold": 0,
-                "projected_total": 608.68,
-                "projected_remaining": 1191.32,
+                "projected_total": 604.0,
+                "projected_remaining": 1196.0,
                 "equity_excess": 0.0,
                 "debt_excess": 0.0,
                 "gold_excess": 0.0,
@@ -2960,7 +2960,7 @@
               "kind": "equity",
               "date": "2026-11-23",
               "period_start": "2026-11-20",
-              "amount": 32.83,
+              "amount": 32.0,
               "fund_name": "南方中证500ETF联接(LOF)A"
             },
             {
@@ -2968,7 +2968,7 @@
               "kind": "equity",
               "date": "2026-11-23",
               "period_start": "2026-11-20",
-              "amount": 44.34,
+              "amount": 44.0,
               "fund_name": "华宝中证有色金属ETF联接A"
             },
             {
@@ -6843,13 +6843,13 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T18:51:20",
+    "generated_at": "2026-11-20T18:52:27",
     "visual": {
       "title": "V2执行全景图｜钱、规则、执行、反馈",
       "current_step": "execution",
       "current_text": "⑦ 你本人在真实账户执行",
       "completed_formal_bands": 4,
-      "next_action": "2026-11-23按正式计划执行107元，完成后回传实际结果",
+      "next_action": "2026-11-23按正式计划执行106元，完成后回传实际结果",
       "missing": [
         "实际账户执行与回传尚未闭环",
         "四资产目标尚无quarter_allocation_lock独立锚锁",
@@ -6913,9 +6913,9 @@
           "id": "central",
           "title": "⑤ 集中制形成周计划",
           "lines": [
-            "计划合计：107元",
+            "计划合计：106元",
             "南方中证500ETF联接(LOF)A：32元；华宝中证有色金属ETF联接A：44元；兴全安泰积极养老目标五年FOF A：30元",
-            "未投额度：342.83元"
+            "未投额度：344.00元"
           ],
           "status": "done",
           "status_label": "已完成",
@@ -6940,7 +6940,7 @@
           "title": "⑦ 你本人在真实账户执行",
           "lines": [
             "执行日：2026-11-23",
-            "执行金额：107元",
+            "执行金额：106元",
             "当前：等待真实扣款/赎回回传"
           ],
           "status": "current",
@@ -7059,7 +7059,7 @@
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-20T18:33:59",
+        "generated_at": "2026-11-20T18:51:15",
         "inputs": [
           {
             "label": "周期预算锁",
@@ -7085,7 +7085,7 @@
           },
           {
             "label": "计划金额",
-            "value": "107元",
+            "value": "106元",
             "source": "execution_plan"
           },
           {
@@ -7139,7 +7139,7 @@
         "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-20T18:33:59",
+        "generated_at": "2026-11-20T18:51:15",
         "inputs": [
           {
             "label": "可执行计划",

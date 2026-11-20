@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T00:32:17",
+  "generated_at": "2026-11-21T00:33:22",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -6936,7 +6936,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T00:32:17",
+    "generated_at": "2026-11-21T00:33:22",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -7279,7 +7279,7 @@
         "title": "季度｜战略配置与核心锚",
         "trigger": "3/6/9/12月20日，先跑",
         "state": "blocked",
-        "state_label": "查看详情",
+        "state_label": "观察",
         "detail": "先制定存量配置；不读取同日月度才生成的预算锁。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7319,7 +7319,7 @@
         "title": "月度｜预算与卫星锁",
         "trigger": "每月20日，季度之后",
         "state": "blocked",
-        "state_label": "查看详情",
+        "state_label": "观察",
         "detail": "本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7388,9 +7388,14 @@
         ],
         "outputs": [
           {
-            "label": "动作数量",
+            "label": "计划基金数",
             "value": "8",
             "source": "execution_plan"
+          },
+          {
+            "label": "可执行基金数",
+            "value": "3",
+            "source": "档位正式有效性"
           },
           {
             "label": "计划金额",
@@ -7399,8 +7404,8 @@
           },
           {
             "label": "计划状态",
-            "value": "等待正式评估",
-            "source": "动作有效期"
+            "value": "部分可执行",
+            "source": "档位正式有效性"
           }
         ]
       },
@@ -7452,7 +7457,7 @@
         "inputs": [
           {
             "label": "可执行计划",
-            "value": "等待正式评估",
+            "value": "部分可执行",
             "source": "周日报告"
           },
           {
@@ -7474,7 +7479,7 @@
         "title": "台账反馈｜下次评估输入",
         "trigger": "执行后回传并核对",
         "state": "blocked",
-        "state_label": "查看详情",
+        "state_label": "观察",
         "detail": "真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -7560,7 +7565,7 @@
         "target": "execution",
         "label": "有效执行报告",
         "status": "manual",
-        "actual": "等待正式评估",
+        "actual": "部分可执行",
         "guidance": "用户按有效报告在真实账户执行。",
         "status_label": "人工执行"
       },
@@ -10058,6 +10063,17 @@
     "ui_ret_metric_profit": "持仓收益",
     "ui_ret_metric_profit_rate": "持仓收益率",
     "ui_retirement_base": "持仓基准 {date}",
-    "ui_state_valid": "有效"
+    "ui_state_valid": "有效",
+    "ui_chain_state_active": "可执行",
+    "ui_chain_state_awaiting": "等待正式评估",
+    "ui_chain_state_blocked": "已阻断",
+    "ui_chain_state_expired": "已失效",
+    "ui_chain_state_no_action": "无需操作",
+    "ui_chain_state_observation": "观察",
+    "ui_chain_state_partial": "部分可执行",
+    "ui_chain_state_test": "测试",
+    "ui_chain_state_valid": "有效",
+    "ui_chain_inputs": "输入",
+    "ui_chain_outputs": "输出"
   }
 }

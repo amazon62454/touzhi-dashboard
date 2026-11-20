@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T17:51:21",
+  "generated_at": "2026-11-20T17:53:52",
   "base_date": "2026-11-19",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -127,33 +127,33 @@
     "zero_return_principal": 450860
   },
   "funds_page": {
-    "period": "10-20~11-19",
+    "period": "11-20~12-19",
     "injection": 1800.0,
-    "spent": 1630.0,
-    "remaining": 170.0,
-    "cash_pool": 0.0,
+    "spent": 0.0,
+    "remaining": 1800.0,
+    "cash_pool": 170.0,
     "channels": [
       {
         "name": "定投",
-        "value": "878"
+        "value": "0"
       },
       {
         "name": "加仓",
-        "value": "122"
+        "value": "0"
       },
       {
         "name": "现金池结余加仓",
-        "value": "630"
+        "value": "0"
       },
       {
         "name": "减仓",
-        "value": null
+        "value": "0"
       }
     ],
     "cash_detail": {
-      "balance": 0.0,
+      "balance": 170.0,
       "monthly_inject": 180.0,
-      "last_period_note": "1389.6已转家用"
+      "last_period_note": ""
     }
   },
   "bands": {
@@ -537,6 +537,7 @@
       "execution_plan": null,
       "amount_groups": null,
       "rebalance_cash": null,
+      "monthly_close": null,
       "five_dimension_scores": null,
       "artifacts": {
         "daily_checks": [
@@ -966,6 +967,7 @@
       "execution_plan": null,
       "amount_groups": null,
       "rebalance_cash": null,
+      "monthly_close": null,
       "five_dimension_scores": null,
       "artifacts": {
         "add_on_reviews": [],
@@ -1719,6 +1721,20 @@
         "cash_after_plan": 0.0,
         "deployable_before_plan": 0.0,
         "mode": "rebalance_required"
+      },
+      "monthly_close": {
+        "status": "closed",
+        "old_period": "2026-11",
+        "new_period": "2026-12",
+        "old_label": "10-20~11-19",
+        "new_label": "11-20~12-19",
+        "spent": 1630.0,
+        "remaining": 170.0,
+        "cash_before": 0.0,
+        "cash_after": 170.0,
+        "new_budget": 1800.0,
+        "closed_at": "2026-11-20T17:53:45",
+        "writes": 13
       },
       "five_dimension_scores": {
         "000051": {
@@ -2564,6 +2580,7 @@
       "execution_plan": null,
       "amount_groups": null,
       "rebalance_cash": null,
+      "monthly_close": null,
       "five_dimension_scores": null,
       "artifacts": {
         "action_checklist": [],
@@ -2582,7 +2599,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-20T17:51:21",
+    "generated_at": "2026-11-20T17:53:52",
     "empty": false,
     "nodes": [
       {

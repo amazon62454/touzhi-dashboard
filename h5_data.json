@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T00:46:02",
+  "generated_at": "2026-11-21T01:00:25",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -2153,7 +2153,7 @@
         "fof_remaining_obligation": 120.0,
         "passive_equity_week": 110.0,
         "core_week_budget": 65.66,
-        "satellite_week_budget": 44.34,
+        "satellite_week_budget": 44.0,
         "satellite_week_unallocated": 0.0,
         "satellite_cap_state": {
           "satellite_cap": 50.0,
@@ -2191,7 +2191,7 @@
           {
             "fund_code": "024328",
             "allocated": 0.0,
-            "remaining": 44.340037499999994,
+            "remaining": 44.0,
             "reason": "已达卫星结构上限，新增额度顺延下一名",
             "amount": 0.0,
             "satellite_layer_room": 0.0,
@@ -2205,7 +2205,7 @@
           {
             "fund_code": "012544",
             "allocated": 0.0,
-            "remaining": 44.340037499999994,
+            "remaining": 44.0,
             "reason": "已达卫星结构上限，新增额度顺延下一名",
             "amount": 0.0,
             "satellite_layer_room": 914.69,
@@ -2218,8 +2218,8 @@
           },
           {
             "fund_code": "017140",
-            "allocated": 44.34,
-            "remaining": 3.749999999058673e-05,
+            "allocated": 44.0,
+            "remaining": 0.0,
             "reason": "按结构额度部分分配，剩余额度顺延下一名",
             "global_room": 3080.767,
             "amount": 1230.9889309676048,
@@ -6936,7 +6936,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T00:46:02",
+    "generated_at": "2026-11-21T01:00:25",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

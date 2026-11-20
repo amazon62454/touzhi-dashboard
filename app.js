@@ -132,6 +132,7 @@ const R = {
     return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>
       <p class="lead">${esc(expired ? U.ui_result_expired_headline : v.headline || b.summary || '')}</p>
       <div class="muted">${C.badge(U['ui_state_' + v.state] || '', v.state === 'blocked' ? 'warn' : 'muted')} 基准 ${esc(dateText(b.base_date))}</div>
+      ${b.run_kind === 'release_bootstrap' ? '<p class="status-banner live">V2首发初始基准；常规季度仍按3/6/9/12月20日执行</p>' : ''}
       ${timeLine ? `<p class="muted">${timeLine}</p>` : ''}</div>`;
   },
 
@@ -200,8 +201,8 @@ const R = {
   },
   flow(r) {
     if (!r || !r.flows) return '';
-    const body = `${C.kv('权益层', money(r.flows.equity))}${C.kv('债券层（受债比闸门约束）', money(r.flows.debt))}${C.kv('现金层', money(r.flows.cash))}
-      <p class="muted">三层合计 ${money(r.monthly_budget)}；存量再平衡不计入这份新增预算。</p>`;
+    const body = `${C.kv('权益层', money(r.flows.equity))}${C.kv('债券层（受债比闸门约束）', money(r.flows.debt))}${C.kv('黄金层', money(r.flows.gold))}${C.kv('现金层', money(r.flows.cash))}
+      <p class="muted">四资产合计 ${money(r.monthly_budget)}；存量再平衡不计入这份新增预算。</p>`;
     return C.card(`${esc(r.erp_label || '')}态月度流量分配`, body);
   },
 
@@ -718,7 +719,7 @@ function renderPage(pageId) {
         if (node.fn === 'concentration') return fn(a.concentration);
         if (node.fn === 'exitReviews') return fn(a.exit_reviews);
         if (node.fn === 'monthlyReview') return fn(a.monthly_review);
-        if (node.fn === 'monthlyClose') return fn(b.monthly_close || a.monthly_close);
+        if (node.fn === 'monthlyClose') return fn(b.monthly_close);  // R101:monthly_close在band顶层,不读artifacts(修数据契约断裂)
         if (node.fn === 'periodSummary') return fn(a.period_summary);
         if (node.fn === 'takeProfit') return fn(a.take_profit);
         if (node.fn === 'fundingReview') return fn(a.funding_review);

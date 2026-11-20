@@ -132,8 +132,16 @@ const R = {
     return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>
       <p class="lead">${esc(expired ? U.ui_result_expired_headline : v.headline || b.summary || '')}</p>
       <div class="muted">${C.badge(U['ui_state_' + v.state] || '', v.state === 'blocked' ? 'warn' : 'muted')} 基准 ${esc(dateText(b.base_date))}</div>
-      ${b.run_kind === 'release_bootstrap' ? '<p class="status-banner live">V2首发初始基准；常规季度仍按3/6/9/12月20日执行</p>' : ''}
+      ${b.run_kind === 'release_bootstrap' ? `<p class="status-banner live">V2首发初始基准（用户明确授权）${band === 'band_quarter' ? '；常规季度仍按3/6/9/12月20日执行' : ''}</p>` : ''}
       ${timeLine ? `<p class="muted">${timeLine}</p>` : ''}</div>`;
+  },
+
+  weeklyTotal(b) {
+    const p = (b || {}).execution_plan || {};
+    if (!has(p.weekly_total)) return '';
+    return C.card('本周正式计划', C.kv('执行日', esc(p.execution_date))
+      + C.kv('合计定投', money(p.weekly_total), 'info')
+      + C.kv('现金留存', money(p.cash_retained)));
   },
 
   bandActions(b) {
@@ -554,7 +562,7 @@ const R = {
       ? `原计划不可全额执行，缺口 ${money(w.shortfall)}`
       : daily != null ? `每个交易日 ${money(daily)}，下周共 ${money(w.debt_total)}` : '暂停，0元';
     let html = C.kv('下周债基结论', decision, blocked ? 'neg' : 'pos')
-      + C.kv('本周需求', `权益 ${money(w.equity_total)} + 债基 ${money(w.debt_total)} = ${money(w.total)}`, 'info')
+      + C.kv('本周需求', `权益与黄金 ${money(w.equity_total)} + 债基 ${money(w.debt_total)} = ${money(w.total)}`, 'info')
       + C.kv('本周债基实际执行', money(w.debt_actual_amount), numTone(w.debt_actual_amount));
     (w.cycles || []).forEach(g => {
       const lock = g.budget_lock || {};
@@ -597,15 +605,15 @@ const PAGE_SCHEMA = {
     { fn: 'normalItems', from: 'band_daily' },
   ],
   'page-band_eval': [
-    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandActions', from: 'band_eval' }, { fn: 'bandBlocked', from: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' },
-    { fn: 'weeklyBudget', from: 'band_eval' }, { fn: 'equityStructure', from: 'band_eval' },
+    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandActions', from: 'band_eval' }, { fn: 'bandBlocked', from: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' }, { fn: 'checkScan', from: 'band_eval' },
+    { fn: 'weeklyTotal', from: 'band_eval' }, { fn: 'weeklyBudget', from: 'band_eval' }, { fn: 'equityStructure', from: 'band_eval' },
     { fn: 'satelliteExecution', from: 'band_eval' }, { fn: 'settledCash', from: 'band_eval' },
     { fn: 'evalCash', from: 'band_eval' }, { fn: 'netAddition', from: 'band_eval' },
     { fn: 'addOn', from: 'band_eval' },
   ],
   'page-band_monthly': [
     { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandActions', from: 'band_monthly' }, { fn: 'bandBlocked', from: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
-    { fn: 'monthlyClose', from: 'band_monthly' },
+    { fn: 'monthlyClose', from: 'band_monthly' }, { fn: 'checkScan', from: 'band_monthly' },
     { fn: 'assetAllocation', from: 'band_monthly' }, { fn: 'equityStructure', from: 'band_monthly' },
     { fn: 'settledCash', from: 'band_monthly' }, { fn: 'rebalance', from: 'band_monthly' }, { fn: 'flow', from: 'band_monthly' },
     { fn: 'monthlyReview', from: 'band_monthly' }, { fn: 'periodSummary', from: 'band_monthly' },
@@ -614,7 +622,7 @@ const PAGE_SCHEMA = {
     { fn: 'execution', from: 'band_monthly' }, { fn: 'fundDest' },
   ],
   'page-band_quarter': [
-    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandActions', from: 'band_quarter' }, { fn: 'bandBlocked', from: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
+    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandActions', from: 'band_quarter' }, { fn: 'bandBlocked', from: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'checkScan', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
     { fn: 'assetAllocation', from: 'band_quarter' }, { fn: 'equityStructure', from: 'band_quarter' },
     { fn: 'settledCash', from: 'band_quarter' }, { fn: 'allocation', from: 'band_quarter' }, { fn: 'rebalance', from: 'band_quarter' },
     { fn: 'concentration', from: 'band_quarter' }, { fn: 'exitReviews', from: 'band_quarter' },
@@ -644,7 +652,10 @@ R.chainPage = function () {
     flow += `<details class="chain-node chain-state-${esc(n.state)}"><summary class="chain-node-head"><span class="chain-node-name">${esc(n.title)}</span><span class="chain-node-trigger">${esc(n.trigger)}</span><span class="chain-node-state">${esc(n.state_label)}</span></summary><div class="chain-node-body"><p>${esc(n.detail)}</p><div class="chain-node-meta"><span>${esc(labels.base_date)}：${esc(n.base_date)}</span><span>${esc(labels.review_date)}：${esc(n.review_date)}</span><span>${esc(labels.generated_at)}：${esc(n.generated_at)}</span></div><div class="chain-node-io"><section><h3>${esc(labels.inputs)}</h3>${renderItems(n.inputs)}</section><section><h3>${esc(labels.outputs)}</h3>${renderItems(n.outputs)}</section></div></div></details>`;
   });
   const links = edges.map(e => `<details class="chain-edge chain-status-${esc(e.status)}"><summary><span>${esc(names[e.source] || e.source)}</span><b>→</b><span>${esc(names[e.target] || e.target)}</span><em>${esc(e.status_label)}</em></summary><div class="chain-edge-body"><strong>${esc(e.label)}</strong><p>${esc(labels.actual)}：${esc(e.actual)}</p><p>${esc(labels.guidance)}：${esc(e.guidance)}</p></div></details>`).join('');
-  return C.card(pc.title || '', `<div class="chain-subtitle">${esc(pc.subtitle || '')}</div><div class="chain-counts">${counts}</div><p class="muted">${esc((pc.summary && pc.summary.guidance) || '')}</p>${pc.empty ? `<div class="status-banner warn">${esc(labels.empty)}</div>` : ''}<h3>${esc(labels.nodes)}</h3><div class="chain-flow">${flow}</div><h3>${esc(labels.edges)}</h3><div class="chain-edges">${links}</div>`);
+  const visual = pc.visual || {};
+  const visualSteps = (visual.steps || []).map((s, index, all) => `<div class="visual-step ${esc(s.status)}"><div class="visual-step-head"><span class="visual-step-title">${esc(s.title)}</span><span class="visual-step-state">${esc(s.status_label)}</span></div><div class="visual-step-lines">${(s.lines || []).map(line => `<div>${esc(line)}</div>`).join('')}</div><p>${esc(s.reason)}</p></div>${index < all.length - 1 ? `<div class="visual-arrow"><b>↓</b><span>${esc(s.out_label)}</span></div>` : ''}`).join('');
+  const visualHtml = visualSteps ? C.card(visual.title || '', `<div class="visual-now"><div><small>现在执行到</small><strong>${esc(visual.current_text)}</strong></div><div><small>下一步</small><strong>${esc(visual.next_action)}</strong></div></div><div class="visual-missing"><strong>还没闭环，差这些</strong>${(visual.missing || []).map(x => `<div>• ${esc(x)}</div>`).join('')}</div><div class="visual-flow">${visualSteps}</div><div class="visual-loop">↩ 台账反馈后回到①，进入下一周期</div>`) : '';
+  return visualHtml + C.card(pc.title || '', `<div class="chain-subtitle">${esc(pc.subtitle || '')}</div><div class="chain-counts">${counts}</div><p class="muted">${esc((pc.summary && pc.summary.guidance) || '')}</p>${pc.empty ? `<div class="status-banner warn">${esc(labels.empty)}</div>` : ''}<h3>${esc(labels.nodes)}</h3><div class="chain-flow">${flow}</div><h3>${esc(labels.edges)}</h3><div class="chain-edges">${links}</div>`);
 };
 
 R.monthlyClose = function (close) {
@@ -719,7 +730,7 @@ function renderPage(pageId) {
         if (node.fn === 'concentration') return fn(a.concentration);
         if (node.fn === 'exitReviews') return fn(a.exit_reviews);
         if (node.fn === 'monthlyReview') return fn(a.monthly_review);
-        if (node.fn === 'monthlyClose') return fn(b.monthly_close);  // R101:monthly_close在band顶层,不读artifacts(修数据契约断裂)
+        if (node.fn === 'monthlyClose') return fn(a.monthly_close || b.monthly_close);
         if (node.fn === 'periodSummary') return fn(a.period_summary);
         if (node.fn === 'takeProfit') return fn(a.take_profit);
         if (node.fn === 'fundingReview') return fn(a.funding_review);

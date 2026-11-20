@@ -337,3 +337,27 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 .check-item { padding: var(--sp-2) 0; border-bottom: 1px dashed var(--c-border); }
 .check-item:last-child { border-bottom: none; }
 .check-item .money-row { border-bottom: none; padding: 0; }
+
+/* 16. 参数链＝各操作流程独立进度（2026-11-20） */
+.workflow-card { border-left: 4px solid var(--c-primary); }
+.workflow-card.addon, .workflow-card.rebalance { border-left-color: var(--c-warning, #d99000); }
+.workflow-card.reduce { border-left-color: var(--c-danger, #c43d3d); }
+.workflow-head { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: flex-start; justify-content: space-between; }
+.workflow-head h2 { margin: 0; }
+.workflow-head > span { font-size: var(--fs-sm); font-weight: 700; color: var(--c-primary); }
+.workflow-cadence { color: var(--c-text-3); font-size: var(--fs-sm); margin: var(--sp-2) 0; }
+.workflow-current { padding: var(--sp-3); border-radius: var(--radius-s); background: var(--c-primary-soft, #eaf3ff); margin-bottom: var(--sp-3); }
+.workflow-current strong { color: var(--c-primary); }
+.workflow-current p { margin: var(--sp-1) 0 0; }
+.workflow-step { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: var(--sp-2); align-items: start; padding: var(--sp-2); border-radius: var(--radius-s); background: var(--c-bg-soft, #f6f8fa); }
+.workflow-step.current { background: var(--c-primary-soft, #eaf3ff); box-shadow: inset 0 0 0 1px var(--c-primary); }
+.workflow-step.blocked { background: var(--c-warning-soft, #fff5df); box-shadow: inset 0 0 0 1px var(--c-warning, #d99000); }
+.workflow-step.pending { opacity: .72; }
+.workflow-step p { margin: var(--sp-1) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
+.workflow-index { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: var(--c-text-3); color: white; font-weight: 700; }
+.workflow-step.done .workflow-index { background: var(--c-success, #25885a); }
+.workflow-step.current .workflow-index { background: var(--c-primary); }
+.workflow-step.blocked .workflow-index { background: var(--c-warning, #d99000); }
+.workflow-arrow { text-align: center; color: var(--c-primary); font-size: var(--fs-lg); line-height: 1.4; }
+.workflow-lines { margin-top: var(--sp-3); padding: var(--sp-3); border: 1px solid var(--c-border); border-radius: var(--radius-s); font-size: var(--fs-sm); }
+.workflow-lines > div { margin-top: var(--sp-2); }

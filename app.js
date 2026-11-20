@@ -122,7 +122,6 @@ const R = {
     else if (v.result_visible_until) timeLine = C.kv(U.ui_label_result_effective, esc(dateTimeText(v.result_visible_until)));
     else if (nextAt) timeLine = C.kv(U.ui_label_next_review, esc(dateTimeText(nextAt)));
     return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(b.title || '')}</h1>
-      <p class="lead">${esc(expired ? U.ui_result_expired_headline : v.headline || b.summary || '')}</p>
       <div class="muted">${C.badge(U['ui_state_' + v.state] || '', v.state === 'blocked' ? 'warn' : 'muted')} 基准 ${esc(dateText(b.base_date))}</div>
       ${b.run_kind === 'release_bootstrap' ? `<p class="status-banner live">V2首发初始基准（用户明确授权）${band === 'band_quarter' ? '；常规季度仍按3/6/9/12月20日执行' : ''}</p>` : ''}
       ${timeLine ? `<p class="muted">${timeLine}</p>` : ''}</div>`;
@@ -196,9 +195,11 @@ const R = {
       basis = env.template_basis.replace('{debt}', im.debt_target).replace('{label}', im.label)
         .replace('{pct}', pct(env.hs300_pe_pct)).replace('{cmp}', cmp).replace('{th}', im.threshold);
     }
+    const debtRows = has(r.debt_weight) && has(r.debt_target) && has(r.start_line) && has(r.lower_line)
+      ? `${C.kv('当前债比 / ERP目标', `${pct(r.debt_weight)} / ${pct(r.debt_target)}`)}${C.kv('启动线 / 补债下沿', `${pct(r.start_line)} / ${pct(r.lower_line)}`)}`
+      : C.empty(U.ui_data_awaiting, U.ui_rebalance_data_missing);
     const body = `<p class="lead">${esc(r.action || '')}</p>
-      ${C.kv('当前债比 / ERP目标', `${pct(r.debt_weight)} / ${pct(r.debt_target)}`)}
-      ${C.kv('启动线 / 补债下沿', `${pct(r.start_line)} / ${pct(r.lower_line)}`)}
+      ${debtRows}
       ${basis ? `<p class="muted">${esc(basis)}</p>` : ''}
       ${r.actual_amount_note ? `<p class="muted">${esc(r.actual_amount_note)}</p>` : ''}`;
     return C.card(U.ui_h2_rebalance, body, r.active ? 'warn' : '');
@@ -220,15 +221,25 @@ const R = {
     const worst = cumSorted[0];
     const best = cumSorted[cumSorted.length - 1];
     const cumRows = (worst && best && cumSorted.length > 2)
-      ? C.kv('最差', `${fundName(worst[0]) || worst[0]} ${pct(worst[1])}`, numTone(worst[1])) + C.kv('最好', `${fundName(best[0]) || best[0]} ${pct(best[1])}`, numTone(best[1]))
+      ? C.kv('累计最差', `${fundName(worst[0]) || worst[0]} ${pct(worst[1])}`, numTone(worst[1])) + C.kv('累计最好', `${fundName(best[0]) || best[0]} ${pct(best[1])}`, numTone(best[1]))
       : cumSorted.map(([fc, r]) => C.kv(fundName(fc) || fc, pct(r), numTone(r), fc)).join('');
     const mom = (ret['月度(快照对比)'] || {}).TOTAL;
+    const snap = ret['最近快照变动'] || {};
+    const snapLine = snap.value != null
+      ? `<p class="muted">最近快照变动（${esc(snap.start)} → ${esc(snap.end)}）：<span class="num ${numTone(snap.value)}">${pct(snap.value)}</span>；缺周期起点快照，不能作为本月收益率</p>` : '';
+    const rawReview = mr.item3_加减仓回顾;
+    const reviewHtml = Array.isArray(rawReview)
+      ? rawReview.map(x => {
+        const amount = typeof x.actual_amount === 'number' ? money(x.actual_amount) : esc(x.actual_amount || '—');
+        return `<div class="money-row"><span>${esc(x.trade_date || '')} · ${esc(x.fund_name || fundName(x.fund_code))}<small> ${esc(x.action || '')}</small></span><strong>${amount}</strong></div>`;
+      }).join('') : `<p class="lead">${esc(rawReview || '')}</p>`;
     const inv = mr.item4_定投统计 || {};
     const body = `${C.kv('数据完整性', esc(mr.item1_完整性))}
-      ${C.kv('本月组合收益率', mom != null ? pct(mom) : '—', numTone(mom))}
+      ${C.kv('本月组合收益率', mom != null ? pct(mom) : '待数据', numTone(mom))}
+      ${snapLine}
       ${cumRows}
       ${C.kv('定投执行', inv['次数'] != null ? `${esc(inv['次数'])}笔 / ${money(inv['金额'])}` : '—')}
-      <p class="lead">${esc(mr.item3_加减仓回顾 || '')}</p>
+      ${reviewHtml}
       <p class="muted">${esc(mr.item5_信号准确率 || '')}</p>
       <p class="muted">${esc(mr.item6_赛道跟踪 || '')}</p>`;
     return C.card(U.ui_h2_monthly_review, body);
@@ -243,7 +254,7 @@ const R = {
       const list = rows.map(x => `<div class="money-row"><span>${esc(x.action || '')}${x.count != null ? ` × ${esc(x.count)}` : ''}</span><strong>${x.amount ? money(x.amount) : '—'}</strong></div>`).join('');
       parts.push(list);
     }
-    return C.card(U.ui_h2_period_summary || '本周期总结', parts.join(''));
+    return C.card(U.ui_h2_period_summary || '上周期事件与执行总结', parts.join(''));
   },
   takeProfit(tp) {
     if (!tp) return '';
@@ -266,8 +277,8 @@ const R = {
   scan(scan) {
     if (!scan) return '';
     const comps = (scan.comparisons || []).map(x => `<div class="fund-row">
-      <div class="fund-top"><strong>${esc(x.sector || '')} · ${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '待锁定基金')}</strong><strong>${pct(x.valuation)}</strong></div>
-      <div class="fund-numbers">${esc(x.fund_code || '未登记代码')} · ${esc(x.decision || '')}：${esc(x.reason || '')}</div></div>`).join('')
+      <div class="fund-top"><strong>${esc(x.sector || '')} · ${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '待锁定基金')}</strong><strong>估值分位 ${pct(x.valuation)}</strong></div>
+      <div class="fund-numbers">${esc(x.fund_code || '未登记代码')} · ${esc(x.date || '')} / ${esc(x.source || '')}<br>${esc(x.decision || '')}：${esc(x.reason || '')}</div></div>`).join('')
       || C.empty('', '没有新基金通过低估初筛。');
     return C.card(U.ui_h2_scan, comps);
   },

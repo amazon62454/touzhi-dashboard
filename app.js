@@ -96,14 +96,6 @@ const C = {
     if (!items || !items.length) return '';
     return `<ol class="action-list">${items.map(x => `<li>${esc(x)}</li>`).join('')}</ol>`;
   },
-  fundRows(rows) {
-    if (!rows || !rows.length) return C.empty(U.ui_empty_no_position);
-    return rows.map(x => `
-      <div class="fund-row">
-        <div class="fund-top"><strong>${esc(x.fund_name || fundName(x.fund_code) || x.fund_code || '')}</strong><strong class="num info">${has(x.market_value) ? money(x.market_value) : ''}</strong></div>
-        <div class="fund-numbers">${esc(x.fund_code || '')}${has(x.profit) ? ` · 收益 <span class="num ${numTone(x.profit)}">${money(x.profit)}</span>` : ''}${has(x.profit_rate) ? ` · <span class="num ${numTone(x.profit_rate)}">${pct(x.profit_rate)}</span>` : ''}${x.status ? ` · ${esc(statusText(x.status))}` : ''}</div>
-      </div>`).join('');
-  },
   table(headers, rows, options = {}) {
     if (!rows || !rows.length) return '';
     const aligns = options.aligns || [];
@@ -161,20 +153,17 @@ const R = {
 
   // 每日档
   checkScan(b) {
-    if (['expired', 'awaiting', 'test'].includes((b.validity || {}).state)) return '';
+    if (b.band !== 'band_daily' || ['expired', 'awaiting', 'test'].includes((b.validity || {}).state)) return '';
     const checks = (b.artifacts && b.artifacts.daily_checks) || [];
     if (!checks.length) return '';
-    // 每日保留完整扫描；其余档只保留异常/行动/待补数据，正常项不跨档重复。
-    const isAttention = c => { const s = String(c.status || ''); return (s.includes('🔴') || s.includes('⚠️') || s.includes('待数据')) && (b.band === 'band_daily' || c.name !== '规模预警'); };
+    // 风控扫描每日唯一；其他档不得复制“关注版”。
+    const isAttention = c => { const s = String(c.status || ''); return s.includes('🔴') || s.includes('⚠️') || s.includes('待数据'); };
     const attention = checks.filter(isAttention);
     const normal = checks.filter(c => !isAttention(c));
-    if (!attention.length && b.band !== 'band_daily') return '';
     const renderRows = rows => rows.map(c => `<div class="check-item"><div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>${C.checkMetrics(c.metrics)}</div>`).join('');
     let rows = renderRows(attention);
-    if (b.band === 'band_daily' && normal.length) {
-      rows += `<details class="check-normal-rest"><summary>${esc(fmt(U.ui_check_scan_rest, { n: normal.length }))}</summary>${renderRows(normal)}</details>`;
-    }
-    return C.card(fmt(U.ui_h2_check_scan, { n: b.band === 'band_daily' ? checks.length : attention.length }), rows);
+    if (normal.length) rows += `<details class="check-normal-rest"><summary>${esc(fmt(U.ui_check_scan_rest, { n: normal.length }))}</summary>${renderRows(normal)}</details>`;
+    return C.card(fmt(U.ui_h2_check_scan, { n: checks.length }), rows);
   },
   attention(b) {
     const v = b.validity || {};
@@ -501,14 +490,6 @@ const R = {
     const rows = `${C.kv('周期', esc(f.period || '—'))}${C.kv('注入', money(f.injection), 'info')}${C.kv('已用', money(f.spent), 'info')}${C.kv('剩余', money(f.remaining), numTone(f.remaining))}`;
     return C.card(U.ui_h2_ledger_flow, rows);
   },
-  retirementFunds() {
-    const f = D.funds_page || {};
-    const cd = f.cash_detail || {};
-    const rows = `${C.kv('周期', esc(f.period || '—'))}${C.kv('注入', money(f.injection), 'info')}${C.kv('已用', money(f.spent), 'info')}${C.kv('剩余', money(f.remaining), numTone(f.remaining))}${C.kv('现金池', money(f.cash_pool), numTone(f.cash_pool))}`;
-    const note = cd.last_period_note ? `<p class="muted">上期结余：${esc(cd.last_period_note)}</p>` : '';
-    return C.card(U.ui_funds_title, rows + note);
-  },
-
   // 周日档
   weekGate(g) {
     // 资金闸门：仅在"整周权益需求 > 本期可用"时展示（未触发不占版面）
@@ -606,28 +587,21 @@ const R = {
 // ---------- 声明式页面 Schema（页面 = 区块有序列表，加区块只改这里） ----------
 const PAGE_SCHEMA = {
   'page-band_daily': [
-    { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandFlows', arg: 'band_daily' }, { fn: 'bandActions', from: 'band_daily' }, { fn: 'bandBlocked', from: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
+    { fn: 'bandHeader', arg: 'band_daily' }, { fn: 'bandFlows', arg: 'band_daily' }, { fn: 'bandExpired', from: 'band_daily' }, { fn: 'checkScan', from: 'band_daily' },
     { fn: 'nextReview', from: 'band_daily' }, { fn: 'marketEnv', from: 'band_daily' },
-    { fn: 'normalItems', from: 'band_daily' },
   ],
   'page-band_eval': [
-    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandFlows', arg: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' }, { fn: 'checkScan', from: 'band_eval' },
-    { fn: 'weeklyBudget', from: 'band_eval' }, { fn: 'equityStructure', from: 'band_eval' },
-    { fn: 'satelliteExecution', from: 'band_eval' }, { fn: 'evalCash', from: 'band_eval' },
-    { fn: 'addOn', from: 'band_eval' },
+    { fn: 'bandHeader', arg: 'band_eval' }, { fn: 'bandFlows', arg: 'band_eval' }, { fn: 'bandExpired', from: 'band_eval' },
+    { fn: 'weeklyBudget', from: 'band_eval' }, { fn: 'satelliteExecution', from: 'band_eval' }, { fn: 'addOn', from: 'band_eval' },
   ],
   'page-band_monthly': [
-    { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandFlows', arg: 'band_monthly' }, { fn: 'bandActions', from: 'band_monthly' }, { fn: 'bandBlocked', from: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
-    { fn: 'checkScan', from: 'band_monthly' }, { fn: 'assetAllocation', from: 'band_monthly' }, { fn: 'equityStructure', from: 'band_monthly' },
-    { fn: 'settledCash', from: 'band_monthly' }, { fn: 'rebalance', from: 'band_monthly' },
-    { fn: 'monthlyDetails', from: 'band_monthly' },
+    { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandFlows', arg: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
+    { fn: 'assetAllocation', from: 'band_monthly' }, { fn: 'monthlyDetails', from: 'band_monthly' },
   ],
   'page-band_quarter': [
-    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandFlows', arg: 'band_quarter' }, { fn: 'bandActions', from: 'band_quarter' }, { fn: 'bandBlocked', from: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'checkScan', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
-    { fn: 'assetAllocation', from: 'band_quarter' }, { fn: 'equityStructure', from: 'band_quarter' },
-    { fn: 'allocation', from: 'band_quarter' }, { fn: 'rebalance', from: 'band_quarter' },
-    { fn: 'concentration', from: 'band_quarter' }, { fn: 'exitReviews', from: 'band_quarter' },
-    { fn: 'quarterReview', from: 'band_quarter' }, { fn: 'normalItems', from: 'band_quarter' },
+    { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
+    { fn: 'equityStructure', from: 'band_quarter' }, { fn: 'allocation', from: 'band_quarter' },
+    { fn: 'concentration', from: 'band_quarter' }, { fn: 'exitReviews', from: 'band_quarter' }, { fn: 'quarterReview', from: 'band_quarter' },
   ],
   'page-retirement': [{ fn: 'retirementPage' }],
   'page-chain': [{ fn: 'chainPage' }],
@@ -638,6 +612,7 @@ const PAGE_SCHEMA = {
 R.monthlyDetails = function (b) {
   const a = b.artifacts || {};
   const content = [
+    R.settledCash(b.rebalance_cash), R.rebalance(a.rebalance),
     R.monthlyReview(a.monthly_review), R.periodSummary(a.period_summary),
     R.takeProfit(a.take_profit), R.scan(a.scan, b.market_env), R.positionRows(b.items),
     R.execution(a.execution_review, a.unlock_review), R.fundDest(),
@@ -661,27 +636,21 @@ R.flowSteps = function (flow) {
 R.chainPage = function () {
   const flows = ((D.param_chain || {}).visual || {}).workflows || [];
   if (!flows.length) return C.card(U.ui_chain_directory_hint, C.empty('', ''));
-  const rows = flows.map(flow => {
-    const current = (flow.steps || [])[(flow.current || 1) - 1] || {};
-    const related = (flow.related_bands || []).map(workflowBandTitle).join('、');
-    return `<button type="button" class="flow-overview" data-flow-owner="${esc(flow.owner_band)}" data-flow-id="${esc(flow.id)}"><span class="flow-overview-top"><strong>${esc(flow.title)}</strong><em>${esc(flow.state)}</em></span><span class="flow-overview-current">当前第${esc(flow.current)}步：${esc(current.name || '')}</span><span class="flow-overview-next">下一步：${esc(flow.next)}</span><span class="flow-overview-band">${esc(U.ui_chain_primary_band)}：${esc(workflowBandTitle(flow.owner_band))}${related ? ` · ${esc(U.ui_chain_related_bands)}：${esc(related)}` : ''}</span><span class="flow-overview-open">${esc(U.ui_chain_open_flow)} →</span></button>`;
-  }).join('');
+  const rows = flows.map(flow => `<button type="button" class="flow-overview" data-flow-owner="${esc(flow.owner_band)}" data-flow-id="${esc(flow.id)}"><span class="flow-overview-top"><strong>${esc(flow.title)}</strong><em>${esc(flow.state)}</em></span><span class="flow-overview-band">${esc(U.ui_chain_primary_band)}：${esc(workflowBandTitle(flow.owner_band))}</span><span class="flow-overview-open">${esc(U.ui_chain_open_flow)} →</span></button>`).join('');
   return C.card(U.ui_chain_directory_hint, `<div class="flow-overview-list">${rows}</div>`);
 };
 
 R.bandFlows = function (band) {
   const flows = ((D.param_chain || {}).visual || {}).workflows || [];
   const owned = flows.filter(x => x.owner_band === band);
-  const related = flows.filter(x => x.owner_band !== band && (x.related_bands || []).includes(band));
-  if (!owned.length && !related.length) return '';
+  if (!owned.length) return '';
   window.__bandActiveFlow = window.__bandActiveFlow || {};
   const activeId = window.__bandActiveFlow[band] || (owned[0] || {}).id;
   const active = owned.find(x => x.id === activeId) || owned[0];
   const tabs = owned.length > 1 ? `<div class="band-flow-tabs">${owned.map(x => `<button type="button" class="${x.id === active.id ? 'active' : ''}" data-band-flow="${esc(x.id)}" data-band="${esc(band)}"><strong>${esc(x.title)}</strong><span>${esc(x.state)}</span></button>`).join('')}</div>` : '';
   const detail = active ? `<div class="band-flow-current"><strong>${esc(active.title)}</strong><p>${esc(active.state)} · ${esc(active.next)}</p></div><p class="workflow-cadence">${esc(active.cadence)}</p><div class="compact-steps">${R.flowSteps(active)}</div>` : '';
-  const relatedHtml = related.length ? `<div class="band-flow-related"><strong>${esc(U.ui_chain_related_evidence)}</strong>${related.map(x => `<button type="button" data-flow-owner="${esc(x.owner_band)}" data-flow-id="${esc(x.id)}">${esc(x.title)}｜${esc(x.state)}<small>${esc(U.ui_chain_primary_band)}：${esc(workflowBandTitle(x.owner_band))}</small></button>`).join('')}</div>` : '';
   const back = `<a class="flow-back" href="#page-chain">← ${esc(U.ui_chain_back_directory)}</a>`;
-  return C.card(U.ui_chain_band_flows, tabs + detail + relatedHtml + back);
+  return C.card(U.ui_chain_band_flows, tabs + detail + back);
 };
 
 R.selectBandFlow = function (band, id) {
@@ -740,9 +709,8 @@ R.retirementPage = function () {
     ['持仓收益', money(r.total_profit), numTone(r.total_profit)],
     ['持仓收益率', pct(r.total_profit_rate), numTone(r.total_profit_rate)],
   ]);
-  const funds = C.card(U.ui_h2_position_detail || '持仓明细', C.fundRows(r.funds));
   const note = r.return_note ? `<p class="muted">${esc(r.return_note)}</p>` : '';
-  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${R.retirementProjection()}${funds}${note}${R.retirementFunds()}`;
+  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(U.ui_retirement_title || '现在积累了多少')}</h1></div>${metrics}${R.retirementProjection()}${note}`;
 };
 
 // ---------- 页面渲染引擎 ----------

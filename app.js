@@ -164,10 +164,12 @@ const R = {
     if (['expired', 'awaiting', 'test'].includes((b.validity || {}).state)) return '';
     const checks = (b.artifacts && b.artifacts.daily_checks) || [];
     if (!checks.length) return '';
-    // 每项=一个整体块（名称+状态+说明+指标），虚线只画在块与块之间；
-    // 原来虚线画在名称行下方、说明文字跑到线外，看起来像说明属于下一项（用户 2026-11-19 指出）
-    const rows = checks.map(c => `<div class="check-item"><div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>${C.checkMetrics(c.metrics)}</div>`).join('');
-    return C.card(fmt(U.ui_h2_check_scan, { n: checks.length }), rows);
+    // 每日保留完整扫描；其余档只保留异常/行动/待补数据，正常项不跨档重复。
+    const visible = b.band === 'band_daily' ? checks
+      : checks.filter(c => { const s = String(c.status || ''); return s.includes('🔴') || s.includes('⚠️') || s.includes('待数据'); });
+    if (!visible.length) return '';
+    const rows = visible.map(c => `<div class="check-item"><div class="money-row"><span>${esc(c.name || '')}</span>${C.statusBadge(c.status)}</div><p class="lead">${esc(c.detail || '')}</p>${C.checkMetrics(c.metrics)}</div>`).join('');
+    return C.card(fmt(U.ui_h2_check_scan, { n: visible.length }), rows);
   },
   attention(b) {
     const v = b.validity || {};

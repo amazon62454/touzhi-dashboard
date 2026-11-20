@@ -362,7 +362,7 @@ const R = {
 
   // 季度档：先回答做什么/做到哪/卡在哪/何时再看，证据默认收起。
   quarterAction(a, validity) {
-    a = a || {}; const v = validity || {};
+    a = a || {};
     const scale = a.scale_review || {};
     const missingNames = scale.fund_names || [];
     const backtest = a.backtest || {};
@@ -376,7 +376,7 @@ const R = {
     else primary.push(...(a.action_checklist || []));
     const body = `<div class="decision-main">${esc(primary[0] || U.ui_quarter_no_trade)}</div>
       ${primary.length > 1 ? `<p class="decision-note">${esc(primary.slice(1).join('；'))}</p>` : ''}
-      <div class="decision-blockers"><strong>${esc(U.ui_action_blocked)}</strong><p>${esc(reasons.join('；'))}</p></div>`;
+      <div class="decision-blockers"><strong>为什么还没完成</strong><p>${esc(reasons.join('；'))}</p></div>`;
     return C.card(U.ui_h2_quarter_action, body, 'accent');
   },
   quarterEvidence(b) {
@@ -708,7 +708,10 @@ R.bandFlows = function (band) {
     if (visibleUntil) nextLine += `<div class="flow-next-review"><span>结果有效至</span><strong>${esc(dateTimeText(visibleUntil))}</strong></div>`;
   }
   const tone = current && current.status === 'blocked' ? 'warn' : (current ? 'info' : 'muted');
-  const heading = `<div class="band-flow-head"><div><strong>${esc(bandFlowTitle(active.title))}</strong><span>${steps.filter(x => x.status === 'done').length}/${steps.length} 步已完成</span></div>${C.badge(shortFlowState(active.state), tone)}</div>`;
+  const progress = `${steps.filter(x => x.status === 'done').length}/${steps.length} 步已完成`;
+  // 多流程的活动页签已显示标题与状态，下方只保留进度，不再复述。
+  const heading = owned.length > 1 ? `<div class="flow-progress-line">${progress}</div>`
+    : `<div class="band-flow-head"><div><strong>${esc(bandFlowTitle(active.title))}</strong><span>${progress}</span></div>${C.badge(shortFlowState(active.state), tone)}</div>`;
   return C.card(U.ui_chain_band_flows, `${tabs}${heading}<div class="compact-steps">${R.flowSteps(active)}</div>${currentDetail}${doneEvidence}${nextLine}`);
 };
 

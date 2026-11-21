@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T16:44:01",
+  "generated_at": "2026-11-21T17:11:04",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1681,7 +1681,7 @@
                         "detail": "已形成“不卖出”结论，不生成卖出金额，也不记成交。"
                       }
                     ],
-                    "done_title": "查看已完成步骤依据",
+                    "done_title": "点击看每一步怎么算",
                     "time_rows": [
                       {
                         "type": "flow_time",
@@ -4684,7 +4684,7 @@
                         "detail": "计划合计106元；金额源已统一向下取整到元。"
                       }
                     ],
-                    "done_title": "查看已完成步骤依据",
+                    "done_title": "点击看每一步怎么算",
                     "time_rows": [
                       {
                         "type": "flow_time",
@@ -4736,7 +4736,7 @@
                         "detail": "已评分3只；易方达恒生港股通创新药ETF联接A评分75.5。月度候选池：数据基准2026-11-20；扫描21个方向,9个进入低估观察;本期无新基金正式纳入,6只待四项复核；净增评估：未触发"
                       }
                     ],
-                    "done_title": "查看已完成步骤依据",
+                    "done_title": "点击看每一步怎么算",
                     "time_rows": [
                       {
                         "type": "flow_time",
@@ -7677,7 +7677,7 @@
                         "detail": "债比62.66%，目标48.89%，超出目标13.77个百分点／2933.14元；需要渐进再平衡；可赎份额未齐，暂不生成卖出指令；每周日继续复核，不等下一次月度评审；待到账0笔；已到账未分配0.00元；赛道集中度证据归季度档，不在本流程重复。"
                       }
                     ],
-                    "done_title": "查看已完成步骤依据",
+                    "done_title": "点击看每一步怎么算",
                     "time_rows": [
                       {
                         "type": "flow_time",
@@ -7737,7 +7737,7 @@
                         "detail": "现金池已传递周日加仓流程；每周日评分与资金闸门复核，月度不在本步等待。"
                       }
                     ],
-                    "done_title": "查看已完成步骤依据",
+                    "done_title": "点击看每一步怎么算",
                     "time_rows": [
                       {
                         "type": "flow_time",
@@ -11944,7 +11944,7 @@
                         "detail": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。"
                       }
                     ],
-                    "done_title": "查看已完成步骤依据",
+                    "done_title": "点击看每一步怎么算",
                     "time_rows": [
                       {
                         "type": "flow_time",
@@ -11964,7 +11964,7 @@
           },
           {
             "type": "details",
-            "summary": "查看配置与复核明细",
+            "summary": "查看配置复核的人话说明与数据",
             "children": [
               {
                 "type": "card",
@@ -12475,7 +12475,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T16:44:01",
+    "generated_at": "2026-11-21T17:11:04",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -15631,14 +15631,14 @@
     "ui_rebalance_data_missing": "债券占比或目标待补，本次仅展示已确认规则状态",
     "ui_h2_quarter_action": "季度行动结论",
     "ui_quarter_no_trade": "季度复核已完成，本季度不用买卖",
-    "ui_quarter_evidence": "查看配置与复核明细",
+    "ui_quarter_evidence": "查看配置复核的人话说明与数据",
     "ui_quarter_observation_only": "仅观察，不直接赎回",
     "ui_no_blockers": "无新增阻断",
     "ui_action_now": "① 你要做什么",
     "ui_action_progress": "② 已完成到哪",
     "ui_action_blocked": "复核未完成项",
     "ui_action_next": "④ 何时再看",
-    "ui_flow_done_evidence": "查看已完成步骤依据",
+    "ui_flow_done_evidence": "点击看每一步怎么算",
     "ui_flow_current_step": "当前步骤",
     "ui_flow_blocked_reason": "阻断原因",
     "ui_flow_next_expiry": "下次评估 · 旧结果届时失效",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T11:50:21",
+  "generated_at": "2026-11-21T12:08:43",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -7277,7 +7277,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T11:50:21",
+    "generated_at": "2026-11-21T12:08:43",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -7964,7 +7964,7 @@
         "status_label": "事实反馈"
       }
     ],
-    "title": "流程导航｜按主责档进入对应流程",
+    "title": "操作流程状态｜仅在主责档展示",
     "subtitle": "不是静态宣传图：每个节点和箭头均来自正式判决、真实锁或明确的人工反馈。",
     "labels": {
       "nodes": "档位与闭环节点（点击展开）",
@@ -10419,8 +10419,6 @@
     "ui_chain_status_implemented": "已实现",
     "ui_chain_status_erp_model": "ERP模型驱动",
     "ui_chain_status_independent": "独立运行",
-    "ui_chain_directory_hint": "操作流程导航｜每项功能只在主责页面展示",
-    "ui_chain_primary_band": "主责档位",
     "ui_chain_back_directory": "返回流程导航",
     "ui_chain_band_flows": "本档操作流程",
     "ui_check_scan_rest": "展开其余 {n} 项正常/未触发检查",

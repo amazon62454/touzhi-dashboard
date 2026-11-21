@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T00:17:40",
+  "generated_at": "2026-11-22T00:46:42",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -2577,47 +2577,248 @@
         }
       ],
       "fund_operations": {
-        "engine_contract": "fund_operations_v1",
+        "engine_contract": "fund_operations_v2",
         "row_count": 11,
-        "allocation_lines": [
+        "role_groups": [
           {
-            "label": "① ERP四资产（总量层）",
-            "erp_amount": "1800元",
-            "text": "权益／债券／黄金／现金四资产总量分配"
+            "label": "核心小计",
+            "fund_count": 2,
+            "erp_amount": "262.64",
+            "regular": {
+              "amount": 32.0,
+              "display": "32",
+              "compact_display": "32",
+              "tone": "pos"
+            },
+            "addon": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "detail": "本周额度65.66元；季度锁比例，不参与行业集中制",
+            "role": "core",
+            "role_label": "核心",
+            "rowspan": 3,
+            "fund_codes": [
+              "160119",
+              "000051"
+            ]
           },
           {
-            "label": "② 核心—卫星（被动权益）",
-            "erp_amount": "560元",
-            "text": "本周核心额度65.66元→南方中证500ETF联接(LOF)A32元／华夏沪深300ETF联接A0元；卫星额度44元。核心按季度锁定比例，不参加行业排名"
+            "label": "卫星小计",
+            "fund_count": 3,
+            "erp_amount": "177.36",
+            "regular": {
+              "amount": 44.0,
+              "display": "44",
+              "compact_display": "44",
+              "tone": "pos"
+            },
+            "addon": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "detail": "本周额度44元；按月度排名与结构上限顺延",
+            "role": "satellite",
+            "role_label": "卫星",
+            "rowspan": 4,
+            "fund_codes": [
+              "017140",
+              "012544",
+              "024328"
+            ]
           },
           {
-            "label": "③ 行业集中制（仅卫星）",
-            "erp_amount": "—",
-            "text": "卫星44元→易方达恒生港股通创新药ETF联接A0元／嘉实中证新能源汽车指数C0元／华宝中证有色金属ETF联接A44元；按月度排名与结构上限顺延，核心、养老FOF、黄金、债券均不参与"
+            "label": "养老FOF小计",
+            "fund_count": 1,
+            "erp_amount": "120",
+            "regular": {
+              "amount": 30.0,
+              "display": "30",
+              "compact_display": "30",
+              "tone": "pos"
+            },
+            "addon": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "detail": "固定周投30元；从权益ERP独立承担，不进核心卫星比例",
+            "role": "fof",
+            "role_label": "养老FOF",
+            "rowspan": 2,
+            "fund_codes": [
+              "010267"
+            ]
           },
           {
-            "label": "独立通道·养老FOF",
-            "erp_amount": "—",
-            "text": "从ERP权益预算独立承担，固定周投30元；不进核心卫星比例和行业集中制"
+            "label": "黄金小计",
+            "fund_count": 1,
+            "erp_amount": "180",
+            "regular": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "addon": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "detail": "本周额度45元→执行0元；独立商品通道",
+            "role": "gold",
+            "role_label": "黄金",
+            "rowspan": 2,
+            "fund_codes": [
+              "004253"
+            ]
           },
           {
-            "label": "独立通道·黄金",
-            "erp_amount": "180元",
-            "text": "本周额度45元 → 本期执行0元；不参加权益集中制"
+            "label": "债基小计",
+            "fund_count": 1,
+            "erp_amount": "880",
+            "regular": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "addon": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "detail": "本周新增0元；按大类缺口执行",
+            "role": "debt",
+            "role_label": "债基",
+            "rowspan": 2,
+            "fund_codes": [
+              "009290"
+            ]
           },
           {
-            "label": "独立通道·债券",
-            "erp_amount": "880元",
-            "text": "本周新增0元；按大类缺口执行，超配或预算不足时不新增"
+            "label": "主动权益小计",
+            "fund_count": 3,
+            "erp_amount": "0",
+            "regular": {
+              "amount": null,
+              "display": "不参与",
+              "compact_display": "不参与",
+              "tone": "muted"
+            },
+            "addon": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "detail": "持有期／暂停基金不参与普通定投和加仓评分",
+            "role": "active",
+            "role_label": "主动权益",
+            "rowspan": 4,
+            "fund_codes": [
+              "010340",
+              "010363",
+              "017491"
+            ]
           },
           {
-            "label": "现金层·加仓",
-            "erp_amount": "180元",
-            "text": "上期结转170元 → 当月可加仓350元"
+            "label": "现金层",
+            "fund_count": 0,
+            "erp_amount": "180",
+            "regular": {
+              "amount": 0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "addon": {
+              "amount": 0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "conversion": {
+              "amount": 0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "detail": "上期结转170元→当月可加仓350元；预计全周期未投1196元（预算测算，不是现金余额）",
+            "role": "cash",
+            "role_label": "现金",
+            "rowspan": 1,
+            "fund_codes": []
           }
         ],
-        "cash_summary": "本周期可用1800元，本周投后余1694元；预计全周期未投1196元（预算测算，不是现金余额）。后续周次以各周日评估为准。",
-        "amount_rule": "定投与加仓为本周计划金额；转换不预估，实际以成交回传为准",
+        "total_summary": {
+          "label": "全组合总计",
+          "fund_count": 11,
+          "erp_amount": "1800",
+          "regular": {
+            "amount": 106.0,
+            "display": "106",
+            "compact_display": "106",
+            "tone": "pos"
+          },
+          "addon": {
+            "amount": 0.0,
+            "display": "0",
+            "compact_display": "0",
+            "tone": "muted"
+          },
+          "conversion": {
+            "amount": 0.0,
+            "display": "0",
+            "compact_display": "0",
+            "tone": "muted"
+          },
+          "detail": "11只基金；转换不预估，以实际成交回传为准"
+        },
+        "amount_rule": "金额单位为元；转换不预估，实际以成交回传为准",
         "rows": [
           {
             "fund_code": "160119",
@@ -2629,7 +2830,7 @@
               "amount": 32.0,
               "decision": "定投",
               "display": "定投32元",
-              "compact_display": "32元",
+              "compact_display": "32",
               "tone": "pos",
               "reason": "按季度锁定的核心比例执行"
             },
@@ -2637,7 +2838,7 @@
               "amount": 0.0,
               "decision": "不参与",
               "display": "加仓0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "分位61.5%未进真低估区(<30.0%)"
             },
@@ -2645,80 +2846,12 @@
               "amount": 0.0,
               "decision": "不转换",
               "display": "转换0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "未达到真低估门槛；五维评分缺失"
             },
             "detail_lines": [
               "按季度锁定的核心比例执行"
-            ]
-          },
-          {
-            "fund_code": "017140",
-            "fund_name": "华宝中证有色金属ETF联接A",
-            "role": "satellite",
-            "role_label": "卫星",
-            "role_order": 1,
-            "regular": {
-              "amount": 44.0,
-              "decision": "定投",
-              "display": "定投44元",
-              "compact_display": "44元",
-              "tone": "pos",
-              "reason": "按月度排名与剩余结构额度分配"
-            },
-            "addon": {
-              "amount": 0.0,
-              "decision": "未达到加仓门槛，本笔不操作",
-              "display": "加仓0元",
-              "compact_display": "0元",
-              "tone": "muted",
-              "reason": "未达到加仓门槛，本笔不操作"
-            },
-            "conversion": {
-              "amount": 0.0,
-              "decision": "不转换",
-              "display": "转换0元",
-              "compact_display": "0元",
-              "tone": "muted",
-              "reason": "评分46.5低于转换线60.0"
-            },
-            "detail_lines": [
-              "按月度排名与剩余结构额度分配"
-            ]
-          },
-          {
-            "fund_code": "010267",
-            "fund_name": "兴全安泰积极养老目标五年FOF A",
-            "role": "fof",
-            "role_label": "养老FOF",
-            "role_order": 2,
-            "regular": {
-              "amount": 30.0,
-              "decision": "定投",
-              "display": "定投30元",
-              "compact_display": "30元",
-              "tone": "pos",
-              "reason": "FOF固定周投，从权益预算独立承担"
-            },
-            "addon": {
-              "amount": 0.0,
-              "decision": "不参与",
-              "display": "加仓0元",
-              "compact_display": "0元",
-              "tone": "muted",
-              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
-            },
-            "conversion": {
-              "amount": 0.0,
-              "decision": "不转换",
-              "display": "转换0元",
-              "compact_display": "0元",
-              "tone": "muted",
-              "reason": ""
-            },
-            "detail_lines": [
-              "FOF固定周投，从权益预算独立承担"
             ]
           },
           {
@@ -2731,7 +2864,7 @@
               "amount": 0.0,
               "decision": "暂停",
               "display": "定投0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "核心买入条件未满足，对应额度留现金"
             },
@@ -2739,7 +2872,7 @@
               "amount": 0.0,
               "decision": "不参与",
               "display": "加仓0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "分位74.97%未进真低估区(<30.0%)"
             },
@@ -2747,12 +2880,46 @@
               "amount": 0.0,
               "decision": "不转换",
               "display": "转换0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "未达到真低估门槛；五维评分缺失；当前买入条件未通过"
             },
             "detail_lines": [
               "核心买入条件未满足，对应额度留现金"
+            ]
+          },
+          {
+            "fund_code": "017140",
+            "fund_name": "华宝中证有色金属ETF联接A",
+            "role": "satellite",
+            "role_label": "卫星",
+            "role_order": 1,
+            "regular": {
+              "amount": 44.0,
+              "decision": "定投",
+              "display": "定投44元",
+              "compact_display": "44",
+              "tone": "pos",
+              "reason": "按月度排名与剩余结构额度分配"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "未达到加仓门槛，本笔不操作",
+              "display": "加仓0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "未达到加仓门槛，本笔不操作"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "评分46.5低于转换线60.0"
+            },
+            "detail_lines": [
+              "按月度排名与剩余结构额度分配"
             ]
           },
           {
@@ -2765,7 +2932,7 @@
               "amount": 0.0,
               "decision": "暂停",
               "display": "定投0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "已达卫星结构上限，新增额度顺延下一名"
             },
@@ -2773,7 +2940,7 @@
               "amount": 0.0,
               "decision": "未达到加仓门槛，本笔不操作",
               "display": "加仓0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "未达到加仓门槛，本笔不操作"
             },
@@ -2781,7 +2948,7 @@
               "amount": 0.0,
               "decision": "不转换",
               "display": "转换0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增"
             },
@@ -2799,7 +2966,7 @@
               "amount": 0.0,
               "decision": "暂停",
               "display": "定投0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "已达卫星结构上限，新增额度顺延下一名"
             },
@@ -2807,7 +2974,7 @@
               "amount": 0.0,
               "decision": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
               "display": "加仓0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓"
             },
@@ -2815,13 +2982,47 @@
               "amount": 0.0,
               "decision": "不转换",
               "display": "转换0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "卫星内部占比超过其上限，仅限制新增，不单独产生卖出"
             },
             "detail_lines": [
               "已达卫星结构上限，新增额度顺延下一名",
               "加仓：评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓"
+            ]
+          },
+          {
+            "fund_code": "010267",
+            "fund_name": "兴全安泰积极养老目标五年FOF A",
+            "role": "fof",
+            "role_label": "养老FOF",
+            "role_order": 2,
+            "regular": {
+              "amount": 30.0,
+              "decision": "定投",
+              "display": "定投30元",
+              "compact_display": "30",
+              "tone": "pos",
+              "reason": "FOF固定周投，从权益预算独立承担"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "不参与",
+              "display": "加仓0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": ""
+            },
+            "detail_lines": [
+              "FOF固定周投，从权益预算独立承担"
             ]
           },
           {
@@ -2834,7 +3035,7 @@
               "amount": 0.0,
               "decision": "暂停",
               "display": "定投0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "问财配额耗尽:当日次数已用完；7天metric_cache不可用"
             },
@@ -2842,7 +3043,7 @@
               "amount": 0.0,
               "decision": "不加仓",
               "display": "加仓0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "分位75.86%未进真低估区(<30.0%)"
             },
@@ -2850,7 +3051,7 @@
               "amount": 0.0,
               "decision": "不转换",
               "display": "转换0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "问财配额耗尽:当日次数已用完；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐"
             },
@@ -2868,7 +3069,7 @@
               "amount": 0.0,
               "decision": "暂停",
               "display": "定投0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "债券超配或预算不足，本期不新增"
             },
@@ -2876,7 +3077,7 @@
               "amount": 0.0,
               "decision": "不参与",
               "display": "加仓0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
             },
@@ -2884,7 +3085,7 @@
               "amount": 0.0,
               "decision": "不转换",
               "display": "转换0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": ""
             },
@@ -2910,7 +3111,7 @@
               "amount": 0.0,
               "decision": "不参与",
               "display": "加仓0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
             },
@@ -2918,7 +3119,7 @@
               "amount": 0.0,
               "decision": "不转换",
               "display": "转换0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": ""
             },
@@ -2944,7 +3145,7 @@
               "amount": 0.0,
               "decision": "不参与",
               "display": "加仓0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
             },
@@ -2952,7 +3153,7 @@
               "amount": 0.0,
               "decision": "不转换",
               "display": "转换0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": ""
             },
@@ -2978,7 +3179,7 @@
               "amount": 0.0,
               "decision": "不参与",
               "display": "加仓0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
             },
@@ -2986,7 +3187,7 @@
               "amount": 0.0,
               "decision": "不转换",
               "display": "转换0元",
-              "compact_display": "0元",
+              "compact_display": "0",
               "tone": "muted",
               "reason": ""
             },
@@ -5392,380 +5593,564 @@
                 "headers": [
                   "基金",
                   "层级",
-                  "ERP金额",
-                  "定投",
-                  "加仓",
-                  "转换",
+                  "ERP/元",
+                  "定投/元",
+                  "加仓/元",
+                  "转换/元",
                   "执行说明"
                 ],
-                "allocation_rows": [
+                "role_groups": [
                   {
-                    "label": "① ERP四资产（总量层）",
-                    "erp_amount": "1800元",
-                    "text": "权益／债券／黄金／现金四资产总量分配"
-                  },
-                  {
-                    "label": "② 核心—卫星（被动权益）",
-                    "erp_amount": "560元",
-                    "text": "本周核心额度65.66元→南方中证500ETF联接(LOF)A32元／华夏沪深300ETF联接A0元；卫星额度44元。核心按季度锁定比例，不参加行业排名"
-                  },
-                  {
-                    "label": "③ 行业集中制（仅卫星）",
-                    "erp_amount": "—",
-                    "text": "卫星44元→易方达恒生港股通创新药ETF联接A0元／嘉实中证新能源汽车指数C0元／华宝中证有色金属ETF联接A44元；按月度排名与结构上限顺延，核心、养老FOF、黄金、债券均不参与"
-                  },
-                  {
-                    "label": "独立通道·养老FOF",
-                    "erp_amount": "—",
-                    "text": "从ERP权益预算独立承担，固定周投30元；不进核心卫星比例和行业集中制"
-                  },
-                  {
-                    "label": "独立通道·黄金",
-                    "erp_amount": "180元",
-                    "text": "本周额度45元 → 本期执行0元；不参加权益集中制"
-                  },
-                  {
-                    "label": "独立通道·债券",
-                    "erp_amount": "880元",
-                    "text": "本周新增0元；按大类缺口执行，超配或预算不足时不新增"
-                  },
-                  {
-                    "label": "现金层·加仓",
-                    "erp_amount": "180元",
-                    "text": "上期结转170元 → 当月可加仓350元"
-                  }
-                ],
-                "rows": [
-                  {
-                    "fund_name": "南方中证500ETF联接(LOF)A",
+                    "label": "核心小计",
+                    "fund_count": 2,
                     "role_label": "核心",
+                    "erp_amount": "262.64",
+                    "rowspan": 3,
                     "regular": {
                       "amount": 32.0,
-                      "decision": "定投",
-                      "display": "定投32元",
-                      "compact_display": "32元",
-                      "tone": "pos",
-                      "reason": "按季度锁定的核心比例执行"
+                      "display": "32",
+                      "compact_display": "32",
+                      "tone": "pos"
                     },
                     "addon": {
                       "amount": 0.0,
-                      "decision": "不参与",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "分位61.5%未进真低估区(<30.0%)"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "conversion": {
                       "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "未达到真低估门槛；五维评分缺失"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
-                    "detail": "按季度锁定的核心比例执行"
+                    "detail": "本周额度65.66元；季度锁比例，不参与行业集中制",
+                    "rows": [
+                      {
+                        "fund_code": "160119",
+                        "fund_name": "南方中证500ETF联接(LOF)A",
+                        "role_label": "核心",
+                        "regular": {
+                          "amount": 32.0,
+                          "decision": "定投",
+                          "display": "定投32元",
+                          "compact_display": "32",
+                          "tone": "pos",
+                          "reason": "按季度锁定的核心比例执行"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "不参与",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "分位61.5%未进真低估区(<30.0%)"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "未达到真低估门槛；五维评分缺失"
+                        },
+                        "detail": "按季度锁定的核心比例执行"
+                      },
+                      {
+                        "fund_code": "000051",
+                        "fund_name": "华夏沪深300ETF联接A",
+                        "role_label": "核心",
+                        "regular": {
+                          "amount": 0.0,
+                          "decision": "暂停",
+                          "display": "定投0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "核心买入条件未满足，对应额度留现金"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "不参与",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "分位74.97%未进真低估区(<30.0%)"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "未达到真低估门槛；五维评分缺失；当前买入条件未通过"
+                        },
+                        "detail": "核心买入条件未满足，对应额度留现金"
+                      }
+                    ]
                   },
                   {
-                    "fund_name": "华宝中证有色金属ETF联接A",
+                    "label": "卫星小计",
+                    "fund_count": 3,
                     "role_label": "卫星",
+                    "erp_amount": "177.36",
+                    "rowspan": 4,
                     "regular": {
                       "amount": 44.0,
-                      "decision": "定投",
-                      "display": "定投44元",
-                      "compact_display": "44元",
-                      "tone": "pos",
-                      "reason": "按月度排名与剩余结构额度分配"
+                      "display": "44",
+                      "compact_display": "44",
+                      "tone": "pos"
                     },
                     "addon": {
                       "amount": 0.0,
-                      "decision": "未达到加仓门槛，本笔不操作",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "未达到加仓门槛，本笔不操作"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "conversion": {
                       "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "评分46.5低于转换线60.0"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
-                    "detail": "按月度排名与剩余结构额度分配"
+                    "detail": "本周额度44元；按月度排名与结构上限顺延",
+                    "rows": [
+                      {
+                        "fund_code": "017140",
+                        "fund_name": "华宝中证有色金属ETF联接A",
+                        "role_label": "卫星",
+                        "regular": {
+                          "amount": 44.0,
+                          "decision": "定投",
+                          "display": "定投44元",
+                          "compact_display": "44",
+                          "tone": "pos",
+                          "reason": "按月度排名与剩余结构额度分配"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "未达到加仓门槛，本笔不操作",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "未达到加仓门槛，本笔不操作"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "评分46.5低于转换线60.0"
+                        },
+                        "detail": "按月度排名与剩余结构额度分配"
+                      },
+                      {
+                        "fund_code": "012544",
+                        "fund_name": "嘉实中证新能源汽车指数C",
+                        "role_label": "卫星",
+                        "regular": {
+                          "amount": 0.0,
+                          "decision": "暂停",
+                          "display": "定投0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "已达卫星结构上限，新增额度顺延下一名"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "未达到加仓门槛，本笔不操作",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "未达到加仓门槛，本笔不操作"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增"
+                        },
+                        "detail": "已达卫星结构上限，新增额度顺延下一名"
+                      },
+                      {
+                        "fund_code": "024328",
+                        "fund_name": "易方达恒生港股通创新药ETF联接A",
+                        "role_label": "卫星",
+                        "regular": {
+                          "amount": 0.0,
+                          "decision": "暂停",
+                          "display": "定投0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "已达卫星结构上限，新增额度顺延下一名"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "卫星内部占比超过其上限，仅限制新增，不单独产生卖出"
+                        },
+                        "detail": "已达卫星结构上限，新增额度顺延下一名；加仓：评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓"
+                      }
+                    ]
                   },
                   {
-                    "fund_name": "兴全安泰积极养老目标五年FOF A",
+                    "label": "养老FOF小计",
+                    "fund_count": 1,
                     "role_label": "养老FOF",
+                    "erp_amount": "120",
+                    "rowspan": 2,
                     "regular": {
                       "amount": 30.0,
-                      "decision": "定投",
-                      "display": "定投30元",
-                      "compact_display": "30元",
-                      "tone": "pos",
-                      "reason": "FOF固定周投，从权益预算独立承担"
+                      "display": "30",
+                      "compact_display": "30",
+                      "tone": "pos"
                     },
                     "addon": {
                       "amount": 0.0,
-                      "decision": "不参与",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "conversion": {
                       "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": ""
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
-                    "detail": "FOF固定周投，从权益预算独立承担"
+                    "detail": "固定周投30元；从权益ERP独立承担，不进核心卫星比例",
+                    "rows": [
+                      {
+                        "fund_code": "010267",
+                        "fund_name": "兴全安泰积极养老目标五年FOF A",
+                        "role_label": "养老FOF",
+                        "regular": {
+                          "amount": 30.0,
+                          "decision": "定投",
+                          "display": "定投30元",
+                          "compact_display": "30",
+                          "tone": "pos",
+                          "reason": "FOF固定周投，从权益预算独立承担"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "不参与",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": ""
+                        },
+                        "detail": "FOF固定周投，从权益预算独立承担"
+                      }
+                    ]
                   },
                   {
-                    "fund_name": "华夏沪深300ETF联接A",
-                    "role_label": "核心",
-                    "regular": {
-                      "amount": 0.0,
-                      "decision": "暂停",
-                      "display": "定投0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "核心买入条件未满足，对应额度留现金"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "decision": "不参与",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "分位74.97%未进真低估区(<30.0%)"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "未达到真低估门槛；五维评分缺失；当前买入条件未通过"
-                    },
-                    "detail": "核心买入条件未满足，对应额度留现金"
-                  },
-                  {
-                    "fund_name": "嘉实中证新能源汽车指数C",
-                    "role_label": "卫星",
-                    "regular": {
-                      "amount": 0.0,
-                      "decision": "暂停",
-                      "display": "定投0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "已达卫星结构上限，新增额度顺延下一名"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "decision": "未达到加仓门槛，本笔不操作",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "未达到加仓门槛，本笔不操作"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增"
-                    },
-                    "detail": "已达卫星结构上限，新增额度顺延下一名"
-                  },
-                  {
-                    "fund_name": "易方达恒生港股通创新药ETF联接A",
-                    "role_label": "卫星",
-                    "regular": {
-                      "amount": 0.0,
-                      "decision": "暂停",
-                      "display": "定投0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "已达卫星结构上限，新增额度顺延下一名"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "decision": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "卫星内部占比超过其上限，仅限制新增，不单独产生卖出"
-                    },
-                    "detail": "已达卫星结构上限，新增额度顺延下一名；加仓：评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓"
-                  },
-                  {
-                    "fund_name": "国泰黄金ETF联接C",
+                    "label": "黄金小计",
+                    "fund_count": 1,
                     "role_label": "黄金",
+                    "erp_amount": "180",
+                    "rowspan": 2,
                     "regular": {
                       "amount": 0.0,
-                      "decision": "暂停",
-                      "display": "定投0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "问财配额耗尽:当日次数已用完；7天metric_cache不可用"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "addon": {
                       "amount": 0.0,
-                      "decision": "不加仓",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "分位75.86%未进真低估区(<30.0%)"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "conversion": {
                       "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "问财配额耗尽:当日次数已用完；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
-                    "detail": "问财配额耗尽:当日次数已用完；7天metric_cache不可用"
+                    "detail": "本周额度45元→执行0元；独立商品通道",
+                    "rows": [
+                      {
+                        "fund_code": "004253",
+                        "fund_name": "国泰黄金ETF联接C",
+                        "role_label": "黄金",
+                        "regular": {
+                          "amount": 0.0,
+                          "decision": "暂停",
+                          "display": "定投0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "问财配额耗尽:当日次数已用完；7天metric_cache不可用"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "不加仓",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "分位75.86%未进真低估区(<30.0%)"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "问财配额耗尽:当日次数已用完；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐"
+                        },
+                        "detail": "问财配额耗尽:当日次数已用完；7天metric_cache不可用"
+                      }
+                    ]
                   },
                   {
-                    "fund_name": "富国添享一年持有债券A",
+                    "label": "债基小计",
+                    "fund_count": 1,
                     "role_label": "债基",
+                    "erp_amount": "880",
+                    "rowspan": 2,
                     "regular": {
                       "amount": 0.0,
-                      "decision": "暂停",
-                      "display": "定投0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "债券超配或预算不足，本期不新增"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "addon": {
                       "amount": 0.0,
-                      "decision": "不参与",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "conversion": {
                       "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": ""
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
-                    "detail": "债券超配或预算不足，本期不新增"
+                    "detail": "本周新增0元；按大类缺口执行",
+                    "rows": [
+                      {
+                        "fund_code": "009290",
+                        "fund_name": "富国添享一年持有债券A",
+                        "role_label": "债基",
+                        "regular": {
+                          "amount": 0.0,
+                          "decision": "暂停",
+                          "display": "定投0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "债券超配或预算不足，本期不新增"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "不参与",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": ""
+                        },
+                        "detail": "债券超配或预算不足，本期不新增"
+                      }
+                    ]
                   },
                   {
-                    "fund_name": "易方达高质量严选三年持有",
+                    "label": "主动权益小计",
+                    "fund_count": 3,
                     "role_label": "主动权益",
+                    "erp_amount": "0",
+                    "rowspan": 4,
                     "regular": {
                       "amount": null,
-                      "decision": "不参与",
-                      "display": "定投不参与",
+                      "display": "不参与",
                       "compact_display": "不参与",
-                      "tone": "muted",
-                      "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                      "tone": "muted"
                     },
                     "addon": {
                       "amount": 0.0,
-                      "decision": "不参与",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "conversion": {
                       "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": ""
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
-                    "detail": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                    "detail": "持有期／暂停基金不参与普通定投和加仓评分",
+                    "rows": [
+                      {
+                        "fund_code": "010340",
+                        "fund_name": "易方达高质量严选三年持有",
+                        "role_label": "主动权益",
+                        "regular": {
+                          "amount": null,
+                          "decision": "不参与",
+                          "display": "定投不参与",
+                          "compact_display": "不参与",
+                          "tone": "muted",
+                          "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "不参与",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": ""
+                        },
+                        "detail": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                      },
+                      {
+                        "fund_code": "010363",
+                        "fund_name": "信澳匠心臻选两年持有",
+                        "role_label": "主动权益",
+                        "regular": {
+                          "amount": null,
+                          "decision": "不参与",
+                          "display": "定投不参与",
+                          "compact_display": "不参与",
+                          "tone": "muted",
+                          "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "不参与",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": ""
+                        },
+                        "detail": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                      },
+                      {
+                        "fund_code": "017491",
+                        "fund_name": "财通景气甄选一年持有C",
+                        "role_label": "主动权益",
+                        "regular": {
+                          "amount": null,
+                          "decision": "不参与",
+                          "display": "定投不参与",
+                          "compact_display": "不参与",
+                          "tone": "muted",
+                          "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "不参与",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": ""
+                        },
+                        "detail": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                      }
+                    ]
                   },
                   {
-                    "fund_name": "信澳匠心臻选两年持有",
-                    "role_label": "主动权益",
+                    "label": "现金层",
+                    "fund_count": 0,
+                    "role_label": "现金",
+                    "erp_amount": "180",
+                    "rowspan": 1,
                     "regular": {
-                      "amount": null,
-                      "decision": "不参与",
-                      "display": "定投不参与",
-                      "compact_display": "不参与",
-                      "tone": "muted",
-                      "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                      "amount": 0,
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "addon": {
-                      "amount": 0.0,
-                      "decision": "不参与",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                      "amount": 0,
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
                     "conversion": {
-                      "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": ""
+                      "amount": 0,
+                      "display": "0",
+                      "compact_display": "0",
+                      "tone": "muted"
                     },
-                    "detail": "FOF/主动/持有期/暂停基金,不参与加仓评分"
-                  },
-                  {
-                    "fund_name": "财通景气甄选一年持有C",
-                    "role_label": "主动权益",
-                    "regular": {
-                      "amount": null,
-                      "decision": "不参与",
-                      "display": "定投不参与",
-                      "compact_display": "不参与",
-                      "tone": "muted",
-                      "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "decision": "不参与",
-                      "display": "加仓0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "decision": "不转换",
-                      "display": "转换0元",
-                      "compact_display": "0元",
-                      "tone": "muted",
-                      "reason": ""
-                    },
-                    "detail": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+                    "detail": "上期结转170元→当月可加仓350元；预计全周期未投1196元（预算测算，不是现金余额）",
+                    "rows": []
                   }
                 ],
-                "footer_rows": [
-                  {
-                    "label": "周期资金",
-                    "text": "本周期可用1800元，本周投后余1694元；预计全周期未投1196元（预算测算，不是现金余额）。后续周次以各周日评估为准。"
+                "total_summary": {
+                  "label": "全组合总计",
+                  "fund_count": 11,
+                  "erp_amount": "1800",
+                  "regular": {
+                    "amount": 106.0,
+                    "display": "106",
+                    "compact_display": "106",
+                    "tone": "pos"
                   },
-                  {
-                    "label": "金额口径",
-                    "text": "定投与加仓为本周计划金额；转换不预估，实际以成交回传为准"
-                  }
-                ]
+                  "addon": {
+                    "amount": 0.0,
+                    "display": "0",
+                    "compact_display": "0",
+                    "tone": "muted"
+                  },
+                  "conversion": {
+                    "amount": 0.0,
+                    "display": "0",
+                    "compact_display": "0",
+                    "tone": "muted"
+                  },
+                  "detail": "11只基金；转换不预估，以实际成交回传为准"
+                },
+                "amount_rule": "金额单位为元；转换不预估，实际以成交回传为准"
               }
             ]
           },
@@ -13581,7 +13966,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T00:17:40",
+    "generated_at": "2026-11-22T00:46:42",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

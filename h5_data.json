@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T02:38:00",
+  "generated_at": "2026-11-22T02:42:58",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -605,7 +605,7 @@
           {
             "label": "现金层",
             "role": "cash",
-            "role_label": "现金",
+            "role_label": "现金层",
             "fund_count": 0,
             "erp_amount": 180,
             "detail": "现金层预留",
@@ -644,7 +644,7 @@
             "serial_no": 1,
             "role": "core",
             "role_label": "核心",
-            "role_order": 0,
+            "role_order": 10,
             "reduce": {
               "amount": 0.0,
               "decision": "持有",
@@ -664,7 +664,7 @@
             "serial_no": 2,
             "role": "core",
             "role_label": "核心",
-            "role_order": 0,
+            "role_order": 10,
             "reduce": {
               "amount": 0.0,
               "decision": "持有",
@@ -684,7 +684,7 @@
             "serial_no": 3,
             "role": "satellite",
             "role_label": "卫星",
-            "role_order": 1,
+            "role_order": 20,
             "reduce": {
               "amount": 0.0,
               "decision": "观察",
@@ -704,7 +704,7 @@
             "serial_no": 4,
             "role": "satellite",
             "role_label": "卫星",
-            "role_order": 1,
+            "role_order": 20,
             "reduce": {
               "amount": 0.0,
               "decision": "持有",
@@ -724,7 +724,7 @@
             "serial_no": 5,
             "role": "satellite",
             "role_label": "卫星",
-            "role_order": 1,
+            "role_order": 20,
             "reduce": {
               "amount": 0.0,
               "decision": "持有",
@@ -744,7 +744,7 @@
             "serial_no": 6,
             "role": "fof",
             "role_label": "养老FOF",
-            "role_order": 2,
+            "role_order": 30,
             "reduce": {
               "amount": 0.0,
               "decision": "持有",
@@ -764,7 +764,7 @@
             "serial_no": 7,
             "role": "gold",
             "role_label": "黄金",
-            "role_order": 3,
+            "role_order": 40,
             "reduce": {
               "amount": 0.0,
               "decision": "持有",
@@ -784,7 +784,7 @@
             "serial_no": 8,
             "role": "debt",
             "role_label": "债基",
-            "role_order": 4,
+            "role_order": 50,
             "reduce": {
               "amount": 0.0,
               "decision": "持有",
@@ -804,7 +804,7 @@
             "serial_no": 9,
             "role": "active",
             "role_label": "主动权益",
-            "role_order": 5,
+            "role_order": 60,
             "reduce": {
               "amount": 0.0,
               "decision": "持有",
@@ -824,7 +824,7 @@
             "serial_no": 10,
             "role": "active",
             "role_label": "主动权益",
-            "role_order": 5,
+            "role_order": 60,
             "reduce": {
               "amount": 0.0,
               "decision": "观察",
@@ -844,7 +844,7 @@
             "serial_no": 11,
             "role": "active",
             "role_label": "主动权益",
-            "role_order": 5,
+            "role_order": 60,
             "reduce": {
               "amount": 0.0,
               "decision": "观察",
@@ -2294,7 +2294,7 @@
                   {
                     "label": "现金层",
                     "fund_count": 0,
-                    "role_label": "现金",
+                    "role_label": "现金层",
                     "erp_amount": 180,
                     "detail": "现金层预留",
                     "rows": []
@@ -3393,7 +3393,7 @@
             },
             "detail": "上期结转170元→当月可加仓350元；预计全周期未投1196元（预算测算，不是现金余额）",
             "role": "cash",
-            "role_label": "现金",
+            "role_label": "现金层",
             "fund_codes": []
           }
         ],
@@ -3428,7 +3428,7 @@
             "fund_name": "南方中证500ETF联接(LOF)A",
             "role": "core",
             "role_label": "核心",
-            "role_order": 0,
+            "role_order": 10,
             "regular": {
               "amount": 32.0,
               "decision": "定投",
@@ -3464,7 +3464,7 @@
             "fund_name": "华夏沪深300ETF联接A",
             "role": "core",
             "role_label": "核心",
-            "role_order": 0,
+            "role_order": 10,
             "regular": {
               "amount": 0.0,
               "decision": "暂停",
@@ -3500,7 +3500,7 @@
             "fund_name": "华宝中证有色金属ETF联接A",
             "role": "satellite",
             "role_label": "卫星",
-            "role_order": 1,
+            "role_order": 20,
             "regular": {
               "amount": 44.0,
               "decision": "定投",
@@ -3536,7 +3536,7 @@
             "fund_name": "嘉实中证新能源汽车指数C",
             "role": "satellite",
             "role_label": "卫星",
-            "role_order": 1,
+            "role_order": 20,
             "regular": {
               "amount": 0.0,
               "decision": "暂停",
@@ -3572,7 +3572,7 @@
             "fund_name": "易方达恒生港股通创新药ETF联接A",
             "role": "satellite",
             "role_label": "卫星",
-            "role_order": 1,
+            "role_order": 20,
             "regular": {
               "amount": 0.0,
               "decision": "暂停",
@@ -3609,7 +3609,7 @@
             "fund_name": "兴全安泰积极养老目标五年FOF A",
             "role": "fof",
             "role_label": "养老FOF",
-            "role_order": 2,
+            "role_order": 30,
             "regular": {
               "amount": 30.0,
               "decision": "定投",
@@ -3645,7 +3645,7 @@
             "fund_name": "国泰黄金ETF联接C",
             "role": "gold",
             "role_label": "黄金",
-            "role_order": 3,
+            "role_order": 40,
             "regular": {
               "amount": 0.0,
               "decision": "暂停",
@@ -3681,7 +3681,7 @@
             "fund_name": "富国添享一年持有债券A",
             "role": "debt",
             "role_label": "债基",
-            "role_order": 4,
+            "role_order": 50,
             "regular": {
               "amount": 0.0,
               "decision": "暂停",
@@ -3717,7 +3717,7 @@
             "fund_name": "易方达高质量严选三年持有",
             "role": "active",
             "role_label": "主动权益",
-            "role_order": 5,
+            "role_order": 60,
             "regular": {
               "amount": null,
               "decision": "不参与",
@@ -3753,7 +3753,7 @@
             "fund_name": "信澳匠心臻选两年持有",
             "role": "active",
             "role_label": "主动权益",
-            "role_order": 5,
+            "role_order": 60,
             "regular": {
               "amount": null,
               "decision": "不参与",
@@ -3789,7 +3789,7 @@
             "fund_name": "财通景气甄选一年持有C",
             "role": "active",
             "role_label": "主动权益",
-            "role_order": 5,
+            "role_order": 60,
             "regular": {
               "amount": null,
               "decision": "不参与",
@@ -6638,7 +6638,7 @@
                   {
                     "label": "现金层",
                     "fund_count": 0,
-                    "role_label": "现金",
+                    "role_label": "现金层",
                     "erp_amount": 180,
                     "detail": "上期结转170元→当月可加仓350元；预计全周期未投1196元（预算测算，不是现金余额）",
                     "rows": []
@@ -7417,7 +7417,7 @@
         "total_summary": {
           "label": "全组合总计",
           "fund_count": 11,
-          "erp_amount": 1800.0,
+          "erp_amount": 1800,
           "month_end": {
             "amount": 21302.39,
             "display": "21302.39元",
@@ -7438,7 +7438,7 @@
             "fund_name": "南方中证500ETF联接(LOF)A",
             "role": "core",
             "role_label": "核心",
-            "role_order": 0,
+            "role_order": 10,
             "month_end": {
               "amount": 0.0,
               "display": "0元",
@@ -7466,7 +7466,7 @@
             "fund_name": "华夏沪深300ETF联接A",
             "role": "core",
             "role_label": "核心",
-            "role_order": 0,
+            "role_order": 10,
             "month_end": {
               "amount": 0.0,
               "display": "0元",
@@ -7494,7 +7494,7 @@
             "fund_name": "华宝中证有色金属ETF联接A",
             "role": "satellite",
             "role_label": "卫星",
-            "role_order": 1,
+            "role_order": 20,
             "month_end": {
               "amount": 244.0,
               "display": "244元",
@@ -7522,7 +7522,7 @@
             "fund_name": "嘉实中证新能源汽车指数C",
             "role": "satellite",
             "role_label": "卫星",
-            "role_order": 1,
+            "role_order": 20,
             "month_end": {
               "amount": 1331.61,
               "display": "1331.61元",
@@ -7550,7 +7550,7 @@
             "fund_name": "易方达恒生港股通创新药ETF联接A",
             "role": "satellite",
             "role_label": "卫星",
-            "role_order": 1,
+            "role_order": 20,
             "month_end": {
               "amount": 1882.34,
               "display": "1882.34元",
@@ -7578,7 +7578,7 @@
             "fund_name": "兴全安泰积极养老目标五年FOF A",
             "role": "fof",
             "role_label": "养老FOF",
-            "role_order": 2,
+            "role_order": 30,
             "month_end": {
               "amount": 1150.32,
               "display": "1150.32元",
@@ -7606,7 +7606,7 @@
             "fund_name": "国泰黄金ETF联接C",
             "role": "gold",
             "role_label": "黄金",
-            "role_order": 3,
+            "role_order": 40,
             "month_end": {
               "amount": 1154.81,
               "display": "1154.81元",
@@ -7634,7 +7634,7 @@
             "fund_name": "富国添享一年持有债券A",
             "role": "debt",
             "role_label": "债基",
-            "role_order": 4,
+            "role_order": 50,
             "month_end": {
               "amount": 13002.78,
               "display": "13002.78元",
@@ -7662,7 +7662,7 @@
             "fund_name": "易方达高质量严选三年持有",
             "role": "active",
             "role_label": "主动权益",
-            "role_order": 5,
+            "role_order": 60,
             "month_end": {
               "amount": 870.29,
               "display": "870.29元",
@@ -7690,7 +7690,7 @@
             "fund_name": "信澳匠心臻选两年持有",
             "role": "active",
             "role_label": "主动权益",
-            "role_order": 5,
+            "role_order": 60,
             "month_end": {
               "amount": 641.0,
               "display": "641元",
@@ -7718,7 +7718,7 @@
             "fund_name": "财通景气甄选一年持有C",
             "role": "active",
             "role_label": "主动权益",
-            "role_order": 5,
+            "role_order": 60,
             "month_end": {
               "amount": 855.24,
               "display": "855.24元",
@@ -10288,7 +10288,7 @@
                 "total_summary": {
                   "label": "全组合总计",
                   "fund_count": 11,
-                  "erp_amount": 1800.0,
+                  "erp_amount": 1800,
                   "month_end": {
                     "amount": 21302.39,
                     "display": "21302.39元",
@@ -15307,7 +15307,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T02:38:00",
+    "generated_at": "2026-11-22T02:42:58",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -18177,6 +18177,14 @@
         {
           "type": "paragraph",
           "text": "**每日页全持仓减仓总表（fund_operations_daily_v1）**：同名“全持仓与三层资金分配总表”只设基金／ERP／减仓／执行说明四列，保留层级行、连续基金序号、整数ERP和全组合总计，不生成层级小计，不携带定投、加仓、转换动作或金额。层级与ERP只读周日正式SQL投影并记录来源run_id；减仓动作、金额与原因只读每日自身judgments，持有／观察为0元，减仓／止损／清仓未定价时显示“成交为准”，不得伪造金额。独立“触发项扫描”卡不再平铺，全部正常项与关注项迁入总表下方默认收起的“判断依据”；每日引擎须在动作有效性裁决前生成该投影。**"
+        },
+        {
+          "type": "paragraph",
+          "text": "**月度页全持仓月结入账总表（fund_operations_monthly_v1）**：固定基金／ERP／月结／入账／执行说明五列。月结取各基金截至基准日的最近持仓快照与封账现金，入账只统计已结束周期真实定投和加仓扣款，不含基金转换、超级转换转入、债基轮转或卖出结算；合计必须与封账已花勾稽。月结口径、入账勾稽、排除项、回传状态与新周期预算统一放入总表下方默认收起的“判断依据”。月度只读执行预算引擎生成ERP结构，不写execution_plan、不产生交易指令。**"
+        },
+        {
+          "type": "paragraph",
+          "text": "**全持仓动态数据契约**：周／日／月的基金清单、连续序号、分层成员、基金数量、ERP、月结与入账均由SQL和引擎生成，禁止按当前基金只数写死；层级名称、排序与每日层级说明统一读`fund_operation_roles`，周／日／月共用`_erp_amounts`。每日层级数量按本档成员重算，不复制来源数量字段。季度规模尝试数、退出复核数同样由引擎按SQL集合生成，禁止硬编码当前只数。**"
         },
         {
           "type": "table",

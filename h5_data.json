@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T10:10:32",
+  "generated_at": "2026-11-21T10:13:52",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -7016,18 +7016,7 @@
             ],
             "change_count": 4
           }
-        ],
-        "quarter_backtest": {
-          "signal_count": 1,
-          "outcome_count": 0,
-          "pending_count": 1,
-          "correct_count": 0,
-          "accuracy": null,
-          "next_settle_date": "2027-05-20",
-          "revision_sample_required": 30,
-          "revision_accuracy_threshold": 60.0,
-          "status": "已有1条信号待观察，最早2027-05-20到期；取得到期净值后结算，有结果样本后计算胜率"
-        }
+        ]
       },
       "market_env": {
         "hs300_pe_pct": 74.97,
@@ -7048,7 +7037,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T10:10:32",
+    "generated_at": "2026-11-21T10:13:52",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

@@ -73,6 +73,20 @@ function renderFundOperationsTable(node) {
   return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table" aria-label="全持仓与三层资金分配总表"><colgroup><col class="col-fund"><col class="col-erp"><col class="col-action"><col class="col-action"><col class="col-action"><col class="col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
 }
 
+function renderDailyFundOperationsTable(node) {
+  const headers = node.headers || [];
+  const head = headers.map(label => `<th scope="col">${esc(label)}</th>`).join('');
+  const reduceCell = row => `<td class="action-cell">${esc((row.reduce || {}).compact_display || (row.reduce || {}).display || '—')}</td>`;
+  const funds = (node.role_groups || []).map(group => {
+    const heading = `<tr class="role-heading-row"><th scope="rowgroup">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}只）` : ''}</th><td class="erp-cell">${esc(group.erp_amount)}</td><td class="role-heading-detail" colspan="2">${esc(group.detail)}</td></tr>`;
+    const members = (group.rows || []).map(row =>
+      `<tr class="fund-main"><th scope="row" colspan="2">${esc(row.fund_name)}</th>${reduceCell(row)}<td class="fund-note-cell">${esc(row.detail)}</td></tr>`).join('');
+    return heading + members;
+  }).join('');
+  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row" colspan="2">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}只）</th>${reduceCell(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
+  return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table daily-operations-table" aria-label="每日全持仓减仓总表"><colgroup><col class="daily-col-fund"><col class="daily-col-erp"><col class="daily-col-action"><col class="daily-col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
+}
+
 function renderChecks(items) {
   return (items || []).map(item => {
     const metrics = (item.metrics || []).map(metric => `<span class="check-metric"><span>${esc(metric.label || '')}</span><strong class="num ${esc(metric.tone || 'info')}">${formatCell(metric.value)}</strong></span>`).join('');
@@ -122,6 +136,8 @@ function renderNode(node) {
       return renderFundRows(node.rows);
     case 'fund_operations_table':
       return renderFundOperationsTable(node);
+    case 'daily_fund_operations_table':
+      return renderDailyFundOperationsTable(node);
     case 'pending':
       return `<div class="decision-blockers"><strong>${esc(node.title)}</strong><ul>${(node.items || []).map(item => `<li>${esc(item)}</li>`).join('')}</ul></div>`;
     case 'check_groups': {

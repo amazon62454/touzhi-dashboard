@@ -25,6 +25,8 @@ function formatCell(cell) {
   if (!Object.prototype.hasOwnProperty.call(cell, 'value')) return esc(cell);
   const value = cell.value;
   if (Array.isArray(value)) return value.map(formatCell).join('');
+  // 引擎组合显示值可能嵌套一层格式化指令；纯递归展开，禁止把对象直接显示为[object Object]。
+  if (value && typeof value === 'object') return formatCell(value);
   switch (cell.format) {
     case 'money': return money(value);
     case 'pct': return pct(value);

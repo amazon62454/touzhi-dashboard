@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T01:14:29",
+  "generated_at": "2026-11-22T01:26:30",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -2574,11 +2574,11 @@
         }
       ],
       "fund_operations": {
-        "engine_contract": "fund_operations_v3",
+        "engine_contract": "fund_operations_v4",
         "row_count": 11,
         "role_groups": [
           {
-            "label": "核心小计",
+            "label": "核心",
             "fund_count": 2,
             "erp_amount": 263,
             "regular": {
@@ -2608,7 +2608,7 @@
             ]
           },
           {
-            "label": "卫星小计",
+            "label": "卫星",
             "fund_count": 3,
             "erp_amount": 177,
             "regular": {
@@ -2639,7 +2639,7 @@
             ]
           },
           {
-            "label": "养老FOF小计",
+            "label": "养老FOF",
             "fund_count": 1,
             "erp_amount": 120,
             "regular": {
@@ -2668,7 +2668,7 @@
             ]
           },
           {
-            "label": "黄金小计",
+            "label": "黄金",
             "fund_count": 1,
             "erp_amount": 180,
             "regular": {
@@ -2697,7 +2697,7 @@
             ]
           },
           {
-            "label": "债基小计",
+            "label": "债基",
             "fund_count": 1,
             "erp_amount": 880,
             "regular": {
@@ -2726,7 +2726,7 @@
             ]
           },
           {
-            "label": "主动权益小计",
+            "label": "主动权益",
             "fund_count": 3,
             "erp_amount": 0,
             "regular": {
@@ -5639,28 +5639,10 @@
                 ],
                 "role_groups": [
                   {
-                    "label": "核心小计",
+                    "label": "核心",
                     "fund_count": 2,
                     "role_label": "核心",
                     "erp_amount": 263,
-                    "regular": {
-                      "amount": 32.0,
-                      "display": "32",
-                      "compact_display": "32",
-                      "tone": "pos"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
                     "detail": "本周额度66元；季度锁比例，不参与行业集中制",
                     "rows": [
                       {
@@ -5726,28 +5708,10 @@
                     ]
                   },
                   {
-                    "label": "卫星小计",
+                    "label": "卫星",
                     "fund_count": 3,
                     "role_label": "卫星",
                     "erp_amount": 177,
-                    "regular": {
-                      "amount": 44.0,
-                      "display": "44",
-                      "compact_display": "44",
-                      "tone": "pos"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
                     "detail": "本周额度44元；按月度排名与结构上限顺延",
                     "rows": [
                       {
@@ -5843,28 +5807,10 @@
                     ]
                   },
                   {
-                    "label": "养老FOF小计",
+                    "label": "养老FOF",
                     "fund_count": 1,
                     "role_label": "养老FOF",
                     "erp_amount": 120,
-                    "regular": {
-                      "amount": 30.0,
-                      "display": "30",
-                      "compact_display": "30",
-                      "tone": "pos"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
                     "detail": "固定周投30元；从权益ERP独立承担，不进核心卫星比例",
                     "rows": [
                       {
@@ -5900,28 +5846,10 @@
                     ]
                   },
                   {
-                    "label": "黄金小计",
+                    "label": "黄金",
                     "fund_count": 1,
                     "role_label": "黄金",
                     "erp_amount": 180,
-                    "regular": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
                     "detail": "本周额度45元→执行0元；独立商品通道",
                     "rows": [
                       {
@@ -5957,28 +5885,10 @@
                     ]
                   },
                   {
-                    "label": "债基小计",
+                    "label": "债基",
                     "fund_count": 1,
                     "role_label": "债基",
                     "erp_amount": 880,
-                    "regular": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
                     "detail": "本周新增0元；按大类缺口执行",
                     "rows": [
                       {
@@ -6014,28 +5924,10 @@
                     ]
                   },
                   {
-                    "label": "主动权益小计",
+                    "label": "主动权益",
                     "fund_count": 3,
                     "role_label": "主动权益",
                     "erp_amount": 0,
-                    "regular": {
-                      "amount": null,
-                      "display": "不参与",
-                      "compact_display": "不参与",
-                      "tone": "muted"
-                    },
-                    "addon": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "conversion": {
-                      "amount": 0.0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
                     "detail": "持有期／暂停基金不参与普通定投和加仓评分",
                     "rows": [
                       {
@@ -6135,24 +6027,6 @@
                     "fund_count": 0,
                     "role_label": "现金",
                     "erp_amount": 180,
-                    "regular": {
-                      "amount": 0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "addon": {
-                      "amount": 0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
-                    "conversion": {
-                      "amount": 0,
-                      "display": "0",
-                      "compact_display": "0",
-                      "tone": "muted"
-                    },
                     "detail": "上期结转170元→当月可加仓350元；预计全周期未投1196元（预算测算，不是现金余额）",
                     "rows": []
                   }
@@ -13988,7 +13862,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T01:14:29",
+    "generated_at": "2026-11-22T01:26:30",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -16853,7 +16727,7 @@
         },
         {
           "type": "paragraph",
-          "text": "**周日页信息架构唯一为两层：①全持仓与三层资金分配总表（唯一一张六列单表：基金（含连续序号）／ERP／定投／加仓／转换／执行说明；按核心→卫星→养老FOF→黄金→债基→主动权益→现金分组，每组固定为“层级行→基金明细行→小计行”，禁止先小计后明细或跨组穿插；基金明细合并基金与ERP两列，ERP只在层级小计和全组合总计填整数，引擎直接整数化且各层合计=月总预算，核心＋卫星＋养老FOF=权益ERP；金额格只填数值、单位由表头承担，基金说明与基金同行，禁止另起说明行、顶部分配区、层级列或横屏全屏按钮。转换只写转入／转出与实际成交口径，不预估金额）→②加仓与转换评估（默认只给两项动作结论）。持仓身份、分层ERP、小计、基金序号、三类动作、原因与显示文案统一由引擎fund_operations根契约生成，H5不得读取持仓后自行分类、计算或拼接。核心/卫星额度计算、结构上限、顺延过程、候选评分与黄金目标缺口统一放入“判断依据”折叠区，不得分别设卡重复展示；预计未投预算与真实可用现金必须分列，禁止混称现金余额。**"
+          "text": "**周日页信息架构唯一为两层：①全持仓与三层资金分配总表（唯一一张六列单表：基金（含连续序号）／ERP／定投／加仓／转换／执行说明；按核心→卫星→养老FOF→黄金→债基→主动权益→现金分组，每组固定为“层级行（带整数ERP和说明）→基金明细行”，层级小计整行删除、禁止恢复，禁止跨组穿插；基金明细合并基金与ERP两列，ERP只在层级行和全组合总计填整数，引擎直接整数化且各层合计=月总预算，核心＋卫星＋养老FOF=权益ERP；金额格只填数值、单位由表头承担，基金说明与基金同行，禁止另起说明行、顶部分配区、层级列或横屏全屏按钮。转换只写转入／转出与实际成交口径，不预估金额）→②加仓与转换评估（默认只给两项动作结论）。持仓身份、分层ERP、基金序号、三类动作、原因与显示文案统一由引擎fund_operations根契约生成，H5不得读取持仓后自行分类、计算或拼接。核心/卫星额度计算、结构上限、顺延过程、候选评分与黄金目标缺口统一放入“判断依据”折叠区，不得分别设卡重复展示；预计未投预算与真实可用现金必须分列，禁止混称现金余额。**"
         },
         {
           "type": "table",

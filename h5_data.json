@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T09:40:23",
+  "generated_at": "2026-11-21T09:44:55",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -5589,11 +5589,28 @@
           }
         ],
         "forward_validation": null,
+        "quarter_input": {
+          "engine_contract": "quarter_monthly_receipt_v1",
+          "source_contract": "quarter_conclusion_v1",
+          "source_review_date": "2026-11-20",
+          "source_generated_at": "2026-11-20T23:10:43",
+          "received": true,
+          "status": "received",
+          "summary": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。",
+          "core_ratio": 59.690875,
+          "exit_count": 2,
+          "checks": {
+            "core_lock_match": true,
+            "exit_reviews_reused": true,
+            "review_period_match": true
+          },
+          "received_at": "2026-11-21T02:50:28"
+        },
         "action_view": {
           "engine_contract": "h5_band_action_v1",
           "complete": false,
           "headline": "本期无可执行操作，1项未执行",
-          "note": "",
+          "note": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。",
           "pending_title": "当前限制与未执行项",
           "pending_items": [
             "正式评估关键数据缺失，整档未完成；禁止执行，等待正式补跑"
@@ -6529,14 +6546,14 @@
               "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金017491自2026-06-25起最大回撤达63.38%（截至2026-11-17），同期沪深300最大回撤21.41%，超额回撤-52.52%。2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等科技赛道，前十大重仓占比70.55%；近1月净值下跌32.96%，同期沪深300仅跌4.54%，持仓赛道与基金净值同步大幅调整，表明回撤主因为赛道系统性回调。但缺乏基金经理选股能力恶化或持仓质量下降的直接证据，故fund_quality_deteriorating为null。"
             },
             "status": "pending",
-            "trigger_kind": "",
             "next_review_date": "2026-11-24",
-            "cooldown_until": null,
+            "lock_end_date": "2027-06-25",
             "missing": [
               "long_performance:基准指数季度不足:中证500指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
-            "lock_end_date": "2027-06-25",
+            "trigger_kind": "",
+            "cooldown_until": null,
             "holding_period": "1年"
           },
           {
@@ -6551,14 +6568,14 @@
               "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近一月回撤-26.50%、近三月-41.75%；2026Q3重仓股集中于电子(26.16%)、机械设备(19.63%)等科技制造赛道，前十大重仓占比48.53%。同期重仓股精智达连续3日跌18.66%、芯碁微装单日跌7.46%、东山精密单日跌6.45%，持仓赛道个股普遍大幅调整，与基金净值跌幅高度吻合。但缺乏基金经理调仓失误或选股能力下降的直接证据，无法判定基金质量恶化。"
             },
             "status": "pending",
-            "trigger_kind": "",
             "next_review_date": "2026-11-24",
-            "cooldown_until": null,
+            "lock_end_date": "2028-10-15",
             "missing": [
               "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
-            "lock_end_date": "2028-10-15",
+            "trigger_kind": "",
+            "cooldown_until": null,
             "holding_period": "2年"
           }
         ],
@@ -6577,18 +6594,29 @@
         "action_view": {
           "engine_contract": "h5_quarter_action_v1",
           "complete": false,
-          "conclusion_formed": false,
-          "conclusion_type": "unformed",
-          "conclusion_summary": "季度基础结论尚未形成，等待引擎补齐配置基线与复核结构",
+          "conclusion_formed": true,
+          "conclusion_type": "limited",
+          "conclusion_summary": "受限结论：维持现有配置，不机械置换存量；持有期锁定基金持有·到期再评，缺项继续补证",
           "monthly_handoff": {
             "engine_contract": "quarter_monthly_receipt_v1",
-            "received": false,
-            "status": "not_ready",
-            "summary": "系统证据齐全后形成季度结论，再供月度读取；本档不生成交易金额。"
+            "source_contract": "quarter_conclusion_v1",
+            "source_review_date": "2026-11-20",
+            "source_generated_at": "2026-11-20T23:10:43",
+            "received": true,
+            "status": "received",
+            "summary": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。",
+            "core_ratio": 59.690875,
+            "exit_count": 2,
+            "checks": {
+              "core_lock_match": true,
+              "exit_reviews_reused": true,
+              "review_period_match": true
+            },
+            "received_at": "2026-11-21T02:50:28"
           },
-          "headline": "你本季度暂不操作，等待系统完成复核",
+          "headline": "本季度受限结论：维持配置，持有期基金到期再评",
           "note": "财通景气甄选一年持有C、信澳匠心臻选两年持有：当前持有期未满，且退出证据未齐；你无需操作，不直接赎回",
-          "pending_title": "系统复核进度（无需你操作）",
+          "pending_title": "系统继续补证（无需你操作）",
           "pending_items": [
             "系统复核财通景气甄选一年持有C：1年持有期未满，台账锁定至2027-06-25，当前不能赎回；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24",
             "系统复核信澳匠心臻选两年持有：2年持有期未满，台账锁定至2028-10-15，当前不能赎回；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24"
@@ -7000,7 +7028,48 @@
             ],
             "change_count": 4
           }
-        ]
+        ],
+        "quarter_conclusion": {
+          "engine_contract": "quarter_conclusion_v1",
+          "status": "limited",
+          "formed": true,
+          "evidence_complete": false,
+          "headline": "本季度受限结论：维持配置，持有期基金到期再评",
+          "summary": "受限结论：维持现有配置，不机械置换存量；持有期锁定基金持有·到期再评，缺项继续补证",
+          "review_date": "2026-11-20",
+          "base_date": "2026-11-20",
+          "generated_at": "2026-11-20T23:10:43",
+          "core_ratio": 59.690875,
+          "core_lock_period": null,
+          "pending_evidence": {
+            "scale_missing_count": 0,
+            "backtest_pending_count": 0,
+            "exit_reviews": [
+              {
+                "fund_code": "017491",
+                "fund_name": "财通景气甄选一年持有C",
+                "status": "pending",
+                "next_review_date": "2026-11-24",
+                "lock_end_date": null,
+                "missing": [
+                  "long_performance:基准指数季度不足:中证500指数",
+                  "attribution:fund_quality_deteriorating缺少布尔证据"
+                ]
+              },
+              {
+                "fund_code": "010363",
+                "fund_name": "信澳匠心臻选两年持有",
+                "status": "pending",
+                "next_review_date": "2026-11-24",
+                "lock_end_date": null,
+                "missing": [
+                  "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+                  "attribution:fund_quality_deteriorating缺少布尔证据"
+                ]
+              }
+            ]
+          }
+        }
       },
       "market_env": {
         "hs300_pe_pct": 74.97,
@@ -7021,7 +7090,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T09:40:23",
+    "generated_at": "2026-11-21T09:44:55",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -7105,14 +7174,14 @@
           "id": "quarter_review",
           "title": "⑥ 季度配置复核流程",
           "lines": [
-            "系统复核中｜证据待补",
+            "受限结论已传递｜系统继续补证",
             "配置基线 → 核心卫星与集中度 → 补全证据 → 结论传递月度",
-            "当前：复核证据并形成结论"
+            "当前：形成季度结论并传递月度"
           ],
           "status": "waiting",
-          "status_label": "系统复核中｜证据待补",
+          "status_label": "受限结论已传递｜系统继续补证",
           "out_label": "下一步",
-          "reason": "下次正式复核2026-12-20；月度只读已形成的季度结论，不重复季度流程。"
+          "reason": "月度已接收本期受限结论；系统继续补证，下次正式复核2026-12-20。"
         }
       ],
       "workflows": [
@@ -7311,26 +7380,37 @@
         {
           "id": "quarter_review",
           "title": "⑥ 季度配置复核流程",
-          "state": "系统复核中｜证据待补",
+          "state": "受限结论已传递｜系统继续补证",
           "cadence": "配置基线 → 核心卫星与集中度 → 补全证据 → 结论传递月度",
-          "current": 3,
-          "handoff_received": false,
-          "next": "下次正式复核2026-12-20；月度只读已形成的季度结论，不重复季度流程。",
+          "current": 4,
+          "handoff_received": true,
+          "next": "月度已接收本期受限结论；系统继续补证，下次正式复核2026-12-20。",
           "action_view": {
             "engine_contract": "h5_quarter_action_v1",
             "complete": false,
-            "conclusion_formed": false,
-            "conclusion_type": "unformed",
-            "conclusion_summary": "季度基础结论尚未形成，等待引擎补齐配置基线与复核结构",
+            "conclusion_formed": true,
+            "conclusion_type": "limited",
+            "conclusion_summary": "受限结论：维持现有配置，不机械置换存量；持有期锁定基金持有·到期再评，缺项继续补证",
             "monthly_handoff": {
               "engine_contract": "quarter_monthly_receipt_v1",
-              "received": false,
-              "status": "not_ready",
-              "summary": "系统证据齐全后形成季度结论，再供月度读取；本档不生成交易金额。"
+              "source_contract": "quarter_conclusion_v1",
+              "source_review_date": "2026-11-20",
+              "source_generated_at": "2026-11-20T23:10:43",
+              "received": true,
+              "status": "received",
+              "summary": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。",
+              "core_ratio": 59.690875,
+              "exit_count": 2,
+              "checks": {
+                "core_lock_match": true,
+                "exit_reviews_reused": true,
+                "review_period_match": true
+              },
+              "received_at": "2026-11-21T02:50:28"
             },
-            "headline": "你本季度暂不操作，等待系统完成复核",
+            "headline": "本季度受限结论：维持配置，持有期基金到期再评",
             "note": "财通景气甄选一年持有C、信澳匠心臻选两年持有：当前持有期未满，且退出证据未齐；你无需操作，不直接赎回",
-            "pending_title": "系统复核进度（无需你操作）",
+            "pending_title": "系统继续补证（无需你操作）",
             "pending_items": [
               "系统复核财通景气甄选一年持有C：1年持有期未满，台账锁定至2027-06-25，当前不能赎回；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24",
               "系统复核信澳匠心臻选两年持有：2年持有期未满，台账锁定至2028-10-15，当前不能赎回；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24"
@@ -7349,13 +7429,13 @@
             },
             {
               "name": "复核证据并形成结论",
-              "status": "current",
-              "detail": "由系统继续取数与复核；你无需提交资料或执行交易。"
+              "status": "done",
+              "detail": "证据缺项已登记，本期形成受限结论；系统继续补证，不阻断月度交接。"
             },
             {
               "name": "形成季度结论并传递月度",
-              "status": "pending",
-              "detail": "系统证据齐全后形成季度结论，再供月度读取；本档不生成交易金额。"
+              "status": "done",
+              "detail": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。"
             }
           ],
           "lines": [

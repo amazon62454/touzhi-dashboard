@@ -644,14 +644,13 @@ const PAGE_SCHEMA = {
   ],
   'page-band_monthly': [
     { fn: 'bandHeader', arg: 'band_monthly' }, { fn: 'bandAction', from: 'band_monthly' }, { fn: 'bandFlows', arg: 'band_monthly' }, { fn: 'bandExpired', from: 'band_monthly' }, { fn: 'fundsMetrics' },
-    { fn: 'monthlyDetails', from: 'band_monthly' },
+    { fn: 'monthlyDetails', from: 'band_monthly' }, { fn: 'chainParameters' },
   ],
   'page-band_quarter': [
     { fn: 'bandHeader', arg: 'band_quarter' }, { fn: 'quarterAction', from: 'band_quarter' },
     { fn: 'bandFlows', arg: 'band_quarter' }, { fn: 'bandExpired', from: 'band_quarter' }, { fn: 'quarterEvidence', from: 'band_quarter' },
   ],
   'page-retirement': [{ fn: 'retirementPage' }],
-  'page-chain': [{ fn: 'chainPage' }],
   'page-rules': [{ fn: 'ruleList' }],
 };
 
@@ -702,10 +701,7 @@ R.monthlyDetails = function (b) {
   return content ? C.details(U.ui_monthly_details, content) : '';
 };
 
-// 流程导航只作跨档入口；完整步骤在主责档，避免两处重复。
-function workflowBandTitle(id) {
-  return (((D.bands || {})[id] || {}).title) || id;
-}
+// 流程步骤只在主责档位展示，跨档切换统一使用顶部导航。
 function bandFlowTitle(title) {
   return String(title || '').replace(/^[①②③④⑤⑥⑦⑧⑨⑩]\s*/, '');
 }
@@ -737,13 +733,6 @@ R.chainParameters = function () {
     edges.map(e => [`${nodeName(e.source)} → ${nodeName(e.target)} · ${e.label}`, e.status_label, e.actual, e.guidance]));
   return C.details(U.ui_chain_parameters,
     `<h3>${esc(U.ui_chain_nodes)}</h3>${nodeHtml}<h3>${esc(U.ui_chain_edges)}</h3>${edgeTable}`);
-};
-
-R.chainPage = function () {
-  const flows = ((D.param_chain || {}).visual || {}).workflows || [];
-  if (!flows.length) return C.card(U.ui_chain_directory_hint, C.empty('', ''));
-  const rows = flows.map(flow => `<button type="button" class="flow-overview" data-flow-owner="${esc(flow.owner_band)}" data-flow-id="${esc(flow.id)}"><span class="flow-overview-top"><strong>${esc(flow.title)}</strong><em>${esc(flow.state)}</em></span><span class="flow-overview-band">${esc(U.ui_chain_primary_band)}：${esc(workflowBandTitle(flow.owner_band))}</span></button>`).join('');
-  return C.card(U.ui_chain_directory_hint, `<div class="flow-overview-list">${rows}</div>`) + R.chainParameters();
 };
 
 R.bandFlows = function (band) {
@@ -788,20 +777,9 @@ R.selectBandFlow = function (band, id) {
   renderPage('page-' + band);
 };
 
-R.openWorkflow = function (band, id) {
-  window.__bandActiveFlow = window.__bandActiveFlow || {};
-  window.__bandActiveFlow[band] = id;
-  const page = 'page-' + band;
-  if ($(page)) delete $(page).dataset.rendered;
-  location.hash = page;
-  showPage(page);
-};
-
 document.addEventListener('click', event => {
   const bandButton = event.target.closest('[data-band-flow]');
   if (bandButton) R.selectBandFlow(bandButton.dataset.band, bandButton.dataset.bandFlow);
-  const ownerButton = event.target.closest('[data-flow-owner]');
-  if (ownerButton) R.openWorkflow(ownerButton.dataset.flowOwner, ownerButton.dataset.flowId);
 });
 
 R.monthlyClose = function (close) {
@@ -904,7 +882,6 @@ function renderPage(pageId) {
 // ---------- 导航（配置驱动） ----------
 const NAV = [
   { id: 'page-retirement', label: '养老' },
-  { id: 'page-chain', label: '流程导航' },
   { id: 'page-band_daily', label: '每日' },
   { id: 'page-band_eval', label: '周日' },
   { id: 'page-band_monthly', label: '月度' },

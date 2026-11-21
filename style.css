@@ -389,6 +389,9 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 .flow-current-detail.blocked strong { color: var(--c-warning); }
 .flow-current-detail p, .flow-done-evidence p { margin: var(--sp-1) 0 0; color: var(--c-text-2); font-size: var(--fs-sm); line-height: 1.6; overflow-wrap: anywhere; }
 .flow-done-evidence + .flow-done-evidence { margin-top: var(--sp-2); }
+.basis-list { margin: var(--sp-2) 0 0; padding-left: 1.25em; color: var(--c-text-2); font-size: var(--fs-sm); line-height: 1.65; }
+.basis-list li + li { margin-top: var(--sp-1); }
+.basis-list li::marker { color: var(--c-primary); }
 .flow-next-review { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-3); padding-top: var(--sp-3); border-top: 1px solid var(--c-border); }
 .flow-next-review span { color: var(--c-text-3); font-size: var(--fs-xs); }
 .flow-next-review strong { color: var(--c-primary); font-size: var(--fs-sm); font-variant-numeric: tabular-nums; }

@@ -348,20 +348,36 @@ details[open] > summary::after { content: '收起'; }
 .operations-table thead th { background: var(--c-surface-2); color: var(--c-text-2); font-weight: 600; text-align: center; }
 .operations-table tbody tr { border-bottom: 1px solid var(--c-border); }
 .operations-table tbody tr:last-child { border-bottom: none; }
-.operations-table .col-fund { width: 42%; }
-.operations-table .col-role { width: 14%; }
-.operations-table .col-action { width: 14.666%; }
-.operations-table .fund-main th { text-align: left; font-weight: 600; }
-.operations-table .fund-main td:nth-child(2) { text-align: center; }
+.operations-table .col-fund { width: 38%; }
+.operations-table .col-role { width: 11%; }
+.operations-table .col-action { width: 17%; }
+.operations-table .fund-main { border-bottom: 0; }
+.operations-table .fund-main th,
+.operations-table .fund-main td { vertical-align: middle; }
+.operations-table .fund-main th { padding: 10px 6px; text-align: left; font-weight: 600; line-height: 1.5; }
+.operations-table .fund-main td { padding: 10px 6px; text-align: center; }
 .operations-table .fund-main td:nth-child(3), .operations-table .fund-main td:nth-child(4), .operations-table .fund-main td:nth-child(5) {
-  text-align: right; font-weight: 700; font-variant-numeric: tabular-nums;
+  padding-left: 3px; padding-right: 3px; white-space: nowrap;
+  text-align: center; font-weight: 700; font-variant-numeric: tabular-nums;
 }
-.operations-table .fund-main td:last-child, .operations-table thead th:last-child, .operations-table .col-note { display: none; }
-.operations-table .fund-note-row td { color: var(--c-text-2); background: var(--c-surface-2); }
+.operations-table .fund-main td:last-child, .operations-table thead th:last-child,
+.operations-table .fund-subhead th:last-child, .operations-table .col-note { display: none; }
+.operations-table .fund-note-row { border-bottom: 2px solid var(--c-border); }
+.operations-table .fund-note-row td { padding: 9px 10px 13px; color: var(--c-text-2); background: var(--c-surface-2); line-height: 1.65; border-left: 3px solid var(--c-border); }
+.operations-table .fund-subhead { display: none; }
+.operations-table .fund-subhead th { padding: 7px 3px; background: var(--c-primary-weak); color: var(--c-text-2); font-size: var(--fs-xs); text-align: center; white-space: nowrap; border-top: 2px solid var(--c-border); }
+.operations-table .fund-subhead th:first-child { text-align: left; padding-left: 6px; }
 .operations-table .allocation-row th, .operations-table .table-foot th { text-align: left; color: var(--c-primary); font-weight: 700; }
 .operations-table .allocation-row td, .operations-table .table-foot td { text-align: left; color: var(--c-text-1); }
 .operations-table .allocation-row { background: var(--c-primary-weak); }
 .operations-table .table-foot { background: var(--c-surface-2); }
+@media (orientation: portrait) and (max-width: 699px) {
+  .operations-table .fund-subhead { display: table-row; }
+  .operations-table .allocation-row th,
+  .operations-table .allocation-row td { padding: 12px 10px; line-height: 1.7; vertical-align: top; }
+  .operations-table .table-foot th,
+  .operations-table .table-foot td { padding: 12px 10px; line-height: 1.65; }
+}
 .operations-table-shell.is-expanded {
   position: fixed; inset: 0; z-index: 1000; overflow-y: auto; padding: var(--sp-3);
   background: var(--c-surface); color: var(--c-text);

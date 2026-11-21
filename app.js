@@ -123,6 +123,24 @@ function renderMonthlyFundOperationsTable(node) {
   return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table monthly-operations-table"><colgroup><col class="monthly-col-fund"><col class="monthly-col-erp"><col class="monthly-col-close"><col class="monthly-col-inflow"><col class="monthly-col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${groups}${footer}</tbody></table></div><p class="table-caption">${esc(node.amount_rule || '')}</p></div>`;
 }
 
+function renderQuarterFundOperationsTable(node) {
+  const headers = (node.headers || []).map(label => `<th scope="col">${esc(label)}</th>`).join('');
+  const rows = node.rows || [];
+  const groups = (node.status_groups || []).map(group => {
+    const members = group.fund_codes || [];
+    const heading = `<tr class="role-heading-row"><th colspan="5" scope="rowgroup">${esc(group.status)}（${esc(group.fund_count)}只）<span class="role-heading-detail">${esc(group.detail || '')}</span></th></tr>`;
+    const body = members.map(code => {
+      const row = rows.find(item => item.fund_code === code) || {};
+      const detail = (row.detail_lines || []).filter(Boolean).map(esc).join('<br>');
+      return `<tr class="fund-main"><th scope="row">${esc(row.display_name || row.fund_name || code)}</th><td>${esc(row.role_label || '—')}</td><td>${esc(row.status || '—')}</td><td>${esc(row.score_display || '—')}</td><td class="fund-note-cell">${detail}</td></tr>`;
+    }).join('');
+    return heading + body;
+  }).join('');
+  const total = node.total_summary || {};
+  const footer = `<tr class="fund-row grand-total-row"><th scope="row">${esc(total.label || '合计')}</th><td colspan="4" class="summary-detail">${esc(total.detail || '')}</td></tr>`;
+  return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table quarter-operations-table"><colgroup><col class="quarter-col-fund"><col class="quarter-col-role"><col class="quarter-col-status"><col class="quarter-col-score"><col class="quarter-col-note"></colgroup><thead><tr>${headers}</tr></thead><tbody>${groups}${footer}</tbody></table></div><p class="table-caption">${esc((node.total_summary || {}).detail || '')}</p></div>`;
+}
+
 function renderNode(node) {
   if (!node) return '';
   switch (node.type) {
@@ -152,6 +170,8 @@ function renderNode(node) {
       return renderDailyFundOperationsTable(node);
     case 'monthly_fund_operations_table':
       return renderMonthlyFundOperationsTable(node);
+    case 'quarter_fund_operations_table':
+      return renderQuarterFundOperationsTable(node);
     case 'pending':
       return `<div class="decision-blockers"><strong>${esc(node.title)}</strong><ul>${(node.items || []).map(item => `<li>${esc(item)}</li>`).join('')}</ul></div>`;
     case 'check_groups': {

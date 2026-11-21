@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T18:36:04",
+  "generated_at": "2026-11-21T18:37:09",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -5253,6 +5253,29 @@
                   "format": "money"
                 },
                 "tone": "pos",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "本期现金层预算 / 加仓已用",
+                "value": {
+                  "value": [
+                    {
+                      "value": 180.0,
+                      "format": "money"
+                    },
+                    {
+                      "value": "/",
+                      "format": "text"
+                    },
+                    {
+                      "value": 0.0,
+                      "format": "money"
+                    }
+                  ],
+                  "format": "text"
+                },
+                "tone": "",
                 "note": ""
               },
               {
@@ -12851,7 +12874,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T18:36:04",
+    "generated_at": "2026-11-21T18:37:09",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -16092,6 +16115,7 @@
     "ui_lbl_projected_cycle_uninvested": "预计全周期未投预算",
     "ui_weekly_cash_scope_note": "上期结转现金池＋本期现金层剩余=当月加仓可用现金；预计全周期未投预算=本期预算−预计使用，不是现金余额。",
     "ui_h2_cycle_budget": "整周期预算与现金口径",
-    "ui_lbl_available_cash": "当月加仓可用现金"
+    "ui_lbl_available_cash": "当月加仓可用现金",
+    "ui_lbl_cash_layer_budget_spent": "本期现金层预算 / 加仓已用"
   }
 }

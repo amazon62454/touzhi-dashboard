@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T10:08:19",
+  "generated_at": "2026-11-21T10:09:26",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1353,7 +1353,7 @@
           "complete": true,
           "headline": "今天无需操作",
           "note": "",
-          "pending_title": "当前限制与未执行项",
+          "pending_title": "当前限制与阻断项",
           "pending_items": []
         }
       },
@@ -3383,7 +3383,7 @@
           "complete": false,
           "headline": "2026-11-23执行3只，合计106元",
           "note": "暂停项不补买、不替代扣款；逐只金额见下方执行明细。",
-          "pending_title": "当前限制与未执行项",
+          "pending_title": "当前限制与阻断项",
           "pending_items": [
             "核心买入条件未满足，对应额度留现金",
             "已达卫星结构上限，新增额度顺延下一名（2只）",
@@ -5594,7 +5594,7 @@
           "complete": false,
           "headline": "本期不执行任何操作，1项因缺数等待补跑",
           "note": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。",
-          "pending_title": "当前限制与未执行项",
+          "pending_title": "当前限制与阻断项",
           "pending_items": [
             "正式评估关键数据缺失，整档未完成；禁止执行，等待正式补跑"
           ]
@@ -7048,7 +7048,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T10:08:19",
+    "generated_at": "2026-11-21T10:09:26",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T09:44:55",
+  "generated_at": "2026-11-21T09:46:14",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -5589,23 +5589,6 @@
           }
         ],
         "forward_validation": null,
-        "quarter_input": {
-          "engine_contract": "quarter_monthly_receipt_v1",
-          "source_contract": "quarter_conclusion_v1",
-          "source_review_date": "2026-11-20",
-          "source_generated_at": "2026-11-20T23:10:43",
-          "received": true,
-          "status": "received",
-          "summary": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。",
-          "core_ratio": 59.690875,
-          "exit_count": 2,
-          "checks": {
-            "core_lock_match": true,
-            "exit_reviews_reused": true,
-            "review_period_match": true
-          },
-          "received_at": "2026-11-21T02:50:28"
-        },
         "action_view": {
           "engine_contract": "h5_band_action_v1",
           "complete": false,
@@ -7028,48 +7011,7 @@
             ],
             "change_count": 4
           }
-        ],
-        "quarter_conclusion": {
-          "engine_contract": "quarter_conclusion_v1",
-          "status": "limited",
-          "formed": true,
-          "evidence_complete": false,
-          "headline": "本季度受限结论：维持配置，持有期基金到期再评",
-          "summary": "受限结论：维持现有配置，不机械置换存量；持有期锁定基金持有·到期再评，缺项继续补证",
-          "review_date": "2026-11-20",
-          "base_date": "2026-11-20",
-          "generated_at": "2026-11-20T23:10:43",
-          "core_ratio": 59.690875,
-          "core_lock_period": null,
-          "pending_evidence": {
-            "scale_missing_count": 0,
-            "backtest_pending_count": 0,
-            "exit_reviews": [
-              {
-                "fund_code": "017491",
-                "fund_name": "财通景气甄选一年持有C",
-                "status": "pending",
-                "next_review_date": "2026-11-24",
-                "lock_end_date": null,
-                "missing": [
-                  "long_performance:基准指数季度不足:中证500指数",
-                  "attribution:fund_quality_deteriorating缺少布尔证据"
-                ]
-              },
-              {
-                "fund_code": "010363",
-                "fund_name": "信澳匠心臻选两年持有",
-                "status": "pending",
-                "next_review_date": "2026-11-24",
-                "lock_end_date": null,
-                "missing": [
-                  "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
-                  "attribution:fund_quality_deteriorating缺少布尔证据"
-                ]
-              }
-            ]
-          }
-        }
+        ]
       },
       "market_env": {
         "hs300_pe_pct": 74.97,
@@ -7090,7 +7032,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T09:44:55",
+    "generated_at": "2026-11-21T09:46:14",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

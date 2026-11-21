@@ -75,7 +75,7 @@ function renderWorkflow(node) {
     : `<div class="band-flow-head"><div><strong>${esc(flow.title)}</strong><span>${esc(flow.progress)}</span></div>${badge({ text: flow.state_label, kind: flow.tone })}</div>`;
   const steps = (flow.steps || []).map((step, index) => `<div class="compact-step ${esc(step.status)}"><span class="workflow-index">${index + 1}</span><div><strong>${esc(step.name)}</strong><em>${esc(step.status_label || step.status)}</em></div></div>`).join('');
   const current = flow.current_detail ? `<div class="flow-current-detail ${esc(flow.current_detail.kind)}"><strong>${esc(flow.current_detail.label)}</strong><p>${esc(flow.current_detail.text)}</p></div>` : '';
-  const evidence = (flow.done_evidence || []).length ? `<details><summary>${esc(flow.done_title)}</summary>${flow.done_evidence.map(item => `<div class="flow-done-evidence"><strong>${esc(item.name)}</strong><p>${esc(item.detail)}</p></div>`).join('')}</details>` : '';
+  const evidence = (flow.done_evidence || []).length ? `<details><summary>${esc(flow.done_title)}</summary>${flow.done_evidence.map(item => `<div class="flow-done-evidence"><strong>${esc(item.name)}</strong><p>${esc(item.detail)}</p>${(item.basis || []).length ? `<ul class="basis-list">${item.basis.map(text => `<li>${esc(text)}</li>`).join('')}</ul>` : ''}</div>`).join('')}</details>` : '';
   const times = (flow.time_rows || []).map(row => `<div class="flow-next-review"><span>${esc(row.label)}</span><strong>${formatCell(row.value)}</strong></div>`).join('');
   return `${tabs}${heading}<div class="compact-steps">${steps}</div>${current}${evidence}${times}`;
 }

@@ -111,6 +111,18 @@ function renderWorkflow(node) {
   return `${tabs}${heading}<div class="compact-steps">${steps}</div>${current}${evidence}${times}`;
 }
 
+function renderMonthlyFundOperationsTable(node) {
+  const head = (node.headers || []).map(label => `<th scope="col">${esc(label)}</th>`).join('');
+  const groups = (node.role_groups || []).map(group => {
+    const heading = `<tr class="role-heading-row"><th colspan="2" scope="row">${esc(group.role_label || group.label || '')}（${group.fund_count || 0}只）</th><td class="erp-cell">${esc(group.erp_amount ?? '—')}</td><td colspan="3" class="role-allocation-note">${esc(group.detail || '')}</td></tr>`;
+    const funds = (group.rows || []).map(row => `<tr class="fund-row fund-main"><th colspan="2" scope="row">${esc(row.fund_name || '')}</th><td class="action-cell">${esc((row.month_end || {}).compact_display || '—')}</td><td class="action-cell">${esc((row.cash_inflow || {}).compact_display || '—')}</td><td class="fund-note-cell">${esc(row.detail || '—')}</td></tr>`).join('');
+    return heading + funds;
+  }).join('');
+  const total = node.total_summary || {};
+  const footer = `<tr class="fund-row grand-total-row"><th colspan="2" scope="row">${esc(total.label || '')}（${total.fund_count || 0}只）</th><td class="erp-cell">${esc(total.erp_amount ?? '—')}</td><td class="action-cell">${esc((total.month_end || {}).compact_display || '—')}</td><td class="action-cell">${esc((total.cash_inflow || {}).compact_display || '—')}</td><td class="fund-note-cell">${esc(total.detail || '')}</td></tr>`;
+  return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table monthly-operations-table"><colgroup><col class="monthly-col-fund"><col class="monthly-col-erp"><col class="monthly-col-close"><col class="monthly-col-inflow"><col class="monthly-col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${groups}${footer}</tbody></table></div><p class="table-caption">${esc(node.amount_rule || '')}</p></div>`;
+}
+
 function renderNode(node) {
   if (!node) return '';
   switch (node.type) {
@@ -138,6 +150,8 @@ function renderNode(node) {
       return renderFundOperationsTable(node);
     case 'daily_fund_operations_table':
       return renderDailyFundOperationsTable(node);
+    case 'monthly_fund_operations_table':
+      return renderMonthlyFundOperationsTable(node);
     case 'pending':
       return `<div class="decision-blockers"><strong>${esc(node.title)}</strong><ul>${(node.items || []).map(item => `<li>${esc(item)}</li>`).join('')}</ul></div>`;
     case 'check_groups': {

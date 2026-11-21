@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T16:32:26",
+  "generated_at": "2026-11-21T16:33:31",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -11861,17 +11861,621 @@
           "run_notice": "",
           "time_rows": []
         },
-        "sections": [],
-        "empty": {
-          "type": "empty",
-          "title": "等待引擎生成行动结论",
-          "note": ""
-        }
+        "sections": [
+          {
+            "type": "card",
+            "title": "季度行动结论",
+            "kind": "accent",
+            "children": [
+              {
+                "type": "text",
+                "text": "本季度受限结论：维持配置，持有期基金到期再评",
+                "style": "decision-main"
+              },
+              {
+                "type": "text",
+                "text": "财通景气甄选一年持有C、信澳匠心臻选两年持有：当前持有期未满，且退出证据未齐；你无需操作，不直接赎回",
+                "style": "decision-note"
+              },
+              {
+                "type": "pending",
+                "title": "系统继续补证（无需你操作）",
+                "items": [
+                  "系统继续积累1个前向信号的后续收益，样本不足不计算胜率",
+                  "系统复核财通景气甄选一年持有C：1年持有期未满，台账锁定至2027-06-25，当前不能赎回；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24",
+                  "系统复核信澳匠心臻选两年持有：2年持有期未满，台账锁定至2028-10-15，当前不能赎回；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "card",
+            "title": "本档操作流程",
+            "kind": "",
+            "children": [
+              {
+                "type": "workflow",
+                "flows": [
+                  {
+                    "id": "quarter_review",
+                    "title": "季度配置复核流程",
+                    "tab_state": "受限结论已传递",
+                    "state_label": "受限结论已传递",
+                    "tone": "muted",
+                    "progress": "4/4 步已完成",
+                    "steps": [
+                      {
+                        "name": "读取季度配置基线",
+                        "status": "done",
+                        "status_label": "已完成"
+                      },
+                      {
+                        "name": "复核核心卫星与集中度",
+                        "status": "done",
+                        "status_label": "已完成"
+                      },
+                      {
+                        "name": "复核证据并形成结论",
+                        "status": "done",
+                        "status_label": "已完成"
+                      },
+                      {
+                        "name": "形成季度结论并传递月度",
+                        "status": "done",
+                        "status_label": "已完成"
+                      }
+                    ],
+                    "current_detail": null,
+                    "done_evidence": [
+                      {
+                        "name": "读取季度配置基线",
+                        "detail": "配置基线已读取；四资产目标与实际见下方明细。"
+                      },
+                      {
+                        "name": "复核核心卫星与集中度",
+                        "detail": "核心比例59.69%；集中度超限0项，明细见下方证据。"
+                      },
+                      {
+                        "name": "复核证据并形成结论",
+                        "detail": "证据缺项已登记，本期形成受限结论；系统继续补证，不阻断月度交接。"
+                      },
+                      {
+                        "name": "形成季度结论并传递月度",
+                        "detail": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。"
+                      }
+                    ],
+                    "done_title": "查看已完成步骤依据",
+                    "time_rows": [
+                      {
+                        "type": "flow_time",
+                        "label": "下次评估 · 旧结果届时失效",
+                        "value": {
+                          "value": "2026-12-20T03:30:00",
+                          "format": "datetime"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "compact_heading": false,
+                "band": "band_quarter"
+              }
+            ]
+          },
+          {
+            "type": "details",
+            "summary": "查看配置与复核明细",
+            "children": [
+              {
+                "type": "card",
+                "title": "核心与卫星结构",
+                "kind": "",
+                "children": [
+                  {
+                    "type": "kv",
+                    "label": "核心比例",
+                    "value": {
+                      "value": 59.690875,
+                      "format": "pct"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "结构锁",
+                    "value": {
+                      "value": "是",
+                      "format": "text"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "核心基金",
+                    "value": {
+                      "value": "华夏沪深300ETF联接A（暂停） · 南方中证500ETF联接(LOF)A",
+                      "format": "text"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "table",
+                    "headers": [
+                      "排名",
+                      "基金",
+                      "状态"
+                    ],
+                    "aligns": [
+                      "right",
+                      "left",
+                      "left"
+                    ],
+                    "rows": [
+                      [
+                        {
+                          "value": 1,
+                          "format": "text"
+                        },
+                        {
+                          "value": "易方达恒生港股通创新药ETF联接A",
+                          "format": "text"
+                        },
+                        {
+                          "value": "可投",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": 2,
+                          "format": "text"
+                        },
+                        {
+                          "value": "嘉实中证新能源汽车指数C",
+                          "format": "text"
+                        },
+                        {
+                          "value": "可投",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": 3,
+                          "format": "text"
+                        },
+                        {
+                          "value": "华宝中证有色金属ETF联接A",
+                          "format": "text"
+                        },
+                        {
+                          "value": "可投",
+                          "format": "text"
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "card",
+                "title": "四资产目标与实际",
+                "kind": "",
+                "children": [
+                  {
+                    "type": "table",
+                    "headers": [
+                      "资产",
+                      "目标",
+                      "实际",
+                      "缺口"
+                    ],
+                    "aligns": [
+                      "left",
+                      "right",
+                      "right",
+                      "right"
+                    ],
+                    "rows": [
+                      [
+                        {
+                          "value": "权益",
+                          "format": "text"
+                        },
+                        {
+                          "value": 31.11,
+                          "format": "pct"
+                        },
+                        {
+                          "value": 31.121878812659048,
+                          "format": "pct"
+                        },
+                        {
+                          "value": -0.011879,
+                          "format": "pct"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "债券",
+                          "format": "text"
+                        },
+                        {
+                          "value": 48.89,
+                          "format": "pct"
+                        },
+                        {
+                          "value": 62.659053749368034,
+                          "format": "pct"
+                        },
+                        {
+                          "value": -13.769054,
+                          "format": "pct"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "黄金",
+                          "format": "text"
+                        },
+                        {
+                          "value": 10.0,
+                          "format": "pct"
+                        },
+                        {
+                          "value": 5.42103491673939,
+                          "format": "pct"
+                        },
+                        {
+                          "value": 4.578965,
+                          "format": "pct"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "现金",
+                          "format": "text"
+                        },
+                        {
+                          "value": 10.0,
+                          "format": "pct"
+                        },
+                        {
+                          "value": 0.798032521233533,
+                          "format": "pct"
+                        },
+                        {
+                          "value": 9.201967,
+                          "format": "pct"
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "FOF使用代理穿透",
+                    "style": "muted"
+                  }
+                ]
+              },
+              {
+                "type": "card",
+                "title": "赛道集中度（上限 30.0%）",
+                "kind": "",
+                "children": [
+                  {
+                    "type": "fund_rows",
+                    "rows": [
+                      {
+                        "name": "创新药",
+                        "code": "",
+                        "badges": [],
+                        "lines": [
+                          [
+                            {
+                              "value": 8.9,
+                              "format": "pct"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "新能车",
+                        "code": "",
+                        "badges": [],
+                        "lines": [
+                          [
+                            {
+                              "value": 6.3,
+                              "format": "pct"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "黄金",
+                        "code": "",
+                        "badges": [],
+                        "lines": [
+                          [
+                            {
+                              "value": 5.5,
+                              "format": "pct"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "有色",
+                        "code": "",
+                        "badges": [],
+                        "lines": [
+                          [
+                            {
+                              "value": 1.2,
+                              "format": "pct"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "宽基",
+                        "code": "",
+                        "badges": [],
+                        "lines": [
+                          [
+                            {
+                              "value": 0.0,
+                              "format": "pct"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "持仓市值（不含现金池） 21132.39元",
+                    "style": "muted"
+                  }
+                ]
+              },
+              {
+                "type": "card",
+                "title": "存量去留初筛（复核中）",
+                "kind": "",
+                "children": [
+                  {
+                    "type": "fund_rows",
+                    "rows": [
+                      {
+                        "name": "财通景气甄选一年持有C",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": "观察",
+                            "kind": "muted"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": [
+                                {
+                                  "value": "017491",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "·",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "已到持有观察止损线，启动退出评估",
+                                  "format": "text"
+                                }
+                              ],
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            [
+                              {
+                                "value": "系统状态：",
+                                "format": "text"
+                              },
+                              {
+                                "value": "pending",
+                                "format": "text"
+                              },
+                              {
+                                "value": "· 下次复核：",
+                                "format": "text"
+                              },
+                              {
+                                "value": "2026-11-24",
+                                "format": "text"
+                              },
+                              {
+                                "value": "· 本次评估截止：",
+                                "format": "text"
+                              },
+                              {
+                                "value": "2026-11-24",
+                                "format": "text"
+                              },
+                              {
+                                "value": "· 持有期到期：",
+                                "format": "text"
+                              },
+                              {
+                                "value": "2027-06-25",
+                                "format": "text"
+                              }
+                            ]
+                          ],
+                          [
+                            {
+                              "value": "系统待补：long_performance:基准指数季度不足:中证500指数；attribution:fund_quality_deteriorating缺少布尔证据",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "信澳匠心臻选两年持有",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": "观察",
+                            "kind": "muted"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": [
+                                {
+                                  "value": "010363",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "·",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "已到持有观察止损线，启动退出评估",
+                                  "format": "text"
+                                }
+                              ],
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            [
+                              {
+                                "value": "系统状态：",
+                                "format": "text"
+                              },
+                              {
+                                "value": "pending",
+                                "format": "text"
+                              },
+                              {
+                                "value": "· 下次复核：",
+                                "format": "text"
+                              },
+                              {
+                                "value": "2026-11-24",
+                                "format": "text"
+                              },
+                              {
+                                "value": "· 本次评估截止：",
+                                "format": "text"
+                              },
+                              {
+                                "value": "2026-11-24",
+                                "format": "text"
+                              },
+                              {
+                                "value": "· 持有期到期：",
+                                "format": "text"
+                              },
+                              {
+                                "value": "2028-10-15",
+                                "format": "text"
+                              }
+                            ]
+                          ],
+                          [
+                            {
+                              "value": "系统待补：long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%；attribution:fund_quality_deteriorating缺少布尔证据",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "card",
+                "title": "规模风险与季度回测",
+                "kind": "",
+                "children": [
+                  {
+                    "type": "kv",
+                    "label": "基金规模复核",
+                    "value": {
+                      "value": "已完成规模复核",
+                      "format": "text"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "信号流水 / 有结果样本",
+                    "value": {
+                      "value": [
+                        {
+                          "value": 1,
+                          "format": "text"
+                        },
+                        {
+                          "value": "/",
+                          "format": "text"
+                        },
+                        {
+                          "value": 0,
+                          "format": "text"
+                        }
+                      ],
+                      "format": "text"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "text",
+                    "text": "已有1条信号待观察，最早2027-05-20到期；取得到期净值后结算，有结果样本后计算胜率",
+                    "style": "muted"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "empty": null
       }
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T16:32:26",
+    "generated_at": "2026-11-21T16:33:31",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

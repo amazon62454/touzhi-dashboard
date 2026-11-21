@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T09:47:19",
+  "generated_at": "2026-11-21T10:02:59",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -5592,7 +5592,7 @@
         "action_view": {
           "engine_contract": "h5_band_action_v1",
           "complete": false,
-          "headline": "本期无可执行操作，1项未执行",
+          "headline": "本期不执行任何操作，1项因缺数等待补跑",
           "note": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。",
           "pending_title": "当前限制与未执行项",
           "pending_items": [
@@ -6571,8 +6571,12 @@
           "signal_count": 0,
           "outcome_count": 0,
           "pending_count": 0,
+          "correct_count": 0,
           "accuracy": null,
-          "status": "前向信号样本由系统持续积累；当前无待结算样本，不计算胜率"
+          "next_settle_date": null,
+          "revision_sample_required": 30,
+          "revision_accuracy_threshold": 60.0,
+          "status": "尚无评分达标买入或减仓/止损/止盈信号；产生信号后记录基价，满评估周期并结算后才计算胜率"
         },
         "action_view": {
           "engine_contract": "h5_quarter_action_v1",
@@ -7032,7 +7036,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T09:47:19",
+    "generated_at": "2026-11-21T10:02:59",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -7382,7 +7386,7 @@
           ],
           "lines": [
             "已完成规模复核",
-            "前向信号样本由系统持续积累；当前无待结算样本，不计算胜率",
+            "尚无评分达标买入或减仓/止损/止盈信号；产生信号后记录基价，满评估周期并结算后才计算胜率",
             "季度退出复核2只：财通景气甄选一年持有C、信澳匠心臻选两年持有"
           ],
           "owner_band": "band_quarter",

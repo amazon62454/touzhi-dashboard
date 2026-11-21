@@ -897,6 +897,7 @@ function showPage(pageId) {
   const target = valid ? pageId : 'page-retirement';
   document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === target));
   document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('active', a.dataset.page === target));
+  syncGlobalStatus(target);
   if (!$(target).dataset.rendered) {
     renderPage(target);
     $(target).dataset.rendered = '1';
@@ -999,15 +1000,18 @@ function startAutoRefresh() {
   document.addEventListener('visibilitychange', pollForUpdates);
 }
 
+function syncGlobalStatus(pageId) {
+  const banner = $('global-status');
+  banner.hidden = pageId !== 'page-retirement' || !(D.status || {}).label;
+}
+
 function renderShell() {
-  $('header-date').textContent = `基准 ${dateText(D.base_date)}`;
+  $('header-date').textContent = `基准 ${dateText(D.base_date)} · 页面生成 ${dateTimeText(D.generated_at)}`;
   const st = D.status || {};
   const banner = $('global-status');
-  if (st.label) {
-    banner.hidden = false;
-    banner.className = 'status-banner live';
-    banner.textContent = `${st.label}${st.description ? ' · ' + st.description : ''} · 页面生成 ${dateTimeText(D.generated_at)}`;
-  }
+  banner.className = 'status-banner live';
+  banner.textContent = st.label ? `${st.label}${st.description ? ' · ' + st.description : ''}` : '';
+  syncGlobalStatus(document.querySelector('.page.active')?.id || 'page-retirement');
 }
 
 if (document.readyState === 'loading') {

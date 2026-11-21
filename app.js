@@ -186,26 +186,17 @@ const R = {
     return C.details(fmt(label, { n: items.length }), C.actionList(items));
   },
 
-  // 债基再平衡
+  // 债基再平衡：只读四资产引擎debt_rebalance，禁止回退旧待验收文案。
   rebalance(r) {
-    if (!r) return '';
-    // 目标 55% 的依据内联在此（自含依据），每日档市场环境块因此不再重复目标数值
-    const env = (((D.bands || {}).band_monthly || {}).market_env) || null;
-    const im = env && env.impact;
-    let basis = '';
-    if (im && has(env.hs300_pe_pct) && has(im.threshold) && im.label !== '中性' && env.template_basis) {
-      const cmp = Number(env.hs300_pe_pct) > Number(im.threshold) ? '>' : '<';
-      basis = env.template_basis.replace('{debt}', im.debt_target).replace('{label}', im.label)
-        .replace('{pct}', pct(env.hs300_pe_pct)).replace('{cmp}', cmp).replace('{th}', im.threshold);
-    }
-    const debtRows = has(r.debt_weight) && has(r.debt_target) && has(r.start_line) && has(r.lower_line)
-      ? `${C.kv('当前债比 / ERP目标', `${pct(r.debt_weight)} / ${pct(r.debt_target)}`)}${C.kv('启动线 / 补债下沿', `${pct(r.start_line)} / ${pct(r.lower_line)}`)}`
-      : C.empty(U.ui_data_awaiting, U.ui_rebalance_data_missing);
-    const body = `<p class="lead">${esc(r.action || '')}</p>
-      ${debtRows}
-      ${basis ? `<p class="muted">${esc(basis)}</p>` : ''}
-      ${r.actual_amount_note ? `<p class="muted">${esc(r.actual_amount_note)}</p>` : ''}`;
-    return C.card(U.ui_h2_rebalance, body, r.active ? 'warn' : '');
+    const d = r && r.debt_rebalance;
+    if (!d) return '';
+    const body = C.kv(U.ui_lbl_debt_actual_target, fmt(U.ui_debt_actual_target_value,
+      { actual: pct(d.actual_weight), target: pct(d.target_weight) }))
+      + C.kv(U.ui_lbl_debt_excess, fmt(U.ui_debt_excess_value,
+        { weight: Number(d.excess_weight).toFixed(2), amount: money(d.excess_amount) }), d.required ? 'warn' : '')
+      + C.kv(U.ui_lbl_debt_decision, esc(d.decision || ''), d.required ? 'warn' : 'pos')
+      + C.kv(U.ui_lbl_debt_execution, esc(d.execution_note || ''), d.required ? 'warn' : '');
+    return C.card(U.ui_h2_rebalance, body, d.required ? 'warn' : '');
   },
   flow(r) {
     if (!r || !r.flows) return '';
@@ -473,8 +464,23 @@ const R = {
   },
   satelliteExecution(e) {
     if (!e) return '';
-    const summary = C.kv(U.ui_lbl_satellite_budget, money(e.satellite_week_budget))
-      + C.kv(U.ui_lbl_satellite_unallocated, money(e.satellite_week_unallocated))
+    const groups = e.amount_groups || {};
+    const allocated = role => (groups[role] || []).reduce((sum, x) => sum + (Number(x.amount) || 0), 0);
+    const coreRows = (groups.core || []).map(x => [
+      fundName(x.fund_code, x.fund_name), money(x.amount), x.reason || x.reason_code || '',
+    ]);
+    const coreTable = coreRows.length ? `<div class="flow-line"><b>${esc(U.ui_h2_core_execution)}</b></div>` + C.table(
+      [U.ui_lbl_fund, U.ui_lbl_allocated, U.ui_lbl_reason], coreRows,
+      { aligns: ['left', 'right', 'left'] }) : '';
+    const overview = C.card(U.ui_h2_core_satellite_execution,
+      C.kv(U.ui_lbl_core_week_budget, money(e.core_week_budget))
+      + C.kv(U.ui_lbl_core_allocated, money(allocated('core')))
+      + C.kv(U.ui_lbl_satellite_budget, money(e.satellite_week_budget))
+      + C.kv(U.ui_lbl_satellite_allocated, money(allocated('satellite')))
+      + C.kv(U.ui_lbl_fof_fixed_amount, money(allocated('fof')))
+      + C.kv(U.ui_lbl_execution_total, money(e.weekly_total), 'info') + coreTable,
+      e.valid === false ? 'warn' : '');
+    const summary = C.kv(U.ui_lbl_satellite_unallocated, money(e.satellite_week_unallocated))
       + C.kv(U.ui_lbl_cash_retained, money(e.cash_retained));
     const rows = (e.satellite_allocation_trace || []).map(x => [
       fundName(x.fund_code), money(x.allocated), money(x.amount), x.reason || x.reason_code || '',
@@ -482,7 +488,7 @@ const R = {
     const table = rows.length ? C.table(
       [U.ui_lbl_fund, U.ui_lbl_allocated, U.ui_lbl_structural_room, U.ui_lbl_reason], rows,
       { aligns: ['left', 'right', 'right', 'left'] }) : '';
-    return C.card(U.ui_h2_satellite_execution, summary + table, e.valid === false ? 'warn' : '');
+    return overview + C.card(U.ui_h2_satellite_execution, summary + table, e.valid === false ? 'warn' : '');
   },
   settledCash(r) {
     if (!r) return '';
@@ -600,6 +606,8 @@ const R = {
     let html = debitTable + C.kv('下周债基结论', decision, blocked ? 'neg' : 'pos')
       + C.kv('本周需求', `权益与黄金 ${money(w.equity_total)} + 债基 ${money(w.debt_total)} = ${money(w.total)}`, 'info')
       + C.kv('本周债基实际执行', money(w.debt_actual_amount), numTone(w.debt_actual_amount));
+    const debtView = (a.rebalance_cash || {}).debt_rebalance;
+    if (debtView) html += C.kv(U.ui_lbl_debt_rebalance_summary, esc(debtView.summary || ''), debtView.required ? 'warn' : 'pos');
     (w.cycles || []).forEach(g => {
       const lock = g.budget_lock || {};
       html += `<div class="flow-line"><b>${esc(g.period_start)} ~ ${esc(g.period_end)}</b> · ${lock.locked ? '预算已锁定' : '预算预览，待20日锁定'}</div>`;
@@ -693,7 +701,7 @@ R.monthlyEngineEvidence = function (a) {
 R.monthlyDetails = function (b) {
   const a = b.artifacts || {};
   const content = [
-    R.settledCash(b.rebalance_cash), R.rebalance(a.rebalance),
+    R.settledCash(b.rebalance_cash), R.rebalance(b.rebalance_cash),
     R.monthlyEngineEvidence(a),
     R.monthlyReview(a.monthly_review, a.execution_review, a.unlock_review), R.periodSummary(a.period_summary),
     R.takeProfit(a.take_profit), R.scan(a.scan, b.market_env), R.positionRows(b.items), R.fundDest(),
@@ -850,7 +858,7 @@ function renderPage(pageId) {
         if (node.fn === 'bandAction') return fn(a);
         if (node.fn === 'quarterAction') return fn(a, b.validity);
         if (node.fn === 'quarterEvidence') return fn(b);
-        if (node.fn === 'rebalance') return fn(a.rebalance);
+        if (node.fn === 'rebalance') return fn(b.rebalance_cash);
         if (node.fn === 'flow') return fn(a.rebalance);
         if (node.fn === 'concentration') return fn(a.concentration);
         if (node.fn === 'exitReviews') return fn(a.exit_reviews);
@@ -863,7 +871,7 @@ function renderPage(pageId) {
         if (node.fn === 'scan') return fn(a.scan);
         if (node.fn === 'execution') return fn(a.execution_review, a.unlock_review);
         if (node.fn === 'addOn') return fn(a.add_on_reviews, a.add_on_summary);
-        if (node.fn === 'weeklyBudget') return fn(a);
+        if (node.fn === 'weeklyBudget') return fn({ ...a, rebalance_cash: b.rebalance_cash });
         if (node.fn === 'evalCash') return fn(a);
         if (node.fn === 'weekGate') return fn(a.week_gate);
         if (node.fn === 'netAddition') return fn(a.net_addition);

@@ -331,6 +331,30 @@ details[open] > summary::after { content: '收起'; }
 .data-table th { color: var(--c-text-3); font-weight: 600; white-space: nowrap; }
 .data-table td { color: var(--c-text-1); }
 .data-table tbody tr:last-child td { border-bottom: none; }
+
+/* 全持仓真实横表：仅表内滑动，首列固定，不造成整页横向溢出。 */
+.operations-table-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+  border: 1px solid var(--c-border); border-radius: var(--radius-s);
+}
+.operations-table-wrap .data-table { min-width: 860px; table-layout: fixed; margin: 0; }
+.operations-table-wrap th, .operations-table-wrap td { padding: 9px 8px; line-height: 1.45; }
+.operations-table-wrap th { background: var(--c-surface-2); color: var(--c-text-2); }
+.operations-table-wrap th:first-child, .operations-table-wrap td:first-child {
+  position: sticky; left: 0; width: 176px; background: var(--c-surface);
+  box-shadow: 1px 0 0 var(--c-border-strong); z-index: 2;
+}
+.operations-table-wrap th:first-child { z-index: 3; background: var(--c-surface-2); }
+.operations-table-wrap th:nth-child(2), .operations-table-wrap td:nth-child(2) { width: 72px; text-align: center; }
+.operations-table-wrap th:nth-child(3), .operations-table-wrap td:nth-child(3),
+.operations-table-wrap th:nth-child(4), .operations-table-wrap td:nth-child(4),
+.operations-table-wrap th:nth-child(5), .operations-table-wrap td:nth-child(5) { width: 82px; }
+.operations-table-wrap td:nth-child(3), .operations-table-wrap td:nth-child(4), .operations-table-wrap td:nth-child(5) {
+  font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.operations-table-wrap th:nth-child(6), .operations-table-wrap td:nth-child(6) { width: 350px; }
+.operations-table-wrap tbody tr:nth-child(even) td { background: var(--c-surface-2); }
+.operations-table-wrap tbody tr:nth-child(even) td:first-child { background: var(--c-surface-2); }
 .flow-list { font-size: var(--fs-sm); }
 .flow-list .flow-item { display: flex; justify-content: space-between; padding: var(--sp-2) 0; border-bottom: 1px dashed var(--c-border); }
 

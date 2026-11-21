@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T09:20:22",
+  "generated_at": "2026-11-21T09:40:23",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -6577,6 +6577,15 @@
         "action_view": {
           "engine_contract": "h5_quarter_action_v1",
           "complete": false,
+          "conclusion_formed": false,
+          "conclusion_type": "unformed",
+          "conclusion_summary": "季度基础结论尚未形成，等待引擎补齐配置基线与复核结构",
+          "monthly_handoff": {
+            "engine_contract": "quarter_monthly_receipt_v1",
+            "received": false,
+            "status": "not_ready",
+            "summary": "系统证据齐全后形成季度结论，再供月度读取；本档不生成交易金额。"
+          },
           "headline": "你本季度暂不操作，等待系统完成复核",
           "note": "财通景气甄选一年持有C、信澳匠心臻选两年持有：当前持有期未满，且退出证据未齐；你无需操作，不直接赎回",
           "pending_title": "系统复核进度（无需你操作）",
@@ -7012,7 +7021,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T09:20:22",
+    "generated_at": "2026-11-21T09:40:23",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -7098,7 +7107,7 @@
           "lines": [
             "系统复核中｜证据待补",
             "配置基线 → 核心卫星与集中度 → 补全证据 → 结论传递月度",
-            "当前：系统补全季度复核证据"
+            "当前：复核证据并形成结论"
           ],
           "status": "waiting",
           "status_label": "系统复核中｜证据待补",
@@ -7305,10 +7314,20 @@
           "state": "系统复核中｜证据待补",
           "cadence": "配置基线 → 核心卫星与集中度 → 补全证据 → 结论传递月度",
           "current": 3,
+          "handoff_received": false,
           "next": "下次正式复核2026-12-20；月度只读已形成的季度结论，不重复季度流程。",
           "action_view": {
             "engine_contract": "h5_quarter_action_v1",
             "complete": false,
+            "conclusion_formed": false,
+            "conclusion_type": "unformed",
+            "conclusion_summary": "季度基础结论尚未形成，等待引擎补齐配置基线与复核结构",
+            "monthly_handoff": {
+              "engine_contract": "quarter_monthly_receipt_v1",
+              "received": false,
+              "status": "not_ready",
+              "summary": "系统证据齐全后形成季度结论，再供月度读取；本档不生成交易金额。"
+            },
             "headline": "你本季度暂不操作，等待系统完成复核",
             "note": "财通景气甄选一年持有C、信澳匠心臻选两年持有：当前持有期未满，且退出证据未齐；你无需操作，不直接赎回",
             "pending_title": "系统复核进度（无需你操作）",
@@ -7329,7 +7348,7 @@
               "detail": "核心比例59.69%；集中度超限0项，明细见下方证据。"
             },
             {
-              "name": "系统补全季度复核证据",
+              "name": "复核证据并形成结论",
               "status": "current",
               "detail": "由系统继续取数与复核；你无需提交资料或执行交易。"
             },
@@ -9542,6 +9561,10 @@
         {
           "type": "paragraph",
           "text": "每季度末复核权益/债券/黄金/现金实际占比与当前ERP目标。FOF按fof_lookthrough穿透，现金包含待投资金和rebalance_cash_ledger待分配款，家庭备用金不计入。偏离容忍带时确认渐进再平衡是否推进，不新增一次性调仓通道；回撤红线期间风控优先。核心比例季度复核只调整被动权益池新增资金结构，不机械卖核心或卫星。"
+        },
+        {
+          "type": "paragraph",
+          "text": "【季度结论完整性与月度交接】季度基础配置锁已形成但规模、前向验证或退出评估证据仍有缺项时，正式引擎必须输出`quarter_conclusion=limited`：维持现有配置、不机械置换存量，持有期锁定基金持有·到期再评；证据齐全才输出`complete`。缺项继续补跑，不得把“证据未齐”等同于“无季度结论”，也不得以受限结论冒充完整复核。月度引擎通过`quarter_input`返回接收回执：只有季度核心锁与月度一致、退出复核结果真实复用、评审周期不倒置且回执对应当前季度结论版本，季度流程第四步才可标完成；缺回执时只标结论已形成、交接待核验。上述结论与回执均写入正式判决，H5只读，不得自行生成。"
         },
         {
           "type": "heading",

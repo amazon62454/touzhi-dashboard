@@ -332,7 +332,7 @@ details[open] > summary::after { content: '收起'; }
 .data-table td { color: var(--c-text-1); }
 .data-table tbody tr:last-child td { border-bottom: none; }
 
-/* 全持仓总表：层级行→编号基金→后置小计；金额格纯数值，说明同行。 */
+/* 全持仓总表：层级行（整数ERP与说明）→编号基金；无层级小计，保留全组合总计。 */
 .operations-table-shell { width: 100%; background: var(--c-surface); }
 .operations-table-wrap { width: 100%; overflow: visible; border: 1px solid var(--c-border); border-radius: var(--radius-s); }
 .operations-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 10px; }
@@ -356,18 +356,15 @@ details[open] > summary::after { content: '收起'; }
 }
 .operations-table .fund-main td:last-child { border-right: 0; }
 .operations-table .fund-main .fund-note-cell { text-align: left; color: var(--c-text-2); font-weight: 400; line-height: 1.45; font-size: 0.95em; }
-.operations-table .role-summary-row th,
-.operations-table .role-summary-row td,
 .operations-table .grand-total-row th,
 .operations-table .grand-total-row td { padding: 7px 2px; border-right: 1px solid var(--c-border); vertical-align: middle; }
-.operations-table .role-summary-row { background: var(--c-primary-weak); border-top: 2px solid var(--c-border); }
-.operations-table .role-summary-row th,
 .operations-table .grand-total-row th { text-align: left; color: var(--c-primary); font-weight: 700; }
-.operations-table .role-summary-row .erp-cell,
-.operations-table .role-summary-row .action-cell,
 .operations-table .grand-total-row td { text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
-.operations-table .role-summary-row .erp-cell { background: var(--c-primary-weak); }
-.operations-table .role-heading-row th { padding: 8px 6px; text-align: left; color: var(--c-primary); background: var(--c-surface-2); border-top: 2px solid var(--c-primary); font-weight: 700; letter-spacing: 0.03em; }
+.operations-table .role-heading-row th,
+.operations-table .role-heading-row td { padding: 8px 6px; background: var(--c-surface-2); border-top: 2px solid var(--c-primary); vertical-align: middle; }
+.operations-table .role-heading-row th { text-align: left; color: var(--c-primary); font-weight: 700; letter-spacing: 0.03em; }
+.operations-table .role-heading-row .erp-cell { text-align: center; color: var(--c-primary); font-weight: 700; font-variant-numeric: tabular-nums; }
+.operations-table .role-heading-row .role-heading-detail { text-align: left; color: var(--c-text-2); font-weight: 400; line-height: 1.45; }
 .operations-table .summary-detail { color: var(--c-text-2); font-weight: 400 !important; text-align: left !important; }
 .operations-table .grand-total-row { background: var(--c-surface-2); border-top: 2px solid var(--c-primary); }
 @media (orientation: portrait) and (max-width: 699px) {

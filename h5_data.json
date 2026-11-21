@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T18:05:12",
+  "generated_at": "2026-11-21T18:34:57",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1517,22 +1517,23 @@
             "fund_name": "财通景气甄选一年持有C",
             "status": "pending",
             "trigger_kind": "",
-            "review_date": "2026-11-20",
+            "review_date": "2026-11-21",
             "conclusion": null,
             "next_review_date": "2026-11-24",
             "cooldown_until": null,
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "manager:目标基金代码未返回:017491",
+              "long_performance:目标基金代码未返回:017491",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
             "eval_dims": {
-              "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
+              "manager": null,
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金2026年三季报显示前十大重仓股占比70.55%，集中于AI算力与科技成长赛道（如新易盛9.44%、源杰科技8.51%）；基金经理在三季报中明确提及‘三季度以来受市场流动性阶段性收紧等因素影响，科技成长板块整体表现有所承压’。同期基金三季度净值涨幅-30.82%，最近一月回撤-31.46%，最近一季回撤-51.54%，与科技成长板块调整时段高度吻合。但缺乏同赛道指数同期跌幅及基金超额收益的精确对比数据，无法判断是否存在选股能力恶化，故fund_quality_deteriorating为null。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达42.47%（截至2026-11-20），同期沪深300最大回撤约21.42%，超额回撤显著。2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等AI产业链赛道，前十大重仓股占比70.55%；基金经理在三季报中明确表示‘受A股整体流动性偏弱影响，AI板块阶段性表现承压’，且组合仅微调、板块配置保持稳定，表明回撤主因系赛道系统性调整而非持仓个体恶化。但缺乏可核验的选股贡献衰减或换手异常等质量恶化证据，故fund_quality_deteriorating为null。"
             }
           },
           {
@@ -1540,22 +1541,23 @@
             "fund_name": "信澳匠心臻选两年持有",
             "status": "pending",
             "trigger_kind": "",
-            "review_date": "2026-11-20",
+            "review_date": "2026-11-21",
             "conclusion": null,
             "next_review_date": "2026-11-24",
             "cooldown_until": null,
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "manager:目标基金代码未返回:010363",
+              "long_performance:目标基金代码未返回:010363",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
             "eval_dims": {
-              "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
+              "manager": null,
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股（精智达7.33%、东山精密6.53%、日联科技5.54%、芯碁微装5.06%、飞荣达4.90%、睿创微纳4.63%、南亚新材4.14%、剑桥科技A+H合计4.33%）在2026年10月8日至11月20日期间普遍大幅下跌：东山精密-59.62%、精智达-55.80%、剑桥科技-54.23%、日联科技-50.22%、南亚新材-47.33%、芯碁微装-43.66%、睿创微纳-32.97%、飞荣达-31.02%，重仓股同期跌幅远超市场平均水平，回撤主要由持仓赛道（半导体设备、PCB、光模块等科技成长板块）系统性调整驱动；缺乏基金经理变更、换手率异常、风格漂移等可核验数据，无法判断基金自身管理质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：截至2026-09-30，基金制造业持仓占净值比77.32%，前十大重仓股中精智达、东山精密、芯碁微装等科技制造类个股占比超48%；近1个月净值下跌26.50%，同期沪深300仅跌4.76%，超额收益为负且回撤幅度显著高于基准，显示持仓赛道近期承压明显。但缺乏基金经理调仓失误或选股能力下降的直接证据，无法判定基金质量恶化。"
             }
           }
         ],
@@ -2434,30 +2436,13 @@
       "summary": "部分操作可执行，其余因数据不足已拦截",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-21T16:05:29",
+        "as_of": "2026-11-21T18:31:03",
         "next_review_date": "2026-11-22",
         "source_param": "P110/P206",
         "state": "partial",
         "headline": "部分操作可执行，其余因数据不足已拦截",
         "data_complete": false,
         "actions": [
-          {
-            "fund_code": "160119",
-            "fund_name": "南方中证500ETF联接(LOF)A",
-            "action": "定投",
-            "reason": "按季度锁定的核心比例执行",
-            "params": {
-              "role": "core",
-              "reason_code": "core_locked_ratio"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "amount": 32.0,
-            "archive_label": ""
-          },
           {
             "fund_code": "017140",
             "fund_name": "华宝中证有色金属ETF联接A",
@@ -2473,6 +2458,23 @@
             "postpone_days": 0,
             "valid_until": "2026-11-23T08:00:00",
             "amount": 44.0,
+            "archive_label": ""
+          },
+          {
+            "fund_code": "160119",
+            "fund_name": "南方中证500ETF联接(LOF)A",
+            "action": "定投",
+            "reason": "按季度锁定的核心比例执行",
+            "params": {
+              "role": "core",
+              "reason_code": "core_locked_ratio"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "amount": 32.0,
             "archive_label": ""
           },
           {
@@ -2494,22 +2496,6 @@
           }
         ],
         "blocked": [
-          {
-            "fund_code": "000051",
-            "fund_name": "华夏沪深300ETF联接A",
-            "action": "暂停",
-            "reason": "核心买入条件未满足，对应额度留现金",
-            "params": {
-              "role": "core",
-              "reason_code": "core_buy_blocked_cash_retained"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "blocked_reason": "核心买入条件未满足，对应额度留现金"
-          },
           {
             "fund_code": "024328",
             "fund_name": "易方达恒生港股通创新药ETF联接A",
@@ -2541,6 +2527,22 @@
             "postpone_days": 0,
             "valid_until": "2026-11-23T08:00:00",
             "blocked_reason": "已达卫星结构上限，新增额度顺延下一名"
+          },
+          {
+            "fund_code": "000051",
+            "fund_name": "华夏沪深300ETF联接A",
+            "action": "暂停",
+            "reason": "核心买入条件未满足，对应额度留现金",
+            "params": {
+              "role": "core",
+              "reason_code": "core_buy_blocked_cash_retained"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "blocked_reason": "核心买入条件未满足，对应额度留现金"
           },
           {
             "fund_code": "004253",
@@ -2583,11 +2585,11 @@
         "valid_until": "2026-11-23T08:00:00",
         "next_review_at": "2026-11-22T03:30:00",
         "result_visible_until": "2026-11-22T03:30:00",
-        "result_effective_from": "2026-11-21T16:03:57",
+        "result_effective_from": "2026-11-21T18:31:03",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-21T16:03:57",
+      "generated_at": "2026-11-21T18:31:03",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -2880,19 +2882,19 @@
       ],
       "allocation": {
         "amounts": {
+          "权益": 5824.48,
           "养老FOF": 1150.32,
           "债券": 13002.78,
-          "权益": 5824.48,
-          "现金": 170.0,
-          "黄金": 1154.81
+          "黄金": 1154.81,
+          "现金": 170.0
         },
         "total": 21302.39,
         "weights": {
+          "权益": 27.34,
           "养老FOF": 5.4,
           "债券": 61.04,
-          "权益": 27.34,
-          "现金": 0.8,
-          "黄金": 5.42
+          "黄金": 5.42,
+          "现金": 0.8
         }
       },
       "asset_allocation": {
@@ -3250,6 +3252,9 @@
             "market_value": 1882.34,
             "satellite_layer_weight": 54.43514220853396,
             "passive_pool_weight": 54.43514220853396,
+            "valuation": 4.6,
+            "score": 75.5,
+            "rank": 1,
             "reason_code": "satellite_structure_cap_cascade",
             "fund_name": "易方达恒生港股通创新药ETF联接A"
           },
@@ -3264,6 +3269,9 @@
             "market_value": 1331.61,
             "satellite_layer_weight": 38.508653971283564,
             "passive_pool_weight": 38.508653971283564,
+            "valuation": 6.41,
+            "score": 58.0,
+            "rank": 2,
             "reason_code": "satellite_structure_cap_cascade",
             "fund_name": "嘉实中证新能源汽车指数C"
           },
@@ -3279,6 +3287,9 @@
             "market_value": 244.0,
             "satellite_layer_weight": 7.056203820182478,
             "passive_pool_weight": 7.056203820182478,
+            "valuation": 26.29,
+            "score": 46.5,
+            "rank": 3,
             "reason_code": "satellite_ranked_allocation",
             "fund_name": "华宝中证有色金属ETF联接A"
           }
@@ -3287,28 +3298,6 @@
         "debt_trade_days_remaining": 20,
         "debt_next_week_days": 5,
         "items": {
-          "000051": {
-            "fund_code": "000051",
-            "fund_name": "华夏沪深300ETF联接A",
-            "amount": 0.0,
-            "role": "core",
-            "reason_code": "core_buy_blocked_cash_retained",
-            "allowed": false,
-            "invest_min": 0.0,
-            "execution_date": "2026-11-23",
-            "reason": "核心买入条件未满足，对应额度留现金"
-          },
-          "160119": {
-            "fund_code": "160119",
-            "fund_name": "南方中证500ETF联接(LOF)A",
-            "amount": 32.0,
-            "role": "core",
-            "reason_code": "core_locked_ratio",
-            "allowed": true,
-            "invest_min": 0.0,
-            "execution_date": "2026-11-23",
-            "reason": "按季度锁定的核心比例执行"
-          },
           "024328": {
             "fund_code": "024328",
             "fund_name": "易方达恒生港股通创新药ETF联接A",
@@ -3318,6 +3307,9 @@
             "allowed": false,
             "invest_min": 0.0,
             "execution_date": "2026-11-23",
+            "valuation": 4.6,
+            "score": 75.5,
+            "rank": 1,
             "reason": "已达卫星结构上限，新增额度顺延下一名"
           },
           "012544": {
@@ -3329,6 +3321,9 @@
             "allowed": false,
             "invest_min": 0.0,
             "execution_date": "2026-11-23",
+            "valuation": 6.41,
+            "score": 58.0,
+            "rank": 2,
             "reason": "已达卫星结构上限，新增额度顺延下一名"
           },
           "017140": {
@@ -3340,7 +3335,36 @@
             "allowed": true,
             "invest_min": 0.0,
             "execution_date": "2026-11-23",
+            "valuation": 26.29,
+            "score": 46.5,
+            "rank": 3,
             "reason": "按月度排名与剩余结构额度分配"
+          },
+          "160119": {
+            "fund_code": "160119",
+            "fund_name": "南方中证500ETF联接(LOF)A",
+            "amount": 32.0,
+            "role": "core",
+            "reason_code": "core_locked_ratio",
+            "allowed": true,
+            "invest_min": 0.0,
+            "execution_date": "2026-11-23",
+            "valuation": 61.5,
+            "score": null,
+            "reason": "按季度锁定的核心比例执行"
+          },
+          "000051": {
+            "fund_code": "000051",
+            "fund_name": "华夏沪深300ETF联接A",
+            "amount": 0.0,
+            "role": "core",
+            "reason_code": "core_buy_blocked_cash_retained",
+            "allowed": false,
+            "invest_min": 0.0,
+            "execution_date": "2026-11-23",
+            "valuation": 74.97,
+            "score": null,
+            "reason": "核心买入条件未满足，对应额度留现金"
           },
           "010267": {
             "fund_code": "010267",
@@ -3379,17 +3403,6 @@
         "amount_groups": {
           "core": [
             {
-              "fund_code": "000051",
-              "fund_name": "华夏沪深300ETF联接A",
-              "amount": 0.0,
-              "role": "core",
-              "reason_code": "core_buy_blocked_cash_retained",
-              "allowed": false,
-              "invest_min": 0.0,
-              "execution_date": "2026-11-23",
-              "reason": "核心买入条件未满足，对应额度留现金"
-            },
-            {
               "fund_code": "160119",
               "fund_name": "南方中证500ETF联接(LOF)A",
               "amount": 32.0,
@@ -3398,7 +3411,22 @@
               "allowed": true,
               "invest_min": 0.0,
               "execution_date": "2026-11-23",
+              "valuation": 61.5,
+              "score": null,
               "reason": "按季度锁定的核心比例执行"
+            },
+            {
+              "fund_code": "000051",
+              "fund_name": "华夏沪深300ETF联接A",
+              "amount": 0.0,
+              "role": "core",
+              "reason_code": "core_buy_blocked_cash_retained",
+              "allowed": false,
+              "invest_min": 0.0,
+              "execution_date": "2026-11-23",
+              "valuation": 74.97,
+              "score": null,
+              "reason": "核心买入条件未满足，对应额度留现金"
             }
           ],
           "satellite": [
@@ -3411,6 +3439,9 @@
               "allowed": false,
               "invest_min": 0.0,
               "execution_date": "2026-11-23",
+              "valuation": 4.6,
+              "score": 75.5,
+              "rank": 1,
               "reason": "已达卫星结构上限，新增额度顺延下一名"
             },
             {
@@ -3422,6 +3453,9 @@
               "allowed": false,
               "invest_min": 0.0,
               "execution_date": "2026-11-23",
+              "valuation": 6.41,
+              "score": 58.0,
+              "rank": 2,
               "reason": "已达卫星结构上限，新增额度顺延下一名"
             },
             {
@@ -3433,6 +3467,9 @@
               "allowed": true,
               "invest_min": 0.0,
               "execution_date": "2026-11-23",
+              "valuation": 26.29,
+              "score": 46.5,
+              "rank": 3,
               "reason": "按月度排名与剩余结构额度分配"
             }
           ],
@@ -3493,16 +3530,6 @@
       "amount_groups": {
         "core": [
           {
-            "fund_code": "000051",
-            "fund_name": "华夏沪深300ETF联接A",
-            "amount": 0.0,
-            "role": "core",
-            "reason_code": "core_buy_blocked_cash_retained",
-            "allowed": false,
-            "invest_min": 0.0,
-            "execution_date": "2026-11-23"
-          },
-          {
             "fund_code": "160119",
             "fund_name": "南方中证500ETF联接(LOF)A",
             "amount": 32.0,
@@ -3510,7 +3537,21 @@
             "reason_code": "core_locked_ratio",
             "allowed": true,
             "invest_min": 0.0,
-            "execution_date": "2026-11-23"
+            "execution_date": "2026-11-23",
+            "valuation": 61.5,
+            "score": null
+          },
+          {
+            "fund_code": "000051",
+            "fund_name": "华夏沪深300ETF联接A",
+            "amount": 0.0,
+            "role": "core",
+            "reason_code": "core_buy_blocked_cash_retained",
+            "allowed": false,
+            "invest_min": 0.0,
+            "execution_date": "2026-11-23",
+            "valuation": 74.97,
+            "score": null
           }
         ],
         "satellite": [
@@ -3522,7 +3563,10 @@
             "reason_code": "satellite_structure_cap_cascade",
             "allowed": false,
             "invest_min": 0.0,
-            "execution_date": "2026-11-23"
+            "execution_date": "2026-11-23",
+            "valuation": 4.6,
+            "score": 75.5,
+            "rank": 1
           },
           {
             "fund_code": "012544",
@@ -3532,7 +3576,10 @@
             "reason_code": "satellite_structure_cap_cascade",
             "allowed": false,
             "invest_min": 0.0,
-            "execution_date": "2026-11-23"
+            "execution_date": "2026-11-23",
+            "valuation": 6.41,
+            "score": 58.0,
+            "rank": 2
           },
           {
             "fund_code": "017140",
@@ -3542,7 +3589,10 @@
             "reason_code": "satellite_ranked_allocation",
             "allowed": true,
             "invest_min": 0.0,
-            "execution_date": "2026-11-23"
+            "execution_date": "2026-11-23",
+            "valuation": 26.29,
+            "score": 46.5,
+            "rank": 3
           }
         ],
         "fof": [
@@ -3739,8 +3789,11 @@
             "threshold": 70.0,
             "eligible": true,
             "overheated": false,
-            "decision": "评分达标但现金池不足(单次下限>现金池可用上限),暂缓",
+            "decision": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
             "cash_channel": true,
+            "amount_floor": 100.0,
+            "amount_cap": 70.0,
+            "cash_available": 350.0,
             "gate": "cash",
             "dimensions": {
               "trend": {
@@ -3949,7 +4002,7 @@
           }
         ],
         "add_on_summary": "1只通过加仓评分，按现金池与评级核定金额",
-        "cash_pool": 170.0,
+        "cash_pool": 350.0,
         "net_addition": {
           "triggered": false,
           "fund": "易方达恒生港股通创新药ETF联接A",
@@ -4035,20 +4088,24 @@
           ],
           "debits": [
             {
-              "fund_code": "160119",
-              "kind": "equity",
-              "date": "2026-11-23",
-              "period_start": "2026-11-20",
-              "amount": 32.0,
-              "fund_name": "南方中证500ETF联接(LOF)A"
-            },
-            {
               "fund_code": "017140",
               "kind": "equity",
               "date": "2026-11-23",
               "period_start": "2026-11-20",
               "amount": 44.0,
+              "valuation": 26.29,
+              "score": 46.5,
+              "rank": 3,
               "fund_name": "华宝中证有色金属ETF联接A"
+            },
+            {
+              "fund_code": "160119",
+              "kind": "equity",
+              "date": "2026-11-23",
+              "period_start": "2026-11-20",
+              "amount": 32.0,
+              "valuation": 61.5,
+              "fund_name": "南方中证500ETF联接(LOF)A"
             },
             {
               "fund_code": "010267",
@@ -4085,28 +4142,34 @@
           "spent": 0.0,
           "cash_override": false
         },
+        "cash_pool_carried": 170.0,
+        "cash_layer_budget": 180.0,
+        "cash_layer_spent": 0.0,
+        "cash_layer_remaining": 180.0,
+        "cash_pool_available": 350.0,
         "stop_reviews": [
           {
             "fund_code": "017491",
             "fund_name": "财通景气甄选一年持有C",
             "status": "pending",
             "trigger_kind": "",
-            "review_date": "2026-11-20",
+            "review_date": "2026-11-21",
             "conclusion": null,
             "next_review_date": "2026-11-24",
             "cooldown_until": null,
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "manager:目标基金代码未返回:017491",
+              "long_performance:目标基金代码未返回:017491",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
-            "reused": true,
+            "reused": false,
             "eval_dims": {
-              "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
+              "manager": null,
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金2026年三季报显示前十大重仓股占比70.55%，集中于AI算力与科技成长赛道（如新易盛9.44%、源杰科技8.51%）；基金经理在三季报中明确提及‘三季度以来受市场流动性阶段性收紧等因素影响，科技成长板块整体表现有所承压’。同期基金三季度净值涨幅-30.82%，最近一月回撤-31.46%，最近一季回撤-51.54%，与科技成长板块调整时段高度吻合。但缺乏同赛道指数同期跌幅及基金超额收益的精确对比数据，无法判断是否存在选股能力恶化，故fund_quality_deteriorating为null。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达42.47%（截至2026-11-20），同期沪深300最大回撤约21.42%，超额回撤显著。2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等AI产业链赛道，前十大重仓股占比70.55%；基金经理在三季报中明确表示‘受A股整体流动性偏弱影响，AI板块阶段性表现承压’，且组合仅微调、板块配置保持稳定，表明回撤主因系赛道系统性调整而非持仓个体恶化。但缺乏可核验的选股贡献衰减或换手异常等质量恶化证据，故fund_quality_deteriorating为null。"
             }
           },
           {
@@ -4114,22 +4177,23 @@
             "fund_name": "信澳匠心臻选两年持有",
             "status": "pending",
             "trigger_kind": "",
-            "review_date": "2026-11-20",
+            "review_date": "2026-11-21",
             "conclusion": null,
             "next_review_date": "2026-11-24",
             "cooldown_until": null,
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "manager:目标基金代码未返回:010363",
+              "long_performance:目标基金代码未返回:010363",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
-            "reused": true,
+            "reused": false,
             "eval_dims": {
-              "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
+              "manager": null,
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股（精智达7.33%、东山精密6.53%、日联科技5.54%、芯碁微装5.06%、飞荣达4.90%、睿创微纳4.63%、南亚新材4.14%、剑桥科技A+H合计4.33%）在2026年10月8日至11月20日期间普遍大幅下跌：东山精密-59.62%、精智达-55.80%、剑桥科技-54.23%、日联科技-50.22%、南亚新材-47.33%、芯碁微装-43.66%、睿创微纳-32.97%、飞荣达-31.02%，重仓股同期跌幅远超市场平均水平，回撤主要由持仓赛道（半导体设备、PCB、光模块等科技成长板块）系统性调整驱动；缺乏基金经理变更、换手率异常、风格漂移等可核验数据，无法判断基金自身管理质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：截至2026-09-30，基金制造业持仓占净值比77.32%，前十大重仓股中精智达、东山精密、芯碁微装等科技制造类个股占比超48%；近1个月净值下跌26.50%，同期沪深300仅跌4.76%，超额收益为负且回撤幅度显著高于基准，显示持仓赛道近期承压明显。但缺乏基金经理调仓失误或选股能力下降的直接证据，无法判定基金质量恶化。"
             }
           }
         ],
@@ -4573,8 +4637,8 @@
           "note": "暂停项不补买、不替代扣款；逐只金额见下方执行明细。",
           "pending_title": "当前限制与阻断项",
           "pending_items": [
-            "核心买入条件未满足，对应额度留现金",
             "已达卫星结构上限，新增额度顺延下一名（2只）",
+            "核心买入条件未满足，对应额度留现金",
             "黄金信号未通过或目标不缺，额度留现金",
             "债券超配或预算不足，本期不新增",
             "加仓流程：买入条件未通过"
@@ -4596,7 +4660,7 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_eval|2026-11-20|2026-11-20|2026-11-20#R1#live",
+      "source_file": "band_eval|2026-11-20|2026-11-21|2026-11-20#R2#live",
       "display": {
         "header": {
           "title": "周日档 · 定投评估",
@@ -4626,8 +4690,8 @@
                 "type": "pending",
                 "title": "当前限制与阻断项",
                 "items": [
-                  "核心买入条件未满足，对应额度留现金",
                   "已达卫星结构上限，新增额度顺延下一名（2只）",
+                  "核心买入条件未满足，对应额度留现金",
                   "黄金信号未通过或目标不缺，额度留现金",
                   "债券超配或预算不足，本期不新增",
                   "加仓流程：买入条件未通过"
@@ -4732,7 +4796,7 @@
                     ],
                     "current_detail": {
                       "label": "阻断原因",
-                      "text": "当前现金池170.00元；评分达标但现金池不足(单次下限>现金池可用上限),暂缓",
+                      "text": "当前现金池170.00元；评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
                       "kind": "blocked"
                     },
                     "done_evidence": [
@@ -4780,20 +4844,6 @@
                 "rows": [
                   [
                     {
-                      "value": "南方中证500ETF联接(LOF)A",
-                      "format": "text"
-                    },
-                    {
-                      "value": "2026-11-23",
-                      "format": "text"
-                    },
-                    {
-                      "value": 32.0,
-                      "format": "money"
-                    }
-                  ],
-                  [
-                    {
                       "value": "华宝中证有色金属ETF联接A",
                       "format": "text"
                     },
@@ -4803,6 +4853,20 @@
                     },
                     {
                       "value": 44.0,
+                      "format": "money"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "南方中证500ETF联接(LOF)A",
+                      "format": "text"
+                    },
+                    {
+                      "value": "2026-11-23",
+                      "format": "text"
+                    },
+                    {
+                      "value": 32.0,
                       "format": "money"
                     }
                   ],
@@ -4876,123 +4940,6 @@
                 },
                 "tone": "zero",
                 "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "债比与再平衡",
-                "value": {
-                  "value": "债比62.66%，目标48.89%，超出目标13.77个百分点／2933.14元；需要渐进再平衡；可赎份额未齐，暂不生成卖出指令；每周日继续复核，不等下一次月度评审",
-                  "format": "text"
-                },
-                "tone": "warn",
-                "note": ""
-              },
-              {
-                "type": "text",
-                "text": "2026-11-20 ~ 2026-12-19 · 预算已锁定",
-                "style": "flow-line"
-              },
-              {
-                "type": "kv",
-                "label": "本周可用 / 投后余",
-                "value": {
-                  "value": [
-                    {
-                      "value": 1800.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "/",
-                      "format": "text"
-                    },
-                    {
-                      "value": 1694.0,
-                      "format": "money"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "整周期权益",
-                "value": {
-                  "value": [
-                    {
-                      "value": 424.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "/ 预算",
-                      "format": "text"
-                    },
-                    {
-                      "value": 560.0,
-                      "format": "money"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "整周期债基",
-                "value": {
-                  "value": [
-                    {
-                      "value": 0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "/ 预算",
-                      "format": "text"
-                    },
-                    {
-                      "value": 880.0,
-                      "format": "money"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "现金预留 / 预计全周期余",
-                "value": {
-                  "value": [
-                    {
-                      "value": 180.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "/",
-                      "format": "text"
-                    },
-                    {
-                      "value": 1196.0,
-                      "format": "money"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "text",
-                "text": "唯一金额源为本期执行计划；后续周次按当前计划测算，实际仍以各周日评估为准。",
-                "style": "lead"
-              },
-              {
-                "type": "text",
-                "text": "唯一金额源=本期执行计划；本模块仅整理展示，不重算定投金额。",
-                "style": "lead"
               }
             ]
           },
@@ -5081,20 +5028,6 @@
                 "rows": [
                   [
                     {
-                      "value": "华夏沪深300ETF联接A",
-                      "format": "text"
-                    },
-                    {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "核心买入条件未满足，对应额度留现金",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
                       "value": "南方中证500ETF联接(LOF)A",
                       "format": "text"
                     },
@@ -5104,6 +5037,20 @@
                     },
                     {
                       "value": "按季度锁定的核心比例执行",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "华夏沪深300ETF联接A",
+                      "format": "text"
+                    },
+                    {
+                      "value": 0.0,
+                      "format": "money"
+                    },
+                    {
+                      "value": "核心买入条件未满足，对应额度留现金",
                       "format": "text"
                     }
                   ]
@@ -5211,6 +5158,152 @@
           },
           {
             "type": "card",
+            "title": "整周期预算与现金口径",
+            "kind": "",
+            "children": [
+              {
+                "type": "kv",
+                "label": "债比与再平衡",
+                "value": {
+                  "value": "债比62.66%，目标48.89%，超出目标13.77个百分点／2933.14元；需要渐进再平衡；可赎份额未齐，暂不生成卖出指令；每周日继续复核，不等下一次月度评审",
+                  "format": "text"
+                },
+                "tone": "warn",
+                "note": ""
+              },
+              {
+                "type": "text",
+                "text": "2026-11-20 ~ 2026-12-19 · 预算已锁定",
+                "style": "flow-line"
+              },
+              {
+                "type": "kv",
+                "label": "本期预算可用 / 本周投后余",
+                "value": {
+                  "value": [
+                    {
+                      "value": 1800.0,
+                      "format": "money"
+                    },
+                    {
+                      "value": "/",
+                      "format": "text"
+                    },
+                    {
+                      "value": 1694.0,
+                      "format": "money"
+                    }
+                  ],
+                  "format": "text"
+                },
+                "tone": "pos",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "整周期权益",
+                "value": {
+                  "value": [
+                    {
+                      "value": 424.0,
+                      "format": "money"
+                    },
+                    {
+                      "value": "/ 预算",
+                      "format": "text"
+                    },
+                    {
+                      "value": 560.0,
+                      "format": "money"
+                    }
+                  ],
+                  "format": "text"
+                },
+                "tone": "pos",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "整周期债基",
+                "value": {
+                  "value": [
+                    {
+                      "value": 0,
+                      "format": "money"
+                    },
+                    {
+                      "value": "/ 预算",
+                      "format": "text"
+                    },
+                    {
+                      "value": 880.0,
+                      "format": "money"
+                    }
+                  ],
+                  "format": "text"
+                },
+                "tone": "pos",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "上期结余现金池",
+                "value": {
+                  "value": 170.0,
+                  "format": "money"
+                },
+                "tone": "pos",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "本期现金层剩余",
+                "value": {
+                  "value": 180.0,
+                  "format": "money"
+                },
+                "tone": "",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "当月加仓可用现金",
+                "value": {
+                  "value": 350.0,
+                  "format": "money"
+                },
+                "tone": "pos",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "预计全周期未投预算",
+                "value": {
+                  "value": 1196.0,
+                  "format": "money"
+                },
+                "tone": "pos",
+                "note": ""
+              },
+              {
+                "type": "text",
+                "text": "上期结转现金池＋本期现金层剩余=当月加仓可用现金；预计全周期未投预算=本期预算−预计使用，不是现金余额。",
+                "style": "muted"
+              },
+              {
+                "type": "text",
+                "text": "唯一金额源为本期执行计划；后续周次按当前计划测算，实际仍以各周日评估为准。",
+                "style": "lead"
+              },
+              {
+                "type": "text",
+                "text": "唯一金额源=本期执行计划；本模块仅整理展示，不重算定投金额。",
+                "style": "lead"
+              }
+            ]
+          },
+          {
+            "type": "card",
             "title": "低估加仓评分",
             "kind": "",
             "children": [
@@ -5234,7 +5327,7 @@
                     "lines": [
                       [
                         {
-                          "value": "024328 · 门槛70.0 · 评分达标但现金池不足(单次下限>现金池可用上限),暂缓",
+                          "value": "024328 · 门槛70.0 · 评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
                           "format": "text"
                         }
                       ]
@@ -7087,22 +7180,23 @@
             "fund_name": "财通景气甄选一年持有C",
             "status": "pending",
             "trigger_kind": "",
-            "review_date": "2026-11-20",
+            "review_date": "2026-11-21",
             "conclusion": null,
             "next_review_date": "2026-11-24",
             "cooldown_until": null,
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "manager:目标基金代码未返回:017491",
+              "long_performance:目标基金代码未返回:017491",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
             "eval_dims": {
-              "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
+              "manager": null,
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金2026年三季报显示前十大重仓股占比70.55%，集中于AI算力与科技成长赛道（如新易盛9.44%、源杰科技8.51%）；基金经理在三季报中明确提及‘三季度以来受市场流动性阶段性收紧等因素影响，科技成长板块整体表现有所承压’。同期基金三季度净值涨幅-30.82%，最近一月回撤-31.46%，最近一季回撤-51.54%，与科技成长板块调整时段高度吻合。但缺乏同赛道指数同期跌幅及基金超额收益的精确对比数据，无法判断是否存在选股能力恶化，故fund_quality_deteriorating为null。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达42.47%（截至2026-11-20），同期沪深300最大回撤约21.42%，超额回撤显著。2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等AI产业链赛道，前十大重仓股占比70.55%；基金经理在三季报中明确表示‘受A股整体流动性偏弱影响，AI板块阶段性表现承压’，且组合仅微调、板块配置保持稳定，表明回撤主因系赛道系统性调整而非持仓个体恶化。但缺乏可核验的选股贡献衰减或换手异常等质量恶化证据，故fund_quality_deteriorating为null。"
             }
           },
           {
@@ -7110,22 +7204,23 @@
             "fund_name": "信澳匠心臻选两年持有",
             "status": "pending",
             "trigger_kind": "",
-            "review_date": "2026-11-20",
+            "review_date": "2026-11-21",
             "conclusion": null,
             "next_review_date": "2026-11-24",
             "cooldown_until": null,
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "manager:目标基金代码未返回:010363",
+              "long_performance:目标基金代码未返回:010363",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
             "eval_dims": {
-              "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
+              "manager": null,
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股（精智达7.33%、东山精密6.53%、日联科技5.54%、芯碁微装5.06%、飞荣达4.90%、睿创微纳4.63%、南亚新材4.14%、剑桥科技A+H合计4.33%）在2026年10月8日至11月20日期间普遍大幅下跌：东山精密-59.62%、精智达-55.80%、剑桥科技-54.23%、日联科技-50.22%、南亚新材-47.33%、芯碁微装-43.66%、睿创微纳-32.97%、飞荣达-31.02%，重仓股同期跌幅远超市场平均水平，回撤主要由持仓赛道（半导体设备、PCB、光模块等科技成长板块）系统性调整驱动；缺乏基金经理变更、换手率异常、风格漂移等可核验数据，无法判断基金自身管理质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：截至2026-09-30，基金制造业持仓占净值比77.32%，前十大重仓股中精智达、东山精密、芯碁微装等科技制造类个股占比超48%；近1个月净值下跌26.50%，同期沪深300仅跌4.76%，超额收益为负且回撤幅度显著高于基准，显示持仓赛道近期承压明显。但缺乏基金经理调仓失误或选股能力下降的直接证据，无法判定基金质量恶化。"
             }
           }
         ],
@@ -7767,40 +7862,19 @@
             ]
           },
           {
-            "type": "metrics",
-            "items": [
-              {
-                "label": "本周期剩余",
-                "value": {
-                  "value": 1800.0,
-                  "format": "money"
-                },
-                "tone": "pos"
-              },
-              {
-                "label": "现金池",
-                "value": {
-                  "value": 170.0,
-                  "format": "money"
-                },
-                "tone": "pos"
-              }
-            ]
-          },
-          {
             "type": "details",
             "summary": "月度资金、复盘与持仓证据（按需展开）",
             "children": [
               {
                 "type": "card",
-                "title": "已到账再平衡",
+                "title": "上周期事件与执行总结",
                 "kind": "",
                 "children": [
                   {
                     "type": "kv",
-                    "label": "待到账（不计可用）",
+                    "label": "统计区间",
                     "value": {
-                      "value": 0,
+                      "value": "2026-10-20 ~ 2026-11-19",
                       "format": "text"
                     },
                     "tone": "",
@@ -7808,7 +7882,17 @@
                   },
                   {
                     "type": "kv",
-                    "label": "已到账未分配",
+                    "label": "周期",
+                    "value": {
+                      "value": "2026-11",
+                      "format": "text"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "事件监控(临时审视) × 2",
                     "value": {
                       "value": 0.0,
                       "format": "money"
@@ -7818,7 +7902,77 @@
                   },
                   {
                     "type": "kv",
-                    "label": "本次计划",
+                    "label": "债基轮转(超级转换) × 2",
+                    "value": {
+                      "value": 341.75,
+                      "format": "money"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "加仓(机动加仓金) × 1",
+                    "value": {
+                      "value": 122.0,
+                      "format": "money"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "加仓(现金池结余) × 1",
+                    "value": {
+                      "value": 630.0,
+                      "format": "money"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "基准上移 × 1",
+                    "value": {
+                      "value": 21190.0,
+                      "format": "money"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "定投(提前执行) × 1",
+                    "value": {
+                      "value": 65.0,
+                      "format": "money"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "定投执行(周一) × 5",
+                    "value": {
+                      "value": 170.0,
+                      "format": "money"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "定投执行(周四) × 18",
+                    "value": {
+                      "value": 643.0,
+                      "format": "money"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "定投金额建议 × 1",
                     "value": {
                       "value": 0.0,
                       "format": "money"
@@ -7828,219 +7982,60 @@
                   },
                   {
                     "type": "kv",
-                    "label": "分配后现金",
+                    "label": "止损线专项评估 × 2",
                     "value": {
                       "value": 0.0,
                       "format": "money"
                     },
                     "tone": "",
                     "note": ""
-                  }
-                ]
-              },
-              {
-                "type": "card",
-                "title": "债基定投与渐进再平衡",
-                "kind": "warn",
-                "children": [
+                  },
                   {
                     "type": "kv",
-                    "label": "当前债比 / 目标",
+                    "label": "记录 × 1",
                     "value": {
-                      "value": [
-                        {
-                          "value": 62.659053749368034,
-                          "format": "pct"
-                        },
-                        {
-                          "value": "/",
-                          "format": "text"
-                        },
-                        {
-                          "value": 48.89,
-                          "format": "pct"
-                        }
-                      ],
-                      "format": "text"
+                      "value": 0.0,
+                      "format": "money"
                     },
                     "tone": "",
                     "note": ""
                   },
                   {
                     "type": "kv",
-                    "label": "超出目标",
+                    "label": "评估记录 × 1",
                     "value": {
-                      "value": [
-                        {
-                          "value": 13.769053749368034,
-                          "format": "pct"
-                        },
-                        {
-                          "value": "/",
-                          "format": "text"
-                        },
-                        {
-                          "value": 2933.1375289999996,
-                          "format": "money"
-                        }
-                      ],
-                      "format": "text"
-                    },
-                    "tone": "warn",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "再平衡结论",
-                    "value": {
-                      "value": "需要渐进再平衡",
-                      "format": "text"
-                    },
-                    "tone": "warn",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "当前执行",
-                    "value": {
-                      "value": "可赎份额未齐，暂不生成卖出指令；每周日继续复核，不等下一次月度评审",
-                      "format": "text"
-                    },
-                    "tone": "warn",
-                    "note": ""
-                  }
-                ]
-              },
-              {
-                "type": "card",
-                "title": "系统取数与复核证据",
-                "kind": "",
-                "children": [
-                  {
-                    "type": "kv",
-                    "label": "规模自动取数",
-                    "value": {
-                      "value": [
-                        {
-                          "value": "写入",
-                          "format": "text"
-                        },
-                        {
-                          "value": 0,
-                          "format": "text"
-                        },
-                        {
-                          "value": "只 · 复用",
-                          "format": "text"
-                        },
-                        {
-                          "value": 11,
-                          "format": "text"
-                        },
-                        {
-                          "value": "只 · 缺失",
-                          "format": "text"
-                        },
-                        {
-                          "value": 0,
-                          "format": "text"
-                        },
-                        {
-                          "value": "只",
-                          "format": "text"
-                        }
-                      ],
-                      "format": "text"
-                    },
-                    "tone": "pos",
-                    "note": ""
-                  },
-                  {
-                    "type": "text",
-                    "text": "财通景气甄选一年持有C · 缺数待补",
-                    "style": "flow-line"
-                  },
-                  {
-                    "type": "kv",
-                    "label": "评估截止",
-                    "value": {
-                      "value": "2026-11-24",
-                      "format": "text"
-                    },
-                    "tone": "warn",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "可赎回日期",
-                    "value": {
-                      "value": "2027-06-25",
-                      "format": "text"
+                      "value": 0.0,
+                      "format": "money"
                     },
                     "tone": "",
                     "note": ""
                   },
                   {
                     "type": "kv",
-                    "label": "待补证据",
+                    "label": "资金结算 × 1",
                     "value": {
-                      "value": "长期业绩、归因证据",
-                      "format": "text"
-                    },
-                    "tone": "warn",
-                    "note": ""
-                  },
-                  {
-                    "type": "text",
-                    "text": "信澳匠心臻选两年持有 · 缺数待补",
-                    "style": "flow-line"
-                  },
-                  {
-                    "type": "kv",
-                    "label": "评估截止",
-                    "value": {
-                      "value": "2026-11-24",
-                      "format": "text"
-                    },
-                    "tone": "warn",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "可赎回日期",
-                    "value": {
-                      "value": "2028-10-15",
-                      "format": "text"
+                      "value": 1550.4,
+                      "format": "money"
                     },
                     "tone": "",
                     "note": ""
                   },
                   {
                     "type": "kv",
-                    "label": "待补证据",
+                    "label": "超级转换转入(在途·一笔全转) × 1",
                     "value": {
-                      "value": "长期业绩、归因证据",
-                      "format": "text"
-                    },
-                    "tone": "warn",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "前向信号结算",
-                    "value": {
-                      "value": "买入已结算样本0个，准确率待积累；卖出已结算样本0个，准确率待积累",
-                      "format": "text"
+                      "value": 883.31,
+                      "format": "money"
                     },
                     "tone": "",
                     "note": ""
                   },
                   {
                     "type": "kv",
-                    "label": "结算安排",
+                    "label": "转换(超级转换转出→012544) × 2",
                     "value": {
-                      "value": "本档只汇总，不执行结算；1条待观察，最早2027-05-20到期；周日执行到期结算",
-                      "format": "text"
+                      "value": 961.78,
+                      "format": "money"
                     },
                     "tone": "",
                     "note": ""
@@ -8237,14 +8232,74 @@
               },
               {
                 "type": "card",
-                "title": "上周期事件与执行总结",
+                "title": "本周期资金去向",
                 "kind": "",
                 "children": [
                   {
                     "type": "kv",
-                    "label": "统计区间",
+                    "label": "定投",
                     "value": {
-                      "value": "2026-10-20 ~ 2026-11-19",
+                      "value": "0",
+                      "format": "money"
+                    },
+                    "tone": "info",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "加仓",
+                    "value": {
+                      "value": "0",
+                      "format": "money"
+                    },
+                    "tone": "info",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "现金池结余加仓",
+                    "value": {
+                      "value": "0",
+                      "format": "money"
+                    },
+                    "tone": "info",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "减仓",
+                    "value": {
+                      "value": "0",
+                      "format": "money"
+                    },
+                    "tone": "info",
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "type": "card",
+                "title": "债基定投与渐进再平衡",
+                "kind": "warn",
+                "children": [
+                  {
+                    "type": "kv",
+                    "label": "当前债比 / 目标",
+                    "value": {
+                      "value": [
+                        {
+                          "value": 62.659053749368034,
+                          "format": "pct"
+                        },
+                        {
+                          "value": "/",
+                          "format": "text"
+                        },
+                        {
+                          "value": 48.89,
+                          "format": "pct"
+                        }
+                      ],
                       "format": "text"
                     },
                     "tone": "",
@@ -8252,9 +8307,59 @@
                   },
                   {
                     "type": "kv",
-                    "label": "周期",
+                    "label": "超出目标",
                     "value": {
-                      "value": "2026-11",
+                      "value": [
+                        {
+                          "value": 13.769053749368034,
+                          "format": "pct"
+                        },
+                        {
+                          "value": "/",
+                          "format": "text"
+                        },
+                        {
+                          "value": 2933.1375289999996,
+                          "format": "money"
+                        }
+                      ],
+                      "format": "text"
+                    },
+                    "tone": "warn",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "再平衡结论",
+                    "value": {
+                      "value": "需要渐进再平衡",
+                      "format": "text"
+                    },
+                    "tone": "warn",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "当前执行",
+                    "value": {
+                      "value": "可赎份额未齐，暂不生成卖出指令；每周日继续复核，不等下一次月度评审",
+                      "format": "text"
+                    },
+                    "tone": "warn",
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "type": "card",
+                "title": "已到账再平衡",
+                "kind": "",
+                "children": [
+                  {
+                    "type": "kv",
+                    "label": "待到账（不计可用）",
+                    "value": {
+                      "value": 0,
                       "format": "text"
                     },
                     "tone": "",
@@ -8262,7 +8367,7 @@
                   },
                   {
                     "type": "kv",
-                    "label": "事件监控(临时审视) × 2",
+                    "label": "已到账未分配",
                     "value": {
                       "value": 0.0,
                       "format": "money"
@@ -8272,77 +8377,7 @@
                   },
                   {
                     "type": "kv",
-                    "label": "债基轮转(超级转换) × 2",
-                    "value": {
-                      "value": 341.75,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "加仓(机动加仓金) × 1",
-                    "value": {
-                      "value": 122.0,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "加仓(现金池结余) × 1",
-                    "value": {
-                      "value": 630.0,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "基准上移 × 1",
-                    "value": {
-                      "value": 21190.0,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "定投(提前执行) × 1",
-                    "value": {
-                      "value": 65.0,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "定投执行(周一) × 5",
-                    "value": {
-                      "value": 170.0,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "定投执行(周四) × 18",
-                    "value": {
-                      "value": 643.0,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "定投金额建议 × 1",
+                    "label": "本次计划",
                     "value": {
                       "value": 0.0,
                       "format": "money"
@@ -8352,459 +8387,13 @@
                   },
                   {
                     "type": "kv",
-                    "label": "止损线专项评估 × 2",
+                    "label": "分配后现金",
                     "value": {
                       "value": 0.0,
                       "format": "money"
                     },
                     "tone": "",
                     "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "记录 × 1",
-                    "value": {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "评估记录 × 1",
-                    "value": {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "资金结算 × 1",
-                    "value": {
-                      "value": 1550.4,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "超级转换转入(在途·一笔全转) × 1",
-                    "value": {
-                      "value": 883.31,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  },
-                  {
-                    "type": "kv",
-                    "label": "转换(超级转换转出→012544) × 2",
-                    "value": {
-                      "value": 961.78,
-                      "format": "money"
-                    },
-                    "tone": "",
-                    "note": ""
-                  }
-                ]
-              },
-              {
-                "type": "card",
-                "title": "债券止盈检查",
-                "kind": "",
-                "children": [
-                  {
-                    "type": "fund_rows",
-                    "rows": [
-                      {
-                        "name": "富国添享一年持有债券A",
-                        "code": "",
-                        "badges": [
-                          {
-                            "text": "未触发",
-                            "kind": "ok"
-                          }
-                        ],
-                        "lines": [
-                          [
-                            {
-                              "value": [
-                                {
-                                  "value": "009290",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "· 未达止盈条件(年化-6.37%未达5.0%、持有43天未满1年)",
-                                  "format": "text"
-                                }
-                              ],
-                              "format": "text"
-                            }
-                          ]
-                        ],
-                        "detail": "",
-                        "detail_style": "lead",
-                        "amount": null
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "card",
-                "title": "全市场扫描与比较置换",
-                "kind": "",
-                "children": [
-                  {
-                    "type": "fund_rows",
-                    "rows": [
-                      {
-                        "name": "科创50 · 华夏科创50ETF联接C",
-                        "code": "",
-                        "badges": [
-                          {
-                            "text": [
-                              {
-                                "value": "估值分位",
-                                "format": "text"
-                              },
-                              {
-                                "value": 1.98,
-                                "format": "pct"
-                              }
-                            ],
-                            "kind": "muted"
-                          }
-                        ],
-                        "lines": [
-                          [
-                            {
-                              "value": [
-                                {
-                                  "value": "011613",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "·",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "2026-11-19",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "/",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "AI涨乐",
-                                  "format": "text"
-                                }
-                              ],
-                              "format": "text"
-                            }
-                          ],
-                          [
-                            {
-                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                              "format": "text"
-                            }
-                          ]
-                        ],
-                        "detail": "",
-                        "detail_style": "lead",
-                        "amount": null
-                      },
-                      {
-                        "name": "创业板指 · 易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
-                        "code": "",
-                        "badges": [
-                          {
-                            "text": [
-                              {
-                                "value": "估值分位",
-                                "format": "text"
-                              },
-                              {
-                                "value": 8.11,
-                                "format": "pct"
-                              }
-                            ],
-                            "kind": "muted"
-                          }
-                        ],
-                        "lines": [
-                          [
-                            {
-                              "value": [
-                                {
-                                  "value": "110026",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "·",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "2026-11-18",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "/",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "AI涨乐",
-                                  "format": "text"
-                                }
-                              ],
-                              "format": "text"
-                            }
-                          ],
-                          [
-                            {
-                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                              "format": "text"
-                            }
-                          ]
-                        ],
-                        "detail": "",
-                        "detail_style": "lead",
-                        "amount": null
-                      },
-                      {
-                        "name": "中证军工 · 广发中证军工ETF联接C",
-                        "code": "",
-                        "badges": [
-                          {
-                            "text": [
-                              {
-                                "value": "估值分位",
-                                "format": "text"
-                              },
-                              {
-                                "value": 11.01,
-                                "format": "pct"
-                              }
-                            ],
-                            "kind": "muted"
-                          }
-                        ],
-                        "lines": [
-                          [
-                            {
-                              "value": [
-                                {
-                                  "value": "005693",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "·",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "2026-11-18",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "/",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "AI涨乐",
-                                  "format": "text"
-                                }
-                              ],
-                              "format": "text"
-                            }
-                          ],
-                          [
-                            {
-                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                              "format": "text"
-                            }
-                          ]
-                        ],
-                        "detail": "",
-                        "detail_style": "lead",
-                        "amount": null
-                      },
-                      {
-                        "name": "中证医疗 · 广发中证医疗ETF联接C(7.8亿)",
-                        "code": "",
-                        "badges": [
-                          {
-                            "text": [
-                              {
-                                "value": "估值分位",
-                                "format": "text"
-                              },
-                              {
-                                "value": 19.55,
-                                "format": "pct"
-                              }
-                            ],
-                            "kind": "muted"
-                          }
-                        ],
-                        "lines": [
-                          [
-                            {
-                              "value": [
-                                {
-                                  "value": "009881",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "·",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "2026-11-18",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "/",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "AI涨乐",
-                                  "format": "text"
-                                }
-                              ],
-                              "format": "text"
-                            }
-                          ],
-                          [
-                            {
-                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                              "format": "text"
-                            }
-                          ]
-                        ],
-                        "detail": "",
-                        "detail_style": "lead",
-                        "amount": null
-                      },
-                      {
-                        "name": "半导体 · 国联安中证全指半导体ETF联接A(007300/C:007301)",
-                        "code": "",
-                        "badges": [
-                          {
-                            "text": [
-                              {
-                                "value": "估值分位",
-                                "format": "text"
-                              },
-                              {
-                                "value": 23.33,
-                                "format": "pct"
-                              }
-                            ],
-                            "kind": "muted"
-                          }
-                        ],
-                        "lines": [
-                          [
-                            {
-                              "value": [
-                                {
-                                  "value": "007300",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "·",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "2026-11-18",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "/",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "AI涨乐",
-                                  "format": "text"
-                                }
-                              ],
-                              "format": "text"
-                            }
-                          ],
-                          [
-                            {
-                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                              "format": "text"
-                            }
-                          ]
-                        ],
-                        "detail": "",
-                        "detail_style": "lead",
-                        "amount": null
-                      },
-                      {
-                        "name": "中证医药 · 汇添富中证医药ETF联接C",
-                        "code": "",
-                        "badges": [
-                          {
-                            "text": [
-                              {
-                                "value": "估值分位",
-                                "format": "text"
-                              },
-                              {
-                                "value": 24.36,
-                                "format": "pct"
-                              }
-                            ],
-                            "kind": "muted"
-                          }
-                        ],
-                        "lines": [
-                          [
-                            {
-                              "value": [
-                                {
-                                  "value": "007077",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "·",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "2026-11-19",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "/",
-                                  "format": "text"
-                                },
-                                {
-                                  "value": "AI涨乐",
-                                  "format": "text"
-                                }
-                              ],
-                              "format": "text"
-                            }
-                          ],
-                          [
-                            {
-                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                              "format": "text"
-                            }
-                          ]
-                        ],
-                        "detail": "",
-                        "detail_style": "lead",
-                        "amount": null
-                      }
-                    ]
                   }
                 ]
               },
@@ -9333,48 +8922,533 @@
               },
               {
                 "type": "card",
-                "title": "本周期资金去向",
+                "title": "系统取数与复核证据",
                 "kind": "",
                 "children": [
                   {
                     "type": "kv",
-                    "label": "定投",
+                    "label": "规模自动取数",
                     "value": {
-                      "value": "0",
-                      "format": "money"
+                      "value": [
+                        {
+                          "value": "写入",
+                          "format": "text"
+                        },
+                        {
+                          "value": 0,
+                          "format": "text"
+                        },
+                        {
+                          "value": "只 · 复用",
+                          "format": "text"
+                        },
+                        {
+                          "value": 11,
+                          "format": "text"
+                        },
+                        {
+                          "value": "只 · 缺失",
+                          "format": "text"
+                        },
+                        {
+                          "value": 0,
+                          "format": "text"
+                        },
+                        {
+                          "value": "只",
+                          "format": "text"
+                        }
+                      ],
+                      "format": "text"
                     },
-                    "tone": "info",
+                    "tone": "pos",
+                    "note": ""
+                  },
+                  {
+                    "type": "text",
+                    "text": "财通景气甄选一年持有C · 缺数待补",
+                    "style": "flow-line"
+                  },
+                  {
+                    "type": "kv",
+                    "label": "评估截止",
+                    "value": {
+                      "value": "2026-11-24",
+                      "format": "text"
+                    },
+                    "tone": "warn",
                     "note": ""
                   },
                   {
                     "type": "kv",
-                    "label": "加仓",
+                    "label": "可赎回日期",
                     "value": {
-                      "value": "0",
-                      "format": "money"
+                      "value": "2027-06-25",
+                      "format": "text"
                     },
-                    "tone": "info",
+                    "tone": "",
                     "note": ""
                   },
                   {
                     "type": "kv",
-                    "label": "现金池结余加仓",
+                    "label": "待补证据",
                     "value": {
-                      "value": "0",
-                      "format": "money"
+                      "value": "基金经理、长期业绩、归因证据",
+                      "format": "text"
                     },
-                    "tone": "info",
+                    "tone": "warn",
+                    "note": ""
+                  },
+                  {
+                    "type": "text",
+                    "text": "信澳匠心臻选两年持有 · 缺数待补",
+                    "style": "flow-line"
+                  },
+                  {
+                    "type": "kv",
+                    "label": "评估截止",
+                    "value": {
+                      "value": "2026-11-24",
+                      "format": "text"
+                    },
+                    "tone": "warn",
                     "note": ""
                   },
                   {
                     "type": "kv",
-                    "label": "减仓",
+                    "label": "可赎回日期",
                     "value": {
-                      "value": "0",
-                      "format": "money"
+                      "value": "2028-10-15",
+                      "format": "text"
                     },
-                    "tone": "info",
+                    "tone": "",
                     "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "待补证据",
+                    "value": {
+                      "value": "基金经理、长期业绩、归因证据",
+                      "format": "text"
+                    },
+                    "tone": "warn",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "前向信号结算",
+                    "value": {
+                      "value": "买入已结算样本0个，准确率待积累；卖出已结算样本0个，准确率待积累",
+                      "format": "text"
+                    },
+                    "tone": "",
+                    "note": ""
+                  },
+                  {
+                    "type": "kv",
+                    "label": "结算安排",
+                    "value": {
+                      "value": "本档只汇总，不执行结算；1条待观察，最早2027-05-20到期；周日执行到期结算",
+                      "format": "text"
+                    },
+                    "tone": "",
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "type": "card",
+                "title": "债券止盈检查",
+                "kind": "",
+                "children": [
+                  {
+                    "type": "fund_rows",
+                    "rows": [
+                      {
+                        "name": "富国添享一年持有债券A",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": "未触发",
+                            "kind": "ok"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": [
+                                {
+                                  "value": "009290",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "· 未达止盈条件(年化-6.37%未达5.0%、持有43天未满1年)",
+                                  "format": "text"
+                                }
+                              ],
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "card",
+                "title": "全市场扫描与比较置换",
+                "kind": "",
+                "children": [
+                  {
+                    "type": "fund_rows",
+                    "rows": [
+                      {
+                        "name": "科创50 · 华夏科创50ETF联接C",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": [
+                              {
+                                "value": "估值分位",
+                                "format": "text"
+                              },
+                              {
+                                "value": 1.98,
+                                "format": "pct"
+                              }
+                            ],
+                            "kind": "muted"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": [
+                                {
+                                  "value": "011613",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "·",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "2026-11-19",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "/",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "AI涨乐",
+                                  "format": "text"
+                                }
+                              ],
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "创业板指 · 易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": [
+                              {
+                                "value": "估值分位",
+                                "format": "text"
+                              },
+                              {
+                                "value": 8.11,
+                                "format": "pct"
+                              }
+                            ],
+                            "kind": "muted"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": [
+                                {
+                                  "value": "110026",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "·",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "2026-11-18",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "/",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "AI涨乐",
+                                  "format": "text"
+                                }
+                              ],
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "中证军工 · 广发中证军工ETF联接C",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": [
+                              {
+                                "value": "估值分位",
+                                "format": "text"
+                              },
+                              {
+                                "value": 11.01,
+                                "format": "pct"
+                              }
+                            ],
+                            "kind": "muted"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": [
+                                {
+                                  "value": "005693",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "·",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "2026-11-18",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "/",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "AI涨乐",
+                                  "format": "text"
+                                }
+                              ],
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "中证医疗 · 广发中证医疗ETF联接C(7.8亿)",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": [
+                              {
+                                "value": "估值分位",
+                                "format": "text"
+                              },
+                              {
+                                "value": 19.55,
+                                "format": "pct"
+                              }
+                            ],
+                            "kind": "muted"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": [
+                                {
+                                  "value": "009881",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "·",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "2026-11-18",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "/",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "AI涨乐",
+                                  "format": "text"
+                                }
+                              ],
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "半导体 · 国联安中证全指半导体ETF联接A(007300/C:007301)",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": [
+                              {
+                                "value": "估值分位",
+                                "format": "text"
+                              },
+                              {
+                                "value": 23.33,
+                                "format": "pct"
+                              }
+                            ],
+                            "kind": "muted"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": [
+                                {
+                                  "value": "007300",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "·",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "2026-11-18",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "/",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "AI涨乐",
+                                  "format": "text"
+                                }
+                              ],
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "中证医药 · 汇添富中证医药ETF联接C",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": [
+                              {
+                                "value": "估值分位",
+                                "format": "text"
+                              },
+                              {
+                                "value": 24.36,
+                                "format": "pct"
+                              }
+                            ],
+                            "kind": "muted"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": [
+                                {
+                                  "value": "007077",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "·",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "2026-11-19",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "/",
+                                  "format": "text"
+                                },
+                                {
+                                  "value": "AI涨乐",
+                                  "format": "text"
+                                }
+                              ],
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      }
+                    ]
                   }
                 ]
               }
@@ -11152,10 +11226,10 @@
             "action": "观察",
             "reason": "已到持有观察止损线，启动退出评估",
             "eval_dims": {
-              "基金经理": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
+              "基金经理": "无回测数据",
               "规模风险": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "长期业绩": "无回测数据",
-              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金2026年三季报显示前十大重仓股占比70.55%，集中于AI算力与科技成长赛道（如新易盛9.44%、源杰科技8.51%）；基金经理在三季报中明确提及‘三季度以来受市场流动性阶段性收紧等因素影响，科技成长板块整体表现有所承压’。同期基金三季度净值涨幅-30.82%，最近一月回撤-31.46%，最近一季回撤-51.54%，与科技成长板块调整时段高度吻合。但缺乏同赛道指数同期跌幅及基金超额收益的精确对比数据，无法判断是否存在选股能力恶化，故fund_quality_deteriorating为null。"
+              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达42.47%（截至2026-11-20），同期沪深300最大回撤约21.42%，超额回撤显著。2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等AI产业链赛道，前十大重仓股占比70.55%；基金经理在三季报中明确表示‘受A股整体流动性偏弱影响，AI板块阶段性表现承压’，且组合仅微调、板块配置保持稳定，表明回撤主因系赛道系统性调整而非持仓个体恶化。但缺乏可核验的选股贡献衰减或换手异常等质量恶化证据，故fund_quality_deteriorating为null。"
             },
             "status": "pending",
             "trigger_kind": "",
@@ -11164,7 +11238,8 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "manager:目标基金代码未返回:017491",
+              "long_performance:目标基金代码未返回:017491",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "holding_period": "1年"
@@ -11175,10 +11250,10 @@
             "action": "观察",
             "reason": "已到持有观察止损线，启动退出评估",
             "eval_dims": {
-              "基金经理": "未变更；现任朱然，任职开始2022-08-16，状态在职",
+              "基金经理": "无回测数据",
               "规模风险": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "长期业绩": "无回测数据",
-              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股（精智达7.33%、东山精密6.53%、日联科技5.54%、芯碁微装5.06%、飞荣达4.90%、睿创微纳4.63%、南亚新材4.14%、剑桥科技A+H合计4.33%）在2026年10月8日至11月20日期间普遍大幅下跌：东山精密-59.62%、精智达-55.80%、剑桥科技-54.23%、日联科技-50.22%、南亚新材-47.33%、芯碁微装-43.66%、睿创微纳-32.97%、飞荣达-31.02%，重仓股同期跌幅远超市场平均水平，回撤主要由持仓赛道（半导体设备、PCB、光模块等科技成长板块）系统性调整驱动；缺乏基金经理变更、换手率异常、风格漂移等可核验数据，无法判断基金自身管理质量是否恶化。"
+              "归因": "赛道整体回调=True；基金质量恶化=None；依据：截至2026-09-30，基金制造业持仓占净值比77.32%，前十大重仓股中精智达、东山精密、芯碁微装等科技制造类个股占比超48%；近1个月净值下跌26.50%，同期沪深300仅跌4.76%，超额收益为负且回撤幅度显著高于基准，显示持仓赛道近期承压明显。但缺乏基金经理调仓失误或选股能力下降的直接证据，无法判定基金质量恶化。"
             },
             "status": "pending",
             "trigger_kind": "",
@@ -11187,7 +11262,8 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "manager:目标基金代码未返回:010363",
+              "long_performance:目标基金代码未返回:010363",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "holding_period": "2年"
@@ -11237,8 +11313,8 @@
           "pending_title": "系统继续补证（无需你操作）",
           "pending_items": [
             "系统继续积累1个前向信号的后续收益，样本不足不计算胜率",
-            "系统复核财通景气甄选一年持有C：1年持有期未满，台账持有期锁定至2027-06-25；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24",
-            "系统复核信澳匠心臻选两年持有：2年持有期未满，台账持有期锁定至2028-10-15；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24"
+            "系统复核财通景气甄选一年持有C：1年持有期未满，台账持有期锁定至2027-06-25；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；基金经理任职与变更证据未齐；下次复核2026-11-24",
+            "系统复核信澳匠心臻选两年持有：2年持有期未满，台账持有期锁定至2028-10-15；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；基金经理任职与变更证据未齐；下次复核2026-11-24"
           ]
         },
         "rebalance": {
@@ -11282,22 +11358,23 @@
             "fund_name": "财通景气甄选一年持有C",
             "status": "pending",
             "trigger_kind": "",
-            "review_date": "2026-11-20",
+            "review_date": "2026-11-21",
             "conclusion": null,
             "next_review_date": "2026-11-24",
             "cooldown_until": null,
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "manager:目标基金代码未返回:017491",
+              "long_performance:目标基金代码未返回:017491",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
             "eval_dims": {
-              "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
+              "manager": null,
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金2026年三季报显示前十大重仓股占比70.55%，集中于AI算力与科技成长赛道（如新易盛9.44%、源杰科技8.51%）；基金经理在三季报中明确提及‘三季度以来受市场流动性阶段性收紧等因素影响，科技成长板块整体表现有所承压’。同期基金三季度净值涨幅-30.82%，最近一月回撤-31.46%，最近一季回撤-51.54%，与科技成长板块调整时段高度吻合。但缺乏同赛道指数同期跌幅及基金超额收益的精确对比数据，无法判断是否存在选股能力恶化，故fund_quality_deteriorating为null。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达42.47%（截至2026-11-20），同期沪深300最大回撤约21.42%，超额回撤显著。2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等AI产业链赛道，前十大重仓股占比70.55%；基金经理在三季报中明确表示‘受A股整体流动性偏弱影响，AI板块阶段性表现承压’，且组合仅微调、板块配置保持稳定，表明回撤主因系赛道系统性调整而非持仓个体恶化。但缺乏可核验的选股贡献衰减或换手异常等质量恶化证据，故fund_quality_deteriorating为null。"
             }
           },
           {
@@ -11305,22 +11382,23 @@
             "fund_name": "信澳匠心臻选两年持有",
             "status": "pending",
             "trigger_kind": "",
-            "review_date": "2026-11-20",
+            "review_date": "2026-11-21",
             "conclusion": null,
             "next_review_date": "2026-11-24",
             "cooldown_until": null,
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "manager:目标基金代码未返回:010363",
+              "long_performance:目标基金代码未返回:010363",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
             "eval_dims": {
-              "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
+              "manager": null,
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股（精智达7.33%、东山精密6.53%、日联科技5.54%、芯碁微装5.06%、飞荣达4.90%、睿创微纳4.63%、南亚新材4.14%、剑桥科技A+H合计4.33%）在2026年10月8日至11月20日期间普遍大幅下跌：东山精密-59.62%、精智达-55.80%、剑桥科技-54.23%、日联科技-50.22%、南亚新材-47.33%、芯碁微装-43.66%、睿创微纳-32.97%、飞荣达-31.02%，重仓股同期跌幅远超市场平均水平，回撤主要由持仓赛道（半导体设备、PCB、光模块等科技成长板块）系统性调整驱动；缺乏基金经理变更、换手率异常、风格漂移等可核验数据，无法判断基金自身管理质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：截至2026-09-30，基金制造业持仓占净值比77.32%，前十大重仓股中精智达、东山精密、芯碁微装等科技制造类个股占比超48%；近1个月净值下跌26.50%，同期沪深300仅跌4.76%，超额收益为负且回撤幅度显著高于基准，显示持仓赛道近期承压明显。但缺乏基金经理调仓失误或选股能力下降的直接证据，无法判定基金质量恶化。"
             }
           },
           {
@@ -12025,18 +12103,18 @@
                 "fund_name": "财通景气甄选一年持有C",
                 "action_text": "继续持有，到期再评，不直接赎回",
                 "lock_text": "台账持有期锁定至2027-06-25",
-                "evidence_text": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化",
+                "evidence_text": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；基金经理任职与变更证据未齐",
                 "next_review": "2026-11-24",
-                "technical_text": "状态=pending；基金代码=017491；待补=long_performance:基准指数季度不足:中证500指数；attribution:fund_quality_deteriorating缺少布尔证据"
+                "technical_text": "状态=pending；基金代码=017491；待补=manager:目标基金代码未返回:017491；long_performance:目标基金代码未返回:017491；attribution:fund_quality_deteriorating缺少布尔证据"
               },
               {
                 "fund_code": "010363",
                 "fund_name": "信澳匠心臻选两年持有",
                 "action_text": "继续持有，到期再评，不直接赎回",
                 "lock_text": "台账持有期锁定至2028-10-15",
-                "evidence_text": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化",
+                "evidence_text": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；基金经理任职与变更证据未齐",
                 "next_review": "2026-11-24",
-                "technical_text": "状态=pending；基金代码=010363；待补=long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%；attribution:fund_quality_deteriorating缺少布尔证据"
+                "technical_text": "状态=pending；基金代码=010363；待补=manager:目标基金代码未返回:010363；long_performance:目标基金代码未返回:010363；attribution:fund_quality_deteriorating缺少布尔证据"
               }
             ],
             "raw_title": "查看系统原始字段（核对用）",
@@ -12611,7 +12689,7 @@
                         "type": "kv",
                         "label": "还缺哪些退出证据",
                         "value": {
-                          "value": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化",
+                          "value": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；基金经理任职与变更证据未齐",
                           "format": "text"
                         },
                         "tone": "",
@@ -12633,7 +12711,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "text": "状态=pending；基金代码=017491；待补=long_performance:基准指数季度不足:中证500指数；attribution:fund_quality_deteriorating缺少布尔证据",
+                            "text": "状态=pending；基金代码=017491；待补=manager:目标基金代码未返回:017491；long_performance:目标基金代码未返回:017491；attribution:fund_quality_deteriorating缺少布尔证据",
                             "style": "muted"
                           }
                         ]
@@ -12668,7 +12746,7 @@
                         "type": "kv",
                         "label": "还缺哪些退出证据",
                         "value": {
-                          "value": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化",
+                          "value": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；基金经理任职与变更证据未齐",
                           "format": "text"
                         },
                         "tone": "",
@@ -12690,7 +12768,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "text": "状态=pending；基金代码=010363；待补=long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%；attribution:fund_quality_deteriorating缺少布尔证据",
+                            "text": "状态=pending；基金代码=010363；待补=manager:目标基金代码未返回:010363；long_performance:目标基金代码未返回:010363；attribution:fund_quality_deteriorating缺少布尔证据",
                             "style": "muted"
                           }
                         ]
@@ -12773,7 +12851,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T18:05:12",
+    "generated_at": "2026-11-21T18:34:57",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -12898,11 +12976,11 @@
             }
           ],
           "lines": [
-            "华夏沪深300ETF联接A：0元；核心买入条件未满足，对应额度留现金",
-            "南方中证500ETF联接(LOF)A：32元",
             "易方达恒生港股通创新药ETF联接A：0元；已达卫星结构上限，新增额度顺延下一名",
             "嘉实中证新能源汽车指数C：0元；已达卫星结构上限，新增额度顺延下一名",
             "华宝中证有色金属ETF联接A：44元",
+            "南方中证500ETF联接(LOF)A：32元",
+            "华夏沪深300ETF联接A：0元；核心买入条件未满足，对应额度留现金",
             "兴全安泰积极养老目标五年FOF A：30元",
             "国泰黄金ETF联接C：0元；黄金信号未通过或目标不缺，额度留现金",
             "富国添享一年持有债券A：0元；债券超配或预算不足，本期不新增"
@@ -12928,7 +13006,7 @@
             {
               "name": "现金池与买入条件",
               "status": "blocked",
-              "detail": "当前现金池170.00元；评分达标但现金池不足(单次下限>现金池可用上限),暂缓"
+              "detail": "当前现金池170.00元；评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓"
             },
             {
               "name": "生成整数买入指令",
@@ -12942,7 +13020,7 @@
             }
           ],
           "lines": [
-            "易方达恒生港股通创新药ETF联接A：评分75.5/门槛70.0；评分达标但现金池不足(单次下限>现金池可用上限),暂缓",
+            "易方达恒生港股通创新药ETF联接A：评分75.5/门槛70.0；评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
             "嘉实中证新能源汽车指数C：评分58.0/门槛70.0；未达到加仓门槛，本笔不操作",
             "华宝中证有色金属ETF联接A：评分46.5/门槛70.0；未达到加仓门槛，本笔不操作"
           ],
@@ -13106,8 +13184,8 @@
             "pending_title": "系统继续补证（无需你操作）",
             "pending_items": [
               "系统继续积累1个前向信号的后续收益，样本不足不计算胜率",
-              "系统复核财通景气甄选一年持有C：1年持有期未满，台账持有期锁定至2027-06-25；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24",
-              "系统复核信澳匠心臻选两年持有：2年持有期未满，台账持有期锁定至2028-10-15；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；下次复核2026-11-24"
+              "系统复核财通景气甄选一年持有C：1年持有期未满，台账持有期锁定至2027-06-25；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；基金经理任职与变更证据未齐；下次复核2026-11-24",
+              "系统复核信澳匠心臻选两年持有：2年持有期未满，台账持有期锁定至2028-10-15；连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化；基金经理任职与变更证据未齐；下次复核2026-11-24"
             ]
           },
           "steps": [
@@ -13239,8 +13317,8 @@
         "state_label": "部分可执行",
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
         "base_date": "2026-11-20",
-        "review_date": "2026-11-20",
-        "generated_at": "2026-11-21T16:03:57",
+        "review_date": "2026-11-21",
+        "generated_at": "2026-11-21T18:31:03",
         "inputs": [
           {
             "label": "周期预算锁",
@@ -13324,8 +13402,8 @@
         "state_label": "部分可执行",
         "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
         "base_date": "2026-11-20",
-        "review_date": "2026-11-20",
-        "generated_at": "2026-11-21T16:03:57",
+        "review_date": "2026-11-21",
+        "generated_at": "2026-11-21T18:31:03",
         "inputs": [
           {
             "label": "可执行计划",
@@ -15398,7 +15476,7 @@
         },
         {
           "type": "paragraph",
-          "text": "【四资产月度资金预算模型】月总预算读monthly_budget为唯一红线，erp_flow_budget按ERP态给出权益/债券/黄金/现金月流量，四者合计必须等于monthly_budget。cash_inject统一读ERP现金层；原现金池额外注入口径废止，现金池只是现金资产内部用途子账，不形成第二份预算。现金池用于权益加仓时须同时满足ERP允许增加权益、真低估和评分门槛，不得突破大类及单只上限。"
+          "text": "【四资产月度资金预算模型】月总预算读monthly_budget为唯一红线，erp_flow_budget按ERP态给出权益/债券/黄金/现金月流量，四者合计必须等于monthly_budget。cash_inject统一读ERP现金层；原现金池额外注入口径废止，现金池只是现金资产内部用途子账，不形成第二份预算。**当月加仓可用现金=上期封账结转现金池＋本周期现金层预算−channel_cashx实际支出；封账前现金池累计余额保持上期结转口径，实际支出只从本周期现金层扣减，禁止两边重复扣减，周期结束再按封账规则统一结转。**现金池用于权益加仓时须同时满足ERP允许增加权益、真低估和评分门槛，不得突破大类及单只上限。"
         },
         {
           "type": "paragraph",
@@ -16010,8 +16088,10 @@
     "ui_debt_excess_value": "{weight}个百分点 / {amount}",
     "ui_lbl_period_budget_available": "本期预算可用 / 本周投后余",
     "ui_lbl_prior_cash_pool": "上期结余现金池",
-    "ui_lbl_current_cash_reserved": "本期现金层预留",
+    "ui_lbl_current_cash_reserved": "本期现金层剩余",
     "ui_lbl_projected_cycle_uninvested": "预计全周期未投预算",
-    "ui_weekly_cash_scope_note": "上期结余现金池不计入本期预算；本期现金层预留是预算分配，预计全周期未投预算=本期预算−预计使用，不是现金余额。"
+    "ui_weekly_cash_scope_note": "上期结转现金池＋本期现金层剩余=当月加仓可用现金；预计全周期未投预算=本期预算−预计使用，不是现金余额。",
+    "ui_h2_cycle_budget": "整周期预算与现金口径",
+    "ui_lbl_available_cash": "当月加仓可用现金"
   }
 }

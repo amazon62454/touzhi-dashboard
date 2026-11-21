@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T10:57:13",
+  "generated_at": "2026-11-21T10:59:04",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -7276,7 +7276,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T10:57:13",
+    "generated_at": "2026-11-21T10:59:04",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -10455,6 +10455,7 @@
     "ui_chain_state_incomplete": "正式评估缺数未完成",
     "ui_chain_status_missing": "未接线",
     "ui_forward_waiting": "等待引擎提供前向验证状态",
-    "ui_monthly_return_wait": "等待引擎说明未计算原因"
+    "ui_monthly_return_wait": "等待引擎说明未计算原因",
+    "ui_concentration_total": "持仓市值（不含现金池） {total}"
   }
 }

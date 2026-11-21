@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T04:54:24",
+  "generated_at": "2026-11-22T04:57:43",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1892,7 +1892,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "long_performance:基准指数季度不足:恒生指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
@@ -1900,7 +1900,7 @@
               "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)，前十大重仓占比70.55%，其中德福科技(-7.83%)、仕佳光子(-8.11%)、昀冢科技(-9.29%)等光模块/PCB标的在11月20日单日跌幅显著，与科技赛道同期回调高度同步。但缺乏同类赛道指数同期跌幅及基金选股贡献衰减的量化对比数据，无法判定基金质量是否恶化。"
             }
           },
           {
@@ -1915,7 +1915,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "long_performance:基准指数季度不足:中证港股通综合指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
@@ -1923,7 +1923,7 @@
               "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，8只A股标的在2026年11月2日至11月20日期间普遍大幅下跌：剑桥科技-24.90%、南亚新材-24.72%、东山精密-21.45%、日联科技-18.95%、睿创微纳-16.07%、精智达-13.33%、飞荣达-10.46%，仅芯碁微装+2.61%。重仓股集中属于半导体设备、PCB、光模块等科技成长赛道，同期板块整体回调明显，回撤主因为赛道系统性调整。暂无基金经理变更或持仓风格漂移等质量恶化证据。"
             }
           }
         ],
@@ -5573,7 +5573,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "long_performance:基准指数季度不足:恒生指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": false,
@@ -5581,7 +5581,7 @@
               "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)，前十大重仓占比70.55%，其中德福科技(-7.83%)、仕佳光子(-8.11%)、昀冢科技(-9.29%)等光模块/PCB标的在11月20日单日跌幅显著，与科技赛道同期回调高度同步。但缺乏同类赛道指数同期跌幅及基金选股贡献衰减的量化对比数据，无法判定基金质量是否恶化。"
             }
           },
           {
@@ -5596,7 +5596,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "long_performance:基准指数季度不足:中证港股通综合指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": false,
@@ -5604,7 +5604,7 @@
               "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，8只A股标的在2026年11月2日至11月20日期间普遍大幅下跌：剑桥科技-24.90%、南亚新材-24.72%、东山精密-21.45%、日联科技-18.95%、睿创微纳-16.07%、精智达-13.33%、飞荣达-10.46%，仅芯碁微装+2.61%。重仓股集中属于半导体设备、PCB、光模块等科技成长赛道，同期板块整体回调明显，回撤主因为赛道系统性调整。暂无基金经理变更或持仓风格漂移等质量恶化证据。"
             }
           }
         ],
@@ -9392,7 +9392,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "long_performance:基准指数季度不足:恒生指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
@@ -9400,7 +9400,7 @@
               "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)，前十大重仓占比70.55%，其中德福科技(-7.83%)、仕佳光子(-8.11%)、昀冢科技(-9.29%)等光模块/PCB标的在11月20日单日跌幅显著，与科技赛道同期回调高度同步。但缺乏同类赛道指数同期跌幅及基金选股贡献衰减的量化对比数据，无法判定基金质量是否恶化。"
             }
           },
           {
@@ -9415,7 +9415,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "long_performance:基准指数季度不足:中证港股通综合指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
@@ -9423,7 +9423,7 @@
               "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，8只A股标的在2026年11月2日至11月20日期间普遍大幅下跌：剑桥科技-24.90%、南亚新材-24.72%、东山精密-21.45%、日联科技-18.95%、睿创微纳-16.07%、精智达-13.33%、飞荣达-10.46%，仅芯碁微装+2.61%。重仓股集中属于半导体设备、PCB、光模块等科技成长赛道，同期板块整体回调明显，回撤主因为赛道系统性调整。暂无基金经理变更或持仓风格漂移等质量恶化证据。"
             }
           }
         ],
@@ -13005,14 +13005,14 @@
             "fund_count": 9,
             "fund_codes": [
               "000051",
-              "160119",
+              "004253",
+              "009290",
+              "010267",
+              "010340",
               "012544",
               "017140",
               "024328",
-              "010267",
-              "004253",
-              "009290",
-              "010340"
+              "160119"
             ],
             "detail": "持有9只"
           },
@@ -13043,15 +13043,15 @@
           {
             "fund_code": "000051",
             "fund_name": "华夏沪深300ETF联接A",
-            "role": "core",
-            "role_label": "核心",
-            "role_order": 10,
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
             "status_key": "__holding__",
             "status": "持有",
             "status_sort": 10,
             "detail_lines": [
               "当前投资池，季度维持持有状态",
-              "评分状态：缺维：情绪",
+              "本次评估未取到：情绪；缺失维度不按0分补齐，当前仅展示已得维度部分分",
               "分项：估值0、趋势0、资金0、基本面9、情绪0",
               "数据不完整：缺情绪，本笔不操作"
             ],
@@ -13072,42 +13072,105 @@
             "display_name": "01. 华夏沪深300ETF联接A"
           },
           {
-            "fund_code": "160119",
-            "fund_name": "南方中证500ETF联接(LOF)A",
-            "role": "core",
-            "role_label": "核心",
-            "role_order": 10,
+            "fund_code": "004253",
+            "fund_name": "国泰黄金ETF联接C",
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
             "status_key": "__holding__",
             "status": "持有",
             "status_sort": 10,
             "detail_lines": [
               "当前投资池，季度维持持有状态",
-              "评分状态：缺维：情绪",
-              "分项：估值0、趋势0、资金0、基本面12.5、情绪0",
+              "本次评估未取到：情绪；缺失维度不按0分补齐，当前仅展示已得维度部分分",
+              "分项：估值0、趋势0、资金0、基本面6、情绪0",
               "数据不完整：缺情绪，本笔不操作"
             ],
             "source_kind": "quarter_holding",
-            "score": 12.5,
-            "score_display": "12.5分（部分分）",
+            "score": 6.0,
+            "score_display": "6分（部分分）",
             "score_complete": false,
             "score_state": "缺维：情绪",
             "score_components": {
               "估值": 0.0,
               "趋势": 0.0,
               "资金": 0.0,
-              "基本面": 12.5,
+              "基本面": 6.0,
               "情绪": 0.0
             },
             "score_decision": "数据不完整：缺情绪，本笔不操作",
             "serial_no": 2,
-            "display_name": "02. 南方中证500ETF联接(LOF)A"
+            "display_name": "02. 国泰黄金ETF联接C"
+          },
+          {
+            "fund_code": "009290",
+            "fund_name": "富国添享一年持有债券A",
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
+            "status_key": "__holding__",
+            "status": "持有",
+            "status_sort": 10,
+            "detail_lines": [
+              "当前投资池，季度维持持有状态",
+              "本档未评分，不按0分处理"
+            ],
+            "source_kind": "quarter_holding",
+            "score": null,
+            "score_display": "—",
+            "score_complete": false,
+            "score_state": "本档未评分，不按0分处理",
+            "serial_no": 3,
+            "display_name": "03. 富国添享一年持有债券A"
+          },
+          {
+            "fund_code": "010267",
+            "fund_name": "兴全安泰积极养老目标五年FOF A",
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
+            "status_key": "__holding__",
+            "status": "持有",
+            "status_sort": 10,
+            "detail_lines": [
+              "当前投资池，季度维持持有状态",
+              "本档未评分，不按0分处理"
+            ],
+            "source_kind": "quarter_holding",
+            "score": null,
+            "score_display": "—",
+            "score_complete": false,
+            "score_state": "本档未评分，不按0分处理",
+            "serial_no": 4,
+            "display_name": "04. 兴全安泰积极养老目标五年FOF A"
+          },
+          {
+            "fund_code": "010340",
+            "fund_name": "易方达高质量严选三年持有",
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
+            "status_key": "__holding__",
+            "status": "持有",
+            "status_sort": 10,
+            "detail_lines": [
+              "当前投资池，季度维持持有状态",
+              "本档未评分，不按0分处理"
+            ],
+            "source_kind": "quarter_holding",
+            "score": null,
+            "score_display": "—",
+            "score_complete": false,
+            "score_state": "本档未评分，不按0分处理",
+            "serial_no": 5,
+            "display_name": "05. 易方达高质量严选三年持有"
           },
           {
             "fund_code": "012544",
             "fund_name": "嘉实中证新能源汽车指数C",
-            "role": "satellite",
-            "role_label": "卫星",
-            "role_order": 20,
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
             "status_key": "__holding__",
             "status": "持有",
             "status_sort": 10,
@@ -13130,15 +13193,15 @@
               "情绪": 4.0
             },
             "score_decision": "未达到加仓门槛，本笔不操作",
-            "serial_no": 3,
-            "display_name": "03. 嘉实中证新能源汽车指数C"
+            "serial_no": 6,
+            "display_name": "06. 嘉实中证新能源汽车指数C"
           },
           {
             "fund_code": "017140",
             "fund_name": "华宝中证有色金属ETF联接A",
-            "role": "satellite",
-            "role_label": "卫星",
-            "role_order": 20,
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
             "status_key": "__holding__",
             "status": "持有",
             "status_sort": 10,
@@ -13161,15 +13224,15 @@
               "情绪": 4.0
             },
             "score_decision": "未达到加仓门槛，本笔不操作",
-            "serial_no": 4,
-            "display_name": "04. 华宝中证有色金属ETF联接A"
+            "serial_no": 7,
+            "display_name": "07. 华宝中证有色金属ETF联接A"
           },
           {
             "fund_code": "024328",
             "fund_name": "易方达恒生港股通创新药ETF联接A",
-            "role": "satellite",
-            "role_label": "卫星",
-            "role_order": 20,
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
             "status_key": "__holding__",
             "status": "持有",
             "status_sort": 10,
@@ -13192,85 +13255,12 @@
               "情绪": 4.0
             },
             "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
-            "serial_no": 5,
-            "display_name": "05. 易方达恒生港股通创新药ETF联接A"
-          },
-          {
-            "fund_code": "010267",
-            "fund_name": "兴全安泰积极养老目标五年FOF A",
-            "role": "fof",
-            "role_label": "养老FOF",
-            "role_order": 30,
-            "status_key": "__holding__",
-            "status": "持有",
-            "status_sort": 10,
-            "detail_lines": [
-              "当前投资池，季度维持持有状态",
-              "本档未评分，不按0分处理"
-            ],
-            "source_kind": "quarter_holding",
-            "score": null,
-            "score_display": "—",
-            "score_complete": false,
-            "score_state": "本档未评分，不按0分处理",
-            "serial_no": 6,
-            "display_name": "06. 兴全安泰积极养老目标五年FOF A"
-          },
-          {
-            "fund_code": "004253",
-            "fund_name": "国泰黄金ETF联接C",
-            "role": "gold",
-            "role_label": "黄金",
-            "role_order": 40,
-            "status_key": "__holding__",
-            "status": "持有",
-            "status_sort": 10,
-            "detail_lines": [
-              "当前投资池，季度维持持有状态",
-              "评分状态：缺维：情绪",
-              "分项：估值0、趋势0、资金0、基本面6、情绪0",
-              "数据不完整：缺情绪，本笔不操作"
-            ],
-            "source_kind": "quarter_holding",
-            "score": 6.0,
-            "score_display": "6分（部分分）",
-            "score_complete": false,
-            "score_state": "缺维：情绪",
-            "score_components": {
-              "估值": 0.0,
-              "趋势": 0.0,
-              "资金": 0.0,
-              "基本面": 6.0,
-              "情绪": 0.0
-            },
-            "score_decision": "数据不完整：缺情绪，本笔不操作",
-            "serial_no": 7,
-            "display_name": "07. 国泰黄金ETF联接C"
-          },
-          {
-            "fund_code": "009290",
-            "fund_name": "富国添享一年持有债券A",
-            "role": "debt",
-            "role_label": "债基",
-            "role_order": 50,
-            "status_key": "__holding__",
-            "status": "持有",
-            "status_sort": 10,
-            "detail_lines": [
-              "当前投资池，季度维持持有状态",
-              "本档未评分，不按0分处理"
-            ],
-            "source_kind": "quarter_holding",
-            "score": null,
-            "score_display": "—",
-            "score_complete": false,
-            "score_state": "本档未评分，不按0分处理",
             "serial_no": 8,
-            "display_name": "08. 富国添享一年持有债券A"
+            "display_name": "08. 易方达恒生港股通创新药ETF联接A"
           },
           {
-            "fund_code": "010340",
-            "fund_name": "易方达高质量严选三年持有",
+            "fund_code": "160119",
+            "fund_name": "南方中证500ETF联接(LOF)A",
             "role": "active",
             "role_label": "主动权益",
             "role_order": 60,
@@ -13279,15 +13269,25 @@
             "status_sort": 10,
             "detail_lines": [
               "当前投资池，季度维持持有状态",
-              "本档未评分，不按0分处理"
+              "本次评估未取到：情绪；缺失维度不按0分补齐，当前仅展示已得维度部分分",
+              "分项：估值0、趋势0、资金0、基本面12.5、情绪0",
+              "数据不完整：缺情绪，本笔不操作"
             ],
             "source_kind": "quarter_holding",
-            "score": null,
-            "score_display": "—",
+            "score": 12.5,
+            "score_display": "12.5分（部分分）",
             "score_complete": false,
-            "score_state": "本档未评分，不按0分处理",
+            "score_state": "缺维：情绪",
+            "score_components": {
+              "估值": 0.0,
+              "趋势": 0.0,
+              "资金": 0.0,
+              "基本面": 12.5,
+              "情绪": 0.0
+            },
+            "score_decision": "数据不完整：缺情绪，本笔不操作",
             "serial_no": 9,
-            "display_name": "09. 易方达高质量严选三年持有"
+            "display_name": "09. 南方中证500ETF联接(LOF)A"
           },
           {
             "fund_code": "005693",
@@ -13450,7 +13450,10 @@
             "status_sort": 40,
             "detail_lines": [
               "已到持有观察止损线，启动退出评估",
-              "待补证据：long_performance、attribution",
+              "已取得证据｜基金经理：未变更；现任朱然，任职开始2022-08-16，状态在职｜规模：达标✅·≈17.15亿(2026-06-30基金资产净值)｜长期业绩：无回测数据",
+              "归因证据：赛道整体回调=是；基金管理质量是否恶化=证据不足；依据：基金010363截至2026-09-30前十大重仓股中，8只A股标的在2026年11月2日至11月20日期间普遍大幅下跌：剑桥科技-24.90%、南亚新材-24.72%、东山精密-21.45%、日联科技-18.95%、睿创微纳-16.07%、精智达-13.33%、飞荣达-10.46%，仅芯碁微装+2.61%。重仓股集中属于半导体设备、PCB、光模块等科技成长赛道，同期板块整体回调明显，回撤主因为赛道系统性调整。暂无基金经理变更或持仓风格漂移等质量恶化证据。",
+              "待补：长期业绩：需连续4个已结束季度对比基金与业绩基准；当时中证港股通综合指数未形成完整季度序列，未直接下跑输结论",
+              "待补：基本面归因：已有赛道与持仓证据，但“基金管理质量是否恶化”没有可核验结论，不能把证据不足写成正常或直接赎回",
               "下次复核：2026-11-24",
               "本档未评分，不按0分处理"
             ],
@@ -13473,7 +13476,10 @@
             "status_sort": 40,
             "detail_lines": [
               "已到持有观察止损线，启动退出评估",
-              "待补证据：long_performance、attribution",
+              "已取得证据｜基金经理：未变更；现任金梓才，任职开始2023-07-19，状态在职｜规模：达标✅·≈8.88亿(2026-06-30基金资产净值)｜长期业绩：无回测数据",
+              "归因证据：赛道整体回调=是；基金管理质量是否恶化=证据不足；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)，前十大重仓占比70.55%，其中德福科技(-7.83%)、仕佳光子(-8.11%)、昀冢科技(-9.29%)等光模块/PCB标的在11月20日单日跌幅显著，与科技赛道同期回调高度同步。但缺乏同类赛道指数同期跌幅及基金选股贡献衰减的量化对比数据，无法判定基金质量是否恶化。",
+              "待补：长期业绩：需连续4个已结束季度对比基金与业绩基准；当时恒生指数未形成完整季度序列，未直接下跑输结论",
+              "待补：基本面归因：已有赛道与持仓证据，但“基金管理质量是否恶化”没有可核验结论，不能把证据不足写成正常或直接赎回",
               "下次复核：2026-11-24",
               "本档未评分，不按0分处理"
             ],
@@ -14249,7 +14255,7 @@
               "基金经理": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "规模风险": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "长期业绩": "无回测数据",
-              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
+              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)，前十大重仓占比70.55%，其中德福科技(-7.83%)、仕佳光子(-8.11%)、昀冢科技(-9.29%)等光模块/PCB标的在11月20日单日跌幅显著，与科技赛道同期回调高度同步。但缺乏同类赛道指数同期跌幅及基金选股贡献衰减的量化对比数据，无法判定基金质量是否恶化。"
             },
             "status": "pending",
             "trigger_kind": "",
@@ -14258,7 +14264,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "long_performance:基准指数季度不足:恒生指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "holding_period": "1年"
@@ -14272,7 +14278,7 @@
               "基金经理": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "规模风险": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "长期业绩": "无回测数据",
-              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
+              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，8只A股标的在2026年11月2日至11月20日期间普遍大幅下跌：剑桥科技-24.90%、南亚新材-24.72%、东山精密-21.45%、日联科技-18.95%、睿创微纳-16.07%、精智达-13.33%、飞荣达-10.46%，仅芯碁微装+2.61%。重仓股集中属于半导体设备、PCB、光模块等科技成长赛道，同期板块整体回调明显，回撤主因为赛道系统性调整。暂无基金经理变更或持仓风格漂移等质量恶化证据。"
             },
             "status": "pending",
             "trigger_kind": "",
@@ -14281,7 +14287,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "long_performance:基准指数季度不足:中证港股通综合指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "holding_period": "2年"
@@ -14383,7 +14389,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2027-06-25",
             "missing": [
-              "long_performance:基准指数季度不足:中证500指数",
+              "long_performance:基准指数季度不足:恒生指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
@@ -14391,7 +14397,7 @@
               "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)，前十大重仓占比70.55%，其中德福科技(-7.83%)、仕佳光子(-8.11%)、昀冢科技(-9.29%)等光模块/PCB标的在11月20日单日跌幅显著，与科技赛道同期回调高度同步。但缺乏同类赛道指数同期跌幅及基金选股贡献衰减的量化对比数据，无法判定基金质量是否恶化。"
             }
           },
           {
@@ -14406,7 +14412,7 @@
             "deadline_date": "2026-11-24",
             "lock_end_date": "2028-10-15",
             "missing": [
-              "long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%",
+              "long_performance:基准指数季度不足:中证港股通综合指数",
               "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
@@ -14414,7 +14420,7 @@
               "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，8只A股标的在2026年11月2日至11月20日期间普遍大幅下跌：剑桥科技-24.90%、南亚新材-24.72%、东山精密-21.45%、日联科技-18.95%、睿创微纳-16.07%、精智达-13.33%、飞荣达-10.46%，仅芯碁微装+2.61%。重仓股集中属于半导体设备、PCB、光模块等科技成长赛道，同期板块整体回调明显，回撤主因为赛道系统性调整。暂无基金经理变更或持仓风格漂移等质量恶化证据。"
             }
           },
           {
@@ -14422,22 +14428,22 @@
             "fund_name": "易方达高质量严选三年持有",
             "status": "pending",
             "trigger_kind": "quarterly",
-            "review_date": "2026-11-20",
+            "review_date": "2026-11-22",
             "conclusion": null,
             "next_review_date": "2026-11-24",
             "cooldown_until": null,
             "deadline_date": "2026-11-24",
             "lock_end_date": null,
             "missing": [
-              "long_performance:基准指数季度不足:沪深300指数",
-              "attribution:归因未返回结构化JSON"
+              "long_performance:基准指数季度不足:中证港股通综合指数",
+              "attribution:fund_quality_deteriorating缺少布尔证据"
             ],
             "reused": true,
             "eval_dims": {
-              "manager": "首次建立经理基线；现任萧楠，任职开始2020-11-12，状态在职",
+              "manager": "未变更；现任萧楠，任职开始2020-11-12，状态在职",
               "scale_risk": "达标✅·≈57.01亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": null
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010340截至2026-09-30前十大重仓股中，石化/能源类占比较高（中国海洋石油5.47%、恒逸石化5.33%、荣盛石化4.46%、恒力石化3.68%、中国石油化工股份3.05%，合计约22%）；2026年11月20日上述重仓股多数下跌：中国海洋石油-1.90%、恒逸石化-3.19%、江西铜业-3.40%、生益科技-3.18%、北方华创-2.20%、小商品城-1.29%，仅荣盛石化+0.73%、恒力石化+1.18%、招商轮船+0.46%、中国石化+1.86%为正收益。重仓板块近期同步回调构成回撤主因，但缺乏基金自身超额收益序列及持仓质量恶化（如信用风险、盈利下修）的直接证据，故fund_quality_deteriorating无法判定。"
             }
           }
         ],
@@ -15121,7 +15127,7 @@
                 "lock_text": "台账持有期锁定至2027-06-25",
                 "evidence_text": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化",
                 "next_review": "2026-11-24",
-                "technical_text": "状态=pending；基金代码=017491；待补=long_performance:基准指数季度不足:中证500指数；attribution:fund_quality_deteriorating缺少布尔证据"
+                "technical_text": "状态=pending；基金代码=017491；待补=long_performance:基准指数季度不足:恒生指数；attribution:fund_quality_deteriorating缺少布尔证据"
               },
               {
                 "fund_code": "010363",
@@ -15130,7 +15136,7 @@
                 "lock_text": "台账持有期锁定至2028-10-15",
                 "evidence_text": "连续季度业绩与基准对比未完成，不能判断是否持续跑输；回撤归因证据未齐，不能确认基金质量是否恶化",
                 "next_review": "2026-11-24",
-                "technical_text": "状态=pending；基金代码=010363；待补=long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%；attribution:fund_quality_deteriorating缺少布尔证据"
+                "technical_text": "状态=pending；基金代码=010363；待补=long_performance:基准指数季度不足:中证港股通综合指数；attribution:fund_quality_deteriorating缺少布尔证据"
               }
             ],
             "raw_title": "查看系统原始字段（核对用）",
@@ -15341,14 +15347,14 @@
                     "fund_count": 9,
                     "fund_codes": [
                       "000051",
-                      "160119",
+                      "004253",
+                      "009290",
+                      "010267",
+                      "010340",
                       "012544",
                       "017140",
                       "024328",
-                      "010267",
-                      "004253",
-                      "009290",
-                      "010340"
+                      "160119"
                     ],
                     "detail": "持有9只"
                   },
@@ -15379,15 +15385,15 @@
                   {
                     "fund_code": "000051",
                     "fund_name": "华夏沪深300ETF联接A",
-                    "role": "core",
-                    "role_label": "核心",
-                    "role_order": 10,
+                    "role": "active",
+                    "role_label": "主动权益",
+                    "role_order": 60,
                     "status_key": "__holding__",
                     "status": "持有",
                     "status_sort": 10,
                     "detail_lines": [
                       "当前投资池，季度维持持有状态",
-                      "评分状态：缺维：情绪",
+                      "本次评估未取到：情绪；缺失维度不按0分补齐，当前仅展示已得维度部分分",
                       "分项：估值0、趋势0、资金0、基本面9、情绪0",
                       "数据不完整：缺情绪，本笔不操作"
                     ],
@@ -15408,42 +15414,105 @@
                     "display_name": "01. 华夏沪深300ETF联接A"
                   },
                   {
-                    "fund_code": "160119",
-                    "fund_name": "南方中证500ETF联接(LOF)A",
-                    "role": "core",
-                    "role_label": "核心",
-                    "role_order": 10,
+                    "fund_code": "004253",
+                    "fund_name": "国泰黄金ETF联接C",
+                    "role": "active",
+                    "role_label": "主动权益",
+                    "role_order": 60,
                     "status_key": "__holding__",
                     "status": "持有",
                     "status_sort": 10,
                     "detail_lines": [
                       "当前投资池，季度维持持有状态",
-                      "评分状态：缺维：情绪",
-                      "分项：估值0、趋势0、资金0、基本面12.5、情绪0",
+                      "本次评估未取到：情绪；缺失维度不按0分补齐，当前仅展示已得维度部分分",
+                      "分项：估值0、趋势0、资金0、基本面6、情绪0",
                       "数据不完整：缺情绪，本笔不操作"
                     ],
                     "source_kind": "quarter_holding",
-                    "score": 12.5,
-                    "score_display": "12.5分（部分分）",
+                    "score": 6.0,
+                    "score_display": "6分（部分分）",
                     "score_complete": false,
                     "score_state": "缺维：情绪",
                     "score_components": {
                       "估值": 0.0,
                       "趋势": 0.0,
                       "资金": 0.0,
-                      "基本面": 12.5,
+                      "基本面": 6.0,
                       "情绪": 0.0
                     },
                     "score_decision": "数据不完整：缺情绪，本笔不操作",
                     "serial_no": 2,
-                    "display_name": "02. 南方中证500ETF联接(LOF)A"
+                    "display_name": "02. 国泰黄金ETF联接C"
+                  },
+                  {
+                    "fund_code": "009290",
+                    "fund_name": "富国添享一年持有债券A",
+                    "role": "active",
+                    "role_label": "主动权益",
+                    "role_order": 60,
+                    "status_key": "__holding__",
+                    "status": "持有",
+                    "status_sort": 10,
+                    "detail_lines": [
+                      "当前投资池，季度维持持有状态",
+                      "本档未评分，不按0分处理"
+                    ],
+                    "source_kind": "quarter_holding",
+                    "score": null,
+                    "score_display": "—",
+                    "score_complete": false,
+                    "score_state": "本档未评分，不按0分处理",
+                    "serial_no": 3,
+                    "display_name": "03. 富国添享一年持有债券A"
+                  },
+                  {
+                    "fund_code": "010267",
+                    "fund_name": "兴全安泰积极养老目标五年FOF A",
+                    "role": "active",
+                    "role_label": "主动权益",
+                    "role_order": 60,
+                    "status_key": "__holding__",
+                    "status": "持有",
+                    "status_sort": 10,
+                    "detail_lines": [
+                      "当前投资池，季度维持持有状态",
+                      "本档未评分，不按0分处理"
+                    ],
+                    "source_kind": "quarter_holding",
+                    "score": null,
+                    "score_display": "—",
+                    "score_complete": false,
+                    "score_state": "本档未评分，不按0分处理",
+                    "serial_no": 4,
+                    "display_name": "04. 兴全安泰积极养老目标五年FOF A"
+                  },
+                  {
+                    "fund_code": "010340",
+                    "fund_name": "易方达高质量严选三年持有",
+                    "role": "active",
+                    "role_label": "主动权益",
+                    "role_order": 60,
+                    "status_key": "__holding__",
+                    "status": "持有",
+                    "status_sort": 10,
+                    "detail_lines": [
+                      "当前投资池，季度维持持有状态",
+                      "本档未评分，不按0分处理"
+                    ],
+                    "source_kind": "quarter_holding",
+                    "score": null,
+                    "score_display": "—",
+                    "score_complete": false,
+                    "score_state": "本档未评分，不按0分处理",
+                    "serial_no": 5,
+                    "display_name": "05. 易方达高质量严选三年持有"
                   },
                   {
                     "fund_code": "012544",
                     "fund_name": "嘉实中证新能源汽车指数C",
-                    "role": "satellite",
-                    "role_label": "卫星",
-                    "role_order": 20,
+                    "role": "active",
+                    "role_label": "主动权益",
+                    "role_order": 60,
                     "status_key": "__holding__",
                     "status": "持有",
                     "status_sort": 10,
@@ -15466,15 +15535,15 @@
                       "情绪": 4.0
                     },
                     "score_decision": "未达到加仓门槛，本笔不操作",
-                    "serial_no": 3,
-                    "display_name": "03. 嘉实中证新能源汽车指数C"
+                    "serial_no": 6,
+                    "display_name": "06. 嘉实中证新能源汽车指数C"
                   },
                   {
                     "fund_code": "017140",
                     "fund_name": "华宝中证有色金属ETF联接A",
-                    "role": "satellite",
-                    "role_label": "卫星",
-                    "role_order": 20,
+                    "role": "active",
+                    "role_label": "主动权益",
+                    "role_order": 60,
                     "status_key": "__holding__",
                     "status": "持有",
                     "status_sort": 10,
@@ -15497,15 +15566,15 @@
                       "情绪": 4.0
                     },
                     "score_decision": "未达到加仓门槛，本笔不操作",
-                    "serial_no": 4,
-                    "display_name": "04. 华宝中证有色金属ETF联接A"
+                    "serial_no": 7,
+                    "display_name": "07. 华宝中证有色金属ETF联接A"
                   },
                   {
                     "fund_code": "024328",
                     "fund_name": "易方达恒生港股通创新药ETF联接A",
-                    "role": "satellite",
-                    "role_label": "卫星",
-                    "role_order": 20,
+                    "role": "active",
+                    "role_label": "主动权益",
+                    "role_order": 60,
                     "status_key": "__holding__",
                     "status": "持有",
                     "status_sort": 10,
@@ -15528,85 +15597,12 @@
                       "情绪": 4.0
                     },
                     "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
-                    "serial_no": 5,
-                    "display_name": "05. 易方达恒生港股通创新药ETF联接A"
-                  },
-                  {
-                    "fund_code": "010267",
-                    "fund_name": "兴全安泰积极养老目标五年FOF A",
-                    "role": "fof",
-                    "role_label": "养老FOF",
-                    "role_order": 30,
-                    "status_key": "__holding__",
-                    "status": "持有",
-                    "status_sort": 10,
-                    "detail_lines": [
-                      "当前投资池，季度维持持有状态",
-                      "本档未评分，不按0分处理"
-                    ],
-                    "source_kind": "quarter_holding",
-                    "score": null,
-                    "score_display": "—",
-                    "score_complete": false,
-                    "score_state": "本档未评分，不按0分处理",
-                    "serial_no": 6,
-                    "display_name": "06. 兴全安泰积极养老目标五年FOF A"
-                  },
-                  {
-                    "fund_code": "004253",
-                    "fund_name": "国泰黄金ETF联接C",
-                    "role": "gold",
-                    "role_label": "黄金",
-                    "role_order": 40,
-                    "status_key": "__holding__",
-                    "status": "持有",
-                    "status_sort": 10,
-                    "detail_lines": [
-                      "当前投资池，季度维持持有状态",
-                      "评分状态：缺维：情绪",
-                      "分项：估值0、趋势0、资金0、基本面6、情绪0",
-                      "数据不完整：缺情绪，本笔不操作"
-                    ],
-                    "source_kind": "quarter_holding",
-                    "score": 6.0,
-                    "score_display": "6分（部分分）",
-                    "score_complete": false,
-                    "score_state": "缺维：情绪",
-                    "score_components": {
-                      "估值": 0.0,
-                      "趋势": 0.0,
-                      "资金": 0.0,
-                      "基本面": 6.0,
-                      "情绪": 0.0
-                    },
-                    "score_decision": "数据不完整：缺情绪，本笔不操作",
-                    "serial_no": 7,
-                    "display_name": "07. 国泰黄金ETF联接C"
-                  },
-                  {
-                    "fund_code": "009290",
-                    "fund_name": "富国添享一年持有债券A",
-                    "role": "debt",
-                    "role_label": "债基",
-                    "role_order": 50,
-                    "status_key": "__holding__",
-                    "status": "持有",
-                    "status_sort": 10,
-                    "detail_lines": [
-                      "当前投资池，季度维持持有状态",
-                      "本档未评分，不按0分处理"
-                    ],
-                    "source_kind": "quarter_holding",
-                    "score": null,
-                    "score_display": "—",
-                    "score_complete": false,
-                    "score_state": "本档未评分，不按0分处理",
                     "serial_no": 8,
-                    "display_name": "08. 富国添享一年持有债券A"
+                    "display_name": "08. 易方达恒生港股通创新药ETF联接A"
                   },
                   {
-                    "fund_code": "010340",
-                    "fund_name": "易方达高质量严选三年持有",
+                    "fund_code": "160119",
+                    "fund_name": "南方中证500ETF联接(LOF)A",
                     "role": "active",
                     "role_label": "主动权益",
                     "role_order": 60,
@@ -15615,15 +15611,25 @@
                     "status_sort": 10,
                     "detail_lines": [
                       "当前投资池，季度维持持有状态",
-                      "本档未评分，不按0分处理"
+                      "本次评估未取到：情绪；缺失维度不按0分补齐，当前仅展示已得维度部分分",
+                      "分项：估值0、趋势0、资金0、基本面12.5、情绪0",
+                      "数据不完整：缺情绪，本笔不操作"
                     ],
                     "source_kind": "quarter_holding",
-                    "score": null,
-                    "score_display": "—",
+                    "score": 12.5,
+                    "score_display": "12.5分（部分分）",
                     "score_complete": false,
-                    "score_state": "本档未评分，不按0分处理",
+                    "score_state": "缺维：情绪",
+                    "score_components": {
+                      "估值": 0.0,
+                      "趋势": 0.0,
+                      "资金": 0.0,
+                      "基本面": 12.5,
+                      "情绪": 0.0
+                    },
+                    "score_decision": "数据不完整：缺情绪，本笔不操作",
                     "serial_no": 9,
-                    "display_name": "09. 易方达高质量严选三年持有"
+                    "display_name": "09. 南方中证500ETF联接(LOF)A"
                   },
                   {
                     "fund_code": "005693",
@@ -15786,7 +15792,10 @@
                     "status_sort": 40,
                     "detail_lines": [
                       "已到持有观察止损线，启动退出评估",
-                      "待补证据：long_performance、attribution",
+                      "已取得证据｜基金经理：未变更；现任朱然，任职开始2022-08-16，状态在职｜规模：达标✅·≈17.15亿(2026-06-30基金资产净值)｜长期业绩：无回测数据",
+                      "归因证据：赛道整体回调=是；基金管理质量是否恶化=证据不足；依据：基金010363截至2026-09-30前十大重仓股中，8只A股标的在2026年11月2日至11月20日期间普遍大幅下跌：剑桥科技-24.90%、南亚新材-24.72%、东山精密-21.45%、日联科技-18.95%、睿创微纳-16.07%、精智达-13.33%、飞荣达-10.46%，仅芯碁微装+2.61%。重仓股集中属于半导体设备、PCB、光模块等科技成长赛道，同期板块整体回调明显，回撤主因为赛道系统性调整。暂无基金经理变更或持仓风格漂移等质量恶化证据。",
+                      "待补：长期业绩：需连续4个已结束季度对比基金与业绩基准；当时中证港股通综合指数未形成完整季度序列，未直接下跑输结论",
+                      "待补：基本面归因：已有赛道与持仓证据，但“基金管理质量是否恶化”没有可核验结论，不能把证据不足写成正常或直接赎回",
                       "下次复核：2026-11-24",
                       "本档未评分，不按0分处理"
                     ],
@@ -15809,7 +15818,10 @@
                     "status_sort": 40,
                     "detail_lines": [
                       "已到持有观察止损线，启动退出评估",
-                      "待补证据：long_performance、attribution",
+                      "已取得证据｜基金经理：未变更；现任金梓才，任职开始2023-07-19，状态在职｜规模：达标✅·≈8.88亿(2026-06-30基金资产净值)｜长期业绩：无回测数据",
+                      "归因证据：赛道整体回调=是；基金管理质量是否恶化=证据不足；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)，前十大重仓占比70.55%，其中德福科技(-7.83%)、仕佳光子(-8.11%)、昀冢科技(-9.29%)等光模块/PCB标的在11月20日单日跌幅显著，与科技赛道同期回调高度同步。但缺乏同类赛道指数同期跌幅及基金选股贡献衰减的量化对比数据，无法判定基金质量是否恶化。",
+                      "待补：长期业绩：需连续4个已结束季度对比基金与业绩基准；当时恒生指数未形成完整季度序列，未直接下跑输结论",
+                      "待补：基本面归因：已有赛道与持仓证据，但“基金管理质量是否恶化”没有可核验结论，不能把证据不足写成正常或直接赎回",
                       "下次复核：2026-11-24",
                       "本档未评分，不按0分处理"
                     ],
@@ -16284,7 +16296,7 @@
                             "children": [
                               {
                                 "type": "text",
-                                "text": "状态=pending；基金代码=017491；待补=long_performance:基准指数季度不足:中证500指数；attribution:fund_quality_deteriorating缺少布尔证据",
+                                "text": "状态=pending；基金代码=017491；待补=long_performance:基准指数季度不足:恒生指数；attribution:fund_quality_deteriorating缺少布尔证据",
                                 "style": "muted"
                               }
                             ]
@@ -16341,7 +16353,7 @@
                             "children": [
                               {
                                 "type": "text",
-                                "text": "状态=pending；基金代码=010363；待补=long_performance:业绩基准成分无法结构化:中证800指数收益率*85%＋中证港股通综合指数*5%＋银行活期存款利率(税后)*10%；attribution:fund_quality_deteriorating缺少布尔证据",
+                                "text": "状态=pending；基金代码=010363；待补=long_performance:基准指数季度不足:中证港股通综合指数；attribution:fund_quality_deteriorating缺少布尔证据",
                                 "style": "muted"
                               }
                             ]
@@ -16426,7 +16438,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T04:54:24",
+    "generated_at": "2026-11-22T04:57:43",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -19303,7 +19315,7 @@
         },
         {
           "type": "paragraph",
-          "text": "**季度页全持仓状态总表（fund_operations_quarter_v1）**：固定基金／层级／状态／评分／判断依据五列；现有持仓与退出复核读季度判决，新增候选读最近月度全市场扫描并记录来源run_id。状态只分持有、新增、删除、观察，SQL`fund_operation_quarter_status`统一动作映射；新增一律表示候选、不等于已纳入，季度不产生买卖金额，正式纳新仍归月度主责。评分明确区分五维齐全、缺维部分分、未评分与待完整五维评分，未评分不得显示为0分；状态来源、评分口径、动作边界、候选来源，以及核心卫星、四资产、集中度、持有期退出、规模和前向信号证据，统一放入总表下方唯一默认收起的“判断依据”；禁止另设“查看配置复核的人话说明与数据”或第二个综合证据入口。**"
+          "text": "**季度页全持仓状态总表（fund_operations_quarter_v1）**：固定基金／层级／状态／评分／判断依据五列；现有持仓与退出复核读季度判决，新增候选读最近月度全市场扫描并记录来源run_id。状态只分持有、新增、删除、观察，SQL`fund_operation_quarter_status`统一动作映射；新增一律表示候选、不等于已纳入，季度不产生买卖金额，正式纳新仍归月度主责。评分明确区分五维齐全、缺维部分分、未评分与待完整五维评分，未评分不得显示为0分；状态来源、评分口径、动作边界、候选来源，以及核心卫星、四资产、集中度、持有期退出、规模和前向信号证据，统一放入总表下方唯一默认收起的“判断依据”；禁止另设“查看配置复核的人话说明与数据”或第二个综合证据入口。退出复核必须先展示已取得的基金经理、规模、长期业绩和归因事实，再用具体中文说明未取得的基准成分或归因维度及下次复核时间，禁止只展示内部缺项代码。**"
         },
         {
           "type": "paragraph",

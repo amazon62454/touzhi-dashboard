@@ -715,7 +715,8 @@ function shortFlowState(state) {
 
 R.flowSteps = function (flow) {
   const labels = {done: U.ui_flow_status_done, current: U.ui_flow_status_current,
-    blocked: U.ui_flow_status_blocked, pending: U.ui_flow_status_pending};
+    blocked: U.ui_flow_status_blocked, pending: U.ui_flow_status_pending,
+    skipped: U.ui_flow_status_skipped, not_applicable: U.ui_flow_status_not_applicable};
   return (flow.steps || []).map((step, index) => {
     return `<div class="compact-step ${esc(step.status)}"><span class="workflow-index">${index + 1}</span><div><strong>${esc(step.name)}</strong><em>${esc(labels[step.status] || step.status)}</em></div></div>`;
   }).join('');
@@ -770,7 +771,11 @@ R.bandFlows = function (band) {
     if (visibleUntil) nextLine += `<div class="flow-next-review"><span>${esc(U.ui_flow_valid_until)}</span><strong>${esc(dateTimeText(visibleUntil))}</strong></div>`;
   }
   const tone = current && current.status === 'blocked' ? 'warn' : (current ? 'info' : 'muted');
-  const progress = fmt(U.ui_flow_progress, {done: steps.filter(x => x.status === 'done').length, total: steps.length});
+  const progress = active.not_applicable_count
+    ? fmt(U.ui_flow_progress_na, {done: steps.filter(x => x.status === 'done').length, total: steps.length, count: active.not_applicable_count})
+    : active.skipped_count
+      ? fmt(U.ui_flow_progress_skipped, {done: steps.filter(x => x.status === 'done').length, total: steps.length, count: active.skipped_count})
+      : fmt(U.ui_flow_progress, {done: steps.filter(x => x.status === 'done').length, total: steps.length});
   // 多流程的活动页签已显示标题与状态，下方只保留进度，不再复述。
   const heading = owned.length > 1 ? `<div class="flow-progress-line">${progress}</div>`
     : `<div class="band-flow-head"><div><strong>${esc(bandFlowTitle(active.title))}</strong><span>${progress}</span></div>${C.badge(shortFlowState(active.state), tone)}</div>`;

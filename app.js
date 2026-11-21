@@ -60,14 +60,14 @@ function renderFundOperationsTable(node) {
   const headers = node.headers || [];
   const head = headers.map(label => `<th scope="col">${esc(label)}</th>`).join('');
   const allocation = (node.allocation_rows || []).map(row =>
-    `<tr class="allocation-row"><th scope="row">${esc(row.label)}</th><td colspan="5">${esc(row.text)}</td></tr>`).join('');
+    `<tr class="allocation-row"><th scope="row" colspan="2">${esc(row.label)}</th><td class="allocation-erp">${esc(row.erp_amount)}</td><td colspan="4">${esc(row.text)}</td></tr>`).join('');
   const funds = (node.rows || []).map(row =>
-    `<tr class="fund-main"><th scope="row">${esc(row.fund_name)}</th><td>${esc(row.role_label)}</td>`
-    + `<td>${esc(row.regular.display)}</td><td>${esc(row.addon.display)}</td><td>${esc(row.conversion.display)}</td><td>${esc(row.detail)}</td></tr>`
-    + `<tr class="fund-note-row"><td colspan="6">${esc(row.detail)}</td></tr>`).join('');
+    `<tr class="fund-main"><th scope="row">${esc(row.fund_name)}</th><td>${esc(row.role_label)}</td><td class="erp-cell">—</td>`
+    + `<td>${esc(row.regular.compact_display)}</td><td>${esc(row.addon.compact_display)}</td><td>${esc(row.conversion.compact_display)}</td><td>${esc(row.detail)}</td></tr>`
+    + `<tr class="fund-note-row"><td colspan="7">${esc(row.detail)}</td></tr>`).join('');
   const footer = (node.footer_rows || []).map(row =>
-    `<tr class="table-foot"><th scope="row">${esc(row.label)}</th><td colspan="5">${esc(row.text)}</td></tr>`).join('');
-  return `<section class="operations-table-shell"><div class="operations-table-toolbar"><span class="operations-orientation-hint">旋转手机可查看完整六列</span><button type="button" class="operations-expand" data-operations-fullscreen aria-label="横屏全屏显示总表"><span>＋</span><b>横屏全屏</b></button></div><div class="operations-table-wrap"><table class="operations-table" aria-label="全持仓与三层资金分配总表"><colgroup><col class="col-fund"><col class="col-role"><col class="col-action"><col class="col-action"><col class="col-action"><col class="col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${allocation}<tr class="fund-subhead">${head}</tr>${funds}${footer}</tbody></table></div></section>`;
+    `<tr class="table-foot"><th scope="row" colspan="2">${esc(row.label)}</th><td colspan="5">${esc(row.text)}</td></tr>`).join('');
+  return `<section class="operations-table-shell"><div class="operations-table-toolbar"><span class="operations-orientation-hint">旋转手机可查看完整七列</span><button type="button" class="operations-expand" data-operations-fullscreen aria-label="横屏全屏显示总表"><span>＋</span><b>横屏全屏</b></button></div><div class="operations-table-wrap"><table class="operations-table" aria-label="全持仓与三层资金分配总表"><colgroup><col class="col-fund"><col class="col-role"><col class="col-erp"><col class="col-action"><col class="col-action"><col class="col-action"><col class="col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${allocation}<tr class="fund-subhead">${head}</tr>${funds}${footer}</tbody></table></div></section>`;
 }
 
 function renderChecks(items) {

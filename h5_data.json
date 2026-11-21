@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T12:27:39",
+  "generated_at": "2026-11-21T12:34:35",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -17,7 +17,14 @@
   },
   "status": {
     "label": "部分数据不足，受影响动作已拦截",
-    "description": "只显示当前有效结论"
+    "description": "只显示当前有效结论",
+    "display_role": "cross_band_summary",
+    "display_page": "page-retirement",
+    "source_bands": [
+      "band_eval",
+      "band_monthly",
+      "band_quarter"
+    ]
   },
   "retirement": {
     "total_market_value": 21132.39,
@@ -7277,7 +7284,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T12:27:39",
+    "generated_at": "2026-11-21T12:34:35",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -10158,6 +10165,10 @@
         {
           "type": "paragraph",
           "text": "4. 实际金额为0是已回传的执行结果，只有实际金额为空才属于待回传；封账是否完成不得与整档其他证据缺口混写。阻断步骤必须展示具体业务原因，不得只写“当前”或“未完成”。"
+        },
+        {
+          "type": "paragraph",
+          "text": "5. 跨档汇总状态由引擎唯一生成，必须输出展示角色、归属页面与来源档位；养老页只展示跨档汇总，四档只展示本档`validity`和本档阻断。H5不得自行推导状态归属，不得把跨档汇总复制到各档；引擎必须保证无阻断档位不进入缺数来源。"
         },
         {
           "type": "heading",

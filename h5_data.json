@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T18:04:01",
+  "generated_at": "2026-11-21T18:05:12",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -12773,7 +12773,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T18:04:01",
+    "generated_at": "2026-11-21T18:05:12",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -16012,6 +16012,6 @@
     "ui_lbl_prior_cash_pool": "上期结余现金池",
     "ui_lbl_current_cash_reserved": "本期现金层预留",
     "ui_lbl_projected_cycle_uninvested": "预计全周期未投预算",
-    "ui_weekly_cash_scope_note": "上期结余{cash_pool}元在现金池，不计入本期{period_budget}元预算；本期现金层预留{cash_reserved}元是预算分配，预计全周期未投{projected_remaining}元=本期预算−预计使用{projected_total}元，不是现金余额。"
+    "ui_weekly_cash_scope_note": "上期结余现金池不计入本期预算；本期现金层预留是预算分配，预计全周期未投预算=本期预算−预计使用，不是现金余额。"
   }
 }

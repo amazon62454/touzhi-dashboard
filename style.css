@@ -406,6 +406,8 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 .compact-step.current { border-color: var(--c-primary); background: var(--c-primary-soft, #eaf3ff); }
 .compact-step.blocked { border-color: var(--c-warning); background: var(--c-warning-soft, #fff5df); }
 .compact-step.pending { opacity: .68; }
+.compact-step.skipped, .compact-step.not_applicable { opacity: .68; border-style: dashed; }
+.compact-step.not_applicable .workflow-index, .compact-step.skipped .workflow-index { background: var(--c-text-3, #8a94a6); }
 .compact-step > div { min-width: 0; }
 .compact-step strong { display: block; font-size: var(--fs-sm); line-height: 1.45; overflow-wrap: anywhere; }
 .compact-step em { display: inline-block; margin-top: var(--sp-1); font-style: normal; font-size: var(--fs-xs); color: var(--c-text-3); }

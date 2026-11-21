@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T12:12:54",
+  "generated_at": "2026-11-21T12:13:37",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -7277,7 +7277,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T12:12:54",
+    "generated_at": "2026-11-21T12:13:37",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -10414,12 +10414,10 @@
     "ui_chain_param_me": "cycle_budget_lock",
     "ui_chain_param_ed": "定投计划",
     "ui_chain_param_dl": "执行回传",
-    "ui_chain_title": "流程导航 · 各档职责与数据衔接",
     "ui_chain_subtitle": "每档结论=下一档输入 · 风控贯穿随时优先",
     "ui_chain_status_implemented": "已实现",
     "ui_chain_status_erp_model": "ERP模型驱动",
     "ui_chain_status_independent": "独立运行",
-    "ui_chain_back_directory": "返回流程导航",
     "ui_chain_band_flows": "本档操作流程",
     "ui_check_scan_rest": "展开其余 {n} 项正常/未触发检查",
     "ui_monthly_details": "月度资金、复盘与持仓证据（按需展开）",

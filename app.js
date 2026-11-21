@@ -606,7 +606,7 @@ const R = {
     let html = debitTable + C.kv('下周债基结论', decision, blocked ? 'neg' : 'pos')
       + C.kv('本周需求', `权益与黄金 ${money(w.equity_total)} + 债基 ${money(w.debt_total)} = ${money(w.total)}`, 'info')
       + C.kv('本周债基实际执行', money(w.debt_actual_amount), numTone(w.debt_actual_amount));
-    const debtView = (a.rebalance_cash || {}).debt_rebalance;
+    const debtView = a.debt_rebalance;
     if (debtView) html += C.kv(U.ui_lbl_debt_rebalance_summary, esc(debtView.summary || ''), debtView.required ? 'warn' : 'pos');
     (w.cycles || []).forEach(g => {
       const lock = g.budget_lock || {};
@@ -871,7 +871,7 @@ function renderPage(pageId) {
         if (node.fn === 'scan') return fn(a.scan);
         if (node.fn === 'execution') return fn(a.execution_review, a.unlock_review);
         if (node.fn === 'addOn') return fn(a.add_on_reviews, a.add_on_summary);
-        if (node.fn === 'weeklyBudget') return fn({ ...a, rebalance_cash: b.rebalance_cash });
+        if (node.fn === 'weeklyBudget') return fn(a);
         if (node.fn === 'evalCash') return fn(a);
         if (node.fn === 'weekGate') return fn(a.week_gate);
         if (node.fn === 'netAddition') return fn(a.net_addition);

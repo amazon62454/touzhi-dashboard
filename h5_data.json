@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T20:40:54",
+  "generated_at": "2026-11-21T20:42:48",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -13204,7 +13204,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T20:40:54",
+    "generated_at": "2026-11-21T20:42:48",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -16495,6 +16495,14 @@
     "ui_lbl_cash_layer_budget_spent": "本期现金层预算 / 加仓已用",
     "ui_h2_conversion": "债基转换评估｜实际金额以成交为准",
     "ui_lbl_conversion_decision": "本周转换结论",
-    "ui_lbl_conversion_structure": "结构证据"
+    "ui_lbl_conversion_structure": "结构证据",
+    "ui_h2_gold_weekly": "黄金定投／加仓／再平衡",
+    "ui_lbl_gold_ordinary": "普通定投",
+    "ui_lbl_gold_addon": "现金加仓",
+    "ui_lbl_gold_rebalance": "再平衡转入",
+    "ui_lbl_gold_weight": "当前占比 / 目标占比",
+    "ui_lbl_gold_gap": "距离目标低配金额",
+    "ui_lbl_gold_budget": "本周普通定投预算",
+    "ui_lbl_gold_actual_rule": "实际转换金额以成交回传为准"
   }
 }

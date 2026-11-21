@@ -360,7 +360,7 @@ details[open] > summary::after { content: '收起'; }
 .operations-table .fund-main td { padding: 10px 4px; text-align: center; }
 .operations-table .fund-main td.erp-cell { color: var(--c-text-3); font-weight: 400; }
 .operations-table .fund-main .action-cell {
-  padding-left: 1px; padding-right: 1px; white-space: nowrap;
+  padding-left: 1px; padding-right: 1px; white-space: normal;
   text-align: center; font-weight: 700; font-variant-numeric: tabular-nums;
 }
 .operations-table .fund-main td:last-child { border-right: 0; }

@@ -73,6 +73,7 @@ body {
   padding-bottom: var(--sp-3);
 }
 h1, h2, h3 { margin: 0; font-weight: 600; line-height: 1.35; }
+h1, h2 { font-weight: 700; }
 a { color: var(--c-primary); text-decoration: none; }
 small { font-size: var(--fs-xs); color: var(--c-text-3); font-weight: 400; }
 
@@ -182,7 +183,7 @@ header strong { font-size: var(--fs-md); }
 .card.danger { border-left: 4px solid var(--c-danger); }
 .card.warn { border-left: 4px solid var(--c-warn); }
 
-.lead { margin: var(--sp-2) 0 0; color: var(--c-text-2); font-size: var(--fs-base); }
+.lead { margin: var(--sp-2) 0 0; color: var(--c-text-2); font-size: var(--fs-sm); }
 .muted { color: var(--c-text-3); font-size: var(--fs-sm); margin: var(--sp-2) 0 0; }
 
 /* ---------- 5. 键值行 ---------- */
@@ -225,7 +226,7 @@ header strong { font-size: var(--fs-md); }
   border-radius: var(--radius-s); padding: var(--sp-3);
 }
 .metric-label { font-size: var(--fs-xs); color: var(--c-text-3); margin-bottom: var(--sp-1); }
-.metric-value { font-size: var(--fs-lg); font-weight: 600; font-variant-numeric: tabular-nums; }
+.metric-value { font-size: var(--fs-md); font-weight: 600; font-variant-numeric: tabular-nums; }
 .metric.pos { background: var(--c-danger-weak); border-color: color-mix(in srgb, var(--c-danger) 25%, transparent); }
 .metric.neg { background: var(--c-success-weak); border-color: color-mix(in srgb, var(--c-success) 25%, transparent); }
 .metric.warn { background: var(--c-warn-weak); border-color: color-mix(in srgb, var(--c-warn) 25%, transparent); }
@@ -314,8 +315,14 @@ nav.top a.active { color: var(--c-primary); background: var(--c-primary-weak); f
 /* ---------- 13. 折叠 ---------- */
 details { border-radius: var(--radius-s); }
 details > summary { cursor: pointer; min-height: var(--tap); display: flex; align-items: center;
-  font-size: var(--fs-base); color: var(--c-text-2); padding: 0 var(--sp-1); }
+  font-size: var(--fs-base); font-weight: 600; color: var(--c-primary); padding: 0 var(--sp-1);
+  border-radius: var(--radius-s); }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after { content: '展开'; margin-left: auto; padding-left: var(--sp-2);
+  color: var(--c-primary); font-size: var(--fs-xs); font-weight: 600; white-space: nowrap; }
 details[open] > summary { margin-bottom: var(--sp-2); }
+details[open] > summary::after { content: '收起'; }
+@media (hover: hover) { details > summary:hover { background: var(--c-primary-weak); } }
 
 /* ---------- 14. 表格/流水 ---------- */
 .table-scroll { width: 100%; overflow-x: auto; margin: var(--sp-2) 0; }
@@ -405,8 +412,8 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 .compact-step > div { min-width: 0; }
 .compact-step strong { display: block; font-size: var(--fs-sm); line-height: 1.45; overflow-wrap: anywhere; }
 .compact-step em { display: inline-block; margin-top: var(--sp-1); font-style: normal; font-size: var(--fs-xs); color: var(--c-text-3); }
-.decision-main { color: var(--c-primary); font-size: var(--fs-xl); font-weight: 800; line-height: 1.45; overflow-wrap: anywhere; }
-.decision-note { margin: var(--sp-2) 0 0; color: var(--c-text-1); font-size: var(--fs-base); line-height: 1.65; }
+.decision-main { color: var(--c-primary); font-size: var(--fs-md); font-weight: 700; line-height: 1.45; overflow-wrap: anywhere; }
+.decision-note { margin: var(--sp-2) 0 0; color: var(--c-text-1); font-size: var(--fs-sm); line-height: 1.65; }
 .decision-blockers { margin-top: var(--sp-3); padding: var(--sp-3); border-radius: var(--radius-s); background: var(--c-warning-weak); }
 .decision-blockers strong { color: var(--c-warning); font-size: var(--fs-sm); }
 .decision-blockers p { margin: var(--sp-1) 0 0; color: var(--c-text-2); font-size: var(--fs-sm); line-height: 1.6; }

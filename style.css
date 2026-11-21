@@ -332,7 +332,7 @@ details[open] > summary::after { content: '收起'; }
 .data-table td { color: var(--c-text-1); }
 .data-table tbody tr:last-child td { border-bottom: none; }
 
-/* 全持仓总表：竖屏主行+说明行不横滑；加号横屏全屏展示完整六列。 */
+/* 全持仓总表：竖屏七列同排，金额格纯数值；层级小计与说明均由引擎下发。 */
 .operations-table-shell { width: 100%; background: var(--c-surface); }
 .operations-table-toolbar { display: flex; justify-content: flex-end; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-2); }
 .operations-expand {
@@ -343,30 +343,43 @@ details[open] > summary::after { content: '收起'; }
 .operations-expand span { font-size: var(--fs-md); line-height: 1; }
 .operations-orientation-hint { display: none; font-size: var(--fs-sm); color: var(--c-text-2); }
 .operations-table-wrap { width: 100%; overflow: visible; border: 1px solid var(--c-border); border-radius: var(--radius-s); }
-.operations-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: var(--fs-sm); }
+.operations-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 10px; }
 .operations-table th, .operations-table td { padding: 8px 6px; line-height: 1.45; vertical-align: top; overflow-wrap: anywhere; }
 .operations-table thead th { padding: 8px 2px; background: var(--c-surface-2); color: var(--c-text-2); font-size: var(--fs-xs); font-weight: 600; text-align: center; }
 .operations-table tbody tr { border-bottom: 1px solid var(--c-border); }
 .operations-table tbody tr:last-child { border-bottom: none; }
-.operations-table .col-fund { width: 32.5%; }
-.operations-table .col-role { width: 9%; }
-.operations-table .col-erp { width: 15%; }
-.operations-table .col-action { width: 14.5%; }
-.operations-table .fund-main { border-bottom: 0; }
+.operations-table .col-fund { width: 23%; }
+.operations-table .col-role { width: 7%; }
+.operations-table .col-erp { width: 10%; }
+.operations-table .col-action { width: 9%; }
+.operations-table .col-note { display: table-column; width: 33%; }
+.operations-table .fund-main { border-bottom: 1px solid var(--c-border); }
 .operations-table .fund-main th,
 .operations-table .fund-main td { vertical-align: middle; border-right: 1px solid var(--c-border); }
 .operations-table .fund-main th { padding: 10px 5px; text-align: left; font-weight: 600; line-height: 1.5; }
 .operations-table .fund-main td { padding: 10px 4px; text-align: center; }
 .operations-table .fund-main td.erp-cell { color: var(--c-text-3); font-weight: 400; }
-.operations-table .fund-main td:nth-child(4), .operations-table .fund-main td:nth-child(5), .operations-table .fund-main td:nth-child(6) {
-  padding-left: 2px; padding-right: 2px; white-space: nowrap;
+.operations-table .fund-main .action-cell {
+  padding-left: 1px; padding-right: 1px; white-space: nowrap;
   text-align: center; font-weight: 700; font-variant-numeric: tabular-nums;
 }
 .operations-table .fund-main td:last-child { border-right: 0; }
-.operations-table .fund-main td:last-child, .operations-table thead th:last-child,
-.operations-table .fund-subhead th:last-child, .operations-table .col-note { display: none; }
-.operations-table .fund-note-row { border-bottom: 2px solid var(--c-border); }
-.operations-table .fund-note-row td { padding: 9px 10px 13px; color: var(--c-text-2); background: var(--c-surface-2); line-height: 1.65; border-left: 3px solid var(--c-border); }
+.operations-table .fund-main .fund-note-cell { text-align: left; color: var(--c-text-2); font-weight: 400; line-height: 1.45; font-size: 0.95em; }
+.operations-table .role-summary-row th,
+.operations-table .role-summary-row td,
+.operations-table .grand-total-row th,
+.operations-table .grand-total-row td { padding: 7px 2px; border-right: 1px solid var(--c-border); vertical-align: middle; }
+.operations-table .role-summary-row { background: var(--c-primary-weak); border-top: 2px solid var(--c-border); }
+.operations-table .role-summary-row th,
+.operations-table .grand-total-row th { text-align: left; color: var(--c-primary); font-weight: 700; }
+.operations-table .role-summary-row .merged-role,
+.operations-table .role-summary-row .erp-cell,
+.operations-table .role-summary-row .action-cell,
+.operations-table .grand-total-row td { text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+.operations-table .merged-role,
+.operations-table .role-summary-row .erp-cell { background: var(--c-primary-weak); }
+.operations-table .summary-detail { color: var(--c-text-2); font-weight: 400 !important; text-align: left !important; }
+.operations-table .grand-total-row { background: var(--c-surface-2); border-top: 2px solid var(--c-primary); }
 .operations-table .fund-subhead { display: none; }
 .operations-table .fund-subhead th { padding: 7px 1px; background: var(--c-primary-weak); color: var(--c-text-2); font-size: var(--fs-xs); text-align: center; white-space: nowrap; border-top: 2px solid var(--c-border); }
 .operations-table .fund-subhead th:first-child { text-align: left; padding-left: 6px; }
@@ -377,11 +390,14 @@ details[open] > summary::after { content: '收起'; }
 .operations-table .table-foot { background: var(--c-surface-2); }
 @media (orientation: portrait) and (max-width: 699px) {
   .operations-table .fund-subhead { display: table-row; }
+  .operations-table thead th { font-size: 9px; }
+  .operations-table .fund-main th { padding: 7px 3px; }
+  .operations-table .fund-main td { padding: 7px 1px; }
   .operations-table .allocation-row th,
-  .operations-table .allocation-row td { padding: 12px 6px; line-height: 1.7; vertical-align: top; }
-  .operations-table .allocation-row .allocation-erp { padding-left: 2px; padding-right: 2px; vertical-align: middle; }
+  .operations-table .allocation-row td { padding: 8px 3px; line-height: 1.55; vertical-align: top; }
+  .operations-table .allocation-row .allocation-erp { padding-left: 1px; padding-right: 1px; vertical-align: middle; }
   .operations-table .table-foot th,
-  .operations-table .table-foot td { padding: 12px 10px; line-height: 1.65; }
+  .operations-table .table-foot td { padding: 10px 6px; line-height: 1.55; }
 }
 .operations-table-shell.is-expanded {
   position: fixed; inset: 0; z-index: 1000; overflow-y: auto; padding: var(--sp-3);
@@ -403,16 +419,13 @@ body.operations-fullscreen-open { overflow: hidden; }
   .operations-table-shell.is-expanded .operations-table .col-note { display: table-column; width: 41%; }
   .operations-table-shell.is-expanded .operations-table th,
   .operations-table-shell.is-expanded .operations-table td { padding: 10px 8px; vertical-align: top; }
-  .operations-table-shell.is-expanded .operations-table .fund-main td:nth-child(4),
-  .operations-table-shell.is-expanded .operations-table .fund-main td:nth-child(5),
-  .operations-table-shell.is-expanded .operations-table .fund-main td:nth-child(6) { padding-left: 4px; padding-right: 4px; white-space: nowrap; }
+  .operations-table-shell.is-expanded .operations-table .fund-main .action-cell { padding-left: 4px; padding-right: 4px; white-space: nowrap; }
   .operations-table-shell.is-expanded .operations-table .allocation-row th,
   .operations-table-shell.is-expanded .operations-table .allocation-row td,
   .operations-table-shell.is-expanded .operations-table .table-foot th,
   .operations-table-shell.is-expanded .operations-table .table-foot td { padding: 10px 12px; line-height: 1.65; }
   .operations-table-shell.is-expanded .operations-table .fund-main td:last-child,
   .operations-table-shell.is-expanded .operations-table thead th:last-child { display: table-cell; }
-  .operations-table-shell.is-expanded .operations-table .fund-note-row { display: none; }
 }
 .flow-list { font-size: var(--fs-sm); }
 .flow-list .flow-item { display: flex; justify-content: space-between; padding: var(--sp-2) 0; border-bottom: 1px dashed var(--c-border); }

@@ -99,7 +99,7 @@ function renderNode(node) {
       const aligns = node.aligns || [];
       const head = (node.headers || []).map((label, index) => `<th${aligns[index] ? ` style="text-align:${esc(aligns[index])}"` : ''}>${esc(label)}</th>`).join('');
       const rows = (node.rows || []).map(row => `<tr>${row.map((cell, index) => `<td${aligns[index] ? ` style="text-align:${esc(aligns[index])}"` : ''}>${formatCell(cell)}</td>`).join('')}</tr>`).join('');
-      return `<div class="table-scroll"><table class="data-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
+      return `<div class="table-scroll ${esc(node.class_name || '')}" tabindex="0" role="region" aria-label="数据表格，可左右滑动"><table class="data-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
     }
     case 'fund_rows':
       return renderFundRows(node.rows);

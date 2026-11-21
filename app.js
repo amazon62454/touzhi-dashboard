@@ -229,7 +229,9 @@ const R = {
     const mom = (ret['月度(快照对比)'] || {}).TOTAL;
     const snap = ret['最近快照变动'] || {};
     const snapLine = snap.value != null
-      ? `<p class="muted">最近快照变动（${esc(snap.start)} → ${esc(snap.end)}）：<span class="num ${numTone(snap.value)}">${pct(snap.value)}</span>；缺周期起点快照，不能作为本月收益率</p>` : '';
+      ? `<p class="muted">上周期内最近快照（${esc(snap.start)} → ${esc(snap.end)}）：<span class="num ${numTone(snap.value)}">${pct(snap.value)}</span>；${esc(ret['月度状态'] || U.ui_monthly_return_wait)}</p>` : '';
+    const statusLine = !snapLine && mom == null
+      ? `<p class="muted">${esc(ret['月度状态'] || U.ui_monthly_return_wait)}</p>` : '';
     const rawReview = mr.item3_加减仓回顾;
     const reviewHtml = Array.isArray(rawReview)
       ? rawReview.map(x => {
@@ -242,9 +244,9 @@ const R = {
     const reviewMeta = `${ex.record_count != null ? C.kv('流水记录数', esc(ex.record_count)) : ''}${ex.missing_scale_count != null ? C.kv('缺规模数据', `${esc(ex.missing_scale_count)} 只`) : ''}`;
     const ul = Array.isArray(unlocks) ? unlocks : (unlocks ? [unlocks] : []);
     const unlockRows = ul.map(x => `<div class="money-row"><span>${esc(x.fund_name || fundName(x.fund_code) || '')}<small> ${esc(x.fund_code || '')}</small></span><strong>${esc(x.lock_end_date || '')}${x.within_6m ? ' ' + C.badge('临近解锁', 'warn') : ''}</strong></div>`).join('');
-    const body = `${C.kv('数据完整性', esc(completeness))}
+    const body = `${C.kv('持仓与规模', esc(completeness))}
       ${C.kv('本月组合收益率', mom != null ? pct(mom) : '待数据', numTone(mom))}
-      ${snapLine}
+      ${snapLine}${statusLine}
       ${cumRows}
       ${C.kv('定投执行', inv['次数'] != null ? `${esc(inv['次数'])}笔 / ${money(inv['金额'])}` : '—')}
       ${reviewMeta}${unlockRows}
@@ -675,16 +677,16 @@ R.monthlyEngineEvidence = function (a) {
   const forward = a.forward_validation;
   let forwardHtml;
   if (!forward) {
-    forwardHtml = C.kv('前向信号结算', '本档未执行；未到期信号继续观察');
+    forwardHtml = C.kv('前向信号结算', U.ui_forward_waiting);
   } else {
     const stats = forward.stats || {};
     const statText = ['buy', 'sell'].map(kind => {
       const item = stats[kind] || {};
       const accuracy = item.accuracy === null || item.accuracy === undefined ? '准确率待积累' : `准确率${item.accuracy}%`;
-      return `${kind === 'buy' ? '买入' : '卖出'}样本${item.sample === undefined ? '待数据' : item.sample}个，${accuracy}`;
+      return `${kind === 'buy' ? '买入' : '卖出'}已结算样本${item.sample === undefined ? '待数据' : item.sample}个，${accuracy}`;
     }).join('；');
-    const settled = forward.settled === undefined ? '待数据' : Number(forward.settled);
-    forwardHtml = C.kv('前向信号结算', `本次结算${settled}笔；${statText}`);
+    forwardHtml = C.kv('前向信号结算', statText)
+      + (forward.status ? C.kv('结算安排', esc(forward.status)) : '');
   }
   return C.card('系统取数与复核证据', scaleHtml + reviewHtml + forwardHtml);
 };

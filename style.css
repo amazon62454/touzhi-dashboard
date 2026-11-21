@@ -344,6 +344,10 @@ details[open] > summary::after { content: '收起'; }
 .operations-table .col-erp { width: 10%; }
 .operations-table .col-action { width: 9%; }
 .operations-table .col-note { display: table-column; width: 35%; }
+.daily-operations-table .daily-col-fund { width: 32%; }
+.daily-operations-table .daily-col-erp { width: 12%; }
+.daily-operations-table .daily-col-action { width: 12%; }
+.daily-operations-table .daily-col-note { width: 44%; }
 .operations-table .fund-main { border-bottom: 1px solid var(--c-border); }
 .operations-table .fund-main th,
 .operations-table .fund-main td { vertical-align: middle; border-right: 1px solid var(--c-border); }
@@ -378,6 +382,10 @@ details[open] > summary::after { content: '收起'; }
   .operations-table .col-erp { width: 9%; }
   .operations-table .col-action { width: 8%; }
   .operations-table .col-note { display: table-column; width: 44%; }
+  .daily-operations-table .daily-col-fund { width: 30%; }
+  .daily-operations-table .daily-col-erp { width: 10%; }
+  .daily-operations-table .daily-col-action { width: 12%; }
+  .daily-operations-table .daily-col-note { width: 48%; }
   .operations-table th,
   .operations-table td { padding: 10px 8px; vertical-align: top; }
   .operations-table .fund-main .action-cell { padding-left: 4px; padding-right: 4px; white-space: nowrap; }

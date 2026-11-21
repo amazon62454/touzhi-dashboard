@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T21:02:53",
+  "generated_at": "2026-11-21T22:21:21",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -491,6 +491,7 @@
           }
         }
       ],
+      "fund_operations": null,
       "attention_items": [],
       "normal_items": [
         {
@@ -2433,163 +2434,32 @@
     "band_eval": {
       "band": "band_eval",
       "title": "周日档 · 定投评估",
-      "summary": "部分操作可执行，其余因数据不足已拦截",
+      "summary": "本次不操作：数据不足",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-21T20:56:22",
+        "as_of": "2026-11-21T22:11:06",
         "next_review_date": "2026-11-22",
         "source_param": "P110/P206",
-        "state": "partial",
-        "headline": "部分操作可执行，其余因数据不足已拦截",
+        "state": "blocked",
+        "headline": "本次不操作：数据不足",
         "data_complete": false,
-        "actions": [
-          {
-            "fund_code": "017140",
-            "fund_name": "华宝中证有色金属ETF联接A",
-            "action": "定投",
-            "reason": "按月度排名与剩余结构额度分配",
-            "params": {
-              "role": "satellite",
-              "reason_code": "satellite_ranked_allocation"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "amount": 44.0,
-            "archive_label": ""
-          },
-          {
-            "fund_code": "160119",
-            "fund_name": "南方中证500ETF联接(LOF)A",
-            "action": "定投",
-            "reason": "按季度锁定的核心比例执行",
-            "params": {
-              "role": "core",
-              "reason_code": "core_locked_ratio"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "amount": 32.0,
-            "archive_label": ""
-          },
-          {
-            "fund_code": "010267",
-            "fund_name": "兴全安泰积极养老目标五年FOF A",
-            "action": "定投",
-            "reason": "FOF固定周投，从权益预算独立承担",
-            "params": {
-              "role": "fof",
-              "reason_code": "fof_fixed_from_equity_budget"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "amount": 30.0,
-            "archive_label": ""
-          }
-        ],
+        "actions": [],
+        "attention_items": [],
+        "expired": [],
         "blocked": [
           {
-            "fund_code": "024328",
-            "fund_name": "易方达恒生港股通创新药ETF联接A",
-            "action": "暂停",
-            "reason": "已达卫星结构上限，新增额度顺延下一名",
-            "params": {
-              "role": "satellite",
-              "reason_code": "satellite_structure_cap_cascade"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "blocked_reason": "已达卫星结构上限，新增额度顺延下一名"
-          },
-          {
-            "fund_code": "012544",
-            "fund_name": "嘉实中证新能源汽车指数C",
-            "action": "暂停",
-            "reason": "已达卫星结构上限，新增额度顺延下一名",
-            "params": {
-              "role": "satellite",
-              "reason_code": "satellite_structure_cap_cascade"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "blocked_reason": "已达卫星结构上限，新增额度顺延下一名"
-          },
-          {
-            "fund_code": "000051",
-            "fund_name": "华夏沪深300ETF联接A",
-            "action": "暂停",
-            "reason": "核心买入条件未满足，对应额度留现金",
-            "params": {
-              "role": "core",
-              "reason_code": "core_buy_blocked_cash_retained"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "blocked_reason": "核心买入条件未满足，对应额度留现金"
-          },
-          {
-            "fund_code": "004253",
-            "fund_name": "国泰黄金ETF联接C",
-            "action": "暂停",
-            "reason": "黄金信号未通过或目标不缺，额度留现金",
-            "params": {
-              "role": "gold",
-              "reason_code": "gold_signal_or_target_blocked"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "blocked_reason": "黄金信号未通过或目标不缺，额度留现金"
-          },
-          {
-            "fund_code": "009290",
-            "fund_name": "富国添享一年持有债券A",
-            "action": "暂停",
-            "reason": "债券超配或预算不足，本期不新增",
-            "params": {
-              "role": "debt",
-              "reason_code": "debt_over_target_or_no_remaining_budget"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "blocked_reason": "债券超配或预算不足，本期不新增"
+            "fund_code": null,
+            "action": "待补数",
+            "blocked_reason": "正式评估关键数据缺失，整档未完成；禁止执行，等待正式补跑"
           }
         ],
-        "expired": [],
-        "planned_execution_date": "2026-11-23",
-        "actual_execution_date": "2026-11-23",
-        "is_postponed": false,
-        "postpone_days": 0,
-        "valid_until": "2026-11-23T08:00:00",
         "next_review_at": "2026-11-22T03:30:00",
         "result_visible_until": "2026-11-22T03:30:00",
-        "result_effective_from": "2026-11-21T20:56:22",
+        "result_effective_from": "2026-11-21T22:11:06",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-21T20:56:22",
+      "generated_at": "2026-11-21T22:11:06",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -2706,6 +2576,386 @@
           }
         }
       ],
+      "fund_operations": {
+        "engine_contract": "fund_operations_v1",
+        "row_count": 11,
+        "allocation_lines": [
+          {
+            "label": "① ERP四资产（总量层）",
+            "text": "月总1800元 → 权益560元／债券880元／黄金180元／现金180元"
+          },
+          {
+            "label": "② 核心—卫星（被动权益）",
+            "text": "权益月额度560元；本周核心额度65.66元→南方中证500ETF联接(LOF)A32元／华夏沪深300ETF联接A0元；卫星额度44元。核心按季度锁定比例，不参加行业排名"
+          },
+          {
+            "label": "③ 行业集中制（仅卫星）",
+            "text": "卫星44元→易方达恒生港股通创新药ETF联接A0元／嘉实中证新能源汽车指数C0元／华宝中证有色金属ETF联接A44元；按月度排名与结构上限顺延，核心、养老FOF、黄金、债券均不参与"
+          },
+          {
+            "label": "独立通道·养老FOF",
+            "text": "从ERP权益预算独立承担，固定周投30元；不进核心卫星比例和行业集中制"
+          },
+          {
+            "label": "独立通道·黄金",
+            "text": "ERP黄金月额度180元 → 本周额度45元；本期执行0元，不参加权益集中制"
+          },
+          {
+            "label": "独立通道·债券",
+            "text": "ERP债券月额度880元 → 本周新增0元；按大类缺口执行，超配或预算不足时不新增"
+          },
+          {
+            "label": "现金层·加仓",
+            "text": "ERP现金本期180元＋上期结转170元 → 当月可加仓350元"
+          }
+        ],
+        "cash_summary": "本周期可用1800元，本周投后余1694元；预计全周期未投1196元（预算测算，不是现金余额）。后续周次以各周日评估为准。",
+        "amount_rule": "定投与加仓为本周计划金额；转换不预估，实际以成交回传为准",
+        "rows": [
+          {
+            "fund_code": "160119",
+            "fund_name": "南方中证500ETF联接(LOF)A",
+            "role": "core",
+            "role_label": "核心",
+            "role_order": 0,
+            "regular": {
+              "amount": 32.0,
+              "decision": "定投",
+              "display": "定投32元",
+              "tone": "pos",
+              "reason": "按季度锁定的核心比例执行"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "不参与",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "分位61.5%未进真低估区(<30.0%)"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": "未达到真低估门槛；五维评分缺失"
+            },
+            "detail_lines": [
+              "按季度锁定的核心比例执行"
+            ]
+          },
+          {
+            "fund_code": "017140",
+            "fund_name": "华宝中证有色金属ETF联接A",
+            "role": "satellite",
+            "role_label": "卫星",
+            "role_order": 1,
+            "regular": {
+              "amount": 44.0,
+              "decision": "定投",
+              "display": "定投44元",
+              "tone": "pos",
+              "reason": "按月度排名与剩余结构额度分配"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "未达到加仓门槛，本笔不操作",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "未达到加仓门槛，本笔不操作"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": "评分46.5低于转换线60.0"
+            },
+            "detail_lines": [
+              "按月度排名与剩余结构额度分配"
+            ]
+          },
+          {
+            "fund_code": "010267",
+            "fund_name": "兴全安泰积极养老目标五年FOF A",
+            "role": "fof",
+            "role_label": "养老FOF",
+            "role_order": 2,
+            "regular": {
+              "amount": 30.0,
+              "decision": "定投",
+              "display": "定投30元",
+              "tone": "pos",
+              "reason": "FOF固定周投，从权益预算独立承担"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "不参与",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": ""
+            },
+            "detail_lines": [
+              "FOF固定周投，从权益预算独立承担"
+            ]
+          },
+          {
+            "fund_code": "000051",
+            "fund_name": "华夏沪深300ETF联接A",
+            "role": "core",
+            "role_label": "核心",
+            "role_order": 0,
+            "regular": {
+              "amount": 0.0,
+              "decision": "暂停",
+              "display": "定投0元",
+              "tone": "muted",
+              "reason": "核心买入条件未满足，对应额度留现金"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "不参与",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "分位74.97%未进真低估区(<30.0%)"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": "未达到真低估门槛；五维评分缺失；当前买入条件未通过"
+            },
+            "detail_lines": [
+              "核心买入条件未满足，对应额度留现金"
+            ]
+          },
+          {
+            "fund_code": "012544",
+            "fund_name": "嘉实中证新能源汽车指数C",
+            "role": "satellite",
+            "role_label": "卫星",
+            "role_order": 1,
+            "regular": {
+              "amount": 0.0,
+              "decision": "暂停",
+              "display": "定投0元",
+              "tone": "muted",
+              "reason": "已达卫星结构上限，新增额度顺延下一名"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "未达到加仓门槛，本笔不操作",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "未达到加仓门槛，本笔不操作"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": "评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增"
+            },
+            "detail_lines": [
+              "已达卫星结构上限，新增额度顺延下一名"
+            ]
+          },
+          {
+            "fund_code": "024328",
+            "fund_name": "易方达恒生港股通创新药ETF联接A",
+            "role": "satellite",
+            "role_label": "卫星",
+            "role_order": 1,
+            "regular": {
+              "amount": 0.0,
+              "decision": "暂停",
+              "display": "定投0元",
+              "tone": "muted",
+              "reason": "已达卫星结构上限，新增额度顺延下一名"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": "卫星内部占比超过其上限，仅限制新增，不单独产生卖出"
+            },
+            "detail_lines": [
+              "已达卫星结构上限，新增额度顺延下一名",
+              "加仓：评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓"
+            ]
+          },
+          {
+            "fund_code": "004253",
+            "fund_name": "国泰黄金ETF联接C",
+            "role": "gold",
+            "role_label": "黄金",
+            "role_order": 3,
+            "regular": {
+              "amount": 0.0,
+              "decision": "暂停",
+              "display": "定投0元",
+              "tone": "muted",
+              "reason": "数据不完整：缺情绪，本笔不操作"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "不加仓",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "分位75.86%未进真低估区(<30.0%)"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": "商品价格分位或商品五维买入条件未通过；黄金商品信号未齐"
+            },
+            "detail_lines": [
+              "数据不完整：缺情绪，本笔不操作"
+            ]
+          },
+          {
+            "fund_code": "009290",
+            "fund_name": "富国添享一年持有债券A",
+            "role": "debt",
+            "role_label": "债基",
+            "role_order": 4,
+            "regular": {
+              "amount": 0.0,
+              "decision": "暂停",
+              "display": "定投0元",
+              "tone": "muted",
+              "reason": "债券超配或预算不足，本期不新增"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "不参与",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": ""
+            },
+            "detail_lines": [
+              "债券超配或预算不足，本期不新增"
+            ]
+          },
+          {
+            "fund_code": "010340",
+            "fund_name": "易方达高质量严选三年持有",
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 5,
+            "regular": {
+              "amount": null,
+              "decision": "不参与",
+              "display": "定投不参与",
+              "tone": "muted",
+              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "不参与",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": ""
+            },
+            "detail_lines": [
+              "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            ]
+          },
+          {
+            "fund_code": "010363",
+            "fund_name": "信澳匠心臻选两年持有",
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 5,
+            "regular": {
+              "amount": null,
+              "decision": "不参与",
+              "display": "定投不参与",
+              "tone": "muted",
+              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "不参与",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": ""
+            },
+            "detail_lines": [
+              "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            ]
+          },
+          {
+            "fund_code": "017491",
+            "fund_name": "财通景气甄选一年持有C",
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 5,
+            "regular": {
+              "amount": null,
+              "decision": "不参与",
+              "display": "定投不参与",
+              "tone": "muted",
+              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "不参与",
+              "display": "加仓0元",
+              "tone": "muted",
+              "reason": "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "tone": "muted",
+              "reason": ""
+            },
+            "detail_lines": [
+              "FOF/主动/持有期/暂停基金,不参与加仓评分"
+            ]
+          }
+        ]
+      },
       "attention_items": [],
       "normal_items": [
         {
@@ -2882,19 +3132,19 @@
       ],
       "allocation": {
         "amounts": {
-          "债券": 13002.78,
           "权益": 5824.48,
           "养老FOF": 1150.32,
-          "黄金": 1154.81,
-          "现金": 170.0
+          "债券": 13002.78,
+          "现金": 170.0,
+          "黄金": 1154.81
         },
         "total": 21302.39,
         "weights": {
-          "债券": 61.04,
           "权益": 27.34,
           "养老FOF": 5.4,
-          "黄金": 5.42,
-          "现金": 0.8
+          "债券": 61.04,
+          "现金": 0.8,
+          "黄金": 5.42
         }
       },
       "asset_allocation": {
@@ -3176,7 +3426,12 @@
           "threshold": 70.0
         },
         "buy_allowed": false,
-        "missing": [],
+        "missing": [
+          "情绪"
+        ],
+        "data_complete": false,
+        "data_issues": [],
+        "blocking_reason": "",
         "weekly_action": {
           "engine_contract": "gold_weekly_action_v1",
           "fund_code": "004253",
@@ -3184,11 +3439,15 @@
           "actual_weight": 5.42103491673939,
           "target_weight": 10.0,
           "gap_amount": 975.429,
+          "data_complete": true,
+          "data_issues": [],
           "ordinary": {
             "amount": 0.0,
             "budget": 45.0,
             "decision": "暂停",
-            "reason": "数据不完整：缺情绪，本笔不操作"
+            "reason": "数据不完整：缺情绪，本笔不操作",
+            "reason_code": "gold_signal_or_target_blocked",
+            "blocked_by_data": false
           },
           "addon": {
             "amount": 0.0,
@@ -3727,6 +3986,8 @@
                 "gold_missing"
               ],
               "reason": "商品价格分位或商品五维买入条件未通过；黄金商品信号未齐",
+              "data_complete": true,
+              "data_issues": [],
               "evidence": [
                 "黄金占总资产5.42%/目标10.00%",
                 "商品价格分位75.86%/商品评分6.00/线70.0"
@@ -4794,14 +5055,11 @@
         "action_view": {
           "engine_contract": "h5_band_action_v1",
           "complete": false,
-          "headline": "2026-11-23执行3只，合计106元",
-          "note": "暂停项不补买、不替代扣款；逐只金额见下方执行明细。",
+          "headline": "本期不执行任何操作，1项因缺数等待补跑",
+          "note": "",
           "pending_title": "当前限制与阻断项",
           "pending_items": [
-            "已达卫星结构上限，新增额度顺延下一名（2只）",
-            "核心买入条件未满足，对应额度留现金",
-            "黄金信号未通过或目标不缺，额度留现金",
-            "债券超配或预算不足，本期不新增",
+            "正式评估关键数据缺失，整档未完成；禁止执行，等待正式补跑",
             "加仓流程：买入条件未通过"
           ]
         }
@@ -4821,13 +5079,13 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_eval|2026-11-20|2026-11-21|2026-11-20#R2#live",
+      "source_file": "band_eval|2026-11-20|2026-11-20|2026-11-20#R2#live",
       "display": {
         "header": {
           "title": "周日档 · 定投评估",
           "base_date": "2026-11-20",
-          "state_label": "部分可执行",
-          "state_kind": "muted",
+          "state_label": "数据不足",
+          "state_kind": "warn",
           "run_notice": "",
           "time_rows": []
         },
@@ -4839,24 +5097,8 @@
             "children": [
               {
                 "type": "text",
-                "text": "2026-11-23执行3只，合计106元",
+                "text": "本期不执行任何操作，1项因缺数等待补跑",
                 "style": "decision-main"
-              },
-              {
-                "type": "text",
-                "text": "暂停项不补买、不替代扣款；逐只金额见下方执行明细。",
-                "style": "decision-note"
-              },
-              {
-                "type": "pending",
-                "title": "当前限制与阻断项",
-                "items": [
-                  "已达卫星结构上限，新增额度顺延下一名（2只）",
-                  "核心买入条件未满足，对应额度留现金",
-                  "黄金信号未通过或目标不缺，额度留现金",
-                  "债券超配或预算不足，本期不新增",
-                  "加仓流程：买入条件未通过"
-                ]
               }
             ]
           },
@@ -4871,25 +5113,25 @@
                   {
                     "id": "regular",
                     "title": "定投流程",
-                    "tab_state": "进行中",
-                    "state_label": "进行中",
+                    "tab_state": "等待正式评估",
+                    "state_label": "等待正式评估",
                     "tone": "info",
-                    "progress": "2/4 步已完成",
+                    "progress": "0/4 步已完成",
                     "steps": [
                       {
                         "name": "评估与风控",
-                        "status": "done",
-                        "status_label": "已完成"
+                        "status": "current",
+                        "status_label": "当前"
                       },
                       {
                         "name": "形成整数买入计划",
-                        "status": "done",
-                        "status_label": "已完成"
+                        "status": "pending",
+                        "status_label": "等待上一步"
                       },
                       {
                         "name": "本人真实账户执行",
-                        "status": "current",
-                        "status_label": "当前"
+                        "status": "pending",
+                        "status_label": "等待上一步"
                       },
                       {
                         "name": "回传并更新台账",
@@ -4899,21 +5141,10 @@
                     ],
                     "current_detail": {
                       "label": "当前步骤",
-                      "text": "2026-11-23执行106元；计划不等于成交。",
+                      "text": "2026-11-20数据基准；暂停项逐只披露。",
                       "kind": "current"
                     },
-                    "done_evidence": [
-                      {
-                        "name": "评估与风控",
-                        "detail": "2026-11-20数据基准；暂停项逐只披露。",
-                        "basis": []
-                      },
-                      {
-                        "name": "形成整数买入计划",
-                        "detail": "计划合计106元；金额源已统一向下取整到元。",
-                        "basis": []
-                      }
-                    ],
+                    "done_evidence": [],
                     "done_title": "点击看每一步怎么算",
                     "time_rows": [
                       {
@@ -4982,8 +5213,8 @@
                   {
                     "id": "rebalance",
                     "title": "再平衡周执行",
-                    "tab_state": "本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评",
-                    "state_label": "本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评",
+                    "tab_state": "本周不转换",
+                    "state_label": "本周不转换",
                     "tone": "muted",
                     "progress": "2/4 步已完成 · 2 步无需执行",
                     "steps": [
@@ -5041,586 +5272,509 @@
           },
           {
             "type": "card",
-            "title": "本周资金与逐只执行明细",
-            "kind": "",
-            "children": [
-              {
-                "type": "table",
-                "headers": [
-                  "基金",
-                  "执行日",
-                  "买入金额"
-                ],
-                "aligns": [
-                  "left",
-                  "left",
-                  "right"
-                ],
-                "rows": [
-                  [
-                    {
-                      "value": "华宝中证有色金属ETF联接A",
-                      "format": "text"
-                    },
-                    {
-                      "value": "2026-11-23",
-                      "format": "text"
-                    },
-                    {
-                      "value": 44.0,
-                      "format": "money"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "南方中证500ETF联接(LOF)A",
-                      "format": "text"
-                    },
-                    {
-                      "value": "2026-11-23",
-                      "format": "text"
-                    },
-                    {
-                      "value": 32.0,
-                      "format": "money"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "兴全安泰积极养老目标五年FOF A",
-                      "format": "text"
-                    },
-                    {
-                      "value": "2026-11-23",
-                      "format": "text"
-                    },
-                    {
-                      "value": 30.0,
-                      "format": "money"
-                    }
-                  ]
-                ]
-              },
-              {
-                "type": "kv",
-                "label": "下周债基结论",
-                "value": {
-                  "value": "暂停，0元",
-                  "format": "text"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "本周需求",
-                "value": {
-                  "value": [
-                    {
-                      "value": "权益与黄金",
-                      "format": "text"
-                    },
-                    {
-                      "value": 106.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "+ 债基",
-                      "format": "text"
-                    },
-                    {
-                      "value": 0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "=",
-                      "format": "text"
-                    },
-                    {
-                      "value": 106.0,
-                      "format": "money"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "info",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "本周债基实际执行",
-                "value": {
-                  "value": 0.0,
-                  "format": "money"
-                },
-                "tone": "zero",
-                "note": ""
-              }
-            ]
-          },
-          {
-            "type": "card",
-            "title": "核心、卫星与FOF分配",
+            "title": "全持仓与三层资金分配总表",
             "kind": "",
             "children": [
               {
                 "type": "kv",
-                "label": "核心本周预算",
+                "label": "① ERP四资产（总量层）",
                 "value": {
-                  "value": 65.66,
-                  "format": "money"
+                  "value": "月总1800元 → 权益560元／债券880元／黄金180元／现金180元",
+                  "format": "text"
                 },
                 "tone": "",
                 "note": ""
               },
               {
                 "type": "kv",
-                "label": "核心本次分配",
+                "label": "② 核心—卫星（被动权益）",
                 "value": {
-                  "value": 32.0,
-                  "format": "money"
+                  "value": "权益月额度560元；本周核心额度65.66元→南方中证500ETF联接(LOF)A32元／华夏沪深300ETF联接A0元；卫星额度44元。核心按季度锁定比例，不参加行业排名",
+                  "format": "text"
                 },
                 "tone": "",
                 "note": ""
               },
               {
                 "type": "kv",
-                "label": "卫星本期预算",
+                "label": "③ 行业集中制（仅卫星）",
                 "value": {
-                  "value": 44.0,
-                  "format": "money"
+                  "value": "卫星44元→易方达恒生港股通创新药ETF联接A0元／嘉实中证新能源汽车指数C0元／华宝中证有色金属ETF联接A44元；按月度排名与结构上限顺延，核心、养老FOF、黄金、债券均不参与",
+                  "format": "text"
                 },
                 "tone": "",
                 "note": ""
               },
               {
                 "type": "kv",
-                "label": "卫星本次分配",
+                "label": "独立通道·养老FOF",
                 "value": {
-                  "value": 44.0,
-                  "format": "money"
+                  "value": "从ERP权益预算独立承担，固定周投30元；不进核心卫星比例和行业集中制",
+                  "format": "text"
                 },
                 "tone": "",
                 "note": ""
               },
               {
                 "type": "kv",
-                "label": "FOF独立固定",
+                "label": "独立通道·黄金",
                 "value": {
-                  "value": 30.0,
-                  "format": "money"
+                  "value": "ERP黄金月额度180元 → 本周额度45元；本期执行0元，不参加权益集中制",
+                  "format": "text"
                 },
                 "tone": "",
                 "note": ""
               },
               {
                 "type": "kv",
-                "label": "本期执行合计",
+                "label": "独立通道·债券",
                 "value": {
-                  "value": 106.0,
-                  "format": "money"
+                  "value": "ERP债券月额度880元 → 本周新增0元；按大类缺口执行，超配或预算不足时不新增",
+                  "format": "text"
                 },
-                "tone": "info",
+                "tone": "",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "现金层·加仓",
+                "value": {
+                  "value": "ERP现金本期180元＋上期结转170元 → 当月可加仓350元",
+                  "format": "text"
+                },
+                "tone": "",
                 "note": ""
               },
               {
                 "type": "text",
-                "text": "核心逐只分配",
-                "style": "flow-line"
-              },
-              {
-                "type": "table",
-                "headers": [
-                  "基金",
-                  "本次分配",
-                  "原因"
-                ],
-                "aligns": [
-                  "left",
-                  "right",
-                  "left"
-                ],
-                "rows": [
-                  [
-                    {
-                      "value": "南方中证500ETF联接(LOF)A",
-                      "format": "text"
-                    },
-                    {
-                      "value": 32.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "按季度锁定的核心比例执行",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "华夏沪深300ETF联接A",
-                      "format": "text"
-                    },
-                    {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "核心买入条件未满足，对应额度留现金",
-                      "format": "text"
-                    }
-                  ]
-                ]
-              }
-            ]
-          },
-          {
-            "type": "card",
-            "title": "卫星集中度与顺延",
-            "kind": "",
-            "children": [
-              {
-                "type": "kv",
-                "label": "卫星未分配",
-                "value": {
-                  "value": 0.0,
-                  "format": "money"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "现金留存",
-                "value": {
-                  "value": 344.0,
-                  "format": "money"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "table",
-                "headers": [
-                  "基金",
-                  "本次分配",
-                  "结构额度",
-                  "原因"
-                ],
-                "aligns": [
-                  "left",
-                  "right",
-                  "right",
-                  "left"
-                ],
-                "rows": [
-                  [
-                    {
-                      "value": "易方达恒生港股通创新药ETF联接A",
-                      "format": "text"
-                    },
-                    {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "已达卫星结构上限，新增额度顺延下一名",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "嘉实中证新能源汽车指数C",
-                      "format": "text"
-                    },
-                    {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "已达卫星结构上限，新增额度顺延下一名",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "华宝中证有色金属ETF联接A",
-                      "format": "text"
-                    },
-                    {
-                      "value": 44.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": 1123.2915977934433,
-                      "format": "money"
-                    },
-                    {
-                      "value": "按月度排名与剩余结构额度分配",
-                      "format": "text"
-                    }
-                  ]
-                ]
-              }
-            ]
-          },
-          {
-            "type": "card",
-            "title": "整周期预算与现金口径",
-            "kind": "",
-            "children": [
-              {
-                "type": "kv",
-                "label": "债比与再平衡",
-                "value": {
-                  "value": "债比62.66%，目标48.89%，超出目标13.77个百分点／2933.14元；需要渐进再平衡；每周日只判定是否转换及目标基金；不输出预估金额，实际转换金额以成交回传为准",
-                  "format": "text"
-                },
-                "tone": "warn",
-                "note": ""
-              },
-              {
-                "type": "text",
-                "text": "2026-11-20 ~ 2026-12-19 · 预算已锁定",
-                "style": "flow-line"
-              },
-              {
-                "type": "kv",
-                "label": "本期预算可用 / 本周投后余",
-                "value": {
-                  "value": [
-                    {
-                      "value": 1800.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "/",
-                      "format": "text"
-                    },
-                    {
-                      "value": 1694.0,
-                      "format": "money"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "整周期权益",
-                "value": {
-                  "value": [
-                    {
-                      "value": 424.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "/ 预算",
-                      "format": "text"
-                    },
-                    {
-                      "value": 560.0,
-                      "format": "money"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "整周期债基",
-                "value": {
-                  "value": [
-                    {
-                      "value": 0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "/ 预算",
-                      "format": "text"
-                    },
-                    {
-                      "value": 880.0,
-                      "format": "money"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "上期结余现金池",
-                "value": {
-                  "value": 170.0,
-                  "format": "money"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "本期现金层预算 / 加仓已用",
-                "value": {
-                  "value": [
-                    {
-                      "value": 180.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "/",
-                      "format": "text"
-                    },
-                    {
-                      "value": 0.0,
-                      "format": "money"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "本期现金层剩余",
-                "value": {
-                  "value": 180.0,
-                  "format": "money"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "当月加仓可用现金",
-                "value": {
-                  "value": 350.0,
-                  "format": "money"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "预计全周期未投预算",
-                "value": {
-                  "value": 1196.0,
-                  "format": "money"
-                },
-                "tone": "pos",
-                "note": ""
-              },
-              {
-                "type": "text",
-                "text": "上期结转现金池＋本期现金层剩余=当月加仓可用现金；预计全周期未投预算=本期预算−预计使用，不是现金余额。",
+                "text": "本周期可用1800元，本周投后余1694元；预计全周期未投1196元（预算测算，不是现金余额）。后续周次以各周日评估为准。",
                 "style": "muted"
               },
               {
                 "type": "text",
-                "text": "唯一金额源为本期执行计划；后续周次按当前计划测算，实际仍以各周日评估为准。",
-                "style": "lead"
+                "text": "定投与加仓为本周计划金额；转换不预估，实际以成交回传为准",
+                "style": "muted"
               },
               {
-                "type": "text",
-                "text": "唯一金额源=本期执行计划；本模块仅整理展示，不重算定投金额。",
-                "style": "lead"
+                "type": "fund_rows",
+                "rows": [
+                  {
+                    "name": "南方中证500ETF联接(LOF)A",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投32元",
+                        "kind": "pos"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "核心",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "按季度锁定的核心比例执行",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "华宝中证有色金属ETF联接A",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投44元",
+                        "kind": "pos"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "卫星",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "按月度排名与剩余结构额度分配",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "兴全安泰积极养老目标五年FOF A",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投30元",
+                        "kind": "pos"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "养老FOF",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "FOF固定周投，从权益预算独立承担",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "华夏沪深300ETF联接A",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "核心",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "核心买入条件未满足，对应额度留现金",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "嘉实中证新能源汽车指数C",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "卫星",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "已达卫星结构上限，新增额度顺延下一名",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "易方达恒生港股通创新药ETF联接A",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "卫星",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "已达卫星结构上限，新增额度顺延下一名",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "加仓：评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "国泰黄金ETF联接C",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "黄金",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "数据不完整：缺情绪，本笔不操作",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "富国添享一年持有债券A",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "债基",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "债券超配或预算不足，本期不新增",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "易方达高质量严选三年持有",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投不参与",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "主动权益",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "FOF/主动/持有期/暂停基金,不参与加仓评分",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "信澳匠心臻选两年持有",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投不参与",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "主动权益",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "FOF/主动/持有期/暂停基金,不参与加仓评分",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  },
+                  {
+                    "name": "财通景气甄选一年持有C",
+                    "code": "",
+                    "badges": [
+                      {
+                        "text": "定投不参与",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "加仓0元",
+                        "kind": "muted"
+                      },
+                      {
+                        "text": "转换0元",
+                        "kind": "muted"
+                      }
+                    ],
+                    "lines": [
+                      [
+                        {
+                          "value": "主动权益",
+                          "format": "text"
+                        }
+                      ],
+                      [
+                        {
+                          "value": "FOF/主动/持有期/暂停基金,不参与加仓评分",
+                          "format": "text"
+                        }
+                      ]
+                    ],
+                    "detail": "",
+                    "detail_style": "lead",
+                    "amount": null
+                  }
+                ]
               }
             ]
           },
           {
             "type": "card",
-            "title": "黄金定投／加仓／再平衡",
-            "kind": "plain",
+            "title": "加仓与转换评估",
+            "kind": "",
             "children": [
-              {
-                "type": "kv",
-                "label": "当前占比 / 目标占比",
-                "value": {
-                  "value": [
-                    {
-                      "value": 5.42103491673939,
-                      "format": "pct"
-                    },
-                    {
-                      "value": "/",
-                      "format": "text"
-                    },
-                    {
-                      "value": 10.0,
-                      "format": "pct"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "距离目标低配金额",
-                "value": {
-                  "value": 975.429,
-                  "format": "money"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "普通定投",
-                "value": {
-                  "value": [
-                    {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "·",
-                      "format": "text"
-                    },
-                    {
-                      "value": "暂停",
-                      "format": "text"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "本周普通定投预算",
-                "value": {
-                  "value": 45.0,
-                  "format": "money"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "text",
-                "text": "数据不完整：缺情绪，本笔不操作",
-                "style": "muted"
-              },
               {
                 "type": "kv",
                 "label": "现金加仓",
                 "value": {
                   "value": [
+                    {
+                      "value": "权益",
+                      "format": "text"
+                    },
+                    {
+                      "value": "0元 · 本周不加仓",
+                      "format": "text"
+                    },
+                    {
+                      "value": "；黄金",
+                      "format": "text"
+                    },
                     {
                       "value": 0.0,
                       "format": "money"
@@ -5640,48 +5794,8 @@
                 "note": ""
               },
               {
-                "type": "text",
-                "text": "分位75.86%未进真低估区(<30.0%)",
-                "style": "muted"
-              },
-              {
                 "type": "kv",
-                "label": "再平衡转入",
-                "value": {
-                  "value": [
-                    {
-                      "value": 0.0,
-                      "format": "money"
-                    },
-                    {
-                      "value": "·",
-                      "format": "text"
-                    },
-                    {
-                      "value": "本周不转入",
-                      "format": "text"
-                    }
-                  ],
-                  "format": "text"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "text",
-                "text": "商品价格分位或商品五维买入条件未通过；黄金商品信号未齐",
-                "style": "muted"
-              }
-            ]
-          },
-          {
-            "type": "card",
-            "title": "债基转换评估｜实际金额以成交为准",
-            "kind": "plain",
-            "children": [
-              {
-                "type": "kv",
-                "label": "本周转换结论",
+                "label": "债基转换",
                 "value": {
                   "value": "本周不转换",
                   "format": "text"
@@ -5691,343 +5805,361 @@
               },
               {
                 "type": "text",
+                "text": "评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
+                "style": "muted"
+              },
+              {
+                "type": "text",
                 "text": "没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评",
                 "style": "muted"
               },
               {
-                "type": "fund_rows",
-                "rows": [
+                "type": "details",
+                "summary": "查看转换候选、结构限制与黄金缺口",
+                "children": [
                   {
-                    "name": "国泰黄金ETF联接C",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": 6.0,
-                        "kind": "warn",
-                        "numeric": true
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "估值分位75.86% · 转换评分6.0/线70.0",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "黄金占总资产5.42%/目标10.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "商品价格分位75.86%/商品评分6.00/线70.0",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "商品价格分位或商品五维买入条件未通过；黄金商品信号未齐",
-                    "detail_style": "lead",
-                    "amount": null
+                    "type": "kv",
+                    "label": "债比与再平衡方向",
+                    "value": {
+                      "value": "债比62.66%，目标48.89%，超出目标13.77个百分点／2933.14元；需要渐进再平衡；每周日只判定是否转换及目标基金；不输出预估金额，实际转换金额以成交回传为准",
+                      "format": "text"
+                    },
+                    "tone": "",
+                    "note": ""
                   },
                   {
-                    "name": "易方达恒生港股通创新药ETF联接A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": 75.5,
-                        "kind": "warn",
-                        "numeric": true
-                      }
-                    ],
-                    "lines": [
-                      [
+                    "type": "kv",
+                    "label": "黄金当前 / 目标占比",
+                    "value": {
+                      "value": [
                         {
-                          "value": "估值分位4.6% · 转换评分75.5/线60.0",
+                          "value": 5.42103491673939,
+                          "format": "pct"
+                        },
+                        {
+                          "value": "/",
                           "format": "text"
+                        },
+                        {
+                          "value": 10.0,
+                          "format": "pct"
                         }
                       ],
-                      [
-                        {
-                          "value": "总资产占比8.84%/上限15.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "赛道占比8.91%/上限30.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "卫星内部占比54.44%/上限50.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "被动池占比54.44%/参考上限29.85%",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "卫星内部占比超过其上限，仅限制新增，不单独产生卖出",
-                    "detail_style": "lead",
-                    "amount": null
+                      "format": "text"
+                    },
+                    "tone": "",
+                    "note": ""
                   },
                   {
-                    "name": "嘉实中证新能源汽车指数C",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": 58.0,
-                        "kind": "warn",
-                        "numeric": true
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "估值分位6.41% · 转换评分58.0/线60.0",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "总资产占比6.25%/上限15.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "赛道占比6.30%/上限30.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "卫星内部占比38.51%/上限50.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "被动池占比38.51%/参考上限29.85%",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增",
-                    "detail_style": "lead",
-                    "amount": null
+                    "type": "kv",
+                    "label": "黄金目标缺口（不是买入金额）",
+                    "value": {
+                      "value": 975.429,
+                      "format": "money"
+                    },
+                    "tone": "",
+                    "note": ""
                   },
                   {
-                    "name": "华宝中证有色金属ETF联接A",
-                    "code": "",
-                    "badges": [
+                    "type": "fund_rows",
+                    "rows": [
                       {
-                        "text": 46.5,
-                        "kind": "warn",
-                        "numeric": true
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "估值分位26.29% · 转换评分46.5/线60.0",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "总资产占比1.15%/上限15.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "赛道占比1.15%/上限30.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "卫星内部占比7.06%/上限50.00%",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "被动池占比7.06%/参考上限29.85%",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "评分46.5低于转换线60.0",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "南方中证500ETF联接(LOF)A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": null,
-                        "kind": "warn",
-                        "numeric": true
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "估值分位61.5% · 转换评分—/线60.0",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "总资产占比0.00%/上限15.00%",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "未达到真低估门槛；五维评分缺失",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "华夏沪深300ETF联接A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": null,
-                        "kind": "warn",
-                        "numeric": true
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "估值分位74.97% · 转换评分—/线60.0",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "总资产占比0.00%/上限15.00%",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "未达到真低估门槛；五维评分缺失；当前买入条件未通过",
-                    "detail_style": "lead",
-                    "amount": null
-                  }
-                ]
-              },
-              {
-                "type": "text",
-                "text": "不输出转换份额或预估金额；实际转换金额以理财通成交回传为准",
-                "style": "muted"
-              }
-            ]
-          },
-          {
-            "type": "card",
-            "title": "低估加仓评分",
-            "kind": "",
-            "children": [
-              {
-                "type": "fund_rows",
-                "rows": [
-                  {
-                    "name": "易方达恒生港股通创新药ETF联接A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": 75.5,
-                        "kind": "pos",
-                        "numeric": true
+                        "name": "国泰黄金ETF联接C",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": "6.0",
+                            "kind": "warn"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": "黄金 · 分位75.86% · 评分6.0/线70.0",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "加仓：分位75.86%未进真低估区(<30.0%)",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "转换：商品价格分位或商品五维买入条件未通过；黄金商品信号未齐",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "黄金占总资产5.42%/目标10.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "商品价格分位75.86%/商品评分6.00/线70.0",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
                       },
                       {
-                        "text": "达标",
-                        "kind": "ok"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "024328 · 门槛70.0 · 评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "估值 50.0分（分位4.6%） · 趋势 0.0分（高于20日线0.0%） · 资金 12.5分（5日净流入0.0亿） · 基本面 9.0分（景气） · 情绪 4.0分（成交额分位84.26%）",
-                    "detail_style": "lead",
-                    "amount": null
-                  }
-                ]
-              },
-              {
-                "type": "fund_rows",
-                "rows": [
-                  {
-                    "name": "嘉实中证新能源汽车指数C",
-                    "code": "",
-                    "badges": [
+                        "name": "易方达恒生港股通创新药ETF联接A",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": "75.5",
+                            "kind": "warn"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": "卫星 · 分位4.6% · 评分75.5/线60.0",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "加仓：评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "转换：卫星内部占比超过其上限，仅限制新增，不单独产生卖出",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "总资产占比8.84%/上限15.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "赛道占比8.91%/上限30.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "卫星内部占比54.44%/上限50.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "被动池占比54.44%/参考上限29.85%",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
                       {
-                        "text": 58.0,
-                        "kind": "warn",
-                        "numeric": true
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "012544 · 门槛70.0 · 未达到加仓门槛，本笔不操作",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "估值 45.0分（分位6.41%） · 趋势 0.0分（低于20日线7.56%） · 资金 0.0分（5日净流入5.0亿） · 基本面 9.0分（景气） · 情绪 4.0分（成交额分位41.05%）",
-                    "detail_style": "lead",
-                    "amount": null
-                  }
-                ]
-              },
-              {
-                "type": "fund_rows",
-                "rows": [
-                  {
-                    "name": "华宝中证有色金属ETF联接A",
-                    "code": "",
-                    "badges": [
+                        "name": "嘉实中证新能源汽车指数C",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": "58.0",
+                            "kind": "warn"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": "卫星 · 分位6.41% · 评分58.0/线60.0",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "加仓：未达到加仓门槛，本笔不操作",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "转换：评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "总资产占比6.25%/上限15.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "赛道占比6.30%/上限30.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "卫星内部占比38.51%/上限50.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "被动池占比38.51%/参考上限29.85%",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
                       {
-                        "text": 46.5,
-                        "kind": "warn",
-                        "numeric": true
+                        "name": "华宝中证有色金属ETF联接A",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": "46.5",
+                            "kind": "warn"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": "卫星 · 分位26.29% · 评分46.5/线60.0",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "加仓：未达到加仓门槛，本笔不操作",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "转换：评分46.5低于转换线60.0",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "总资产占比1.15%/上限15.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "赛道占比1.15%/上限30.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "卫星内部占比7.06%/上限50.00%",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "被动池占比7.06%/参考上限29.85%",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "南方中证500ETF联接(LOF)A",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": "—",
+                            "kind": "warn"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": "核心 · 分位61.5% · 评分—/线60.0",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "加仓：不参与",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "转换：未达到真低估门槛；五维评分缺失",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "总资产占比0.00%/上限15.00%",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
+                      },
+                      {
+                        "name": "华夏沪深300ETF联接A",
+                        "code": "",
+                        "badges": [
+                          {
+                            "text": "—",
+                            "kind": "warn"
+                          }
+                        ],
+                        "lines": [
+                          [
+                            {
+                              "value": "核心 · 分位74.97% · 评分—/线60.0",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "加仓：不参与",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "转换：未达到真低估门槛；五维评分缺失；当前买入条件未通过",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "总资产占比0.00%/上限15.00%",
+                              "format": "text"
+                            }
+                          ]
+                        ],
+                        "detail": "",
+                        "detail_style": "lead",
+                        "amount": null
                       }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "017140 · 门槛70.0 · 未达到加仓门槛，本笔不操作",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "估值 30.0分（分位26.29%） · 趋势 0.0分（低于20日线10.83%） · 资金 0.0分（5日净流入5.0亿） · 基本面 12.5分（强劲） · 情绪 4.0分（成交额分位69.06%）",
-                    "detail_style": "lead",
-                    "amount": null
+                    ]
                   }
                 ]
-              },
-              {
-                "type": "text",
-                "text": "1只通过加仓评分，按现金池与评级核定金额",
-                "style": "muted"
               }
             ]
           }
@@ -6251,6 +6383,7 @@
           }
         }
       ],
+      "fund_operations": null,
       "attention_items": [],
       "normal_items": [
         {
@@ -10272,7 +10405,7 @@
               {
                 "type": "parameter_node",
                 "title": "周日｜分批执行计划",
-                "state_label": "部分可执行",
+                "state_label": "正式评估缺数未完成",
                 "children": [
                   {
                     "type": "text",
@@ -10371,7 +10504,7 @@
                           "format": "text"
                         },
                         {
-                          "value": "3",
+                          "value": "0",
                           "format": "text"
                         },
                         {
@@ -10399,7 +10532,7 @@
                           "format": "text"
                         },
                         {
-                          "value": "部分可执行",
+                          "value": "已阻断",
                           "format": "text"
                         },
                         {
@@ -10514,7 +10647,7 @@
               {
                 "type": "parameter_node",
                 "title": "你本人执行｜真实账户",
-                "state_label": "部分可执行",
+                "state_label": "正式评估缺数未完成",
                 "children": [
                   {
                     "type": "text",
@@ -10541,7 +10674,7 @@
                           "format": "text"
                         },
                         {
-                          "value": "部分可执行",
+                          "value": "已阻断",
                           "format": "text"
                         },
                         {
@@ -10816,7 +10949,7 @@
                       "format": "text"
                     },
                     {
-                      "value": "部分可执行",
+                      "value": "已阻断",
                       "format": "text"
                     },
                     {
@@ -11062,6 +11195,7 @@
           }
         }
       ],
+      "fund_operations": null,
       "attention_items": [],
       "normal_items": [
         {
@@ -13415,14 +13549,14 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T21:02:53",
+    "generated_at": "2026-11-21T22:21:21",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
       "action_branches": [],
       "current_step": "execution",
       "current_text": "① 定投流程·本人真实账户执行",
-      "completed_formal_bands": 3,
+      "completed_formal_bands": 2,
       "next_action": "2026-11-23按106元计划执行，完成后回传实际扣款。",
       "missing": [
         "本轮无加仓指令",
@@ -13434,12 +13568,12 @@
           "id": "regular",
           "title": "① 定投流程",
           "lines": [
-            "进行中｜等待本人执行",
+            "等待正式评估",
             "周日评估 → 下周一执行 → 实际扣款回传",
-            "当前：本人真实账户执行"
+            "当前：评估与风控"
           ],
           "status": "current",
-          "status_label": "进行中｜等待本人执行",
+          "status_label": "等待正式评估",
           "out_label": "下一步",
           "reason": "2026-11-23按106元计划执行，完成后回传实际扣款。"
         },
@@ -13473,12 +13607,12 @@
           "id": "rebalance",
           "title": "④ 再平衡周执行",
           "lines": [
-            "本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评",
+            "本周不转换",
             "月度判方向；周日判转换与目标 → 本人按平台可转换份额执行 → 实际金额回传",
             "本轮已结束"
           ],
           "status": "waiting",
-          "status_label": "本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评",
+          "status_label": "本周不转换",
           "out_label": "下一步",
           "reason": "没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评"
         },
@@ -13526,24 +13660,24 @@
         {
           "id": "regular",
           "title": "① 定投流程",
-          "state": "进行中｜等待本人执行",
+          "state": "等待正式评估",
           "cadence": "周日评估 → 下周一执行 → 实际扣款回传",
-          "current": 3,
+          "current": 1,
           "next": "2026-11-23按106元计划执行，完成后回传实际扣款。",
           "steps": [
             {
               "name": "评估与风控",
-              "status": "done",
+              "status": "current",
               "detail": "2026-11-20数据基准；暂停项逐只披露。"
             },
             {
               "name": "形成整数买入计划",
-              "status": "done",
+              "status": "pending",
               "detail": "计划合计106元；金额源已统一向下取整到元。"
             },
             {
               "name": "本人真实账户执行",
-              "status": "current",
+              "status": "pending",
               "detail": "2026-11-23执行106元；计划不等于成交。"
             },
             {
@@ -13652,7 +13786,7 @@
         {
           "id": "rebalance",
           "title": "④ 再平衡周执行",
-          "state": "本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评",
+          "state": "本周不转换",
           "cadence": "月度判方向；周日判转换与目标 → 本人按平台可转换份额执行 → 实际金额回传",
           "next": "没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评",
           "steps": [
@@ -13923,11 +14057,11 @@
         "title": "周日｜分批执行计划",
         "trigger": "周日，月度之后",
         "state": "blocked",
-        "state_label": "部分可执行",
+        "state_label": "正式评估缺数未完成",
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
         "base_date": "2026-11-20",
-        "review_date": "2026-11-21",
-        "generated_at": "2026-11-21T20:56:22",
+        "review_date": "2026-11-20",
+        "generated_at": "2026-11-21T22:11:06",
         "inputs": [
           {
             "label": "周期预算锁",
@@ -13953,7 +14087,7 @@
           },
           {
             "label": "可执行基金数",
-            "value": "3",
+            "value": "0",
             "source": "档位正式有效性"
           },
           {
@@ -13963,7 +14097,7 @@
           },
           {
             "label": "计划状态",
-            "value": "部分可执行",
+            "value": "已阻断",
             "source": "档位正式有效性"
           }
         ]
@@ -14008,15 +14142,15 @@
         "title": "你本人执行｜真实账户",
         "trigger": "按有效报告操作",
         "state": "blocked",
-        "state_label": "部分可执行",
+        "state_label": "正式评估缺数未完成",
         "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
         "base_date": "2026-11-20",
-        "review_date": "2026-11-21",
-        "generated_at": "2026-11-21T20:56:22",
+        "review_date": "2026-11-20",
+        "generated_at": "2026-11-21T22:11:06",
         "inputs": [
           {
             "label": "可执行计划",
-            "value": "部分可执行",
+            "value": "已阻断",
             "source": "周日报告"
           },
           {
@@ -14124,7 +14258,7 @@
         "target": "execution",
         "label": "有效执行报告",
         "status": "manual",
-        "actual": "部分可执行",
+        "actual": "已阻断",
         "guidance": "用户按有效报告在真实账户执行。",
         "status_label": "人工执行"
       },
@@ -16277,6 +16411,10 @@
         {
           "type": "heading",
           "text": "【各档报告内容结构】V2展示需求唯一源=SOP各档内容模板，结构化展示唯一契约=《展示契约.md》；M11只作V1历史避坑参考，不再作为V2需求源。SOP此处只留跨档字段要求（见下表）。"
+        },
+        {
+          "type": "paragraph",
+          "text": "**周日页信息架构唯一为两层：①全持仓与三层资金分配总表（先展示ERP四资产→被动权益核心—卫星→仅卫星行业集中制；养老FOF、黄金、债券独立通道与现金层随后说明。覆盖核心/卫星/养老FOF/黄金/债基/主动权益全部持仓，同一行标注定投、加仓、转换及各自金额；转换只写转入/转出与实际成交口径，不预估金额；周期预算、投后余、可加仓现金、预计未投并入本表）→②加仓与转换评估（默认只给两项动作结论）。持仓身份、三层分配、三类动作、原因与显示文案统一由引擎fund_operations根契约生成，H5不得读取持仓后自行分类、计算或拼接。核心/卫星额度计算、结构上限、顺延过程、候选评分与黄金目标缺口统一放入“判断依据”折叠区，不得分别设卡重复展示；预计未投预算与真实可用现金必须分列，禁止混称现金余额。**"
         },
         {
           "type": "table",

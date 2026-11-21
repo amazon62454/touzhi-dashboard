@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T14:29:49",
+  "generated_at": "2026-11-21T14:32:08",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -3074,7 +3074,17 @@
           "debt_actual_missing": false,
           "debt_actual_amount": 0.0,
           "debt_actual_note": "",
-          "scope_note": "唯一金额源=本期执行计划；本模块仅整理展示，不重算定投金额。"
+          "scope_note": "唯一金额源=本期执行计划；本模块仅整理展示，不重算定投金额。",
+          "debt_rebalance": {
+            "actual_weight": 62.659053749368034,
+            "target_weight": 48.89,
+            "excess_weight": 13.769053749368034,
+            "excess_amount": 2933.1375289999996,
+            "required": true,
+            "decision": "需要渐进再平衡",
+            "execution_note": "可赎份额未齐，暂不生成卖出指令；每周日继续复核，不等下一次月度评审",
+            "summary": "债比62.66%，目标48.89%，超出目标13.77个百分点／2933.14元；需要渐进再平衡；可赎份额未齐，暂不生成卖出指令；每周日继续复核，不等下一次月度评审"
+          }
         },
         "week_gate": {
           "triggered": false,
@@ -7338,7 +7348,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T14:29:49",
+    "generated_at": "2026-11-21T14:32:08",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

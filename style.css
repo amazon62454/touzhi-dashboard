@@ -353,6 +353,12 @@ details[open] > summary::after { content: '收起'; }
 .monthly-operations-table .monthly-col-close { width: 13%; }
 .monthly-operations-table .monthly-col-inflow { width: 13%; }
 .monthly-operations-table .monthly-col-note { width: 36%; }
+.quarter-operations-table .quarter-col-fund { width: 28%; }
+.quarter-operations-table .quarter-col-role { width: 10%; }
+.quarter-operations-table .quarter-col-status { width: 10%; }
+.quarter-operations-table .quarter-col-score { width: 15%; }
+.quarter-operations-table .quarter-col-note { width: 37%; }
+.quarter-operations-table .role-heading-detail { margin-left: 6px; font-size: .95em; }
 .operations-table .fund-main { border-bottom: 1px solid var(--c-border); }
 .operations-table .fund-main th,
 .operations-table .fund-main td { vertical-align: middle; border-right: 1px solid var(--c-border); }
@@ -396,6 +402,11 @@ details[open] > summary::after { content: '收起'; }
   .monthly-operations-table .monthly-col-close { width: 12%; }
   .monthly-operations-table .monthly-col-inflow { width: 12%; }
   .monthly-operations-table .monthly-col-note { width: 41%; }
+  .quarter-operations-table .quarter-col-fund { width: 25%; }
+  .quarter-operations-table .quarter-col-role { width: 8%; }
+  .quarter-operations-table .quarter-col-status { width: 8%; }
+  .quarter-operations-table .quarter-col-score { width: 14%; }
+  .quarter-operations-table .quarter-col-note { width: 45%; }
   .operations-table th,
   .operations-table td { padding: 10px 8px; vertical-align: top; }
   .operations-table .fund-main .action-cell { padding-left: 4px; padding-right: 4px; white-space: nowrap; }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T10:54:18",
+  "generated_at": "2026-11-21T10:56:07",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -3046,7 +3046,6 @@
           "spent": 0.0,
           "cash_override": false
         },
-        "forward_signal_missing": [],
         "stop_reviews": [
           {
             "fund_code": "017491",
@@ -7277,7 +7276,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T10:54:18",
+    "generated_at": "2026-11-21T10:56:07",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

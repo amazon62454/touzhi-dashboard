@@ -1001,8 +1001,8 @@ function startAutoRefresh() {
 }
 
 function syncGlobalStatus(pageId) {
-  const banner = $('global-status');
-  banner.hidden = pageId !== 'page-retirement' || !(D.status || {}).label;
+  const st = D.status || {};
+  $('global-status').hidden = pageId !== st.display_page || !st.label;
 }
 
 function renderShell() {

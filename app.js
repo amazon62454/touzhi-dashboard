@@ -397,7 +397,7 @@ const R = {
     const secs = Array.isArray(c.sectors) ? c.sectors : Object.entries(c.sectors || {}).map(([k, v]) => ({ sector: k, weight: v }));
     const rows = secs.map(x => `<div class="money-row"><span>${esc(x.sector || '')}${x.over ? ' ' + C.badge('超限', 'danger') : ''}</span><strong class="num ${x.over ? 'neg' : 'info'}">${pct(x.weight)}</strong></div>`).join('');
     const total = c.total ?? c.total_market_value;
-    return C.card(fmt(U.ui_h2_concentration, { limit: pct(c.limit) }), `${rows}${total ? `<p class="muted">组合总市值 ${money(total)}</p>` : ''}`);
+    return C.card(fmt(U.ui_h2_concentration, { limit: pct(c.limit) }), `${rows}${total ? `<p class="muted">${fmt(U.ui_concentration_total, { total: money(total) })}</p>` : ''}`);
   },
   exitReviews(rows) {
     if (!rows || !rows.length) return '';

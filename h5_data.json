@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T03:16:41",
+  "generated_at": "2026-11-22T03:47:15",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -3064,8 +3064,8 @@
             "blocked_reason": "正式评估关键数据缺失，整档未完成；禁止执行，等待正式补跑"
           }
         ],
-        "next_review_at": "2026-11-22T03:30:00",
-        "result_visible_until": "2026-11-22T03:30:00",
+        "next_review_at": "2026-11-29T03:30:00",
+        "result_visible_until": "2026-11-29T03:30:00",
         "result_effective_from": "2026-11-22T03:14:41",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
@@ -6118,7 +6118,7 @@
                         "type": "flow_time",
                         "label": "下次评估 · 旧结果届时失效",
                         "value": {
-                          "value": "2026-11-22T03:30:00",
+                          "value": "2026-11-29T03:30:00",
                           "format": "datetime"
                         }
                       }
@@ -6171,7 +6171,7 @@
                         "type": "flow_time",
                         "label": "下次评估 · 旧结果届时失效",
                         "value": {
-                          "value": "2026-11-22T03:30:00",
+                          "value": "2026-11-29T03:30:00",
                           "format": "datetime"
                         }
                       }
@@ -6225,7 +6225,7 @@
                         "type": "flow_time",
                         "label": "下次评估 · 旧结果届时失效",
                         "value": {
-                          "value": "2026-11-22T03:30:00",
+                          "value": "2026-11-29T03:30:00",
                           "format": "datetime"
                         }
                       }
@@ -15312,7 +15312,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T03:16:41",
+    "generated_at": "2026-11-22T03:47:15",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

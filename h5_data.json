@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T03:47:15",
+  "generated_at": "2026-11-22T03:50:33",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1900,7 +1900,7 @@
               "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等科技制造赛道，前十大重仓股占比70.55%且多为科创板/创业板高弹性标的（如南亚新材8.86%、鼎泰高科8.47%、源杰科技7.16%），11月20日单日净值跌3.83%时多只重仓股跌幅超7%（德福科技-7.82%、仕佳光子-8.11%、昀冢科技-9.29%），与同期科技板块调整高度同步。但缺乏基金经理变更、持仓集中度异常抬升或选股能力持续恶化等直接证据，无法判定基金自身质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
             }
           },
           {
@@ -1923,7 +1923,7 @@
               "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，精智达(7.33%)、东山精密(6.53%)、日联科技(5.54%)、芯碁微装(5.06%)、飞荣达(4.90%)、睿创微纳(4.63%)、南亚新材(4.14%)、剑桥科技(合计4.33%)等8只A股重仓标的在2026年11月2日至11月20日期间涨跌幅分别为-13.33%、-21.45%、-18.95%、+2.61%、-10.46%、-16.07%、-24.72%、-24.90%，除芯碁微装外其余7只均录得双位数跌幅，加权平均跌幅约-15.8%，与基金净值同期回撤幅度高度吻合；持仓集中于半导体设备、PCB/覆铜板、光模块等科技制造赛道，同期板块整体承压，回撤主因系赛道系统性调整而非个股alpha恶化。因缺乏基金经理变更、换手率异常、风格漂移等可核验数据，fund_quality_deteriorating无法判定。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
             }
           }
         ],
@@ -3045,33 +3045,164 @@
     "band_eval": {
       "band": "band_eval",
       "title": "周日档 · 定投评估",
-      "summary": "本次不操作：数据不足",
+      "summary": "部分操作可执行，其余因数据不足已拦截",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-22T03:16:17",
+        "as_of": "2026-11-22T03:47:44",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
-        "state": "blocked",
-        "headline": "本次不操作：数据不足",
+        "state": "partial",
+        "headline": "部分操作可执行，其余因数据不足已拦截",
         "data_complete": false,
-        "actions": [],
-        "attention_items": [],
-        "expired": [],
-        "blocked": [
+        "actions": [
           {
-            "fund_code": null,
-            "action": "待补数",
-            "blocked_reason": "正式评估关键数据缺失，整档未完成；禁止执行，等待正式补跑"
+            "fund_code": "017140",
+            "fund_name": "华宝中证有色金属ETF联接A",
+            "action": "定投",
+            "reason": "按月度排名与剩余结构额度分配",
+            "params": {
+              "role": "satellite",
+              "reason_code": "satellite_ranked_allocation"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "amount": 44.0,
+            "archive_label": ""
+          },
+          {
+            "fund_code": "160119",
+            "fund_name": "南方中证500ETF联接(LOF)A",
+            "action": "定投",
+            "reason": "按季度锁定的核心比例执行",
+            "params": {
+              "role": "core",
+              "reason_code": "core_locked_ratio"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "amount": 32.0,
+            "archive_label": ""
+          },
+          {
+            "fund_code": "010267",
+            "fund_name": "兴全安泰积极养老目标五年FOF A",
+            "action": "定投",
+            "reason": "FOF固定周投，从权益预算独立承担",
+            "params": {
+              "role": "fof",
+              "reason_code": "fof_fixed_from_equity_budget"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "amount": 30.0,
+            "archive_label": ""
           }
         ],
+        "blocked": [
+          {
+            "fund_code": "024328",
+            "fund_name": "易方达恒生港股通创新药ETF联接A",
+            "action": "暂停",
+            "reason": "已达卫星结构上限，新增额度顺延下一名",
+            "params": {
+              "role": "satellite",
+              "reason_code": "satellite_structure_cap_cascade"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "blocked_reason": "已达卫星结构上限，新增额度顺延下一名"
+          },
+          {
+            "fund_code": "012544",
+            "fund_name": "嘉实中证新能源汽车指数C",
+            "action": "暂停",
+            "reason": "已达卫星结构上限，新增额度顺延下一名",
+            "params": {
+              "role": "satellite",
+              "reason_code": "satellite_structure_cap_cascade"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "blocked_reason": "已达卫星结构上限，新增额度顺延下一名"
+          },
+          {
+            "fund_code": "000051",
+            "fund_name": "华夏沪深300ETF联接A",
+            "action": "暂停",
+            "reason": "核心买入条件未满足，对应额度留现金",
+            "params": {
+              "role": "core",
+              "reason_code": "core_buy_blocked_cash_retained"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "blocked_reason": "核心买入条件未满足，对应额度留现金"
+          },
+          {
+            "fund_code": "004253",
+            "fund_name": "国泰黄金ETF联接C",
+            "action": "暂停",
+            "reason": "黄金信号未通过或目标不缺，额度留现金",
+            "params": {
+              "role": "gold",
+              "reason_code": "gold_signal_or_target_blocked"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "blocked_reason": "黄金信号未通过或目标不缺，额度留现金"
+          },
+          {
+            "fund_code": "009290",
+            "fund_name": "富国添享一年持有债券A",
+            "action": "暂停",
+            "reason": "债券超配或预算不足，本期不新增",
+            "params": {
+              "role": "debt",
+              "reason_code": "debt_over_target_or_no_remaining_budget"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "blocked_reason": "债券超配或预算不足，本期不新增"
+          }
+        ],
+        "expired": [],
+        "planned_execution_date": "2026-11-23",
+        "actual_execution_date": "2026-11-23",
+        "is_postponed": false,
+        "postpone_days": 0,
+        "valid_until": "2026-11-23T08:00:00",
         "next_review_at": "2026-11-29T03:30:00",
         "result_visible_until": "2026-11-29T03:30:00",
-        "result_effective_from": "2026-11-22T03:14:41",
+        "result_effective_from": "2026-11-22T03:47:42",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-22T03:14:41",
-      "run_kind": "manual_formal",
+      "generated_at": "2026-11-22T03:47:42",
+      "run_kind": "formal_repair",
       "items": [
         {
           "fund_code": "024328",
@@ -3653,7 +3784,7 @@
               "display": "定投0元",
               "compact_display": "0",
               "tone": "muted",
-              "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用"
+              "reason": "情绪过热，本笔不操作"
             },
             "addon": {
               "amount": 0.0,
@@ -3669,10 +3800,10 @@
               "display": "转换0元",
               "compact_display": "0",
               "tone": "muted",
-              "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐"
+              "reason": "商品价格分位或商品五维买入条件未通过"
             },
             "detail_lines": [
-              "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用"
+              "情绪过热，本笔不操作"
             ],
             "serial_no": 7,
             "display_name": "07. 国泰黄金ETF联接C"
@@ -3999,19 +4130,19 @@
       ],
       "allocation": {
         "amounts": {
+          "黄金": 1154.81,
           "养老FOF": 1150.32,
           "权益": 5824.48,
-          "债券": 13002.78,
-          "黄金": 1154.81,
-          "现金": 170.0
+          "现金": 170.0,
+          "债券": 13002.78
         },
         "total": 21302.39,
         "weights": {
+          "黄金": 5.42,
           "养老FOF": 5.4,
           "权益": 27.34,
-          "债券": 61.04,
-          "黄金": 5.42,
-          "现金": 0.8
+          "现金": 0.8,
+          "债券": 61.04
         }
       },
       "asset_allocation": {
@@ -4276,63 +4407,25 @@
         "gap": 4.578965,
         "price_percentile": 75.86,
         "score": {
-          "decision": "数据不完整：缺情绪，本笔不操作",
+          "decision": "情绪过热，本笔不操作",
           "eligible": false,
-          "missing": [
-            "情绪"
-          ],
-          "overheated": false,
+          "missing": [],
+          "overheated": true,
           "score": 6.0,
           "scores": {
             "估值": 0.0,
             "基本面": 6,
-            "情绪": 0,
+            "情绪": 0.0,
             "资金": 0.0,
             "趋势": 0.0
           },
           "threshold": 70.0
         },
         "buy_allowed": false,
-        "missing": [
-          "情绪"
-        ],
-        "data_complete": false,
-        "data_issues": [
-          {
-            "attempts": [
-              {
-                "attempts": [],
-                "cache_status": "",
-                "detail": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                "fund_code": "518880",
-                "metric": "情绪",
-                "reason": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                "reason_code": "wencai_no_matching_data",
-                "source": "问财"
-              },
-              {
-                "attempts": [],
-                "cache_status": "",
-                "detail": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                "fund_code": "518880",
-                "metric": "情绪",
-                "reason": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                "reason_code": "wencai_no_matching_data",
-                "source": "问财·换问法"
-              }
-            ],
-            "cache_status": "7天metric_cache不可用",
-            "detail": "问财无匹配数据:指数代码或成交额分位点未匹配",
-            "dimension": "sentiments",
-            "fund_code": "004253",
-            "metric": "情绪",
-            "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用",
-            "reason_code": "wencai_no_matching_data",
-            "source": "问财·换问法",
-            "fund_name": "国泰黄金ETF联接C"
-          }
-        ],
-        "blocking_reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用",
+        "missing": [],
+        "data_complete": true,
+        "data_issues": [],
+        "blocking_reason": "",
         "weekly_action": {
           "engine_contract": "gold_weekly_action_v1",
           "fund_code": "004253",
@@ -4340,49 +4433,15 @@
           "actual_weight": 5.42103491673939,
           "target_weight": 10.0,
           "gap_amount": 975.429,
-          "data_complete": false,
-          "data_issues": [
-            {
-              "attempts": [
-                {
-                  "attempts": [],
-                  "cache_status": "",
-                  "detail": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                  "fund_code": "518880",
-                  "metric": "情绪",
-                  "reason": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                  "reason_code": "wencai_no_matching_data",
-                  "source": "问财"
-                },
-                {
-                  "attempts": [],
-                  "cache_status": "",
-                  "detail": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                  "fund_code": "518880",
-                  "metric": "情绪",
-                  "reason": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                  "reason_code": "wencai_no_matching_data",
-                  "source": "问财·换问法"
-                }
-              ],
-              "cache_status": "7天metric_cache不可用",
-              "detail": "问财无匹配数据:指数代码或成交额分位点未匹配",
-              "dimension": "sentiments",
-              "fund_code": "004253",
-              "metric": "情绪",
-              "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用",
-              "reason_code": "wencai_no_matching_data",
-              "source": "问财·换问法",
-              "fund_name": "国泰黄金ETF联接C"
-            }
-          ],
+          "data_complete": true,
+          "data_issues": [],
           "ordinary": {
             "amount": 0.0,
             "budget": 45.0,
             "decision": "暂停",
-            "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用",
-            "reason_code": "wencai_no_matching_data",
-            "blocked_by_data": true
+            "reason": "情绪过热，本笔不操作",
+            "reason_code": "gold_signal_or_target_blocked",
+            "blocked_by_data": false
           },
           "addon": {
             "amount": 0.0,
@@ -4392,7 +4451,7 @@
           "rebalance": {
             "amount": 0.0,
             "decision": "本周不转入",
-            "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐"
+            "reason": "商品价格分位或商品五维买入条件未通过"
           }
         }
       },
@@ -4917,46 +4976,11 @@
               "threshold": 70.0,
               "eligible": false,
               "reason_codes": [
-                "gold_signal",
-                "gold_missing"
+                "gold_signal"
               ],
-              "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐",
-              "data_complete": false,
-              "data_issues": [
-                {
-                  "attempts": [
-                    {
-                      "attempts": [],
-                      "cache_status": "",
-                      "detail": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                      "fund_code": "518880",
-                      "metric": "情绪",
-                      "reason": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                      "reason_code": "wencai_no_matching_data",
-                      "source": "问财"
-                    },
-                    {
-                      "attempts": [],
-                      "cache_status": "",
-                      "detail": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                      "fund_code": "518880",
-                      "metric": "情绪",
-                      "reason": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                      "reason_code": "wencai_no_matching_data",
-                      "source": "问财·换问法"
-                    }
-                  ],
-                  "cache_status": "7天metric_cache不可用",
-                  "detail": "问财无匹配数据:指数代码或成交额分位点未匹配",
-                  "dimension": "sentiments",
-                  "fund_code": "004253",
-                  "metric": "情绪",
-                  "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用",
-                  "reason_code": "wencai_no_matching_data",
-                  "source": "问财·换问法",
-                  "fund_name": "国泰黄金ETF联接C"
-                }
-              ],
+              "reason": "商品价格分位或商品五维买入条件未通过",
+              "data_complete": true,
+              "data_issues": [],
               "evidence": [
                 "黄金占总资产5.42%/目标10.00%",
                 "商品价格分位75.86%/商品评分6.00/线70.0"
@@ -5083,12 +5107,10 @@
           "threshold": 70.0
         },
         "004253": {
-          "decision": "数据不完整：缺情绪，本笔不操作",
+          "decision": "情绪过热，本笔不操作",
           "eligible": false,
-          "missing": [
-            "情绪"
-          ],
-          "overheated": false,
+          "missing": [],
+          "overheated": true,
           "score": 6.0,
           "scores": {
             "估值": 0.0,
@@ -5104,12 +5126,12 @@
           "eligible": false,
           "missing": [],
           "overheated": false,
-          "score": 58.0,
+          "score": 49.0,
           "scores": {
             "估值": 45.0,
             "趋势": 0.0,
             "资金": 0.0,
-            "基本面": 9.0,
+            "基本面": 0.0,
             "情绪": 4.0
           },
           "threshold": 70.0
@@ -5134,12 +5156,12 @@
           "eligible": true,
           "missing": [],
           "overheated": false,
-          "score": 75.5,
+          "score": 79.0,
           "scores": {
             "估值": 50.0,
             "趋势": 0.0,
             "资金": 12.5,
-            "基本面": 9.0,
+            "基本面": 12.5,
             "情绪": 4.0
           },
           "threshold": 70.0
@@ -5191,7 +5213,7 @@
                 "value": 0.0,
                 "date": "2026-11-21",
                 "caliber": "5年分位",
-                "source": "AI涨乐·7天内缓存"
+                "source": "AI涨乐"
               },
               "flows": {
                 "value": 0.0,
@@ -5559,7 +5581,7 @@
               "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等科技制造赛道，前十大重仓股占比70.55%且多为科创板/创业板高弹性标的（如南亚新材8.86%、鼎泰高科8.47%、源杰科技7.16%），11月20日单日净值跌3.83%时多只重仓股跌幅超7%（德福科技-7.82%、仕佳光子-8.11%、昀冢科技-9.29%），与同期科技板块调整高度同步。但缺乏基金经理变更、持仓集中度异常抬升或选股能力持续恶化等直接证据，无法判定基金自身质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
             }
           },
           {
@@ -5582,7 +5604,7 @@
               "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，精智达(7.33%)、东山精密(6.53%)、日联科技(5.54%)、芯碁微装(5.06%)、飞荣达(4.90%)、睿创微纳(4.63%)、南亚新材(4.14%)、剑桥科技(合计4.33%)等8只A股重仓标的在2026年11月2日至11月20日期间涨跌幅分别为-13.33%、-21.45%、-18.95%、+2.61%、-10.46%、-16.07%、-24.72%、-24.90%，除芯碁微装外其余7只均录得双位数跌幅，加权平均跌幅约-15.8%，与基金净值同期回撤幅度高度吻合；持仓集中于半导体设备、PCB/覆铜板、光模块等科技制造赛道，同期板块整体承压，回撤主因系赛道系统性调整而非个股alpha恶化。因缺乏基金经理变更、换手率异常、风格漂移等可核验数据，fund_quality_deteriorating无法判定。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
             }
           }
         ],
@@ -6022,11 +6044,14 @@
         "action_view": {
           "engine_contract": "h5_band_action_v1",
           "complete": false,
-          "headline": "本期不执行任何操作，1项因缺数等待补跑",
-          "note": "",
+          "headline": "2026-11-23执行3只，合计106元",
+          "note": "暂停项不补买、不替代扣款；逐只金额见下方执行明细。",
           "pending_title": "当前限制与阻断项",
           "pending_items": [
-            "正式评估关键数据缺失，整档未完成；禁止执行，等待正式补跑",
+            "已达卫星结构上限，新增额度顺延下一名（2只）",
+            "核心买入条件未满足，对应额度留现金",
+            "黄金信号未通过或目标不缺，额度留现金",
+            "债券超配或预算不足，本期不新增",
             "加仓流程：买入条件未通过"
           ]
         }
@@ -6046,13 +6071,13 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_eval|2026-11-20|2026-11-22|2026-11-20#R7#live",
+      "source_file": "band_eval|2026-11-20|2026-11-22|2026-11-20#R8#live",
       "display": {
         "header": {
           "title": "周日档 · 定投评估",
           "base_date": "2026-11-20",
-          "state_label": "数据不足",
-          "state_kind": "warn",
+          "state_label": "部分可执行",
+          "state_kind": "muted",
           "run_notice": "",
           "time_rows": []
         },
@@ -6064,8 +6089,13 @@
             "children": [
               {
                 "type": "text",
-                "text": "本期不执行任何操作，1项因缺数等待补跑",
+                "text": "2026-11-23执行3只，合计106元",
                 "style": "decision-main"
+              },
+              {
+                "type": "text",
+                "text": "暂停项不补买、不替代扣款；逐只金额见下方执行明细。",
+                "style": "decision-note"
               }
             ]
           },
@@ -6080,25 +6110,25 @@
                   {
                     "id": "regular",
                     "title": "定投流程",
-                    "tab_state": "等待正式评估",
-                    "state_label": "等待正式评估",
+                    "tab_state": "进行中",
+                    "state_label": "进行中",
                     "tone": "info",
-                    "progress": "0/4 步已完成",
+                    "progress": "2/4 步已完成",
                     "steps": [
                       {
                         "name": "评估与风控",
-                        "status": "current",
-                        "status_label": "当前"
+                        "status": "done",
+                        "status_label": "已完成"
                       },
                       {
                         "name": "形成整数买入计划",
-                        "status": "pending",
-                        "status_label": "等待上一步"
+                        "status": "done",
+                        "status_label": "已完成"
                       },
                       {
                         "name": "本人真实账户执行",
-                        "status": "pending",
-                        "status_label": "等待上一步"
+                        "status": "current",
+                        "status_label": "当前"
                       },
                       {
                         "name": "回传并更新台账",
@@ -6108,10 +6138,21 @@
                     ],
                     "current_detail": {
                       "label": "当前步骤",
-                      "text": "2026-11-20数据基准；暂停项逐只披露。",
+                      "text": "2026-11-23执行106元；计划不等于成交。",
                       "kind": "current"
                     },
-                    "done_evidence": [],
+                    "done_evidence": [
+                      {
+                        "name": "评估与风控",
+                        "detail": "2026-11-20数据基准；暂停项逐只披露。",
+                        "basis": []
+                      },
+                      {
+                        "name": "形成整数买入计划",
+                        "detail": "计划合计106元；金额源已统一向下取整到元。",
+                        "basis": []
+                      }
+                    ],
                     "done_title": "点击看每一步怎么算",
                     "time_rows": [
                       {
@@ -6215,7 +6256,7 @@
                       },
                       {
                         "name": "判定转换与目标基金",
-                        "detail": "转换评估：本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评；候选核验：国泰黄金ETF联接C：问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐；易方达恒生港股通创新药ETF联接A：卫星内部占比超过其上限，仅限制新增，不单独产生卖出；嘉实中证新能源汽车指数C：评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增；华宝中证有色金属ETF联接A：评分46.5低于转换线60.0；南方中证500ETF联接(LOF)A：未达到真低估门槛；五维评分缺失；华夏沪深300ETF联接A：未达到真低估门槛；五维评分缺失；当前买入条件未通过",
+                        "detail": "转换评估：本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评；候选核验：国泰黄金ETF联接C：商品价格分位或商品五维买入条件未通过；易方达恒生港股通创新药ETF联接A：卫星内部占比超过其上限，仅限制新增，不单独产生卖出；嘉实中证新能源汽车指数C：评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增；华宝中证有色金属ETF联接A：评分46.5低于转换线60.0；南方中证500ETF联接(LOF)A：未达到真低估门槛；五维评分缺失；华夏沪深300ETF联接A：未达到真低估门槛；五维评分缺失；当前买入条件未通过",
                         "basis": []
                       }
                     ],
@@ -6477,7 +6518,7 @@
                           "display": "定投0元",
                           "compact_display": "0",
                           "tone": "muted",
-                          "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用"
+                          "reason": "情绪过热，本笔不操作"
                         },
                         "addon": {
                           "amount": 0.0,
@@ -6493,9 +6534,9 @@
                           "display": "转换0元",
                           "compact_display": "0",
                           "tone": "muted",
-                          "reason": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐"
+                          "reason": "商品价格分位或商品五维买入条件未通过"
                         },
-                        "detail": "问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用"
+                        "detail": "情绪过热，本笔不操作"
                       }
                     ]
                   },
@@ -6751,7 +6792,7 @@
                           ],
                           [
                             {
-                              "value": "转换：问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐",
+                              "value": "转换：商品价格分位或商品五维买入条件未通过",
                               "format": "text"
                             }
                           ],
@@ -9359,7 +9400,7 @@
               "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等科技制造赛道，前十大重仓股占比70.55%且多为科创板/创业板高弹性标的（如南亚新材8.86%、鼎泰高科8.47%、源杰科技7.16%），11月20日单日净值跌3.83%时多只重仓股跌幅超7%（德福科技-7.82%、仕佳光子-8.11%、昀冢科技-9.29%），与同期科技板块调整高度同步。但缺乏基金经理变更、持仓集中度异常抬升或选股能力持续恶化等直接证据，无法判定基金自身质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
             }
           },
           {
@@ -9382,7 +9423,7 @@
               "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，精智达(7.33%)、东山精密(6.53%)、日联科技(5.54%)、芯碁微装(5.06%)、飞荣达(4.90%)、睿创微纳(4.63%)、南亚新材(4.14%)、剑桥科技(合计4.33%)等8只A股重仓标的在2026年11月2日至11月20日期间涨跌幅分别为-13.33%、-21.45%、-18.95%、+2.61%、-10.46%、-16.07%、-24.72%、-24.90%，除芯碁微装外其余7只均录得双位数跌幅，加权平均跌幅约-15.8%，与基金净值同期回撤幅度高度吻合；持仓集中于半导体设备、PCB/覆铜板、光模块等科技制造赛道，同期板块整体承压，回撤主因系赛道系统性调整而非个股alpha恶化。因缺乏基金经理变更、换手率异常、风格漂移等可核验数据，fund_quality_deteriorating无法判定。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
             }
           }
         ],
@@ -10368,7 +10409,7 @@
           },
           {
             "type": "details",
-            "summary": "月度资金、复盘与持仓证据（按需展开）",
+            "summary": "月度判断依据、参数与传递关系（按需展开）",
             "children": [
               {
                 "type": "card",
@@ -11899,105 +11940,708 @@
                     ]
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "type": "details",
-            "summary": "查看档位参数与传递关系",
-            "children": [
-              {
-                "type": "text",
-                "text": "档位输入与输出",
-                "style": "section-title"
               },
               {
-                "type": "parameter_node",
-                "title": "季度｜战略配置与核心锚",
-                "state_label": "正式数据已生成",
+                "type": "card",
+                "title": "查看档位参数与传递关系",
+                "kind": "",
                 "children": [
                   {
                     "type": "text",
-                    "text": "3/6/9/12月20日，先跑 · 先制定存量配置；不读取同日月度才生成的预算锁。",
-                    "style": "muted"
-                  },
-                  {
-                    "type": "text",
-                    "text": "输入",
+                    "text": "档位输入与输出",
                     "style": "section-title"
                   },
                   {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
-                      [
-                        {
-                          "value": "市场数据基准",
-                          "format": "text"
-                        },
-                        {
-                          "value": "2026-11-20",
-                          "format": "text"
-                        },
-                        {
-                          "value": "正式判决",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "ERP状态",
-                          "format": "text"
-                        },
-                        {
-                          "value": "高估",
-                          "format": "text"
-                        },
-                        {
-                          "value": "四资产配置",
-                          "format": "text"
-                        }
-                      ]
+                    "type": "parameter_node",
+                    "title": "季度｜战略配置与核心锚",
+                    "state_label": "正式数据已生成",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "3/6/9/12月20日，先跑 · 先制定存量配置；不读取同日月度才生成的预算锁。",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "输入",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "市场数据基准",
+                              "format": "text"
+                            },
+                            {
+                              "value": "2026-11-20",
+                              "format": "text"
+                            },
+                            {
+                              "value": "正式判决",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "ERP状态",
+                              "format": "text"
+                            },
+                            {
+                              "value": "高估",
+                              "format": "text"
+                            },
+                            {
+                              "value": "四资产配置",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "输出",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "核心比例",
+                              "format": "text"
+                            },
+                            {
+                              "value": "59.69%",
+                              "format": "text"
+                            },
+                            {
+                              "value": "equity_core_lock",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "核心锁周期",
+                              "format": "text"
+                            },
+                            {
+                              "value": "2026-10-01 → 2026-12-31",
+                              "format": "text"
+                            },
+                            {
+                              "value": "真实SQL锁",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "四资产目标",
+                              "format": "text"
+                            },
+                            {
+                              "value": "权益31.11% / 债券48.89% / 黄金10.00% / 现金10.00%",
+                              "format": "text"
+                            },
+                            {
+                              "value": "同基准计算；未独立传锁",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "parameter_node",
+                    "title": "月度｜预算与卫星锁",
+                    "state_label": "正式评估缺数未完成",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "每月20日，季度之后 · 本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "输入",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "季度核心锁",
+                              "format": "text"
+                            },
+                            {
+                              "value": "2026-10-01 → 2026-12-31",
+                              "format": "text"
+                            },
+                            {
+                              "value": "季度→月度：已接线",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "月度核心比例",
+                              "format": "text"
+                            },
+                            {
+                              "value": "59.69%",
+                              "format": "text"
+                            },
+                            {
+                              "value": "读取季度核心锁",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "ERP状态",
+                              "format": "text"
+                            },
+                            {
+                              "value": "高估",
+                              "format": "text"
+                            },
+                            {
+                              "value": "同基准重算",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "输出",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "周期预算锁",
+                              "format": "text"
+                            },
+                            {
+                              "value": "2026-11-20 → 2026-12-19",
+                              "format": "text"
+                            },
+                            {
+                              "value": "cycle_budget_lock",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "权益/债券/黄金/现金",
+                              "format": "text"
+                            },
+                            {
+                              "value": "560.00元/880.00元/180.00元/180.00元",
+                              "format": "text"
+                            },
+                            {
+                              "value": "月度流量锁",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "卫星锁周期",
+                              "format": "text"
+                            },
+                            {
+                              "value": "2026-11-20 → 2026-12-19",
+                              "format": "text"
+                            },
+                            {
+                              "value": "equity_satellite_lock",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "parameter_node",
+                    "title": "周日｜分批执行计划",
+                    "state_label": "部分可执行",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "周日，月度之后 · 读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "输入",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "周期预算锁",
+                              "format": "text"
+                            },
+                            {
+                              "value": "2026-11-20",
+                              "format": "text"
+                            },
+                            {
+                              "value": "月度→周日：已接线",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "卫星锁",
+                              "format": "text"
+                            },
+                            {
+                              "value": "2026-11-20 → 2026-12-19",
+                              "format": "text"
+                            },
+                            {
+                              "value": "月度→周日：已接线",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "核心比例",
+                              "format": "text"
+                            },
+                            {
+                              "value": "59.69%",
+                              "format": "text"
+                            },
+                            {
+                              "value": "只读锁结构",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "输出",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "计划基金数",
+                              "format": "text"
+                            },
+                            {
+                              "value": "8",
+                              "format": "text"
+                            },
+                            {
+                              "value": "execution_plan",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "可执行基金数",
+                              "format": "text"
+                            },
+                            {
+                              "value": "3",
+                              "format": "text"
+                            },
+                            {
+                              "value": "档位正式有效性",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "计划金额",
+                              "format": "text"
+                            },
+                            {
+                              "value": "106元",
+                              "format": "text"
+                            },
+                            {
+                              "value": "execution_plan",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "计划状态",
+                              "format": "text"
+                            },
+                            {
+                              "value": "部分可执行",
+                              "format": "text"
+                            },
+                            {
+                              "value": "档位正式有效性",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "parameter_node",
+                    "title": "每日｜独立风控",
+                    "state_label": "正式数据已生成",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "工作日；高层档日合并 · 每日只负责风险控制；不得画成周日计划的下游计算节点。",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "输入",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "风控数据基准",
+                              "format": "text"
+                            },
+                            {
+                              "value": "2026-11-20",
+                              "format": "text"
+                            },
+                            {
+                              "value": "独立风控输入",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "周日执行计划",
+                              "format": "text"
+                            },
+                            {
+                              "value": "无直接参数链",
+                              "format": "text"
+                            },
+                            {
+                              "value": "每日不重算周日金额",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "输出",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "风控检查数",
+                              "format": "text"
+                            },
+                            {
+                              "value": "19",
+                              "format": "text"
+                            },
+                            {
+                              "value": "daily_checks",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "输出",
+                              "format": "text"
+                            },
+                            {
+                              "value": "止损/回撤/规模等控制信号",
+                              "format": "text"
+                            },
+                            {
+                              "value": "独立控制链",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "parameter_node",
+                    "title": "你本人执行｜真实账户",
+                    "state_label": "部分可执行",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "按有效报告操作 · 只在有效窗口内按报告执行；过期计划只归档，不再操作。",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "输入",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "可执行计划",
+                              "format": "text"
+                            },
+                            {
+                              "value": "部分可执行",
+                              "format": "text"
+                            },
+                            {
+                              "value": "周日报告",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "风控放行状态",
+                              "format": "text"
+                            },
+                            {
+                              "value": "正式数据已生成",
+                              "format": "text"
+                            },
+                            {
+                              "value": "每日控制链",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "输出",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "实际扣款/赎回/到账",
+                              "format": "text"
+                            },
+                            {
+                              "value": "以真实账户为准",
+                              "format": "text"
+                            },
+                            {
+                              "value": "不自动交易、不伪造成交",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "parameter_node",
+                    "title": "台账反馈｜下次评估输入",
+                    "state_label": "正式评估缺数未完成",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "执行后回传并核对 · 真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "输入",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "最新持仓快照日",
+                              "format": "text"
+                            },
+                            {
+                              "value": "2026-11-20",
+                              "format": "text"
+                            },
+                            {
+                              "value": "position_snapshots",
+                              "format": "text"
+                            }
+                          ],
+                          [
+                            {
+                              "value": "快照基金数",
+                              "format": "text"
+                            },
+                            {
+                              "value": "10",
+                              "format": "text"
+                            },
+                            {
+                              "value": "真实持仓反馈",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "输出",
+                        "style": "section-title"
+                      },
+                      {
+                        "type": "table",
+                        "headers": [
+                          "项目",
+                          "当前值",
+                          "来源"
+                        ],
+                        "aligns": [],
+                        "class_name": "",
+                        "rows": [
+                          [
+                            {
+                              "value": "反馈去向",
+                              "format": "text"
+                            },
+                            {
+                              "value": "台账→派生重算→后续档位",
+                              "format": "text"
+                            },
+                            {
+                              "value": "人工事实反馈闭环",
+                              "format": "text"
+                            }
+                          ]
+                        ]
+                      }
                     ]
                   },
                   {
                     "type": "text",
-                    "text": "输出",
+                    "text": "参数传递关系",
                     "style": "section-title"
                   },
                   {
                     "type": "table",
                     "headers": [
-                      "项目",
+                      "传递路径",
+                      "状态",
                       "当前值",
-                      "来源"
+                      "说明"
                     ],
                     "aligns": [],
                     "class_name": "",
                     "rows": [
                       [
                         {
-                          "value": "核心比例",
+                          "value": "季度 → 月度 · 核心比例与核心锁",
                           "format": "text"
                         },
                         {
-                          "value": "59.69%",
-                          "format": "text"
-                        },
-                        {
-                          "value": "equity_core_lock",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "核心锁周期",
+                          "value": "未接线",
                           "format": "text"
                         },
                         {
@@ -12005,186 +12649,35 @@
                           "format": "text"
                         },
                         {
-                          "value": "真实SQL锁",
+                          "value": "锁或完成证据缺失。",
                           "format": "text"
                         }
                       ],
                       [
                         {
-                          "value": "四资产目标",
-                          "format": "text"
-                        },
-                        {
-                          "value": "权益31.11% / 债券48.89% / 黄金10.00% / 现金10.00%",
-                          "format": "text"
-                        },
-                        {
-                          "value": "同基准计算；未独立传锁",
-                          "format": "text"
-                        }
-                      ]
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "parameter_node",
-                "title": "月度｜预算与卫星锁",
-                "state_label": "正式评估缺数未完成",
-                "children": [
-                  {
-                    "type": "text",
-                    "text": "每月20日，季度之后 · 本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
-                    "style": "muted"
-                  },
-                  {
-                    "type": "text",
-                    "text": "输入",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
-                      [
-                        {
-                          "value": "季度核心锁",
-                          "format": "text"
-                        },
-                        {
-                          "value": "2026-10-01 → 2026-12-31",
-                          "format": "text"
-                        },
-                        {
-                          "value": "季度→月度：已接线",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "月度核心比例",
-                          "format": "text"
-                        },
-                        {
-                          "value": "59.69%",
-                          "format": "text"
-                        },
-                        {
-                          "value": "读取季度核心锁",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "ERP状态",
-                          "format": "text"
-                        },
-                        {
-                          "value": "高估",
+                          "value": "季度 → 月度 · 四资产目标",
                           "format": "text"
                         },
                         {
                           "value": "同基准重算",
                           "format": "text"
-                        }
-                      ]
-                    ]
-                  },
-                  {
-                    "type": "text",
-                    "text": "输出",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
-                      [
+                        },
                         {
-                          "value": "周期预算锁",
+                          "value": "暂无quarter_allocation_lock",
                           "format": "text"
                         },
                         {
-                          "value": "2026-11-20 → 2026-12-19",
-                          "format": "text"
-                        },
-                        {
-                          "value": "cycle_budget_lock",
+                          "value": "同基准重算，不是独立锚锁；不得误标已传递。",
                           "format": "text"
                         }
                       ],
                       [
                         {
-                          "value": "权益/债券/黄金/现金",
+                          "value": "月度 → 周日 · 周期预算锁",
                           "format": "text"
                         },
                         {
-                          "value": "560.00元/880.00元/180.00元/180.00元",
-                          "format": "text"
-                        },
-                        {
-                          "value": "月度流量锁",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "卫星锁周期",
-                          "format": "text"
-                        },
-                        {
-                          "value": "2026-11-20 → 2026-12-19",
-                          "format": "text"
-                        },
-                        {
-                          "value": "equity_satellite_lock",
-                          "format": "text"
-                        }
-                      ]
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "parameter_node",
-                "title": "周日｜分批执行计划",
-                "state_label": "正式评估缺数未完成",
-                "children": [
-                  {
-                    "type": "text",
-                    "text": "周日，月度之后 · 读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
-                    "style": "muted"
-                  },
-                  {
-                    "type": "text",
-                    "text": "输入",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
-                      [
-                        {
-                          "value": "周期预算锁",
+                          "value": "未接线",
                           "format": "text"
                         },
                         {
@@ -12192,13 +12685,17 @@
                           "format": "text"
                         },
                         {
-                          "value": "月度→周日：已接线",
+                          "value": "预算锁或完成证据缺失。",
                           "format": "text"
                         }
                       ],
                       [
                         {
-                          "value": "卫星锁",
+                          "value": "月度 → 周日 · 卫星结构锁",
+                          "format": "text"
+                        },
+                        {
+                          "value": "未接线",
                           "format": "text"
                         },
                         {
@@ -12206,143 +12703,17 @@
                           "format": "text"
                         },
                         {
-                          "value": "月度→周日：已接线",
+                          "value": "卫星锁或完成证据缺失。",
                           "format": "text"
                         }
                       ],
                       [
                         {
-                          "value": "核心比例",
+                          "value": "周日 → 每日 · 周日计划→每日",
                           "format": "text"
                         },
                         {
-                          "value": "59.69%",
-                          "format": "text"
-                        },
-                        {
-                          "value": "只读锁结构",
-                          "format": "text"
-                        }
-                      ]
-                    ]
-                  },
-                  {
-                    "type": "text",
-                    "text": "输出",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
-                      [
-                        {
-                          "value": "计划基金数",
-                          "format": "text"
-                        },
-                        {
-                          "value": "8",
-                          "format": "text"
-                        },
-                        {
-                          "value": "execution_plan",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "可执行基金数",
-                          "format": "text"
-                        },
-                        {
-                          "value": "0",
-                          "format": "text"
-                        },
-                        {
-                          "value": "档位正式有效性",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "计划金额",
-                          "format": "text"
-                        },
-                        {
-                          "value": "106元",
-                          "format": "text"
-                        },
-                        {
-                          "value": "execution_plan",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "计划状态",
-                          "format": "text"
-                        },
-                        {
-                          "value": "已阻断",
-                          "format": "text"
-                        },
-                        {
-                          "value": "档位正式有效性",
-                          "format": "text"
-                        }
-                      ]
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "parameter_node",
-                "title": "每日｜独立风控",
-                "state_label": "正式数据已生成",
-                "children": [
-                  {
-                    "type": "text",
-                    "text": "工作日；高层档日合并 · 每日只负责风险控制；不得画成周日计划的下游计算节点。",
-                    "style": "muted"
-                  },
-                  {
-                    "type": "text",
-                    "text": "输入",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
-                      [
-                        {
-                          "value": "风控数据基准",
-                          "format": "text"
-                        },
-                        {
-                          "value": "2026-11-20",
-                          "format": "text"
-                        },
-                        {
-                          "value": "独立风控输入",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "周日执行计划",
+                          "value": "无直接链",
                           "format": "text"
                         },
                         {
@@ -12350,101 +12721,17 @@
                           "format": "text"
                         },
                         {
-                          "value": "每日不重算周日金额",
-                          "format": "text"
-                        }
-                      ]
-                    ]
-                  },
-                  {
-                    "type": "text",
-                    "text": "输出",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
-                      [
-                        {
-                          "value": "风控检查数",
-                          "format": "text"
-                        },
-                        {
-                          "value": "19",
-                          "format": "text"
-                        },
-                        {
-                          "value": "daily_checks",
+                          "value": "每日独立风控，不读取或重算周日金额。",
                           "format": "text"
                         }
                       ],
                       [
                         {
-                          "value": "输出",
+                          "value": "每日 → 你本人执行 · 风控控制信号",
                           "format": "text"
                         },
                         {
-                          "value": "止损/回撤/规模等控制信号",
-                          "format": "text"
-                        },
-                        {
-                          "value": "独立控制链",
-                          "format": "text"
-                        }
-                      ]
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "parameter_node",
-                "title": "你本人执行｜真实账户",
-                "state_label": "正式评估缺数未完成",
-                "children": [
-                  {
-                    "type": "text",
-                    "text": "按有效报告操作 · 只在有效窗口内按报告执行；过期计划只归档，不再操作。",
-                    "style": "muted"
-                  },
-                  {
-                    "type": "text",
-                    "text": "输入",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
-                      [
-                        {
-                          "value": "可执行计划",
-                          "format": "text"
-                        },
-                        {
-                          "value": "已阻断",
-                          "format": "text"
-                        },
-                        {
-                          "value": "周日报告",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "风控放行状态",
+                          "value": "独立控制",
                           "format": "text"
                         },
                         {
@@ -12452,73 +12739,35 @@
                           "format": "text"
                         },
                         {
-                          "value": "每日控制链",
+                          "value": "风控优先于实际动作。",
                           "format": "text"
                         }
-                      ]
-                    ]
-                  },
-                  {
-                    "type": "text",
-                    "text": "输出",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
+                      ],
                       [
                         {
-                          "value": "实际扣款/赎回/到账",
+                          "value": "周日 → 你本人执行 · 有效执行报告",
                           "format": "text"
                         },
                         {
-                          "value": "以真实账户为准",
+                          "value": "人工执行",
                           "format": "text"
                         },
                         {
-                          "value": "不自动交易、不伪造成交",
+                          "value": "部分可执行",
+                          "format": "text"
+                        },
+                        {
+                          "value": "用户按有效报告在真实账户执行。",
                           "format": "text"
                         }
-                      ]
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "parameter_node",
-                "title": "台账反馈｜下次评估输入",
-                "state_label": "正式评估缺数未完成",
-                "children": [
-                  {
-                    "type": "text",
-                    "text": "执行后回传并核对 · 真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
-                    "style": "muted"
-                  },
-                  {
-                    "type": "text",
-                    "text": "输入",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
+                      ],
                       [
                         {
-                          "value": "最新持仓快照日",
+                          "value": "你本人执行 → 台账反馈 · 实际执行结果",
+                          "format": "text"
+                        },
+                        {
+                          "value": "人工执行",
                           "format": "text"
                         },
                         {
@@ -12526,237 +12775,30 @@
                           "format": "text"
                         },
                         {
-                          "value": "position_snapshots",
+                          "value": "截图/回传→识别核对→台账。",
                           "format": "text"
                         }
                       ],
                       [
                         {
-                          "value": "快照基金数",
+                          "value": "台账反馈 → 月度 · 持仓与现金事实反馈",
                           "format": "text"
                         },
                         {
-                          "value": "10",
+                          "value": "事实反馈",
                           "format": "text"
                         },
                         {
-                          "value": "真实持仓反馈",
-                          "format": "text"
-                        }
-                      ]
-                    ]
-                  },
-                  {
-                    "type": "text",
-                    "text": "输出",
-                    "style": "section-title"
-                  },
-                  {
-                    "type": "table",
-                    "headers": [
-                      "项目",
-                      "当前值",
-                      "来源"
-                    ],
-                    "aligns": [],
-                    "class_name": "",
-                    "rows": [
-                      [
-                        {
-                          "value": "反馈去向",
+                          "value": "2026-11-20",
                           "format": "text"
                         },
                         {
-                          "value": "台账→派生重算→后续档位",
-                          "format": "text"
-                        },
-                        {
-                          "value": "人工事实反馈闭环",
+                          "value": "台账事实进入后续评估，形成闭环。",
                           "format": "text"
                         }
                       ]
                     ]
                   }
-                ]
-              },
-              {
-                "type": "text",
-                "text": "参数传递关系",
-                "style": "section-title"
-              },
-              {
-                "type": "table",
-                "headers": [
-                  "传递路径",
-                  "状态",
-                  "当前值",
-                  "说明"
-                ],
-                "aligns": [],
-                "class_name": "",
-                "rows": [
-                  [
-                    {
-                      "value": "季度 → 月度 · 核心比例与核心锁",
-                      "format": "text"
-                    },
-                    {
-                      "value": "未接线",
-                      "format": "text"
-                    },
-                    {
-                      "value": "2026-10-01 → 2026-12-31",
-                      "format": "text"
-                    },
-                    {
-                      "value": "锁或完成证据缺失。",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "季度 → 月度 · 四资产目标",
-                      "format": "text"
-                    },
-                    {
-                      "value": "同基准重算",
-                      "format": "text"
-                    },
-                    {
-                      "value": "暂无quarter_allocation_lock",
-                      "format": "text"
-                    },
-                    {
-                      "value": "同基准重算，不是独立锚锁；不得误标已传递。",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "月度 → 周日 · 周期预算锁",
-                      "format": "text"
-                    },
-                    {
-                      "value": "未接线",
-                      "format": "text"
-                    },
-                    {
-                      "value": "2026-11-20",
-                      "format": "text"
-                    },
-                    {
-                      "value": "预算锁或完成证据缺失。",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "月度 → 周日 · 卫星结构锁",
-                      "format": "text"
-                    },
-                    {
-                      "value": "未接线",
-                      "format": "text"
-                    },
-                    {
-                      "value": "2026-11-20 → 2026-12-19",
-                      "format": "text"
-                    },
-                    {
-                      "value": "卫星锁或完成证据缺失。",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "周日 → 每日 · 周日计划→每日",
-                      "format": "text"
-                    },
-                    {
-                      "value": "无直接链",
-                      "format": "text"
-                    },
-                    {
-                      "value": "无直接参数链",
-                      "format": "text"
-                    },
-                    {
-                      "value": "每日独立风控，不读取或重算周日金额。",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "每日 → 你本人执行 · 风控控制信号",
-                      "format": "text"
-                    },
-                    {
-                      "value": "独立控制",
-                      "format": "text"
-                    },
-                    {
-                      "value": "正式数据已生成",
-                      "format": "text"
-                    },
-                    {
-                      "value": "风控优先于实际动作。",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "周日 → 你本人执行 · 有效执行报告",
-                      "format": "text"
-                    },
-                    {
-                      "value": "人工执行",
-                      "format": "text"
-                    },
-                    {
-                      "value": "已阻断",
-                      "format": "text"
-                    },
-                    {
-                      "value": "用户按有效报告在真实账户执行。",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "你本人执行 → 台账反馈 · 实际执行结果",
-                      "format": "text"
-                    },
-                    {
-                      "value": "人工执行",
-                      "format": "text"
-                    },
-                    {
-                      "value": "2026-11-20",
-                      "format": "text"
-                    },
-                    {
-                      "value": "截图/回传→识别核对→台账。",
-                      "format": "text"
-                    }
-                  ],
-                  [
-                    {
-                      "value": "台账反馈 → 月度 · 持仓与现金事实反馈",
-                      "format": "text"
-                    },
-                    {
-                      "value": "事实反馈",
-                      "format": "text"
-                    },
-                    {
-                      "value": "2026-11-20",
-                      "format": "text"
-                    },
-                    {
-                      "value": "台账事实进入后续评估，形成闭环。",
-                      "format": "text"
-                    }
-                  ]
                 ]
               }
             ]
@@ -13691,7 +13733,7 @@
               "基金经理": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "规模风险": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "长期业绩": "无回测数据",
-              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等科技制造赛道，前十大重仓股占比70.55%且多为科创板/创业板高弹性标的（如南亚新材8.86%、鼎泰高科8.47%、源杰科技7.16%），11月20日单日净值跌3.83%时多只重仓股跌幅超7%（德福科技-7.82%、仕佳光子-8.11%、昀冢科技-9.29%），与同期科技板块调整高度同步。但缺乏基金经理变更、持仓集中度异常抬升或选股能力持续恶化等直接证据，无法判定基金自身质量是否恶化。"
+              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
             },
             "status": "pending",
             "trigger_kind": "",
@@ -13714,7 +13756,7 @@
               "基金经理": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "规模风险": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "长期业绩": "无回测数据",
-              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，精智达(7.33%)、东山精密(6.53%)、日联科技(5.54%)、芯碁微装(5.06%)、飞荣达(4.90%)、睿创微纳(4.63%)、南亚新材(4.14%)、剑桥科技(合计4.33%)等8只A股重仓标的在2026年11月2日至11月20日期间涨跌幅分别为-13.33%、-21.45%、-18.95%、+2.61%、-10.46%、-16.07%、-24.72%、-24.90%，除芯碁微装外其余7只均录得双位数跌幅，加权平均跌幅约-15.8%，与基金净值同期回撤幅度高度吻合；持仓集中于半导体设备、PCB/覆铜板、光模块等科技制造赛道，同期板块整体承压，回撤主因系赛道系统性调整而非个股alpha恶化。因缺乏基金经理变更、换手率异常、风格漂移等可核验数据，fund_quality_deteriorating无法判定。"
+              "归因": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
             },
             "status": "pending",
             "trigger_kind": "",
@@ -13833,7 +13875,7 @@
               "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近1月回撤-32.96%、近3月-48.78%，最大回撤起始于2026-06-25；2026Q3重仓股集中于电子(33.82%)、通信(20.08%)、机械设备(17.58%)等科技制造赛道，前十大重仓股占比70.55%且多为科创板/创业板高弹性标的（如南亚新材8.86%、鼎泰高科8.47%、源杰科技7.16%），11月20日单日净值跌3.83%时多只重仓股跌幅超7%（德福科技-7.82%、仕佳光子-8.11%、昀冢科技-9.29%），与同期科技板块调整高度同步。但缺乏基金经理变更、持仓集中度异常抬升或选股能力持续恶化等直接证据，无法判定基金自身质量是否恶化。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金017491近3个月最大回撤达48.78%，同期沪深300回撤仅13.90%；2026Q3重仓股集中于科技板块（电子33.82%、通信20.08%、机械设备17.58%），前十大重仓股在11月20日单日跌幅介于-1.23%至-9.29%之间，其中昀冢科技跌9.29%、仕佳光子跌8.11%、德福科技跌7.83%，显示持仓赛道出现集中回调。但缺乏该基金相对业绩基准的近期超额收益分解数据及基金经理调仓质量变化的可核验证据，无法判定fund_quality_deteriorating。"
             }
           },
           {
@@ -13856,7 +13898,7 @@
               "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
               "long_performance": null,
-              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363截至2026-09-30前十大重仓股中，精智达(7.33%)、东山精密(6.53%)、日联科技(5.54%)、芯碁微装(5.06%)、飞荣达(4.90%)、睿创微纳(4.63%)、南亚新材(4.14%)、剑桥科技(合计4.33%)等8只A股重仓标的在2026年11月2日至11月20日期间涨跌幅分别为-13.33%、-21.45%、-18.95%、+2.61%、-10.46%、-16.07%、-24.72%、-24.90%，除芯碁微装外其余7只均录得双位数跌幅，加权平均跌幅约-15.8%，与基金净值同期回撤幅度高度吻合；持仓集中于半导体设备、PCB/覆铜板、光模块等科技制造赛道，同期板块整体承压，回撤主因系赛道系统性调整而非个股alpha恶化。因缺乏基金经理变更、换手率异常、风格漂移等可核验数据，fund_quality_deteriorating无法判定。"
+              "attribution": "赛道整体回调=True；基金质量恶化=None；依据：基金010363近3月回撤-41.75%，同期同类平均-22.38%、沪深300为-13.90%；2026Q3持仓制造业占净值77.32%（其中电子26.16%、机械设备19.63%），前十大重仓股精智达、东山精密、日联科技等集中于半导体设备与PCB赛道，近期该赛道回调显著（如精智达11-20单日跌11.23%、汇聚科技跌11.31%）。但缺乏基金经理变更、持仓集中度异常恶化或选股能力持续下滑的可核验证据，无法判定基金质量是否恶化。"
             }
           },
           {
@@ -15312,14 +15354,14 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T03:47:15",
+    "generated_at": "2026-11-22T03:50:33",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
       "action_branches": [],
       "current_step": "execution",
       "current_text": "① 定投流程·本人真实账户执行",
-      "completed_formal_bands": 2,
+      "completed_formal_bands": 3,
       "next_action": "2026-11-23按106元计划执行，完成后回传实际扣款。",
       "missing": [
         "本轮无加仓指令",
@@ -15331,12 +15373,12 @@
           "id": "regular",
           "title": "① 定投流程",
           "lines": [
-            "等待正式评估",
+            "进行中｜等待本人执行",
             "周日评估 → 下周一执行 → 实际扣款回传",
-            "当前：评估与风控"
+            "当前：本人真实账户执行"
           ],
           "status": "current",
-          "status_label": "等待正式评估",
+          "status_label": "进行中｜等待本人执行",
           "out_label": "下一步",
           "reason": "2026-11-23按106元计划执行，完成后回传实际扣款。"
         },
@@ -15423,24 +15465,24 @@
         {
           "id": "regular",
           "title": "① 定投流程",
-          "state": "等待正式评估",
+          "state": "进行中｜等待本人执行",
           "cadence": "周日评估 → 下周一执行 → 实际扣款回传",
-          "current": 1,
+          "current": 3,
           "next": "2026-11-23按106元计划执行，完成后回传实际扣款。",
           "steps": [
             {
               "name": "评估与风控",
-              "status": "current",
+              "status": "done",
               "detail": "2026-11-20数据基准；暂停项逐只披露。"
             },
             {
               "name": "形成整数买入计划",
-              "status": "pending",
+              "status": "done",
               "detail": "计划合计106元；金额源已统一向下取整到元。"
             },
             {
               "name": "本人真实账户执行",
-              "status": "pending",
+              "status": "current",
               "detail": "2026-11-23执行106元；计划不等于成交。"
             },
             {
@@ -15561,7 +15603,7 @@
             {
               "name": "判定转换与目标基金",
               "status": "done",
-              "detail": "转换评估：本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评；候选核验：国泰黄金ETF联接C：问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐；易方达恒生港股通创新药ETF联接A：卫星内部占比超过其上限，仅限制新增，不单独产生卖出；嘉实中证新能源汽车指数C：评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增；华宝中证有色金属ETF联接A：评分46.5低于转换线60.0；南方中证500ETF联接(LOF)A：未达到真低估门槛；五维评分缺失；华夏沪深300ETF联接A：未达到真低估门槛；五维评分缺失；当前买入条件未通过"
+              "detail": "转换评估：本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评；候选核验：国泰黄金ETF联接C：商品价格分位或商品五维买入条件未通过；易方达恒生港股通创新药ETF联接A：卫星内部占比超过其上限，仅限制新增，不单独产生卖出；嘉实中证新能源汽车指数C：评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增；华宝中证有色金属ETF联接A：评分46.5低于转换线60.0；南方中证500ETF联接(LOF)A：未达到真低估门槛；五维评分缺失；华夏沪深300ETF联接A：未达到真低估门槛；五维评分缺失；当前买入条件未通过"
             },
             {
               "name": "本人按平台可转换份额执行",
@@ -15577,7 +15619,7 @@
           "lines": [
             "债比62.66%，目标48.89%，超出目标13.77个百分点／2933.14元；需要渐进再平衡；每周日只判定是否转换及目标基金；不输出预估金额，实际转换金额以成交回传为准；实际到账未分配现金0.00元",
             "转换评估：本周不转换；没有满足各资产自身买入条件与结构限制的基金，本周不转换，下周重评",
-            "候选核验：国泰黄金ETF联接C：问财无匹配数据:指数代码或成交额分位点未匹配；7天metric_cache不可用；商品价格分位或商品五维买入条件未通过；黄金商品信号未齐；易方达恒生港股通创新药ETF联接A：卫星内部占比超过其上限，仅限制新增，不单独产生卖出；嘉实中证新能源汽车指数C：评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增；华宝中证有色金属ETF联接A：评分46.5低于转换线60.0；南方中证500ETF联接(LOF)A：未达到真低估门槛；五维评分缺失；华夏沪深300ETF联接A：未达到真低估门槛；五维评分缺失；当前买入条件未通过",
+            "候选核验：国泰黄金ETF联接C：商品价格分位或商品五维买入条件未通过；易方达恒生港股通创新药ETF联接A：卫星内部占比超过其上限，仅限制新增，不单独产生卖出；嘉实中证新能源汽车指数C：评分58.0低于转换线60.0；被动池内部占比超过核心单基金参考上限，仅限制新增；华宝中证有色金属ETF联接A：评分46.5低于转换线60.0；南方中证500ETF联接(LOF)A：未达到真低估门槛；五维评分缺失；华夏沪深300ETF联接A：未达到真低估门槛；五维评分缺失；当前买入条件未通过",
             "不输出转换份额或预估金额；实际转换金额以理财通成交回传为准"
           ],
           "current": null,
@@ -15820,11 +15862,11 @@
         "title": "周日｜分批执行计划",
         "trigger": "周日，月度之后",
         "state": "blocked",
-        "state_label": "正式评估缺数未完成",
+        "state_label": "部分可执行",
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-22",
-        "generated_at": "2026-11-22T03:14:41",
+        "generated_at": "2026-11-22T03:47:42",
         "inputs": [
           {
             "label": "周期预算锁",
@@ -15850,7 +15892,7 @@
           },
           {
             "label": "可执行基金数",
-            "value": "0",
+            "value": "3",
             "source": "档位正式有效性"
           },
           {
@@ -15860,7 +15902,7 @@
           },
           {
             "label": "计划状态",
-            "value": "已阻断",
+            "value": "部分可执行",
             "source": "档位正式有效性"
           }
         ]
@@ -15905,15 +15947,15 @@
         "title": "你本人执行｜真实账户",
         "trigger": "按有效报告操作",
         "state": "blocked",
-        "state_label": "正式评估缺数未完成",
+        "state_label": "部分可执行",
         "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-22",
-        "generated_at": "2026-11-22T03:14:41",
+        "generated_at": "2026-11-22T03:47:42",
         "inputs": [
           {
             "label": "可执行计划",
-            "value": "已阻断",
+            "value": "部分可执行",
             "source": "周日报告"
           },
           {
@@ -16021,7 +16063,7 @@
         "target": "execution",
         "label": "有效执行报告",
         "status": "manual",
-        "actual": "已阻断",
+        "actual": "部分可执行",
         "guidance": "用户按有效报告在真实账户执行。",
         "status_label": "人工执行"
       },
@@ -18525,7 +18567,7 @@
     "ui_chain_status_independent": "独立运行",
     "ui_chain_band_flows": "本档操作流程",
     "ui_check_scan_rest": "展开其余 {n} 项正常/未触发检查",
-    "ui_monthly_details": "月度资金、复盘与持仓证据（按需展开）",
+    "ui_monthly_details": "月度判断依据、参数与传递关系（按需展开）",
     "ui_data_scale_partial": "基金规模数据待补",
     "ui_rebalance_data_missing": "债券占比或目标待补，本次仅展示已确认规则状态",
     "ui_h2_quarter_action": "季度行动结论",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T22:24:36",
+  "generated_at": "2026-11-21T22:38:36",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -5356,399 +5356,316 @@
                 "style": "muted"
               },
               {
-                "type": "fund_rows",
+                "type": "text",
+                "text": "表内左右滑动查看完整列；基金列固定。",
+                "style": "muted"
+              },
+              {
+                "type": "table",
+                "headers": [
+                  "基金",
+                  "层级",
+                  "定投",
+                  "加仓",
+                  "转换",
+                  "执行说明"
+                ],
+                "aligns": [
+                  "left",
+                  "center",
+                  "right",
+                  "right",
+                  "right",
+                  "left"
+                ],
+                "class_name": "operations-table-wrap",
                 "rows": [
-                  {
-                    "name": "南方中证500ETF联接(LOF)A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投32元",
-                        "kind": "pos"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "核心",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "按季度锁定的核心比例执行",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "华宝中证有色金属ETF联接A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投44元",
-                        "kind": "pos"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "卫星",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "按月度排名与剩余结构额度分配",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "兴全安泰积极养老目标五年FOF A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投30元",
-                        "kind": "pos"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "养老FOF",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "FOF固定周投，从权益预算独立承担",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "华夏沪深300ETF联接A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "核心",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "核心买入条件未满足，对应额度留现金",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "嘉实中证新能源汽车指数C",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "卫星",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "已达卫星结构上限，新增额度顺延下一名",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "易方达恒生港股通创新药ETF联接A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "卫星",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "已达卫星结构上限，新增额度顺延下一名",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "加仓：评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "国泰黄金ETF联接C",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "黄金",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "数据不完整：缺情绪，本笔不操作",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "富国添享一年持有债券A",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "债基",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "债券超配或预算不足，本期不新增",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "易方达高质量严选三年持有",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投不参与",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "主动权益",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "FOF/主动/持有期/暂停基金,不参与加仓评分",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "信澳匠心臻选两年持有",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投不参与",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "主动权益",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "FOF/主动/持有期/暂停基金,不参与加仓评分",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  },
-                  {
-                    "name": "财通景气甄选一年持有C",
-                    "code": "",
-                    "badges": [
-                      {
-                        "text": "定投不参与",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "加仓0元",
-                        "kind": "muted"
-                      },
-                      {
-                        "text": "转换0元",
-                        "kind": "muted"
-                      }
-                    ],
-                    "lines": [
-                      [
-                        {
-                          "value": "主动权益",
-                          "format": "text"
-                        }
-                      ],
-                      [
-                        {
-                          "value": "FOF/主动/持有期/暂停基金,不参与加仓评分",
-                          "format": "text"
-                        }
-                      ]
-                    ],
-                    "detail": "",
-                    "detail_style": "lead",
-                    "amount": null
-                  }
+                  [
+                    {
+                      "value": "南方中证500ETF联接(LOF)A",
+                      "format": "text"
+                    },
+                    {
+                      "value": "核心",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投32元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "按季度锁定的核心比例执行",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "华宝中证有色金属ETF联接A",
+                      "format": "text"
+                    },
+                    {
+                      "value": "卫星",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投44元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "按月度排名与剩余结构额度分配",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "兴全安泰积极养老目标五年FOF A",
+                      "format": "text"
+                    },
+                    {
+                      "value": "养老FOF",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投30元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "FOF固定周投，从权益预算独立承担",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "华夏沪深300ETF联接A",
+                      "format": "text"
+                    },
+                    {
+                      "value": "核心",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "核心买入条件未满足，对应额度留现金",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "嘉实中证新能源汽车指数C",
+                      "format": "text"
+                    },
+                    {
+                      "value": "卫星",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "已达卫星结构上限，新增额度顺延下一名",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "易方达恒生港股通创新药ETF联接A",
+                      "format": "text"
+                    },
+                    {
+                      "value": "卫星",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "已达卫星结构上限，新增额度顺延下一名；加仓：评分达标；当月加仓可用现金350.00元，按规则单次上限70.00元，低于单次下限100.00元，暂缓",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "国泰黄金ETF联接C",
+                      "format": "text"
+                    },
+                    {
+                      "value": "黄金",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "数据不完整：缺情绪，本笔不操作",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "富国添享一年持有债券A",
+                      "format": "text"
+                    },
+                    {
+                      "value": "债基",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "债券超配或预算不足，本期不新增",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "易方达高质量严选三年持有",
+                      "format": "text"
+                    },
+                    {
+                      "value": "主动权益",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投不参与",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "FOF/主动/持有期/暂停基金,不参与加仓评分",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "信澳匠心臻选两年持有",
+                      "format": "text"
+                    },
+                    {
+                      "value": "主动权益",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投不参与",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "FOF/主动/持有期/暂停基金,不参与加仓评分",
+                      "format": "text"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "财通景气甄选一年持有C",
+                      "format": "text"
+                    },
+                    {
+                      "value": "主动权益",
+                      "format": "text"
+                    },
+                    {
+                      "value": "定投不参与",
+                      "format": "text"
+                    },
+                    {
+                      "value": "加仓0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "转换0元",
+                      "format": "text"
+                    },
+                    {
+                      "value": "FOF/主动/持有期/暂停基金,不参与加仓评分",
+                      "format": "text"
+                    }
+                  ]
                 ]
               }
             ]
@@ -10183,6 +10100,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10227,6 +10145,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10297,6 +10216,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10355,6 +10275,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10425,6 +10346,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10483,6 +10405,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10567,6 +10490,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10611,6 +10535,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10667,6 +10592,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10711,6 +10637,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10753,6 +10680,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10797,6 +10725,7 @@
                       "来源"
                     ],
                     "aligns": [],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -10830,6 +10759,7 @@
                   "说明"
                 ],
                 "aligns": [],
+                "class_name": "",
                 "rows": [
                   [
                     {
@@ -13048,6 +12978,7 @@
                           "right",
                           "left"
                         ],
+                        "class_name": "",
                         "rows": [
                           [
                             {
@@ -13170,6 +13101,7 @@
                       "right",
                       "left"
                     ],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -13274,6 +13206,7 @@
                       "right",
                       "left"
                     ],
+                    "class_name": "",
                     "rows": [
                       [
                         {
@@ -13549,7 +13482,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-21T22:24:36",
+    "generated_at": "2026-11-21T22:38:36",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

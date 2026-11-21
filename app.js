@@ -63,15 +63,15 @@ function renderFundOperationsTable(node) {
     const cell = row[key] || {};
     return `<td class="action-cell">${esc(cell.compact_display || cell.display || '—')}</td>`;
   }).join('');
-  const summaryRow = group =>
-    `<tr class="role-summary-row"><th scope="row">${esc(group.label)}${group.fund_count ? `（${esc(group.fund_count)}只）` : ''}</th><td rowspan="${esc(group.rowspan)}" class="merged-role">${esc(group.role_label)}</td><td rowspan="${esc(group.rowspan)}" class="erp-cell">${esc(group.erp_amount)}</td>${actionCells(group)}<td class="summary-detail">${esc(group.detail)}</td></tr>`;
   const funds = (node.role_groups || []).map(group => {
+    const heading = `<tr class="role-heading-row"><th scope="rowgroup" colspan="6">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}只）` : ''}</th></tr>`;
     const members = (group.rows || []).map(row =>
-      `<tr class="fund-main"><th scope="row">${esc(row.fund_name)}</th>${actionCells(row)}<td class="fund-note-cell">${esc(row.detail)}</td></tr>`).join('');
-    return summaryRow(group) + members;
+      `<tr class="fund-main"><th scope="row" colspan="2">${esc(row.fund_name)}</th>${actionCells(row)}<td class="fund-note-cell">${esc(row.detail)}</td></tr>`).join('');
+    const subtotal = `<tr class="role-summary-row"><th scope="row">${esc(group.label)}</th><td class="erp-cell">${esc(group.erp_amount)}</td>${actionCells(group)}<td class="summary-detail">${esc(group.detail)}</td></tr>`;
+    return heading + members + subtotal;
   }).join('');
-  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}只）</th><td>全部</td><td class="erp-cell">${esc(node.total_summary.erp_amount)}</td>${actionCells(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
-  return `<section class="operations-table-shell"><div class="operations-table-toolbar"><span class="operations-orientation-hint">${esc(node.amount_rule || '')}</span><button type="button" class="operations-expand" data-operations-fullscreen aria-label="横屏全屏显示总表"><span>＋</span><b>横屏全屏</b></button></div><div class="operations-table-wrap"><table class="operations-table" aria-label="全持仓与三层资金分配总表"><colgroup><col class="col-fund"><col class="col-role"><col class="col-erp"><col class="col-action"><col class="col-action"><col class="col-action"><col class="col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
+  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}只）</th><td class="erp-cell">${esc(node.total_summary.erp_amount)}</td>${actionCells(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
+  return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table" aria-label="全持仓与三层资金分配总表"><colgroup><col class="col-fund"><col class="col-erp"><col class="col-action"><col class="col-action"><col class="col-action"><col class="col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
 }
 
 function renderChecks(items) {
@@ -229,69 +229,7 @@ function bindRuleSearch() {
   });
 }
 
-function syncOperationsButton(shell) {
-  const expanded = shell.classList.contains('is-expanded');
-  const button = shell.querySelector('[data-operations-fullscreen]');
-  if (!button) return;
-  button.querySelector('span').textContent = expanded ? '×' : '＋';
-  button.querySelector('b').textContent = expanded ? '退出全屏' : '横屏全屏';
-  button.setAttribute('aria-label', expanded ? '退出全屏' : '横屏全屏显示总表');
-}
-
-function cleanupOperationsTable(shell) {
-  shell.classList.remove('is-expanded');
-  if (shell.dataset.orientationLocked === '1') {
-    try { screen.orientation.unlock(); } catch (_) { /* 不支持时无需处理 */ }
-    delete shell.dataset.orientationLocked;
-  }
-  syncOperationsButton(shell);
-  if (!document.querySelector('.operations-table-shell.is-expanded')) {
-    document.body.classList.remove('operations-fullscreen-open');
-  }
-}
-
-async function openOperationsTable(shell) {
-  shell.classList.add('is-expanded');
-  document.body.classList.add('operations-fullscreen-open');
-  syncOperationsButton(shell);
-  try {
-    if (shell.requestFullscreen && !document.fullscreenElement) await shell.requestFullscreen();
-  } catch (_) { /* WebView不支持原生全屏时保留页面内全屏 */ }
-  try {
-    if (screen.orientation && screen.orientation.lock) {
-      await screen.orientation.lock('landscape');
-      shell.dataset.orientationLocked = '1';
-    }
-  } catch (_) { /* 不支持方向锁定时由用户旋转手机，CSS自动铺开六列 */ }
-}
-
-async function closeOperationsTable(shell) {
-  try {
-    if (document.fullscreenElement === shell && document.exitFullscreen) await document.exitFullscreen();
-  } catch (_) { /* 页面内全屏直接退出 */ }
-  cleanupOperationsTable(shell);
-}
-
-document.addEventListener('fullscreenchange', () => {
-  if (!document.fullscreenElement) {
-    document.querySelectorAll('.operations-table-shell.is-expanded').forEach(cleanupOperationsTable);
-  }
-});
-
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    document.querySelectorAll('.operations-table-shell.is-expanded').forEach(cleanupOperationsTable);
-  }
-});
-
 document.addEventListener('click', event => {
-  const operationsButton = event.target.closest('[data-operations-fullscreen]');
-  if (operationsButton) {
-    const shell = operationsButton.closest('.operations-table-shell');
-    if (shell.classList.contains('is-expanded')) closeOperationsTable(shell);
-    else openOperationsTable(shell);
-    return;
-  }
   const flowButton = event.target.closest('[data-band-flow]');
   if (flowButton) {
     window.__bandActiveFlow = window.__bandActiveFlow || {};
@@ -321,7 +259,6 @@ async function pollForUpdates() {
     if (!next.generated_at || next.generated_at === lastGeneratedAt) return;
     const activePage = document.querySelector('.page.active');
     const scrollY = window.scrollY;
-    document.querySelectorAll('.operations-table-shell.is-expanded').forEach(cleanupOperationsTable);
     D = next;
     U = D.ui_labels || {};
     lastGeneratedAt = D.generated_at;

@@ -83,7 +83,7 @@ function renderDailyFundOperationsTable(node) {
       `<tr class="fund-main"><th scope="row" colspan="2">${esc(row.fund_name)}</th>${reduceCell(row)}<td class="fund-note-cell">${esc(row.detail)}</td></tr>`).join('');
     return heading + members;
   }).join('');
-  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row" colspan="2">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}只）</th>${reduceCell(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
+  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}只）</th><td class="erp-cell">${esc(node.total_summary.erp_amount ?? '—')}</td>${reduceCell(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
   return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table daily-operations-table" aria-label="每日全持仓减仓总表"><colgroup><col class="daily-col-fund"><col class="daily-col-erp"><col class="daily-col-action"><col class="daily-col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
 }
 
@@ -114,12 +114,12 @@ function renderWorkflow(node) {
 function renderMonthlyFundOperationsTable(node) {
   const head = (node.headers || []).map(label => `<th scope="col">${esc(label)}</th>`).join('');
   const groups = (node.role_groups || []).map(group => {
-    const heading = `<tr class="role-heading-row"><th colspan="2" scope="row">${esc(group.role_label || group.label || '')}（${group.fund_count || 0}只）</th><td class="erp-cell">${esc(group.erp_amount ?? '—')}</td><td colspan="3" class="role-allocation-note">${esc(group.detail || '')}</td></tr>`;
+    const heading = `<tr class="role-heading-row"><th scope="row">${esc(group.role_label || group.label || '')}（${group.fund_count || 0}只）</th><td class="erp-cell">${esc(group.erp_amount ?? '—')}</td><td colspan="3" class="role-allocation-note">${esc(group.detail || '')}</td></tr>`;
     const funds = (group.rows || []).map(row => `<tr class="fund-row fund-main"><th colspan="2" scope="row">${esc(row.fund_name || '')}</th><td class="action-cell">${esc((row.month_end || {}).compact_display || '—')}</td><td class="action-cell">${esc((row.cash_inflow || {}).compact_display || '—')}</td><td class="fund-note-cell">${esc(row.detail || '—')}</td></tr>`).join('');
     return heading + funds;
   }).join('');
   const total = node.total_summary || {};
-  const footer = `<tr class="fund-row grand-total-row"><th colspan="2" scope="row">${esc(total.label || '')}（${total.fund_count || 0}只）</th><td class="erp-cell">${esc(total.erp_amount ?? '—')}</td><td class="action-cell">${esc((total.month_end || {}).compact_display || '—')}</td><td class="action-cell">${esc((total.cash_inflow || {}).compact_display || '—')}</td><td class="fund-note-cell">${esc(total.detail || '')}</td></tr>`;
+  const footer = `<tr class="fund-row grand-total-row"><th scope="row">${esc(total.label || '')}（${total.fund_count || 0}只）</th><td class="erp-cell">${esc(total.erp_amount ?? '—')}</td><td class="action-cell">${esc((total.month_end || {}).compact_display || '—')}</td><td class="action-cell">${esc((total.cash_inflow || {}).compact_display || '—')}</td><td class="fund-note-cell">${esc(total.detail || '')}</td></tr>`;
   return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table monthly-operations-table"><colgroup><col class="monthly-col-fund"><col class="monthly-col-erp"><col class="monthly-col-close"><col class="monthly-col-inflow"><col class="monthly-col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${groups}${footer}</tbody></table></div><p class="table-caption">${esc(node.amount_rule || '')}</p></div>`;
 }
 

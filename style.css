@@ -363,15 +363,6 @@ details[open] > summary { margin-bottom: var(--sp-2); }
 .workflow-lines > div { margin-top: var(--sp-2); }
 
 /* 17. 参数链紧凑总览＋单流程视图（M40） */
-.flow-overview-list { display: grid; gap: var(--sp-2); }
-.flow-overview { width: 100%; text-align: left; border: 1px solid var(--c-border); border-radius: var(--radius-s); background: var(--c-surface); padding: var(--sp-3); color: var(--c-text-1); min-height: var(--tap); }
-.flow-overview.active { border-color: var(--c-primary); background: var(--c-primary-soft, #eaf3ff); }
-.flow-overview-top { display: flex; flex-wrap: wrap; gap: var(--sp-2); justify-content: space-between; }
-.flow-overview-top em { font-size: var(--fs-sm); font-style: normal; color: var(--c-primary); font-weight: 700; }
-.flow-overview-current, .flow-overview-next { display: block; margin-top: var(--sp-1); font-size: var(--fs-sm); }
-.flow-overview-next { color: var(--c-text-2); }
-.flow-overview-band, .flow-overview-open { display: block; margin-top: var(--sp-1); font-size: var(--fs-xs); color: var(--c-text-3); }
-.flow-overview-open { color: var(--c-primary); font-weight: 700; }
 .parameter-node { margin-top: var(--sp-2); border: 1px solid var(--c-border); border-radius: var(--radius-s); padding: var(--sp-2) var(--sp-3); }
 .parameter-node > summary { display: flex; flex-wrap: wrap; gap: var(--sp-2); justify-content: space-between; min-height: var(--tap); align-items: center; }
 .parameter-node > summary em { font-style: normal; color: var(--c-primary); font-size: var(--fs-sm); }

@@ -64,11 +64,10 @@ function renderFundOperationsTable(node) {
     return `<td class="action-cell">${esc(cell.compact_display || cell.display || '—')}</td>`;
   }).join('');
   const funds = (node.role_groups || []).map(group => {
-    const heading = `<tr class="role-heading-row"><th scope="rowgroup" colspan="6">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}只）` : ''}</th></tr>`;
+    const heading = `<tr class="role-heading-row"><th scope="rowgroup">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}只）` : ''}</th><td class="erp-cell">${esc(group.erp_amount)}</td><td class="role-heading-detail" colspan="4">${esc(group.detail)}</td></tr>`;
     const members = (group.rows || []).map(row =>
       `<tr class="fund-main"><th scope="row" colspan="2">${esc(row.fund_name)}</th>${actionCells(row)}<td class="fund-note-cell">${esc(row.detail)}</td></tr>`).join('');
-    const subtotal = `<tr class="role-summary-row"><th scope="row">${esc(group.label)}</th><td class="erp-cell">${esc(group.erp_amount)}</td>${actionCells(group)}<td class="summary-detail">${esc(group.detail)}</td></tr>`;
-    return heading + members + subtotal;
+    return heading + members;
   }).join('');
   const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}只）</th><td class="erp-cell">${esc(node.total_summary.erp_amount)}</td>${actionCells(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
   return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table" aria-label="全持仓与三层资金分配总表"><colgroup><col class="col-fund"><col class="col-erp"><col class="col-action"><col class="col-action"><col class="col-action"><col class="col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T14:28:30",
+  "generated_at": "2026-11-22T14:34:00",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -16,10 +16,10 @@
     "160119": "南方中证500ETF联接(LOF)A"
   },
   "status": {
-    "label": "部分数据不足，受影响动作已拦截",
-    "description": "只显示当前有效结论",
+    "label": "周度候选基金数据不足，相关加仓已拦截",
+    "description": "000051、160119 缺情绪数据；养老测算覆盖全部当前持仓，不受影响",
     "display_role": "cross_band_summary",
-    "display_page": "page-retirement",
+    "display_page": "page-band",
     "source_bands": [
       "band_eval"
     ]
@@ -21809,7 +21809,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T14:28:30",
+    "generated_at": "2026-11-22T14:34:00",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -25143,6 +25143,8 @@
     "ui_data_issue_attempts": "自动处理轨迹",
     "ui_data_issue_attempts_value": "尝试{attempts}次 · 升级{escalations}次",
     "ui_data_issue_status": "处理状态",
-    "ui_data_issue_next": "系统下一动作"
+    "ui_data_issue_next": "系统下一动作",
+    "ui_data_partial_eval": "周度候选基金数据不足，相关加仓已拦截",
+    "ui_data_partial_eval_desc": "{funds} 缺情绪数据；养老测算覆盖全部当前持仓，不受影响"
   }
 }

@@ -9,12 +9,12 @@ let U = {};
 const $ = id => document.getElementById(id);
 const has = v => v !== null && v !== undefined && v !== '';
 
-const STATUS_LABELS = { '🔴': '【行动】', '⚠️': '【观察】', '🟢': '【正常】', '🟡': '【提示】', '💰': '【资金】' };
-const statusText = v => String(v ?? '').replace(/🔴|⚠️|🟢|🟡|💰/g, c => STATUS_LABELS[c] || c);
+const STATUS_KEYS = { '🔴': 'ui_status_action', '⚠️': 'ui_status_watch', '🟢': 'ui_status_normal', '🟡': 'ui_status_hint', '💰': 'ui_status_cash' };
+const statusText = v => String(v ?? '').replace(/🔴|⚠️|🟢|🟡|💰/g, c => U[STATUS_KEYS[c]] || c);
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const money = v => !has(v) || !Number.isFinite(Number(v)) ? '—' : `${Number(v).toLocaleString('zh-CN', { maximumFractionDigits: 2 })}元`;
+const money = v => !has(v) || !Number.isFinite(Number(v)) ? '—' : `${Number(v).toLocaleString('zh-CN', { maximumFractionDigits: 2 })}${U.ui_unit_yuan || ''}`;
 const pct = v => !has(v) || !Number.isFinite(Number(v)) ? '—' : `${Number(v).toFixed(2)}%`;
-const dateText = v => has(v) ? String(v) : '未记录基准日';
+const dateText = v => has(v) ? String(v) : (U.ui_date_unrecorded || '');
 const dateTimeText = v => has(v) ? String(v).replace('T', ' ').replace(/(\d{2}:\d{2}):\d{2}$/, '$1') : '';
 
 // 显示值是引擎投影中的格式化指令，不含任何业务判定。

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T10:02:33",
+  "generated_at": "2026-11-22T10:04:47",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -13410,6 +13410,108 @@
             "2026-11-20"
           ],
           "missing_coverage": []
+        },
+        {
+          "issue_key": "benchmark_quarter:恒生指数:unit",
+          "source": "AI涨乐",
+          "target_key": "恒生指数",
+          "metric": "季度涨跌幅",
+          "period_type": "QUARTER",
+          "expected_coverage_json": "[\"2025-12-31\",\"2026-03-31\",\"2026-06-30\",\"2026-09-30\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2025-12-31\",\"2026-03-31\",\"2026-06-30\",\"2026-09-30\"]",
+          "last_success_date": null,
+          "error_category": "unit_missing",
+          "raw_error": "JSON四季度有值但无单位字段",
+          "human_message": "恒生指数四季度有数值，但响应没有单位字段，尚未通过生产入库契约",
+          "next_action": "自动重试带return_unit的严格JSON；验收后写入原始季度序列",
+          "status": "resolved",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-22T01:35:02+00:00",
+          "last_attempt_at": "2026-11-22T01:35:02+00:00",
+          "resolved_at": "2026-11-22T02:01:31+00:00",
+          "created_at": "2026-11-22T01:35:02+00:00",
+          "updated_at": "2026-11-22T02:01:31+00:00",
+          "expected_coverage": [
+            "2025-12-31",
+            "2026-03-31",
+            "2026-06-30",
+            "2026-09-30"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2025-12-31",
+            "2026-03-31",
+            "2026-06-30",
+            "2026-09-30"
+          ]
+        },
+        {
+          "issue_key": "cross_source:000300:2026-11-18",
+          "source": "AI涨乐／Wind",
+          "target_key": "000300.SH",
+          "metric": "成交额",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-18\"]",
+          "actual_coverage_json": "[\"2026-11-18\"]",
+          "missing_coverage_json": "[]",
+          "last_success_date": null,
+          "error_category": "source_mismatch",
+          "raw_error": "AI=3899.14；Wind=3095.06（AI响应未标单位）",
+          "human_message": "两个来源在2026-11-18成交额不一致，不能静默任选其一",
+          "next_action": "保留双源原值与差异；生产评分切换前用第三源原始值复核",
+          "status": "resolved",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-22T01:35:02+00:00",
+          "last_attempt_at": "2026-11-22T01:35:02+00:00",
+          "resolved_at": "2026-11-22T01:56:33+00:00",
+          "created_at": "2026-11-22T01:35:02+00:00",
+          "updated_at": "2026-11-22T01:56:33+00:00",
+          "expected_coverage": [
+            "2026-11-18"
+          ],
+          "actual_coverage": [
+            "2026-11-18"
+          ],
+          "missing_coverage": []
+        },
+        {
+          "issue_key": "benchmark_quarter:中证港股通综合指数",
+          "source": "AI涨乐／东方财富妙想",
+          "target_key": "中证港股通综合指数",
+          "metric": "季度涨跌幅",
+          "period_type": "QUARTER",
+          "expected_coverage_json": "[\"2025-12-31\",\"2026-03-31\",\"2026-06-30\",\"2026-09-30\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2025-12-31\",\"2026-03-31\",\"2026-06-30\",\"2026-09-30\"]",
+          "last_success_date": null,
+          "error_category": "target_not_matched",
+          "raw_error": "AI四季度全空；妙想误路由债券市场统计",
+          "human_message": "中证港股通综合指数四季度尚未取得可验收序列；AI返回空值，妙想返回的不是目标指数",
+          "next_action": "先确认指数代码再自动换源重试；不得按0或用其他指数替代",
+          "status": "resolved",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-22T01:35:02+00:00",
+          "last_attempt_at": "2026-11-22T01:35:02+00:00",
+          "resolved_at": "2026-11-22T01:55:42+00:00",
+          "created_at": "2026-11-22T01:35:02+00:00",
+          "updated_at": "2026-11-22T01:55:42+00:00",
+          "expected_coverage": [
+            "2025-12-31",
+            "2026-03-31",
+            "2026-06-30",
+            "2026-09-30"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2025-12-31",
+            "2026-03-31",
+            "2026-06-30",
+            "2026-09-30"
+          ]
         }
       ],
       "five_dimension_scores": {
@@ -16700,6 +16802,189 @@
                             "label": "系统下一动作",
                             "value": {
                               "value": "每日增量继续累计；年度自动补齐历史交易日历并复核缺失／多余日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "恒生指数 · 季度涨跌幅",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "恒生指数四季度有数值，但响应没有单位字段，尚未通过生产入库契约",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "AI涨乐",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/4个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "自动重试带return_unit的严格JSON；验收后写入原始季度序列",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "000300.SH · 成交额",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "两个来源在2026-11-18成交额不一致，不能静默任选其一",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "AI涨乐／Wind",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "1/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "保留双源原值与差异；生产评分切换前用第三源原始值复核",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "中证港股通综合指数 · 季度涨跌幅",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "中证港股通综合指数四季度尚未取得可验收序列；AI返回空值，妙想返回的不是目标指数",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "AI涨乐／东方财富妙想",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/4个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "先确认指数代码再自动换源重试；不得按0或用其他指数替代",
                               "format": "text"
                             },
                             "tone": "",
@@ -21611,7 +21896,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T10:02:33",
+    "generated_at": "2026-11-22T10:04:47",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

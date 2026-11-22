@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T19:39:01",
+  "generated_at": "2026-11-22T19:40:06",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -3085,14 +3085,14 @@
     "band_eval": {
       "band": "band_eval",
       "title": "周日档 · 定投评估",
-      "summary": "部分操作可执行，其余因数据不足已拦截",
+      "summary": "部分操作可执行，其余受规则/结构限制",
       "validity": {
         "publishable": true,
         "as_of": "2026-11-22T14:45:38",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "partial",
-        "headline": "部分操作可执行，其余因数据不足已拦截",
+        "headline": "部分操作可执行，其余受规则/结构限制",
         "data_complete": true,
         "actions": [
           {
@@ -3247,8 +3247,8 @@
         {
           "fund_code": "024328",
           "fund_name": "易方达恒生港股通创新药ETF联接A",
-          "action": "定投",
-          "amount": 65.0,
+          "action": "暂停",
+          "amount": 0.0,
           "reason": "估值分位排名第1，按对应档位定投",
           "params": {
             "rank": 1,
@@ -3264,8 +3264,8 @@
         {
           "fund_code": "012544",
           "fund_name": "嘉实中证新能源汽车指数C",
-          "action": "定投",
-          "amount": 40.0,
+          "action": "暂停",
+          "amount": 0.0,
           "reason": "估值分位排名第2，按对应档位定投",
           "params": {
             "rank": 2,
@@ -3282,7 +3282,7 @@
           "fund_code": "017140",
           "fund_name": "华宝中证有色金属ETF联接A",
           "action": "定投",
-          "amount": 25.0,
+          "amount": 44.0,
           "reason": "估值分位排名第3，按对应档位定投",
           "params": {
             "rank": 3,
@@ -3310,10 +3310,58 @@
           }
         },
         {
+          "fund_code": "160119",
+          "fund_name": "南方中证500ETF联接(LOF)A",
+          "action": "定投",
+          "amount": 32.0,
+          "reason": "core_locked_ratio",
+          "params": {
+            "role": "core",
+            "reason_code": "core_locked_ratio",
+            "valuation_pct": 61.5,
+            "market_value": 0.0,
+            "cost": 0.0,
+            "profit_rate": 0.0,
+            "current_amount": 0.0
+          }
+        },
+        {
+          "fund_code": "000051",
+          "fund_name": "华夏沪深300ETF联接A",
+          "action": "暂停",
+          "amount": 0.0,
+          "reason": "core_buy_blocked_cash_retained",
+          "params": {
+            "role": "core",
+            "reason_code": "core_buy_blocked_cash_retained",
+            "valuation_pct": 74.97,
+            "market_value": 0.0,
+            "cost": 0.0,
+            "profit_rate": 0.0,
+            "current_amount": 0.0
+          }
+        },
+        {
+          "fund_code": "004253",
+          "fund_name": "国泰黄金ETF联接C",
+          "action": "暂停",
+          "amount": 0.0,
+          "reason": "gold_signal_or_target_blocked",
+          "params": {
+            "role": "gold",
+            "reason_code": "gold_signal_or_target_blocked",
+            "valuation_pct": 75.86,
+            "market_value": 1154.81,
+            "cost": 1360.7,
+            "profit_rate": -15.13,
+            "current_amount": 0.0
+          }
+        },
+        {
           "fund_code": "009290",
           "fund_name": "富国添享一年持有债券A",
-          "action": "观察",
-          "amount": null,
+          "action": "暂停",
+          "amount": 0.0,
           "reason": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示",
           "params": {
             "rebalance": {
@@ -3998,44 +4046,10 @@
       "attention_items": [],
       "normal_items": [
         {
-          "fund_code": "024328",
-          "fund_name": "易方达恒生港股通创新药ETF联接A",
-          "action": "定投",
-          "amount": 65.0,
-          "reason": "估值分位排名第1，按对应档位定投",
-          "params": {
-            "rank": 1,
-            "amount": 65.0,
-            "valuation_pct": 4.6,
-            "valuation_band": "极度低估",
-            "market_value": 1882.34,
-            "cost": 2146.98,
-            "profit_rate": -12.33,
-            "current_amount": 65.0
-          }
-        },
-        {
-          "fund_code": "012544",
-          "fund_name": "嘉实中证新能源汽车指数C",
-          "action": "定投",
-          "amount": 40.0,
-          "reason": "估值分位排名第2，按对应档位定投",
-          "params": {
-            "rank": 2,
-            "amount": 40.0,
-            "valuation_pct": 6.41,
-            "valuation_band": "极度低估",
-            "market_value": 1331.61,
-            "cost": 1466.74,
-            "profit_rate": -9.21,
-            "current_amount": 40.0
-          }
-        },
-        {
           "fund_code": "017140",
           "fund_name": "华宝中证有色金属ETF联接A",
           "action": "定投",
-          "amount": 25.0,
+          "amount": 44.0,
           "reason": "估值分位排名第3，按对应档位定投",
           "params": {
             "rank": 3,
@@ -4063,51 +4077,19 @@
           }
         },
         {
-          "fund_code": "009290",
-          "fund_name": "富国添享一年持有债券A",
-          "action": "观察",
-          "amount": null,
-          "reason": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示",
+          "fund_code": "160119",
+          "fund_name": "南方中证500ETF联接(LOF)A",
+          "action": "定投",
+          "amount": 32.0,
+          "reason": "core_locked_ratio",
           "params": {
-            "rebalance": {
-              "erp_state": "high",
-              "erp_label": "高估",
-              "flows": {
-                "equity": 560.0,
-                "debt": 880.0,
-                "gold": 180.0,
-                "cash": 180.0
-              },
-              "monthly_budget": 1800.0,
-              "debt_market": null,
-              "debt_weight": null,
-              "debt_target": null,
-              "start_line": null,
-              "lower_line": null,
-              "active": false,
-              "mode": "p2_pending",
-              "engine_contract": "four_asset_p1c_gate",
-              "daily_reference": null,
-              "rank1_fund_code": null,
-              "target_fund_name": null,
-              "action": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示",
-              "budget_lock": {
-                "period_start": "2026-11-20",
-                "period_end": "2026-12-19",
-                "erp_state": "high",
-                "equity_month": 560.0,
-                "debt_month": 880.0,
-                "gold_month": 180.0,
-                "cash_month": 180.0,
-                "debt_daily_reference": 40.0,
-                "locked": true
-              },
-              "actual_amount_note": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示"
-            },
-            "market_value": 13002.78,
-            "cost": 13100.78,
-            "profit_rate": -0.75,
-            "current_amount": 45.0
+            "role": "core",
+            "reason_code": "core_locked_ratio",
+            "valuation_pct": 61.5,
+            "market_value": 0.0,
+            "cost": 0.0,
+            "profit_rate": 0.0,
+            "current_amount": 0.0
           }
         }
       ],
@@ -22116,7 +22098,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T19:39:01",
+    "generated_at": "2026-11-22T19:40:06",
     "projection_id": "wf_3fdd2f6a242db0bc",
     "visual": {
       "title": "操作流程总览",

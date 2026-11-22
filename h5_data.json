@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T17:31:07",
+  "generated_at": "2026-11-22T17:33:25",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -22116,7 +22116,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T17:31:07",
+    "generated_at": "2026-11-22T17:33:25",
     "projection_id": "wf_8d3fd82e277e75f1",
     "visual": {
       "title": "操作流程总览",
@@ -25580,6 +25580,33 @@
     "ui_data_issue_status": "处理状态",
     "ui_data_issue_next": "系统下一动作",
     "ui_data_partial_eval": "周度候选基金数据不足，相关加仓已拦截",
-    "ui_data_partial_eval_desc": "{funds} 缺情绪数据；养老测算覆盖全部当前持仓，不受影响"
+    "ui_data_partial_eval_desc": "{funds} 缺情绪数据；养老测算覆盖全部当前持仓，不受影响",
+    "ui_status_action": "【行动】",
+    "ui_status_watch": "【观察】",
+    "ui_status_normal": "【正常】",
+    "ui_status_hint": "【提示】",
+    "ui_status_cash": "【资金】",
+    "ui_nav_retirement": "养老",
+    "ui_nav_daily": "每日",
+    "ui_nav_eval": "周日",
+    "ui_nav_monthly": "月度",
+    "ui_nav_quarter": "季度",
+    "ui_total": "合计",
+    "ui_base": "基准",
+    "ui_date_unrecorded": "未记录基准日",
+    "ui_unit_yuan": "元",
+    "ui_rule_search_placeholder": "搜索章节名称，例如：定投、减仓、回撤",
+    "ui_rule_no_match": "没有匹配的章节。",
+    "ui_render_error": "区块渲染失败",
+    "ui_data_read_error": "页面数据读取失败",
+    "ui_retry": "重试",
+    "ui_auto_refresh_warn": "H5自动刷新暂未成功",
+    "ui_page_generated": "页面生成",
+    "ui_aria_operations": "全持仓与三层资金分配总表",
+    "ui_aria_daily": "每日全持仓减仓总表",
+    "ui_aria_table": "数据表格，可左右滑动",
+    "ui_range_sep": "至",
+    "ui_fund_count_unit": "只",
+    "ui_colon": "："
   }
 }

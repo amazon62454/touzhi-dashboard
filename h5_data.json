@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T16:15:52",
+  "generated_at": "2026-11-22T16:17:10",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -19087,7 +19087,7 @@
             "score_complete": false,
             "score_state": "待完整五维评分",
             "detail_lines": [
-              "待补：评分、费率"
+              "待补：评分、规模、费率、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 11.01,
@@ -19110,7 +19110,7 @@
             "score_complete": false,
             "score_state": "待完整五维评分",
             "detail_lines": [
-              "待补：评分、费率"
+              "待补：评分、规模、费率、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 24.36,
@@ -19133,7 +19133,7 @@
             "score_complete": false,
             "score_state": "待完整五维评分",
             "detail_lines": [
-              "待补：评分、费率"
+              "待补：评分、规模、费率、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 23.33,
@@ -19156,7 +19156,7 @@
             "score_complete": false,
             "score_state": "待完整五维评分",
             "detail_lines": [
-              "待补：评分"
+              "待补：评分、规模、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 19.55,
@@ -19179,7 +19179,7 @@
             "score_complete": false,
             "score_state": "待完整五维评分",
             "detail_lines": [
-              "待补：评分、费率"
+              "待补：评分、规模、费率、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 1.98,
@@ -19202,7 +19202,7 @@
             "score_complete": false,
             "score_state": "待完整五维评分",
             "detail_lines": [
-              "待补：评分"
+              "待补：评分、规模、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 8.11,
@@ -21337,7 +21337,7 @@
                     "score_complete": false,
                     "score_state": "待完整五维评分",
                     "detail_lines": [
-                      "待补：评分、费率"
+                      "待补：评分、规模、费率、估值高估、资金撤离"
                     ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 11.01,
@@ -21360,7 +21360,7 @@
                     "score_complete": false,
                     "score_state": "待完整五维评分",
                     "detail_lines": [
-                      "待补：评分、费率"
+                      "待补：评分、规模、费率、估值高估、资金撤离"
                     ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 24.36,
@@ -21383,7 +21383,7 @@
                     "score_complete": false,
                     "score_state": "待完整五维评分",
                     "detail_lines": [
-                      "待补：评分、费率"
+                      "待补：评分、规模、费率、估值高估、资金撤离"
                     ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 23.33,
@@ -21406,7 +21406,7 @@
                     "score_complete": false,
                     "score_state": "待完整五维评分",
                     "detail_lines": [
-                      "待补：评分"
+                      "待补：评分、规模、估值高估、资金撤离"
                     ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 19.55,
@@ -21429,7 +21429,7 @@
                     "score_complete": false,
                     "score_state": "待完整五维评分",
                     "detail_lines": [
-                      "待补：评分、费率"
+                      "待补：评分、规模、费率、估值高估、资金撤离"
                     ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 1.98,
@@ -21452,7 +21452,7 @@
                     "score_complete": false,
                     "score_state": "待完整五维评分",
                     "detail_lines": [
-                      "待补：评分"
+                      "待补：评分、规模、估值高估、资金撤离"
                     ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 8.11,
@@ -22003,7 +22003,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T16:15:52",
+    "generated_at": "2026-11-22T16:17:10",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

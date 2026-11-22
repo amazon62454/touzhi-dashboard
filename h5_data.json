@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T09:56:04",
+  "generated_at": "2026-11-22T09:57:09",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -8544,36 +8544,6 @@
           ]
         },
         {
-          "issue_key": "cross_source:000300:2026-11-18",
-          "source": "AI涨乐／Wind",
-          "target_key": "000300.SH",
-          "metric": "成交额",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-18\"]",
-          "actual_coverage_json": "[\"2026-11-18\"]",
-          "missing_coverage_json": "[]",
-          "last_success_date": null,
-          "error_category": "source_mismatch",
-          "raw_error": "AI=3899.14；Wind=3095.06（AI响应未标单位）",
-          "human_message": "两个来源在2026-11-18成交额不一致，不能静默任选其一",
-          "next_action": "保留双源原值与差异；生产评分切换前用第三源原始值复核",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
-          "first_seen_at": "2026-11-22T01:35:02+00:00",
-          "last_attempt_at": "2026-11-22T01:35:02+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-22T01:35:02+00:00",
-          "updated_at": "2026-11-22T01:35:02+00:00",
-          "expected_coverage": [
-            "2026-11-18"
-          ],
-          "actual_coverage": [
-            "2026-11-18"
-          ],
-          "missing_coverage": []
-        },
-        {
           "issue_key": "calendar:000300.SH",
           "source": "交易日历",
           "target_key": "000300.SH",
@@ -8585,8 +8555,8 @@
           "last_success_date": null,
           "error_category": "calendar_unverified",
           "raw_error": "2026年前独立日历尚未入库",
-          "human_message": "五年原始序列已入库且未截断，但2021—2025年独立交易日历尚未核验",
-          "next_action": "自动补齐历史交易日历并复核缺失／多余日期；完成前不接生产评分",
+          "human_message": "五年原始序列已入库且未截断；2021—2025年独立交易日历仍待核验，当前不阻断评分但保留质量提示",
+          "next_action": "每日增量继续累计；年度自动补齐历史交易日历并复核缺失／多余日期",
           "status": "open",
           "attempt_count": 1,
           "escalation_count": 0,
@@ -8594,7 +8564,7 @@
           "last_attempt_at": "2026-11-22T01:35:02+00:00",
           "resolved_at": null,
           "created_at": "2026-11-22T01:35:02+00:00",
-          "updated_at": "2026-11-22T01:35:02+00:00",
+          "updated_at": "2026-11-22 01:56:33",
           "expected_coverage": [
             "2021-11-22",
             "2021-11-23",
@@ -11037,8 +11007,8 @@
           "last_success_date": null,
           "error_category": "calendar_unverified",
           "raw_error": "2026年前独立日历尚未入库",
-          "human_message": "五年原始序列已入库且未截断，但2021—2025年独立交易日历尚未核验",
-          "next_action": "自动补齐历史交易日历并复核缺失／多余日期；完成前不接生产评分",
+          "human_message": "五年原始序列已入库且未截断；2021—2025年独立交易日历仍待核验，当前不阻断评分但保留质量提示",
+          "next_action": "每日增量继续累计；年度自动补齐历史交易日历并复核缺失／多余日期",
           "status": "open",
           "attempt_count": 1,
           "escalation_count": 0,
@@ -11046,7 +11016,7 @@
           "last_attempt_at": "2026-11-22T01:35:02+00:00",
           "resolved_at": null,
           "created_at": "2026-11-22T01:35:02+00:00",
-          "updated_at": "2026-11-22T01:35:02+00:00",
+          "updated_at": "2026-11-22 01:56:33",
           "expected_coverage": [
             "2021-11-22",
             "2021-11-23",
@@ -16587,7 +16557,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "当前5项待处理；系统持续自动补数与升级，不依赖人工识别",
+                        "text": "当前4项待处理；系统持续自动补数与升级，不依赖人工识别",
                         "style": "lead"
                       },
                       {
@@ -16718,68 +16688,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "text": "两个来源在2026-11-18成交额不一致，不能静默任选其一",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "AI涨乐／Wind",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "1/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试1次 · 升级0次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "待处理",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "保留双源原值与差异；生产评分切换前用第三源原始值复核",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "000300.SH · 成交额",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "五年原始序列已入库且未截断，但2021—2025年独立交易日历尚未核验",
+                            "text": "五年原始序列已入库且未截断；2021—2025年独立交易日历仍待核验，当前不阻断评分但保留质量提示",
                             "style": "warn"
                           },
                           {
@@ -16826,7 +16735,7 @@
                             "type": "kv",
                             "label": "系统下一动作",
                             "value": {
-                              "value": "自动补齐历史交易日历并复核缺失／多余日期；完成前不接生产评分",
+                              "value": "每日增量继续累计；年度自动补齐历史交易日历并复核缺失／多余日期",
                               "format": "text"
                             },
                             "tone": "",
@@ -16840,7 +16749,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "text": "五年原始序列已入库且未截断，但2021—2025年独立交易日历尚未核验",
+                            "text": "五年原始序列已入库且未截断；2021—2025年独立交易日历仍待核验，当前不阻断评分但保留质量提示",
                             "style": "warn"
                           },
                           {
@@ -16887,7 +16796,7 @@
                             "type": "kv",
                             "label": "系统下一动作",
                             "value": {
-                              "value": "自动补齐历史交易日历并复核缺失／多余日期；完成前不接生产评分",
+                              "value": "每日增量继续累计；年度自动补齐历史交易日历并复核缺失／多余日期",
                               "format": "text"
                             },
                             "tone": "",
@@ -21799,7 +21708,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T09:56:04",
+    "generated_at": "2026-11-22T09:57:09",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

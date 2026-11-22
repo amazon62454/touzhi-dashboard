@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:32:13",
+  "generated_at": "2026-11-22T15:33:35",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -16084,11 +16084,8 @@
                         "type": "kv",
                         "label": "理论超配（仅缺口，不是本周执行额）",
                         "value": {
-                          "value": {
-                            "value": 2933.14,
-                            "format": "money"
-                          },
-                          "format": "text"
+                          "value": 2933.14,
+                          "format": "money"
                         },
                         "tone": "warn",
                         "note": ""
@@ -16097,11 +16094,8 @@
                         "type": "kv",
                         "label": "1. 补现金",
                         "value": {
-                          "value": {
-                            "value": 1960.24,
-                            "format": "money"
-                          },
-                          "format": "text"
+                          "value": 1960.24,
+                          "format": "money"
                         },
                         "tone": "pos",
                         "note": ""
@@ -16115,11 +16109,8 @@
                         "type": "kv",
                         "label": "2. 补黄金",
                         "value": {
-                          "value": {
-                            "value": 972.9,
-                            "format": "money"
-                          },
-                          "format": "text"
+                          "value": 972.9,
+                          "format": "money"
                         },
                         "tone": "warn",
                         "note": ""
@@ -16131,18 +16122,15 @@
                       },
                       {
                         "type": "text",
-                        "text": "不合格部分 → 待分配现金",
+                        "text": "不合格部分 → 待分配现金 972.9",
                         "style": "muted"
                       },
                       {
                         "type": "kv",
                         "label": "3. 补权益",
                         "value": {
-                          "value": {
-                            "value": 0.0,
-                            "format": "money"
-                          },
-                          "format": "text"
+                          "value": 0.0,
+                          "format": "money"
                         },
                         "tone": "",
                         "note": ""
@@ -22053,7 +22041,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T15:32:13",
+    "generated_at": "2026-11-22T15:33:35",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

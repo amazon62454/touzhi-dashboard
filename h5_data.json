@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:22:38",
+  "generated_at": "2026-11-22T15:32:13",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -5122,6 +5122,47 @@
               ]
             }
           ]
+        },
+        "direction_plan": {
+          "engine_contract": "rebalance_direction_v1",
+          "theoretical_excess_amount": 2933.14,
+          "steps": [
+            {
+              "priority": 1,
+              "asset": "cash",
+              "label": "补现金",
+              "target": "现金/货币基金",
+              "gap_amount": 1960.24,
+              "planned_amount": 1960.24,
+              "status": "ready",
+              "reason": "现金目标，无估值门槛；先补现金",
+              "fallback": null
+            },
+            {
+              "priority": 2,
+              "asset": "gold",
+              "label": "补黄金",
+              "target": "国泰黄金ETF联接C",
+              "gap_amount": 975.43,
+              "planned_amount": 972.9,
+              "status": "blocked",
+              "reason": "情绪过热，本笔不操作",
+              "fallback": "待分配现金"
+            },
+            {
+              "priority": 3,
+              "asset": "equity",
+              "label": "补权益",
+              "target": "权益候选（核心/卫星按结构顺延）",
+              "gap_amount": 0.0,
+              "planned_amount": 0.0,
+              "status": "none",
+              "reason": "结构已锁定且存在合格候选",
+              "fallback": null
+            }
+          ],
+          "amount_rule": "理论缺口，不是本周执行额；按实际可赎回份额执行，实际金额回传后按此顺序逐项填缺口。",
+          "complete": true
         }
       },
       "monthly_close": null,
@@ -8483,6 +8524,47 @@
           "decision": "需要渐进再平衡",
           "execution_note": "暂不生成卖出指令；每周日继续复核；不输出预估金额，实际转换金额以成交回传为准",
           "summary": "债比62.66%，目标48.89%，超出目标13.77个百分点／2933.14元；需要渐进再平衡；暂不生成卖出指令；每周日继续复核；不输出预估金额，实际转换金额以成交回传为准"
+        },
+        "direction_plan": {
+          "engine_contract": "rebalance_direction_v1",
+          "theoretical_excess_amount": 2933.14,
+          "steps": [
+            {
+              "priority": 1,
+              "asset": "cash",
+              "label": "补现金",
+              "target": "现金/货币基金",
+              "gap_amount": 1960.24,
+              "planned_amount": 1960.24,
+              "status": "ready",
+              "reason": "现金目标，无估值门槛；先补现金",
+              "fallback": null
+            },
+            {
+              "priority": 2,
+              "asset": "gold",
+              "label": "补黄金",
+              "target": "国泰黄金ETF联接C",
+              "gap_amount": 975.43,
+              "planned_amount": 972.9,
+              "status": "blocked",
+              "reason": "情绪过热，本笔不操作",
+              "fallback": "待分配现金"
+            },
+            {
+              "priority": 3,
+              "asset": "equity",
+              "label": "补权益",
+              "target": "权益候选（核心/卫星按结构顺延）",
+              "gap_amount": 0.0,
+              "planned_amount": 0.0,
+              "status": "none",
+              "reason": "结构已锁定且存在合格候选",
+              "fallback": null
+            }
+          ],
+          "amount_rule": "理论缺口，不是本周执行额；按实际可赎回份额执行，实际金额回传后按此顺序逐项填缺口。",
+          "complete": true
         }
       },
       "monthly_close": {
@@ -15997,6 +16079,83 @@
                         },
                         "tone": "warn",
                         "note": ""
+                      },
+                      {
+                        "type": "kv",
+                        "label": "理论超配（仅缺口，不是本周执行额）",
+                        "value": {
+                          "value": {
+                            "value": 2933.14,
+                            "format": "money"
+                          },
+                          "format": "text"
+                        },
+                        "tone": "warn",
+                        "note": ""
+                      },
+                      {
+                        "type": "kv",
+                        "label": "1. 补现金",
+                        "value": {
+                          "value": {
+                            "value": 1960.24,
+                            "format": "money"
+                          },
+                          "format": "text"
+                        },
+                        "tone": "pos",
+                        "note": ""
+                      },
+                      {
+                        "type": "text",
+                        "text": "缺口1960.24 · 现金/货币基金 · 可执行 · 现金目标，无估值门槛；先补现金",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "kv",
+                        "label": "2. 补黄金",
+                        "value": {
+                          "value": {
+                            "value": 972.9,
+                            "format": "money"
+                          },
+                          "format": "text"
+                        },
+                        "tone": "warn",
+                        "note": ""
+                      },
+                      {
+                        "type": "text",
+                        "text": "缺口975.43 · 国泰黄金ETF联接C · 暂不能买 · 情绪过热，本笔不操作",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "不合格部分 → 待分配现金",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "kv",
+                        "label": "3. 补权益",
+                        "value": {
+                          "value": {
+                            "value": 0.0,
+                            "format": "money"
+                          },
+                          "format": "text"
+                        },
+                        "tone": "",
+                        "note": ""
+                      },
+                      {
+                        "type": "text",
+                        "text": "缺口0.0 · 权益候选（核心/卫星按结构顺延） · 无需 · 结构已锁定且存在合格候选",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "理论缺口，不是本周执行额；按实际可赎回份额执行，实际金额回传后按此顺序逐项填缺口。",
+                        "style": "muted"
                       }
                     ]
                   },
@@ -19714,6 +19873,47 @@
           "decision": "需要渐进再平衡",
           "execution_note": "暂不生成卖出指令；每周日继续复核；不输出预估金额，实际转换金额以成交回传为准",
           "summary": "债比62.66%，目标48.89%，超出目标13.77个百分点／2933.14元；需要渐进再平衡；暂不生成卖出指令；每周日继续复核；不输出预估金额，实际转换金额以成交回传为准"
+        },
+        "direction_plan": {
+          "engine_contract": "rebalance_direction_v1",
+          "theoretical_excess_amount": 2933.14,
+          "steps": [
+            {
+              "priority": 1,
+              "asset": "cash",
+              "label": "补现金",
+              "target": "现金/货币基金",
+              "gap_amount": 1960.24,
+              "planned_amount": 1960.24,
+              "status": "ready",
+              "reason": "现金目标，无估值门槛；先补现金",
+              "fallback": null
+            },
+            {
+              "priority": 2,
+              "asset": "gold",
+              "label": "补黄金",
+              "target": "国泰黄金ETF联接C",
+              "gap_amount": 975.43,
+              "planned_amount": 972.9,
+              "status": "blocked",
+              "reason": "情绪过热，本笔不操作",
+              "fallback": "待分配现金"
+            },
+            {
+              "priority": 3,
+              "asset": "equity",
+              "label": "补权益",
+              "target": "权益候选（核心/卫星按结构顺延）",
+              "gap_amount": 0.0,
+              "planned_amount": 0.0,
+              "status": "none",
+              "reason": "结构已锁定且存在合格候选",
+              "fallback": null
+            }
+          ],
+          "amount_rule": "理论缺口，不是本周执行额；按实际可赎回份额执行，实际金额回传后按此顺序逐项填缺口。",
+          "complete": true
         }
       },
       "monthly_close": null,
@@ -21853,7 +22053,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T15:22:38",
+    "generated_at": "2026-11-22T15:32:13",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

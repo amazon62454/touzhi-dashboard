@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T20:01:22",
+  "generated_at": "2026-11-22T20:02:27",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -3088,7 +3088,7 @@
       "summary": "部分操作可执行，其余受规则/结构限制",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-22T19:59:13",
+        "as_of": "2026-11-22T20:01:57",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "partial",
@@ -3237,11 +3237,11 @@
         "valid_until": "2026-11-23T08:00:00",
         "next_review_at": "2026-11-29T03:30:00",
         "result_visible_until": "2026-11-29T03:30:00",
-        "result_effective_from": "2026-11-22T19:58:46",
+        "result_effective_from": "2026-11-22T20:01:56",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-22T19:58:46",
+      "generated_at": "2026-11-22T20:01:56",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -4153,19 +4153,19 @@
       ],
       "allocation": {
         "amounts": {
-          "债券": 13002.78,
+          "养老FOF": 1150.32,
           "现金": 170.0,
-          "权益": 5824.48,
+          "债券": 13002.78,
           "黄金": 1154.81,
-          "养老FOF": 1150.32
+          "权益": 5824.48
         },
         "total": 21302.39,
         "weights": {
-          "债券": 61.04,
+          "养老FOF": 5.4,
           "现金": 0.8,
-          "权益": 27.34,
+          "债券": 61.04,
           "黄金": 5.42,
-          "养老FOF": 5.4
+          "权益": 27.34
         }
       },
       "asset_allocation": {
@@ -4442,19 +4442,19 @@
         "gap": 4.578965,
         "price_percentile": 72.35,
         "score": {
-          "decision": "情绪过热，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": true,
           "score": 6.0,
           "scores": {
             "估值": 0.0,
-            "基本面": 6,
-            "情绪": 0.0,
+            "趋势": 0.0,
             "资金": 0.0,
-            "趋势": 0.0
+            "基本面": 6,
+            "情绪": 0.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": true,
+          "decision": "情绪过热，本笔不操作"
         },
         "buy_allowed": false,
         "missing": [],
@@ -5166,10 +5166,6 @@
       "data_issues": [],
       "five_dimension_scores": {
         "000051": {
-          "decision": "未达到加仓门槛，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": false,
           "score": 13.0,
           "scores": {
             "估值": 0.0,
@@ -5178,13 +5174,13 @@
             "基本面": 9.0,
             "情绪": 4.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": false,
+          "decision": "未达到加仓门槛，本笔不操作"
         },
         "004253": {
-          "decision": "情绪过热，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": true,
           "score": 6.0,
           "scores": {
             "估值": 0.0,
@@ -5193,28 +5189,28 @@
             "基本面": 6.0,
             "情绪": 0.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": true,
+          "decision": "情绪过热，本笔不操作"
         },
         "012544": {
-          "decision": "评分与数据闸门通过，再核现金池和频率闸门",
-          "eligible": true,
-          "missing": [],
-          "overheated": false,
-          "score": 70.0,
+          "score": 75.0,
           "scores": {
-            "估值": 45.0,
+            "估值": 50.0,
             "趋势": 0.0,
             "资金": 0.0,
             "基本面": 12.5,
             "情绪": 12.5
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": true,
+          "overheated": false,
+          "decision": "评分与数据闸门通过，再核现金池和频率闸门"
         },
         "017140": {
-          "decision": "未达到加仓门槛，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": false,
           "score": 43.0,
           "scores": {
             "估值": 30.0,
@@ -5223,13 +5219,13 @@
             "基本面": 9.0,
             "情绪": 4.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": false,
+          "decision": "未达到加仓门槛，本笔不操作"
         },
         "024328": {
-          "decision": "评分与数据闸门通过，再核现金池和频率闸门",
-          "eligible": true,
-          "missing": [],
-          "overheated": false,
           "score": 79.0,
           "scores": {
             "估值": 50.0,
@@ -5238,13 +5234,13 @@
             "基本面": 12.5,
             "情绪": 4.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": true,
+          "overheated": false,
+          "decision": "评分与数据闸门通过，再核现金池和频率闸门"
         },
         "160119": {
-          "decision": "未达到加仓门槛，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": false,
           "score": 21.5,
           "scores": {
             "估值": 0.0,
@@ -5253,7 +5249,11 @@
             "基本面": 9.0,
             "情绪": 12.5
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": false,
+          "decision": "未达到加仓门槛，本笔不操作"
         }
       },
       "artifacts": {
@@ -22098,7 +22098,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T20:01:22",
+    "generated_at": "2026-11-22T20:02:27",
     "projection_id": "wf_e2aa6902812a7f0f",
     "visual": {
       "title": "操作流程总览",
@@ -22643,7 +22643,7 @@
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-22",
-        "generated_at": "2026-11-22T19:58:46",
+        "generated_at": "2026-11-22T20:01:56",
         "inputs": [
           {
             "label": "周期预算锁",
@@ -22728,7 +22728,7 @@
         "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-22",
-        "generated_at": "2026-11-22T19:58:46",
+        "generated_at": "2026-11-22T20:01:56",
         "inputs": [
           {
             "label": "可执行计划",

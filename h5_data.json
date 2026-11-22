@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T09:54:59",
+  "generated_at": "2026-11-22T09:56:04",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -8508,42 +8508,6 @@
           ]
         },
         {
-          "issue_key": "benchmark_quarter:中证港股通综合指数",
-          "source": "AI涨乐／东方财富妙想",
-          "target_key": "中证港股通综合指数",
-          "metric": "季度涨跌幅",
-          "period_type": "QUARTER",
-          "expected_coverage_json": "[\"2025-12-31\",\"2026-03-31\",\"2026-06-30\",\"2026-09-30\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2025-12-31\",\"2026-03-31\",\"2026-06-30\",\"2026-09-30\"]",
-          "last_success_date": null,
-          "error_category": "target_not_matched",
-          "raw_error": "AI四季度全空；妙想误路由债券市场统计",
-          "human_message": "中证港股通综合指数四季度尚未取得可验收序列；AI返回空值，妙想返回的不是目标指数",
-          "next_action": "先确认指数代码再自动换源重试；不得按0或用其他指数替代",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
-          "first_seen_at": "2026-11-22T01:35:02+00:00",
-          "last_attempt_at": "2026-11-22T01:35:02+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-22T01:35:02+00:00",
-          "updated_at": "2026-11-22T01:35:02+00:00",
-          "expected_coverage": [
-            "2025-12-31",
-            "2026-03-31",
-            "2026-06-30",
-            "2026-09-30"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2025-12-31",
-            "2026-03-31",
-            "2026-06-30",
-            "2026-09-30"
-          ]
-        },
-        {
           "issue_key": "benchmark_quarter:恒生指数:unit",
           "source": "AI涨乐",
           "target_key": "恒生指数",
@@ -16623,7 +16587,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "当前6项待处理；系统持续自动补数与升级，不依赖人工识别",
+                        "text": "当前5项待处理；系统持续自动补数与升级，不依赖人工识别",
                         "style": "lead"
                       },
                       {
@@ -16680,67 +16644,6 @@
                             "label": "系统下一动作",
                             "value": {
                               "value": "自动重试带明确单位的JSON，并按缺失交易日补漏；完整前不接生产评分",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "中证港股通综合指数 · 季度涨跌幅",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "中证港股通综合指数四季度尚未取得可验收序列；AI返回空值，妙想返回的不是目标指数",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "AI涨乐／东方财富妙想",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/4个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试1次 · 升级0次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "待处理",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "先确认指数代码再自动换源重试；不得按0或用其他指数替代",
                               "format": "text"
                             },
                             "tone": "",
@@ -21896,7 +21799,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T09:54:59",
+    "generated_at": "2026-11-22T09:56:04",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

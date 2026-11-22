@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T20:16:47",
+  "generated_at": "2026-11-22T20:19:12",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -3088,7 +3088,7 @@
       "summary": "部分操作可执行，其余受规则/结构限制",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-22T20:01:57",
+        "as_of": "2026-11-22T20:18:59",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "partial",
@@ -3237,11 +3237,11 @@
         "valid_until": "2026-11-23T08:00:00",
         "next_review_at": "2026-11-29T03:30:00",
         "result_visible_until": "2026-11-29T03:30:00",
-        "result_effective_from": "2026-11-22T20:01:56",
+        "result_effective_from": "2026-11-22T20:18:58",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-22T20:01:56",
+      "generated_at": "2026-11-22T20:18:58",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -4153,19 +4153,19 @@
       ],
       "allocation": {
         "amounts": {
-          "养老FOF": 1150.32,
-          "现金": 170.0,
-          "债券": 13002.78,
           "黄金": 1154.81,
-          "权益": 5824.48
+          "养老FOF": 1150.32,
+          "权益": 5824.48,
+          "现金": 170.0,
+          "债券": 13002.78
         },
         "total": 21302.39,
         "weights": {
-          "养老FOF": 5.4,
-          "现金": 0.8,
-          "债券": 61.04,
           "黄金": 5.42,
-          "权益": 27.34
+          "养老FOF": 5.4,
+          "权益": 27.34,
+          "现金": 0.8,
+          "债券": 61.04
         }
       },
       "asset_allocation": {
@@ -5282,9 +5282,9 @@
             "gate": "cash",
             "dimensions": {
               "trend": {
-                "value": 0.0,
-                "date": "2026-11-22",
-                "caliber": "5年分位",
+                "value": -9.07,
+                "date": "2026-11-20",
+                "caliber": "偏离",
                 "source": "AI涨乐"
               },
               "flows": {
@@ -5332,7 +5332,7 @@
             "dimensions": {
               "trend": {
                 "value": -7.56,
-                "date": "2026-11-22",
+                "date": "2026-11-20",
                 "caliber": "偏离",
                 "source": "AI涨乐"
               },
@@ -5377,7 +5377,7 @@
             "dimensions": {
               "trend": {
                 "value": -10.83,
-                "date": "2026-11-22",
+                "date": "2026-11-20",
                 "caliber": "偏离",
                 "source": "AI涨乐"
               },
@@ -6153,7 +6153,7 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_eval|2026-11-20|2026-11-22|2026-11-20#R20#live",
+      "source_file": "band_eval|2026-11-20|2026-11-22|2026-11-20#R21#live",
       "display": {
         "header": {
           "title": "周日档 · 定投评估",
@@ -22098,7 +22098,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T20:16:47",
+    "generated_at": "2026-11-22T20:19:12",
     "projection_id": "wf_e2aa6902812a7f0f",
     "visual": {
       "title": "操作流程总览",
@@ -22643,7 +22643,7 @@
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-22",
-        "generated_at": "2026-11-22T20:01:56",
+        "generated_at": "2026-11-22T20:18:58",
         "inputs": [
           {
             "label": "周期预算锁",
@@ -22728,7 +22728,7 @@
         "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-22",
-        "generated_at": "2026-11-22T20:01:56",
+        "generated_at": "2026-11-22T20:18:58",
         "inputs": [
           {
             "label": "可执行计划",

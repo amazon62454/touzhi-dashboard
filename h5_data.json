@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T23:59:34",
+  "generated_at": "2026-11-23T00:00:40",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -165,7 +165,7 @@
               "type": "kv",
               "label": "退休目标（动态测算）",
               "value": {
-                "value": 681412,
+                "value": 681283,
                 "format": "money"
               },
               "tone": "info",
@@ -215,7 +215,7 @@
               "type": "kv",
               "label": "累计投入（当前市值＋未来每月投入）",
               "value": {
-                "value": 450294,
+                "value": 450235,
                 "format": "money"
               },
               "tone": "info",
@@ -225,7 +225,7 @@
               "type": "kv",
               "label": "测算收益",
               "value": {
-                "value": 231119,
+                "value": 231049,
                 "format": "money"
               },
               "tone": "pos",
@@ -257,15 +257,15 @@
     "years_remaining": 19.9,
     "annual_rate": 3.76,
     "monthly_budget": 1800.0,
-    "target_amount": 681412,
-    "principal": 450294,
-    "projected_profit": 231119,
+    "target_amount": 681283,
+    "principal": 450235,
+    "projected_profit": 231049,
     "covered_fund_count": 9,
     "holding_fund_count": 9,
     "coverage_rate": 100.0,
     "missing_funds": [],
     "start_market": 21132.39,
-    "zero_return_principal": 450294
+    "zero_return_principal": 450235
   },
   "funds_page": {
     "period": "11-20~12-19",
@@ -22098,7 +22098,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T23:59:34",
+    "generated_at": "2026-11-23T00:00:40",
     "projection_id": "wf_dc8c99dd2be61678",
     "visual": {
       "title": "操作流程总览",

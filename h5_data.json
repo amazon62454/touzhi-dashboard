@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T16:07:58",
+  "generated_at": "2026-11-22T16:15:52",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -18779,7 +18779,7 @@
               "011613",
               "110026"
             ],
-            "detail": "新增候选6只，均未正式纳入；状态路径：新增→观察（每月复核）→持有（完整五维+四维比较+四确认+置换方案全部通过）或关闭（任一项不满足）；正式纳新由月度扫描主责；统一复核结论：候选池待复核，暂不纳入；估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓"
+            "detail": "新增候选6只，均未正式纳入；状态路径：新增→观察（每月复核）→持有（完整五维+四维比较+四确认+置换方案全部通过）或关闭（任一项不满足）；正式纳新由月度扫描主责；统一复核结论：候选池待复核，暂不纳入；估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓；生命周期：新增（复核1次；下次复核2026-12-20）"
           }
         ],
         "rows": [
@@ -19086,7 +19086,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "detail_lines": [],
+            "detail_lines": [
+              "待补：评分、费率"
+            ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 11.01,
             "valuation_date": "2026-11-18",
@@ -19107,7 +19109,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "detail_lines": [],
+            "detail_lines": [
+              "待补：评分、费率"
+            ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 24.36,
             "valuation_date": "2026-11-19",
@@ -19128,7 +19132,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "detail_lines": [],
+            "detail_lines": [
+              "待补：评分、费率"
+            ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 23.33,
             "valuation_date": "2026-11-18",
@@ -19149,7 +19155,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "detail_lines": [],
+            "detail_lines": [
+              "待补：评分"
+            ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 19.55,
             "valuation_date": "2026-11-18",
@@ -19170,7 +19178,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "detail_lines": [],
+            "detail_lines": [
+              "待补：评分、费率"
+            ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 1.98,
             "valuation_date": "2026-11-19",
@@ -19191,7 +19201,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "detail_lines": [],
+            "detail_lines": [
+              "待补：评分"
+            ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 8.11,
             "valuation_date": "2026-11-18",
@@ -21017,7 +21029,7 @@
                       "011613",
                       "110026"
                     ],
-                    "detail": "新增候选6只，均未正式纳入；状态路径：新增→观察（每月复核）→持有（完整五维+四维比较+四确认+置换方案全部通过）或关闭（任一项不满足）；正式纳新由月度扫描主责；统一复核结论：候选池待复核，暂不纳入；估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓"
+                    "detail": "新增候选6只，均未正式纳入；状态路径：新增→观察（每月复核）→持有（完整五维+四维比较+四确认+置换方案全部通过）或关闭（任一项不满足）；正式纳新由月度扫描主责；统一复核结论：候选池待复核，暂不纳入；估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓；生命周期：新增（复核1次；下次复核2026-12-20）"
                   }
                 ],
                 "rows": [
@@ -21324,7 +21336,9 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
-                    "detail_lines": [],
+                    "detail_lines": [
+                      "待补：评分、费率"
+                    ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 11.01,
                     "valuation_date": "2026-11-18",
@@ -21345,7 +21359,9 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
-                    "detail_lines": [],
+                    "detail_lines": [
+                      "待补：评分、费率"
+                    ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 24.36,
                     "valuation_date": "2026-11-19",
@@ -21366,7 +21382,9 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
-                    "detail_lines": [],
+                    "detail_lines": [
+                      "待补：评分、费率"
+                    ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 23.33,
                     "valuation_date": "2026-11-18",
@@ -21387,7 +21405,9 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
-                    "detail_lines": [],
+                    "detail_lines": [
+                      "待补：评分"
+                    ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 19.55,
                     "valuation_date": "2026-11-18",
@@ -21408,7 +21428,9 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
-                    "detail_lines": [],
+                    "detail_lines": [
+                      "待补：评分、费率"
+                    ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 1.98,
                     "valuation_date": "2026-11-19",
@@ -21429,7 +21451,9 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
-                    "detail_lines": [],
+                    "detail_lines": [
+                      "待补：评分"
+                    ],
                     "source_kind": "monthly_scan_candidate",
                     "valuation": 8.11,
                     "valuation_date": "2026-11-18",
@@ -21979,7 +22003,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-22T16:07:58",
+    "generated_at": "2026-11-22T16:15:52",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],

@@ -9,12 +9,12 @@ let U = {};
 const $ = id => document.getElementById(id);
 const has = v => v !== null && v !== undefined && v !== '';
 
-const STATUS_LABELS = { '🔴': '【行动】', '⚠️': '【观察】', '🟢': '【正常】', '🟡': '【提示】', '💰': '【资金】' };
-const statusText = v => String(v ?? '').replace(/🔴|⚠️|🟢|🟡|💰/g, c => STATUS_LABELS[c] || c);
+const STATUS_KEYS = { '🔴': 'ui_status_action', '⚠️': 'ui_status_watch', '🟢': 'ui_status_normal', '🟡': 'ui_status_hint', '💰': 'ui_status_cash' };
+const statusText = v => String(v ?? '').replace(/🔴|⚠️|🟢|🟡|💰/g, c => U[STATUS_KEYS[c]] || c);
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const money = v => !has(v) || !Number.isFinite(Number(v)) ? '—' : `${Number(v).toLocaleString('zh-CN', { maximumFractionDigits: 2 })}元`;
+const money = v => !has(v) || !Number.isFinite(Number(v)) ? '—' : `${Number(v).toLocaleString('zh-CN', { maximumFractionDigits: 2 })}${U.ui_unit_yuan || ''}`;
 const pct = v => !has(v) || !Number.isFinite(Number(v)) ? '—' : `${Number(v).toFixed(2)}%`;
-const dateText = v => has(v) ? String(v) : '未记录基准日';
+const dateText = v => has(v) ? String(v) : (U.ui_date_unrecorded || '');
 const dateTimeText = v => has(v) ? String(v).replace('T', ' ').replace(/(\d{2}:\d{2}):\d{2}$/, '$1') : '';
 
 // 显示值是引擎投影中的格式化指令，不含任何业务判定。
@@ -34,7 +34,7 @@ function formatCell(cell) {
     case 'datetime': return esc(dateTimeText(value));
     case 'period': {
       const period = value || {};
-      return `${esc(dateTimeText(period.from))} 至 ${esc(dateTimeText(period.to))}`;
+      return `${esc(dateTimeText(period.from))} ${esc(U.ui_range_sep || '')} ${esc(dateTimeText(period.to))}`;
     }
     default: return esc(value);
   }
@@ -66,13 +66,13 @@ function renderFundOperationsTable(node) {
     return `<td class="action-cell">${esc(cell.compact_display || cell.display || '—')}</td>`;
   }).join('');
   const funds = (node.role_groups || []).map(group => {
-    const heading = `<tr class="role-heading-row"><th scope="rowgroup">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}只）` : ''}</th><td class="erp-cell">${esc(group.erp_amount)}</td><td class="role-heading-detail" colspan="4">${esc(group.detail)}</td></tr>`;
+    const heading = `<tr class="role-heading-row"><th scope="rowgroup">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}${esc(U.ui_fund_count_unit || '')}）` : ''}</th><td class="erp-cell">${esc(group.erp_amount)}</td><td class="role-heading-detail" colspan="4">${esc(group.detail)}</td></tr>`;
     const members = (group.rows || []).map(row =>
       `<tr class="fund-main"><th scope="row" colspan="2">${esc(row.fund_name)}</th>${actionCells(row)}<td class="fund-note-cell">${esc(row.detail)}</td></tr>`).join('');
     return heading + members;
   }).join('');
-  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}只）</th><td class="erp-cell">${esc(node.total_summary.erp_amount)}</td>${actionCells(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
-  return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table" aria-label="全持仓与三层资金分配总表"><colgroup><col class="col-fund"><col class="col-erp"><col class="col-action"><col class="col-action"><col class="col-action"><col class="col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
+  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}${esc(U.ui_fund_count_unit || '')}）</th><td class="erp-cell">${esc(node.total_summary.erp_amount)}</td>${actionCells(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
+  return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table" aria-label="${esc(U.ui_aria_operations || '')}"><colgroup><col class="col-fund"><col class="col-erp"><col class="col-action"><col class="col-action"><col class="col-action"><col class="col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
 }
 
 function renderDailyFundOperationsTable(node) {
@@ -80,13 +80,13 @@ function renderDailyFundOperationsTable(node) {
   const head = headers.map(label => `<th scope="col">${esc(label)}</th>`).join('');
   const reduceCell = row => `<td class="action-cell">${esc((row.reduce || {}).compact_display || (row.reduce || {}).display || '—')}</td>`;
   const funds = (node.role_groups || []).map(group => {
-    const heading = `<tr class="role-heading-row"><th scope="rowgroup">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}只）` : ''}</th><td class="erp-cell">${esc(group.erp_amount)}</td><td class="role-heading-detail" colspan="2">${esc(group.detail)}</td></tr>`;
+    const heading = `<tr class="role-heading-row"><th scope="rowgroup">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}${esc(U.ui_fund_count_unit || '')}）` : ''}</th><td class="erp-cell">${esc(group.erp_amount)}</td><td class="role-heading-detail" colspan="2">${esc(group.detail)}</td></tr>`;
     const members = (group.rows || []).map(row =>
       `<tr class="fund-main"><th scope="row" colspan="2">${esc(row.fund_name)}</th>${reduceCell(row)}<td class="fund-note-cell">${esc(row.detail)}</td></tr>`).join('');
     return heading + members;
   }).join('');
-  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}只）</th><td class="erp-cell">${esc(node.total_summary.erp_amount ?? '—')}</td>${reduceCell(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
-  return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table daily-operations-table" aria-label="每日全持仓减仓总表"><colgroup><col class="daily-col-fund"><col class="daily-col-erp"><col class="daily-col-action"><col class="daily-col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
+  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}${esc(U.ui_fund_count_unit || '')}）</th><td class="erp-cell">${esc(node.total_summary.erp_amount ?? '—')}</td>${reduceCell(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
+  return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table daily-operations-table" aria-label="${esc(U.ui_aria_daily || '')}"><colgroup><col class="daily-col-fund"><col class="daily-col-erp"><col class="daily-col-action"><col class="daily-col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
 }
 
 function renderChecks(items) {
@@ -115,12 +115,12 @@ function renderWorkflow(node) {
 function renderMonthlyFundOperationsTable(node) {
   const head = (node.headers || []).map(label => `<th scope="col">${esc(label)}</th>`).join('');
   const groups = (node.role_groups || []).map(group => {
-    const heading = `<tr class="role-heading-row"><th scope="row">${esc(group.role_label || group.label || '')}（${group.fund_count || 0}只）</th><td class="erp-cell">${esc(group.erp_amount ?? '—')}</td><td colspan="3" class="role-allocation-note">${esc(group.detail || '')}</td></tr>`;
+    const heading = `<tr class="role-heading-row"><th scope="row">${esc(group.role_label || group.label || '')}（${group.fund_count || 0}${esc(U.ui_fund_count_unit || '')}）</th><td class="erp-cell">${esc(group.erp_amount ?? '—')}</td><td colspan="3" class="role-allocation-note">${esc(group.detail || '')}</td></tr>`;
     const funds = (group.rows || []).map(row => `<tr class="fund-row fund-main"><th colspan="2" scope="row">${esc(row.fund_name || '')}</th><td class="action-cell">${esc((row.month_end || {}).compact_display || '—')}</td><td class="action-cell">${esc((row.cash_inflow || {}).compact_display || '—')}</td><td class="fund-note-cell">${esc(row.detail || '—')}</td></tr>`).join('');
     return heading + funds;
   }).join('');
   const total = node.total_summary || {};
-  const footer = `<tr class="fund-row grand-total-row"><th scope="row">${esc(total.label || '')}（${total.fund_count || 0}只）</th><td class="erp-cell">${esc(total.erp_amount ?? '—')}</td><td class="action-cell">${esc((total.month_end || {}).compact_display || '—')}</td><td class="action-cell">${esc((total.cash_inflow || {}).compact_display || '—')}</td><td class="fund-note-cell">${esc(total.detail || '')}</td></tr>`;
+  const footer = `<tr class="fund-row grand-total-row"><th scope="row">${esc(total.label || '')}（${total.fund_count || 0}${esc(U.ui_fund_count_unit || '')}）</th><td class="erp-cell">${esc(total.erp_amount ?? '—')}</td><td class="action-cell">${esc((total.month_end || {}).compact_display || '—')}</td><td class="action-cell">${esc((total.cash_inflow || {}).compact_display || '—')}</td><td class="fund-note-cell">${esc(total.detail || '')}</td></tr>`;
   return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table monthly-operations-table"><colgroup><col class="monthly-col-fund"><col class="monthly-col-erp"><col class="monthly-col-close"><col class="monthly-col-inflow"><col class="monthly-col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${groups}${footer}</tbody></table></div><p class="table-caption">${esc(node.amount_rule || '')}</p></div>`;
 }
 
@@ -129,7 +129,7 @@ function renderQuarterFundOperationsTable(node) {
   const rows = node.rows || [];
   const groups = (node.status_groups || []).map(group => {
     const members = group.fund_codes || [];
-    const heading = `<tr class="role-heading-row"><th colspan="5" scope="rowgroup">${esc(group.status)}（${esc(group.fund_count)}只）<span class="role-heading-detail">${esc(group.detail || '')}</span></th></tr>`;
+    const heading = `<tr class="role-heading-row"><th colspan="5" scope="rowgroup">${esc(group.status)}（${esc(group.fund_count)}${esc(U.ui_fund_count_unit || '')}）<span class="role-heading-detail">${esc(group.detail || '')}</span></th></tr>`;
     const body = members.map(code => {
       const row = rows.find(item => item.fund_code === code) || {};
       const detail = (row.detail_lines || []).filter(Boolean).map(esc).join('<br>');
@@ -138,7 +138,7 @@ function renderQuarterFundOperationsTable(node) {
     return heading + body;
   }).join('');
   const total = node.total_summary || {};
-  const footer = `<tr class="fund-row grand-total-row"><th scope="row">${esc(total.label || '合计')}</th><td colspan="4" class="summary-detail">${esc(total.detail || '')}</td></tr>`;
+  const footer = `<tr class="fund-row grand-total-row"><th scope="row">${esc(total.label || U.ui_total || '')}</th><td colspan="4" class="summary-detail">${esc(total.detail || '')}</td></tr>`;
   return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table quarter-operations-table"><colgroup><col class="quarter-col-fund"><col class="quarter-col-role"><col class="quarter-col-status"><col class="quarter-col-score"><col class="quarter-col-note"></colgroup><thead><tr>${headers}</tr></thead><tbody>${groups}${footer}</tbody></table></div><p class="table-caption">${esc((node.total_summary || {}).detail || '')}</p></div>`;
 }
 
@@ -161,7 +161,7 @@ function renderNode(node) {
       const aligns = node.aligns || [];
       const head = (node.headers || []).map((label, index) => `<th${aligns[index] ? ` style="text-align:${esc(aligns[index])}"` : ''}>${esc(label)}</th>`).join('');
       const rows = (node.rows || []).map(row => `<tr>${row.map((cell, index) => `<td${aligns[index] ? ` style="text-align:${esc(aligns[index])}"` : ''}>${formatCell(cell)}</td>`).join('')}</tr>`).join('');
-      return `<div class="table-scroll ${esc(node.class_name || '')}" tabindex="0" role="region" aria-label="数据表格，可左右滑动"><table class="data-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
+      return `<div class="table-scroll ${esc(node.class_name || '')}" tabindex="0" role="region" aria-label="${esc(U.ui_aria_table || '')}"><table class="data-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
     }
     case 'fund_rows':
       return renderFundRows(node.rows);
@@ -190,7 +190,7 @@ function renderNode(node) {
 
 function renderBandHeader(header) {
   const times = renderChildren(header.time_rows);
-  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(header.title || '')}</h1><div class="muted">${badge({ text: header.state_label, kind: header.state_kind })} 基准 ${esc(dateText(header.base_date))}</div>${header.run_notice ? `<p class="status-banner live">${esc(header.run_notice)}</p>` : ''}${times ? `<div class="muted">${times}</div>` : ''}</div>`;
+  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(header.title || '')}</h1><div class="muted">${badge({ text: header.state_label, kind: header.state_kind })} ${esc(U.ui_base || '')} ${esc(dateText(header.base_date))}</div>${header.run_notice ? `<p class="status-banner live">${esc(header.run_notice)}</p>` : ''}${times ? `<div class="muted">${times}</div>` : ''}</div>`;
 }
 
 function renderRetirement(display) {
@@ -200,13 +200,13 @@ function renderRetirement(display) {
 }
 
 function ruleCards(chapters) {
-  return chapters.map(chapter => `<div class="card" data-rule="${esc(chapter.title)}"><div class="fund-top"><strong>${esc(chapter.title)}</strong></div></div>`).join('') || `<div class="empty">没有匹配的章节。</div>`;
+  return chapters.map(chapter => `<div class="card" data-rule="${esc(chapter.title)}"><div class="fund-top"><strong>${esc(chapter.title)}</strong></div></div>`).join('') || `<div class="empty">${esc(U.ui_rule_no_match || '')}</div>`;
 }
 
 function renderRules() {
   const q = ($('rule-search') && $('rule-search').value || '').trim();
   const chapters = (D.rules || []).filter(chapter => !q || String(chapter.title || '').includes(q));
-  return `<div class="search-wrap"><input id="rule-search" class="search" type="search" placeholder="搜索章节名称，例如：定投、减仓、回撤" value="${esc(q)}"></div><div class="rule-results">${ruleCards(chapters)}</div><div class="rule-detail-host"></div>`;
+  return `<div class="search-wrap"><input id="rule-search" class="search" type="search" placeholder="${esc(U.ui_rule_search_placeholder || '')}" value="${esc(q)}"></div><div class="rule-results">${ruleCards(chapters)}</div><div class="rule-detail-host"></div>`;
 }
 
 function renderRuleDetail(chapter) {
@@ -238,20 +238,20 @@ function renderPage(pageId) {
       ? renderBandHeader(display.header || {}) + renderChildren(display.sections) + renderNode(display.empty)
       : `<div class="empty">${esc(U.ui_action_contract_missing || '')}</div>`;
   } catch (error) {
-    el.innerHTML = `<div class="card"><div class="empty"><div class="empty-title">区块渲染失败</div>${esc(error.message)}</div></div>`;
+    el.innerHTML = `<div class="card"><div class="empty"><div class="empty-title">${esc(U.ui_render_error || '')}</div>${esc(error.message)}</div></div>`;
   }
 }
 
 const NAV = [
-  { id: 'page-retirement', label: '养老' },
-  { id: 'page-band_daily', label: '每日' },
-  { id: 'page-band_eval', label: '周日' },
-  { id: 'page-band_monthly', label: '月度' },
-  { id: 'page-band_quarter', label: '季度' },
+  { id: 'page-retirement', label: 'ui_nav_retirement' },
+  { id: 'page-band_daily', label: 'ui_nav_daily' },
+  { id: 'page-band_eval', label: 'ui_nav_eval' },
+  { id: 'page-band_monthly', label: 'ui_nav_monthly' },
+  { id: 'page-band_quarter', label: 'ui_nav_quarter' },
 ];
 
 function renderNav() {
-  $('nav').innerHTML = NAV.map(item => `<a href="#${item.id}" data-page="${item.id}">${esc(item.label)}</a>`).join('');
+  $('nav').innerHTML = NAV.map(item => `<a href="#${item.id}" data-page="${item.id}">${esc(U[item.label] || '')}</a>`).join('');
 }
 
 function showPage(pageId) {
@@ -320,7 +320,7 @@ async function pollForUpdates() {
     }
     window.scrollTo({ top: scrollY });
   } catch (error) {
-    console.warn('H5自动刷新暂未成功', error);
+    console.warn(U.ui_auto_refresh_warn || '', error);
   }
 }
 
@@ -336,7 +336,7 @@ function syncGlobalStatus(pageId) {
 }
 
 function renderShell() {
-  $('header-date').textContent = `基准 ${dateText(D.base_date)} · 页面生成 ${dateTimeText(D.generated_at)}`;
+  $('header-date').textContent = `${U.ui_base || ''} ${dateText(D.base_date)} · ${U.ui_page_generated || ''} ${dateTimeText(D.generated_at)}`;
   const status = D.status || {};
   const banner = $('global-status');
   banner.className = 'status-banner live';
@@ -358,7 +358,7 @@ async function init() {
     window.addEventListener('hashchange', () => showPage(location.hash.slice(1) || 'page-retirement'));
   } catch (error) {
     $('boot-skeleton').remove();
-    $('main').innerHTML = `<div class="error-state"><div>页面数据读取失败：${esc(error.message)}</div><button onclick="location.reload()">重试</button></div>`;
+    $('main').innerHTML = `<div class="error-state"><div>${esc(U.ui_data_read_error || '')}：${esc(error.message)}</div><button onclick="location.reload()">${esc(U.ui_retry || '')}</button></div>`;
   }
 }
 

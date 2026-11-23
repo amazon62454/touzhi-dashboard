@@ -133,7 +133,7 @@ function renderQuarterFundOperationsTable(node) {
     const body = members.map(code => {
       const row = rows.find(item => item.fund_code === code) || {};
       const detail = (row.detail_lines || []).filter(Boolean).map(esc).join('<br>');
-      return `<tr class="fund-main"><th scope="row">${esc(row.display_name || row.fund_name || code)}</th><td>${esc(row.role_label || '—')}</td><td>${esc(row.status || '—')}</td><td>${esc(row.score_display || '—')}</td><td class="fund-note-cell">${detail}</td></tr>`;
+      return `<tr class="fund-main"><th scope="row">${esc(row.display_name || row.fund_name || code)}</th><td>${esc(row.role_label || '—')}</td><td>${esc(row.status_display || row.status || '—')}</td><td>${esc(row.score_display || '—')}</td><td class="fund-note-cell">${detail}</td></tr>`;
     }).join('');
     return heading + body;
   }).join('');

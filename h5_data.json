@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T20:55:23",
+  "generated_at": "2026-11-23T20:56:30",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -18977,14 +18977,15 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "待评",
+            "status_display": "初筛",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评（复核1次；下次复核2026-12-20）"
+              "生命周期：初筛（复核1次；下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-              "待补：评分、规模、费率、估值高估、资金撤离"
+              "初筛待补：规模、费率",
+              "正式评审待补：评分、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 11.01,
@@ -18993,7 +18994,7 @@
             "valuation_display": "11.01%",
             "scale_display": "待数据",
             "fee_display": "待数据",
-            "missing_display": "评分、规模、费率、估值高估、资金撤离",
+            "missing_display": "规模、费率",
             "next_review_display": "2026-12-20",
             "serial_no": 12,
             "display_name": "12. 广发中证军工ETF联接C"
@@ -19011,14 +19012,15 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "待评",
+            "status_display": "初筛",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评（复核1次；下次复核2026-12-20）"
+              "生命周期：初筛（复核1次；下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-              "待补：评分、规模、费率、估值高估、资金撤离"
+              "初筛待补：规模、费率",
+              "正式评审待补：评分、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 24.36,
@@ -19027,7 +19029,7 @@
             "valuation_display": "24.36%",
             "scale_display": "待数据",
             "fee_display": "待数据",
-            "missing_display": "评分、规模、费率、估值高估、资金撤离",
+            "missing_display": "规模、费率",
             "next_review_display": "2026-12-20",
             "serial_no": 13,
             "display_name": "13. 汇添富中证医药ETF联接C"
@@ -19045,14 +19047,15 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "待评",
+            "status_display": "初筛",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评（复核1次；下次复核2026-12-20）"
+              "生命周期：初筛（复核1次；下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-              "待补：评分、规模、费率、估值高估、资金撤离"
+              "初筛待补：规模、费率",
+              "正式评审待补：评分、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 23.33,
@@ -19061,7 +19064,7 @@
             "valuation_display": "23.33%",
             "scale_display": "待数据",
             "fee_display": "待数据",
-            "missing_display": "评分、规模、费率、估值高估、资金撤离",
+            "missing_display": "规模、费率",
             "next_review_display": "2026-12-20",
             "serial_no": 14,
             "display_name": "14. 国联安中证全指半导体ETF联接A(007300/C:007301)"
@@ -19079,14 +19082,15 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "待评",
+            "status_display": "初筛",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评（复核1次；下次复核2026-12-20）"
+              "生命周期：初筛（复核1次；下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-              "待补：评分、规模、估值高估、资金撤离"
+              "初筛待补：规模",
+              "正式评审待补：评分、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 19.55,
@@ -19095,7 +19099,7 @@
             "valuation_display": "19.55%",
             "scale_display": "待数据",
             "fee_display": "运作费率1.05；赎回费0.15；申购费0.5",
-            "missing_display": "评分、规模、估值高估、资金撤离",
+            "missing_display": "规模",
             "next_review_display": "2026-12-20",
             "serial_no": 15,
             "display_name": "15. 广发中证医疗ETF联接C(7.8亿)"
@@ -19113,14 +19117,15 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "待评",
+            "status_display": "初筛",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评（复核1次；下次复核2026-12-20）"
+              "生命周期：初筛（复核1次；下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-              "待补：评分、规模、费率、估值高估、资金撤离"
+              "初筛待补：规模、费率",
+              "正式评审待补：评分、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 1.98,
@@ -19129,7 +19134,7 @@
             "valuation_display": "1.98%",
             "scale_display": "待数据",
             "fee_display": "待数据",
-            "missing_display": "评分、规模、费率、估值高估、资金撤离",
+            "missing_display": "规模、费率",
             "next_review_display": "2026-12-20",
             "serial_no": 16,
             "display_name": "16. 华夏科创50ETF联接C"
@@ -19147,14 +19152,15 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "待评",
+            "status_display": "初筛",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评（复核1次；下次复核2026-12-20）"
+              "生命周期：初筛（复核1次；下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-              "待补：评分、规模、估值高估、资金撤离"
+              "初筛待补：规模",
+              "正式评审待补：评分、估值高估、资金撤离"
             ],
             "source_kind": "monthly_scan_candidate",
             "valuation": 8.11,
@@ -19163,7 +19169,7 @@
             "valuation_display": "8.11%",
             "scale_display": "待数据",
             "fee_display": "运作费率0.32；赎回费0.05；申购费0.15",
-            "missing_display": "评分、规模、估值高估、资金撤离",
+            "missing_display": "规模",
             "next_review_display": "2026-12-20",
             "serial_no": 17,
             "display_name": "17. 易方达创业板ETF联接A(53.1亿,A类限频≥30日)"
@@ -22081,30 +22087,30 @@
                 ],
                 "rows": [
                   {
-                    "fund_name": "01. 广发中证军工ETF联接C",
+                    "fund_name": "01. 华夏科创50ETF联接C",
+                    "valuation": "1.98%",
+                    "scale": "待数据",
+                    "fee": "待数据",
+                    "status": "初筛",
+                    "pending": "规模、费率",
+                    "next_review": "2026-12-20"
+                  },
+                  {
+                    "fund_name": "02. 易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
+                    "valuation": "8.11%",
+                    "scale": "待数据",
+                    "fee": "运作费率0.32；赎回费0.05；申购费0.15",
+                    "status": "初筛",
+                    "pending": "规模",
+                    "next_review": "2026-12-20"
+                  },
+                  {
+                    "fund_name": "03. 广发中证军工ETF联接C",
                     "valuation": "11.01%",
                     "scale": "待数据",
                     "fee": "待数据",
-                    "status": "待评",
-                    "pending": "评分、规模、费率、估值高估、资金撤离",
-                    "next_review": "2026-12-20"
-                  },
-                  {
-                    "fund_name": "02. 汇添富中证医药ETF联接C",
-                    "valuation": "24.36%",
-                    "scale": "待数据",
-                    "fee": "待数据",
-                    "status": "待评",
-                    "pending": "评分、规模、费率、估值高估、资金撤离",
-                    "next_review": "2026-12-20"
-                  },
-                  {
-                    "fund_name": "03. 国联安中证全指半导体ETF联接A(007300/C:007301)",
-                    "valuation": "23.33%",
-                    "scale": "待数据",
-                    "fee": "待数据",
-                    "status": "待评",
-                    "pending": "评分、规模、费率、估值高估、资金撤离",
+                    "status": "初筛",
+                    "pending": "规模、费率",
                     "next_review": "2026-12-20"
                   },
                   {
@@ -22112,26 +22118,26 @@
                     "valuation": "19.55%",
                     "scale": "待数据",
                     "fee": "运作费率1.05；赎回费0.15；申购费0.5",
-                    "status": "待评",
-                    "pending": "评分、规模、估值高估、资金撤离",
+                    "status": "初筛",
+                    "pending": "规模",
                     "next_review": "2026-12-20"
                   },
                   {
-                    "fund_name": "05. 华夏科创50ETF联接C",
-                    "valuation": "1.98%",
+                    "fund_name": "05. 国联安中证全指半导体ETF联接A(007300/C:007301)",
+                    "valuation": "23.33%",
                     "scale": "待数据",
                     "fee": "待数据",
-                    "status": "待评",
-                    "pending": "评分、规模、费率、估值高估、资金撤离",
+                    "status": "初筛",
+                    "pending": "规模、费率",
                     "next_review": "2026-12-20"
                   },
                   {
-                    "fund_name": "06. 易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
-                    "valuation": "8.11%",
+                    "fund_name": "06. 汇添富中证医药ETF联接C",
+                    "valuation": "24.36%",
                     "scale": "待数据",
-                    "fee": "运作费率0.32；赎回费0.05；申购费0.15",
-                    "status": "待评",
-                    "pending": "评分、规模、估值高估、资金撤离",
+                    "fee": "待数据",
+                    "status": "初筛",
+                    "pending": "规模、费率",
                     "next_review": "2026-12-20"
                   }
                 ]
@@ -22152,70 +22158,6 @@
                   },
                   {
                     "type": "details",
-                    "summary": "广发中证军工ETF联接C",
-                    "children": [
-                      {
-                        "type": "text",
-                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                        "style": "muted"
-                      },
-                      {
-                        "type": "text",
-                        "text": "待补：评分、规模、费率、估值高估、资金撤离",
-                        "style": "muted"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "details",
-                    "summary": "汇添富中证医药ETF联接C",
-                    "children": [
-                      {
-                        "type": "text",
-                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                        "style": "muted"
-                      },
-                      {
-                        "type": "text",
-                        "text": "待补：评分、规模、费率、估值高估、资金撤离",
-                        "style": "muted"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "details",
-                    "summary": "国联安中证全指半导体ETF联接A(007300/C:007301)",
-                    "children": [
-                      {
-                        "type": "text",
-                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                        "style": "muted"
-                      },
-                      {
-                        "type": "text",
-                        "text": "待补：评分、规模、费率、估值高估、资金撤离",
-                        "style": "muted"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "details",
-                    "summary": "广发中证医疗ETF联接C(7.8亿)",
-                    "children": [
-                      {
-                        "type": "text",
-                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
-                        "style": "muted"
-                      },
-                      {
-                        "type": "text",
-                        "text": "待补：评分、规模、估值高估、资金撤离",
-                        "style": "muted"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "details",
                     "summary": "华夏科创50ETF联接C",
                     "children": [
                       {
@@ -22225,7 +22167,12 @@
                       },
                       {
                         "type": "text",
-                        "text": "待补：评分、规模、费率、估值高估、资金撤离",
+                        "text": "初筛待补：规模、费率",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "正式评审待补：评分、估值高估、资金撤离",
                         "style": "muted"
                       }
                     ]
@@ -22241,7 +22188,96 @@
                       },
                       {
                         "type": "text",
-                        "text": "待补：评分、规模、估值高估、资金撤离",
+                        "text": "初筛待补：规模",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "正式评审待补：评分、估值高估、资金撤离",
+                        "style": "muted"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "details",
+                    "summary": "广发中证军工ETF联接C",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "初筛待补：规模、费率",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "正式评审待补：评分、估值高估、资金撤离",
+                        "style": "muted"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "details",
+                    "summary": "广发中证医疗ETF联接C(7.8亿)",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "初筛待补：规模",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "正式评审待补：评分、估值高估、资金撤离",
+                        "style": "muted"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "details",
+                    "summary": "国联安中证全指半导体ETF联接A(007300/C:007301)",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "初筛待补：规模、费率",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "正式评审待补：评分、估值高估、资金撤离",
+                        "style": "muted"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "details",
+                    "summary": "汇添富中证医药ETF联接C",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "初筛待补：规模、费率",
+                        "style": "muted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "正式评审待补：评分、估值高估、资金撤离",
                         "style": "muted"
                       }
                     ]
@@ -22256,7 +22292,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T20:55:23",
+    "generated_at": "2026-11-23T20:56:30",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",

@@ -142,6 +142,12 @@ function renderQuarterFundOperationsTable(node) {
   return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table quarter-operations-table"><colgroup><col class="quarter-col-fund"><col class="quarter-col-role"><col class="quarter-col-status"><col class="quarter-col-score"><col class="quarter-col-note"></colgroup><thead><tr>${headers}</tr></thead><tbody>${groups}${footer}</tbody></table></div></div>`;
 }
 
+function renderQuarterCandidateTable(node) {
+  const headers = (node.headers || []).map(label => `<th scope="col">${esc(label)}</th>`).join('');
+  const rows = (node.rows || []).map(row => `<tr class="fund-main"><th scope="row">${esc(row.fund_name || '—')}</th><td>${esc(row.valuation || '—')}</td><td>${esc(row.scale || '—')}</td><td>${esc(row.fee || '—')}</td><td>${esc(row.status || '—')}</td><td class="fund-note-cell">${esc(row.pending || '—')}</td><td>${esc(row.next_review || '—')}</td></tr>`).join('');
+  return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table quarter-candidate-table"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div></div>`;
+}
+
 function renderNode(node) {
   if (!node) return '';
   switch (node.type) {
@@ -173,6 +179,8 @@ function renderNode(node) {
       return renderMonthlyFundOperationsTable(node);
     case 'quarter_fund_operations_table':
       return renderQuarterFundOperationsTable(node);
+    case 'quarter_candidate_table':
+      return renderQuarterCandidateTable(node);
     case 'pending':
       return `<div class="decision-blockers"><strong>${esc(node.title)}</strong><ul>${(node.items || []).map(item => `<li>${esc(item)}</li>`).join('')}</ul></div>`;
     case 'check_groups': {

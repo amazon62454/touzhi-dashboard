@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T20:36:23",
+  "generated_at": "2026-11-23T20:37:29",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -18976,6 +18976,7 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
+            "status_display": "待评",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -19004,6 +19005,7 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
+            "status_display": "待评",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -19032,6 +19034,7 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
+            "status_display": "待评",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -19060,6 +19063,7 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
+            "status_display": "待评",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -19088,6 +19092,7 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
+            "status_display": "待评",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -19116,6 +19121,7 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
+            "status_display": "待评",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -19136,7 +19142,7 @@
           "label": "全组合状态总计",
           "fund_count": 17,
           "holding_fund_count": 11,
-          "detail": "持有11只｜观察6只｜删除0只"
+          "detail": "持有11只｜待评6只｜观察0只｜删除0只"
         },
         "candidate_source": {
           "band": "band_monthly",
@@ -21354,6 +21360,7 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
+                    "status_display": "待评",
                     "detail_lines": [
                       "候选池待复核，暂不纳入",
                       "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -21382,6 +21389,7 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
+                    "status_display": "待评",
                     "detail_lines": [
                       "候选池待复核，暂不纳入",
                       "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -21410,6 +21418,7 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
+                    "status_display": "待评",
                     "detail_lines": [
                       "候选池待复核，暂不纳入",
                       "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -21438,6 +21447,7 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
+                    "status_display": "待评",
                     "detail_lines": [
                       "候选池待复核，暂不纳入",
                       "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -21466,6 +21476,7 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
+                    "status_display": "待评",
                     "detail_lines": [
                       "候选池待复核，暂不纳入",
                       "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -21494,6 +21505,7 @@
                     "score_display": "待评分(需完整五维)",
                     "score_complete": false,
                     "score_state": "待完整五维评分",
+                    "status_display": "待评",
                     "detail_lines": [
                       "候选池待复核，暂不纳入",
                       "生命周期：观察（复核1次；下次复核2026-12-20）"
@@ -21514,7 +21526,7 @@
                   "label": "全组合状态总计",
                   "fund_count": 17,
                   "holding_fund_count": 11,
-                  "detail": "持有11只｜观察6只｜删除0只"
+                  "detail": "持有11只｜待评6只｜观察0只｜删除0只"
                 },
                 "candidate_source": {
                   "band": "band_monthly",
@@ -22311,7 +22323,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T20:36:23",
+    "generated_at": "2026-11-23T20:37:29",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",

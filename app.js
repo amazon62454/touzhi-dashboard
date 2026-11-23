@@ -127,7 +127,7 @@ function renderMonthlyFundOperationsTable(node) {
 function renderQuarterFundOperationsTable(node) {
   const headers = (node.headers || []).map(label => `<th scope="col">${esc(label)}</th>`).join('');
   const rows = node.rows || [];
-  const groups = (node.status_groups || []).map(group => {
+  const groups = (node.role_groups || node.status_groups || []).map(group => {
     const members = group.fund_codes || [];
     const heading = `<tr class="role-heading-row"><th colspan="5" scope="rowgroup">${esc(group.status)}（${esc(group.fund_count)}${esc(U.ui_fund_count_unit || '')}）<span class="role-heading-detail">${esc(group.detail || '')}</span></th></tr>`;
     const body = members.map(code => {

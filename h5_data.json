@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T17:31:22",
+  "generated_at": "2026-11-23T17:32:48",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -529,8 +529,8 @@
             "erp_amount": 263,
             "detail": "核心宽基；ERP按季度锁比例",
             "fund_codes": [
-              "160119",
-              "000051"
+              "000051",
+              "160119"
             ],
             "reduce": {
               "amount": 0.0,
@@ -617,9 +617,9 @@
             "erp_amount": 0,
             "detail": "主动权益不参与ERP新增分配",
             "fund_codes": [
-              "010340",
               "010363",
-              "017491"
+              "017491",
+              "010340"
             ],
             "reduce": {
               "amount": 0.0,
@@ -664,9 +664,9 @@
         },
         "rows": [
           {
-            "fund_code": "160119",
-            "fund_name": "南方中证500ETF联接(LOF)A",
-            "display_name": "01. 南方中证500ETF联接(LOF)A",
+            "fund_code": "000051",
+            "fund_name": "华夏沪深300ETF联接A",
+            "display_name": "01. 华夏沪深300ETF联接A",
             "serial_no": 1,
             "role": "core",
             "role_label": "核心",
@@ -684,9 +684,9 @@
             ]
           },
           {
-            "fund_code": "000051",
-            "fund_name": "华夏沪深300ETF联接A",
-            "display_name": "02. 华夏沪深300ETF联接A",
+            "fund_code": "160119",
+            "fund_name": "南方中证500ETF联接(LOF)A",
+            "display_name": "02. 南方中证500ETF联接(LOF)A",
             "serial_no": 2,
             "role": "core",
             "role_label": "核心",
@@ -824,30 +824,10 @@
             ]
           },
           {
-            "fund_code": "010340",
-            "fund_name": "易方达高质量严选三年持有",
-            "display_name": "09. 易方达高质量严选三年持有",
-            "serial_no": 9,
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
-            "reduce": {
-              "amount": 0.0,
-              "decision": "持有",
-              "display": "持有·不减仓",
-              "compact_display": "0",
-              "tone": "muted",
-              "reason": "未触发需处理的风控条件"
-            },
-            "detail_lines": [
-              "持有｜未触发需处理的风控条件"
-            ]
-          },
-          {
             "fund_code": "010363",
             "fund_name": "信澳匠心臻选两年持有",
-            "display_name": "10. 信澳匠心臻选两年持有",
-            "serial_no": 10,
+            "display_name": "09. 信澳匠心臻选两年持有",
+            "serial_no": 9,
             "role": "active",
             "role_label": "主动权益",
             "role_order": 60,
@@ -866,8 +846,8 @@
           {
             "fund_code": "017491",
             "fund_name": "财通景气甄选一年持有C",
-            "display_name": "11. 财通景气甄选一年持有C",
-            "serial_no": 11,
+            "display_name": "10. 财通景气甄选一年持有C",
+            "serial_no": 10,
             "role": "active",
             "role_label": "主动权益",
             "role_order": 60,
@@ -881,6 +861,26 @@
             },
             "detail_lines": [
               "观察｜收益率已触及止损线，持有期内到期再评"
+            ]
+          },
+          {
+            "fund_code": "010340",
+            "fund_name": "易方达高质量严选三年持有",
+            "display_name": "11. 易方达高质量严选三年持有",
+            "serial_no": 11,
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
+            "reduce": {
+              "amount": 0.0,
+              "decision": "持有",
+              "display": "持有·不减仓",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "未触发需处理的风控条件"
+            },
+            "detail_lines": [
+              "持有｜未触发需处理的风控条件"
             ]
           }
         ]
@@ -2119,8 +2119,8 @@
                     "detail": "核心宽基；ERP按季度锁比例",
                     "rows": [
                       {
-                        "fund_code": "160119",
-                        "fund_name": "01. 南方中证500ETF联接(LOF)A",
+                        "fund_code": "000051",
+                        "fund_name": "01. 华夏沪深300ETF联接A",
                         "role_label": "核心",
                         "reduce": {
                           "amount": 0.0,
@@ -2133,8 +2133,8 @@
                         "detail": "持有｜未触发需处理的风控条件"
                       },
                       {
-                        "fund_code": "000051",
-                        "fund_name": "02. 华夏沪深300ETF联接A",
+                        "fund_code": "160119",
+                        "fund_name": "02. 南方中证500ETF联接(LOF)A",
                         "role_label": "核心",
                         "reduce": {
                           "amount": 0.0,
@@ -2276,22 +2276,8 @@
                     "detail": "主动权益不参与ERP新增分配",
                     "rows": [
                       {
-                        "fund_code": "010340",
-                        "fund_name": "09. 易方达高质量严选三年持有",
-                        "role_label": "主动权益",
-                        "reduce": {
-                          "amount": 0.0,
-                          "decision": "持有",
-                          "display": "持有·不减仓",
-                          "compact_display": "0",
-                          "tone": "muted",
-                          "reason": "未触发需处理的风控条件"
-                        },
-                        "detail": "持有｜未触发需处理的风控条件"
-                      },
-                      {
                         "fund_code": "010363",
-                        "fund_name": "10. 信澳匠心臻选两年持有",
+                        "fund_name": "09. 信澳匠心臻选两年持有",
                         "role_label": "主动权益",
                         "reduce": {
                           "amount": 0.0,
@@ -2305,7 +2291,7 @@
                       },
                       {
                         "fund_code": "017491",
-                        "fund_name": "11. 财通景气甄选一年持有C",
+                        "fund_name": "10. 财通景气甄选一年持有C",
                         "role_label": "主动权益",
                         "reduce": {
                           "amount": 0.0,
@@ -2316,6 +2302,20 @@
                           "reason": "收益率已触及止损线，持有期内到期再评"
                         },
                         "detail": "观察｜收益率已触及止损线，持有期内到期再评"
+                      },
+                      {
+                        "fund_code": "010340",
+                        "fund_name": "11. 易方达高质量严选三年持有",
+                        "role_label": "主动权益",
+                        "reduce": {
+                          "amount": 0.0,
+                          "decision": "持有",
+                          "display": "持有·不减仓",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "未触发需处理的风控条件"
+                        },
+                        "detail": "持有｜未触发需处理的风控条件"
                       }
                     ]
                   },
@@ -21955,7 +21955,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T17:31:22",
+    "generated_at": "2026-11-23T17:32:48",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",

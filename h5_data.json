@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T16:43:16",
+  "generated_at": "2026-11-23T16:44:22",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -2094,18 +2094,6 @@
                 ],
                 "compact_heading": false,
                 "band": "band_daily"
-              }
-            ]
-          },
-          {
-            "type": "card",
-            "title": "回撤风险",
-            "kind": "warn",
-            "children": [
-              {
-                "type": "empty",
-                "title": "等待正式评估",
-                "note": ""
               }
             ]
           },
@@ -21865,7 +21853,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T16:43:16",
+    "generated_at": "2026-11-23T16:44:22",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",

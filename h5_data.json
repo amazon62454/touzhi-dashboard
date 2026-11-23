@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T16:44:22",
+  "generated_at": "2026-11-23T16:45:49",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -21853,7 +21853,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T16:44:22",
+    "generated_at": "2026-11-23T16:45:49",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",
@@ -25358,6 +25358,8 @@
     "ui_risk_budget_level1": "一级红线",
     "ui_risk_budget_level2": "二级红线",
     "ui_risk_budget_level3": "三级红线",
-    "ui_risk_budget_no_reduce": "无需减仓"
+    "ui_risk_budget_no_reduce": "无需减仓",
+    "ui_lbl_peak_drawdown": "组合回撤（峰值口径）",
+    "ui_lbl_cost_basis": "成本浮亏"
   }
 }

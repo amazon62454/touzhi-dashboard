@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T17:30:59",
+  "generated_at": "2026-11-23T17:31:22",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -7446,8 +7446,8 @@
             "erp_amount": 263,
             "detail": "月结0元｜新增入账0元",
             "fund_codes": [
-              "160119",
-              "000051"
+              "000051",
+              "160119"
             ],
             "month_end": {
               "amount": 0.0,
@@ -7470,9 +7470,9 @@
             "erp_amount": 177,
             "detail": "月结3457.95元｜新增入账1477元",
             "fund_codes": [
-              "017140",
+              "024328",
               "012544",
-              "024328"
+              "017140"
             ],
             "month_end": {
               "amount": 3457.95,
@@ -7565,8 +7565,8 @@
             "detail": "月结2366.53元｜新增入账0元",
             "fund_codes": [
               "010340",
-              "010363",
-              "017491"
+              "017491",
+              "010363"
             ],
             "month_end": {
               "amount": 2366.5299999999997,
@@ -7623,34 +7623,6 @@
         },
         "rows": [
           {
-            "fund_code": "160119",
-            "fund_name": "南方中证500ETF联接(LOF)A",
-            "role": "core",
-            "role_label": "核心",
-            "role_order": 10,
-            "month_end": {
-              "amount": 0.0,
-              "display": "0元",
-              "compact_display": "0",
-              "tone": "muted"
-            },
-            "cash_inflow": {
-              "amount": 0.0,
-              "display": "0元",
-              "compact_display": "0",
-              "tone": "muted"
-            },
-            "snapshot_date": "2026-11-18",
-            "inflow_count": 0,
-            "positive_inflow_count": 0,
-            "pending_inflow_count": 0,
-            "detail_lines": [
-              "维持存量管理，不新增定投｜市值快照2026-11-18｜入账0笔（正金额0笔）"
-            ],
-            "serial_no": 1,
-            "display_name": "01. 南方中证500ETF联接(LOF)A"
-          },
-          {
             "fund_code": "000051",
             "fund_name": "华夏沪深300ETF联接A",
             "role": "core",
@@ -7675,36 +7647,64 @@
             "detail_lines": [
               "维持存量管理，不新增定投｜市值快照2026-11-18｜入账0笔（正金额0笔）"
             ],
-            "serial_no": 2,
-            "display_name": "02. 华夏沪深300ETF联接A"
+            "serial_no": 1,
+            "display_name": "01. 华夏沪深300ETF联接A"
           },
           {
-            "fund_code": "017140",
-            "fund_name": "华宝中证有色金属ETF联接A",
+            "fund_code": "160119",
+            "fund_name": "南方中证500ETF联接(LOF)A",
+            "role": "core",
+            "role_label": "核心",
+            "role_order": 10,
+            "month_end": {
+              "amount": 0.0,
+              "display": "0元",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "cash_inflow": {
+              "amount": 0.0,
+              "display": "0元",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "snapshot_date": "2026-11-18",
+            "inflow_count": 0,
+            "positive_inflow_count": 0,
+            "pending_inflow_count": 0,
+            "detail_lines": [
+              "维持存量管理，不新增定投｜市值快照2026-11-18｜入账0笔（正金额0笔）"
+            ],
+            "serial_no": 2,
+            "display_name": "02. 南方中证500ETF联接(LOF)A"
+          },
+          {
+            "fund_code": "024328",
+            "fund_name": "易方达恒生港股通创新药ETF联接A",
             "role": "satellite",
             "role_label": "卫星",
             "role_order": 20,
             "month_end": {
-              "amount": 244.0,
-              "display": "244元",
-              "compact_display": "244",
+              "amount": 1882.34,
+              "display": "1882.34元",
+              "compact_display": "1882.34",
               "tone": "muted"
             },
             "cash_inflow": {
-              "amount": 125.0,
-              "display": "125元",
-              "compact_display": "125",
+              "amount": 1062.0,
+              "display": "1062元",
+              "compact_display": "1062",
               "tone": "pos"
             },
             "snapshot_date": "2026-11-20",
-            "inflow_count": 5,
-            "positive_inflow_count": 5,
+            "inflow_count": 7,
+            "positive_inflow_count": 7,
             "pending_inflow_count": 0,
             "detail_lines": [
-              "维持定投｜市值快照2026-11-20｜入账5笔（正金额5笔）"
+              "维持定投｜市值快照2026-11-20｜入账7笔（正金额7笔）"
             ],
             "serial_no": 3,
-            "display_name": "03. 华宝中证有色金属ETF联接A"
+            "display_name": "03. 易方达恒生港股通创新药ETF联接A"
           },
           {
             "fund_code": "012544",
@@ -7735,32 +7735,32 @@
             "display_name": "04. 嘉实中证新能源汽车指数C"
           },
           {
-            "fund_code": "024328",
-            "fund_name": "易方达恒生港股通创新药ETF联接A",
+            "fund_code": "017140",
+            "fund_name": "华宝中证有色金属ETF联接A",
             "role": "satellite",
             "role_label": "卫星",
             "role_order": 20,
             "month_end": {
-              "amount": 1882.34,
-              "display": "1882.34元",
-              "compact_display": "1882.34",
+              "amount": 244.0,
+              "display": "244元",
+              "compact_display": "244",
               "tone": "muted"
             },
             "cash_inflow": {
-              "amount": 1062.0,
-              "display": "1062元",
-              "compact_display": "1062",
+              "amount": 125.0,
+              "display": "125元",
+              "compact_display": "125",
               "tone": "pos"
             },
             "snapshot_date": "2026-11-20",
-            "inflow_count": 7,
-            "positive_inflow_count": 7,
+            "inflow_count": 5,
+            "positive_inflow_count": 5,
             "pending_inflow_count": 0,
             "detail_lines": [
-              "维持定投｜市值快照2026-11-20｜入账7笔（正金额7笔）"
+              "维持定投｜市值快照2026-11-20｜入账5笔（正金额5笔）"
             ],
             "serial_no": 5,
-            "display_name": "05. 易方达恒生港股通创新药ETF联接A"
+            "display_name": "05. 华宝中证有色金属ETF联接A"
           },
           {
             "fund_code": "010267",
@@ -7875,34 +7875,6 @@
             "display_name": "09. 易方达高质量严选三年持有"
           },
           {
-            "fund_code": "010363",
-            "fund_name": "信澳匠心臻选两年持有",
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
-            "month_end": {
-              "amount": 641.0,
-              "display": "641元",
-              "compact_display": "641",
-              "tone": "muted"
-            },
-            "cash_inflow": {
-              "amount": 0.0,
-              "display": "0元",
-              "compact_display": "0",
-              "tone": "muted"
-            },
-            "snapshot_date": "2026-11-20",
-            "inflow_count": 0,
-            "positive_inflow_count": 0,
-            "pending_inflow_count": 0,
-            "detail_lines": [
-              "维持暂停，保留下月复核｜市值快照2026-11-20｜入账0笔（正金额0笔）"
-            ],
-            "serial_no": 10,
-            "display_name": "10. 信澳匠心臻选两年持有"
-          },
-          {
             "fund_code": "017491",
             "fund_name": "财通景气甄选一年持有C",
             "role": "active",
@@ -7927,8 +7899,36 @@
             "detail_lines": [
               "维持暂停，保留下月复核｜市值快照2026-11-20｜入账0笔（正金额0笔）"
             ],
+            "serial_no": 10,
+            "display_name": "10. 财通景气甄选一年持有C"
+          },
+          {
+            "fund_code": "010363",
+            "fund_name": "信澳匠心臻选两年持有",
+            "role": "active",
+            "role_label": "主动权益",
+            "role_order": 60,
+            "month_end": {
+              "amount": 641.0,
+              "display": "641元",
+              "compact_display": "641",
+              "tone": "muted"
+            },
+            "cash_inflow": {
+              "amount": 0.0,
+              "display": "0元",
+              "compact_display": "0",
+              "tone": "muted"
+            },
+            "snapshot_date": "2026-11-20",
+            "inflow_count": 0,
+            "positive_inflow_count": 0,
+            "pending_inflow_count": 0,
+            "detail_lines": [
+              "维持暂停，保留下月复核｜市值快照2026-11-20｜入账0笔（正金额0笔）"
+            ],
             "serial_no": 11,
-            "display_name": "11. 财通景气甄选一年持有C"
+            "display_name": "11. 信澳匠心臻选两年持有"
           }
         ],
         "amount_rule": "月结为基准日最近持仓快照与封账现金；入账仅统计真实定投与加仓，不含转换及卖出结算",
@@ -15248,8 +15248,8 @@
                     "detail": "月结0元｜新增入账0元",
                     "rows": [
                       {
-                        "fund_code": "160119",
-                        "fund_name": "01. 南方中证500ETF联接(LOF)A",
+                        "fund_code": "000051",
+                        "fund_name": "01. 华夏沪深300ETF联接A",
                         "role_label": "核心",
                         "month_end": {
                           "amount": 0.0,
@@ -15266,8 +15266,8 @@
                         "detail": "维持存量管理，不新增定投｜市值快照2026-11-18｜入账0笔（正金额0笔）"
                       },
                       {
-                        "fund_code": "000051",
-                        "fund_name": "02. 华夏沪深300ETF联接A",
+                        "fund_code": "160119",
+                        "fund_name": "02. 南方中证500ETF联接(LOF)A",
                         "role_label": "核心",
                         "month_end": {
                           "amount": 0.0,
@@ -15293,22 +15293,22 @@
                     "detail": "月结3457.95元｜新增入账1477元",
                     "rows": [
                       {
-                        "fund_code": "017140",
-                        "fund_name": "03. 华宝中证有色金属ETF联接A",
+                        "fund_code": "024328",
+                        "fund_name": "03. 易方达恒生港股通创新药ETF联接A",
                         "role_label": "卫星",
                         "month_end": {
-                          "amount": 244.0,
-                          "display": "244元",
-                          "compact_display": "244",
+                          "amount": 1882.34,
+                          "display": "1882.34元",
+                          "compact_display": "1882.34",
                           "tone": "muted"
                         },
                         "cash_inflow": {
-                          "amount": 125.0,
-                          "display": "125元",
-                          "compact_display": "125",
+                          "amount": 1062.0,
+                          "display": "1062元",
+                          "compact_display": "1062",
                           "tone": "pos"
                         },
-                        "detail": "维持定投｜市值快照2026-11-20｜入账5笔（正金额5笔）"
+                        "detail": "维持定投｜市值快照2026-11-20｜入账7笔（正金额7笔）"
                       },
                       {
                         "fund_code": "012544",
@@ -15329,22 +15329,22 @@
                         "detail": "维持定投｜市值快照2026-11-20｜入账6笔（正金额6笔）"
                       },
                       {
-                        "fund_code": "024328",
-                        "fund_name": "05. 易方达恒生港股通创新药ETF联接A",
+                        "fund_code": "017140",
+                        "fund_name": "05. 华宝中证有色金属ETF联接A",
                         "role_label": "卫星",
                         "month_end": {
-                          "amount": 1882.34,
-                          "display": "1882.34元",
-                          "compact_display": "1882.34",
+                          "amount": 244.0,
+                          "display": "244元",
+                          "compact_display": "244",
                           "tone": "muted"
                         },
                         "cash_inflow": {
-                          "amount": 1062.0,
-                          "display": "1062元",
-                          "compact_display": "1062",
+                          "amount": 125.0,
+                          "display": "125元",
+                          "compact_display": "125",
                           "tone": "pos"
                         },
-                        "detail": "维持定投｜市值快照2026-11-20｜入账7笔（正金额7笔）"
+                        "detail": "维持定投｜市值快照2026-11-20｜入账5笔（正金额5笔）"
                       }
                     ]
                   },
@@ -15455,13 +15455,13 @@
                         "detail": "维持暂停，保留下月复核｜市值快照2026-11-20｜入账0笔（正金额0笔）"
                       },
                       {
-                        "fund_code": "010363",
-                        "fund_name": "10. 信澳匠心臻选两年持有",
+                        "fund_code": "017491",
+                        "fund_name": "10. 财通景气甄选一年持有C",
                         "role_label": "主动权益",
                         "month_end": {
-                          "amount": 641.0,
-                          "display": "641元",
-                          "compact_display": "641",
+                          "amount": 855.24,
+                          "display": "855.24元",
+                          "compact_display": "855.24",
                           "tone": "muted"
                         },
                         "cash_inflow": {
@@ -15473,13 +15473,13 @@
                         "detail": "维持暂停，保留下月复核｜市值快照2026-11-20｜入账0笔（正金额0笔）"
                       },
                       {
-                        "fund_code": "017491",
-                        "fund_name": "11. 财通景气甄选一年持有C",
+                        "fund_code": "010363",
+                        "fund_name": "11. 信澳匠心臻选两年持有",
                         "role_label": "主动权益",
                         "month_end": {
-                          "amount": 855.24,
-                          "display": "855.24元",
-                          "compact_display": "855.24",
+                          "amount": 641.0,
+                          "display": "641元",
+                          "compact_display": "641",
                           "tone": "muted"
                         },
                         "cash_inflow": {
@@ -21955,7 +21955,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T17:30:59",
+    "generated_at": "2026-11-23T17:31:22",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",

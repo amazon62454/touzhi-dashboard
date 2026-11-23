@@ -139,7 +139,7 @@ function renderQuarterFundOperationsTable(node) {
   }).join('');
   const total = node.total_summary || {};
   const footer = `<tr class="fund-row grand-total-row"><th scope="row">${esc(total.label || U.ui_total || '')}</th><td colspan="4" class="summary-detail">${esc(total.detail || '')}</td></tr>`;
-  return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table quarter-operations-table"><colgroup><col class="quarter-col-fund"><col class="quarter-col-role"><col class="quarter-col-status"><col class="quarter-col-score"><col class="quarter-col-note"></colgroup><thead><tr>${headers}</tr></thead><tbody>${groups}${footer}</tbody></table></div><p class="table-caption">${esc((node.total_summary || {}).detail || '')}</p></div>`;
+  return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table quarter-operations-table"><colgroup><col class="quarter-col-fund"><col class="quarter-col-role"><col class="quarter-col-status"><col class="quarter-col-score"><col class="quarter-col-note"></colgroup><thead><tr>${headers}</tr></thead><tbody>${groups}${footer}</tbody></table></div></div>`;
 }
 
 function renderNode(node) {

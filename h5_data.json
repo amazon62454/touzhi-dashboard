@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T21:27:01",
+  "generated_at": "2026-11-23T21:28:08",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -18993,9 +18993,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "未评审",
-            "review_result_display": "未评审",
-            "review_reason_display": "缺评分、估值高估、资金撤离",
+            "status_display": "未通过",
+            "review_result_display": "未通过",
+            "review_reason_display": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：待评审（复核1次；本周评审；未通过下次复核2026-12-20）"
@@ -19012,8 +19012,8 @@
             "scale_display": "≈22.75亿(2026-06-30基金资产净值)",
             "fee_display": "运作费率0.8；赎回费1.5；申购费0.0",
             "missing_display": "—",
-            "next_step_display": "本周评审",
-            "next_action_display": "本周评审",
+            "next_step_display": "下周复审",
+            "next_action_display": "下周复审",
             "next_review_display": "本周（11-23~11-29）",
             "serial_no": 12,
             "display_name": "12. 广发中证军工ETF联接C"
@@ -19069,9 +19069,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "未评审",
-            "review_result_display": "未评审",
-            "review_reason_display": "缺评分、估值高估、资金撤离",
+            "status_display": "未通过",
+            "review_result_display": "未通过",
+            "review_reason_display": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：待评审（复核1次；本周评审；未通过下次复核2026-12-20）"
@@ -19088,8 +19088,8 @@
             "scale_display": "≈20.07亿(2026-06-30基金资产净值)",
             "fee_display": "运作费率0.6；赎回费1.5；申购费0.8",
             "missing_display": "—",
-            "next_step_display": "本周评审",
-            "next_action_display": "本周评审",
+            "next_step_display": "下周复审",
+            "next_action_display": "下周复审",
             "next_review_display": "本周（11-23~11-29）",
             "serial_no": 14,
             "display_name": "14. 国联安中证全指半导体ETF联接A(007300/C:007301)"
@@ -19107,9 +19107,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "未评审",
-            "review_result_display": "未评审",
-            "review_reason_display": "缺评分、估值高估、资金撤离",
+            "status_display": "未通过",
+            "review_result_display": "未通过",
+            "review_reason_display": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：待评审（复核1次；本周评审；未通过下次复核2026-12-20）"
@@ -19126,8 +19126,8 @@
             "scale_display": "≈7.86亿(2026-06-30基金资产净值)",
             "fee_display": "运作费率0.85；赎回费1.5；申购费0.0",
             "missing_display": "—",
-            "next_step_display": "本周评审",
-            "next_action_display": "本周评审",
+            "next_step_display": "下周复审",
+            "next_action_display": "下周复审",
             "next_review_display": "本周（11-23~11-29）",
             "serial_no": 15,
             "display_name": "15. 广发中证医疗ETF联接C(7.8亿)"
@@ -19145,9 +19145,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "未评审",
-            "review_result_display": "未评审",
-            "review_reason_display": "缺评分、估值高估、资金撤离",
+            "status_display": "未通过",
+            "review_result_display": "未通过",
+            "review_reason_display": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：待评审（复核1次；本周评审；未通过下次复核2026-12-20）"
@@ -19164,8 +19164,8 @@
             "scale_display": "≈63.80亿(2026-06-30基金资产净值)",
             "fee_display": "运作费率0.45；赎回费1.5；申购费0.0",
             "missing_display": "—",
-            "next_step_display": "本周评审",
-            "next_action_display": "本周评审",
+            "next_step_display": "下周复审",
+            "next_action_display": "下周复审",
             "next_review_display": "本周（11-23~11-29）",
             "serial_no": 16,
             "display_name": "16. 华夏科创50ETF联接C"
@@ -19183,9 +19183,9 @@
             "score_display": "待评分(需完整五维)",
             "score_complete": false,
             "score_state": "待完整五维评分",
-            "status_display": "未评审",
-            "review_result_display": "未评审",
-            "review_reason_display": "缺评分、估值高估、资金撤离",
+            "status_display": "未通过",
+            "review_result_display": "未通过",
+            "review_reason_display": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：待评审（复核1次；本周评审；未通过下次复核2026-12-20）"
@@ -19202,8 +19202,8 @@
             "scale_display": "≈65.79亿(2026-06-30基金资产净值)",
             "fee_display": "运作费率0.2；赎回费1.5；申购费1.2",
             "missing_display": "—",
-            "next_step_display": "本周评审",
-            "next_action_display": "本周评审",
+            "next_step_display": "下周复审",
+            "next_action_display": "下周复审",
             "next_review_display": "本周（11-23~11-29）",
             "serial_no": 17,
             "display_name": "17. 易方达创业板ETF联接A(53.1亿,A类限频≥30日)"
@@ -22125,45 +22125,45 @@
                     "valuation": "1.98%",
                     "scale": "≈63.80亿(2026-06-30基金资产净值)",
                     "fee": "运作费率0.45；赎回费1.5；申购费0.0",
-                    "status": "未评审",
-                    "pending": "缺评分、估值高估、资金撤离",
-                    "next_review": "本周评审"
+                    "status": "未通过",
+                    "pending": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
+                    "next_review": "下周复审"
                   },
                   {
                     "fund_name": "02. 易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
                     "valuation": "8.11%",
                     "scale": "≈65.79亿(2026-06-30基金资产净值)",
                     "fee": "运作费率0.2；赎回费1.5；申购费1.2",
-                    "status": "未评审",
-                    "pending": "缺评分、估值高估、资金撤离",
-                    "next_review": "本周评审"
+                    "status": "未通过",
+                    "pending": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
+                    "next_review": "下周复审"
                   },
                   {
                     "fund_name": "03. 广发中证军工ETF联接C",
                     "valuation": "11.01%",
                     "scale": "≈22.75亿(2026-06-30基金资产净值)",
                     "fee": "运作费率0.8；赎回费1.5；申购费0.0",
-                    "status": "未评审",
-                    "pending": "缺评分、估值高估、资金撤离",
-                    "next_review": "本周评审"
+                    "status": "未通过",
+                    "pending": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
+                    "next_review": "下周复审"
                   },
                   {
                     "fund_name": "04. 广发中证医疗ETF联接C(7.8亿)",
                     "valuation": "19.55%",
                     "scale": "≈7.86亿(2026-06-30基金资产净值)",
                     "fee": "运作费率0.85；赎回费1.5；申购费0.0",
-                    "status": "未评审",
-                    "pending": "缺评分、估值高估、资金撤离",
-                    "next_review": "本周评审"
+                    "status": "未通过",
+                    "pending": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
+                    "next_review": "下周复审"
                   },
                   {
                     "fund_name": "05. 国联安中证全指半导体ETF联接A(007300/C:007301)",
                     "valuation": "23.33%",
                     "scale": "≈20.07亿(2026-06-30基金资产净值)",
                     "fee": "运作费率0.6；赎回费1.5；申购费0.8",
-                    "status": "未评审",
-                    "pending": "缺评分、估值高估、资金撤离",
-                    "next_review": "本周评审"
+                    "status": "未通过",
+                    "pending": "缺评分、估值高估、资金撤离，四维比较/四确认未闭环",
+                    "next_review": "下周复审"
                   },
                   {
                     "fund_name": "06. 汇添富中证医药ETF联接C",
@@ -22296,7 +22296,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T21:27:01",
+    "generated_at": "2026-11-23T21:28:08",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",
@@ -25245,7 +25245,7 @@
         },
         {
           "type": "paragraph",
-          "text": "**季度页全持仓状态总表（fund_operations_quarter_v1）**：全持仓表固定基金／层级／状态／评分／执行说明五列，只放已持有与退出观察，不放候选；候选另设独立“候选池”表，固定基金／估值分位／规模／费率／本周评审结论／原因／下一步，不列评分、不写“待评分（需完整五维）”。现有持仓与退出复核读季度判决；候选读最近月度全市场扫描并记录来源run_id。状态分持有、观察、删除；候选状态分初筛（待补规模/费率）、未评审（本周评审）、通过（纳入持有）、未通过（记录原因并决定下周复审或剔除）、关闭；新增仅表示当月发现事件，当月即初筛，不等于已纳入，季度不产生买卖金额，正式纳新仍归月度主责。评分明确区分五维齐全、缺维部分分、未评分与待完整五维评分，未评分不得显示为0分；状态来源、评分口径、动作边界、候选来源，以及核心卫星、四资产、集中度、持有期退出、规模和前向信号证据，统一放入对应表下方唯一默认收起的“判断依据”；禁止另设“查看配置复核的人话说明与数据”或第二个综合证据入口。退出复核必须先展示已取得的基金经理、规模、长期业绩和归因事实，再用具体中文说明未取得的基准成分或归因维度及下次复核时间，禁止只展示内部缺项代码。**"
+          "text": "**季度页全持仓状态总表（fund_operations_quarter_v1）**：全持仓表固定基金／层级／状态／评分／执行说明五列，只放已持有与退出观察，不放候选；候选另设独立“候选池”表，固定基金／估值分位／规模／费率／本周评审结论／原因／下一步，不列评分、不写“待评分（需完整五维）”。现有持仓与退出复核读季度判决；候选读最近月度全市场扫描并记录来源run_id。状态分持有、观察、删除；候选状态分初筛（待补规模/费率）、通过（纳入持有）、未通过（资料未齐→下周复审；规模/费率等硬条件不达→剔除）、关闭；新增仅表示当月发现事件，当月即初筛，不等于已纳入，季度不产生买卖金额，正式纳新仍归月度主责。评分明确区分五维齐全、缺维部分分、未评分与待完整五维评分，未评分不得显示为0分；状态来源、评分口径、动作边界、候选来源，以及核心卫星、四资产、集中度、持有期退出、规模和前向信号证据，统一放入对应表下方唯一默认收起的“判断依据”；禁止另设“查看配置复核的人话说明与数据”或第二个综合证据入口。退出复核必须先展示已取得的基金经理、规模、长期业绩和归因事实，再用具体中文说明未取得的基准成分或归因维度及下次复核时间，禁止只展示内部缺项代码。**"
         },
         {
           "type": "paragraph",

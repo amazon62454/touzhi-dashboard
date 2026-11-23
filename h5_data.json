@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T22:27:02",
+  "generated_at": "2026-11-23T22:31:08",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -7231,7 +7231,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-22T14:48:25",
+        "as_of": "2026-11-23T22:30:33",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -7242,11 +7242,11 @@
         "expired": [],
         "next_review_at": "2026-12-20T03:30:00",
         "result_visible_until": "2026-12-20T03:30:00",
-        "result_effective_from": "2026-11-22T14:48:24",
+        "result_effective_from": "2026-11-23T22:30:31",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-22T14:48:24",
+      "generated_at": "2026-11-23T22:30:31",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -7307,7 +7307,7 @@
             "market_value": 1882.34,
             "cost": 2146.98,
             "profit_rate": -12.33,
-            "valuation_pct": 4.6,
+            "valuation_pct": 3.5,
             "current_amount": 65.0
           }
         },
@@ -7321,7 +7321,7 @@
             "market_value": 1331.61,
             "cost": 1466.74,
             "profit_rate": -9.21,
-            "valuation_pct": 6.41,
+            "valuation_pct": 4.49,
             "current_amount": 40.0
           }
         },
@@ -7335,7 +7335,7 @@
             "market_value": 1154.81,
             "cost": 1360.7,
             "profit_rate": -15.13,
-            "valuation_pct": 75.86,
+            "valuation_pct": 72.35,
             "current_amount": 0.0
           }
         },
@@ -7401,7 +7401,7 @@
             "market_value": 244.0,
             "cost": 295.0,
             "profit_rate": -17.29,
-            "valuation_pct": 26.29,
+            "valuation_pct": 21.03,
             "current_amount": 25.0
           }
         },
@@ -7415,7 +7415,7 @@
             "market_value": 0.0,
             "cost": 0.0,
             "profit_rate": 0.0,
-            "valuation_pct": 74.97,
+            "valuation_pct": 76.12,
             "current_amount": 0.0
           }
         },
@@ -7429,7 +7429,7 @@
             "market_value": 0.0,
             "cost": 0.0,
             "profit_rate": 0.0,
-            "valuation_pct": 61.5,
+            "valuation_pct": 57.78,
             "current_amount": 0.0
           }
         }
@@ -7968,7 +7968,8 @@
             "label": "新周期预算",
             "value": "1800元"
           }
-        ]
+        ],
+        "candidate_actions": []
       },
       "attention_items": [],
       "normal_items": [
@@ -7982,7 +7983,7 @@
             "market_value": 1882.34,
             "cost": 2146.98,
             "profit_rate": -12.33,
-            "valuation_pct": 4.6,
+            "valuation_pct": 3.5,
             "current_amount": 65.0
           }
         },
@@ -7996,7 +7997,7 @@
             "market_value": 1331.61,
             "cost": 1466.74,
             "profit_rate": -9.21,
-            "valuation_pct": 6.41,
+            "valuation_pct": 4.49,
             "current_amount": 40.0
           }
         },
@@ -8010,7 +8011,7 @@
             "market_value": 1154.81,
             "cost": 1360.7,
             "profit_rate": -15.13,
-            "valuation_pct": 75.86,
+            "valuation_pct": 72.35,
             "current_amount": 0.0
           }
         },
@@ -8076,7 +8077,7 @@
             "market_value": 244.0,
             "cost": 295.0,
             "profit_rate": -17.29,
-            "valuation_pct": 26.29,
+            "valuation_pct": 21.03,
             "current_amount": 25.0
           }
         },
@@ -8090,7 +8091,7 @@
             "market_value": 0.0,
             "cost": 0.0,
             "profit_rate": 0.0,
-            "valuation_pct": 74.97,
+            "valuation_pct": 76.12,
             "current_amount": 0.0
           }
         },
@@ -8104,7 +8105,7 @@
             "market_value": 0.0,
             "cost": 0.0,
             "profit_rate": 0.0,
-            "valuation_pct": 61.5,
+            "valuation_pct": 57.78,
             "current_amount": 0.0
           }
         }
@@ -8145,13 +8146,13 @@
           "metrics": [
             {
               "label": "最接近闭环",
-              "value": "国泰黄金ETF联接C",
+              "value": "华夏沪深300ETF联接A",
               "unit": "",
               "tone": "info"
             },
             {
               "label": "估值分位",
-              "value": 75.86,
+              "value": 76.12,
               "unit": "%",
               "tone": "info"
             }
@@ -8169,19 +8170,19 @@
       ],
       "allocation": {
         "amounts": {
-          "养老FOF": 1150.32,
-          "现金": 170.0,
-          "黄金": 1154.81,
           "权益": 5824.48,
-          "债券": 13002.78
+          "养老FOF": 1150.32,
+          "债券": 13002.78,
+          "黄金": 1154.81,
+          "现金": 170.0
         },
         "total": 21302.39,
         "weights": {
-          "养老FOF": 5.4,
-          "现金": 0.8,
-          "黄金": 5.42,
           "权益": 27.34,
-          "债券": 61.04
+          "养老FOF": 5.4,
+          "债券": 61.04,
+          "黄金": 5.42,
+          "现金": 0.8
         }
       },
       "asset_allocation": {
@@ -8334,14 +8335,14 @@
             "fund_name": "易方达恒生港股通创新药ETF联接A",
             "index_name": "创新药",
             "style_role": "satellite",
-            "valuation": 4.6,
+            "valuation": 3.5,
             "band": "极度低估",
-            "score": 79.0,
+            "score": 75.5,
             "scores": {
               "估值": 50.0,
               "趋势": 0.0,
               "资金": 12.5,
-              "基本面": 12.5,
+              "基本面": 9,
               "情绪": 4.0
             },
             "missing_dimensions": [],
@@ -8354,14 +8355,14 @@
             "fund_name": "嘉实中证新能源汽车指数C",
             "index_name": "新能源车",
             "style_role": "satellite",
-            "valuation": 6.41,
+            "valuation": 4.49,
             "band": "极度低估",
-            "score": 70.0,
+            "score": 71.5,
             "scores": {
-              "估值": 45.0,
+              "估值": 50.0,
               "趋势": 0.0,
               "资金": 0.0,
-              "基本面": 12.5,
+              "基本面": 9,
               "情绪": 12.5
             },
             "missing_dimensions": [],
@@ -8374,7 +8375,7 @@
             "fund_name": "华宝中证有色金属ETF联接A",
             "index_name": "有色金属",
             "style_role": "satellite",
-            "valuation": 26.29,
+            "valuation": 21.03,
             "band": "低估",
             "score": 43.0,
             "scores": {
@@ -8396,14 +8397,14 @@
           "fund_name": "易方达恒生港股通创新药ETF联接A",
           "index_name": "创新药",
           "style_role": "satellite",
-          "valuation": 4.6,
+          "valuation": 3.5,
           "band": "极度低估",
-          "score": 79.0,
+          "score": 75.5,
           "scores": {
             "估值": 50.0,
             "趋势": 0.0,
             "资金": 12.5,
-            "基本面": 12.5,
+            "基本面": 9,
             "情绪": 4.0
           },
           "missing_dimensions": [],
@@ -8440,14 +8441,14 @@
             "fund_name": "易方达恒生港股通创新药ETF联接A",
             "index_name": "创新药",
             "style_role": "satellite",
-            "valuation": 4.6,
+            "valuation": 3.5,
             "band": "极度低估",
-            "score": 79.0,
+            "score": 75.5,
             "scores": {
               "估值": 50.0,
               "趋势": 0.0,
               "资金": 12.5,
-              "基本面": 12.5,
+              "基本面": 9,
               "情绪": 4.0
             },
             "missing_dimensions": [],
@@ -8460,14 +8461,14 @@
             "fund_name": "嘉实中证新能源汽车指数C",
             "index_name": "新能源车",
             "style_role": "satellite",
-            "valuation": 6.41,
+            "valuation": 4.49,
             "band": "极度低估",
-            "score": 70.0,
+            "score": 71.5,
             "scores": {
-              "估值": 45.0,
+              "估值": 50.0,
               "趋势": 0.0,
               "资金": 0.0,
-              "基本面": 12.5,
+              "基本面": 9,
               "情绪": 12.5
             },
             "missing_dimensions": [],
@@ -8480,7 +8481,7 @@
             "fund_name": "华宝中证有色金属ETF联接A",
             "index_name": "有色金属",
             "style_role": "satellite",
-            "valuation": 26.29,
+            "valuation": 21.03,
             "band": "低估",
             "score": 43.0,
             "scores": {
@@ -8519,21 +8520,21 @@
         "target": 10.0,
         "actual": 5.42103491673939,
         "gap": 4.578965,
-        "price_percentile": 75.86,
+        "price_percentile": 72.35,
         "score": {
-          "decision": "情绪过热，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": true,
           "score": 6.0,
           "scores": {
             "估值": 0.0,
-            "基本面": 6,
-            "情绪": 0.0,
+            "趋势": 0.0,
             "资金": 0.0,
-            "趋势": 0.0
+            "基本面": 6,
+            "情绪": 0.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": true,
+          "decision": "情绪过热，本笔不操作"
         },
         "buy_allowed": false,
         "missing": [],
@@ -8541,7 +8542,43 @@
         "data_issues": [],
         "blocking_reason": ""
       },
-      "risk_budget": null,
+      "risk_budget": {
+        "current_drawdown_pct": -4.0,
+        "cost_basis_pct": -8.85,
+        "peak_value": 22180.99,
+        "current_value": 21302.39,
+        "p20": 15.0,
+        "p21": 20.0,
+        "p22": 25.0,
+        "levels": [
+          {
+            "key": "level1",
+            "threshold": -15.0
+          },
+          {
+            "key": "level2",
+            "threshold": -20.0
+          },
+          {
+            "key": "level3",
+            "threshold": -25.0
+          }
+        ],
+        "level": 0,
+        "level_key": "ok",
+        "status_key": "ok",
+        "within_budget": true,
+        "emergency": false,
+        "reduce_plan": {
+          "level": 0,
+          "reduce_amount": 0.0,
+          "target_equity": 5824.48,
+          "desc": "未触红线",
+          "allocations": []
+        },
+        "action_text": "",
+        "data_missing": false
+      },
       "execution_plan": null,
       "amount_groups": {
         "core": [],
@@ -13942,10 +13979,6 @@
       ],
       "five_dimension_scores": {
         "000051": {
-          "decision": "未达到加仓门槛，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": false,
           "score": 13.0,
           "scores": {
             "估值": 0.0,
@@ -13954,13 +13987,13 @@
             "基本面": 9.0,
             "情绪": 4.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": false,
+          "decision": "未达到加仓门槛，本笔不操作"
         },
         "004253": {
-          "decision": "情绪过热，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": true,
           "score": 6.0,
           "scores": {
             "估值": 0.0,
@@ -13969,28 +14002,28 @@
             "基本面": 6.0,
             "情绪": 0.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": true,
+          "decision": "情绪过热，本笔不操作"
         },
         "012544": {
-          "decision": "评分与数据闸门通过，再核现金池和频率闸门",
-          "eligible": true,
-          "missing": [],
-          "overheated": false,
-          "score": 70.0,
+          "score": 71.5,
           "scores": {
-            "估值": 45.0,
+            "估值": 50.0,
             "趋势": 0.0,
             "资金": 0.0,
-            "基本面": 12.5,
+            "基本面": 9.0,
             "情绪": 12.5
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": true,
+          "overheated": false,
+          "decision": "评分与数据闸门通过，再核现金池和频率闸门"
         },
         "017140": {
-          "decision": "未达到加仓门槛，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": false,
           "score": 43.0,
           "scores": {
             "估值": 30.0,
@@ -13999,28 +14032,28 @@
             "基本面": 9.0,
             "情绪": 4.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": false,
+          "decision": "未达到加仓门槛，本笔不操作"
         },
         "024328": {
-          "decision": "评分与数据闸门通过，再核现金池和频率闸门",
-          "eligible": true,
-          "missing": [],
-          "overheated": false,
-          "score": 79.0,
+          "score": 75.5,
           "scores": {
             "估值": 50.0,
             "趋势": 0.0,
             "资金": 12.5,
-            "基本面": 12.5,
+            "基本面": 9.0,
             "情绪": 4.0
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": true,
+          "overheated": false,
+          "decision": "评分与数据闸门通过，再核现金池和频率闸门"
         },
         "160119": {
-          "decision": "未达到加仓门槛，本笔不操作",
-          "eligible": false,
-          "missing": [],
-          "overheated": false,
           "score": 21.5,
           "scores": {
             "估值": 0.0,
@@ -14029,7 +14062,11 @@
             "基本面": 9.0,
             "情绪": 12.5
           },
-          "threshold": 70.0
+          "missing": [],
+          "threshold": 70.0,
+          "eligible": false,
+          "overheated": false,
+          "decision": "未达到加仓门槛，本笔不操作"
         }
       },
       "artifacts": {
@@ -14473,7 +14510,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -14484,15 +14521,11 @@
                 },
                 "评分": "待评分(需完整五维)",
                 "规模": {
-                  "新": "≈63.80亿(2026-06-30基金资产净值)",
+                  "新": "待数据",
                   "最弱": "≈4.97亿(A+C基金整体)(达标✅(基金整体))"
                 },
                 "费率": {
-                  "新": {
-                    "运作费率": 0.45,
-                    "赎回费": 1.5,
-                    "申购费": 0.0
-                  },
+                  "新": "待数据",
                   "最弱": {
                     "运作费率": 2.1,
                     "赎回费": 0.1,
@@ -14524,7 +14557,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -14535,14 +14568,14 @@
                 },
                 "评分": "待评分(需完整五维)",
                 "规模": {
-                  "新": "≈65.79亿(2026-06-30基金资产净值)",
+                  "新": "待数据",
                   "最弱": "≈4.97亿(A+C基金整体)(达标✅(基金整体))"
                 },
                 "费率": {
                   "新": {
-                    "运作费率": 0.2,
-                    "赎回费": 1.5,
-                    "申购费": 1.2
+                    "运作费率": 0.32,
+                    "赎回费": 0.05,
+                    "申购费": 0.15
                   },
                   "最弱": {
                     "运作费率": 2.1,
@@ -14575,7 +14608,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -14586,15 +14619,11 @@
                 },
                 "评分": "待评分(需完整五维)",
                 "规模": {
-                  "新": "≈22.75亿(2026-06-30基金资产净值)",
+                  "新": "待数据",
                   "最弱": "≈4.97亿(A+C基金整体)(达标✅(基金整体))"
                 },
                 "费率": {
-                  "新": {
-                    "运作费率": 0.8,
-                    "赎回费": 1.5,
-                    "申购费": 0.0
-                  },
+                  "新": "待数据",
                   "最弱": {
                     "运作费率": 2.1,
                     "赎回费": 0.1,
@@ -14626,7 +14655,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -14637,14 +14666,14 @@
                 },
                 "评分": "待评分(需完整五维)",
                 "规模": {
-                  "新": "≈7.86亿(2026-06-30基金资产净值)",
+                  "新": "待数据",
                   "最弱": "≈4.97亿(A+C基金整体)(达标✅(基金整体))"
                 },
                 "费率": {
                   "新": {
-                    "运作费率": 0.85,
-                    "赎回费": 1.5,
-                    "申购费": 0.0
+                    "运作费率": 1.05,
+                    "赎回费": 0.15,
+                    "申购费": 0.5
                   },
                   "最弱": {
                     "运作费率": 2.1,
@@ -14677,7 +14706,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -14688,15 +14717,11 @@
                 },
                 "评分": "待评分(需完整五维)",
                 "规模": {
-                  "新": "≈20.07亿(2026-06-30基金资产净值)",
+                  "新": "待数据",
                   "最弱": "≈4.97亿(A+C基金整体)(达标✅(基金整体))"
                 },
                 "费率": {
-                  "新": {
-                    "运作费率": 0.6,
-                    "赎回费": 1.5,
-                    "申购费": 0.8
-                  },
+                  "新": "待数据",
                   "最弱": {
                     "运作费率": 2.1,
                     "赎回费": 0.1,
@@ -14728,7 +14753,7 @@
               "status": "低估候选",
               "existing": false,
               "decision": "候选池待复核，暂不纳入",
-              "reason": "规模≈0.93亿(2026-06-30基金资产净值)低于 2亿，规模条件不达标；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "reason": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "weakest_fund_code": "017140",
               "weakest_valuation": 26.29,
               "four_dim": {
@@ -14739,15 +14764,11 @@
                 },
                 "评分": "待评分(需完整五维)",
                 "规模": {
-                  "新": "≈0.93亿(2026-06-30基金资产净值)",
+                  "新": "待数据",
                   "最弱": "≈4.97亿(A+C基金整体)(达标✅(基金整体))"
                 },
                 "费率": {
-                  "新": {
-                    "运作费率": 1.0,
-                    "赎回费": 1.5,
-                    "申购费": 0.0
-                  },
+                  "新": "待数据",
                   "最弱": {
                     "运作费率": 2.1,
                     "赎回费": 0.1,
@@ -14806,21 +14827,21 @@
             "fund_name": "易方达恒生港股通创新药ETF联接A",
             "decision": "维持定投",
             "reason": "定投中",
-            "valuation": 4.6
+            "valuation": 3.5
           },
           {
             "fund_code": "012544",
             "fund_name": "嘉实中证新能源汽车指数C",
             "decision": "维持定投",
             "reason": "定投中",
-            "valuation": 6.41
+            "valuation": 4.49
           },
           {
             "fund_code": "017140",
             "fund_name": "华宝中证有色金属ETF联接A",
             "decision": "维持定投",
             "reason": "定投中",
-            "valuation": 26.29
+            "valuation": 21.03
           },
           {
             "fund_code": "010267",
@@ -14841,7 +14862,7 @@
             "fund_name": "国泰黄金ETF联接C",
             "decision": "维持暂停，保留下月复核",
             "reason": "存量管理",
-            "valuation": 75.86
+            "valuation": 72.35
           },
           {
             "fund_code": "010340",
@@ -14869,14 +14890,14 @@
             "fund_name": "华夏沪深300ETF联接A",
             "decision": "维持存量管理，不新增定投",
             "reason": "存量管理",
-            "valuation": 74.97
+            "valuation": 76.12
           },
           {
             "fund_code": "160119",
             "fund_name": "南方中证500ETF联接(LOF)A",
             "decision": "维持存量管理，不新增定投",
             "reason": "存量管理",
-            "valuation": 61.5
+            "valuation": 57.78
           }
         ],
         "monthly_close": {
@@ -15086,41 +15107,41 @@
           {
             "name": "持仓估值越档",
             "status": "🔴",
-            "detail": "024328:4.6%→极度低估；012544:6.41%→极度低估；004253:75.86%→高估；000051:74.97%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
+            "detail": "024328:3.5%→极度低估；012544:4.49%→极度低估；004253:72.35%→高估；000051:76.12%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": 4.6,
+                "value": 3.5,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": 6.41,
+                "value": 4.49,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": 26.29,
+                "value": 21.03,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": 75.86,
+                "value": 72.35,
                 "unit": "%",
                 "tone": "warn"
               },
               {
                 "label": "华夏沪深300ETF联接A",
-                "value": 74.97,
+                "value": 76.12,
                 "unit": "%",
                 "tone": "warn"
               },
               {
                 "label": "南方中证500ETF联接(LOF)A",
-                "value": 61.5,
+                "value": 57.78,
                 "unit": "%",
                 "tone": "info"
               }
@@ -15198,13 +15219,13 @@
             "metrics": [
               {
                 "label": "最接近闭环",
-                "value": "国泰黄金ETF联接C",
+                "value": "华夏沪深300ETF联接A",
                 "unit": "",
                 "tone": "info"
               },
               {
                 "label": "估值分位",
-                "value": 75.86,
+                "value": 76.12,
                 "unit": "%",
                 "tone": "info"
               }
@@ -15316,25 +15337,25 @@
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": 0.2,
+                "value": 1.3,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": 0.0,
+                "value": 1.9,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": 3.2,
+                "value": 8.4,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": 0.4,
+                "value": 3.9,
                 "unit": "个百分点",
                 "tone": "info"
               },
@@ -15398,7 +15419,7 @@
         }
       },
       "market_env": {
-        "hs300_pe_pct": 75.3,
+        "hs300_pe_pct": 76.12,
         "erp_state": "high",
         "impact": {
           "label": "高估",
@@ -15412,7 +15433,7 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_monthly|2026-11-20|2026-11-20|2026-11-20#R19#live",
+      "source_file": "band_monthly|2026-11-20|2026-11-20|2026-11-20#R22#live",
       "display": {
         "header": {
           "title": "月度档 · 资金评审",
@@ -16524,7 +16545,7 @@
                                       "format": "text"
                                     },
                                     {
-                                      "value": 4.6,
+                                      "value": 3.5,
                                       "format": "pct"
                                     }
                                   ],
@@ -16570,7 +16591,7 @@
                                       "format": "text"
                                     },
                                     {
-                                      "value": 6.41,
+                                      "value": 4.49,
                                       "format": "pct"
                                     }
                                   ],
@@ -16616,7 +16637,7 @@
                                       "format": "text"
                                     },
                                     {
-                                      "value": 75.86,
+                                      "value": 72.35,
                                       "format": "pct"
                                     }
                                   ],
@@ -16846,7 +16867,7 @@
                                       "format": "text"
                                     },
                                     {
-                                      "value": 26.29,
+                                      "value": 21.03,
                                       "format": "pct"
                                     }
                                   ],
@@ -16892,7 +16913,7 @@
                                       "format": "text"
                                     },
                                     {
-                                      "value": 74.97,
+                                      "value": 76.12,
                                       "format": "pct"
                                     }
                                   ],
@@ -16938,7 +16959,7 @@
                                       "format": "text"
                                     },
                                     {
-                                      "value": 61.5,
+                                      "value": 57.78,
                                       "format": "pct"
                                     }
                                   ],
@@ -18034,7 +18055,7 @@
                               ],
                               [
                                 {
-                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                                   "format": "text"
                                 }
                               ]
@@ -18091,7 +18112,7 @@
                               ],
                               [
                                 {
-                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                                   "format": "text"
                                 }
                               ]
@@ -18148,7 +18169,7 @@
                               ],
                               [
                                 {
-                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                                   "format": "text"
                                 }
                               ]
@@ -18205,7 +18226,7 @@
                               ],
                               [
                                 {
-                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                                   "format": "text"
                                 }
                               ]
@@ -18262,7 +18283,7 @@
                               ],
                               [
                                 {
-                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                                   "format": "text"
                                 }
                               ]
@@ -18319,7 +18340,7 @@
                               ],
                               [
                                 {
-                                  "value": "候选池待复核，暂不纳入：规模≈0.93亿(2026-06-30基金资产净值)低于 2亿，规模条件不达标；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                                  "value": "候选池待复核，暂不纳入：估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                                   "format": "text"
                                 }
                               ]
@@ -18461,7 +18482,7 @@
                       {
                         "type": "parameter_node",
                         "title": "月度｜预算与卫星锁",
-                        "state_label": "正式评估缺数未完成",
+                        "state_label": "正式数据已生成",
                         "children": [
                           {
                             "type": "text",
@@ -18595,7 +18616,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "text": "每周周日，月度之后 · 读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
+                            "text": "每周日，月度之后 · 读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
                             "style": "muted"
                           },
                           {
@@ -18925,7 +18946,7 @@
                       {
                         "type": "parameter_node",
                         "title": "台账反馈｜下次评估输入",
-                        "state_label": "正式评估缺数未完成",
+                        "state_label": "正式数据已生成",
                         "children": [
                           {
                             "type": "text",
@@ -19032,7 +19053,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "未接线",
+                              "value": "已接线",
                               "format": "text"
                             },
                             {
@@ -19040,7 +19061,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "锁或完成证据缺失。",
+                              "value": "已接线：季度写、月度读。",
                               "format": "text"
                             }
                           ],
@@ -19068,7 +19089,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "未接线",
+                              "value": "已接线",
                               "format": "text"
                             },
                             {
@@ -19076,7 +19097,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "预算锁或完成证据缺失。",
+                              "value": "已接线：周日只读本周期预算锁。",
                               "format": "text"
                             }
                           ],
@@ -19086,7 +19107,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "未接线",
+                              "value": "已接线",
                               "format": "text"
                             },
                             {
@@ -19094,7 +19115,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "卫星锁或完成证据缺失。",
+                              "value": "已接线：月度写、周日读。",
                               "format": "text"
                             }
                           ],
@@ -19276,7 +19297,7 @@
                     "type": "kv",
                     "label": "传递周日加仓评估",
                     "value": {
-                      "value": "现金池已传递周日加仓流程；每周周日评分与资金闸门复核，月度不在本步等待。",
+                      "value": "现金池已传递周日加仓流程；每周日评分与资金闸门复核，月度不在本步等待。",
                       "format": "text"
                     },
                     "tone": "",
@@ -19908,10 +19929,10 @@
             "review_reason_display": "资料/市场条件未齐：趋势、原持仓未高估、原持仓资金未撤离、置换方案不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：初筛（复核4次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：初筛（复核9次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
-              "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "初筛待补：规模、费率",
               "正式评审待补：评分、估值高估、资金撤离"
             ],
@@ -19920,8 +19941,8 @@
             "valuation_date": "2026-11-18",
             "valuation_source": "AI涨乐",
             "valuation_display": "11.01%",
-            "scale_display": "≈22.75亿(2026-06-30基金资产净值)",
-            "fee_display": "运作费率0.8；赎回费1.5；申购费0.0",
+            "scale_display": "待数据",
+            "fee_display": "待数据",
             "missing_display": "规模、费率",
             "next_step_display": "下周复审",
             "next_action_display": "下周复审",
@@ -19947,10 +19968,10 @@
             "review_reason_display": "规模不达标：≈0.93亿(2026-06-30基金资产净值)",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：初筛（复核4次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：初筛（复核9次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
-              "规模≈0.93亿(2026-06-30基金资产净值)低于 2亿，规模条件不达标；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "初筛待补：规模、费率",
               "正式评审待补：评分、估值高估、资金撤离"
             ],
@@ -19959,8 +19980,8 @@
             "valuation_date": "2026-11-19",
             "valuation_source": "AI涨乐",
             "valuation_display": "24.36%",
-            "scale_display": "≈0.93亿(2026-06-30基金资产净值)",
-            "fee_display": "运作费率1.0；赎回费1.5；申购费0.0",
+            "scale_display": "待数据",
+            "fee_display": "待数据",
             "missing_display": "规模、费率",
             "next_step_display": "剔除",
             "next_action_display": "剔除",
@@ -19986,10 +20007,10 @@
             "review_reason_display": "资料/市场条件未齐：趋势、原持仓未高估、原持仓资金未撤离、四维比较未全优、置换方案不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：初筛（复核4次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：初筛（复核9次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
-              "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "初筛待补：规模、费率",
               "正式评审待补：评分、估值高估、资金撤离"
             ],
@@ -19998,8 +20019,8 @@
             "valuation_date": "2026-11-18",
             "valuation_source": "AI涨乐",
             "valuation_display": "23.33%",
-            "scale_display": "≈20.07亿(2026-06-30基金资产净值)",
-            "fee_display": "运作费率0.6；赎回费1.5；申购费0.8",
+            "scale_display": "待数据",
+            "fee_display": "待数据",
             "missing_display": "规模、费率",
             "next_step_display": "下周复审",
             "next_action_display": "下周复审",
@@ -20025,10 +20046,10 @@
             "review_reason_display": "资料/市场条件未齐：趋势、基本面、原持仓未高估、原持仓资金未撤离、置换方案不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：初筛（复核4次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：初筛（复核9次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
-              "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "初筛待补：规模",
               "正式评审待补：评分、估值高估、资金撤离"
             ],
@@ -20037,8 +20058,8 @@
             "valuation_date": "2026-11-18",
             "valuation_source": "AI涨乐",
             "valuation_display": "19.55%",
-            "scale_display": "≈7.86亿(2026-06-30基金资产净值)",
-            "fee_display": "运作费率0.85；赎回费1.5；申购费0.0",
+            "scale_display": "待数据",
+            "fee_display": "运作费率1.05；赎回费0.15；申购费0.5",
             "missing_display": "规模",
             "next_step_display": "下周复审",
             "next_action_display": "下周复审",
@@ -20064,10 +20085,10 @@
             "review_reason_display": "资料/市场条件未齐：趋势、情绪、原持仓未高估、原持仓资金未撤离、置换方案不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：初筛（复核4次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：初筛（复核9次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
-              "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "初筛待补：规模、费率",
               "正式评审待补：评分、估值高估、资金撤离"
             ],
@@ -20076,8 +20097,8 @@
             "valuation_date": "2026-11-19",
             "valuation_source": "AI涨乐",
             "valuation_display": "1.98%",
-            "scale_display": "≈63.80亿(2026-06-30基金资产净值)",
-            "fee_display": "运作费率0.45；赎回费1.5；申购费0.0",
+            "scale_display": "待数据",
+            "fee_display": "待数据",
             "missing_display": "规模、费率",
             "next_step_display": "下周复审",
             "next_action_display": "下周复审",
@@ -20103,10 +20124,10 @@
             "review_reason_display": "资料/市场条件未齐：趋势、基本面、原持仓未高估、原持仓资金未撤离、置换方案不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：初筛（复核4次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：初筛（复核9次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
-              "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+              "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
               "初筛待补：规模",
               "正式评审待补：评分、估值高估、资金撤离"
             ],
@@ -20115,8 +20136,8 @@
             "valuation_date": "2026-11-18",
             "valuation_source": "AI涨乐",
             "valuation_display": "8.11%",
-            "scale_display": "≈65.79亿(2026-06-30基金资产净值)",
-            "fee_display": "运作费率0.2；赎回费1.5；申购费1.2",
+            "scale_display": "待数据",
+            "fee_display": "运作费率0.32；赎回费0.05；申购费0.15",
             "missing_display": "规模",
             "next_step_display": "下周复审",
             "next_action_display": "下周复审",
@@ -20135,7 +20156,7 @@
           "band": "band_monthly",
           "base_date": "2026-11-20",
           "review_date": "2026-11-20",
-          "run_id": "band_monthly|2026-11-20|2026-11-20|2026-11-20#R19#live"
+          "run_id": "band_monthly|2026-11-20|2026-11-20|2026-11-20#R22#live"
         },
         "amount_rule": "季度全持仓表只展示持有与退出观察，不生成买卖金额；候选池单独展示估值初筛、待补和复核日，不进入全持仓评分列",
         "judgment_basis": [
@@ -20153,7 +20174,7 @@
           },
           {
             "label": "新增来源",
-            "value": "月度评审日2026-11-20；扫描基准日2026-11-20；run_id=band_monthly|2026-11-20|2026-11-20|2026-11-20#R19#live"
+            "value": "月度评审日2026-11-20；扫描基准日2026-11-20；run_id=band_monthly|2026-11-20|2026-11-20|2026-11-20#R22#live"
           }
         ]
       },
@@ -21004,7 +21025,7 @@
               "exit_reviews_reused": true,
               "review_period_match": true
             },
-            "received_at": "2026-11-22T14:48:24"
+            "received_at": "2026-11-23T22:30:31"
           },
           "headline": "本季度受限结论：维持现有配置，缺项继续补证",
           "note": "财通景气甄选一年持有C、信澳匠心臻选两年持有已完成评估，下次复核2026-12-20；持有期到期日另按台账锁定日期",
@@ -22330,7 +22351,7 @@
                   "band": "band_monthly",
                   "base_date": "2026-11-20",
                   "review_date": "2026-11-20",
-                  "run_id": "band_monthly|2026-11-20|2026-11-20|2026-11-20#R19#live"
+                  "run_id": "band_monthly|2026-11-20|2026-11-20|2026-11-20#R22#live"
                 }
               },
               {
@@ -22371,7 +22392,7 @@
                     "type": "kv",
                     "label": "新增来源",
                     "value": {
-                      "value": "月度评审日2026-11-20；扫描基准日2026-11-20；run_id=band_monthly|2026-11-20|2026-11-20|2026-11-20#R19#live",
+                      "value": "月度评审日2026-11-20；扫描基准日2026-11-20；run_id=band_monthly|2026-11-20|2026-11-20|2026-11-20#R22#live",
                       "format": "text"
                     },
                     "tone": "",
@@ -23039,8 +23060,8 @@
                   {
                     "fund_name": "01. 华夏科创50ETF联接C",
                     "valuation": "1.98%",
-                    "scale": "≈63.80亿(2026-06-30基金资产净值)",
-                    "fee": "运作费率0.45；赎回费1.5；申购费0.0",
+                    "scale": "待数据",
+                    "fee": "待数据",
                     "status": "未通过",
                     "pending": "资料/市场条件未齐：趋势、情绪、原持仓未高估、原持仓资金未撤离、置换方案不成立",
                     "next_review": "下周复审"
@@ -23048,8 +23069,8 @@
                   {
                     "fund_name": "02. 易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
                     "valuation": "8.11%",
-                    "scale": "≈65.79亿(2026-06-30基金资产净值)",
-                    "fee": "运作费率0.2；赎回费1.5；申购费1.2",
+                    "scale": "待数据",
+                    "fee": "运作费率0.32；赎回费0.05；申购费0.15",
                     "status": "未通过",
                     "pending": "资料/市场条件未齐：趋势、基本面、原持仓未高估、原持仓资金未撤离、置换方案不成立",
                     "next_review": "下周复审"
@@ -23057,8 +23078,8 @@
                   {
                     "fund_name": "03. 广发中证军工ETF联接C",
                     "valuation": "11.01%",
-                    "scale": "≈22.75亿(2026-06-30基金资产净值)",
-                    "fee": "运作费率0.8；赎回费1.5；申购费0.0",
+                    "scale": "待数据",
+                    "fee": "待数据",
                     "status": "未通过",
                     "pending": "资料/市场条件未齐：趋势、原持仓未高估、原持仓资金未撤离、置换方案不成立",
                     "next_review": "下周复审"
@@ -23066,8 +23087,8 @@
                   {
                     "fund_name": "04. 广发中证医疗ETF联接C(7.8亿)",
                     "valuation": "19.55%",
-                    "scale": "≈7.86亿(2026-06-30基金资产净值)",
-                    "fee": "运作费率0.85；赎回费1.5；申购费0.0",
+                    "scale": "待数据",
+                    "fee": "运作费率1.05；赎回费0.15；申购费0.5",
                     "status": "未通过",
                     "pending": "资料/市场条件未齐：趋势、基本面、原持仓未高估、原持仓资金未撤离、置换方案不成立",
                     "next_review": "下周复审"
@@ -23075,8 +23096,8 @@
                   {
                     "fund_name": "05. 国联安中证全指半导体ETF联接A(007300/C:007301)",
                     "valuation": "23.33%",
-                    "scale": "≈20.07亿(2026-06-30基金资产净值)",
-                    "fee": "运作费率0.6；赎回费1.5；申购费0.8",
+                    "scale": "待数据",
+                    "fee": "待数据",
                     "status": "未通过",
                     "pending": "资料/市场条件未齐：趋势、原持仓未高估、原持仓资金未撤离、四维比较未全优、置换方案不成立",
                     "next_review": "下周复审"
@@ -23084,8 +23105,8 @@
                   {
                     "fund_name": "06. 汇添富中证医药ETF联接C",
                     "valuation": "24.36%",
-                    "scale": "≈0.93亿(2026-06-30基金资产净值)",
-                    "fee": "运作费率1.0；赎回费1.5；申购费0.0",
+                    "scale": "待数据",
+                    "fee": "待数据",
                     "status": "未通过",
                     "pending": "规模不达标：≈0.93亿(2026-06-30基金资产净值)",
                     "next_review": "剔除"
@@ -23100,7 +23121,7 @@
                     "type": "kv",
                     "label": "候选来源",
                     "value": {
-                      "value": "月度评审日2026-11-20；扫描基准日2026-11-20；run_id=band_monthly|2026-11-20|2026-11-20|2026-11-20#R19#live",
+                      "value": "月度评审日2026-11-20；扫描基准日2026-11-20；run_id=band_monthly|2026-11-20|2026-11-20|2026-11-20#R22#live",
                       "format": "text"
                     },
                     "tone": "",
@@ -23112,7 +23133,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                         "style": "muted"
                       },
                       {
@@ -23133,7 +23154,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                         "style": "muted"
                       },
                       {
@@ -23154,7 +23175,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                         "style": "muted"
                       },
                       {
@@ -23175,7 +23196,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                         "style": "muted"
                       },
                       {
@@ -23196,7 +23217,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "估值更便宜，但仍须评分、四确认及置换方案；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                         "style": "muted"
                       },
                       {
@@ -23217,7 +23238,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "规模≈0.93亿(2026-06-30基金资产净值)低于 2亿，规模条件不达标；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                        "text": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
                         "style": "muted"
                       },
                       {
@@ -23242,15 +23263,15 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T22:27:02",
-    "projection_id": "wf_dd9ac36d7d584822",
+    "generated_at": "2026-11-23T22:31:08",
+    "projection_id": "wf_ed853771fcb367ec",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
       "action_branches": [],
       "current_step": "execution",
       "current_text": "① 定投流程·本人真实账户执行",
-      "completed_formal_bands": 3,
+      "completed_formal_bands": 4,
       "next_action": "2026-11-23按106元计划执行，完成后回传实际扣款。",
       "missing": [
         "本轮无加仓指令",
@@ -23600,7 +23621,7 @@
             {
               "name": "传递周日加仓评估",
               "status": "done",
-              "detail": "现金池已传递周日加仓流程；每周周日评分与资金闸门复核，月度不在本步等待。"
+              "detail": "现金池已传递周日加仓流程；每周日评分与资金闸门复核，月度不在本步等待。"
             }
           ],
           "lines": [],
@@ -23638,7 +23659,7 @@
                 "exit_reviews_reused": true,
                 "review_period_match": true
               },
-              "received_at": "2026-11-22T14:48:24"
+              "received_at": "2026-11-23T22:30:31"
             },
             "headline": "本季度受限结论：维持现有配置，缺项继续补证",
             "note": "财通景气甄选一年持有C、信澳匠心臻选两年持有已完成评估，下次复核2026-12-20；持有期到期日另按台账锁定日期",
@@ -23737,12 +23758,12 @@
         "id": "monthly",
         "title": "月度｜预算与卫星锁",
         "trigger": "每月20日，季度之后",
-        "state": "blocked",
-        "state_label": "正式评估缺数未完成",
+        "state": "ready",
+        "state_label": "正式数据已生成",
         "detail": "本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-22T14:48:24",
+        "generated_at": "2026-11-23T22:30:31",
         "inputs": [
           {
             "label": "季度核心锁",
@@ -23781,7 +23802,7 @@
       {
         "id": "weekly",
         "title": "周日｜分批执行计划",
-        "trigger": "每周周日，月度之后",
+        "trigger": "每周日，月度之后",
         "state": "blocked",
         "state_label": "部分可执行",
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
@@ -23897,12 +23918,12 @@
         "id": "ledger",
         "title": "台账反馈｜下次评估输入",
         "trigger": "执行后回传并核对",
-        "state": "blocked",
-        "state_label": "正式评估缺数未完成",
+        "state": "ready",
+        "state_label": "正式数据已生成",
         "detail": "真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-22T14:48:24",
+        "generated_at": "2026-11-23T22:30:31",
         "inputs": [
           {
             "label": "最新持仓快照日",
@@ -23929,10 +23950,10 @@
         "source": "quarter",
         "target": "monthly",
         "label": "核心比例与核心锁",
-        "status": "missing",
+        "status": "wired",
         "actual": "2026-10-01 → 2026-12-31",
-        "guidance": "锁或完成证据缺失。",
-        "status_label": "未接线"
+        "guidance": "已接线：季度写、月度读。",
+        "status_label": "已接线"
       },
       {
         "source": "quarter",
@@ -23947,19 +23968,19 @@
         "source": "monthly",
         "target": "weekly",
         "label": "周期预算锁",
-        "status": "missing",
+        "status": "wired",
         "actual": "2026-11-20",
-        "guidance": "预算锁或完成证据缺失。",
-        "status_label": "未接线"
+        "guidance": "已接线：周日只读本周期预算锁。",
+        "status_label": "已接线"
       },
       {
         "source": "monthly",
         "target": "weekly",
         "label": "卫星结构锁",
-        "status": "missing",
+        "status": "wired",
         "actual": "2026-11-20 → 2026-12-19",
-        "guidance": "卫星锁或完成证据缺失。",
-        "status_label": "未接线"
+        "guidance": "已接线：月度写、周日读。",
+        "status_label": "已接线"
       },
       {
         "source": "weekly",
@@ -24034,13 +24055,13 @@
     "summary": {
       "formal_band_count": 4,
       "edge_counts": {
-        "wired": 0,
+        "wired": 3,
         "derived": 1,
         "none": 1,
         "control": 1,
         "manual": 2,
         "feedback": 1,
-        "missing": 3
+        "missing": 0
       },
       "guidance": "点击各档查看真实输入、输出、锁周期和去向；颜色只表示链路类型，不表示买卖建议。"
     }

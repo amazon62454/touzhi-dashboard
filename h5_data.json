@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T16:37:44",
+  "generated_at": "2026-11-23T16:38:48",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -1398,6 +1398,7 @@
         "data_issues": [],
         "blocking_reason": ""
       },
+      "risk_budget": null,
       "execution_plan": null,
       "amount_groups": {
         "core": [],
@@ -2093,6 +2094,18 @@
                 ],
                 "compact_heading": false,
                 "band": "band_daily"
+              }
+            ]
+          },
+          {
+            "type": "card",
+            "title": "回撤风险",
+            "kind": "warn",
+            "children": [
+              {
+                "type": "empty",
+                "title": "等待正式评估",
+                "note": ""
               }
             ]
           },
@@ -4526,6 +4539,7 @@
           }
         }
       },
+      "risk_budget": null,
       "execution_plan": {
         "engine_contract": "four_asset_p2",
         "valid": true,
@@ -8539,6 +8553,7 @@
         "data_issues": [],
         "blocking_reason": ""
       },
+      "risk_budget": null,
       "execution_plan": null,
       "amount_groups": {
         "core": [],
@@ -19615,6 +19630,7 @@
         "data_issues": [],
         "blocking_reason": ""
       },
+      "risk_budget": null,
       "execution_plan": null,
       "amount_groups": {
         "core": [],
@@ -21849,7 +21865,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T16:37:44",
+    "generated_at": "2026-11-23T16:38:48",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",
@@ -25340,6 +25356,20 @@
     "ui_aria_table": "数据表格，可左右滑动",
     "ui_range_sep": "至",
     "ui_fund_count_unit": "只",
-    "ui_colon": "："
+    "ui_colon": "：",
+    "ui_h2_risk_budget": "回撤风险",
+    "ui_lbl_current_drawdown": "当前回撤",
+    "ui_lbl_risk_level1": "一级红线",
+    "ui_lbl_risk_level2": "二级红线",
+    "ui_lbl_risk_level3": "三级红线",
+    "ui_lbl_risk_status": "状态",
+    "ui_lbl_risk_reduce_plan": "减仓计划",
+    "ui_lbl_risk_peak": "历史高点",
+    "ui_lbl_risk_current_value": "当前市值",
+    "ui_risk_budget_ok": "预算内",
+    "ui_risk_budget_level1": "一级红线",
+    "ui_risk_budget_level2": "二级红线",
+    "ui_risk_budget_level3": "三级红线",
+    "ui_risk_budget_no_reduce": "无需减仓"
   }
 }

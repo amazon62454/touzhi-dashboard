@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T22:12:03",
+  "generated_at": "2026-11-23T22:13:09",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -8650,14 +8650,14 @@
           "raw_error": "005693的趋势未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
           "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
           "next_action": "下一正式补跑只重取该缺项",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
+          "status": "escalated",
+          "attempt_count": 3,
+          "escalation_count": 2,
           "first_seen_at": "2026-11-23T14:11:41+00:00",
-          "last_attempt_at": "2026-11-23T14:11:41+00:00",
+          "last_attempt_at": "2026-11-23T14:12:51+00:00",
           "resolved_at": null,
           "created_at": "2026-11-23T14:11:41+00:00",
-          "updated_at": "2026-11-23T14:11:41+00:00",
+          "updated_at": "2026-11-23T14:12:51+00:00",
           "expected_coverage": [
             "2026-11-20"
           ],
@@ -16843,7 +16843,7 @@
                             "type": "kv",
                             "label": "自动处理轨迹",
                             "value": {
-                              "value": "尝试1次 · 升级0次",
+                              "value": "尝试3次 · 升级2次",
                               "format": "text"
                             },
                             "tone": "",
@@ -16853,7 +16853,7 @@
                             "type": "kv",
                             "label": "处理状态",
                             "value": {
-                              "value": "待处理",
+                              "value": "已升级",
                               "format": "text"
                             },
                             "tone": "",
@@ -22387,7 +22387,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T22:12:03",
+    "generated_at": "2026-11-23T22:13:09",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T22:16:34",
+  "generated_at": "2026-11-23T22:17:26",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -19944,7 +19944,7 @@
             "score_state": "待完整五维评分",
             "status_display": "未通过",
             "review_result_display": "未通过",
-            "review_reason_display": "资料/市场条件未齐：趋势、情绪、原持仓未高估、原持仓资金未撤离、四维比较未全优、置换方案不成立",
+            "review_reason_display": "规模不达标：≈0.93亿(2026-06-30基金资产净值)",
             "detail_lines": [
               "候选池待复核，暂不纳入",
               "生命周期：初筛（复核2次；本周评审；未通过下次复核2026-12-20）"
@@ -19962,8 +19962,8 @@
             "scale_display": "≈0.93亿(2026-06-30基金资产净值)",
             "fee_display": "运作费率1.0；赎回费1.5；申购费0.0",
             "missing_display": "规模、费率",
-            "next_step_display": "下周复审",
-            "next_action_display": "下周复审",
+            "next_step_display": "剔除",
+            "next_action_display": "剔除",
             "next_review_display": "本周（11-23~11-29）",
             "serial_no": 13,
             "display_name": "13. 汇添富中证医药ETF联接C"
@@ -23087,8 +23087,8 @@
                     "scale": "≈0.93亿(2026-06-30基金资产净值)",
                     "fee": "运作费率1.0；赎回费1.5；申购费0.0",
                     "status": "未通过",
-                    "pending": "资料/市场条件未齐：趋势、情绪、原持仓未高估、原持仓资金未撤离、四维比较未全优、置换方案不成立",
-                    "next_review": "下周复审"
+                    "pending": "规模不达标：≈0.93亿(2026-06-30基金资产净值)",
+                    "next_review": "剔除"
                   }
                 ]
               },
@@ -23242,7 +23242,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T22:16:34",
+    "generated_at": "2026-11-23T22:17:26",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",

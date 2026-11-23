@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T17:21:06",
+  "generated_at": "2026-11-23T17:22:12",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -18564,24 +18564,69 @@
         "holding_fund_count": 11,
         "role_groups": [
           {
-            "role": "active",
-            "label": "主动权益",
-            "status": "主动权益",
-            "fund_count": 11,
+            "role": "core",
+            "label": "核心",
+            "status": "核心",
+            "fund_count": 2,
+            "fund_codes": [
+              "160119",
+              "000051"
+            ],
+            "detail": "本层2只：持有2｜新增0｜删除0｜观察0"
+          },
+          {
+            "role": "satellite",
+            "label": "卫星",
+            "status": "卫星",
+            "fund_count": 3,
             "fund_codes": [
               "024328",
               "012544",
-              "017140",
-              "160119",
-              "000051",
-              "004253",
-              "009290",
-              "010267",
+              "017140"
+            ],
+            "detail": "本层3只：持有3｜新增0｜删除0｜观察0"
+          },
+          {
+            "role": "fof",
+            "label": "养老FOF",
+            "status": "养老FOF",
+            "fund_count": 1,
+            "fund_codes": [
+              "010267"
+            ],
+            "detail": "本层1只：持有1｜新增0｜删除0｜观察0"
+          },
+          {
+            "role": "gold",
+            "label": "黄金",
+            "status": "黄金",
+            "fund_count": 1,
+            "fund_codes": [
+              "004253"
+            ],
+            "detail": "本层1只：持有1｜新增0｜删除0｜观察0"
+          },
+          {
+            "role": "debt",
+            "label": "债基",
+            "status": "债基",
+            "fund_count": 1,
+            "fund_codes": [
+              "009290"
+            ],
+            "detail": "本层1只：持有1｜新增0｜删除0｜观察0"
+          },
+          {
+            "role": "active",
+            "label": "主动权益",
+            "status": "主动权益",
+            "fund_count": 3,
+            "fund_codes": [
               "010340",
               "010363",
               "017491"
             ],
-            "detail": "本层11只：持有11｜新增0｜删除0｜观察0"
+            "detail": "本层3只：持有3｜新增0｜删除0｜观察0"
           },
           {
             "role": "candidate",
@@ -18601,101 +18646,11 @@
         ],
         "rows": [
           {
-            "fund_code": "024328",
-            "fund_name": "易方达恒生港股通创新药ETF联接A",
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
-            "status_key": "__holding__",
-            "status": "持有",
-            "status_sort": 10,
-            "detail_lines": [
-              "评分状态：五维齐全",
-              "分项：估值50、趋势0、资金12.5、基本面12.5、情绪4",
-              "评分与数据闸门通过，再核现金池和频率闸门"
-            ],
-            "source_kind": "quarter_holding",
-            "score": 79.0,
-            "score_display": "79分",
-            "score_complete": true,
-            "score_state": "五维齐全",
-            "score_components": {
-              "估值": 50.0,
-              "趋势": 0.0,
-              "资金": 12.5,
-              "基本面": 12.5,
-              "情绪": 4.0
-            },
-            "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
-            "serial_no": 1,
-            "display_name": "01. 易方达恒生港股通创新药ETF联接A"
-          },
-          {
-            "fund_code": "012544",
-            "fund_name": "嘉实中证新能源汽车指数C",
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
-            "status_key": "__holding__",
-            "status": "持有",
-            "status_sort": 10,
-            "detail_lines": [
-              "评分状态：五维齐全",
-              "分项：估值45、趋势0、资金0、基本面12.5、情绪12.5",
-              "评分与数据闸门通过，再核现金池和频率闸门"
-            ],
-            "source_kind": "quarter_holding",
-            "score": 70.0,
-            "score_display": "70分",
-            "score_complete": true,
-            "score_state": "五维齐全",
-            "score_components": {
-              "估值": 45.0,
-              "趋势": 0.0,
-              "资金": 0.0,
-              "基本面": 12.5,
-              "情绪": 12.5
-            },
-            "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
-            "serial_no": 2,
-            "display_name": "02. 嘉实中证新能源汽车指数C"
-          },
-          {
-            "fund_code": "017140",
-            "fund_name": "华宝中证有色金属ETF联接A",
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
-            "status_key": "__holding__",
-            "status": "持有",
-            "status_sort": 10,
-            "detail_lines": [
-              "评分状态：五维齐全",
-              "分项：估值30、趋势0、资金0、基本面9、情绪4",
-              "未达到加仓门槛，本笔不操作"
-            ],
-            "source_kind": "quarter_holding",
-            "score": 43.0,
-            "score_display": "43分",
-            "score_complete": true,
-            "score_state": "五维齐全",
-            "score_components": {
-              "估值": 30.0,
-              "趋势": 0.0,
-              "资金": 0.0,
-              "基本面": 9.0,
-              "情绪": 4.0
-            },
-            "score_decision": "未达到加仓门槛，本笔不操作",
-            "serial_no": 3,
-            "display_name": "03. 华宝中证有色金属ETF联接A"
-          },
-          {
             "fund_code": "160119",
             "fund_name": "南方中证500ETF联接(LOF)A",
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
+            "role": "core",
+            "role_label": "核心",
+            "role_order": 10,
             "status_key": "__holding__",
             "status": "持有",
             "status_sort": 10,
@@ -18717,15 +18672,15 @@
               "情绪": 12.5
             },
             "score_decision": "未达到加仓门槛，本笔不操作",
-            "serial_no": 4,
-            "display_name": "04. 南方中证500ETF联接(LOF)A"
+            "serial_no": 1,
+            "display_name": "01. 南方中证500ETF联接(LOF)A"
           },
           {
             "fund_code": "000051",
             "fund_name": "华夏沪深300ETF联接A",
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
+            "role": "core",
+            "role_label": "核心",
+            "role_order": 10,
             "status_key": "__holding__",
             "status": "持有",
             "status_sort": 10,
@@ -18747,15 +18702,125 @@
               "情绪": 4.0
             },
             "score_decision": "未达到加仓门槛，本笔不操作",
+            "serial_no": 2,
+            "display_name": "02. 华夏沪深300ETF联接A"
+          },
+          {
+            "fund_code": "024328",
+            "fund_name": "易方达恒生港股通创新药ETF联接A",
+            "role": "satellite",
+            "role_label": "卫星",
+            "role_order": 20,
+            "status_key": "__holding__",
+            "status": "持有",
+            "status_sort": 10,
+            "detail_lines": [
+              "评分状态：五维齐全",
+              "分项：估值50、趋势0、资金12.5、基本面12.5、情绪4",
+              "评分与数据闸门通过，再核现金池和频率闸门"
+            ],
+            "source_kind": "quarter_holding",
+            "score": 79.0,
+            "score_display": "79分",
+            "score_complete": true,
+            "score_state": "五维齐全",
+            "score_components": {
+              "估值": 50.0,
+              "趋势": 0.0,
+              "资金": 12.5,
+              "基本面": 12.5,
+              "情绪": 4.0
+            },
+            "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
+            "serial_no": 3,
+            "display_name": "03. 易方达恒生港股通创新药ETF联接A"
+          },
+          {
+            "fund_code": "012544",
+            "fund_name": "嘉实中证新能源汽车指数C",
+            "role": "satellite",
+            "role_label": "卫星",
+            "role_order": 20,
+            "status_key": "__holding__",
+            "status": "持有",
+            "status_sort": 10,
+            "detail_lines": [
+              "评分状态：五维齐全",
+              "分项：估值45、趋势0、资金0、基本面12.5、情绪12.5",
+              "评分与数据闸门通过，再核现金池和频率闸门"
+            ],
+            "source_kind": "quarter_holding",
+            "score": 70.0,
+            "score_display": "70分",
+            "score_complete": true,
+            "score_state": "五维齐全",
+            "score_components": {
+              "估值": 45.0,
+              "趋势": 0.0,
+              "资金": 0.0,
+              "基本面": 12.5,
+              "情绪": 12.5
+            },
+            "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
+            "serial_no": 4,
+            "display_name": "04. 嘉实中证新能源汽车指数C"
+          },
+          {
+            "fund_code": "017140",
+            "fund_name": "华宝中证有色金属ETF联接A",
+            "role": "satellite",
+            "role_label": "卫星",
+            "role_order": 20,
+            "status_key": "__holding__",
+            "status": "持有",
+            "status_sort": 10,
+            "detail_lines": [
+              "评分状态：五维齐全",
+              "分项：估值30、趋势0、资金0、基本面9、情绪4",
+              "未达到加仓门槛，本笔不操作"
+            ],
+            "source_kind": "quarter_holding",
+            "score": 43.0,
+            "score_display": "43分",
+            "score_complete": true,
+            "score_state": "五维齐全",
+            "score_components": {
+              "估值": 30.0,
+              "趋势": 0.0,
+              "资金": 0.0,
+              "基本面": 9.0,
+              "情绪": 4.0
+            },
+            "score_decision": "未达到加仓门槛，本笔不操作",
             "serial_no": 5,
-            "display_name": "05. 华夏沪深300ETF联接A"
+            "display_name": "05. 华宝中证有色金属ETF联接A"
+          },
+          {
+            "fund_code": "010267",
+            "fund_name": "兴全安泰积极养老目标五年FOF A",
+            "role": "fof",
+            "role_label": "养老FOF",
+            "role_order": 30,
+            "status_key": "__holding__",
+            "status": "持有",
+            "status_sort": 10,
+            "detail_lines": [
+              "本档未评分，不按0分处理"
+            ],
+            "source_kind": "quarter_holding",
+            "score": null,
+            "score_display": "—",
+            "score_complete": false,
+            "score_state": "本档未评分，不按0分处理",
+            "serial_no": 6,
+            "display_name": "06. 兴全安泰积极养老目标五年FOF A"
           },
           {
             "fund_code": "004253",
             "fund_name": "国泰黄金ETF联接C",
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
+            "role": "gold",
+            "role_label": "黄金",
+            "role_order": 40,
             "status_key": "__holding__",
             "status": "持有",
             "status_sort": 10,
@@ -18777,35 +18842,15 @@
               "情绪": 0.0
             },
             "score_decision": "情绪过热，本笔不操作",
-            "serial_no": 6,
-            "display_name": "06. 国泰黄金ETF联接C"
+            "serial_no": 7,
+            "display_name": "07. 国泰黄金ETF联接C"
           },
           {
             "fund_code": "009290",
             "fund_name": "富国添享一年持有债券A",
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
-            "status_key": "__holding__",
-            "status": "持有",
-            "status_sort": 10,
-            "detail_lines": [
-              "本档未评分，不按0分处理"
-            ],
-            "source_kind": "quarter_holding",
-            "score": null,
-            "score_display": "—",
-            "score_complete": false,
-            "score_state": "本档未评分，不按0分处理",
-            "serial_no": 7,
-            "display_name": "07. 富国添享一年持有债券A"
-          },
-          {
-            "fund_code": "010267",
-            "fund_name": "兴全安泰积极养老目标五年FOF A",
-            "role": "active",
-            "role_label": "主动权益",
-            "role_order": 60,
+            "role": "debt",
+            "role_label": "债基",
+            "role_order": 50,
             "status_key": "__holding__",
             "status": "持有",
             "status_sort": 10,
@@ -18818,7 +18863,7 @@
             "score_complete": false,
             "score_state": "本档未评分，不按0分处理",
             "serial_no": 8,
-            "display_name": "08. 兴全安泰积极养老目标五年FOF A"
+            "display_name": "08. 富国添享一年持有债券A"
           },
           {
             "fund_code": "010340",
@@ -20839,24 +20884,69 @@
                 ],
                 "role_groups": [
                   {
-                    "role": "active",
-                    "label": "主动权益",
-                    "status": "主动权益",
-                    "fund_count": 11,
+                    "role": "core",
+                    "label": "核心",
+                    "status": "核心",
+                    "fund_count": 2,
+                    "fund_codes": [
+                      "160119",
+                      "000051"
+                    ],
+                    "detail": "本层2只：持有2｜新增0｜删除0｜观察0"
+                  },
+                  {
+                    "role": "satellite",
+                    "label": "卫星",
+                    "status": "卫星",
+                    "fund_count": 3,
                     "fund_codes": [
                       "024328",
                       "012544",
-                      "017140",
-                      "160119",
-                      "000051",
-                      "004253",
-                      "009290",
-                      "010267",
+                      "017140"
+                    ],
+                    "detail": "本层3只：持有3｜新增0｜删除0｜观察0"
+                  },
+                  {
+                    "role": "fof",
+                    "label": "养老FOF",
+                    "status": "养老FOF",
+                    "fund_count": 1,
+                    "fund_codes": [
+                      "010267"
+                    ],
+                    "detail": "本层1只：持有1｜新增0｜删除0｜观察0"
+                  },
+                  {
+                    "role": "gold",
+                    "label": "黄金",
+                    "status": "黄金",
+                    "fund_count": 1,
+                    "fund_codes": [
+                      "004253"
+                    ],
+                    "detail": "本层1只：持有1｜新增0｜删除0｜观察0"
+                  },
+                  {
+                    "role": "debt",
+                    "label": "债基",
+                    "status": "债基",
+                    "fund_count": 1,
+                    "fund_codes": [
+                      "009290"
+                    ],
+                    "detail": "本层1只：持有1｜新增0｜删除0｜观察0"
+                  },
+                  {
+                    "role": "active",
+                    "label": "主动权益",
+                    "status": "主动权益",
+                    "fund_count": 3,
+                    "fund_codes": [
                       "010340",
                       "010363",
                       "017491"
                     ],
-                    "detail": "本层11只：持有11｜新增0｜删除0｜观察0"
+                    "detail": "本层3只：持有3｜新增0｜删除0｜观察0"
                   },
                   {
                     "role": "candidate",
@@ -20876,101 +20966,11 @@
                 ],
                 "rows": [
                   {
-                    "fund_code": "024328",
-                    "fund_name": "易方达恒生港股通创新药ETF联接A",
-                    "role": "active",
-                    "role_label": "主动权益",
-                    "role_order": 60,
-                    "status_key": "__holding__",
-                    "status": "持有",
-                    "status_sort": 10,
-                    "detail_lines": [
-                      "评分状态：五维齐全",
-                      "分项：估值50、趋势0、资金12.5、基本面12.5、情绪4",
-                      "评分与数据闸门通过，再核现金池和频率闸门"
-                    ],
-                    "source_kind": "quarter_holding",
-                    "score": 79.0,
-                    "score_display": "79分",
-                    "score_complete": true,
-                    "score_state": "五维齐全",
-                    "score_components": {
-                      "估值": 50.0,
-                      "趋势": 0.0,
-                      "资金": 12.5,
-                      "基本面": 12.5,
-                      "情绪": 4.0
-                    },
-                    "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
-                    "serial_no": 1,
-                    "display_name": "01. 易方达恒生港股通创新药ETF联接A"
-                  },
-                  {
-                    "fund_code": "012544",
-                    "fund_name": "嘉实中证新能源汽车指数C",
-                    "role": "active",
-                    "role_label": "主动权益",
-                    "role_order": 60,
-                    "status_key": "__holding__",
-                    "status": "持有",
-                    "status_sort": 10,
-                    "detail_lines": [
-                      "评分状态：五维齐全",
-                      "分项：估值45、趋势0、资金0、基本面12.5、情绪12.5",
-                      "评分与数据闸门通过，再核现金池和频率闸门"
-                    ],
-                    "source_kind": "quarter_holding",
-                    "score": 70.0,
-                    "score_display": "70分",
-                    "score_complete": true,
-                    "score_state": "五维齐全",
-                    "score_components": {
-                      "估值": 45.0,
-                      "趋势": 0.0,
-                      "资金": 0.0,
-                      "基本面": 12.5,
-                      "情绪": 12.5
-                    },
-                    "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
-                    "serial_no": 2,
-                    "display_name": "02. 嘉实中证新能源汽车指数C"
-                  },
-                  {
-                    "fund_code": "017140",
-                    "fund_name": "华宝中证有色金属ETF联接A",
-                    "role": "active",
-                    "role_label": "主动权益",
-                    "role_order": 60,
-                    "status_key": "__holding__",
-                    "status": "持有",
-                    "status_sort": 10,
-                    "detail_lines": [
-                      "评分状态：五维齐全",
-                      "分项：估值30、趋势0、资金0、基本面9、情绪4",
-                      "未达到加仓门槛，本笔不操作"
-                    ],
-                    "source_kind": "quarter_holding",
-                    "score": 43.0,
-                    "score_display": "43分",
-                    "score_complete": true,
-                    "score_state": "五维齐全",
-                    "score_components": {
-                      "估值": 30.0,
-                      "趋势": 0.0,
-                      "资金": 0.0,
-                      "基本面": 9.0,
-                      "情绪": 4.0
-                    },
-                    "score_decision": "未达到加仓门槛，本笔不操作",
-                    "serial_no": 3,
-                    "display_name": "03. 华宝中证有色金属ETF联接A"
-                  },
-                  {
                     "fund_code": "160119",
                     "fund_name": "南方中证500ETF联接(LOF)A",
-                    "role": "active",
-                    "role_label": "主动权益",
-                    "role_order": 60,
+                    "role": "core",
+                    "role_label": "核心",
+                    "role_order": 10,
                     "status_key": "__holding__",
                     "status": "持有",
                     "status_sort": 10,
@@ -20992,15 +20992,15 @@
                       "情绪": 12.5
                     },
                     "score_decision": "未达到加仓门槛，本笔不操作",
-                    "serial_no": 4,
-                    "display_name": "04. 南方中证500ETF联接(LOF)A"
+                    "serial_no": 1,
+                    "display_name": "01. 南方中证500ETF联接(LOF)A"
                   },
                   {
                     "fund_code": "000051",
                     "fund_name": "华夏沪深300ETF联接A",
-                    "role": "active",
-                    "role_label": "主动权益",
-                    "role_order": 60,
+                    "role": "core",
+                    "role_label": "核心",
+                    "role_order": 10,
                     "status_key": "__holding__",
                     "status": "持有",
                     "status_sort": 10,
@@ -21022,15 +21022,125 @@
                       "情绪": 4.0
                     },
                     "score_decision": "未达到加仓门槛，本笔不操作",
+                    "serial_no": 2,
+                    "display_name": "02. 华夏沪深300ETF联接A"
+                  },
+                  {
+                    "fund_code": "024328",
+                    "fund_name": "易方达恒生港股通创新药ETF联接A",
+                    "role": "satellite",
+                    "role_label": "卫星",
+                    "role_order": 20,
+                    "status_key": "__holding__",
+                    "status": "持有",
+                    "status_sort": 10,
+                    "detail_lines": [
+                      "评分状态：五维齐全",
+                      "分项：估值50、趋势0、资金12.5、基本面12.5、情绪4",
+                      "评分与数据闸门通过，再核现金池和频率闸门"
+                    ],
+                    "source_kind": "quarter_holding",
+                    "score": 79.0,
+                    "score_display": "79分",
+                    "score_complete": true,
+                    "score_state": "五维齐全",
+                    "score_components": {
+                      "估值": 50.0,
+                      "趋势": 0.0,
+                      "资金": 12.5,
+                      "基本面": 12.5,
+                      "情绪": 4.0
+                    },
+                    "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
+                    "serial_no": 3,
+                    "display_name": "03. 易方达恒生港股通创新药ETF联接A"
+                  },
+                  {
+                    "fund_code": "012544",
+                    "fund_name": "嘉实中证新能源汽车指数C",
+                    "role": "satellite",
+                    "role_label": "卫星",
+                    "role_order": 20,
+                    "status_key": "__holding__",
+                    "status": "持有",
+                    "status_sort": 10,
+                    "detail_lines": [
+                      "评分状态：五维齐全",
+                      "分项：估值45、趋势0、资金0、基本面12.5、情绪12.5",
+                      "评分与数据闸门通过，再核现金池和频率闸门"
+                    ],
+                    "source_kind": "quarter_holding",
+                    "score": 70.0,
+                    "score_display": "70分",
+                    "score_complete": true,
+                    "score_state": "五维齐全",
+                    "score_components": {
+                      "估值": 45.0,
+                      "趋势": 0.0,
+                      "资金": 0.0,
+                      "基本面": 12.5,
+                      "情绪": 12.5
+                    },
+                    "score_decision": "评分与数据闸门通过，再核现金池和频率闸门",
+                    "serial_no": 4,
+                    "display_name": "04. 嘉实中证新能源汽车指数C"
+                  },
+                  {
+                    "fund_code": "017140",
+                    "fund_name": "华宝中证有色金属ETF联接A",
+                    "role": "satellite",
+                    "role_label": "卫星",
+                    "role_order": 20,
+                    "status_key": "__holding__",
+                    "status": "持有",
+                    "status_sort": 10,
+                    "detail_lines": [
+                      "评分状态：五维齐全",
+                      "分项：估值30、趋势0、资金0、基本面9、情绪4",
+                      "未达到加仓门槛，本笔不操作"
+                    ],
+                    "source_kind": "quarter_holding",
+                    "score": 43.0,
+                    "score_display": "43分",
+                    "score_complete": true,
+                    "score_state": "五维齐全",
+                    "score_components": {
+                      "估值": 30.0,
+                      "趋势": 0.0,
+                      "资金": 0.0,
+                      "基本面": 9.0,
+                      "情绪": 4.0
+                    },
+                    "score_decision": "未达到加仓门槛，本笔不操作",
                     "serial_no": 5,
-                    "display_name": "05. 华夏沪深300ETF联接A"
+                    "display_name": "05. 华宝中证有色金属ETF联接A"
+                  },
+                  {
+                    "fund_code": "010267",
+                    "fund_name": "兴全安泰积极养老目标五年FOF A",
+                    "role": "fof",
+                    "role_label": "养老FOF",
+                    "role_order": 30,
+                    "status_key": "__holding__",
+                    "status": "持有",
+                    "status_sort": 10,
+                    "detail_lines": [
+                      "本档未评分，不按0分处理"
+                    ],
+                    "source_kind": "quarter_holding",
+                    "score": null,
+                    "score_display": "—",
+                    "score_complete": false,
+                    "score_state": "本档未评分，不按0分处理",
+                    "serial_no": 6,
+                    "display_name": "06. 兴全安泰积极养老目标五年FOF A"
                   },
                   {
                     "fund_code": "004253",
                     "fund_name": "国泰黄金ETF联接C",
-                    "role": "active",
-                    "role_label": "主动权益",
-                    "role_order": 60,
+                    "role": "gold",
+                    "role_label": "黄金",
+                    "role_order": 40,
                     "status_key": "__holding__",
                     "status": "持有",
                     "status_sort": 10,
@@ -21052,35 +21162,15 @@
                       "情绪": 0.0
                     },
                     "score_decision": "情绪过热，本笔不操作",
-                    "serial_no": 6,
-                    "display_name": "06. 国泰黄金ETF联接C"
+                    "serial_no": 7,
+                    "display_name": "07. 国泰黄金ETF联接C"
                   },
                   {
                     "fund_code": "009290",
                     "fund_name": "富国添享一年持有债券A",
-                    "role": "active",
-                    "role_label": "主动权益",
-                    "role_order": 60,
-                    "status_key": "__holding__",
-                    "status": "持有",
-                    "status_sort": 10,
-                    "detail_lines": [
-                      "本档未评分，不按0分处理"
-                    ],
-                    "source_kind": "quarter_holding",
-                    "score": null,
-                    "score_display": "—",
-                    "score_complete": false,
-                    "score_state": "本档未评分，不按0分处理",
-                    "serial_no": 7,
-                    "display_name": "07. 富国添享一年持有债券A"
-                  },
-                  {
-                    "fund_code": "010267",
-                    "fund_name": "兴全安泰积极养老目标五年FOF A",
-                    "role": "active",
-                    "role_label": "主动权益",
-                    "role_order": 60,
+                    "role": "debt",
+                    "role_label": "债基",
+                    "role_order": 50,
                     "status_key": "__holding__",
                     "status": "持有",
                     "status_sort": 10,
@@ -21093,7 +21183,7 @@
                     "score_complete": false,
                     "score_state": "本档未评分，不按0分处理",
                     "serial_no": 8,
-                    "display_name": "08. 兴全安泰积极养老目标五年FOF A"
+                    "display_name": "08. 富国添享一年持有债券A"
                   },
                   {
                     "fund_code": "010340",
@@ -21865,7 +21955,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T17:21:06",
+    "generated_at": "2026-11-23T17:22:12",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",

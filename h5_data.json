@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T08:21:07",
+  "generated_at": "2026-11-23T12:04:31",
   "base_date": "2026-11-20",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -165,7 +165,7 @@
               "type": "kv",
               "label": "退休目标（动态测算）",
               "value": {
-                "value": 681283,
+                "value": 575893,
                 "format": "money"
               },
               "tone": "info",
@@ -173,9 +173,9 @@
             },
             {
               "type": "kv",
-              "label": "组合历史年化",
+              "label": "在管组合历史年化",
               "value": {
-                "value": 3.76,
+                "value": 2.29,
                 "format": "pct"
               },
               "tone": "pos",
@@ -225,7 +225,7 @@
               "type": "kv",
               "label": "测算收益",
               "value": {
-                "value": 231049,
+                "value": 125658,
                 "format": "money"
               },
               "tone": "pos",
@@ -233,12 +233,12 @@
             },
             {
               "type": "text",
-              "text": "年化数据覆盖 9/9 只当前持仓",
+              "text": "年化数据覆盖 6/6 只在管基金（已剔除3只退出类/暂停申购）",
               "style": "muted"
             },
             {
               "type": "text",
-              "text": "按全部当前实际持仓（市值>0）的成立以来年化×当前市值权重测算；停投基金仍计入，实际赎回/转换并登记市值归零后退出。每月1日刷新历史年化，台账更新即时重算权重与目标。历史年化≠未来收益，非承诺。",
+              "text": "按在管持仓（剔除退出类/暂停申购基金）的成立以来年化×当前市值权重测算；退出类市值视同赎回后再配置，按同一保守年化计入。每月1日刷新历史年化，台账更新即时重算权重与目标。历史年化≠未来收益，非承诺。",
               "style": "muted"
             }
           ]
@@ -255,13 +255,21 @@
     "available": true,
     "retire_date": "2046-10-05",
     "years_remaining": 19.9,
-    "annual_rate": 3.76,
+    "annual_rate": 2.29,
     "monthly_budget": 1800.0,
-    "target_amount": 681283,
+    "target_amount": 575893,
     "principal": 450235,
-    "projected_profit": 231049,
-    "covered_fund_count": 9,
-    "holding_fund_count": 9,
+    "projected_profit": 125658,
+    "covered_fund_count": 6,
+    "holding_fund_count": 6,
+    "all_holding_fund_count": 9,
+    "excluded_fund_count": 3,
+    "excluded_funds": [
+      "017491",
+      "010363",
+      "010340"
+    ],
+    "excluded_market_value": 2366.53,
     "coverage_rate": 100.0,
     "missing_funds": [],
     "start_market": 21132.39,
@@ -21820,7 +21828,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-23T08:21:07",
+    "generated_at": "2026-11-23T12:04:31",
     "projection_id": "wf_dd9ac36d7d584822",
     "visual": {
       "title": "操作流程总览",
@@ -25095,14 +25103,14 @@
     "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页",
     "ui_h2_retirement_projection": "退休目标测算",
     "ui_retirement_target": "退休目标（动态测算）",
-    "ui_retirement_annual": "组合历史年化",
+    "ui_retirement_annual": "在管组合历史年化",
     "ui_retirement_date": "退休时间",
     "ui_retirement_remaining": "距退休",
     "ui_retirement_contribution": "每月持续投入",
     "ui_retirement_profit": "测算收益",
     "ui_retirement_years": "{years}年",
-    "ui_retirement_assumption": "按全部当前实际持仓（市值>0）的成立以来年化×当前市值权重测算；停投基金仍计入，实际赎回/转换并登记市值归零后退出。每月1日刷新历史年化，台账更新即时重算权重与目标。历史年化≠未来收益，非承诺。",
-    "ui_retirement_coverage": "年化数据覆盖 {covered}/{total} 只当前持仓",
+    "ui_retirement_assumption": "按在管持仓（剔除退出类/暂停申购基金）的成立以来年化×当前市值权重测算；退出类市值视同赎回后再配置，按同一保守年化计入。每月1日刷新历史年化，台账更新即时重算权重与目标。历史年化≠未来收益，非承诺。",
+    "ui_retirement_coverage": "年化数据覆盖 {covered}/{total} 只在管基金（已剔除{excluded}只退出类/暂停申购）",
     "ui_retirement_zero": "若未来零收益（只算本金）",
     "ui_retirement_principal": "累计投入（当前市值＋未来每月投入）",
     "ui_retirement_start": "当前持仓市值（测算起点）",

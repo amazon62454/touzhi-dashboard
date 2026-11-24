@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T23:02:23",
+  "generated_at": "2026-11-24T23:19:47",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -350,7 +350,7 @@
       "summary": "今天无需操作",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-24T19:54:40",
+        "as_of": "2026-11-24T23:19:24",
         "next_review_date": "2026-11-25",
         "source_param": "P142/P206",
         "state": "no_action",
@@ -366,11 +366,11 @@
         "valid_until": "2026-11-25T10:30:00",
         "next_review_at": "2026-11-25T03:30:00",
         "result_visible_until": "2026-11-25T03:30:00",
-        "result_effective_from": "2026-11-24T19:54:38",
+        "result_effective_from": "2026-11-24T23:19:23",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-24",
-      "generated_at": "2026-11-24T19:54:38",
+      "generated_at": "2026-11-24T23:19:23",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -439,7 +439,7 @@
           "params": {
             "profit_rate": -15.13,
             "drawdown": null,
-            "valuation_pct": 72.35,
+            "valuation_pct": 74.2,
             "market_value": 1154.81,
             "cost": 1360.7,
             "current_amount": 0.0
@@ -928,7 +928,7 @@
           "params": {
             "profit_rate": -15.13,
             "drawdown": null,
-            "valuation_pct": 72.35,
+            "valuation_pct": 74.2,
             "market_value": 1154.81,
             "cost": 1360.7,
             "current_amount": 0.0
@@ -1107,19 +1107,19 @@
       ],
       "allocation": {
         "amounts": {
-          "债券": 12870.54,
-          "权益": 5824.48,
-          "养老FOF": 1150.32,
           "现金": 322.16,
-          "黄金": 1154.81
+          "黄金": 1154.81,
+          "养老FOF": 1150.32,
+          "权益": 5824.48,
+          "债券": 12870.54
         },
         "total": 21322.31,
         "weights": {
-          "债券": 60.36,
-          "权益": 27.32,
-          "养老FOF": 5.39,
           "现金": 1.51,
-          "黄金": 5.42
+          "黄金": 5.42,
+          "养老FOF": 5.39,
+          "权益": 27.32,
+          "债券": 60.36
         }
       },
       "asset_allocation": {
@@ -1216,7 +1216,21 @@
             "valid": true,
             "equity_param": "P214",
             "debt_derived": true
+          },
+          "locked": {
+            "sum": 100.0,
+            "valid": true,
+            "source": "quarter_allocation_lock",
+            "period_start": "2026-10-01"
           }
+        },
+        "target_source": "quarter_allocation_lock",
+        "allocation_lock": {
+          "period_start": "2026-10-01",
+          "period_end": "2026-12-31",
+          "erp_state": "high",
+          "source_run_id": "band_quarter|2026-11-20|2026-11-20|2026-11-20#R22#live",
+          "locked_at": "2026-11-24T21:07:30"
         },
         "partial_actual_amount": null
       },
@@ -1394,7 +1408,7 @@
         "target": 10.0,
         "actual": 5.415970408459496,
         "gap": 4.58403,
-        "price_percentile": 72.35,
+        "price_percentile": 74.2,
         "score": {
           "score": 12.0,
           "scores": {
@@ -1411,10 +1425,8 @@
           "decision": "情绪过热，本笔不操作"
         },
         "buy_allowed": false,
-        "missing": [
-          "valuation_data_stale"
-        ],
-        "data_complete": false,
+        "missing": [],
+        "data_complete": true,
         "data_issues": [],
         "blocking_reason": ""
       },
@@ -1702,7 +1714,7 @@
           {
             "name": "持仓估值越档",
             "status": "🔴",
-            "detail": "024328:3.5%→极度低估；012544:4.49%→极度低估；004253:72.35%→高估；000051:76.01%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
+            "detail": "024328:3.5%→极度低估；012544:4.49%→极度低估；004253:74.2%→高估；000051:76.01%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
@@ -1724,7 +1736,7 @@
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": 72.35,
+                "value": 74.2,
                 "unit": "%",
                 "tone": "warn"
               },
@@ -1950,7 +1962,7 @@
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": 0.0,
+                "value": 1.9,
                 "unit": "个百分点",
                 "tone": "info"
               },
@@ -2079,7 +2091,7 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_daily|2026-11-24|2026-11-24|2026-11-24#R1#live",
+      "source_file": "band_daily|2026-11-24|2026-11-24|2026-11-24#R3#live",
       "display": {
         "header": {
           "title": "每日档 · 风控监控",
@@ -2536,7 +2548,7 @@
                         "name": "持仓估值越档",
                         "status": "🔴",
                         "status_kind": "danger",
-                        "detail": "024328:3.5%→极度低估；012544:4.49%→极度低估；004253:72.35%→高估；000051:76.01%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
+                        "detail": "024328:3.5%→极度低估；012544:4.49%→极度低估；004253:74.2%→高估；000051:76.01%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
                         "metrics": [
                           {
                             "label": "易方达恒生港股通创新药ETF联接A",
@@ -2584,7 +2596,7 @@
                             "label": "国泰黄金ETF联接C",
                             "value": [
                               {
-                                "value": 72.35,
+                                "value": 74.2,
                                 "format": "text"
                               },
                               {
@@ -3215,7 +3227,7 @@
                             "label": "国泰黄金ETF联接C",
                             "value": [
                               {
-                                "value": 0.0,
+                                "value": 1.9,
                                 "format": "text"
                               },
                               {
@@ -23699,7 +23711,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-24T23:02:23",
+    "generated_at": "2026-11-24T23:19:47",
     "projection_id": "wf_3978a2ac15717b20",
     "visual": {
       "title": "操作流程总览",
@@ -24294,7 +24306,7 @@
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-24",
         "review_date": "2026-11-24",
-        "generated_at": "2026-11-24T19:54:38",
+        "generated_at": "2026-11-24T23:19:23",
         "inputs": [
           {
             "label": "风控数据基准",

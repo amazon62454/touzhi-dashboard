@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T03:46:25",
+  "generated_at": "2026-11-25T03:47:30",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -9198,38 +9198,6 @@
       },
       "data_issues": [
         {
-          "issue_key": "local_amount_refresh:518880",
-          "source": "东方财富妙想",
-          "target_key": "518880.SH",
-          "metric": "成交额",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-25\"]",
-          "actual_coverage_json": "[\"2026-11-20\"]",
-          "missing_coverage_json": "[\"2026-11-25\"]",
-          "last_success_date": "2026-11-20",
-          "error_category": "SourceContractError",
-          "raw_error": "目标标的表格数量不等于1:518880.SH",
-          "human_message": "本地成交额序列增量回补失败：目标标的表格数量不等于1:518880.SH",
-          "next_action": "下一评估周期自动重试增量回补；历史序列继续保留，不用短窗冒充完整窗口",
-          "status": "escalated",
-          "attempt_count": 3,
-          "escalation_count": 2,
-          "first_seen_at": "2026-11-24T19:36:47+00:00",
-          "last_attempt_at": "2026-11-24T19:37:41+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-24T19:36:47+00:00",
-          "updated_at": "2026-11-24T19:37:41+00:00",
-          "expected_coverage": [
-            "2026-11-25"
-          ],
-          "actual_coverage": [
-            "2026-11-20"
-          ],
-          "missing_coverage": [
-            "2026-11-25"
-          ]
-        },
-        {
           "issue_key": "dimension:2026-11-24:009881:fundamentals",
           "source": "同基准衍生数据",
           "target_key": "009881",
@@ -14621,6 +14589,38 @@
           "missing_coverage": [
             "2026-11-20"
           ]
+        },
+        {
+          "issue_key": "local_amount_refresh:518880",
+          "source": "东方财富妙想",
+          "target_key": "518880.SH",
+          "metric": "成交额",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-25\"]",
+          "actual_coverage_json": "[\"2026-11-20\"]",
+          "missing_coverage_json": "[\"2026-11-25\"]",
+          "last_success_date": "2026-11-20",
+          "error_category": "SourceContractError",
+          "raw_error": "目标标的表格数量不等于1:518880.SH",
+          "human_message": "本地成交额序列增量回补失败：目标标的表格数量不等于1:518880.SH",
+          "next_action": "下一评估周期自动重试增量回补；历史序列继续保留，不用短窗冒充完整窗口",
+          "status": "resolved",
+          "attempt_count": 3,
+          "escalation_count": 2,
+          "first_seen_at": "2026-11-24T19:36:47+00:00",
+          "last_attempt_at": "2026-11-24T19:37:41+00:00",
+          "resolved_at": "2026-11-24T19:47:11+00:00",
+          "created_at": "2026-11-24T19:36:47+00:00",
+          "updated_at": "2026-11-24T19:47:11+00:00",
+          "expected_coverage": [
+            "2026-11-25"
+          ],
+          "actual_coverage": [
+            "2026-11-20"
+          ],
+          "missing_coverage": [
+            "2026-11-25"
+          ]
         }
       ],
       "five_dimension_scores": {
@@ -17697,69 +17697,8 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "当前7项待处理；系统持续自动补数与升级，不依赖人工识别",
+                        "text": "当前6项待处理；系统持续自动补数与升级，不依赖人工识别",
                         "style": "lead"
-                      },
-                      {
-                        "type": "details",
-                        "summary": "518880.SH · 成交额",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "本地成交额序列增量回补失败：目标标的表格数量不等于1:518880.SH",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "东方财富妙想",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "1/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试3次 · 升级2次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "已升级",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一评估周期自动重试增量回补；历史序列继续保留，不用短窗冒充完整窗口",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
                       },
                       {
                         "type": "details",
@@ -18791,6 +18730,67 @@
                             "label": "系统下一动作",
                             "value": {
                               "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "518880.SH · 成交额",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "本地成交额序列增量回补失败：目标标的表格数量不等于1:518880.SH",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "东方财富妙想",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "1/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试3次 · 升级2次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一评估周期自动重试增量回补；历史序列继续保留，不用短窗冒充完整窗口",
                               "format": "text"
                             },
                             "tone": "",
@@ -23804,7 +23804,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-25T03:46:25",
+    "generated_at": "2026-11-25T03:47:30",
     "projection_id": "wf_3978a2ac15717b20",
     "visual": {
       "title": "操作流程总览",

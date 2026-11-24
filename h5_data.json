@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T20:42:15",
+  "generated_at": "2026-11-24T20:45:47",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -240,6 +240,41 @@
               "type": "text",
               "text": "按在管持仓（剔除退出类/暂停申购基金）的成立以来年化×当前市值权重测算；退出类市值视同赎回后再配置，按同一保守年化计入。每月1日刷新历史年化，台账更新即时重算权重与目标。历史年化≠未来收益，非承诺。",
               "style": "muted"
+            },
+            {
+              "type": "text",
+              "text": "年化敏感性对照（仅假设演算）",
+              "style": "muted"
+            },
+            {
+              "type": "kv",
+              "label": "年化 1.28% → 目标",
+              "value": {
+                "value": 515298,
+                "format": "money"
+              },
+              "tone": "info",
+              "note": ""
+            },
+            {
+              "type": "kv",
+              "label": "年化 2.28% → 目标",
+              "value": {
+                "value": 575060,
+                "format": "money"
+              },
+              "tone": "info",
+              "note": ""
+            },
+            {
+              "type": "kv",
+              "label": "年化 3.28% → 目标",
+              "value": {
+                "value": 643953,
+                "format": "money"
+              },
+              "tone": "info",
+              "note": ""
             }
           ]
         },
@@ -261,6 +296,23 @@
     "target_amount": 574906,
     "principal": 450043,
     "projected_profit": 124863,
+    "sensitivity": [
+      {
+        "annual_rate": 1.28,
+        "target_amount": 515298,
+        "projected_profit": 65254
+      },
+      {
+        "annual_rate": 2.28,
+        "target_amount": 575060,
+        "projected_profit": 125017
+      },
+      {
+        "annual_rate": 3.28,
+        "target_amount": 643953,
+        "projected_profit": 193909
+      }
+    ],
     "covered_fund_count": 6,
     "holding_fund_count": 6,
     "all_holding_fund_count": 9,
@@ -8321,213 +8373,33 @@
       },
       "data_issues": [
         {
-          "issue_key": "dimension:2026-11-20:110026:fundamentals",
-          "source": "同基准衍生数据",
-          "target_key": "110026",
-          "metric": "龙头净利润增速",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "110026的龙头净利润增速未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "escalated",
-          "attempt_count": 2,
-          "escalation_count": 1,
-          "first_seen_at": "2026-11-23T14:16:18+00:00",
-          "last_attempt_at": "2026-11-24T10:58:36+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-23T14:16:18+00:00",
-          "updated_at": "2026-11-24T10:58:36+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:110026:trends",
-          "source": "同基准衍生数据",
-          "target_key": "110026",
-          "metric": "趋势",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "110026的趋势未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "escalated",
-          "attempt_count": 2,
-          "escalation_count": 1,
-          "first_seen_at": "2026-11-23T14:16:09+00:00",
-          "last_attempt_at": "2026-11-24T10:58:26+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-23T14:16:09+00:00",
-          "updated_at": "2026-11-24T10:58:26+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:009881:fundamentals",
+          "issue_key": "dimension:2026-11-24:009881:fundamentals",
           "source": "同基准衍生数据",
           "target_key": "009881",
           "metric": "龙头净利润增速",
           "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
+          "expected_coverage_json": "[\"2026-11-24\"]",
           "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
+          "missing_coverage_json": "[\"2026-11-24\"]",
           "last_success_date": null,
           "error_category": "data_unavailable",
-          "raw_error": "009881的龙头净利润增速未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
+          "raw_error": "AI涨乐/问财均未返回2026-11-24龙头净利润增速；旧日期不可顶替",
+          "human_message": "009881的龙头净利润增速未取得2026-11-24基准数据；本地SQL无该指标序列",
+          "next_action": "下一正式补跑重试；若仍缺，按缺数降级，不参与基本面评分",
           "status": "escalated",
           "attempt_count": 2,
           "escalation_count": 1,
-          "first_seen_at": "2026-11-23T14:14:49+00:00",
-          "last_attempt_at": "2026-11-24T10:57:50+00:00",
+          "first_seen_at": "2026-11-24T10:54:58+00:00",
+          "last_attempt_at": "2026-11-24T12:43:36+00:00",
           "resolved_at": null,
-          "created_at": "2026-11-23T14:14:49+00:00",
-          "updated_at": "2026-11-24T10:57:50+00:00",
+          "created_at": "2026-11-24T10:54:58+00:00",
+          "updated_at": "2026-11-24T12:43:36+00:00",
           "expected_coverage": [
-            "2026-11-20"
+            "2026-11-24"
           ],
           "actual_coverage": [],
           "missing_coverage": [
-            "2026-11-20"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:009881:trends",
-          "source": "同基准衍生数据",
-          "target_key": "009881",
-          "metric": "趋势",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "009881的趋势未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "escalated",
-          "attempt_count": 2,
-          "escalation_count": 1,
-          "first_seen_at": "2026-11-23T14:14:40+00:00",
-          "last_attempt_at": "2026-11-24T10:57:41+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-23T14:14:40+00:00",
-          "updated_at": "2026-11-24T10:57:41+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:007300:trends",
-          "source": "同基准衍生数据",
-          "target_key": "007300",
-          "metric": "趋势",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "007300的趋势未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "escalated",
-          "attempt_count": 2,
-          "escalation_count": 1,
-          "first_seen_at": "2026-11-23T14:14:06+00:00",
-          "last_attempt_at": "2026-11-24T10:57:06+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-23T14:14:06+00:00",
-          "updated_at": "2026-11-24T10:57:06+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:005693:trends",
-          "source": "同基准衍生数据",
-          "target_key": "005693",
-          "metric": "趋势",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "005693的趋势未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "escalated",
-          "attempt_count": 4,
-          "escalation_count": 3,
-          "first_seen_at": "2026-11-23T14:11:41+00:00",
-          "last_attempt_at": "2026-11-24T10:56:35+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-23T14:11:41+00:00",
-          "updated_at": "2026-11-24T10:56:35+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:017140:trends",
-          "source": "同基准衍生数据",
-          "target_key": "017140",
-          "metric": "趋势",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "017140的趋势未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
-          "first_seen_at": "2026-11-24T10:57:58+00:00",
-          "last_attempt_at": "2026-11-24T10:57:58+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-24T10:57:58+00:00",
-          "updated_at": "2026-11-24T10:57:58+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
+            "2026-11-24"
           ]
         },
         {
@@ -8541,173 +8413,23 @@
           "missing_coverage_json": "[\"2026-11-24\"]",
           "last_success_date": null,
           "error_category": "data_unavailable",
-          "raw_error": "110026的龙头净利润增速未取得2026-11-24基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
+          "raw_error": "AI涨乐/问财均未返回2026-11-24龙头净利润增速；旧日期不可顶替",
+          "human_message": "110026的龙头净利润增速未取得2026-11-24基准数据；本地SQL无该指标序列",
+          "next_action": "下一正式补跑重试；若仍缺，按缺数降级，不参与基本面评分",
+          "status": "escalated",
+          "attempt_count": 2,
+          "escalation_count": 1,
           "first_seen_at": "2026-11-24T10:55:14+00:00",
-          "last_attempt_at": "2026-11-24T10:55:14+00:00",
+          "last_attempt_at": "2026-11-24T12:43:36+00:00",
           "resolved_at": null,
           "created_at": "2026-11-24T10:55:14+00:00",
-          "updated_at": "2026-11-24T10:55:14+00:00",
+          "updated_at": "2026-11-24T12:43:36+00:00",
           "expected_coverage": [
             "2026-11-24"
           ],
           "actual_coverage": [],
           "missing_coverage": [
             "2026-11-24"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-24:009881:fundamentals",
-          "source": "同基准衍生数据",
-          "target_key": "009881",
-          "metric": "龙头净利润增速",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-24\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-24\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "009881的龙头净利润增速未取得2026-11-24基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
-          "first_seen_at": "2026-11-24T10:54:58+00:00",
-          "last_attempt_at": "2026-11-24T10:54:58+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-24T10:54:58+00:00",
-          "updated_at": "2026-11-24T10:54:58+00:00",
-          "expected_coverage": [
-            "2026-11-24"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-24"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:011613:sentiments",
-          "source": "同基准衍生数据",
-          "target_key": "011613",
-          "metric": "情绪",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "011613的情绪未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
-          "first_seen_at": "2026-11-23T14:15:29+00:00",
-          "last_attempt_at": "2026-11-23T14:15:29+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-23T14:15:29+00:00",
-          "updated_at": "2026-11-23T14:15:29+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:011613:trends",
-          "source": "同基准衍生数据",
-          "target_key": "011613",
-          "metric": "趋势",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "011613的趋势未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
-          "first_seen_at": "2026-11-23T14:14:58+00:00",
-          "last_attempt_at": "2026-11-23T14:14:58+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-23T14:14:58+00:00",
-          "updated_at": "2026-11-23T14:14:58+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:007077:sentiments",
-          "source": "同基准衍生数据",
-          "target_key": "007077",
-          "metric": "情绪",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "007077的情绪未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
-          "first_seen_at": "2026-11-23T14:13:58+00:00",
-          "last_attempt_at": "2026-11-23T14:13:58+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-23T14:13:58+00:00",
-          "updated_at": "2026-11-23T14:13:58+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
-          ]
-        },
-        {
-          "issue_key": "dimension:2026-11-20:007077:trends",
-          "source": "同基准衍生数据",
-          "target_key": "007077",
-          "metric": "趋势",
-          "period_type": "DAY",
-          "expected_coverage_json": "[\"2026-11-20\"]",
-          "actual_coverage_json": "[]",
-          "missing_coverage_json": "[\"2026-11-20\"]",
-          "last_success_date": null,
-          "error_category": "data_unavailable",
-          "raw_error": "007077的趋势未取得2026-11-20基准数据；旧交易日或其他日期数据不能顶替",
-          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-          "next_action": "下一正式补跑只重取该缺项",
-          "status": "open",
-          "attempt_count": 1,
-          "escalation_count": 0,
-          "first_seen_at": "2026-11-23T14:13:20+00:00",
-          "last_attempt_at": "2026-11-23T14:13:20+00:00",
-          "resolved_at": null,
-          "created_at": "2026-11-23T14:13:20+00:00",
-          "updated_at": "2026-11-23T14:13:20+00:00",
-          "expected_coverage": [
-            "2026-11-20"
-          ],
-          "actual_coverage": [],
-          "missing_coverage": [
-            "2026-11-20"
           ]
         },
         {
@@ -13712,6 +13434,336 @@
             "2026-11-20"
           ],
           "missing_coverage": []
+        },
+        {
+          "issue_key": "dimension:2026-11-20:005693:trends",
+          "source": "同基准衍生数据",
+          "target_key": "005693",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 4,
+          "escalation_count": 3,
+          "first_seen_at": "2026-11-23T14:11:41+00:00",
+          "last_attempt_at": "2026-11-24T10:56:35+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:11:41+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:007077:trends",
+          "source": "同基准衍生数据",
+          "target_key": "007077",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-23T14:13:20+00:00",
+          "last_attempt_at": "2026-11-23T14:13:20+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:13:20+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:007077:sentiments",
+          "source": "同基准衍生数据",
+          "target_key": "007077",
+          "metric": "情绪",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-23T14:13:58+00:00",
+          "last_attempt_at": "2026-11-23T14:13:58+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:13:58+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:007300:trends",
+          "source": "同基准衍生数据",
+          "target_key": "007300",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 2,
+          "escalation_count": 1,
+          "first_seen_at": "2026-11-23T14:14:06+00:00",
+          "last_attempt_at": "2026-11-24T10:57:06+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:14:06+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:009881:trends",
+          "source": "同基准衍生数据",
+          "target_key": "009881",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 2,
+          "escalation_count": 1,
+          "first_seen_at": "2026-11-23T14:14:40+00:00",
+          "last_attempt_at": "2026-11-24T10:57:41+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:14:40+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:009881:fundamentals",
+          "source": "同基准衍生数据",
+          "target_key": "009881",
+          "metric": "龙头净利润增速",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 2,
+          "escalation_count": 1,
+          "first_seen_at": "2026-11-23T14:14:49+00:00",
+          "last_attempt_at": "2026-11-24T10:57:50+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:14:49+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:011613:trends",
+          "source": "同基准衍生数据",
+          "target_key": "011613",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-23T14:14:58+00:00",
+          "last_attempt_at": "2026-11-23T14:14:58+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:14:58+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:011613:sentiments",
+          "source": "同基准衍生数据",
+          "target_key": "011613",
+          "metric": "情绪",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-23T14:15:29+00:00",
+          "last_attempt_at": "2026-11-23T14:15:29+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:15:29+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:110026:trends",
+          "source": "同基准衍生数据",
+          "target_key": "110026",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 2,
+          "escalation_count": 1,
+          "first_seen_at": "2026-11-23T14:16:09+00:00",
+          "last_attempt_at": "2026-11-24T10:58:26+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:16:09+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:110026:fundamentals",
+          "source": "同基准衍生数据",
+          "target_key": "110026",
+          "metric": "龙头净利润增速",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 2,
+          "escalation_count": 1,
+          "first_seen_at": "2026-11-23T14:16:18+00:00",
+          "last_attempt_at": "2026-11-24T10:58:36+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-23T14:16:18+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-20:017140:trends",
+          "source": "同基准衍生数据",
+          "target_key": "017140",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-20\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-20\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "historical_base_unavailable: 2026-11-20 passed; source cannot backfill exact date",
+          "human_message": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+          "next_action": "无需重试；后续正式基准以新数据重算",
+          "status": "resolved",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-24T10:57:58+00:00",
+          "last_attempt_at": "2026-11-24T10:57:58+00:00",
+          "resolved_at": "2026-11-24T20:43:36",
+          "created_at": "2026-11-24T10:57:58+00:00",
+          "updated_at": "2026-11-24T20:43:36",
+          "expected_coverage": [
+            "2026-11-20"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-20"
+          ]
         }
       ],
       "five_dimension_scores": {
@@ -16788,138 +16840,16 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "当前17项待处理；系统持续自动补数与升级，不依赖人工识别",
+                        "text": "当前6项待处理；系统持续自动补数与升级，不依赖人工识别",
                         "style": "lead"
                       },
                       {
                         "type": "details",
-                        "summary": "110026 · 龙头净利润增速",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试2次 · 升级1次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "已升级",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "110026 · 趋势",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试2次 · 升级1次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "已升级",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
                         "summary": "009881 · 龙头净利润增速",
                         "children": [
                           {
                             "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "text": "009881的龙头净利润增速未取得2026-11-24基准数据；本地SQL无该指标序列",
                             "style": "warn"
                           },
                           {
@@ -16966,251 +16896,7 @@
                             "type": "kv",
                             "label": "系统下一动作",
                             "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "009881 · 趋势",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试2次 · 升级1次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "已升级",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "007300 · 趋势",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试2次 · 升级1次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "已升级",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "005693 · 趋势",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试4次 · 升级3次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "已升级",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "017140 · 趋势",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试1次 · 升级0次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "待处理",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
+                              "value": "下一正式补跑重试；若仍缺，按缺数降级，不参与基本面评分",
                               "format": "text"
                             },
                             "tone": "",
@@ -17224,7 +16910,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "text": "110026的龙头净利润增速未取得2026-11-24基准数据；本地SQL无该指标序列",
                             "style": "warn"
                           },
                           {
@@ -17251,7 +16937,7 @@
                             "type": "kv",
                             "label": "自动处理轨迹",
                             "value": {
-                              "value": "尝试1次 · 升级0次",
+                              "value": "尝试2次 · 升级1次",
                               "format": "text"
                             },
                             "tone": "",
@@ -17261,7 +16947,7 @@
                             "type": "kv",
                             "label": "处理状态",
                             "value": {
-                              "value": "待处理",
+                              "value": "已升级",
                               "format": "text"
                             },
                             "tone": "",
@@ -17271,312 +16957,7 @@
                             "type": "kv",
                             "label": "系统下一动作",
                             "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "009881 · 龙头净利润增速",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试1次 · 升级0次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "待处理",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "011613 · 情绪",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试1次 · 升级0次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "待处理",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "011613 · 趋势",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试1次 · 升级0次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "待处理",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "007077 · 情绪",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试1次 · 升级0次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "待处理",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          }
-                        ]
-                      },
-                      {
-                        "type": "details",
-                        "summary": "007077 · 趋势",
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
-                            "style": "warn"
-                          },
-                          {
-                            "type": "kv",
-                            "label": "数据来源",
-                            "value": {
-                              "value": "同基准衍生数据",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "已验收覆盖",
-                            "value": {
-                              "value": "0/1个日期",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "自动处理轨迹",
-                            "value": {
-                              "value": "尝试1次 · 升级0次",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "处理状态",
-                            "value": {
-                              "value": "待处理",
-                              "format": "text"
-                            },
-                            "tone": "",
-                            "note": ""
-                          },
-                          {
-                            "type": "kv",
-                            "label": "系统下一动作",
-                            "value": {
-                              "value": "下一正式补跑只重取该缺项",
+                              "value": "下一正式补跑重试；若仍缺，按缺数降级，不参与基本面评分",
                               "format": "text"
                             },
                             "tone": "",
@@ -17821,6 +17202,677 @@
                             "label": "系统下一动作",
                             "value": {
                               "value": "每日增量继续累计；年度自动补齐历史交易日历并复核缺失／多余日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "005693 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试4次 · 升级3次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "007077 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "007077 · 情绪",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "007300 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试2次 · 升级1次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "009881 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试2次 · 升级1次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "009881 · 龙头净利润增速",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试2次 · 升级1次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "011613 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "011613 · 情绪",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "110026 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试2次 · 升级1次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "110026 · 龙头净利润增速",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试2次 · 升级1次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "017140 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2026-11-20历史基准日已过，数据源不支持回补；当档已按缺数降级处理，后续基准重算，不再重试",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "无需重试；后续正式基准以新数据重算",
                               "format": "text"
                             },
                             "tone": "",
@@ -22834,7 +22886,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-24T20:42:15",
+    "generated_at": "2026-11-24T20:45:47",
     "projection_id": "wf_3978a2ac15717b20",
     "visual": {
       "title": "操作流程总览",
@@ -26349,6 +26401,8 @@
     "ui_lbl_peak_drawdown": "组合回撤（峰值口径）",
     "ui_lbl_cost_basis": "成本浮亏",
     "ui_risk_budget_over_budget": "超预算",
-    "ui_risk_budget_emergency": "极端防御"
+    "ui_risk_budget_emergency": "极端防御",
+    "ui_retirement_sensitivity": "年化敏感性对照（仅假设演算）",
+    "ui_retirement_sens_label": "年化 {rate}% → 目标"
   }
 }

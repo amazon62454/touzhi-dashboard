@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T03:29:04",
+  "generated_at": "2026-11-25T03:32:58",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -350,8 +350,8 @@
       "summary": "今天无需操作",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-24T23:19:24",
-        "next_review_date": "2026-11-25",
+        "as_of": "2026-11-25T03:31:51",
+        "next_review_date": "2026-11-26",
         "source_param": "P142/P206",
         "state": "no_action",
         "headline": "今天无需操作",
@@ -364,14 +364,14 @@
         "is_postponed": false,
         "postpone_days": 0,
         "valid_until": "2026-11-25T10:30:00",
-        "next_review_at": "2026-11-25T03:30:00",
-        "result_visible_until": "2026-11-25T03:30:00",
-        "result_effective_from": "2026-11-24T23:19:23",
+        "next_review_at": "2026-11-26T03:30:00",
+        "result_visible_until": "2026-11-26T03:30:00",
+        "result_effective_from": "2026-11-25T03:30:55",
         "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
       },
       "base_date": "2026-11-24",
-      "generated_at": "2026-11-24T23:19:23",
-      "run_kind": "manual_formal",
+      "generated_at": "2026-11-25T03:30:55",
+      "run_kind": "scheduled_formal",
       "items": [
         {
           "fund_code": "017491",
@@ -409,7 +409,7 @@
           "reason": "规模风险：规模预警⚠️",
           "params": {
             "scale_status": "规模预警⚠️",
-            "valuation_pct": 26.29,
+            "valuation_pct": 20.59,
             "market_value": 244.0,
             "cost": 295.0,
             "profit_rate": -17.29,
@@ -454,7 +454,7 @@
           "params": {
             "profit_rate": -12.33,
             "drawdown": null,
-            "valuation_pct": 3.5,
+            "valuation_pct": 4.11,
             "market_value": 1882.34,
             "cost": 2146.98,
             "current_amount": 65.0
@@ -483,7 +483,7 @@
           "params": {
             "profit_rate": -9.21,
             "drawdown": null,
-            "valuation_pct": 4.49,
+            "valuation_pct": 4.93,
             "market_value": 1331.61,
             "cost": 1466.74,
             "current_amount": 40.0
@@ -512,7 +512,7 @@
           "params": {
             "profit_rate": 0.0,
             "drawdown": null,
-            "valuation_pct": 76.01,
+            "valuation_pct": 74.04,
             "market_value": 0.0,
             "cost": 0.0,
             "current_amount": 0.0
@@ -527,7 +527,7 @@
           "params": {
             "profit_rate": 0.0,
             "drawdown": null,
-            "valuation_pct": 57.67,
+            "valuation_pct": 59.2,
             "market_value": 0.0,
             "cost": 0.0,
             "current_amount": 0.0
@@ -943,7 +943,7 @@
           "params": {
             "profit_rate": -12.33,
             "drawdown": null,
-            "valuation_pct": 3.5,
+            "valuation_pct": 4.11,
             "market_value": 1882.34,
             "cost": 2146.98,
             "current_amount": 65.0
@@ -972,7 +972,7 @@
           "params": {
             "profit_rate": -9.21,
             "drawdown": null,
-            "valuation_pct": 4.49,
+            "valuation_pct": 4.93,
             "market_value": 1331.61,
             "cost": 1466.74,
             "current_amount": 40.0
@@ -1001,7 +1001,7 @@
           "params": {
             "profit_rate": 0.0,
             "drawdown": null,
-            "valuation_pct": 76.01,
+            "valuation_pct": 74.04,
             "market_value": 0.0,
             "cost": 0.0,
             "current_amount": 0.0
@@ -1016,7 +1016,7 @@
           "params": {
             "profit_rate": 0.0,
             "drawdown": null,
-            "valuation_pct": 57.67,
+            "valuation_pct": 59.2,
             "market_value": 0.0,
             "cost": 0.0,
             "current_amount": 0.0
@@ -1059,13 +1059,13 @@
           "metrics": [
             {
               "label": "最接近闭环",
-              "value": "华夏沪深300ETF联接A",
+              "value": "国泰黄金ETF联接C",
               "unit": "",
               "tone": "info"
             },
             {
               "label": "估值分位",
-              "value": 76.01,
+              "value": 74.2,
               "unit": "%",
               "tone": "info"
             }
@@ -1107,19 +1107,19 @@
       ],
       "allocation": {
         "amounts": {
-          "现金": 322.16,
-          "黄金": 1154.81,
-          "养老FOF": 1150.32,
           "权益": 5824.48,
-          "债券": 12870.54
+          "现金": 322.16,
+          "养老FOF": 1150.32,
+          "债券": 12870.54,
+          "黄金": 1154.81
         },
         "total": 21322.31,
         "weights": {
-          "现金": 1.51,
-          "黄金": 5.42,
-          "养老FOF": 5.39,
           "权益": 27.32,
-          "债券": 60.36
+          "现金": 1.51,
+          "养老FOF": 5.39,
+          "债券": 60.36,
+          "黄金": 5.42
         }
       },
       "asset_allocation": {
@@ -1714,23 +1714,23 @@
           {
             "name": "持仓估值越档",
             "status": "🔴",
-            "detail": "024328:3.5%→极度低估；012544:4.49%→极度低估；004253:74.2%→高估；000051:76.01%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
+            "detail": "024328:4.11%→极度低估；012544:4.93%→极度低估；004253:74.2%→高估；000051:74.04%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": 3.5,
+                "value": 4.11,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": 4.49,
+                "value": 4.93,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": 26.29,
+                "value": 20.59,
                 "unit": "%",
                 "tone": "pos"
               },
@@ -1742,13 +1742,13 @@
               },
               {
                 "label": "华夏沪深300ETF联接A",
-                "value": 76.01,
+                "value": 74.04,
                 "unit": "%",
                 "tone": "warn"
               },
               {
                 "label": "南方中证500ETF联接(LOF)A",
-                "value": 57.67,
+                "value": 59.2,
                 "unit": "%",
                 "tone": "info"
               }
@@ -1826,13 +1826,13 @@
             "metrics": [
               {
                 "label": "最接近闭环",
-                "value": "华夏沪深300ETF联接A",
+                "value": "国泰黄金ETF联接C",
                 "unit": "",
                 "tone": "info"
               },
               {
                 "label": "估值分位",
-                "value": 76.01,
+                "value": 74.2,
                 "unit": "%",
                 "tone": "info"
               }
@@ -1907,23 +1907,23 @@
           {
             "name": "利率倒挂监控",
             "status": "🟢",
-            "detail": "1年期1.1773%/10年期1.589%,利差-41bp,未严重倒挂(阈值50bp)",
+            "detail": "1年期1.1782%/10年期1.5935%,利差-42bp,未严重倒挂(阈值50bp)",
             "metrics": [
               {
                 "label": "1年期",
-                "value": 1.1773,
+                "value": 1.1782,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "10年期",
-                "value": 1.589,
+                "value": 1.5935,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "利差",
-                "value": -41,
+                "value": -42,
                 "unit": "bp",
                 "tone": "pos"
               },
@@ -1944,19 +1944,19 @@
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": 0.0,
+                "value": 0.6,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": 0.0,
+                "value": 0.4,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": 0.0,
+                "value": 5.7,
                 "unit": "个百分点",
                 "tone": "info"
               },
@@ -1968,13 +1968,13 @@
               },
               {
                 "label": "华夏沪深300ETF联接A",
-                "value": 0.0,
+                "value": 2.0,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "南方中证500ETF联接(LOF)A",
-                "value": 0.0,
+                "value": 1.5,
                 "unit": "个百分点",
                 "tone": "info"
               },
@@ -2077,7 +2077,7 @@
         }
       },
       "market_env": {
-        "hs300_pe_pct": 76.01,
+        "hs300_pe_pct": 74.04,
         "erp_state": "high",
         "impact": {
           "label": "高估",
@@ -2091,7 +2091,7 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_daily|2026-11-24|2026-11-24|2026-11-24#R3#live",
+      "source_file": "band_daily|2026-11-24|2026-11-25|2026-11-24#R4#live",
       "display": {
         "header": {
           "title": "每日档 · 风控监控",
@@ -2162,7 +2162,7 @@
                         "type": "flow_time",
                         "label": "下次评估 · 旧结果届时失效",
                         "value": {
-                          "value": "2026-11-25T03:30:00",
+                          "value": "2026-11-26T03:30:00",
                           "format": "datetime"
                         }
                       }
@@ -2548,13 +2548,13 @@
                         "name": "持仓估值越档",
                         "status": "🔴",
                         "status_kind": "danger",
-                        "detail": "024328:3.5%→极度低估；012544:4.49%→极度低估；004253:74.2%→高估；000051:76.01%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
+                        "detail": "024328:4.11%→极度低估；012544:4.93%→极度低估；004253:74.2%→高估；000051:74.04%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
                         "metrics": [
                           {
                             "label": "易方达恒生港股通创新药ETF联接A",
                             "value": [
                               {
-                                "value": 3.5,
+                                "value": 4.11,
                                 "format": "text"
                               },
                               {
@@ -2568,7 +2568,7 @@
                             "label": "嘉实中证新能源汽车指数C",
                             "value": [
                               {
-                                "value": 4.49,
+                                "value": 4.93,
                                 "format": "text"
                               },
                               {
@@ -2582,7 +2582,7 @@
                             "label": "华宝中证有色金属ETF联接A",
                             "value": [
                               {
-                                "value": 26.29,
+                                "value": 20.59,
                                 "format": "text"
                               },
                               {
@@ -2610,7 +2610,7 @@
                             "label": "华夏沪深300ETF联接A",
                             "value": [
                               {
-                                "value": 76.01,
+                                "value": 74.04,
                                 "format": "text"
                               },
                               {
@@ -2624,7 +2624,7 @@
                             "label": "南方中证500ETF联接(LOF)A",
                             "value": [
                               {
-                                "value": 57.67,
+                                "value": 59.2,
                                 "format": "text"
                               },
                               {
@@ -3050,7 +3050,7 @@
                             "label": "最接近闭环",
                             "value": [
                               {
-                                "value": "华夏沪深300ETF联接A",
+                                "value": "国泰黄金ETF联接C",
                                 "format": "text"
                               },
                               {
@@ -3064,7 +3064,7 @@
                             "label": "估值分位",
                             "value": [
                               {
-                                "value": 76.01,
+                                "value": 74.2,
                                 "format": "text"
                               },
                               {
@@ -3115,13 +3115,13 @@
                         "name": "利率倒挂监控",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "1年期1.1773%/10年期1.589%,利差-41bp,未严重倒挂(阈值50bp)",
+                        "detail": "1年期1.1782%/10年期1.5935%,利差-42bp,未严重倒挂(阈值50bp)",
                         "metrics": [
                           {
                             "label": "1年期",
                             "value": [
                               {
-                                "value": 1.1773,
+                                "value": 1.1782,
                                 "format": "text"
                               },
                               {
@@ -3135,7 +3135,7 @@
                             "label": "10年期",
                             "value": [
                               {
-                                "value": 1.589,
+                                "value": 1.5935,
                                 "format": "text"
                               },
                               {
@@ -3149,7 +3149,7 @@
                             "label": "利差",
                             "value": [
                               {
-                                "value": -41,
+                                "value": -42,
                                 "format": "text"
                               },
                               {
@@ -3185,7 +3185,7 @@
                             "label": "易方达恒生港股通创新药ETF联接A",
                             "value": [
                               {
-                                "value": 0.0,
+                                "value": 0.6,
                                 "format": "text"
                               },
                               {
@@ -3199,7 +3199,7 @@
                             "label": "嘉实中证新能源汽车指数C",
                             "value": [
                               {
-                                "value": 0.0,
+                                "value": 0.4,
                                 "format": "text"
                               },
                               {
@@ -3213,7 +3213,7 @@
                             "label": "华宝中证有色金属ETF联接A",
                             "value": [
                               {
-                                "value": 0.0,
+                                "value": 5.7,
                                 "format": "text"
                               },
                               {
@@ -3241,7 +3241,7 @@
                             "label": "华夏沪深300ETF联接A",
                             "value": [
                               {
-                                "value": 0.0,
+                                "value": 2.0,
                                 "format": "text"
                               },
                               {
@@ -3255,7 +3255,7 @@
                             "label": "南方中证500ETF联接(LOF)A",
                             "value": [
                               {
-                                "value": 0.0,
+                                "value": 1.5,
                                 "format": "text"
                               },
                               {
@@ -23711,7 +23711,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-25T03:29:04",
+    "generated_at": "2026-11-25T03:32:58",
     "projection_id": "wf_3978a2ac15717b20",
     "visual": {
       "title": "操作流程总览",
@@ -24305,8 +24305,8 @@
         "state_label": "正式数据已生成",
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-24",
-        "review_date": "2026-11-24",
-        "generated_at": "2026-11-24T23:19:23",
+        "review_date": "2026-11-25",
+        "generated_at": "2026-11-25T03:30:55",
         "inputs": [
           {
             "label": "风控数据基准",

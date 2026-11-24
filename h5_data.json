@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T21:06:43",
+  "generated_at": "2026-11-24T21:07:50",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -18282,7 +18282,7 @@
                                   "format": "text"
                                 },
                                 {
-                                  "value": "同基准计算；未独立传锁",
+                                  "value": "季度独立锚锁",
                                   "format": "text"
                                 }
                               ]
@@ -18353,7 +18353,7 @@
                                   "format": "text"
                                 },
                                 {
-                                  "value": "同基准重算",
+                                  "value": "读取季度锚锁",
                                   "format": "text"
                                 }
                               ]
@@ -18882,15 +18882,15 @@
                               "format": "text"
                             },
                             {
-                              "value": "同基准重算",
+                              "value": "已接线",
                               "format": "text"
                             },
                             {
-                              "value": "暂无quarter_allocation_lock",
+                              "value": "2026-10-01（high）",
                               "format": "text"
                             },
                             {
-                              "value": "同基准重算，不是独立锚锁；不得误标已传递。",
+                              "value": "已接线：季度写独立锚，月度/周日只读。",
                               "format": "text"
                             }
                           ],
@@ -22886,7 +22886,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-24T21:06:43",
+    "generated_at": "2026-11-24T21:07:50",
     "projection_id": "wf_3978a2ac15717b20",
     "visual": {
       "title": "操作流程总览",
@@ -23373,7 +23373,7 @@
           {
             "label": "四资产目标",
             "value": "权益31.11% / 债券48.89% / 黄金10.00% / 现金10.00%",
-            "source": "同基准计算；未独立传锁"
+            "source": "季度独立锚锁"
           }
         ]
       },
@@ -23401,7 +23401,7 @@
           {
             "label": "ERP状态",
             "value": "高估",
-            "source": "同基准重算"
+            "source": "读取季度锚锁"
           }
         ],
         "outputs": [
@@ -23582,10 +23582,10 @@
         "source": "quarter",
         "target": "monthly",
         "label": "四资产目标",
-        "status": "derived",
-        "actual": "暂无quarter_allocation_lock",
-        "guidance": "同基准重算，不是独立锚锁；不得误标已传递。",
-        "status_label": "同基准重算"
+        "status": "wired",
+        "actual": "2026-10-01（high）",
+        "guidance": "已接线：季度写独立锚，月度/周日只读。",
+        "status_label": "已接线"
       },
       {
         "source": "monthly",
@@ -23678,8 +23678,8 @@
     "summary": {
       "formal_band_count": 4,
       "edge_counts": {
-        "wired": 3,
-        "derived": 1,
+        "wired": 4,
+        "derived": 0,
         "none": 1,
         "control": 1,
         "manual": 2,

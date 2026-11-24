@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T03:36:16",
+  "generated_at": "2026-11-25T03:37:23",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -9258,6 +9258,38 @@
           ]
         },
         {
+          "issue_key": "local_amount_refresh:518880",
+          "source": "东方财富妙想",
+          "target_key": "518880.SH",
+          "metric": "成交额",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-25\"]",
+          "actual_coverage_json": "[\"2026-11-20\"]",
+          "missing_coverage_json": "[\"2026-11-25\"]",
+          "last_success_date": "2026-11-20",
+          "error_category": "SourceContractError",
+          "raw_error": "目标标的表格数量不等于1:518880.SH",
+          "human_message": "本地成交额序列增量回补失败：目标标的表格数量不等于1:518880.SH",
+          "next_action": "下一评估周期自动重试增量回补；历史序列继续保留，不用短窗冒充完整窗口",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-24T19:36:47+00:00",
+          "last_attempt_at": "2026-11-24T19:36:47+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-24T19:36:47+00:00",
+          "updated_at": "2026-11-24T19:36:47+00:00",
+          "expected_coverage": [
+            "2026-11-25"
+          ],
+          "actual_coverage": [
+            "2026-11-20"
+          ],
+          "missing_coverage": [
+            "2026-11-25"
+          ]
+        },
+        {
           "issue_key": "source_quota:东方财富妙想:2026-11-22",
           "source": "东方财富妙想",
           "target_key": "PE／收盘价／资金流／中债季度",
@@ -17665,7 +17697,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "当前6项待处理；系统持续自动补数与升级，不依赖人工识别",
+                        "text": "当前7项待处理；系统持续自动补数与升级，不依赖人工识别",
                         "style": "lead"
                       },
                       {
@@ -17783,6 +17815,67 @@
                             "label": "系统下一动作",
                             "value": {
                               "value": "下一正式补跑重试；若仍缺，按缺数降级，不参与基本面评分",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "518880.SH · 成交额",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "本地成交额序列增量回补失败：目标标的表格数量不等于1:518880.SH",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "东方财富妙想",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "1/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一评估周期自动重试增量回补；历史序列继续保留，不用短窗冒充完整窗口",
                               "format": "text"
                             },
                             "tone": "",
@@ -23711,7 +23804,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-25T03:36:16",
+    "generated_at": "2026-11-25T03:37:23",
     "projection_id": "wf_3978a2ac15717b20",
     "visual": {
       "title": "操作流程总览",

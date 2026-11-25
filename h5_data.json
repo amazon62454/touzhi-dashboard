@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T10:29:53",
+  "generated_at": "2026-11-25T10:34:24",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -347,14 +347,14 @@
     "band_daily": {
       "band": "band_daily",
       "title": "每日档 · 风控监控",
-      "summary": "今天无需操作",
+      "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-25T10:29:53",
+        "as_of": "2026-11-25T10:34:24",
         "next_review_date": "2026-11-26",
         "source_param": "P142/P206",
-        "state": "no_action",
-        "headline": "今天无需操作",
+        "state": "expired",
+        "headline": "本次动作已失效，不执行；等待重新评估",
         "data_complete": true,
         "actions": [],
         "blocked": [],
@@ -2070,7 +2070,7 @@
         "action_view": {
           "engine_contract": "h5_band_action_v1",
           "complete": true,
-          "headline": "今天无需操作",
+          "headline": "本次动作已失效，不执行；等待重新评估",
           "note": "",
           "pending_title": "当前限制与阻断项",
           "pending_items": []
@@ -2096,25 +2096,24 @@
         "header": {
           "title": "每日档 · 风控监控",
           "base_date": "2026-11-24",
-          "state_label": "无需操作",
+          "state_label": "本期动作已失效",
           "state_kind": "muted",
           "run_notice": "",
-          "legend": "",
-          "time_rows": []
+          "legend": "时间说明：数据基准日＝本次结果所用数据的截止日；结果展示至＝下次评估发布后自动替换。",
+          "time_rows": [
+            {
+              "type": "kv",
+              "label": "结果展示至（下次评估时更新）",
+              "value": {
+                "value": "2026-11-26T03:30:00",
+                "format": "datetime"
+              },
+              "tone": "",
+              "note": ""
+            }
+          ]
         },
         "sections": [
-          {
-            "type": "card",
-            "title": "本期行动结论",
-            "kind": "accent",
-            "children": [
-              {
-                "type": "text",
-                "text": "今天无需操作",
-                "style": "decision-main"
-              }
-            ]
-          },
           {
             "type": "card",
             "title": "本档操作流程",
@@ -2514,14 +2513,6 @@
                         "detail": "持有｜未触发需处理的风控条件"
                       }
                     ]
-                  },
-                  {
-                    "label": "现金层",
-                    "fund_count": 0,
-                    "role_label": "现金层",
-                    "erp_amount": 180,
-                    "detail": "现金层预留",
-                    "rows": []
                   }
                 ],
                 "total_summary": {
@@ -3349,7 +3340,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-25T10:29:53",
+        "as_of": "2026-11-25T10:34:24",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6648,7 +6639,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-25T10:29:53",
+        "as_of": "2026-11-25T10:34:24",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -17425,7 +17416,7 @@
                       {
                         "type": "parameter_node",
                         "title": "每日｜独立风控",
-                        "state_label": "正式数据已生成",
+                        "state_label": "已失效",
                         "children": [
                           {
                             "type": "text",
@@ -17569,7 +17560,7 @@
                                   "format": "text"
                                 },
                                 {
-                                  "value": "正式数据已生成",
+                                  "value": "已失效",
                                   "format": "text"
                                 },
                                 {
@@ -17816,7 +17807,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "正式数据已生成",
+                              "value": "已失效",
                               "format": "text"
                             },
                             {
@@ -17986,7 +17977,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-25T10:29:53",
+        "as_of": "2026-11-25T10:34:24",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -20486,19 +20477,6 @@
                       "010340"
                     ],
                     "detail": "持有9只"
-                  },
-                  {
-                    "status": "新增",
-                    "fund_count": 6,
-                    "fund_codes": [
-                      "005693",
-                      "007077",
-                      "007300",
-                      "009881",
-                      "011613",
-                      "110026"
-                    ],
-                    "detail": "新增候选6只，均未正式纳入"
                   }
                 ],
                 "rows": [
@@ -21428,57 +21406,57 @@
                 "rows": [
                   {
                     "fund_name": "01. 华夏科创50ETF联接C",
-                    "valuation": "—",
-                    "scale": "—",
-                    "fee": "—",
-                    "status": "—",
-                    "pending": "—",
-                    "next_review": "—"
+                    "valuation": "1.98%",
+                    "scale": "待数据",
+                    "fee": "待数据",
+                    "status": "候选池待复核，暂不纳入",
+                    "pending": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                    "next_review": "月度扫描复核"
                   },
                   {
                     "fund_name": "02. 易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
-                    "valuation": "—",
-                    "scale": "—",
-                    "fee": "—",
-                    "status": "—",
-                    "pending": "—",
-                    "next_review": "—"
+                    "valuation": "8.11%",
+                    "scale": "53.1亿,A类限频≥30日",
+                    "fee": "运作0.32/赎回0.05/申购0.15",
+                    "status": "候选池待复核，暂不纳入",
+                    "pending": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                    "next_review": "月度扫描复核"
                   },
                   {
                     "fund_name": "03. 广发中证军工ETF联接C",
-                    "valuation": "—",
-                    "scale": "—",
-                    "fee": "—",
-                    "status": "—",
-                    "pending": "—",
-                    "next_review": "—"
+                    "valuation": "11.01%",
+                    "scale": "待数据",
+                    "fee": "待数据",
+                    "status": "候选池待复核，暂不纳入",
+                    "pending": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                    "next_review": "月度扫描复核"
                   },
                   {
                     "fund_name": "04. 广发中证医疗ETF联接C(7.8亿)",
-                    "valuation": "—",
-                    "scale": "—",
-                    "fee": "—",
-                    "status": "—",
-                    "pending": "—",
-                    "next_review": "—"
+                    "valuation": "19.55%",
+                    "scale": "7.8亿",
+                    "fee": "运作1.05/赎回0.15/申购0.5",
+                    "status": "候选池待复核，暂不纳入",
+                    "pending": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                    "next_review": "月度扫描复核"
                   },
                   {
                     "fund_name": "05. 国联安中证全指半导体ETF联接A(007300/C:007301)",
-                    "valuation": "—",
-                    "scale": "—",
-                    "fee": "—",
-                    "status": "—",
-                    "pending": "—",
-                    "next_review": "—"
+                    "valuation": "23.33%",
+                    "scale": "待数据",
+                    "fee": "待数据",
+                    "status": "候选池待复核，暂不纳入",
+                    "pending": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                    "next_review": "月度扫描复核"
                   },
                   {
                     "fund_name": "06. 汇添富中证医药ETF联接C",
-                    "valuation": "—",
-                    "scale": "—",
-                    "fee": "—",
-                    "status": "—",
-                    "pending": "—",
-                    "next_review": "—"
+                    "valuation": "24.36%",
+                    "scale": "待数据",
+                    "fee": "待数据",
+                    "status": "候选池待复核，暂不纳入",
+                    "pending": "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
+                    "next_review": "月度扫描复核"
                   }
                 ]
               },
@@ -21506,7 +21484,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-25T10:29:53",
+    "generated_at": "2026-11-25T10:34:24",
     "projection_id": "wf_c2276f719630430f",
     "visual": {
       "title": "操作流程总览",
@@ -22096,8 +22074,8 @@
         "id": "daily",
         "title": "每日｜独立风控",
         "trigger": "工作日；高层档日合并",
-        "state": "ready",
-        "state_label": "正式数据已生成",
+        "state": "blocked",
+        "state_label": "已失效",
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-24",
         "review_date": "2026-11-25",
@@ -22145,7 +22123,7 @@
           },
           {
             "label": "风控放行状态",
-            "value": "正式数据已生成",
+            "value": "已失效",
             "source": "每日控制链"
           }
         ],
@@ -22239,7 +22217,7 @@
         "target": "execution",
         "label": "风控控制信号",
         "status": "control",
-        "actual": "正式数据已生成",
+        "actual": "已失效",
         "guidance": "风控优先于实际动作。",
         "status_label": "独立控制"
       },

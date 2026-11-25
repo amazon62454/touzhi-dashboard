@@ -146,16 +146,16 @@ function renderQuarterFundOperationsTable(node) {
 function renderQuarterCandidateTable(node) {
   const meta = (label, value) => `<div class="candidate-meta-item"><em>${esc(label)}</em><span>${esc(value || '—')}</span></div>`;
   const cards = (node.rows || []).map(row => {
-    const statusKind = /通过|纳入|持有/.test(String(row.status || '')) ? 'ok' : 'warn';
+    const statusKind = row.status_tone || 'warn';
     return `<article class="candidate-card">
       <div class="candidate-head">
         <div class="candidate-name">${esc(row.fund_name || '—')}</div>
         <div class="candidate-valuation">${esc(row.valuation || '—')}</div>
       </div>
       <div class="candidate-meta">
-        ${meta('规模', row.scale)}
-        ${meta('费率', row.fee)}
-        ${meta('下一步', row.next_review)}
+        ${meta(U.ui_candidate_scale, row.scale)}
+        ${meta(U.ui_candidate_fee, row.fee)}
+        ${meta(U.ui_candidate_next, row.next_review)}
       </div>
       <div class="candidate-status">${badge({ text: row.status || '—', kind: statusKind })}</div>
       <p class="candidate-reason">${esc(row.pending || '—')}</p>

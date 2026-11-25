@@ -307,11 +307,17 @@ document.addEventListener('click', event => {
 const AUTO_REFRESH_MS = 15000;
 let lastGeneratedAt = null;
 
+function h5DataFile() {
+  const meta = document.querySelector('meta[name="h5-data-version"]');
+  const version = (meta && meta.content ? meta.content : '').trim();
+  return version ? `h5_data_${version}.json` : 'h5_data.json';
+}
+
 async function pollForUpdates() {
   if (document.visibilityState !== 'visible' || !lastGeneratedAt) return;
   if (document.activeElement && document.activeElement.id === 'rule-search') return;
   try {
-    const response = await fetch(`h5_data.json?t=${Date.now()}`, { cache: 'no-store' });
+    const response = await fetch(`${h5DataFile()}?t=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) return;
     const next = await response.json();
     if (!next.generated_at || next.generated_at === lastGeneratedAt) return;
@@ -354,7 +360,7 @@ function renderShell() {
 
 async function init() {
   try {
-    const response = await fetch(`h5_data.json?t=${Date.now()}`);
+    const response = await fetch(`${h5DataFile()}?t=${Date.now()}`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     D = await response.json();
     U = D.ui_labels || {};

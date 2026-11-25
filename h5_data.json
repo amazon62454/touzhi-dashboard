@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T07:37:16",
+  "generated_at": "2026-11-26T07:38:21",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -350,7 +350,7 @@
       "summary": "今天无需操作",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T07:37:15",
+        "as_of": "2026-11-26T07:38:21",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "no_action",
@@ -3359,7 +3359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T07:37:15",
+        "as_of": "2026-11-26T07:38:21",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6658,7 +6658,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T07:37:15",
+        "as_of": "2026-11-26T07:38:21",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -12598,7 +12598,7 @@
                                   "format": "text"
                                 },
                                 {
-                                  "value": "2026-11-24",
+                                  "value": "2026-11-25",
                                   "format": "text"
                                 },
                                 {
@@ -12807,7 +12807,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "2026-11-24",
+                              "value": "2026-11-25",
                               "format": "text"
                             },
                             {
@@ -12825,7 +12825,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "2026-11-24",
+                              "value": "2026-11-25",
                               "format": "text"
                             },
                             {
@@ -12941,7 +12941,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T07:37:15",
+        "as_of": "2026-11-26T07:38:21",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -16458,8 +16458,8 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T07:37:16",
-    "projection_id": "wf_c2276f719630430f",
+    "generated_at": "2026-11-26T07:38:21",
+    "projection_id": "wf_b2b59313abbd31c4",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -16593,7 +16593,7 @@
             {
               "name": "回传并更新台账",
               "status": "skipped",
-              "detail": "最新持仓快照2026-11-24；实际扣款/份额回传后才闭环。"
+              "detail": "最新持仓快照2026-11-25；实际扣款/份额回传后才闭环。"
             }
           ],
           "lines": [
@@ -17122,7 +17122,7 @@
         "inputs": [
           {
             "label": "最新持仓快照日",
-            "value": "2026-11-24",
+            "value": "2026-11-25",
             "source": "position_snapshots"
           },
           {
@@ -17209,7 +17209,7 @@
         "target": "ledger",
         "label": "实际执行结果",
         "status": "manual",
-        "actual": "2026-11-24",
+        "actual": "2026-11-25",
         "guidance": "截图/回传→识别核对→台账。",
         "status_label": "人工执行"
       },
@@ -17218,7 +17218,7 @@
         "target": "monthly",
         "label": "持仓与现金事实反馈",
         "status": "feedback",
-        "actual": "2026-11-24",
+        "actual": "2026-11-25",
         "guidance": "台账事实进入后续评估，形成闭环。",
         "status_label": "事实反馈"
       }

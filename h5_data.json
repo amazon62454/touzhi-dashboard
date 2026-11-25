@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T09:34:14",
+  "generated_at": "2026-11-25T09:39:51",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -350,7 +350,7 @@
       "summary": "今天无需操作",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-25T03:31:51",
+        "as_of": "2026-11-25T09:39:51",
         "next_review_date": "2026-11-26",
         "source_param": "P142/P206",
         "state": "no_action",
@@ -3349,7 +3349,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-24T18:59:38",
+        "as_of": "2026-11-25T09:39:51",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -3716,10 +3716,10 @@
               "tone": "pos"
             },
             "addon": {
-              "amount": 200.0,
-              "display": "200",
-              "compact_display": "200",
-              "tone": "pos"
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
             },
             "conversion": {
               "amount": 0.0,
@@ -3731,9 +3731,9 @@
             "role": "satellite",
             "role_label": "卫星",
             "fund_codes": [
+              "017140",
               "012544",
-              "024328",
-              "017140"
+              "024328"
             ]
           },
           {
@@ -3893,10 +3893,10 @@
             "tone": "pos"
           },
           "addon": {
-            "amount": 200.0,
-            "display": "200",
-            "compact_display": "200",
-            "tone": "pos"
+            "amount": 0.0,
+            "display": "0",
+            "compact_display": "0",
+            "tone": "muted"
           },
           "conversion": {
             "amount": 0.0,
@@ -3981,80 +3981,6 @@
             "display_name": "02. 华夏沪深300ETF联接A"
           },
           {
-            "fund_code": "012544",
-            "fund_name": "嘉实中证新能源汽车指数C",
-            "role": "satellite",
-            "role_label": "卫星",
-            "role_order": 20,
-            "regular": {
-              "amount": 0.0,
-              "decision": "暂停",
-              "display": "定投0元",
-              "compact_display": "0",
-              "tone": "muted",
-              "reason": "已达卫星结构上限，新增额度顺延下一名"
-            },
-            "addon": {
-              "amount": 100.0,
-              "decision": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)",
-              "display": "加仓100元",
-              "compact_display": "100",
-              "tone": "pos",
-              "reason": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
-            },
-            "conversion": {
-              "amount": 0.0,
-              "decision": "不转换",
-              "display": "转换0元",
-              "compact_display": "0",
-              "tone": "muted",
-              "reason": "被动池内部占比超过核心单基金参考上限，仅限制新增"
-            },
-            "detail_lines": [
-              "已达卫星结构上限，新增额度顺延下一名",
-              "加仓：评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
-            ],
-            "serial_no": 3,
-            "display_name": "03. 嘉实中证新能源汽车指数C"
-          },
-          {
-            "fund_code": "024328",
-            "fund_name": "易方达恒生港股通创新药ETF联接A",
-            "role": "satellite",
-            "role_label": "卫星",
-            "role_order": 20,
-            "regular": {
-              "amount": 0.0,
-              "decision": "暂停",
-              "display": "定投0元",
-              "compact_display": "0",
-              "tone": "muted",
-              "reason": "已达卫星结构上限，新增额度顺延下一名"
-            },
-            "addon": {
-              "amount": 100.0,
-              "decision": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)",
-              "display": "加仓100元",
-              "compact_display": "100",
-              "tone": "pos",
-              "reason": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
-            },
-            "conversion": {
-              "amount": 0.0,
-              "decision": "不转换",
-              "display": "转换0元",
-              "compact_display": "0",
-              "tone": "muted",
-              "reason": "卫星内部占比超过其上限，仅限制新增，不单独产生卖出"
-            },
-            "detail_lines": [
-              "已达卫星结构上限，新增额度顺延下一名",
-              "加仓：评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
-            ],
-            "serial_no": 4,
-            "display_name": "04. 易方达恒生港股通创新药ETF联接A"
-          },
-          {
             "fund_code": "017140",
             "fund_name": "华宝中证有色金属ETF联接A",
             "role": "satellite",
@@ -4087,8 +4013,80 @@
             "detail_lines": [
               "按月度排名与剩余结构额度分配"
             ],
+            "serial_no": 3,
+            "display_name": "03. 华宝中证有色金属ETF联接A"
+          },
+          {
+            "fund_code": "012544",
+            "fund_name": "嘉实中证新能源汽车指数C",
+            "role": "satellite",
+            "role_label": "卫星",
+            "role_order": 20,
+            "regular": {
+              "amount": 0.0,
+              "decision": "暂停",
+              "display": "定投0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "已达卫星结构上限，新增额度顺延下一名"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)",
+              "display": "加仓0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "被动池内部占比超过核心单基金参考上限，仅限制新增"
+            },
+            "detail_lines": [
+              "已达卫星结构上限，新增额度顺延下一名"
+            ],
+            "serial_no": 4,
+            "display_name": "04. 嘉实中证新能源汽车指数C"
+          },
+          {
+            "fund_code": "024328",
+            "fund_name": "易方达恒生港股通创新药ETF联接A",
+            "role": "satellite",
+            "role_label": "卫星",
+            "role_order": 20,
+            "regular": {
+              "amount": 0.0,
+              "decision": "暂停",
+              "display": "定投0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "已达卫星结构上限，新增额度顺延下一名"
+            },
+            "addon": {
+              "amount": 0.0,
+              "decision": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)",
+              "display": "加仓0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
+            },
+            "conversion": {
+              "amount": 0.0,
+              "decision": "不转换",
+              "display": "转换0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "卫星内部占比超过其上限，仅限制新增，不单独产生卖出"
+            },
+            "detail_lines": [
+              "已达卫星结构上限，新增额度顺延下一名"
+            ],
             "serial_no": 5,
-            "display_name": "05. 华宝中证有色金属ETF联接A"
+            "display_name": "05. 易方达恒生港股通创新药ETF联接A"
           },
           {
             "fund_code": "010267",
@@ -6992,68 +6990,8 @@
                     "detail": "本周额度44元；按月度排名与结构上限顺延",
                     "rows": [
                       {
-                        "fund_code": "012544",
-                        "fund_name": "03. 嘉实中证新能源汽车指数C",
-                        "role_label": "卫星",
-                        "regular": {
-                          "amount": 0.0,
-                          "decision": "暂停",
-                          "display": "定投0元",
-                          "compact_display": "0",
-                          "tone": "muted",
-                          "reason": "已达卫星结构上限，新增额度顺延下一名"
-                        },
-                        "addon": {
-                          "amount": 100.0,
-                          "decision": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)",
-                          "display": "加仓100元",
-                          "compact_display": "100",
-                          "tone": "pos",
-                          "reason": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
-                        },
-                        "conversion": {
-                          "amount": 0.0,
-                          "decision": "不转换",
-                          "display": "转换0元",
-                          "compact_display": "0",
-                          "tone": "muted",
-                          "reason": "被动池内部占比超过核心单基金参考上限，仅限制新增"
-                        },
-                        "detail": "已达卫星结构上限，新增额度顺延下一名；加仓：评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
-                      },
-                      {
-                        "fund_code": "024328",
-                        "fund_name": "04. 易方达恒生港股通创新药ETF联接A",
-                        "role_label": "卫星",
-                        "regular": {
-                          "amount": 0.0,
-                          "decision": "暂停",
-                          "display": "定投0元",
-                          "compact_display": "0",
-                          "tone": "muted",
-                          "reason": "已达卫星结构上限，新增额度顺延下一名"
-                        },
-                        "addon": {
-                          "amount": 100.0,
-                          "decision": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)",
-                          "display": "加仓100元",
-                          "compact_display": "100",
-                          "tone": "pos",
-                          "reason": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
-                        },
-                        "conversion": {
-                          "amount": 0.0,
-                          "decision": "不转换",
-                          "display": "转换0元",
-                          "compact_display": "0",
-                          "tone": "muted",
-                          "reason": "卫星内部占比超过其上限，仅限制新增，不单独产生卖出"
-                        },
-                        "detail": "已达卫星结构上限，新增额度顺延下一名；加仓：评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
-                      },
-                      {
                         "fund_code": "017140",
-                        "fund_name": "05. 华宝中证有色金属ETF联接A",
+                        "fund_name": "03. 华宝中证有色金属ETF联接A",
                         "role_label": "卫星",
                         "regular": {
                           "amount": 44.0,
@@ -7080,6 +7018,66 @@
                           "reason": "评分43.0低于转换线60.0"
                         },
                         "detail": "按月度排名与剩余结构额度分配"
+                      },
+                      {
+                        "fund_code": "012544",
+                        "fund_name": "04. 嘉实中证新能源汽车指数C",
+                        "role_label": "卫星",
+                        "regular": {
+                          "amount": 0.0,
+                          "decision": "暂停",
+                          "display": "定投0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "已达卫星结构上限，新增额度顺延下一名"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "被动池内部占比超过核心单基金参考上限，仅限制新增"
+                        },
+                        "detail": "已达卫星结构上限，新增额度顺延下一名"
+                      },
+                      {
+                        "fund_code": "024328",
+                        "fund_name": "05. 易方达恒生港股通创新药ETF联接A",
+                        "role_label": "卫星",
+                        "regular": {
+                          "amount": 0.0,
+                          "decision": "暂停",
+                          "display": "定投0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "已达卫星结构上限，新增额度顺延下一名"
+                        },
+                        "addon": {
+                          "amount": 0.0,
+                          "decision": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)",
+                          "display": "加仓0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "评分通过,核定加仓100.0元(评级比例×现金池,受单次下限/上限约束)"
+                        },
+                        "conversion": {
+                          "amount": 0.0,
+                          "decision": "不转换",
+                          "display": "转换0元",
+                          "compact_display": "0",
+                          "tone": "muted",
+                          "reason": "卫星内部占比超过其上限，仅限制新增，不单独产生卖出"
+                        },
+                        "detail": "已达卫星结构上限，新增额度顺延下一名"
                       }
                     ]
                   },
@@ -7319,10 +7317,10 @@
                     "tone": "pos"
                   },
                   "addon": {
-                    "amount": 200.0,
-                    "display": "200",
-                    "compact_display": "200",
-                    "tone": "pos"
+                    "amount": 0.0,
+                    "display": "0",
+                    "compact_display": "0",
+                    "tone": "muted"
                   },
                   "conversion": {
                     "amount": 0.0,
@@ -7757,7 +7755,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-24T18:59:10",
+        "as_of": "2026-11-25T09:39:51",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -18955,7 +18953,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-24T18:58:59",
+        "as_of": "2026-11-25T09:39:51",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -22714,7 +22712,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-25T09:34:14",
+    "generated_at": "2026-11-25T09:39:51",
     "projection_id": "wf_3978a2ac15717b20",
     "visual": {
       "title": "操作流程总览",

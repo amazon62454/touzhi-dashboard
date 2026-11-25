@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T03:29:11",
+  "generated_at": "2026-11-26T03:30:16",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -350,7 +350,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T03:29:11",
+        "as_of": "2026-11-26T03:30:16",
         "next_review_date": "2026-11-26",
         "source_param": "P142/P206",
         "state": "expired",
@@ -364,8 +364,8 @@
         "is_postponed": false,
         "postpone_days": 0,
         "valid_until": "2026-11-25T10:30:00",
-        "next_review_at": "2026-11-26T03:30:00",
-        "result_visible_until": "2026-11-26T03:30:00",
+        "next_review_at": "2026-11-27T03:30:00",
+        "result_visible_until": "2026-11-27T03:30:00",
         "result_effective_from": "2026-11-25T03:30:55",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
@@ -2105,7 +2105,7 @@
               "type": "kv",
               "label": "结果展示至（下次评估时更新）",
               "value": {
-                "value": "2026-11-26T03:30:00",
+                "value": "2026-11-27T03:30:00",
                 "format": "datetime"
               },
               "tone": "",
@@ -2162,7 +2162,7 @@
                         "type": "flow_time",
                         "label": "结果展示至（下次评估时更新）",
                         "value": {
-                          "value": "2026-11-26T03:30:00",
+                          "value": "2026-11-27T03:30:00",
                           "format": "datetime"
                         }
                       }
@@ -3358,7 +3358,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T03:29:11",
+        "as_of": "2026-11-26T03:30:16",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6657,7 +6657,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T03:29:11",
+        "as_of": "2026-11-26T03:30:16",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -18181,7 +18181,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T03:29:11",
+        "as_of": "2026-11-26T03:30:16",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -21698,7 +21698,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T03:29:11",
+    "generated_at": "2026-11-26T03:30:16",
     "projection_id": "wf_c2276f719630430f",
     "visual": {
       "title": "操作流程总览",

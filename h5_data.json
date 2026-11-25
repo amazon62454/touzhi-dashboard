@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T07:15:10",
+  "generated_at": "2026-11-26T07:16:23",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -350,7 +350,7 @@
       "summary": "今天无需操作",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T07:15:09",
+        "as_of": "2026-11-26T07:16:23",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "no_action",
@@ -3359,7 +3359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T07:15:09",
+        "as_of": "2026-11-26T07:16:23",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6658,7 +6658,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T07:15:09",
+        "as_of": "2026-11-26T07:16:23",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -17231,7 +17231,7 @@
                       {
                         "type": "parameter_node",
                         "title": "季度｜战略配置与核心锚",
-                        "state_label": "正式数据已生成",
+                        "state_label": "正式评估缺数未完成",
                         "children": [
                           {
                             "type": "text",
@@ -17918,7 +17918,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "已接线",
+                              "value": "未接线",
                               "format": "text"
                             },
                             {
@@ -17926,7 +17926,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "已接线：季度写、月度读。",
+                              "value": "锁或完成证据缺失。",
                               "format": "text"
                             }
                           ],
@@ -17936,15 +17936,15 @@
                               "format": "text"
                             },
                             {
-                              "value": "已接线",
+                              "value": "同基准重算",
                               "format": "text"
                             },
                             {
-                              "value": "2026-10-01（high）",
+                              "value": "暂无quarter_allocation_lock",
                               "format": "text"
                             },
                             {
-                              "value": "已接线：季度写独立锚，月度/周日只读。",
+                              "value": "同基准重算，不是独立锚锁；不得误标已传递。",
                               "format": "text"
                             }
                           ],
@@ -18182,7 +18182,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T07:15:09",
+        "as_of": "2026-11-26T07:16:23",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -21699,7 +21699,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T07:15:10",
+    "generated_at": "2026-11-26T07:16:23",
     "projection_id": "wf_c2276f719630430f",
     "visual": {
       "title": "操作流程总览",
@@ -21707,7 +21707,7 @@
       "action_branches": [],
       "current_step": "execution",
       "current_text": "① 定投流程·本人真实账户执行",
-      "completed_formal_bands": 4,
+      "completed_formal_bands": 3,
       "next_action": "2026-11-23按106元计划执行，完成后回传实际扣款。",
       "missing": [
         "本轮无加仓指令",
@@ -22154,8 +22154,8 @@
         "id": "quarter",
         "title": "季度｜战略配置与核心锚",
         "trigger": "3/6/9/12月20日，先跑",
-        "state": "ready",
-        "state_label": "正式数据已生成",
+        "state": "blocked",
+        "state_label": "正式评估缺数未完成",
         "detail": "先制定存量配置；不读取同日月度才生成的预算锁。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
@@ -22386,19 +22386,19 @@
         "source": "quarter",
         "target": "monthly",
         "label": "核心比例与核心锁",
-        "status": "wired",
+        "status": "missing",
         "actual": "2026-10-01 → 2026-12-31",
-        "guidance": "已接线：季度写、月度读。",
-        "status_label": "已接线"
+        "guidance": "锁或完成证据缺失。",
+        "status_label": "未接线"
       },
       {
         "source": "quarter",
         "target": "monthly",
         "label": "四资产目标",
-        "status": "wired",
-        "actual": "2026-10-01（high）",
-        "guidance": "已接线：季度写独立锚，月度/周日只读。",
-        "status_label": "已接线"
+        "status": "derived",
+        "actual": "暂无quarter_allocation_lock",
+        "guidance": "同基准重算，不是独立锚锁；不得误标已传递。",
+        "status_label": "同基准重算"
       },
       {
         "source": "monthly",
@@ -22491,13 +22491,13 @@
     "summary": {
       "formal_band_count": 4,
       "edge_counts": {
-        "wired": 4,
-        "derived": 0,
+        "wired": 2,
+        "derived": 1,
         "none": 1,
         "control": 1,
         "manual": 2,
         "feedback": 1,
-        "missing": 0
+        "missing": 1
       },
       "guidance": "点击各档查看真实输入、输出、锁周期和去向；颜色只表示链路类型，不表示买卖建议。"
     }

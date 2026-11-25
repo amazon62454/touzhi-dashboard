@@ -147,7 +147,8 @@ function renderQuarterCandidateTable(node) {
   const meta = (label, value) => `<div class="candidate-meta-item"><em>${esc(label)}</em><span>${esc(value || '—')}</span></div>`;
   const cards = (node.rows || []).map(row => {
     const statusKind = row.status_tone || 'warn';
-    return `<article class="candidate-card">
+    const filterStatus = statusKind === 'ok' ? 'pass' : 'fail';
+    return `<article class="candidate-card" data-candidate-status="${filterStatus}">
       <div class="candidate-head">
         <div class="candidate-name">${esc(row.fund_name || '—')}</div>
         <div class="candidate-valuation">${esc(row.valuation || '—')}</div>
@@ -161,7 +162,12 @@ function renderQuarterCandidateTable(node) {
       <p class="candidate-reason">${esc(row.pending || '—')}</p>
     </article>`;
   }).join('');
-  return `<div class="candidate-list">${cards}</div>`;
+  const filter = `<div class="candidate-filter" role="group" aria-label="${esc(U.ui_candidate_filter || '')}">
+    <button type="button" class="active" data-candidate-filter="all">${esc(U.ui_candidate_filter_all || '')}</button>
+    <button type="button" data-candidate-filter="pass">${esc(U.ui_candidate_filter_pass || '')}</button>
+    <button type="button" data-candidate-filter="fail">${esc(U.ui_candidate_filter_fail || '')}</button>
+  </div>`;
+  return `<div class="candidate-section">${filter}<div class="candidate-list">${cards}</div></div>`;
 }
 
 function renderNode(node) {
@@ -304,6 +310,19 @@ function bindRuleSearch() {
 }
 
 document.addEventListener('click', event => {
+  const candidateFilter = event.target.closest('[data-candidate-filter]');
+  if (candidateFilter) {
+    const section = candidateFilter.closest('.candidate-section');
+    if (!section) return;
+    const value = candidateFilter.dataset.candidateFilter || 'all';
+    section.querySelectorAll('[data-candidate-filter]').forEach(button => {
+      button.classList.toggle('active', button === candidateFilter);
+    });
+    section.querySelectorAll('.candidate-card').forEach(card => {
+      card.hidden = value !== 'all' && card.dataset.candidateStatus !== value;
+    });
+    return;
+  }
   const flowButton = event.target.closest('[data-band-flow]');
   if (flowButton) {
     window.__bandActiveFlow = window.__bandActiveFlow || {};

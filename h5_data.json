@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T09:31:34",
+  "generated_at": "2026-11-25T09:32:59",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -367,7 +367,7 @@
         "next_review_at": "2026-11-26T03:30:00",
         "result_visible_until": "2026-11-26T03:30:00",
         "result_effective_from": "2026-11-25T03:30:55",
-        "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
+        "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-24",
       "generated_at": "2026-11-25T03:30:55",
@@ -2099,6 +2099,7 @@
           "state_label": "无需操作",
           "state_kind": "muted",
           "run_notice": "",
+          "legend": "",
           "time_rows": []
         },
         "sections": [
@@ -2160,7 +2161,7 @@
                     "time_rows": [
                       {
                         "type": "flow_time",
-                        "label": "下次评估 · 旧结果届时失效",
+                        "label": "结果展示至（下次评估时更新）",
                         "value": {
                           "value": "2026-11-26T03:30:00",
                           "format": "datetime"
@@ -3502,7 +3503,7 @@
         "next_review_at": "2026-11-29T03:30:00",
         "result_visible_until": "2026-11-29T03:30:00",
         "result_effective_from": "2026-11-24T18:59:36",
-        "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
+        "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-20",
       "generated_at": "2026-11-24T18:59:36",
@@ -6467,16 +6468,17 @@
         "header": {
           "title": "周日档 · 定投评估",
           "base_date": "2026-11-20",
-          "state_label": "已失效",
+          "state_label": "本期动作已失效",
           "state_kind": "muted",
           "run_notice": "",
+          "legend": "时间说明：数据基准日＝本次结果所用数据的截止日；结果展示至＝下次评估发布后自动替换。",
           "time_rows": [
             {
               "type": "kv",
-              "label": "本次结果失效于",
+              "label": "动作执行日（已过）",
               "value": {
-                "value": "2026-11-29T03:30:00",
-                "format": "datetime"
+                "value": "2026-11-23",
+                "format": "text"
               },
               "tone": "",
               "note": ""
@@ -6529,7 +6531,7 @@
                     "time_rows": [
                       {
                         "type": "flow_time",
-                        "label": "下次评估 · 旧结果届时失效",
+                        "label": "结果展示至（下次评估时更新）",
                         "value": {
                           "value": "2026-11-29T03:30:00",
                           "format": "datetime"
@@ -6579,7 +6581,7 @@
                     "time_rows": [
                       {
                         "type": "flow_time",
-                        "label": "下次评估 · 旧结果届时失效",
+                        "label": "结果展示至（下次评估时更新）",
                         "value": {
                           "value": "2026-11-29T03:30:00",
                           "format": "datetime"
@@ -6624,7 +6626,7 @@
                     "time_rows": [
                       {
                         "type": "flow_time",
-                        "label": "下次评估 · 旧结果届时失效",
+                        "label": "结果展示至（下次评估时更新）",
                         "value": {
                           "value": "2026-11-29T03:30:00",
                           "format": "datetime"
@@ -7767,7 +7769,7 @@
         "next_review_at": "2026-12-20T03:30:00",
         "result_visible_until": "2026-12-20T03:30:00",
         "result_effective_from": "2026-11-24T18:59:08",
-        "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
+        "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-20",
       "generated_at": "2026-11-24T18:59:08",
@@ -15678,6 +15680,7 @@
           "state_label": "查看详情",
           "state_kind": "muted",
           "run_notice": "",
+          "legend": "",
           "time_rows": []
         },
         "sections": [
@@ -15739,7 +15742,7 @@
                     "time_rows": [
                       {
                         "type": "flow_time",
-                        "label": "下次评估 · 旧结果届时失效",
+                        "label": "结果展示至（下次评估时更新）",
                         "value": {
                           "value": "2026-12-20T03:30:00",
                           "format": "datetime"
@@ -15785,7 +15788,7 @@
                     "time_rows": [
                       {
                         "type": "flow_time",
-                        "label": "下次评估 · 旧结果届时失效",
+                        "label": "结果展示至（下次评估时更新）",
                         "value": {
                           "value": "2026-12-20T03:30:00",
                           "format": "datetime"
@@ -18964,7 +18967,7 @@
         "next_review_at": "2026-12-20T03:30:00",
         "result_visible_until": "2026-12-20T03:30:00",
         "result_effective_from": "2026-11-24T18:58:56",
-        "result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档"
+        "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-20",
       "generated_at": "2026-11-24T18:58:56",
@@ -21377,6 +21380,7 @@
           "state_label": "查看详情",
           "state_kind": "muted",
           "run_notice": "",
+          "legend": "",
           "time_rows": []
         },
         "sections": [
@@ -21448,7 +21452,7 @@
                     "time_rows": [
                       {
                         "type": "flow_time",
-                        "label": "下次评估 · 旧结果届时失效",
+                        "label": "结果展示至（下次评估时更新）",
                         "value": {
                           "value": "2026-12-20T03:30:00",
                           "format": "datetime"
@@ -22710,7 +22714,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-25T09:31:34",
+    "generated_at": "2026-11-25T09:32:59",
     "projection_id": "wf_3978a2ac15717b20",
     "visual": {
       "title": "操作流程总览",
@@ -25974,20 +25978,20 @@
     "ui_state_partial": "部分可执行",
     "ui_state_blocked": "数据不足",
     "ui_state_no_action": "无需操作",
-    "ui_state_expired": "已失效",
+    "ui_state_expired": "本期动作已失效",
     "ui_state_observation": "查看详情",
     "ui_state_awaiting": "待评估",
     "ui_state_test": "不发布",
-    "ui_label_next_review": "下次正式评估",
-    "ui_result_retention": "到上述固定时间撤下；新结果提前发布则立即替换。操作动作到执行期限会更早撤下并归档",
+    "ui_label_next_review": "下次正式评估日",
+    "ui_result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。",
     "ui_label_result_until": "本次结果展示至",
     "ui_result_none_note": "当前没有保留中的旧结果；新结果产生后会同时显示固定失效时间",
-    "ui_label_original_review": "原定正式评估",
+    "ui_label_original_review": "原定正式评估日",
     "ui_result_expired_headline": "本次结果已到期，等待新的正式评估",
     "ui_result_expired_note": "旧结果已在固定时间撤下；新结果发布后自动更新",
-    "ui_label_result_effective": "本次结果有效至",
-    "ui_label_result_expired_at": "本次结果失效于",
-    "ui_label_result_period": "本次结果有效期间",
+    "ui_label_result_effective": "结果展示至",
+    "ui_label_result_expired_at": "结果展示至（下次评估时更新）",
+    "ui_label_result_period": "结果展示期间",
     "ui_action_feedback": "执行后从理财通截图回传，小艺更新台账并同步本页",
     "ui_h2_retirement_projection": "退休目标测算",
     "ui_retirement_target": "退休目标（动态测算）",
@@ -26082,9 +26086,9 @@
     "ui_flow_done_evidence": "点击看每一步怎么算",
     "ui_flow_current_step": "当前步骤",
     "ui_flow_blocked_reason": "阻断原因",
-    "ui_flow_next_expiry": "下次评估 · 旧结果届时失效",
-    "ui_flow_next_review": "下次评估",
-    "ui_flow_valid_until": "结果有效至",
+    "ui_flow_next_expiry": "结果展示至（下次评估时更新）",
+    "ui_flow_next_review": "下次评估日",
+    "ui_flow_valid_until": "结果展示至",
     "ui_flow_progress": "{done}/{total} 步已完成",
     "ui_flow_status_done": "已完成",
     "ui_flow_status_current": "当前",
@@ -26192,7 +26196,7 @@
     "ui_nav_monthly": "月度",
     "ui_nav_quarter": "季度",
     "ui_total": "合计",
-    "ui_base": "基准",
+    "ui_base": "数据基准日",
     "ui_date_unrecorded": "未记录基准日",
     "ui_unit_yuan": "元",
     "ui_rule_search_placeholder": "搜索章节名称，例如：定投、减仓、回撤",
@@ -26227,6 +26231,8 @@
     "ui_risk_budget_over_budget": "超预算",
     "ui_risk_budget_emergency": "极端防御",
     "ui_retirement_sensitivity": "年化敏感性对照（仅假设演算）",
-    "ui_retirement_sens_label": "年化 {rate}% → 目标"
+    "ui_retirement_sens_label": "年化 {rate}% → 目标",
+    "ui_time_legend": "时间说明：数据基准日＝本次结果所用数据的截止日；结果展示至＝下次评估发布后自动替换。",
+    "ui_label_action_execution_date": "动作执行日（已过）"
   }
 }

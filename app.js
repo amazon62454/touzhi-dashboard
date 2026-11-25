@@ -198,7 +198,7 @@ function renderNode(node) {
 
 function renderBandHeader(header) {
   const times = renderChildren(header.time_rows);
-  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(header.title || '')}</h1><div class="muted">${badge({ text: header.state_label, kind: header.state_kind })} ${esc(U.ui_base || '')} ${esc(dateText(header.base_date))}</div>${header.run_notice ? `<p class="status-banner live">${esc(header.run_notice)}</p>` : ''}${times ? `<div class="muted">${times}</div>` : ''}</div>`;
+  return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(header.title || '')}</h1><div class="muted">${badge({ text: header.state_label, kind: header.state_kind })} ${esc(U.ui_base || '')} ${esc(dateText(header.base_date))}</div>${header.run_notice ? `<p class="status-banner live">${esc(header.run_notice)}</p>` : ''}${times ? `<div class="muted">${times}</div>` : ''}${header.legend ? `<p class="muted" style="font-size:var(--fs-xs);margin:4px 0 0">${esc(header.legend)}</p>` : ''}</div>`;
 }
 
 function renderRetirement(display) {

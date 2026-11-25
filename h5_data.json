@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T10:56:33",
+  "generated_at": "2026-11-25T10:57:09",
   "base_date": "2026-11-24",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -350,7 +350,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-25T10:56:33",
+        "as_of": "2026-11-25T10:57:09",
         "next_review_date": "2026-11-26",
         "source_param": "P142/P206",
         "state": "expired",
@@ -3358,7 +3358,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-25T10:56:33",
+        "as_of": "2026-11-25T10:57:09",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6657,7 +6657,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-25T10:56:33",
+        "as_of": "2026-11-25T10:57:09",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -17995,7 +17995,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-25T10:56:33",
+        "as_of": "2026-11-25T10:57:09",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -21432,10 +21432,10 @@
                     "next_review": "下周复审"
                   },
                   {
-                    "fund_name": "02. 易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
+                    "fund_name": "02. 易方达创业板ETF联接A",
                     "valuation": "8.11%",
                     "scale": "≈104.86亿(2026-06-30，A/C合并)",
-                    "fee": "运作0",
+                    "fee": "运作0.2/赎回1.5/申购1.2",
                     "status": "未通过",
                     "pending": "资料/市场条件未齐：与(017140 华宝中证有色金属ETF联接A)比较：趋势、基本面、原持仓未高估、原持仓趋势未破、原持仓资金未撤离、置换方案不成立",
                     "next_review": "下周复审"
@@ -21450,7 +21450,7 @@
                     "next_review": "下周复审"
                   },
                   {
-                    "fund_name": "04. 广发中证医疗ETF联接C(7.8亿)",
+                    "fund_name": "04. 广发中证医疗ETF联接C",
                     "valuation": "19.55%",
                     "scale": "≈14.66亿(2026-06-30，A/C合并)",
                     "fee": "运作0.85/赎回1.5/申购0",
@@ -21502,7 +21502,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-25T10:56:33",
+    "generated_at": "2026-11-25T10:57:09",
     "projection_id": "wf_c2276f719630430f",
     "visual": {
       "title": "操作流程总览",

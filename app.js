@@ -78,14 +78,15 @@ function renderFundOperationsTable(node) {
 function renderDailyFundOperationsTable(node) {
   const headers = node.headers || [];
   const head = headers.map(label => `<th scope="col">${esc(label)}</th>`).join('');
+  const holdingCell = row => `<td class="erp-cell">${esc(row.holding_amount ?? row.erp_amount ?? '—')}</td>`;
   const reduceCell = row => `<td class="action-cell">${esc((row.reduce || {}).compact_display || (row.reduce || {}).display || '—')}</td>`;
   const funds = (node.role_groups || []).map(group => {
-    const heading = `<tr class="role-heading-row"><th scope="rowgroup">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}${esc(U.ui_fund_count_unit || '')}）` : ''}</th><td class="erp-cell">${esc(group.erp_amount)}</td><td class="role-heading-detail" colspan="2">${esc(group.detail)}</td></tr>`;
+    const heading = `<tr class="role-heading-row"><th scope="rowgroup">${esc(group.role_label)}${group.fund_count ? `（${esc(group.fund_count)}${esc(U.ui_fund_count_unit || '')}）` : ''}</th>${holdingCell(group)}<td class="role-heading-detail" colspan="2">${esc(group.detail)}</td></tr>`;
     const members = (group.rows || []).map(row =>
-      `<tr class="fund-main"><th scope="row" colspan="2">${esc(row.fund_name)}</th>${reduceCell(row)}<td class="fund-note-cell">${esc(row.detail)}</td></tr>`).join('');
+      `<tr class="fund-main"><th scope="row">${esc(row.fund_name)}</th>${holdingCell(row)}${reduceCell(row)}<td class="fund-note-cell">${esc(row.detail)}</td></tr>`).join('');
     return heading + members;
   }).join('');
-  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}${esc(U.ui_fund_count_unit || '')}）</th><td class="erp-cell">${esc(node.total_summary.erp_amount ?? '—')}</td>${reduceCell(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
+  const total = node.total_summary ? `<tr class="grand-total-row"><th scope="row">${esc(node.total_summary.label)}（${esc(node.total_summary.fund_count)}${esc(U.ui_fund_count_unit || '')}）</th>${holdingCell(node.total_summary)}${reduceCell(node.total_summary)}<td class="summary-detail">${esc(node.total_summary.detail)}</td></tr>` : '';
   return `<section class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table daily-operations-table" aria-label="${esc(U.ui_aria_daily || '')}"><colgroup><col class="daily-col-fund"><col class="daily-col-erp"><col class="daily-col-action"><col class="daily-col-note"></colgroup><thead><tr>${head}</tr></thead><tbody>${funds}${total}</tbody></table></div></section>`;
 }
 

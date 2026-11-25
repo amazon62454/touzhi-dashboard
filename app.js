@@ -144,9 +144,24 @@ function renderQuarterFundOperationsTable(node) {
 }
 
 function renderQuarterCandidateTable(node) {
-  const headers = (node.headers || []).map(label => `<th scope="col">${esc(label)}</th>`).join('');
-  const rows = (node.rows || []).map(row => `<tr class="fund-main"><th scope="row">${esc(row.fund_name || '—')}</th><td>${esc(row.valuation || '—')}</td><td>${esc(row.scale || '—')}</td><td>${esc(row.fee || '—')}</td><td>${esc(row.status || '—')}</td><td class="fund-note-cell">${esc(row.pending || '—')}</td><td>${esc(row.next_review || '—')}</td></tr>`).join('');
-  return `<div class="operations-table-shell"><div class="operations-table-wrap"><table class="operations-table quarter-candidate-table"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div></div>`;
+  const meta = (label, value) => `<div class="candidate-meta-item"><em>${esc(label)}</em><span>${esc(value || '—')}</span></div>`;
+  const cards = (node.rows || []).map(row => {
+    const statusKind = /通过|纳入|持有/.test(String(row.status || '')) ? 'ok' : 'warn';
+    return `<article class="candidate-card">
+      <div class="candidate-head">
+        <div class="candidate-name">${esc(row.fund_name || '—')}</div>
+        <div class="candidate-valuation">${esc(row.valuation || '—')}</div>
+      </div>
+      <div class="candidate-meta">
+        ${meta('规模', row.scale)}
+        ${meta('费率', row.fee)}
+        ${meta('下一步', row.next_review)}
+      </div>
+      <div class="candidate-status">${badge({ text: row.status || '—', kind: statusKind })}</div>
+      <p class="candidate-reason">${esc(row.pending || '—')}</p>
+    </article>`;
+  }).join('');
+  return `<div class="candidate-list">${cards}</div>`;
 }
 
 function renderNode(node) {

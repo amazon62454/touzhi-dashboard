@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T20:22:25",
+  "generated_at": "2026-11-26T20:23:32",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:22:25",
+        "as_of": "2026-11-26T20:23:31",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "expired",
@@ -3432,7 +3432,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:22:25",
+        "as_of": "2026-11-26T20:23:31",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6751,7 +6751,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:22:25",
+        "as_of": "2026-11-26T20:23:32",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -18650,7 +18650,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:22:25",
+        "as_of": "2026-11-26T20:23:32",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -22515,7 +22515,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T20:22:25",
+    "generated_at": "2026-11-26T20:23:32",
     "projection_id": "wf_f6c01eb4a601ec28",
     "visual": {
       "title": "操作流程总览",

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-27T03:13:01",
-  "base_date": "2026-11-25",
+  "generated_at": "2026-11-27T07:47:42",
+  "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
     "010363": "信澳匠心臻选两年持有",
@@ -124,8 +124,8 @@
     "display": {
       "header": {
         "title": "现在积累了多少",
-        "base_date": "2026-11-25",
-        "base_label": "持仓基准 2026-11-25"
+        "base_date": "2026-11-26",
+        "base_label": "持仓基准 2026-11-26"
       },
       "children": [
         {
@@ -356,31 +356,31 @@
     "band_daily": {
       "band": "band_daily",
       "title": "每日档 · 风控监控",
-      "summary": "本次动作已失效，不执行；等待重新评估",
+      "summary": "今天无需操作",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T03:13:01",
-        "next_review_date": "2026-11-27",
+        "as_of": "2026-11-27T07:47:42",
+        "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
-        "state": "expired",
-        "headline": "本次动作已失效，不执行；等待重新评估",
+        "state": "no_action",
+        "headline": "今天无需操作",
         "data_complete": true,
         "actions": [],
         "blocked": [],
         "expired": [],
-        "planned_execution_date": "2026-11-26",
-        "actual_execution_date": "2026-11-26",
+        "planned_execution_date": "2026-11-27",
+        "actual_execution_date": "2026-11-27",
         "is_postponed": false,
         "postpone_days": 0,
-        "valid_until": "2026-11-26T10:30:00",
-        "next_review_at": "2026-11-27T03:30:00",
-        "result_visible_until": "2026-11-27T03:30:00",
-        "result_effective_from": "2026-11-26T20:29:29",
+        "valid_until": "2026-11-27T10:30:00",
+        "next_review_at": "2026-11-30T03:30:00",
+        "result_visible_until": "2026-11-30T03:30:00",
+        "result_effective_from": "2026-11-27T07:43:35",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
-      "base_date": "2026-11-25",
-      "generated_at": "2026-11-26T20:29:29",
-      "run_kind": "parameter_reanchor",
+      "base_date": "2026-11-26",
+      "generated_at": "2026-11-27T07:43:35",
+      "run_kind": "manual_formal",
       "items": [
         {
           "fund_code": "010363",
@@ -418,7 +418,7 @@
           "reason": "规模风险：规模预警⚠️",
           "params": {
             "scale_status": "规模预警⚠️",
-            "valuation_pct": 15.66,
+            "valuation_pct": 19.39,
             "market_value": 280.23,
             "cost": 339.0,
             "profit_rate": -17.34,
@@ -433,7 +433,7 @@
           "reason": "规模风险：规模预警⚠️",
           "params": {
             "scale_status": "规模预警⚠️",
-            "valuation_pct": 4.71,
+            "valuation_pct": 1.75,
             "market_value": 1281.71,
             "cost": 1466.74,
             "profit_rate": -12.62,
@@ -463,7 +463,7 @@
           "params": {
             "profit_rate": -15.93,
             "drawdown": null,
-            "valuation_pct": 68.23,
+            "valuation_pct": 69.07,
             "market_value": 1143.94,
             "cost": 1360.7,
             "current_amount": 0.0
@@ -478,7 +478,7 @@
           "params": {
             "profit_rate": -12.02,
             "drawdown": null,
-            "valuation_pct": 3.78,
+            "valuation_pct": 3.72,
             "market_value": 1888.97,
             "cost": 2146.98,
             "current_amount": 65.0
@@ -507,7 +507,7 @@
           "params": {
             "profit_rate": -3.81,
             "drawdown": null,
-            "valuation_pct": 59.15,
+            "valuation_pct": 56.35,
             "market_value": 30.78,
             "cost": 32.0,
             "current_amount": 0.0
@@ -536,7 +536,7 @@
           "params": {
             "profit_rate": 0.0,
             "drawdown": null,
-            "valuation_pct": 74.7,
+            "valuation_pct": 72.02,
             "market_value": 0.0,
             "cost": 0.0,
             "current_amount": 0.0
@@ -938,7 +938,7 @@
           "params": {
             "profit_rate": -15.93,
             "drawdown": null,
-            "valuation_pct": 68.23,
+            "valuation_pct": 69.07,
             "market_value": 1143.94,
             "cost": 1360.7,
             "current_amount": 0.0
@@ -953,7 +953,7 @@
           "params": {
             "profit_rate": -12.02,
             "drawdown": null,
-            "valuation_pct": 3.78,
+            "valuation_pct": 3.72,
             "market_value": 1888.97,
             "cost": 2146.98,
             "current_amount": 65.0
@@ -982,7 +982,7 @@
           "params": {
             "profit_rate": -3.81,
             "drawdown": null,
-            "valuation_pct": 59.15,
+            "valuation_pct": 56.35,
             "market_value": 30.78,
             "cost": 32.0,
             "current_amount": 0.0
@@ -1011,7 +1011,7 @@
           "params": {
             "profit_rate": 0.0,
             "drawdown": null,
-            "valuation_pct": 74.7,
+            "valuation_pct": 72.02,
             "market_value": 0.0,
             "cost": 0.0,
             "current_amount": 0.0
@@ -1050,7 +1050,7 @@
         {
           "name": "减仓四条件闭环(非自动指令)",
           "status": "🟢",
-          "detail": "①估值未满足 | ②连续下跌未满足 | ③资金流出未满足 | ④行业见顶满足 → 未形成减仓闭环(①②③自动满足+④AI核查确认缺一不可),不输出减仓指令",
+          "detail": "①估值未满足 | ②连续下跌待数据 | ③资金流出待数据 | ④行业见顶满足 → 未形成减仓闭环(①②③自动满足+④AI核查确认缺一不可),不输出减仓指令",
           "metrics": [
             {
               "label": "最接近闭环",
@@ -1060,7 +1060,7 @@
             },
             {
               "label": "估值分位",
-              "value": 74.7,
+              "value": 72.02,
               "unit": "%",
               "tone": "info"
             }
@@ -1102,19 +1102,19 @@
       ],
       "allocation": {
         "amounts": {
-          "现金": 322.16,
+          "黄金": 1143.94,
           "养老FOF": 1166.58,
-          "债券": 12831.18,
           "权益": 5819.799999999999,
-          "黄金": 1143.94
+          "现金": 322.16,
+          "债券": 12831.18
         },
         "total": 21283.66,
         "weights": {
-          "现金": 1.51,
+          "黄金": 5.37,
           "养老FOF": 5.48,
-          "债券": 60.29,
           "权益": 27.34,
-          "黄金": 5.37
+          "现金": 1.51,
+          "债券": 60.29
         }
       },
       "asset_allocation": {
@@ -1403,13 +1403,13 @@
         "target": 10.0,
         "actual": 5.374733480989643,
         "gap": 4.625267,
-        "price_percentile": 68.23,
+        "price_percentile": 69.07,
         "score": {
-          "score": 10.0,
+          "score": 31.5,
           "scores": {
             "估值": 0.0,
-            "趋势": 0.0,
-            "资金": 0.0,
+            "趋势": 9.0,
+            "资金": 12.5,
             "基本面": 6,
             "情绪": 4.0
           },
@@ -1484,26 +1484,30 @@
       "data_issues": [],
       "five_dimension_scores": {
         "000051": {
-          "score": 4.0,
+          "score": 0.0,
           "scores": {
             "估值": 0.0,
             "趋势": 0.0,
             "资金": 0.0,
             "基本面": 0.0,
-            "情绪": 4.0
+            "情绪": 0.0
           },
-          "missing": [],
+          "missing": [
+            "趋势",
+            "资金",
+            "情绪"
+          ],
           "threshold": 70.0,
           "eligible": false,
           "overheated": false,
-          "decision": "未达到加仓门槛，本笔不操作"
+          "decision": "数据不完整：缺趋势、资金、情绪，本笔不操作"
         },
         "004253": {
-          "score": 10.0,
+          "score": 31.5,
           "scores": {
             "估值": 0.0,
-            "趋势": 0.0,
-            "资金": 0.0,
+            "趋势": 9.0,
+            "资金": 12.5,
             "基本面": 6.0,
             "情绪": 4.0
           },
@@ -1514,114 +1518,129 @@
           "decision": "未达到加仓门槛，本笔不操作"
         },
         "012544": {
-          "score": 63.0,
+          "score": 59.0,
           "scores": {
             "估值": 50.0,
             "趋势": 0.0,
             "资金": 0.0,
             "基本面": 9.0,
-            "情绪": 4.0
+            "情绪": 0.0
           },
-          "missing": [],
+          "missing": [
+            "趋势",
+            "资金",
+            "情绪"
+          ],
           "threshold": 70.0,
           "eligible": false,
           "overheated": false,
-          "decision": "未达到加仓门槛，本笔不操作"
+          "decision": "数据不完整：缺趋势、资金、情绪，本笔不操作"
         },
         "017140": {
-          "score": 59.5,
+          "score": 53.0,
           "scores": {
             "估值": 38.0,
             "趋势": 0.0,
-            "资金": 0.0,
+            "资金": 6.0,
             "基本面": 9.0,
-            "情绪": 12.5
+            "情绪": 0.0
           },
-          "missing": [],
+          "missing": [
+            "趋势",
+            "情绪"
+          ],
           "threshold": 70.0,
           "eligible": false,
           "overheated": false,
-          "decision": "未达到加仓门槛，本笔不操作"
+          "decision": "数据不完整：缺趋势、情绪，本笔不操作"
         },
         "024328": {
-          "score": 80.5,
+          "score": 59.0,
           "scores": {
             "估值": 50.0,
             "趋势": 0.0,
-            "资金": 12.5,
+            "资金": 0.0,
             "基本面": 9.0,
-            "情绪": 9.0
+            "情绪": 0.0
           },
-          "missing": [],
+          "missing": [
+            "趋势",
+            "资金",
+            "情绪"
+          ],
           "threshold": 70.0,
-          "eligible": true,
+          "eligible": false,
           "overheated": false,
-          "decision": "评分与数据闸门通过，再核现金池和频率闸门"
+          "decision": "数据不完整：缺趋势、资金、情绪，本笔不操作"
         },
         "160119": {
-          "score": 21.5,
+          "score": 9.0,
           "scores": {
             "估值": 0.0,
             "趋势": 0.0,
             "资金": 0.0,
             "基本面": 9.0,
-            "情绪": 12.5
+            "情绪": 0.0
           },
-          "missing": [],
+          "missing": [
+            "趋势",
+            "资金",
+            "情绪"
+          ],
           "threshold": 70.0,
           "eligible": false,
           "overheated": false,
-          "decision": "未达到加仓门槛，本笔不操作"
+          "decision": "数据不完整：缺趋势、资金、情绪，本笔不操作"
         }
       },
       "artifacts": {
         "daily_checks": [
           {
             "name": "单日大跌>4%",
-            "status": "🔴",
-            "detail": "嘉实中证新能源汽车指数C(-5.45%)——单一板块回调·不暂停定投；无异常大跌成分股",
+            "status": "🟢",
+            "detail": "四只被动跟踪指数无单日跌>4%",
             "metrics": [
               {
                 "label": "华夏沪深300ETF联接A",
-                "value": -1.65,
+                "value": 0.06,
                 "unit": "%",
-                "tone": "neg"
+                "tone": "pos"
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": -3.0,
+                "value": 1.41,
                 "unit": "%",
-                "tone": "neg"
+                "tone": "pos"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": -5.45,
+                "value": -1.27,
                 "unit": "%",
                 "tone": "neg"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": -2.55,
+                "value": 1.57,
                 "unit": "%",
-                "tone": "neg"
+                "tone": "pos"
               },
               {
                 "label": "华夏港股通央企红利ETF联接C",
-                "value": -1.16,
+                "value": 1.5,
                 "unit": "%",
-                "tone": "neg"
+                "tone": "pos"
               },
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": -1.2,
+                "value": 1.12,
                 "unit": "%",
-                "tone": "neg"
+                "tone": "pos"
               },
               {
                 "label": "南方中证500ETF联接(LOF)A",
-                "value": -2.02,
+                "value": 3.03,
                 "unit": "%",
-                "tone": "neg"
+                "tone": "pos"
               },
               {
                 "label": "大跌审视线",
@@ -1708,13 +1727,13 @@
           {
             "name": "极端预案·单日暴跌",
             "status": "🟢",
-            "detail": "沪深300当日-1.65%,未触暴跌线",
+            "detail": "沪深300当日0.06%,未触暴跌线",
             "metrics": [
               {
                 "label": "沪深300当日",
-                "value": -1.65,
+                "value": 0.06,
                 "unit": "%",
-                "tone": "neg"
+                "tone": "pos"
               },
               {
                 "label": "暴跌线",
@@ -1729,41 +1748,41 @@
           {
             "name": "持仓估值越档",
             "status": "🔴",
-            "detail": "024328:3.78%→极度低估；012544:4.71%→极度低估；000051:74.7%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
+            "detail": "024328:3.72%→极度低估；012544:1.75%→极度低估；000051:72.02%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": 3.78,
+                "value": 3.72,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": 4.71,
+                "value": 1.75,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": 15.66,
+                "value": 19.39,
                 "unit": "%",
                 "tone": "pos"
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": 68.23,
+                "value": 69.07,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "华夏沪深300ETF联接A",
-                "value": 74.7,
+                "value": 72.02,
                 "unit": "%",
                 "tone": "warn"
               },
               {
                 "label": "南方中证500ETF联接(LOF)A",
-                "value": 59.15,
+                "value": 56.35,
                 "unit": "%",
                 "tone": "info"
               }
@@ -1778,9 +1797,9 @@
             "metrics": [
               {
                 "label": "沪深300当日",
-                "value": -1.65,
+                "value": 0.06,
                 "unit": "%",
-                "tone": "neg"
+                "tone": "pos"
               },
               {
                 "label": "黑天鹅观察线",
@@ -1816,13 +1835,13 @@
           {
             "name": "债券净值连跌",
             "status": "🟢",
-            "detail": "债基009290连续1日下跌(阈值10日)",
+            "detail": "债基009290连续0日下跌(阈值10日)",
             "metrics": [
               {
                 "label": "连续下跌",
-                "value": 1,
+                "value": 0,
                 "unit": "日",
-                "tone": "warn"
+                "tone": "pos"
               },
               {
                 "label": "审视阈值",
@@ -1837,7 +1856,7 @@
           {
             "name": "减仓四条件闭环(非自动指令)",
             "status": "🟢",
-            "detail": "①估值未满足 | ②连续下跌未满足 | ③资金流出未满足 | ④行业见顶满足 → 未形成减仓闭环(①②③自动满足+④AI核查确认缺一不可),不输出减仓指令",
+            "detail": "①估值未满足 | ②连续下跌待数据 | ③资金流出待数据 | ④行业见顶满足 → 未形成减仓闭环(①②③自动满足+④AI核查确认缺一不可),不输出减仓指令",
             "metrics": [
               {
                 "label": "最接近闭环",
@@ -1847,7 +1866,7 @@
               },
               {
                 "label": "估值分位",
-                "value": 74.7,
+                "value": 72.02,
                 "unit": "%",
                 "tone": "info"
               }
@@ -1872,14 +1891,14 @@
           {
             "name": "大盘异动",
             "status": "🟢",
-            "detail": "沪深300单日-1.65%,未超异动线4%",
+            "detail": "沪深300单日0.06%,未超异动线4%",
             "check_id": "market_shock",
             "identity_policy": "shared_market"
           },
           {
             "name": "连续暴跌预案",
             "status": "🟢",
-            "detail": "沪深300连续1日累计1.65%,未达连续暴跌线",
+            "detail": "连续暴跌数据缺失",
             "check_id": "consecutive_crash",
             "identity_policy": "shared_market"
           },
@@ -1922,23 +1941,23 @@
           {
             "name": "利率倒挂监控",
             "status": "🟢",
-            "detail": "1年期1.1813%/10年期1.5918%,利差-41bp,未严重倒挂(阈值50bp)",
+            "detail": "1年期1.182%/10年期1.6084%,利差-43bp,未严重倒挂(阈值50bp)",
             "metrics": [
               {
                 "label": "1年期",
-                "value": 1.1813,
+                "value": 1.182,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "10年期",
-                "value": 1.5918,
+                "value": 1.6084,
                 "unit": "%",
                 "tone": "info"
               },
               {
                 "label": "利差",
-                "value": -41,
+                "value": -43,
                 "unit": "bp",
                 "tone": "pos"
               },
@@ -1959,37 +1978,37 @@
             "metrics": [
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": 0.3,
+                "value": 0.1,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": 0.2,
+                "value": 3.0,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": 4.9,
+                "value": 3.7,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": 6.0,
+                "value": 0.8,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "华夏沪深300ETF联接A",
-                "value": 0.7,
+                "value": 2.7,
                 "unit": "个百分点",
                 "tone": "info"
               },
               {
                 "label": "南方中证500ETF联接(LOF)A",
-                "value": 0.1,
+                "value": 2.8,
                 "unit": "个百分点",
                 "tone": "info"
               },
@@ -2085,14 +2104,14 @@
         "action_view": {
           "engine_contract": "h5_band_action_v1",
           "complete": true,
-          "headline": "本次动作已失效，不执行；等待重新评估",
+          "headline": "今天无需操作",
           "note": "",
           "pending_title": "当前限制与阻断项",
           "pending_items": []
         }
       },
       "market_env": {
-        "hs300_pe_pct": 74.7,
+        "hs300_pe_pct": 72.02,
         "erp_state": "high",
         "impact": {
           "label": "高估",
@@ -2106,29 +2125,30 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_daily|2026-11-25|2026-11-25|2026-11-25#R1#live",
+      "source_file": "band_daily|2026-11-26|2026-11-27|2026-11-26#R3#live",
       "display": {
         "header": {
           "title": "每日档 · 风控监控",
-          "base_date": "2026-11-25",
-          "state_label": "本期动作已失效",
+          "base_date": "2026-11-26",
+          "state_label": "无需操作",
           "state_kind": "muted",
           "run_notice": "",
-          "legend": "时间说明：数据基准日＝本次结果所用数据的截止日；结果展示至＝下次评估发布后自动替换。",
-          "time_rows": [
-            {
-              "type": "kv",
-              "label": "动作有效期至",
-              "value": {
-                "value": "2026-11-26T10:30:00",
-                "format": "datetime"
-              },
-              "tone": "",
-              "note": ""
-            }
-          ]
+          "legend": "",
+          "time_rows": []
         },
         "sections": [
+          {
+            "type": "card",
+            "title": "本期行动结论",
+            "kind": "accent",
+            "children": [
+              {
+                "type": "text",
+                "text": "今天无需操作",
+                "style": "decision-main"
+              }
+            ]
+          },
           {
             "type": "card",
             "title": "本档操作流程",
@@ -2177,7 +2197,7 @@
                         "type": "flow_time",
                         "label": "结果展示至（下次评估时更新）",
                         "value": {
-                          "value": "2026-11-27T03:30:00",
+                          "value": "2026-11-30T03:30:00",
                           "format": "datetime"
                         }
                       }
@@ -2601,136 +2621,16 @@
                     "type": "check_groups",
                     "attention": [
                       {
-                        "name": "单日大跌>4%",
-                        "status": "🔴",
-                        "status_kind": "danger",
-                        "detail": "嘉实中证新能源汽车指数C(-5.45%)——单一板块回调·不暂停定投；无异常大跌成分股",
-                        "metrics": [
-                          {
-                            "label": "华夏沪深300ETF联接A",
-                            "value": [
-                              {
-                                "value": -1.65,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "国泰黄金ETF联接C",
-                            "value": [
-                              {
-                                "value": -3.0,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "嘉实中证新能源汽车指数C",
-                            "value": [
-                              {
-                                "value": -5.45,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "华宝中证有色金属ETF联接A",
-                            "value": [
-                              {
-                                "value": -2.55,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "华夏港股通央企红利ETF联接C",
-                            "value": [
-                              {
-                                "value": -1.16,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "易方达恒生港股通创新药ETF联接A",
-                            "value": [
-                              {
-                                "value": -1.2,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "南方中证500ETF联接(LOF)A",
-                            "value": [
-                              {
-                                "value": -2.02,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "大跌审视线",
-                            "value": [
-                              {
-                                "value": -4.0,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "info"
-                          }
-                        ]
-                      },
-                      {
                         "name": "持仓估值越档",
                         "status": "🔴",
                         "status_kind": "danger",
-                        "detail": "024328:3.78%→极度低估；012544:4.71%→极度低估；000051:74.7%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
+                        "detail": "024328:3.72%→极度低估；012544:1.75%→极度低估；000051:72.02%→高估→处置已自动化(高估剔除集中制分配/极度低估入加仓候选),无需手动动作",
                         "metrics": [
                           {
                             "label": "易方达恒生港股通创新药ETF联接A",
                             "value": [
                               {
-                                "value": 3.78,
+                                "value": 3.72,
                                 "format": "text"
                               },
                               {
@@ -2744,7 +2644,7 @@
                             "label": "嘉实中证新能源汽车指数C",
                             "value": [
                               {
-                                "value": 4.71,
+                                "value": 1.75,
                                 "format": "text"
                               },
                               {
@@ -2758,7 +2658,7 @@
                             "label": "华宝中证有色金属ETF联接A",
                             "value": [
                               {
-                                "value": 15.66,
+                                "value": 19.39,
                                 "format": "text"
                               },
                               {
@@ -2772,7 +2672,7 @@
                             "label": "国泰黄金ETF联接C",
                             "value": [
                               {
-                                "value": 68.23,
+                                "value": 69.07,
                                 "format": "text"
                               },
                               {
@@ -2786,7 +2686,7 @@
                             "label": "华夏沪深300ETF联接A",
                             "value": [
                               {
-                                "value": 74.7,
+                                "value": 72.02,
                                 "format": "text"
                               },
                               {
@@ -2800,7 +2700,7 @@
                             "label": "南方中证500ETF联接(LOF)A",
                             "value": [
                               {
-                                "value": 59.15,
+                                "value": 56.35,
                                 "format": "text"
                               },
                               {
@@ -2828,6 +2728,126 @@
                       }
                     ],
                     "normal": [
+                      {
+                        "name": "单日大跌>4%",
+                        "status": "🟢",
+                        "status_kind": "ok",
+                        "detail": "四只被动跟踪指数无单日跌>4%",
+                        "metrics": [
+                          {
+                            "label": "华夏沪深300ETF联接A",
+                            "value": [
+                              {
+                                "value": 0.06,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "pos"
+                          },
+                          {
+                            "label": "国泰黄金ETF联接C",
+                            "value": [
+                              {
+                                "value": 1.41,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "pos"
+                          },
+                          {
+                            "label": "嘉实中证新能源汽车指数C",
+                            "value": [
+                              {
+                                "value": -1.27,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "neg"
+                          },
+                          {
+                            "label": "华宝中证有色金属ETF联接A",
+                            "value": [
+                              {
+                                "value": 1.57,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "pos"
+                          },
+                          {
+                            "label": "华夏港股通央企红利ETF联接C",
+                            "value": [
+                              {
+                                "value": 1.5,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "pos"
+                          },
+                          {
+                            "label": "易方达恒生港股通创新药ETF联接A",
+                            "value": [
+                              {
+                                "value": 1.12,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "pos"
+                          },
+                          {
+                            "label": "南方中证500ETF联接(LOF)A",
+                            "value": [
+                              {
+                                "value": 3.03,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "pos"
+                          },
+                          {
+                            "label": "大跌审视线",
+                            "value": [
+                              {
+                                "value": -4.0,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "info"
+                          }
+                        ]
+                      },
                       {
                         "name": "组合回撤红线",
                         "status": "🟢",
@@ -2962,13 +2982,13 @@
                         "name": "极端预案·单日暴跌",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "沪深300当日-1.65%,未触暴跌线",
+                        "detail": "沪深300当日0.06%,未触暴跌线",
                         "metrics": [
                           {
                             "label": "沪深300当日",
                             "value": [
                               {
-                                "value": -1.65,
+                                "value": 0.06,
                                 "format": "text"
                               },
                               {
@@ -2976,7 +2996,7 @@
                                 "format": "text"
                               }
                             ],
-                            "tone": "neg"
+                            "tone": "pos"
                           },
                           {
                             "label": "暴跌线",
@@ -3004,7 +3024,7 @@
                             "label": "沪深300当日",
                             "value": [
                               {
-                                "value": -1.65,
+                                "value": 0.06,
                                 "format": "text"
                               },
                               {
@@ -3012,7 +3032,7 @@
                                 "format": "text"
                               }
                             ],
-                            "tone": "neg"
+                            "tone": "pos"
                           },
                           {
                             "label": "黑天鹅观察线",
@@ -3070,13 +3090,13 @@
                         "name": "债券净值连跌",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "债基009290连续1日下跌(阈值10日)",
+                        "detail": "债基009290连续0日下跌(阈值10日)",
                         "metrics": [
                           {
                             "label": "连续下跌",
                             "value": [
                               {
-                                "value": 1,
+                                "value": 0,
                                 "format": "text"
                               },
                               {
@@ -3084,7 +3104,7 @@
                                 "format": "text"
                               }
                             ],
-                            "tone": "warn"
+                            "tone": "pos"
                           },
                           {
                             "label": "审视阈值",
@@ -3106,7 +3126,7 @@
                         "name": "减仓四条件闭环(非自动指令)",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "①估值未满足 | ②连续下跌未满足 | ③资金流出未满足 | ④行业见顶满足 → 未形成减仓闭环(①②③自动满足+④AI核查确认缺一不可),不输出减仓指令",
+                        "detail": "①估值未满足 | ②连续下跌待数据 | ③资金流出待数据 | ④行业见顶满足 → 未形成减仓闭环(①②③自动满足+④AI核查确认缺一不可),不输出减仓指令",
                         "metrics": [
                           {
                             "label": "最接近闭环",
@@ -3126,7 +3146,7 @@
                             "label": "估值分位",
                             "value": [
                               {
-                                "value": 74.7,
+                                "value": 72.02,
                                 "format": "text"
                               },
                               {
@@ -3156,14 +3176,14 @@
                         "name": "大盘异动",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "沪深300单日-1.65%,未超异动线4%",
+                        "detail": "沪深300单日0.06%,未超异动线4%",
                         "metrics": []
                       },
                       {
                         "name": "连续暴跌预案",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "沪深300连续1日累计1.65%,未达连续暴跌线",
+                        "detail": "连续暴跌数据缺失",
                         "metrics": []
                       },
                       {
@@ -3199,13 +3219,13 @@
                         "name": "利率倒挂监控",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "1年期1.1813%/10年期1.5918%,利差-41bp,未严重倒挂(阈值50bp)",
+                        "detail": "1年期1.182%/10年期1.6084%,利差-43bp,未严重倒挂(阈值50bp)",
                         "metrics": [
                           {
                             "label": "1年期",
                             "value": [
                               {
-                                "value": 1.1813,
+                                "value": 1.182,
                                 "format": "text"
                               },
                               {
@@ -3219,7 +3239,7 @@
                             "label": "10年期",
                             "value": [
                               {
-                                "value": 1.5918,
+                                "value": 1.6084,
                                 "format": "text"
                               },
                               {
@@ -3233,7 +3253,7 @@
                             "label": "利差",
                             "value": [
                               {
-                                "value": -41,
+                                "value": -43,
                                 "format": "text"
                               },
                               {
@@ -3269,7 +3289,7 @@
                             "label": "易方达恒生港股通创新药ETF联接A",
                             "value": [
                               {
-                                "value": 0.3,
+                                "value": 0.1,
                                 "format": "text"
                               },
                               {
@@ -3283,7 +3303,7 @@
                             "label": "嘉实中证新能源汽车指数C",
                             "value": [
                               {
-                                "value": 0.2,
+                                "value": 3.0,
                                 "format": "text"
                               },
                               {
@@ -3297,7 +3317,7 @@
                             "label": "华宝中证有色金属ETF联接A",
                             "value": [
                               {
-                                "value": 4.9,
+                                "value": 3.7,
                                 "format": "text"
                               },
                               {
@@ -3311,7 +3331,7 @@
                             "label": "国泰黄金ETF联接C",
                             "value": [
                               {
-                                "value": 6.0,
+                                "value": 0.8,
                                 "format": "text"
                               },
                               {
@@ -3325,7 +3345,7 @@
                             "label": "华夏沪深300ETF联接A",
                             "value": [
                               {
-                                "value": 0.7,
+                                "value": 2.7,
                                 "format": "text"
                               },
                               {
@@ -3339,7 +3359,7 @@
                             "label": "南方中证500ETF联接(LOF)A",
                             "value": [
                               {
-                                "value": 0.1,
+                                "value": 2.8,
                                 "format": "text"
                               },
                               {
@@ -3366,7 +3386,7 @@
                         ]
                       }
                     ],
-                    "normal_title": "展开其余 15 项正常/未触发检查"
+                    "normal_title": "展开其余 16 项正常/未触发检查"
                   },
                   {
                     "type": "kv",
@@ -3432,7 +3452,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T03:13:01",
+        "as_of": "2026-11-27T07:47:42",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6751,7 +6771,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T03:13:01",
+        "as_of": "2026-11-27T07:47:42",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -8205,6 +8225,426 @@
       },
       "data_issues": [
         {
+          "issue_key": "dimension:2026-11-26:000051:trends",
+          "source": "同基准衍生数据",
+          "target_key": "000051",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "000051的趋势未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:000051:flows",
+          "source": "同基准衍生数据",
+          "target_key": "000051",
+          "metric": "主力5日净流入",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "000051的主力5日净流入未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:000051:sentiments",
+          "source": "同基准衍生数据",
+          "target_key": "000051",
+          "metric": "情绪",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "000051的情绪未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:012544:trends",
+          "source": "同基准衍生数据",
+          "target_key": "012544",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "012544的趋势未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:012544:flows",
+          "source": "同基准衍生数据",
+          "target_key": "012544",
+          "metric": "主力5日净流入",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "012544的主力5日净流入未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:012544:sentiments",
+          "source": "同基准衍生数据",
+          "target_key": "012544",
+          "metric": "情绪",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "012544的情绪未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:017140:trends",
+          "source": "同基准衍生数据",
+          "target_key": "017140",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "017140的趋势未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:017140:sentiments",
+          "source": "同基准衍生数据",
+          "target_key": "017140",
+          "metric": "情绪",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "017140的情绪未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:024328:trends",
+          "source": "同基准衍生数据",
+          "target_key": "024328",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "024328的趋势未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:024328:flows",
+          "source": "同基准衍生数据",
+          "target_key": "024328",
+          "metric": "主力5日净流入",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "024328的主力5日净流入未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:024328:sentiments",
+          "source": "同基准衍生数据",
+          "target_key": "024328",
+          "metric": "情绪",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "024328的情绪未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:160119:trends",
+          "source": "同基准衍生数据",
+          "target_key": "160119",
+          "metric": "趋势",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "160119的趋势未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:160119:flows",
+          "source": "同基准衍生数据",
+          "target_key": "160119",
+          "metric": "主力5日净流入",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "160119的主力5日净流入未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
+          "issue_key": "dimension:2026-11-26:160119:sentiments",
+          "source": "同基准衍生数据",
+          "target_key": "160119",
+          "metric": "情绪",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-26\"]",
+          "actual_coverage_json": "[]",
+          "missing_coverage_json": "[\"2026-11-26\"]",
+          "last_success_date": null,
+          "error_category": "data_unavailable",
+          "raw_error": "160119的情绪未取得2026-11-26基准数据；旧交易日或其他日期数据不能顶替",
+          "human_message": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+          "next_action": "下一正式补跑只重取该缺项",
+          "status": "open",
+          "attempt_count": 1,
+          "escalation_count": 0,
+          "first_seen_at": "2026-11-26T19:30:05+00:00",
+          "last_attempt_at": "2026-11-26T19:30:05+00:00",
+          "resolved_at": null,
+          "created_at": "2026-11-26T19:30:05+00:00",
+          "updated_at": "2026-11-26T19:30:05+00:00",
+          "expected_coverage": [
+            "2026-11-26"
+          ],
+          "actual_coverage": [],
+          "missing_coverage": [
+            "2026-11-26"
+          ]
+        },
+        {
           "issue_key": "dimension:2026-11-20:110026:trends",
           "source": "同基准衍生数据",
           "target_key": "110026",
@@ -8412,6 +8852,38 @@
           "actual_coverage": [],
           "missing_coverage": [
             "2026-11-20"
+          ]
+        },
+        {
+          "issue_key": "local_amount_refresh:518880",
+          "source": "东方财富妙想",
+          "target_key": "518880.SH",
+          "metric": "成交额",
+          "period_type": "DAY",
+          "expected_coverage_json": "[\"2026-11-27\"]",
+          "actual_coverage_json": "[\"2026-11-24\"]",
+          "missing_coverage_json": "[\"2026-11-27\"]",
+          "last_success_date": "2026-11-24",
+          "error_category": "RuntimeError",
+          "raw_error": "妙想凭证缺失，需要授权刷新",
+          "human_message": "本地成交额序列增量回补失败：妙想凭证缺失，需要授权刷新",
+          "next_action": "下一评估周期自动重试增量回补；历史序列继续保留，不用短窗冒充完整窗口",
+          "status": "resolved",
+          "attempt_count": 4,
+          "escalation_count": 2,
+          "first_seen_at": "2026-11-24T19:36:47+00:00",
+          "last_attempt_at": "2026-11-26T19:45:28+00:00",
+          "resolved_at": "2026-11-26T23:45:40+00:00",
+          "created_at": "2026-11-24T19:36:47+00:00",
+          "updated_at": "2026-11-26T23:45:40+00:00",
+          "expected_coverage": [
+            "2026-11-27"
+          ],
+          "actual_coverage": [
+            "2026-11-24"
+          ],
+          "missing_coverage": [
+            "2026-11-27"
           ]
         },
         {
@@ -16587,8 +17059,862 @@
                     "children": [
                       {
                         "type": "text",
-                        "text": "当前7项待处理；系统持续自动补数与升级，不依赖人工识别",
+                        "text": "当前21项待处理；系统持续自动补数与升级，不依赖人工识别",
                         "style": "lead"
+                      },
+                      {
+                        "type": "details",
+                        "summary": "000051 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "000051 · 主力5日净流入",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "000051 · 情绪",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "012544 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "012544 · 主力5日净流入",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "012544 · 情绪",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "017140 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "017140 · 情绪",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "024328 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "024328 · 主力5日净流入",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "024328 · 情绪",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "160119 · 趋势",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "160119 · 主力5日净流入",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "160119 · 情绪",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "下一正式补跑只重取该缺项；原始序列备援验收后改本地复算",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "同基准衍生数据",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "0/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试1次 · 升级0次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "待处理",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
                       },
                       {
                         "type": "details",
@@ -17010,6 +18336,67 @@
                             "label": "系统下一动作",
                             "value": {
                               "value": "下一正式补跑只重取该缺项",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "details",
+                        "summary": "518880.SH · 成交额",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "本地成交额序列增量回补失败：妙想凭证缺失，需要授权刷新",
+                            "style": "warn"
+                          },
+                          {
+                            "type": "kv",
+                            "label": "数据来源",
+                            "value": {
+                              "value": "东方财富妙想",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "已验收覆盖",
+                            "value": {
+                              "value": "1/1个日期",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "自动处理轨迹",
+                            "value": {
+                              "value": "尝试4次 · 升级2次",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "处理状态",
+                            "value": {
+                              "value": "今日已解决",
+                              "format": "text"
+                            },
+                            "tone": "",
+                            "note": ""
+                          },
+                          {
+                            "type": "kv",
+                            "label": "系统下一动作",
+                            "value": {
+                              "value": "下一评估周期自动重试增量回补；历史序列继续保留，不用短窗冒充完整窗口",
                               "format": "text"
                             },
                             "tone": "",
@@ -18066,7 +19453,7 @@
                       {
                         "type": "parameter_node",
                         "title": "每日｜独立风控",
-                        "state_label": "已失效",
+                        "state_label": "正式数据已生成",
                         "children": [
                           {
                             "type": "text",
@@ -18094,7 +19481,7 @@
                                   "format": "text"
                                 },
                                 {
-                                  "value": "2026-11-25",
+                                  "value": "2026-11-26",
                                   "format": "text"
                                 },
                                 {
@@ -18210,7 +19597,7 @@
                                   "format": "text"
                                 },
                                 {
-                                  "value": "已失效",
+                                  "value": "正式数据已生成",
                                   "format": "text"
                                 },
                                 {
@@ -18457,7 +19844,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "已失效",
+                              "value": "正式数据已生成",
                               "format": "text"
                             },
                             {
@@ -18654,7 +20041,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T03:13:01",
+        "as_of": "2026-11-27T07:47:42",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -22575,8 +23962,8 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-27T03:13:01",
-    "projection_id": "wf_7ffd68519efea2ed",
+    "generated_at": "2026-11-27T07:47:42",
+    "projection_id": "wf_b63cc66f0af2bac3",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -22810,7 +24197,7 @@
           ],
           "lines": [
             "等待正式评估",
-            "①估值未满足 | ②连续下跌未满足 | ③资金流出未满足 | ④行业见顶满足 → 未形成减仓闭环(①②③自动满足+④AI核查确认缺一不可),不输出减仓指令"
+            "①估值未满足 | ②连续下跌待数据 | ③资金流出待数据 | ④行业见顶满足 → 未形成减仓闭环(①②③自动满足+④AI核查确认缺一不可),不输出减仓指令"
           ],
           "not_applicable_count": 1,
           "skipped_count": 0,
@@ -23165,16 +24552,16 @@
         "id": "daily",
         "title": "每日｜独立风控",
         "trigger": "工作日；高层档日合并",
-        "state": "blocked",
-        "state_label": "已失效",
+        "state": "ready",
+        "state_label": "正式数据已生成",
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
-        "base_date": "2026-11-25",
-        "review_date": "2026-11-25",
-        "generated_at": "2026-11-26T20:29:29",
+        "base_date": "2026-11-26",
+        "review_date": "2026-11-27",
+        "generated_at": "2026-11-27T07:43:35",
         "inputs": [
           {
             "label": "风控数据基准",
-            "value": "2026-11-25",
+            "value": "2026-11-26",
             "source": "独立风控输入"
           },
           {
@@ -23214,7 +24601,7 @@
           },
           {
             "label": "风控放行状态",
-            "value": "已失效",
+            "value": "正式数据已生成",
             "source": "每日控制链"
           }
         ],
@@ -23308,7 +24695,7 @@
         "target": "execution",
         "label": "风控控制信号",
         "status": "control",
-        "actual": "已失效",
+        "actual": "正式数据已生成",
         "guidance": "风控优先于实际动作。",
         "status_label": "独立控制"
       },

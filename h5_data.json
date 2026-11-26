@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T15:14:58",
+  "generated_at": "2026-11-26T15:16:03",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T15:14:58",
+        "as_of": "2026-11-26T15:16:03",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "expired",
@@ -2287,6 +2287,36 @@
               },
               {
                 "type": "kv",
+                "label": "回补档位",
+                "value": {
+                  "value": "—",
+                  "format": "text"
+                },
+                "tone": "",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "年度档",
+                "value": {
+                  "value": "—",
+                  "format": "text"
+                },
+                "tone": "",
+                "note": ""
+              },
+              {
+                "type": "kv",
+                "label": "回补状态",
+                "value": {
+                  "value": "—",
+                  "format": "text"
+                },
+                "tone": "pos",
+                "note": ""
+              },
+              {
+                "type": "kv",
                 "label": "历史高点",
                 "value": {
                   "value": {
@@ -3407,7 +3437,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T15:14:58",
+        "as_of": "2026-11-26T15:16:03",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6706,7 +6736,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T15:14:58",
+        "as_of": "2026-11-26T15:16:03",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -17953,7 +17983,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T15:14:58",
+        "as_of": "2026-11-26T15:16:03",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -21470,7 +21500,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T15:14:58",
+    "generated_at": "2026-11-26T15:16:03",
     "projection_id": "wf_b2b59313abbd31c4",
     "visual": {
       "title": "操作流程总览",
@@ -24997,6 +25027,14 @@
     "ui_candidate_filter_all": "全部",
     "ui_candidate_filter_pass": "通过",
     "ui_candidate_filter_fail": "未通过",
-    "ui_label_action_valid_until": "动作有效期至"
+    "ui_label_action_valid_until": "动作有效期至",
+    "ui_lbl_refill_mode": "回补档位",
+    "ui_lbl_refill_annual": "年度档",
+    "ui_lbl_refill_status": "回补状态",
+    "ui_refill_mode_batch": "渐进回补（{batches}）",
+    "ui_refill_mode_annual": "年度档：年度评审释放防守现金（模拟对照，未改现行SOP）",
+    "ui_refill_status_ready": "回撤<{p294}%：具备回补条件（仅对已减仓部分）",
+    "ui_refill_status_wait": "待回撤修复至<{p294}%且企稳",
+    "ui_refill_status_pause": "回补暂停：回撤仍≥一级红线"
   }
 }

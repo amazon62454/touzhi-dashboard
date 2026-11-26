@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T10:53:58",
+  "generated_at": "2026-11-26T11:31:59",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:53:58",
+        "as_of": "2026-11-26T11:31:59",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "expired",
@@ -375,11 +375,11 @@
         "valid_until": "2026-11-26T10:30:00",
         "next_review_at": "2026-11-27T03:30:00",
         "result_visible_until": "2026-11-27T03:30:00",
-        "result_effective_from": "2026-11-26T10:52:39",
+        "result_effective_from": "2026-11-26T10:54:20",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-25",
-      "generated_at": "2026-11-26T10:52:39",
+      "generated_at": "2026-11-26T10:54:20",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -1116,19 +1116,19 @@
       ],
       "allocation": {
         "amounts": {
-          "黄金": 1143.94,
-          "现金": 322.16,
-          "权益": 5819.799999999999,
           "债券": 12831.18,
-          "养老FOF": 1166.58
+          "黄金": 1143.94,
+          "权益": 5819.799999999999,
+          "养老FOF": 1166.58,
+          "现金": 322.16
         },
         "total": 21283.66,
         "weights": {
-          "黄金": 5.37,
-          "现金": 1.51,
-          "权益": 27.34,
           "债券": 60.29,
-          "养老FOF": 5.48
+          "黄金": 5.37,
+          "权益": 27.34,
+          "养老FOF": 5.48,
+          "现金": 1.51
         }
       },
       "asset_allocation": {
@@ -2112,7 +2112,7 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_daily|2026-11-25|2026-11-25|2026-11-25#R1#live",
+      "source_file": "band_daily|2026-11-25|2026-11-26|2026-11-25#R1#live",
       "display": {
         "header": {
           "title": "每日档 · 风控监控",
@@ -2124,9 +2124,9 @@
           "time_rows": [
             {
               "type": "kv",
-              "label": "结果展示至（下次评估时更新）",
+              "label": "动作有效期至",
               "value": {
-                "value": "2026-11-27T03:30:00",
+                "value": "2026-11-26T10:30:00",
                 "format": "datetime"
               },
               "tone": "",
@@ -3407,7 +3407,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:53:58",
+        "as_of": "2026-11-26T11:31:59",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6706,7 +6706,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:53:58",
+        "as_of": "2026-11-26T11:31:59",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -17953,7 +17953,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:53:58",
+        "as_of": "2026-11-26T11:31:59",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -21470,7 +21470,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T10:53:58",
+    "generated_at": "2026-11-26T11:31:59",
     "projection_id": "wf_b2b59313abbd31c4",
     "visual": {
       "title": "操作流程总览",
@@ -22064,8 +22064,8 @@
         "state_label": "已失效",
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-25",
-        "review_date": "2026-11-25",
-        "generated_at": "2026-11-26T10:52:39",
+        "review_date": "2026-11-26",
+        "generated_at": "2026-11-26T10:54:20",
         "inputs": [
           {
             "label": "风控数据基准",
@@ -24996,6 +24996,7 @@
     "ui_candidate_filter": "筛选",
     "ui_candidate_filter_all": "全部",
     "ui_candidate_filter_pass": "通过",
-    "ui_candidate_filter_fail": "未通过"
+    "ui_candidate_filter_fail": "未通过",
+    "ui_label_action_valid_until": "动作有效期至"
   }
 }

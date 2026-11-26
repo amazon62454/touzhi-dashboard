@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T16:57:49",
+  "generated_at": "2026-11-26T17:51:37",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T16:57:49",
+        "as_of": "2026-11-26T17:51:37",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "expired",
@@ -2290,16 +2290,6 @@
               },
               {
                 "type": "kv",
-                "label": "年度档",
-                "value": {
-                  "value": "年度档：年度评审释放防守现金（模拟对照，未改现行SOP）",
-                  "format": "text"
-                },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "kv",
                 "label": "回补状态",
                 "value": {
                   "value": "无已执行减仓，回补不启动",
@@ -3440,7 +3430,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T16:57:49",
+        "as_of": "2026-11-26T17:51:37",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6739,7 +6729,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T16:57:49",
+        "as_of": "2026-11-26T17:51:37",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -18013,7 +18003,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T16:57:49",
+        "as_of": "2026-11-26T17:51:37",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -21557,7 +21547,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T16:57:49",
+    "generated_at": "2026-11-26T17:51:37",
     "projection_id": "wf_b2b59313abbd31c4",
     "visual": {
       "title": "操作流程总览",

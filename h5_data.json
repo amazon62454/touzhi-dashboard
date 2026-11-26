@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T10:29:45",
+  "generated_at": "2026-11-26T10:30:52",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -356,14 +356,14 @@
     "band_daily": {
       "band": "band_daily",
       "title": "每日档 · 风控监控",
-      "summary": "今天无需操作",
+      "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:29:45",
+        "as_of": "2026-11-26T10:30:52",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
-        "state": "no_action",
-        "headline": "今天无需操作",
+        "state": "expired",
+        "headline": "本次动作已失效，不执行；等待重新评估",
         "data_complete": true,
         "actions": [],
         "blocked": [],
@@ -2079,7 +2079,7 @@
         "action_view": {
           "engine_contract": "h5_band_action_v1",
           "complete": true,
-          "headline": "今天无需操作",
+          "headline": "本次动作已失效，不执行；等待重新评估",
           "note": "",
           "pending_title": "当前限制与阻断项",
           "pending_items": []
@@ -2105,25 +2105,24 @@
         "header": {
           "title": "每日档 · 风控监控",
           "base_date": "2026-11-25",
-          "state_label": "无需操作",
+          "state_label": "本期动作已失效",
           "state_kind": "muted",
           "run_notice": "",
-          "legend": "",
-          "time_rows": []
+          "legend": "时间说明：数据基准日＝本次结果所用数据的截止日；结果展示至＝下次评估发布后自动替换。",
+          "time_rows": [
+            {
+              "type": "kv",
+              "label": "结果展示至（下次评估时更新）",
+              "value": {
+                "value": "2026-11-27T03:30:00",
+                "format": "datetime"
+              },
+              "tone": "",
+              "note": ""
+            }
+          ]
         },
         "sections": [
-          {
-            "type": "card",
-            "title": "本期行动结论",
-            "kind": "accent",
-            "children": [
-              {
-                "type": "text",
-                "text": "今天无需操作",
-                "style": "decision-main"
-              }
-            ]
-          },
           {
             "type": "card",
             "title": "本档操作流程",
@@ -3368,7 +3367,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:29:45",
+        "as_of": "2026-11-26T10:30:52",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6667,7 +6666,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:29:45",
+        "as_of": "2026-11-26T10:30:52",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -17353,7 +17352,7 @@
                       {
                         "type": "parameter_node",
                         "title": "每日｜独立风控",
-                        "state_label": "正式数据已生成",
+                        "state_label": "已失效",
                         "children": [
                           {
                             "type": "text",
@@ -17497,7 +17496,7 @@
                                   "format": "text"
                                 },
                                 {
-                                  "value": "正式数据已生成",
+                                  "value": "已失效",
                                   "format": "text"
                                 },
                                 {
@@ -17744,7 +17743,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "正式数据已生成",
+                              "value": "已失效",
                               "format": "text"
                             },
                             {
@@ -17914,7 +17913,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:29:45",
+        "as_of": "2026-11-26T10:30:52",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -21431,7 +21430,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T10:29:45",
+    "generated_at": "2026-11-26T10:30:52",
     "projection_id": "wf_b2b59313abbd31c4",
     "visual": {
       "title": "操作流程总览",
@@ -22021,8 +22020,8 @@
         "id": "daily",
         "title": "每日｜独立风控",
         "trigger": "工作日；高层档日合并",
-        "state": "ready",
-        "state_label": "正式数据已生成",
+        "state": "blocked",
+        "state_label": "已失效",
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-25",
         "review_date": "2026-11-26",
@@ -22070,7 +22069,7 @@
           },
           {
             "label": "风控放行状态",
-            "value": "正式数据已生成",
+            "value": "已失效",
             "source": "每日控制链"
           }
         ],
@@ -22164,7 +22163,7 @@
         "target": "execution",
         "label": "风控控制信号",
         "status": "control",
-        "actual": "正式数据已生成",
+        "actual": "已失效",
         "guidance": "风控优先于实际动作。",
         "status_label": "独立控制"
       },

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T16:41:18",
+  "generated_at": "2026-11-26T16:41:36",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T16:41:18",
+        "as_of": "2026-11-26T16:41:36",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "expired",
@@ -375,11 +375,11 @@
         "valid_until": "2026-11-26T10:30:00",
         "next_review_at": "2026-11-27T03:30:00",
         "result_visible_until": "2026-11-27T03:30:00",
-        "result_effective_from": "2026-11-26T10:54:20",
+        "result_effective_from": "2026-11-26T16:41:28",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-25",
-      "generated_at": "2026-11-26T10:54:20",
+      "generated_at": "2026-11-26T16:41:28",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -426,6 +426,21 @@
           }
         },
         {
+          "fund_code": "012544",
+          "fund_name": "嘉实中证新能源汽车指数C",
+          "action": "观察",
+          "amount": null,
+          "reason": "规模风险：规模预警⚠️",
+          "params": {
+            "scale_status": "规模预警⚠️",
+            "valuation_pct": 4.71,
+            "market_value": 1281.71,
+            "cost": 1466.74,
+            "profit_rate": -12.62,
+            "current_amount": 40.0
+          }
+        },
+        {
           "fund_code": "010340",
           "fund_name": "易方达高质量严选三年持有",
           "action": "持有",
@@ -452,21 +467,6 @@
             "market_value": 1143.94,
             "cost": 1360.7,
             "current_amount": 0.0
-          }
-        },
-        {
-          "fund_code": "012544",
-          "fund_name": "嘉实中证新能源汽车指数C",
-          "action": "持有",
-          "amount": null,
-          "reason": "未触发需处理的风控条件",
-          "params": {
-            "profit_rate": -12.62,
-            "drawdown": null,
-            "valuation_pct": 4.71,
-            "market_value": 1281.71,
-            "cost": 1466.74,
-            "current_amount": 40.0
           }
         },
         {
@@ -573,8 +573,8 @@
             "erp_amount": 177,
             "detail": "行业卫星；ERP按当期排名",
             "fund_codes": [
-              "017140",
               "012544",
+              "017140",
               "024328"
             ],
             "reduce": {
@@ -730,9 +730,9 @@
             ]
           },
           {
-            "fund_code": "017140",
-            "fund_name": "华宝中证有色金属ETF联接A",
-            "display_name": "03. 华宝中证有色金属ETF联接A",
+            "fund_code": "012544",
+            "fund_name": "嘉实中证新能源汽车指数C",
+            "display_name": "03. 嘉实中证新能源汽车指数C",
             "serial_no": 3,
             "role": "satellite",
             "role_label": "卫星",
@@ -750,23 +750,23 @@
             ]
           },
           {
-            "fund_code": "012544",
-            "fund_name": "嘉实中证新能源汽车指数C",
-            "display_name": "04. 嘉实中证新能源汽车指数C",
+            "fund_code": "017140",
+            "fund_name": "华宝中证有色金属ETF联接A",
+            "display_name": "04. 华宝中证有色金属ETF联接A",
             "serial_no": 4,
             "role": "satellite",
             "role_label": "卫星",
             "role_order": 20,
             "reduce": {
               "amount": 0.0,
-              "decision": "持有",
-              "display": "持有·不减仓",
+              "decision": "观察",
+              "display": "观察·不减仓",
               "compact_display": "0",
               "tone": "muted",
-              "reason": "未触发需处理的风控条件"
+              "reason": "规模风险：规模预警⚠️"
             },
             "detail_lines": [
-              "持有｜未触发需处理的风控条件"
+              "观察｜规模风险：规模预警⚠️"
             ]
           },
           {
@@ -944,21 +944,6 @@
           }
         },
         {
-          "fund_code": "012544",
-          "fund_name": "嘉实中证新能源汽车指数C",
-          "action": "持有",
-          "amount": null,
-          "reason": "未触发需处理的风控条件",
-          "params": {
-            "profit_rate": -12.62,
-            "drawdown": null,
-            "valuation_pct": 4.71,
-            "market_value": 1281.71,
-            "cost": 1466.74,
-            "current_amount": 40.0
-          }
-        },
-        {
           "fund_code": "024328",
           "fund_name": "易方达恒生港股通创新药ETF联接A",
           "action": "持有",
@@ -1116,19 +1101,19 @@
       ],
       "allocation": {
         "amounts": {
-          "债券": 12831.18,
-          "黄金": 1143.94,
+          "现金": 322.16,
           "权益": 5819.799999999999,
+          "黄金": 1143.94,
           "养老FOF": 1166.58,
-          "现金": 322.16
+          "债券": 12831.18
         },
         "total": 21283.66,
         "weights": {
-          "债券": 60.29,
-          "黄金": 5.37,
+          "现金": 1.51,
           "权益": 27.34,
+          "黄金": 5.37,
           "养老FOF": 5.48,
-          "现金": 1.51
+          "债券": 60.29
         }
       },
       "asset_allocation": {
@@ -1474,7 +1459,15 @@
           "allocations": []
         },
         "action_text": "",
-        "data_missing": false
+        "data_missing": false,
+        "refill_mode_key": "batch",
+        "refill_mode_text": "渐进回补（30/30/40 %）",
+        "refill_annual_text": "年度档：年度评审释放防守现金（模拟对照，未改现行SOP）",
+        "refill_status_key": "no_base",
+        "refill_status_text": "无已执行减仓，回补不启动",
+        "refill_batches": [],
+        "refill_record_text": "暂无回补批次",
+        "refill_trend_stable": true
       },
       "execution_plan": null,
       "amount_groups": {
@@ -1642,7 +1635,7 @@
           {
             "name": "组合回撤红线",
             "status": "🟢",
-            "detail": "当前回撤-4.0%,未触回撤红线(15.0%);回撤解除需回升至高点95%以上 | 回撤已解除(≥95.0%),待回撤<10.0%且趋势企稳后启动回补(批次30/30/40 %),再触红线即停",
+            "detail": "当前回撤-4.0%,未触回撤红线(15.0%);回撤解除需回升至高点95%以上 | 无已执行减仓，回补不启动",
             "metrics": [
               {
                 "label": "当前回撤",
@@ -2112,7 +2105,7 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_daily|2026-11-25|2026-11-26|2026-11-25#R1#live",
+      "source_file": "band_daily|2026-11-25|2026-11-25|2026-11-25#R1#live",
       "display": {
         "header": {
           "title": "每日档 · 风控监控",
@@ -2309,7 +2302,7 @@
                 "type": "kv",
                 "label": "回补状态",
                 "value": {
-                  "value": "按现行规则执行（详见SOP第八十三条）",
+                  "value": "无已执行减仓，回补不启动",
                   "format": "text"
                 },
                 "tone": "pos",
@@ -2416,10 +2409,10 @@
                     "detail": "行业卫星；ERP按当期排名",
                     "rows": [
                       {
-                        "fund_code": "017140",
-                        "fund_name": "03. 华宝中证有色金属ETF联接A",
+                        "fund_code": "012544",
+                        "fund_name": "03. 嘉实中证新能源汽车指数C",
                         "role_label": "卫星",
-                        "holding_amount": 280.23,
+                        "holding_amount": 1281.71,
                         "reduce": {
                           "amount": 0.0,
                           "decision": "观察",
@@ -2431,19 +2424,19 @@
                         "detail": "观察｜规模风险：规模预警⚠️"
                       },
                       {
-                        "fund_code": "012544",
-                        "fund_name": "04. 嘉实中证新能源汽车指数C",
+                        "fund_code": "017140",
+                        "fund_name": "04. 华宝中证有色金属ETF联接A",
                         "role_label": "卫星",
-                        "holding_amount": 1281.71,
+                        "holding_amount": 280.23,
                         "reduce": {
                           "amount": 0.0,
-                          "decision": "持有",
-                          "display": "持有·不减仓",
+                          "decision": "观察",
+                          "display": "观察·不减仓",
                           "compact_display": "0",
                           "tone": "muted",
-                          "reason": "未触发需处理的风控条件"
+                          "reason": "规模风险：规模预警⚠️"
                         },
-                        "detail": "持有｜未触发需处理的风控条件"
+                        "detail": "观察｜规模风险：规模预警⚠️"
                       },
                       {
                         "fund_code": "024328",
@@ -2847,7 +2840,7 @@
                         "name": "组合回撤红线",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "当前回撤-4.0%,未触回撤红线(15.0%);回撤解除需回升至高点95%以上 | 回撤已解除(≥95.0%),待回撤<10.0%且趋势企稳后启动回补(批次30/30/40 %),再触红线即停",
+                        "detail": "当前回撤-4.0%,未触回撤红线(15.0%);回撤解除需回升至高点95%以上 | 无已执行减仓，回补不启动",
                         "metrics": [
                           {
                             "label": "当前回撤",
@@ -3447,7 +3440,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T16:41:18",
+        "as_of": "2026-11-26T16:41:36",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6746,7 +6739,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T16:41:18",
+        "as_of": "2026-11-26T16:41:36",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -18020,7 +18013,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T16:41:18",
+        "as_of": "2026-11-26T16:41:36",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -21564,7 +21557,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T16:41:18",
+    "generated_at": "2026-11-26T16:41:36",
     "projection_id": "wf_b2b59313abbd31c4",
     "visual": {
       "title": "操作流程总览",
@@ -22158,8 +22151,8 @@
         "state_label": "已失效",
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-25",
-        "review_date": "2026-11-26",
-        "generated_at": "2026-11-26T10:54:20",
+        "review_date": "2026-11-25",
+        "generated_at": "2026-11-26T16:41:28",
         "inputs": [
           {
             "label": "风控数据基准",

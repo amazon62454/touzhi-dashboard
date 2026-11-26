@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T20:25:43",
+  "generated_at": "2026-11-26T20:30:14",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:25:43",
+        "as_of": "2026-11-26T20:30:14",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "expired",
@@ -375,11 +375,11 @@
         "valid_until": "2026-11-26T10:30:00",
         "next_review_at": "2026-11-27T03:30:00",
         "result_visible_until": "2026-11-27T03:30:00",
-        "result_effective_from": "2026-11-26T20:04:27",
+        "result_effective_from": "2026-11-26T20:29:29",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-25",
-      "generated_at": "2026-11-26T20:04:27",
+      "generated_at": "2026-11-26T20:29:29",
       "run_kind": "parameter_reanchor",
       "items": [
         {
@@ -1102,19 +1102,19 @@
       ],
       "allocation": {
         "amounts": {
-          "债券": 12831.18,
-          "养老FOF": 1166.58,
-          "黄金": 1143.94,
           "现金": 322.16,
-          "权益": 5819.799999999999
+          "养老FOF": 1166.58,
+          "债券": 12831.18,
+          "权益": 5819.799999999999,
+          "黄金": 1143.94
         },
         "total": 21283.66,
         "weights": {
-          "债券": 60.29,
-          "养老FOF": 5.48,
-          "黄金": 5.37,
           "现金": 1.51,
-          "权益": 27.34
+          "养老FOF": 5.48,
+          "债券": 60.29,
+          "权益": 27.34,
+          "黄金": 5.37
         }
       },
       "asset_allocation": {
@@ -1225,7 +1225,7 @@
           "period_end": "2026-12-31",
           "erp_state": "high",
           "source_run_id": null,
-          "locked_at": "2026-11-26T19:54:07"
+          "locked_at": "2026-11-26T20:26:24"
         },
         "partial_actual_amount": null
       },
@@ -1380,12 +1380,12 @@
         "core_lock": {
           "period_start": "2026-10-01",
           "period_end": "2026-12-31",
-          "locked_at": "2026-11-26T19:54:07"
+          "locked_at": "2026-11-26T20:26:24"
         },
         "satellite_lock": {
           "period_start": "2026-11-20",
           "period_end": "2026-12-19",
-          "locked_at": "2026-11-26T19:57:55"
+          "locked_at": "2026-11-26T20:28:26"
         },
         "debt_funds": [
           {
@@ -3432,7 +3432,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:25:43",
+        "as_of": "2026-11-26T20:30:14",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -3585,11 +3585,11 @@
         "valid_until": "2026-11-23T08:00:00",
         "next_review_at": "2026-11-29T03:30:00",
         "result_visible_until": "2026-11-29T03:30:00",
-        "result_effective_from": "2026-11-26T20:04:25",
+        "result_effective_from": "2026-11-26T20:29:28",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-26T20:04:25",
+      "generated_at": "2026-11-26T20:29:28",
       "run_kind": "parameter_reanchor",
       "items": [
         {
@@ -4500,19 +4500,19 @@
       ],
       "allocation": {
         "amounts": {
-          "权益": 5819.799999999999,
-          "黄金": 1143.94,
-          "养老FOF": 1166.58,
           "债券": 12831.18,
-          "现金": 322.16
+          "黄金": 1143.94,
+          "现金": 322.16,
+          "养老FOF": 1166.58,
+          "权益": 5819.799999999999
         },
         "total": 21283.66,
         "weights": {
-          "权益": 27.34,
-          "黄金": 5.37,
-          "养老FOF": 5.48,
           "债券": 60.29,
-          "现金": 1.51
+          "黄金": 5.37,
+          "现金": 1.51,
+          "养老FOF": 5.48,
+          "权益": 27.34
         }
       },
       "asset_allocation": {
@@ -4623,7 +4623,7 @@
           "period_end": "2026-12-31",
           "erp_state": "high",
           "source_run_id": null,
-          "locked_at": "2026-11-26T19:54:07"
+          "locked_at": "2026-11-26T20:26:24"
         },
         "partial_actual_amount": null
       },
@@ -4778,12 +4778,12 @@
         "core_lock": {
           "period_start": "2026-10-01",
           "period_end": "2026-12-31",
-          "locked_at": "2026-11-26T19:54:07"
+          "locked_at": "2026-11-26T20:26:24"
         },
         "satellite_lock": {
           "period_start": "2026-11-20",
           "period_end": "2026-12-19",
-          "locked_at": "2026-11-26T19:57:55"
+          "locked_at": "2026-11-26T20:28:26"
         },
         "debt_funds": [
           {
@@ -6751,7 +6751,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:25:43",
+        "as_of": "2026-11-26T20:30:14",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -6762,11 +6762,11 @@
         "expired": [],
         "next_review_at": "2026-12-20T03:30:00",
         "result_visible_until": "2026-12-20T03:30:00",
-        "result_effective_from": "2026-11-26T19:57:55",
+        "result_effective_from": "2026-11-26T20:28:26",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-26T19:57:55",
+      "generated_at": "2026-11-26T20:28:26",
       "run_kind": "parameter_reanchor",
       "items": [
         {
@@ -7691,19 +7691,19 @@
       ],
       "allocation": {
         "amounts": {
-          "养老FOF": 1166.58,
-          "黄金": 1143.94,
           "权益": 5819.799999999999,
           "现金": 322.16,
-          "债券": 12831.18
+          "黄金": 1143.94,
+          "债券": 12831.18,
+          "养老FOF": 1166.58
         },
         "total": 21283.66,
         "weights": {
-          "养老FOF": 5.48,
-          "黄金": 5.37,
           "权益": 27.34,
           "现金": 1.51,
-          "债券": 60.29
+          "黄金": 5.37,
+          "债券": 60.29,
+          "养老FOF": 5.48
         }
       },
       "asset_allocation": {
@@ -8023,7 +8023,7 @@
         "core_lock": {
           "period_start": "2026-10-01",
           "period_end": "2026-12-31",
-          "locked_at": "2026-11-26T19:54:07"
+          "locked_at": "2026-11-26T20:26:24"
         },
         "lock_written": true,
         "preview_only": false,
@@ -14244,7 +14244,7 @@
           "candidate_fee_refresh": {
             "band": "band_monthly",
             "attempted": 5,
-            "written": 1,
+            "written": 0,
             "failures": [
               {
                 "fund_code": "007300",
@@ -14253,6 +14253,10 @@
               {
                 "fund_code": "005693",
                 "error": "问财未返回目标基金代码:005693"
+              },
+              {
+                "fund_code": "110026",
+                "error": "问财未返回目标基金代码:110026"
               },
               {
                 "fund_code": "009881",
@@ -17788,7 +17792,7 @@
                       {
                         "type": "parameter_node",
                         "title": "月度｜预算与卫星锁",
-                        "state_label": "正式评估缺数未完成",
+                        "state_label": "正式数据已生成",
                         "children": [
                           {
                             "type": "text",
@@ -18252,7 +18256,7 @@
                       {
                         "type": "parameter_node",
                         "title": "台账反馈｜下次评估输入",
-                        "state_label": "正式评估缺数未完成",
+                        "state_label": "正式数据已生成",
                         "children": [
                           {
                             "type": "text",
@@ -18359,7 +18363,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "未接线",
+                              "value": "已接线",
                               "format": "text"
                             },
                             {
@@ -18367,7 +18371,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "锁或完成证据缺失。",
+                              "value": "已接线：季度写、月度读。",
                               "format": "text"
                             }
                           ],
@@ -18377,15 +18381,15 @@
                               "format": "text"
                             },
                             {
-                              "value": "同基准重算",
+                              "value": "已接线",
                               "format": "text"
                             },
                             {
-                              "value": "暂无quarter_allocation_lock",
+                              "value": "2026-10-01（high）",
                               "format": "text"
                             },
                             {
-                              "value": "同基准重算，不是独立锚锁；不得误标已传递。",
+                              "value": "已接线：季度写独立锚，月度/周日只读。",
                               "format": "text"
                             }
                           ],
@@ -18395,7 +18399,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "未接线",
+                              "value": "已接线",
                               "format": "text"
                             },
                             {
@@ -18403,7 +18407,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "预算锁或完成证据缺失。",
+                              "value": "已接线：周日只读本周期预算锁。",
                               "format": "text"
                             }
                           ],
@@ -18413,7 +18417,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "未接线",
+                              "value": "已接线",
                               "format": "text"
                             },
                             {
@@ -18421,7 +18425,7 @@
                               "format": "text"
                             },
                             {
-                              "value": "卫星锁或完成证据缺失。",
+                              "value": "已接线：月度写、周日读。",
                               "format": "text"
                             }
                           ],
@@ -18650,7 +18654,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:25:43",
+        "as_of": "2026-11-26T20:30:14",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -18661,11 +18665,11 @@
         "expired": [],
         "next_review_at": "2026-12-20T03:30:00",
         "result_visible_until": "2026-12-20T03:30:00",
-        "result_effective_from": "2026-11-26T19:54:07",
+        "result_effective_from": "2026-11-26T20:26:24",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-26T19:54:07",
+      "generated_at": "2026-11-26T20:26:24",
       "run_kind": "parameter_reanchor",
       "items": [
         {
@@ -19261,7 +19265,7 @@
             "review_reason_display": "趋势待补、未高估、趋势未破、资金未撤离、置换不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评审（复核23次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：待评审（复核25次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
@@ -19300,7 +19304,7 @@
             "review_reason_display": "趋势待补、情绪待补、未高估、趋势未破、资金未撤离、四维未全优、置换不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评审（复核20次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：待评审（复核22次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
@@ -19339,7 +19343,7 @@
             "review_reason_display": "趋势待补、未高估、趋势未破、资金未撤离、置换不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评审（复核4次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：待评审（复核6次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
@@ -19378,7 +19382,7 @@
             "review_reason_display": "趋势待补、未高估、趋势未破、资金未撤离、置换不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评审（复核23次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：待评审（复核25次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
@@ -19417,7 +19421,7 @@
             "review_reason_display": "趋势待补、未高估、趋势未破、资金未撤离、置换不成立",
             "detail_lines": [
               "候选池待复核，暂不纳入",
-              "生命周期：待评审（复核23次；本周评审；未通过下次复核2026-12-20）"
+              "生命周期：待评审（复核25次；本周评审；未通过下次复核2026-12-20）"
             ],
             "basis_lines": [
               "估值更便宜，但仍须评分、规模、费率四项全面优于现有持仓；未齐前不得置换；四确认未闭环(缺:估值高估、资金撤离),不转仓",
@@ -19666,19 +19670,19 @@
       ],
       "allocation": {
         "amounts": {
-          "现金": 322.16,
           "养老FOF": 1166.58,
           "黄金": 1143.94,
-          "权益": 5819.799999999999,
-          "债券": 12831.18
+          "现金": 322.16,
+          "债券": 12831.18,
+          "权益": 5819.799999999999
         },
         "total": 21283.66,
         "weights": {
-          "现金": 1.51,
           "养老FOF": 5.48,
           "黄金": 5.37,
-          "权益": 27.34,
-          "债券": 60.29
+          "现金": 1.51,
+          "债券": 60.29,
+          "权益": 27.34
         }
       },
       "asset_allocation": {
@@ -20353,7 +20357,7 @@
             "engine_contract": "quarter_monthly_receipt_v1",
             "source_contract": "quarter_conclusion_v1",
             "source_review_date": "2026-11-20",
-            "source_generated_at": "2026-11-26T19:54:07",
+            "source_generated_at": "2026-11-26T20:26:24",
             "received": true,
             "status": "received",
             "summary": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。",
@@ -20364,7 +20368,7 @@
               "exit_reviews_reused": true,
               "review_period_match": true
             },
-            "received_at": "2026-11-26T19:57:55"
+            "received_at": "2026-11-26T20:28:26"
           },
           "headline": "本季度受限结论：维持现有配置，缺项继续补证",
           "note": "财通景气甄选一年持有C、信澳匠心臻选两年持有已完成评估，下次复核2026-12-20；持有期到期日另按台账锁定日期",
@@ -20453,10 +20457,66 @@
         "scale_refresh": {
           "band": "band_quarter",
           "attempted": 11,
-          "written": 11,
+          "written": 0,
           "reused": 0,
           "missing": [],
-          "failures": [],
+          "failures": [
+            {
+              "fund_code": "017491",
+              "error": "问财未返回目标基金代码:017491",
+              "fund_name": "财通景气甄选一年持有C"
+            },
+            {
+              "fund_code": "010363",
+              "error": "问财未返回目标基金代码:010363",
+              "fund_name": "信澳匠心臻选两年持有"
+            },
+            {
+              "fund_code": "024328",
+              "error": "问财未返回目标基金代码:024328",
+              "fund_name": "易方达恒生港股通创新药ETF联接A"
+            },
+            {
+              "fund_code": "010340",
+              "error": "问财未返回目标基金代码:010340",
+              "fund_name": "易方达高质量严选三年持有"
+            },
+            {
+              "fund_code": "010267",
+              "error": "问财未返回目标基金代码:010267",
+              "fund_name": "兴全安泰积极养老目标五年FOF A"
+            },
+            {
+              "fund_code": "017140",
+              "error": "问财未返回目标基金代码:017140",
+              "fund_name": "华宝中证有色金属ETF联接A"
+            },
+            {
+              "fund_code": "012544",
+              "error": "问财未返回目标基金代码:012544",
+              "fund_name": "嘉实中证新能源汽车指数C"
+            },
+            {
+              "fund_code": "004253",
+              "error": "问财未返回目标基金代码:004253",
+              "fund_name": "国泰黄金ETF联接C"
+            },
+            {
+              "fund_code": "009290",
+              "error": "问财未返回目标基金代码:009290",
+              "fund_name": "富国添享一年持有债券A"
+            },
+            {
+              "fund_code": "000051",
+              "error": "问财未返回目标基金代码:000051",
+              "fund_name": "华夏沪深300ETF联接A"
+            },
+            {
+              "fund_code": "160119",
+              "error": "问财未返回目标基金代码:160119",
+              "fund_name": "南方中证500ETF联接(LOF)A"
+            }
+          ],
           "run_mode": "live",
           "status": "complete"
         },
@@ -22515,15 +22575,15 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T20:25:43",
-    "projection_id": "wf_f6c01eb4a601ec28",
+    "generated_at": "2026-11-26T20:30:14",
+    "projection_id": "wf_7ffd68519efea2ed",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
       "action_branches": [],
       "current_step": "execution",
       "current_text": "① 定投流程·本人真实账户执行",
-      "completed_formal_bands": 3,
+      "completed_formal_bands": 4,
       "next_action": "2026-11-23按106元计划执行，完成后回传实际扣款。",
       "missing": [
         "本轮无加仓指令",
@@ -22900,7 +22960,7 @@
               "engine_contract": "quarter_monthly_receipt_v1",
               "source_contract": "quarter_conclusion_v1",
               "source_review_date": "2026-11-20",
-              "source_generated_at": "2026-11-26T19:54:07",
+              "source_generated_at": "2026-11-26T20:26:24",
               "received": true,
               "status": "received",
               "summary": "月度已接收受限结论：核心比例59.69%；2项退出复核结果复用；月度仅安排新增资金，不机械置换存量。",
@@ -22911,7 +22971,7 @@
                 "exit_reviews_reused": true,
                 "review_period_match": true
               },
-              "received_at": "2026-11-26T19:57:55"
+              "received_at": "2026-11-26T20:28:26"
             },
             "headline": "本季度受限结论：维持现有配置，缺项继续补证",
             "note": "财通景气甄选一年持有C、信澳匠心臻选两年持有已完成评估，下次复核2026-12-20；持有期到期日另按台账锁定日期",
@@ -22975,7 +23035,7 @@
         "detail": "先制定存量配置；不读取同日月度才生成的预算锁。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-26T19:54:07",
+        "generated_at": "2026-11-26T20:26:24",
         "inputs": [
           {
             "label": "市场数据基准",
@@ -23010,12 +23070,12 @@
         "id": "monthly",
         "title": "月度｜预算与卫星锁",
         "trigger": "每月20日，季度之后",
-        "state": "blocked",
-        "state_label": "正式评估缺数未完成",
+        "state": "ready",
+        "state_label": "正式数据已生成",
         "detail": "本月新钱按锁分配；月度失败时周日不得用旧锁冒充。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-26T19:57:55",
+        "generated_at": "2026-11-26T20:28:26",
         "inputs": [
           {
             "label": "季度核心锁",
@@ -23060,7 +23120,7 @@
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-26T20:04:25",
+        "generated_at": "2026-11-26T20:29:28",
         "inputs": [
           {
             "label": "周期预算锁",
@@ -23110,7 +23170,7 @@
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-25",
         "review_date": "2026-11-25",
-        "generated_at": "2026-11-26T20:04:27",
+        "generated_at": "2026-11-26T20:29:29",
         "inputs": [
           {
             "label": "风控数据基准",
@@ -23145,7 +23205,7 @@
         "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-26T20:04:25",
+        "generated_at": "2026-11-26T20:29:28",
         "inputs": [
           {
             "label": "可执行计划",
@@ -23170,12 +23230,12 @@
         "id": "ledger",
         "title": "台账反馈｜下次评估输入",
         "trigger": "执行后回传并核对",
-        "state": "blocked",
-        "state_label": "正式评估缺数未完成",
+        "state": "ready",
+        "state_label": "正式数据已生成",
         "detail": "真实执行结果回到台账，后续评估使用新事实；不是引擎假定计划已成交。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-26T19:57:55",
+        "generated_at": "2026-11-26T20:28:26",
         "inputs": [
           {
             "label": "最新持仓快照日",
@@ -23202,37 +23262,37 @@
         "source": "quarter",
         "target": "monthly",
         "label": "核心比例与核心锁",
-        "status": "missing",
+        "status": "wired",
         "actual": "2026-10-01 → 2026-12-31",
-        "guidance": "锁或完成证据缺失。",
-        "status_label": "未接线"
+        "guidance": "已接线：季度写、月度读。",
+        "status_label": "已接线"
       },
       {
         "source": "quarter",
         "target": "monthly",
         "label": "四资产目标",
-        "status": "derived",
-        "actual": "暂无quarter_allocation_lock",
-        "guidance": "同基准重算，不是独立锚锁；不得误标已传递。",
-        "status_label": "同基准重算"
+        "status": "wired",
+        "actual": "2026-10-01（high）",
+        "guidance": "已接线：季度写独立锚，月度/周日只读。",
+        "status_label": "已接线"
       },
       {
         "source": "monthly",
         "target": "weekly",
         "label": "周期预算锁",
-        "status": "missing",
+        "status": "wired",
         "actual": "2026-11-20",
-        "guidance": "预算锁或完成证据缺失。",
-        "status_label": "未接线"
+        "guidance": "已接线：周日只读本周期预算锁。",
+        "status_label": "已接线"
       },
       {
         "source": "monthly",
         "target": "weekly",
         "label": "卫星结构锁",
-        "status": "missing",
+        "status": "wired",
         "actual": "2026-11-20 → 2026-12-19",
-        "guidance": "卫星锁或完成证据缺失。",
-        "status_label": "未接线"
+        "guidance": "已接线：月度写、周日读。",
+        "status_label": "已接线"
       },
       {
         "source": "weekly",
@@ -23307,13 +23367,13 @@
     "summary": {
       "formal_band_count": 4,
       "edge_counts": {
-        "wired": 0,
-        "derived": 1,
+        "wired": 4,
+        "derived": 0,
         "none": 1,
         "control": 1,
         "manual": 2,
         "feedback": 1,
-        "missing": 3
+        "missing": 0
       },
       "guidance": "点击各档查看真实输入、输出、锁周期和去向；颜色只表示链路类型，不表示买卖建议。"
     }

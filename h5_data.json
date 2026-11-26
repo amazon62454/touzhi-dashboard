@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T18:42:31",
+  "generated_at": "2026-11-26T18:43:37",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T18:42:31",
+        "as_of": "2026-11-26T18:43:37",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "expired",
@@ -2096,10 +2096,10 @@
         "impact": {
           "label": "高估",
           "threshold": 70.0,
-          "equity_target": 31.11,
-          "equity_base": 44.44,
+          "equity_target": 25.0,
+          "equity_base": 35.0,
           "gold_target": 10.0,
-          "debt_target": 48.89
+          "debt_target": 55.0
         },
         "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → 四资产ERP {label}态（权益/债券调整，黄金与现金保持战略锚）",
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
@@ -3430,7 +3430,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T18:42:31",
+        "as_of": "2026-11-26T18:43:37",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6533,10 +6533,10 @@
         "impact": {
           "label": "高估",
           "threshold": 70.0,
-          "equity_target": 31.11,
-          "equity_base": 44.44,
+          "equity_target": 25.0,
+          "equity_base": 35.0,
           "gold_target": 10.0,
-          "debt_target": 48.89
+          "debt_target": 55.0
         },
         "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → 四资产ERP {label}态（权益/债券调整，黄金与现金保持战略锚）",
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
@@ -6729,7 +6729,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T18:42:31",
+        "as_of": "2026-11-26T18:43:37",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -14631,10 +14631,10 @@
         "impact": {
           "label": "高估",
           "threshold": 70.0,
-          "equity_target": 31.11,
-          "equity_base": 44.44,
+          "equity_target": 25.0,
+          "equity_base": 35.0,
           "gold_target": 10.0,
-          "debt_target": 48.89
+          "debt_target": 55.0
         },
         "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → 四资产ERP {label}态（权益/债券调整，黄金与现金保持战略锚）",
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
@@ -17242,7 +17242,7 @@
                                   "format": "text"
                                 },
                                 {
-                                  "value": "560.00元/880.00元/180.00元/180.00元",
+                                  "value": "450.00元/990.00元/180.00元/180.00元",
                                   "format": "text"
                                 },
                                 {
@@ -17876,7 +17876,7 @@
                     "type": "kv",
                     "label": "锁定四资产月预算",
                     "value": {
-                      "value": "月总预算1800.00元；权益560.00元/债券880.00元/黄金180.00元/现金180.00元。",
+                      "value": "月总预算1800.00元；权益450.00元/债券990.00元/黄金180.00元/现金180.00元。",
                       "format": "text"
                     },
                     "tone": "",
@@ -17926,7 +17926,7 @@
                     "type": "kv",
                     "label": "新钱与持有期复核",
                     "value": {
-                      "value": "新周期2026-11-20→2026-12-19；权益560.00元/债券880.00元/黄金180.00元/现金180.00元；最近解锁：财通景气甄选一年持有C（2027-06-25）。",
+                      "value": "新周期2026-11-20→2026-12-19；权益450.00元/债券990.00元/黄金180.00元/现金180.00元；最近解锁：财通景气甄选一年持有C（2027-06-25）。",
                       "format": "text"
                     },
                     "tone": "",
@@ -18003,7 +18003,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T18:42:31",
+        "as_of": "2026-11-26T18:43:37",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -20372,10 +20372,10 @@
         "impact": {
           "label": "高估",
           "threshold": 70.0,
-          "equity_target": 31.11,
-          "equity_base": 44.44,
+          "equity_target": 25.0,
+          "equity_base": 35.0,
           "gold_target": 10.0,
-          "debt_target": 48.89
+          "debt_target": 55.0
         },
         "template": "沪深300 PE 5年分位 {pct} {cmp} 阈值 {th}% → 四资产ERP {label}态（权益/债券调整，黄金与现金保持战略锚）",
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
@@ -21547,8 +21547,8 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T18:42:31",
-    "projection_id": "wf_b2b59313abbd31c4",
+    "generated_at": "2026-11-26T18:43:37",
+    "projection_id": "wf_2276debf8ddf018d",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -21844,7 +21844,7 @@
             {
               "name": "锁定四资产月预算",
               "status": "done",
-              "detail": "月总预算1800.00元；权益560.00元/债券880.00元/黄金180.00元/现金180.00元。"
+              "detail": "月总预算1800.00元；权益450.00元/债券990.00元/黄金180.00元/现金180.00元。"
             },
             {
               "name": "全市场扫描与候选池复核",
@@ -21890,7 +21890,7 @@
             {
               "name": "新钱与持有期复核",
               "status": "done",
-              "detail": "新周期2026-11-20→2026-12-19；权益560.00元/债券880.00元/黄金180.00元/现金180.00元；最近解锁：财通景气甄选一年持有C（2027-06-25）。"
+              "detail": "新周期2026-11-20→2026-12-19；权益450.00元/债券990.00元/黄金180.00元/现金180.00元；最近解锁：财通景气甄选一年持有C（2027-06-25）。"
             },
             {
               "name": "现金池入账",
@@ -22073,7 +22073,7 @@
           },
           {
             "label": "权益/债券/黄金/现金",
-            "value": "560.00元/880.00元/180.00元/180.00元",
+            "value": "450.00元/990.00元/180.00元/180.00元",
             "source": "月度流量锁"
           },
           {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T20:03:44",
+  "generated_at": "2026-11-26T20:04:49",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:03:44",
+        "as_of": "2026-11-26T20:04:49",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "expired",
@@ -375,11 +375,11 @@
         "valid_until": "2026-11-26T10:30:00",
         "next_review_at": "2026-11-27T03:30:00",
         "result_visible_until": "2026-11-27T03:30:00",
-        "result_effective_from": "2026-11-26T19:59:07",
+        "result_effective_from": "2026-11-26T20:04:27",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-25",
-      "generated_at": "2026-11-26T19:59:07",
+      "generated_at": "2026-11-26T20:04:27",
       "run_kind": "parameter_reanchor",
       "items": [
         {
@@ -552,7 +552,7 @@
             "role": "core",
             "role_label": "核心",
             "fund_count": 2,
-            "erp_amount": 134,
+            "erp_amount": 263,
             "detail": "核心宽基；ERP按季度锁比例",
             "fund_codes": [
               "000051",
@@ -570,7 +570,7 @@
             "role": "satellite",
             "role_label": "卫星",
             "fund_count": 3,
-            "erp_amount": 90,
+            "erp_amount": 177,
             "detail": "行业卫星；ERP按当期排名",
             "fund_codes": [
               "012544",
@@ -623,7 +623,7 @@
             "role": "debt",
             "role_label": "债基",
             "fund_count": 1,
-            "erp_amount": 990,
+            "erp_amount": 880,
             "detail": "债券独立规则",
             "fund_codes": [
               "009290"
@@ -674,7 +674,7 @@
           "label": "全组合总计",
           "fund_count": 11,
           "erp_amount": 1800,
-          "monthly_remaining": 1694,
+          "monthly_remaining": 1800,
           "reduce": {
             "amount": 0.0,
             "display": "0",
@@ -1102,19 +1102,19 @@
       ],
       "allocation": {
         "amounts": {
-          "现金": 322.16,
           "债券": 12831.18,
-          "权益": 5819.799999999999,
           "养老FOF": 1166.58,
-          "黄金": 1143.94
+          "黄金": 1143.94,
+          "现金": 322.16,
+          "权益": 5819.799999999999
         },
         "total": 21283.66,
         "weights": {
-          "现金": 1.51,
           "债券": 60.29,
-          "权益": 27.34,
           "养老FOF": 5.48,
-          "黄金": 5.37
+          "黄金": 5.37,
+          "现金": 1.51,
+          "权益": 27.34
         }
       },
       "asset_allocation": {
@@ -2581,7 +2581,7 @@
                   "label": "全组合总计",
                   "fund_count": 11,
                   "erp_amount": 20961.5,
-                  "monthly_remaining": 1694,
+                  "monthly_remaining": 1800,
                   "reduce": {
                     "amount": 0.0,
                     "display": "0",
@@ -3432,7 +3432,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:03:44",
+        "as_of": "2026-11-26T20:04:49",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -3466,23 +3466,6 @@
             "params": {
               "role": "core",
               "reason_code": "core_locked_ratio"
-            },
-            "planned_execution_date": "2026-11-23",
-            "actual_execution_date": "2026-11-23",
-            "is_postponed": false,
-            "postpone_days": 0,
-            "valid_until": "2026-11-23T08:00:00",
-            "archive_label": "",
-            "invalid_reason": "本次动作已失效，不执行；等待重新评估"
-          },
-          {
-            "fund_code": "009290",
-            "fund_name": "富国添享一年持有债券A",
-            "action": "定投",
-            "reason": "债券低于目标且仍有剩余预算，按日分批",
-            "params": {
-              "role": "debt",
-              "reason_code": "debt_daily_within_target_band"
             },
             "planned_execution_date": "2026-11-23",
             "actual_execution_date": "2026-11-23",
@@ -3576,6 +3559,23 @@
             "valid_until": "2026-11-23T08:00:00",
             "blocked_reason": "黄金信号未通过或目标不缺，额度留现金",
             "invalid_reason": "本次动作已失效，不执行；等待重新评估"
+          },
+          {
+            "fund_code": "009290",
+            "fund_name": "富国添享一年持有债券A",
+            "action": "暂停",
+            "reason": "债券超配或预算不足，本期不新增",
+            "params": {
+              "role": "debt",
+              "reason_code": "debt_over_target_or_no_remaining_budget"
+            },
+            "planned_execution_date": "2026-11-23",
+            "actual_execution_date": "2026-11-23",
+            "is_postponed": false,
+            "postpone_days": 0,
+            "valid_until": "2026-11-23T08:00:00",
+            "blocked_reason": "债券超配或预算不足，本期不新增",
+            "invalid_reason": "本次动作已失效，不执行；等待重新评估"
           }
         ],
         "planned_execution_date": "2026-11-23",
@@ -3585,11 +3585,11 @@
         "valid_until": "2026-11-23T08:00:00",
         "next_review_at": "2026-11-29T03:30:00",
         "result_visible_until": "2026-11-29T03:30:00",
-        "result_effective_from": "2026-11-26T19:59:04",
+        "result_effective_from": "2026-11-26T20:04:25",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-20",
-      "generated_at": "2026-11-26T19:59:04",
+      "generated_at": "2026-11-26T20:04:25",
       "run_kind": "parameter_reanchor",
       "items": [
         {
@@ -3630,7 +3630,7 @@
           "fund_code": "017140",
           "fund_name": "华宝中证有色金属ETF联接A",
           "action": "定投",
-          "amount": 22.0,
+          "amount": 44.0,
           "reason": "估值分位排名第3，按对应档位定投",
           "params": {
             "rank": 3,
@@ -3658,58 +3658,10 @@
           }
         },
         {
-          "fund_code": "009290",
-          "fund_name": "富国添享一年持有债券A",
-          "action": "定投",
-          "amount": 49.0,
-          "reason": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示",
-          "params": {
-            "rebalance": {
-              "erp_state": "high",
-              "erp_label": "高估",
-              "flows": {
-                "equity": 450.0,
-                "debt": 990.0,
-                "gold": 180.0,
-                "cash": 180.0
-              },
-              "monthly_budget": 1800.0,
-              "debt_market": null,
-              "debt_weight": null,
-              "debt_target": null,
-              "start_line": null,
-              "lower_line": null,
-              "active": false,
-              "mode": "p2_pending",
-              "engine_contract": "four_asset_p1c_gate",
-              "daily_reference": null,
-              "rank1_fund_code": null,
-              "target_fund_name": null,
-              "action": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示",
-              "budget_lock": {
-                "period_start": "2026-11-20",
-                "period_end": "2026-12-19",
-                "erp_state": "high",
-                "equity_month": 450.0,
-                "debt_month": 990.0,
-                "gold_month": 180.0,
-                "cash_month": 180.0,
-                "debt_daily_reference": 45.0,
-                "locked": true
-              },
-              "actual_amount_note": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示"
-            },
-            "market_value": 12831.18,
-            "cost": 12947.71,
-            "profit_rate": -0.9,
-            "current_amount": 45.0
-          }
-        },
-        {
           "fund_code": "160119",
           "fund_name": "南方中证500ETF联接(LOF)A",
           "action": "定投",
-          "amount": 16.0,
+          "amount": 32.0,
           "reason": "core_locked_ratio",
           "params": {
             "role": "core",
@@ -3752,6 +3704,54 @@
             "profit_rate": -15.93,
             "current_amount": 0.0
           }
+        },
+        {
+          "fund_code": "009290",
+          "fund_name": "富国添享一年持有债券A",
+          "action": "暂停",
+          "amount": 0.0,
+          "reason": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示",
+          "params": {
+            "rebalance": {
+              "erp_state": "high",
+              "erp_label": "高估",
+              "flows": {
+                "equity": 450.0,
+                "debt": 990.0,
+                "gold": 180.0,
+                "cash": 180.0
+              },
+              "monthly_budget": 1800.0,
+              "debt_market": null,
+              "debt_weight": null,
+              "debt_target": null,
+              "start_line": null,
+              "lower_line": null,
+              "active": false,
+              "mode": "p2_pending",
+              "engine_contract": "four_asset_p1c_gate",
+              "daily_reference": null,
+              "rank1_fund_code": null,
+              "target_fund_name": null,
+              "action": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示",
+              "budget_lock": {
+                "period_start": "2026-11-20",
+                "period_end": "2026-12-19",
+                "erp_state": "high",
+                "equity_month": 450.0,
+                "debt_month": 990.0,
+                "gold_month": 180.0,
+                "cash_month": 180.0,
+                "debt_daily_reference": 45.0,
+                "locked": true
+              },
+              "actual_amount_note": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示"
+            },
+            "market_value": 12831.18,
+            "cost": 12947.71,
+            "profit_rate": -0.9,
+            "current_amount": 45.0
+          }
         }
       ],
       "fund_operations": {
@@ -3761,11 +3761,11 @@
           {
             "label": "核心",
             "fund_count": 2,
-            "erp_amount": 134,
+            "erp_amount": 263,
             "regular": {
-              "amount": 16.0,
-              "display": "16",
-              "compact_display": "16",
+              "amount": 32.0,
+              "display": "32",
+              "compact_display": "32",
               "tone": "pos"
             },
             "addon": {
@@ -3780,7 +3780,7 @@
               "compact_display": "0",
               "tone": "muted"
             },
-            "detail": "本周额度33元；季度锁比例，不参与行业集中制",
+            "detail": "本周额度66元；季度锁比例，不参与行业集中制",
             "role": "core",
             "role_label": "核心",
             "fund_codes": [
@@ -3791,11 +3791,11 @@
           {
             "label": "卫星",
             "fund_count": 3,
-            "erp_amount": 90,
+            "erp_amount": 177,
             "regular": {
-              "amount": 22.0,
-              "display": "22",
-              "compact_display": "22",
+              "amount": 44.0,
+              "display": "44",
+              "compact_display": "44",
               "tone": "pos"
             },
             "addon": {
@@ -3810,7 +3810,7 @@
               "compact_display": "0",
               "tone": "muted"
             },
-            "detail": "本周额度23元；按月度排名与结构上限顺延",
+            "detail": "本周额度44元；按月度排名与结构上限顺延",
             "role": "satellite",
             "role_label": "卫星",
             "fund_codes": [
@@ -3880,12 +3880,12 @@
           {
             "label": "债基",
             "fund_count": 1,
-            "erp_amount": 990,
+            "erp_amount": 880,
             "regular": {
-              "amount": 49.0,
-              "display": "49",
-              "compact_display": "49",
-              "tone": "pos"
+              "amount": 0.0,
+              "display": "0",
+              "compact_display": "0",
+              "tone": "muted"
             },
             "addon": {
               "amount": 0.0,
@@ -3899,7 +3899,7 @@
               "compact_display": "0",
               "tone": "muted"
             },
-            "detail": "本周新增49元；按大类缺口执行",
+            "detail": "本周新增0元；按大类缺口执行",
             "role": "debt",
             "role_label": "债基",
             "fund_codes": [
@@ -3959,7 +3959,7 @@
               "compact_display": "0",
               "tone": "muted"
             },
-            "detail": "上期结转322.16元→当月可加仓502.16元；预计全周期未投262元（预算测算，不是现金余额）",
+            "detail": "上期结转322.16元→当月可加仓502.16元；预计全周期未投1196元（预算测算，不是现金余额）",
             "role": "cash",
             "role_label": "现金层",
             "fund_codes": []
@@ -3970,9 +3970,9 @@
           "fund_count": 11,
           "erp_amount": 1800,
           "regular": {
-            "amount": 117.0,
-            "display": "117",
-            "compact_display": "117",
+            "amount": 106.0,
+            "display": "106",
+            "compact_display": "106",
             "tone": "pos"
           },
           "addon": {
@@ -3988,7 +3988,7 @@
             "tone": "muted"
           },
           "detail": "11只基金；转换不预估，以实际成交回传为准",
-          "monthly_remaining": 1694
+          "monthly_remaining": 1800
         },
         "amount_rule": "金额单位为元；转换不预估，实际以成交回传为准",
         "rows": [
@@ -3999,10 +3999,10 @@
             "role_label": "核心",
             "role_order": 10,
             "regular": {
-              "amount": 16.0,
+              "amount": 32.0,
               "decision": "定投",
-              "display": "定投16元",
-              "compact_display": "16",
+              "display": "定投32元",
+              "compact_display": "32",
               "tone": "pos",
               "reason": "按季度锁定的核心比例执行"
             },
@@ -4071,10 +4071,10 @@
             "role_label": "卫星",
             "role_order": 20,
             "regular": {
-              "amount": 22.0,
+              "amount": 44.0,
               "decision": "定投",
-              "display": "定投22元",
-              "compact_display": "22",
+              "display": "定投44元",
+              "compact_display": "44",
               "tone": "pos",
               "reason": "按月度排名与剩余结构额度分配"
             },
@@ -4251,12 +4251,12 @@
             "role_label": "债基",
             "role_order": 50,
             "regular": {
-              "amount": 49.0,
-              "decision": "定投",
-              "display": "定投49元",
-              "compact_display": "49",
-              "tone": "pos",
-              "reason": "债券低于目标且仍有剩余预算，按日分批"
+              "amount": 0.0,
+              "decision": "暂停",
+              "display": "定投0元",
+              "compact_display": "0",
+              "tone": "muted",
+              "reason": "债券超配或预算不足，本期不新增"
             },
             "addon": {
               "amount": 0.0,
@@ -4275,7 +4275,7 @@
               "reason": ""
             },
             "detail_lines": [
-              "债券低于目标且仍有剩余预算，按日分批"
+              "债券超配或预算不足，本期不新增"
             ],
             "serial_no": 8,
             "display_name": "08. 富国添享一年持有债券A"
@@ -4396,7 +4396,7 @@
           "fund_code": "017140",
           "fund_name": "华宝中证有色金属ETF联接A",
           "action": "定投",
-          "amount": 22.0,
+          "amount": 44.0,
           "reason": "估值分位排名第3，按对应档位定投",
           "params": {
             "rank": 3,
@@ -4424,58 +4424,10 @@
           }
         },
         {
-          "fund_code": "009290",
-          "fund_name": "富国添享一年持有债券A",
-          "action": "定投",
-          "amount": 49.0,
-          "reason": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示",
-          "params": {
-            "rebalance": {
-              "erp_state": "high",
-              "erp_label": "高估",
-              "flows": {
-                "equity": 450.0,
-                "debt": 990.0,
-                "gold": 180.0,
-                "cash": 180.0
-              },
-              "monthly_budget": 1800.0,
-              "debt_market": null,
-              "debt_weight": null,
-              "debt_target": null,
-              "start_line": null,
-              "lower_line": null,
-              "active": false,
-              "mode": "p2_pending",
-              "engine_contract": "four_asset_p1c_gate",
-              "daily_reference": null,
-              "rank1_fund_code": null,
-              "target_fund_name": null,
-              "action": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示",
-              "budget_lock": {
-                "period_start": "2026-11-20",
-                "period_end": "2026-12-19",
-                "erp_state": "high",
-                "equity_month": 450.0,
-                "debt_month": 990.0,
-                "gold_month": 180.0,
-                "cash_month": 180.0,
-                "debt_daily_reference": 45.0,
-                "locked": true
-              },
-              "actual_amount_note": "再平衡功能尚未通过上线验收，本次不生成债券买入、赎回或转投指令；待分配现金只按实际到账展示"
-            },
-            "market_value": 12831.18,
-            "cost": 12947.71,
-            "profit_rate": -0.9,
-            "current_amount": 45.0
-          }
-        },
-        {
           "fund_code": "160119",
           "fund_name": "南方中证500ETF联接(LOF)A",
           "action": "定投",
-          "amount": 16.0,
+          "amount": 32.0,
           "reason": "core_locked_ratio",
           "params": {
             "role": "core",
@@ -4548,19 +4500,19 @@
       ],
       "allocation": {
         "amounts": {
-          "现金": 322.16,
           "权益": 5819.799999999999,
           "黄金": 1143.94,
+          "养老FOF": 1166.58,
           "债券": 12831.18,
-          "养老FOF": 1166.58
+          "现金": 322.16
         },
         "total": 21283.66,
         "weights": {
-          "现金": 1.51,
           "权益": 27.34,
           "黄金": 5.37,
+          "养老FOF": 5.48,
           "债券": 60.29,
-          "养老FOF": 5.48
+          "现金": 1.51
         }
       },
       "asset_allocation": {
@@ -4954,55 +4906,55 @@
         "remaining_batches": 4,
         "month_budget": {
           "cash": 180.0,
-          "debt": 990.0,
-          "equity": 450.0,
+          "debt": 880.0,
+          "equity": 560.0,
           "gold": 180.0
         },
         "spent": {
           "debt": 0.0,
-          "equity": 106.0,
+          "equity": 0.0,
           "gold": 0.0
         },
         "monthly_remaining": {
           "cash": 180.0,
-          "debt": 990.0,
-          "equity": 344.0,
+          "debt": 880.0,
+          "equity": 560.0,
           "gold": 180.0
         },
         "fof_remaining_obligation": 120.0,
-        "passive_equity_week": 56.0,
-        "core_week_budget": 33.43,
-        "satellite_week_budget": 22.0,
+        "passive_equity_week": 110.0,
+        "core_week_budget": 65.66,
+        "satellite_week_budget": 44.0,
         "satellite_week_unallocated": 0.0,
         "satellite_cap_state": {
           "satellite_cap": 50.0,
           "core_single_cap": 29.84385,
-          "satellite_total": 3450.91,
-          "passive_total": 3481.69,
+          "satellite_total": 3457.95,
+          "passive_total": 3457.95,
           "headrooms": {
             "024328": {
               "amount": 0.0,
               "satellite_layer_room": 0.0,
               "core_single_room": 0.0,
-              "market_value": 1888.97,
-              "satellite_layer_weight": 54.738315400865275,
-              "passive_pool_weight": 54.254399443948195
+              "market_value": 1882.34,
+              "satellite_layer_weight": 54.43514220853396,
+              "passive_pool_weight": 54.43514220853396
             },
             "012544": {
               "amount": 0.0,
-              "satellite_layer_room": 887.4899999999998,
+              "satellite_layer_room": 794.73,
               "core_single_room": 0.0,
-              "market_value": 1281.71,
-              "satellite_layer_weight": 37.14121782370447,
-              "passive_pool_weight": 36.8128696121711
+              "market_value": 1331.61,
+              "satellite_layer_weight": 38.508653971283564,
+              "passive_pool_weight": 38.508653971283564
             },
             "017140": {
-              "amount": 1081.644789608609,
-              "satellite_layer_room": 2890.45,
-              "core_single_room": 1081.644789608609,
-              "market_value": 280.23,
-              "satellite_layer_weight": 8.12046677543025,
-              "passive_pool_weight": 8.04867751005977
+              "amount": 1123.1879330251163,
+              "satellite_layer_room": 2969.95,
+              "core_single_room": 1123.1879330251163,
+              "market_value": 244.0,
+              "satellite_layer_weight": 7.056203820182478,
+              "passive_pool_weight": 7.056203820182478
             }
           }
         },
@@ -5010,14 +4962,14 @@
           {
             "fund_code": "024328",
             "allocated": 0.0,
-            "remaining": 22.0,
+            "remaining": 44.0,
             "reason": "已达卫星结构上限，新增额度顺延下一名",
             "amount": 0.0,
             "satellite_layer_room": 0.0,
             "core_single_room": 0.0,
-            "market_value": 1888.97,
-            "satellite_layer_weight": 54.738315400865275,
-            "passive_pool_weight": 54.254399443948195,
+            "market_value": 1882.34,
+            "satellite_layer_weight": 54.43514220853396,
+            "passive_pool_weight": 54.43514220853396,
             "valuation": 3.5,
             "score": 75.5,
             "rank": 1,
@@ -5027,14 +4979,14 @@
           {
             "fund_code": "012544",
             "allocated": 0.0,
-            "remaining": 22.0,
+            "remaining": 44.0,
             "reason": "已达卫星结构上限，新增额度顺延下一名",
             "amount": 0.0,
-            "satellite_layer_room": 887.4899999999998,
+            "satellite_layer_room": 794.73,
             "core_single_room": 0.0,
-            "market_value": 1281.71,
-            "satellite_layer_weight": 37.14121782370447,
-            "passive_pool_weight": 36.8128696121711,
+            "market_value": 1331.61,
+            "satellite_layer_weight": 38.508653971283564,
+            "passive_pool_weight": 38.508653971283564,
             "valuation": 4.49,
             "score": 71.5,
             "rank": 2,
@@ -5043,16 +4995,16 @@
           },
           {
             "fund_code": "017140",
-            "allocated": 22.0,
+            "allocated": 44.0,
             "remaining": 0.0,
             "reason": "按月度排名与剩余结构额度分配",
-            "global_room": 2912.319,
-            "amount": 1081.644789608609,
-            "satellite_layer_room": 2890.45,
-            "core_single_room": 1081.644789608609,
-            "market_value": 280.23,
-            "satellite_layer_weight": 8.12046677543025,
-            "passive_pool_weight": 8.04867751005977,
+            "global_room": 2954.3465,
+            "amount": 1123.1879330251163,
+            "satellite_layer_room": 2969.95,
+            "core_single_room": 1123.1879330251163,
+            "market_value": 244.0,
+            "satellite_layer_weight": 7.056203820182478,
+            "passive_pool_weight": 7.056203820182478,
             "valuation": 21.03,
             "score": 43.0,
             "rank": 3,
@@ -5095,7 +5047,7 @@
           "017140": {
             "fund_code": "017140",
             "fund_name": "华宝中证有色金属ETF联接A",
-            "amount": 22.0,
+            "amount": 44.0,
             "role": "satellite",
             "reason_code": "satellite_ranked_allocation",
             "allowed": true,
@@ -5109,7 +5061,7 @@
           "160119": {
             "fund_code": "160119",
             "fund_name": "南方中证500ETF联接(LOF)A",
-            "amount": 16.0,
+            "amount": 32.0,
             "role": "core",
             "reason_code": "core_locked_ratio",
             "allowed": true,
@@ -5132,17 +5084,6 @@
             "score": 13.0,
             "reason": "核心买入条件未满足，对应额度留现金"
           },
-          "009290": {
-            "fund_code": "009290",
-            "fund_name": "富国添享一年持有债券A",
-            "amount": 49.0,
-            "role": "debt",
-            "reason_code": "debt_daily_within_target_band",
-            "allowed": true,
-            "invest_min": 0.0,
-            "execution_date": "2026-11-23",
-            "reason": "债券低于目标且仍有剩余预算，按日分批"
-          },
           "010267": {
             "fund_code": "010267",
             "fund_name": "兴全安泰积极养老目标五年FOF A",
@@ -5164,6 +5105,17 @@
             "invest_min": 0.0,
             "execution_date": "2026-11-23",
             "reason": "黄金信号未通过或目标不缺，额度留现金"
+          },
+          "009290": {
+            "fund_code": "009290",
+            "fund_name": "富国添享一年持有债券A",
+            "amount": 0.0,
+            "role": "debt",
+            "reason_code": "debt_over_target_or_no_remaining_budget",
+            "allowed": false,
+            "invest_min": 0.0,
+            "execution_date": "2026-11-23",
+            "reason": "债券超配或预算不足，本期不新增"
           }
         },
         "amount_groups": {
@@ -5171,7 +5123,7 @@
             {
               "fund_code": "160119",
               "fund_name": "南方中证500ETF联接(LOF)A",
-              "amount": 16.0,
+              "amount": 32.0,
               "role": "core",
               "reason_code": "core_locked_ratio",
               "allowed": true,
@@ -5227,7 +5179,7 @@
             {
               "fund_code": "017140",
               "fund_name": "华宝中证有色金属ETF联接A",
-              "amount": 22.0,
+              "amount": 44.0,
               "role": "satellite",
               "reason_code": "satellite_ranked_allocation",
               "allowed": true,
@@ -5269,29 +5221,31 @@
             {
               "fund_code": "009290",
               "fund_name": "富国添享一年持有债券A",
-              "amount": 49.0,
+              "amount": 0.0,
               "role": "debt",
-              "reason_code": "debt_daily_within_target_band",
-              "allowed": true,
+              "reason_code": "debt_over_target_or_no_remaining_budget",
+              "allowed": false,
               "invest_min": 0.0,
               "execution_date": "2026-11-23",
-              "reason": "债券低于目标且仍有剩余预算，按日分批"
+              "reason": "债券超配或预算不足，本期不新增"
             }
           ],
           "cash_retained": [
             {
               "fund_code": null,
               "fund_name": "现金留存",
-              "amount": 110.5,
+              "amount": 344.0,
               "role": "cash",
               "reason_code": "strategic_cash_and_withheld_budget"
             }
           ]
         },
-        "weekly_total": 313.0,
-        "cash_retained": 110.5,
+        "weekly_total": 106.0,
+        "cash_retained": 344.0,
         "blockers": [],
-        "scope_note": "普通定投按周期锁与实际扣款核销；再平衡待分配现金另走rebalance_cash，不重复占月预算"
+        "scope_note": "普通定投按周期锁与实际扣款核销；再平衡待分配现金另走rebalance_cash，不重复占月预算",
+        "parameter_reanchor_preserved": true,
+        "reanchor_note": "参数重锚不改写已执行历史计划；新目标从后续评估周期生效"
       },
       "amount_groups": {
         "core": [
@@ -5961,13 +5915,11 @@
             "2026-11-27"
           ],
           "trade_days": 5,
-          "daily_amounts": {
-            "009290": 49.0
-          },
-          "equity_total": 68.0,
+          "daily_amounts": {},
+          "equity_total": 106.0,
           "gold_total": 0,
-          "debt_total": 245.0,
-          "total": 313.0,
+          "debt_total": 0,
+          "total": 106.0,
           "shortfall": 0.0,
           "status": "预算可覆盖",
           "current_period_start": "2026-11-20",
@@ -5976,8 +5928,8 @@
           "current_period_remaining": 1800.0,
           "next_period_inject": 1800.0,
           "flow_budgets": {
-            "flow_equity": 450.0,
-            "flow_debt": 990.0,
+            "flow_equity": 560.0,
+            "flow_debt": 880.0,
             "flow_gold": 180.0,
             "flow_cash": 180.0
           },
@@ -5986,10 +5938,10 @@
               "period_start": "2026-11-20",
               "period_end": "2026-12-19",
               "is_current_period": true,
-              "equity_total": 68.0,
-              "debt_total": 245.0,
-              "total": 313.0,
-              "debt_days": 5,
+              "equity_total": 106.0,
+              "debt_total": 0,
+              "total": 106.0,
+              "debt_days": 0,
               "debit_dates": [
                 "2026-11-23"
               ],
@@ -5997,28 +5949,28 @@
                 "locked": true,
                 "period_start": "2026-11-20",
                 "period_end": "2026-12-19",
-                "equity_month": 450.0,
-                "debt_month": 990.0,
+                "equity_month": 560.0,
+                "debt_month": 880.0,
                 "gold_month": 180.0,
                 "cash_month": 180.0
               },
-              "available": 1694.0,
+              "available": 1800.0,
               "available_source": "本周期剩余",
-              "remaining_after": 1381.0,
+              "remaining_after": 1694.0,
               "shortfall": 0.0,
               "status": "预算可覆盖",
               "full_cycle": {
                 "trade_days": 20,
                 "investment_weeks": 4,
-                "equity_budget": 344.0,
-                "debt_budget": 990.0,
+                "equity_budget": 560.0,
+                "debt_budget": 880.0,
                 "gold_reserved": 180.0,
                 "cash_reserved": 180.0,
-                "projected_equity": 272.0,
-                "projected_debt": 980.0,
+                "projected_equity": 424.0,
+                "projected_debt": 0,
                 "projected_gold": 0,
-                "projected_total": 1432.0,
-                "projected_remaining": 262.0,
+                "projected_total": 604.0,
+                "projected_remaining": 1196.0,
                 "equity_excess": 0.0,
                 "debt_excess": 0.0,
                 "gold_excess": 0.0,
@@ -6034,7 +5986,7 @@
               "kind": "equity",
               "date": "2026-11-23",
               "period_start": "2026-11-20",
-              "amount": 22.0,
+              "amount": 44.0,
               "valuation": 21.03,
               "score": 43.0,
               "rank": 3,
@@ -6045,18 +5997,10 @@
               "kind": "equity",
               "date": "2026-11-23",
               "period_start": "2026-11-20",
-              "amount": 16.0,
+              "amount": 32.0,
               "valuation": 57.78,
               "score": 21.5,
               "fund_name": "南方中证500ETF联接(LOF)A"
-            },
-            {
-              "fund_code": "009290",
-              "kind": "debt",
-              "date": "2026-11-23",
-              "period_start": "2026-11-20",
-              "amount": 49.0,
-              "fund_name": "富国添享一年持有债券A"
             },
             {
               "fund_code": "010267",
@@ -6807,7 +6751,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:03:44",
+        "as_of": "2026-11-26T20:04:49",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -18089,7 +18033,7 @@
                                   "format": "text"
                                 },
                                 {
-                                  "value": "313元",
+                                  "value": "106元",
                                   "format": "text"
                                 },
                                 {
@@ -18706,7 +18650,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T20:03:44",
+        "as_of": "2026-11-26T20:04:49",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -22571,8 +22515,8 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T20:03:44",
-    "projection_id": "wf_4c4ea45951d99f48",
+    "generated_at": "2026-11-26T20:04:49",
+    "projection_id": "wf_f6c01eb4a601ec28",
     "visual": {
       "title": "操作流程总览",
       "cadence": [],
@@ -22580,7 +22524,7 @@
       "current_step": "execution",
       "current_text": "① 定投流程·本人真实账户执行",
       "completed_formal_bands": 4,
-      "next_action": "2026-11-23按313元计划执行，完成后回传实际扣款。",
+      "next_action": "2026-11-23按106元计划执行，完成后回传实际扣款。",
       "missing": [
         "本轮无加仓指令",
         "本轮无减仓指令",
@@ -22598,7 +22542,7 @@
           "status": "current",
           "status_label": "已失效｜等待重新评估",
           "out_label": "下一步",
-          "reason": "2026-11-23按313元计划执行，完成后回传实际扣款。"
+          "reason": "2026-11-23按106元计划执行，完成后回传实际扣款。"
         },
         {
           "id": "addon",
@@ -22686,7 +22630,7 @@
           "state": "已失效｜等待重新评估",
           "cadence": "周日评估 → 下周一执行 → 实际扣款回传",
           "current": 1,
-          "next": "2026-11-23按313元计划执行，完成后回传实际扣款。",
+          "next": "2026-11-23按106元计划执行，完成后回传实际扣款。",
           "steps": [
             {
               "name": "评估与风控",
@@ -22696,12 +22640,12 @@
             {
               "name": "形成整数买入计划",
               "status": "skipped",
-              "detail": "计划合计313元；金额源已统一向下取整到元。"
+              "detail": "计划合计106元；金额源已统一向下取整到元。"
             },
             {
               "name": "本人真实账户执行",
               "status": "skipped",
-              "detail": "2026-11-23执行313元；计划不等于成交。"
+              "detail": "2026-11-23执行106元；计划不等于成交。"
             },
             {
               "name": "回传并更新台账",
@@ -22712,12 +22656,12 @@
           "lines": [
             "易方达恒生港股通创新药ETF联接A：0元；已达卫星结构上限，新增额度顺延下一名",
             "嘉实中证新能源汽车指数C：0元；已达卫星结构上限，新增额度顺延下一名",
-            "华宝中证有色金属ETF联接A：22元",
-            "南方中证500ETF联接(LOF)A：16元",
+            "华宝中证有色金属ETF联接A：44元",
+            "南方中证500ETF联接(LOF)A：32元",
             "华夏沪深300ETF联接A：0元；核心买入条件未满足，对应额度留现金",
-            "富国添享一年持有债券A：49元",
             "兴全安泰积极养老目标五年FOF A：30元",
-            "国泰黄金ETF联接C：0元；黄金信号未通过或目标不缺，额度留现金"
+            "国泰黄金ETF联接C：0元；黄金信号未通过或目标不缺，额度留现金",
+            "富国添享一年持有债券A：0元；债券超配或预算不足，本期不新增"
           ],
           "not_applicable_count": 0,
           "skipped_count": 3,
@@ -23116,7 +23060,7 @@
         "detail": "读取月度预算与结构快照，形成下周实际动作；不是重新估算月预算。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-26T19:59:04",
+        "generated_at": "2026-11-26T20:04:25",
         "inputs": [
           {
             "label": "周期预算锁",
@@ -23147,7 +23091,7 @@
           },
           {
             "label": "计划金额",
-            "value": "313元",
+            "value": "106元",
             "source": "execution_plan"
           },
           {
@@ -23166,7 +23110,7 @@
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-25",
         "review_date": "2026-11-25",
-        "generated_at": "2026-11-26T19:59:07",
+        "generated_at": "2026-11-26T20:04:27",
         "inputs": [
           {
             "label": "风控数据基准",
@@ -23201,7 +23145,7 @@
         "detail": "只在有效窗口内按报告执行；过期计划只归档，不再操作。",
         "base_date": "2026-11-20",
         "review_date": "2026-11-20",
-        "generated_at": "2026-11-26T19:59:04",
+        "generated_at": "2026-11-26T20:04:25",
         "inputs": [
           {
             "label": "可执行计划",

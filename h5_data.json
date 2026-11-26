@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T10:51:46",
+  "generated_at": "2026-11-26T10:53:58",
   "base_date": "2026-11-25",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:51:46",
+        "as_of": "2026-11-26T10:53:58",
         "next_review_date": "2026-11-27",
         "source_param": "P142/P206",
         "state": "expired",
@@ -375,11 +375,11 @@
         "valid_until": "2026-11-26T10:30:00",
         "next_review_at": "2026-11-27T03:30:00",
         "result_visible_until": "2026-11-27T03:30:00",
-        "result_effective_from": "2026-11-26T07:57:11",
+        "result_effective_from": "2026-11-26T10:52:39",
         "result_retention": "数据基准日＝本次结果所用数据的截止日，不是执行日；结果展示至＝下次评估发布后自动替换。动作到期会更早失效并归档。"
       },
       "base_date": "2026-11-25",
-      "generated_at": "2026-11-26T07:57:11",
+      "generated_at": "2026-11-26T10:52:39",
       "run_kind": "manual_formal",
       "items": [
         {
@@ -1116,19 +1116,19 @@
       ],
       "allocation": {
         "amounts": {
-          "债券": 12831.18,
           "黄金": 1143.94,
-          "养老FOF": 1166.58,
+          "现金": 322.16,
           "权益": 5819.799999999999,
-          "现金": 322.16
+          "债券": 12831.18,
+          "养老FOF": 1166.58
         },
         "total": 21283.66,
         "weights": {
-          "债券": 60.29,
           "黄金": 5.37,
-          "养老FOF": 5.48,
+          "现金": 1.51,
           "权益": 27.34,
-          "现金": 1.51
+          "债券": 60.29,
+          "养老FOF": 5.48
         }
       },
       "asset_allocation": {
@@ -1584,36 +1584,48 @@
         "daily_checks": [
           {
             "name": "单日大跌>4%",
-            "status": "🟢",
-            "detail": "四只被动跟踪指数无单日跌>4%",
+            "status": "🔴",
+            "detail": "嘉实中证新能源汽车指数C(-5.45%)——单一板块回调·不暂停定投；无异常大跌成分股",
             "metrics": [
               {
                 "label": "华夏沪深300ETF联接A",
-                "value": -0.91,
+                "value": -1.65,
                 "unit": "%",
                 "tone": "neg"
               },
               {
                 "label": "国泰黄金ETF联接C",
-                "value": -1.28,
+                "value": -3.0,
                 "unit": "%",
                 "tone": "neg"
               },
               {
                 "label": "嘉实中证新能源汽车指数C",
-                "value": -1.38,
+                "value": -5.45,
                 "unit": "%",
                 "tone": "neg"
               },
               {
                 "label": "华宝中证有色金属ETF联接A",
-                "value": -3.03,
+                "value": -2.55,
+                "unit": "%",
+                "tone": "neg"
+              },
+              {
+                "label": "华夏港股通央企红利ETF联接C",
+                "value": -1.16,
                 "unit": "%",
                 "tone": "neg"
               },
               {
                 "label": "易方达恒生港股通创新药ETF联接A",
-                "value": -2.2,
+                "value": -1.2,
+                "unit": "%",
+                "tone": "neg"
+              },
+              {
+                "label": "南方中证500ETF联接(LOF)A",
+                "value": -2.02,
                 "unit": "%",
                 "tone": "neg"
               },
@@ -1702,11 +1714,11 @@
           {
             "name": "极端预案·单日暴跌",
             "status": "🟢",
-            "detail": "沪深300当日-0.91%,未触暴跌线",
+            "detail": "沪深300当日-1.65%,未触暴跌线",
             "metrics": [
               {
                 "label": "沪深300当日",
-                "value": -0.91,
+                "value": -1.65,
                 "unit": "%",
                 "tone": "neg"
               },
@@ -1772,7 +1784,7 @@
             "metrics": [
               {
                 "label": "沪深300当日",
-                "value": -0.91,
+                "value": -1.65,
                 "unit": "%",
                 "tone": "neg"
               },
@@ -1866,7 +1878,7 @@
           {
             "name": "大盘异动",
             "status": "🟢",
-            "detail": "沪深300单日-0.91%,未超异动线4%",
+            "detail": "沪深300单日-1.65%,未超异动线4%",
             "check_id": "market_shock",
             "identity_policy": "shared_market"
           },
@@ -2013,7 +2025,7 @@
             "deadline_date": null,
             "lock_end_date": "2027-06-25",
             "missing": [],
-            "reused": false,
+            "reused": true,
             "eval_dims": {
               "manager": "未变更；现任金梓才，任职开始2023-07-19，状态在职",
               "scale_risk": "达标✅·≈8.88亿(2026-06-30基金资产净值)",
@@ -2033,7 +2045,7 @@
             "deadline_date": null,
             "lock_end_date": "2028-10-15",
             "missing": [],
-            "reused": false,
+            "reused": true,
             "eval_dims": {
               "manager": "未变更；现任朱然，任职开始2022-08-16，状态在职",
               "scale_risk": "达标✅·≈17.15亿(2026-06-30基金资产净值)",
@@ -2100,7 +2112,7 @@
         "template_basis": "四资产ERP {label}态：权益目标与债券派生均扣除黄金目标和现金目标；完整配置见季度档"
       },
       "next_review": [],
-      "source_file": "band_daily|2026-11-25|2026-11-26|2026-11-25#R1#live",
+      "source_file": "band_daily|2026-11-25|2026-11-25|2026-11-25#R1#live",
       "display": {
         "header": {
           "title": "每日档 · 风控监控",
@@ -2564,6 +2576,126 @@
                     "type": "check_groups",
                     "attention": [
                       {
+                        "name": "单日大跌>4%",
+                        "status": "🔴",
+                        "status_kind": "danger",
+                        "detail": "嘉实中证新能源汽车指数C(-5.45%)——单一板块回调·不暂停定投；无异常大跌成分股",
+                        "metrics": [
+                          {
+                            "label": "华夏沪深300ETF联接A",
+                            "value": [
+                              {
+                                "value": -1.65,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "neg"
+                          },
+                          {
+                            "label": "国泰黄金ETF联接C",
+                            "value": [
+                              {
+                                "value": -3.0,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "neg"
+                          },
+                          {
+                            "label": "嘉实中证新能源汽车指数C",
+                            "value": [
+                              {
+                                "value": -5.45,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "neg"
+                          },
+                          {
+                            "label": "华宝中证有色金属ETF联接A",
+                            "value": [
+                              {
+                                "value": -2.55,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "neg"
+                          },
+                          {
+                            "label": "华夏港股通央企红利ETF联接C",
+                            "value": [
+                              {
+                                "value": -1.16,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "neg"
+                          },
+                          {
+                            "label": "易方达恒生港股通创新药ETF联接A",
+                            "value": [
+                              {
+                                "value": -1.2,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "neg"
+                          },
+                          {
+                            "label": "南方中证500ETF联接(LOF)A",
+                            "value": [
+                              {
+                                "value": -2.02,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "neg"
+                          },
+                          {
+                            "label": "大跌审视线",
+                            "value": [
+                              {
+                                "value": -4.0,
+                                "format": "text"
+                              },
+                              {
+                                "value": "%",
+                                "format": "text"
+                              }
+                            ],
+                            "tone": "info"
+                          }
+                        ]
+                      },
+                      {
                         "name": "持仓估值越档",
                         "status": "🔴",
                         "status_kind": "danger",
@@ -2671,98 +2803,6 @@
                       }
                     ],
                     "normal": [
-                      {
-                        "name": "单日大跌>4%",
-                        "status": "🟢",
-                        "status_kind": "ok",
-                        "detail": "四只被动跟踪指数无单日跌>4%",
-                        "metrics": [
-                          {
-                            "label": "华夏沪深300ETF联接A",
-                            "value": [
-                              {
-                                "value": -0.91,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "国泰黄金ETF联接C",
-                            "value": [
-                              {
-                                "value": -1.28,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "嘉实中证新能源汽车指数C",
-                            "value": [
-                              {
-                                "value": -1.38,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "华宝中证有色金属ETF联接A",
-                            "value": [
-                              {
-                                "value": -3.03,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "易方达恒生港股通创新药ETF联接A",
-                            "value": [
-                              {
-                                "value": -2.2,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "neg"
-                          },
-                          {
-                            "label": "大跌审视线",
-                            "value": [
-                              {
-                                "value": -4.0,
-                                "format": "text"
-                              },
-                              {
-                                "value": "%",
-                                "format": "text"
-                              }
-                            ],
-                            "tone": "info"
-                          }
-                        ]
-                      },
                       {
                         "name": "组合回撤红线",
                         "status": "🟢",
@@ -2897,13 +2937,13 @@
                         "name": "极端预案·单日暴跌",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "沪深300当日-0.91%,未触暴跌线",
+                        "detail": "沪深300当日-1.65%,未触暴跌线",
                         "metrics": [
                           {
                             "label": "沪深300当日",
                             "value": [
                               {
-                                "value": -0.91,
+                                "value": -1.65,
                                 "format": "text"
                               },
                               {
@@ -2939,7 +2979,7 @@
                             "label": "沪深300当日",
                             "value": [
                               {
-                                "value": -0.91,
+                                "value": -1.65,
                                 "format": "text"
                               },
                               {
@@ -3091,7 +3131,7 @@
                         "name": "大盘异动",
                         "status": "🟢",
                         "status_kind": "ok",
-                        "detail": "沪深300单日-0.91%,未超异动线4%",
+                        "detail": "沪深300单日-1.65%,未超异动线4%",
                         "metrics": []
                       },
                       {
@@ -3301,7 +3341,7 @@
                         ]
                       }
                     ],
-                    "normal_title": "展开其余 16 项正常/未触发检查"
+                    "normal_title": "展开其余 15 项正常/未触发检查"
                   },
                   {
                     "type": "kv",
@@ -3367,7 +3407,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:51:46",
+        "as_of": "2026-11-26T10:53:58",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6666,7 +6706,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:51:46",
+        "as_of": "2026-11-26T10:53:58",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -17913,7 +17953,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-26T10:51:46",
+        "as_of": "2026-11-26T10:53:58",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -21430,7 +21470,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-26T10:51:46",
+    "generated_at": "2026-11-26T10:53:58",
     "projection_id": "wf_b2b59313abbd31c4",
     "visual": {
       "title": "操作流程总览",
@@ -22024,8 +22064,8 @@
         "state_label": "已失效",
         "detail": "每日只负责风险控制；不得画成周日计划的下游计算节点。",
         "base_date": "2026-11-25",
-        "review_date": "2026-11-26",
-        "generated_at": "2026-11-26T07:57:11",
+        "review_date": "2026-11-25",
+        "generated_at": "2026-11-26T10:52:39",
         "inputs": [
           {
             "label": "风控数据基准",

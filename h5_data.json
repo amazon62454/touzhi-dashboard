@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T20:40:42",
+  "generated_at": "2026-11-27T21:03:31",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T20:40:41",
+        "as_of": "2026-11-27T21:03:31",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -3453,7 +3453,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T20:40:41",
+        "as_of": "2026-11-27T21:03:31",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6790,7 +6790,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T20:40:41",
+        "as_of": "2026-11-27T21:03:31",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -15094,7 +15094,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T20:40:41",
+        "as_of": "2026-11-27T21:03:31",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -19015,7 +19015,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-27T20:40:42",
+    "generated_at": "2026-11-27T21:03:31",
     "projection_id": "wf_b63cc66f0af2bac3",
     "visual": {
       "title": "操作流程总览",
@@ -21327,7 +21327,7 @@
         {
           "type": "list",
           "items": [
-            "**回撤超过强制减仓线（规则参数）：强制减仓比例见；实际到账资金先进入rebalance_cash_ledger待分配现金，再按第八十一条四资产实际缺口分配。**"
+            "**回撤超过强制减仓线（规则参数）：强制减仓比例读R（默认50%减半，与触发线解耦，数值待历史回测校准）；实际到账资金先进入rebalance_cash_ledger待分配现金，再按第八十一条四资产实际缺口分配。**"
           ]
         },
         {

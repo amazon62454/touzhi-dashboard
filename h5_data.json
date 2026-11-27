@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T22:53:29",
+  "generated_at": "2026-11-27T23:02:31",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T22:53:29",
+        "as_of": "2026-11-27T23:02:31",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -3454,7 +3454,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T22:53:29",
+        "as_of": "2026-11-27T23:02:31",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6792,7 +6792,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T22:53:29",
+        "as_of": "2026-11-27T23:02:31",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -15097,7 +15097,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T22:53:29",
+        "as_of": "2026-11-27T23:02:31",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -19019,7 +19019,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-27T22:53:29",
+    "generated_at": "2026-11-27T23:02:31",
     "projection_id": "wf_b63cc66f0af2bac3",
     "visual": {
       "title": "操作流程总览",
@@ -19976,11 +19976,11 @@
         },
         {
           "type": "paragraph",
-          "text": "SELECT dimension, primary_source, primary_method, fallback_1, fallback_2,"
+          "text": "-- 实查层（主备源）"
         },
         {
           "type": "paragraph",
-          "text": "fetch_chain, caliber_note"
+          "text": "SELECT dimension, primary_source, primary_method, fallback_1, fallback_2, caliber_note"
         },
         {
           "type": "paragraph",
@@ -19988,19 +19988,42 @@
         },
         {
           "type": "paragraph",
+          "text": "-- 缓存层（刷新策略与允许旧值判定）"
+        },
+        {
+          "type": "paragraph",
+          "text": "SELECT m.metric_key, m.policy_key, m.cache_match_mode,"
+        },
+        {
+          "type": "paragraph",
+          "text": "p.refresh_strategy, p.allow_stale_decision"
+        },
+        {
+          "type": "paragraph",
+          "text": "FROM metric_cache_policy_map m JOIN cache_policies p ON p.policy_key=m.policy_key;"
+        },
+        {
+          "type": "paragraph",
           "text": "```"
         },
         {
           "type": "paragraph",
-          "text": "`fetch_chain` = 该维度**完整取数顺序**（逗号分隔），统一形态："
+          "text": "**两张表各管一层，不新建第三张表**："
+        },
+        {
+          "type": "list",
+          "items": [
+            "`datasource_priority` = **实查层**（哪个维度先问谁、失败降谁）；",
+            "`metric_cache_policy_map` + `cache_policies` = **缓存层**（当天缓存能否复用、日期匹配方式、是否允许旧值兜底），读取入口唯一 = `policy_for_metric`，**未登记指标直接报错**。"
+          ]
         },
         {
           "type": "paragraph",
-          "text": "**当天缓存（层0）→ 妙想 → AI涨乐 → 问财 → WIND → 七天缓存（层2兜底）**。"
+          "text": "完整取数链由引擎组合生成（`ds_fetch_chain`），形态："
         },
         {
           "type": "paragraph",
-          "text": "黄金/基金档案/事件等维度按各自链执行（如黄金必须问财现货序列在前）。"
+          "text": "**当天缓存 → 主源 → 备源1 → 备源2 → 近期缓存（仅 allow_stale_decision=1 时）**。"
         },
         {
           "type": "paragraph",
@@ -20008,7 +20031,7 @@
         },
         {
           "type": "paragraph",
-          "text": "0. **缓存第一，配额最后**：每次取数先查当天缓存（层0），命中即用，**不消耗任何数据源配额**；只有 miss 才按 fetch_chain 逐级实查；全链失败才回落到七天缓存（层2，须标注为旧值）。这是避免免费配额（妙想150次/日、AI涨乐日配额）被测试/重跑刷爆的第一道闸。"
+          "text": "0. **缓存第一，配额最后**：每次取数先查当天缓存（层0），命中即用，**不消耗任何数据源配额**；只有 miss 才按主备源逐级实查；全链失败才回落到近期缓存（须按 cache_policies 判定是否允许，且必须标注日期为旧值）。这是避免免费配额（妙想150次/日、AI涨乐日配额）被测试/重跑刷爆的第一道闸。"
         },
         {
           "type": "paragraph",
@@ -20076,7 +20099,7 @@
         },
         {
           "type": "paragraph",
-          "text": "12-bis) 【评分四维降级链】趋势/资金/基本面三维一律按 `datasource_priority.fetch_chain` 执行：**当天缓存→妙想→AI涨乐→问财→WIND→七天缓存（score_dim_cache，有效期读）**（黄金基本面特判问美元指数）。**缓存永远排第一，实查排其后，配额只在前序全 miss 时才消耗。**情绪独立走本地SQL衍生值→妙想自动增量回补→AI涨乐／问财同窗口备援；允许滞后的交易日数读，禁止混用不同观察窗。全链失败写入M44数据问题单并标具体缺项，不静默给分。与估值层降级链（第12项）分属两层，勿混淆。"
+          "text": "12-bis) 【评分四维降级链】趋势/资金/基本面三维一律按引擎 `ds_fetch_chain` 组合结果执行（缓存层=metric_cache_policy_map+cache_policies；实查层=datasource_priority）：**当天缓存→主源→备源1→备源2→近期缓存（仅策略允许时）**（黄金基本面特判问美元指数）。**缓存永远排第一，实查排其后，配额只在前序全 miss 时才消耗。**情绪独立走本地SQL衍生值→妙想自动增量回补→AI涨乐／问财同窗口备援；允许滞后的交易日数读，禁止混用不同观察窗。全链失败写入M44数据问题单并标具体缺项，不静默给分。与估值层降级链（第12项）分属两层，勿混淆。"
         },
         {
           "type": "paragraph",

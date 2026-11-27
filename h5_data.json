@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T19:53:58",
+  "generated_at": "2026-11-27T20:21:17",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T19:53:58",
+        "as_of": "2026-11-27T20:21:17",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -372,6 +372,8 @@
         "actual_execution_date": "2026-11-27",
         "is_postponed": false,
         "postpone_days": 0,
+        "long_postpone": false,
+        "long_postpone_limit": 10,
         "valid_until": "2026-11-27T10:30:00",
         "next_review_at": "2026-11-30T03:30:00",
         "result_visible_until": "2026-11-30T03:30:00",
@@ -3451,7 +3453,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T19:53:58",
+        "as_of": "2026-11-27T20:21:17",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -3473,6 +3475,8 @@
             "actual_execution_date": "2026-11-23",
             "is_postponed": false,
             "postpone_days": 0,
+            "long_postpone": false,
+            "long_postpone_limit": 10,
             "valid_until": "2026-11-23T08:00:00",
             "archive_label": "",
             "invalid_reason": "本次动作已失效，不执行；等待重新评估"
@@ -3490,6 +3494,8 @@
             "actual_execution_date": "2026-11-23",
             "is_postponed": false,
             "postpone_days": 0,
+            "long_postpone": false,
+            "long_postpone_limit": 10,
             "valid_until": "2026-11-23T08:00:00",
             "archive_label": "",
             "invalid_reason": "本次动作已失效，不执行；等待重新评估"
@@ -3507,6 +3513,8 @@
             "actual_execution_date": "2026-11-23",
             "is_postponed": false,
             "postpone_days": 0,
+            "long_postpone": false,
+            "long_postpone_limit": 10,
             "valid_until": "2026-11-23T08:00:00",
             "archive_label": "",
             "invalid_reason": "本次动作已失效，不执行；等待重新评估"
@@ -3524,6 +3532,8 @@
             "actual_execution_date": "2026-11-23",
             "is_postponed": false,
             "postpone_days": 0,
+            "long_postpone": false,
+            "long_postpone_limit": 10,
             "valid_until": "2026-11-23T08:00:00",
             "blocked_reason": "已达卫星结构上限，新增额度顺延下一名",
             "invalid_reason": "本次动作已失效，不执行；等待重新评估"
@@ -3541,6 +3551,8 @@
             "actual_execution_date": "2026-11-23",
             "is_postponed": false,
             "postpone_days": 0,
+            "long_postpone": false,
+            "long_postpone_limit": 10,
             "valid_until": "2026-11-23T08:00:00",
             "blocked_reason": "已达卫星结构上限，新增额度顺延下一名",
             "invalid_reason": "本次动作已失效，不执行；等待重新评估"
@@ -3558,6 +3570,8 @@
             "actual_execution_date": "2026-11-23",
             "is_postponed": false,
             "postpone_days": 0,
+            "long_postpone": false,
+            "long_postpone_limit": 10,
             "valid_until": "2026-11-23T08:00:00",
             "blocked_reason": "核心买入条件未满足，对应额度留现金",
             "invalid_reason": "本次动作已失效，不执行；等待重新评估"
@@ -3575,6 +3589,8 @@
             "actual_execution_date": "2026-11-23",
             "is_postponed": false,
             "postpone_days": 0,
+            "long_postpone": false,
+            "long_postpone_limit": 10,
             "valid_until": "2026-11-23T08:00:00",
             "blocked_reason": "黄金信号未通过或目标不缺，额度留现金",
             "invalid_reason": "本次动作已失效，不执行；等待重新评估"
@@ -3592,6 +3608,8 @@
             "actual_execution_date": "2026-11-23",
             "is_postponed": false,
             "postpone_days": 0,
+            "long_postpone": false,
+            "long_postpone_limit": 10,
             "valid_until": "2026-11-23T08:00:00",
             "blocked_reason": "债券超配或预算不足，本期不新增",
             "invalid_reason": "本次动作已失效，不执行；等待重新评估"
@@ -3601,6 +3619,8 @@
         "actual_execution_date": "2026-11-23",
         "is_postponed": false,
         "postpone_days": 0,
+        "long_postpone": false,
+        "long_postpone_limit": 10,
         "valid_until": "2026-11-23T08:00:00",
         "next_review_at": "2026-11-29T03:30:00",
         "result_visible_until": "2026-11-29T03:30:00",
@@ -6770,7 +6790,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T19:53:58",
+        "as_of": "2026-11-27T20:21:17",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -15074,7 +15094,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T19:53:58",
+        "as_of": "2026-11-27T20:21:17",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -18995,7 +19015,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-27T19:53:58",
+    "generated_at": "2026-11-27T20:21:17",
     "projection_id": "wf_b63cc66f0af2bac3",
     "visual": {
       "title": "操作流程总览",
@@ -20368,7 +20388,7 @@
         },
         {
           "type": "paragraph",
-          "text": "同一标的、同一时点在不同环节采用不同估值分位阈值，下表统一各环节的判据，避免选错表。规则：对加仓更保守（否决线见规则参数），对减仓最宽松（触发线见上限），定投居中（：高估/极度高估剔除当期0元暂停）。本表阈值均以台账『规则参数』为唯一源，下表数值为镜像、如有不符以参数表为准。"
+          "text": "同一标的、同一时点在不同环节采用不同估值分位阈值，下表统一各环节的判据，避免选错表。规则：对加仓更保守（否决线见规则参数），对减仓最宽松（触发线见上限），定投居中（分位≥高估线即剔除当期定投、金额记0，动作文案读）。本表阈值均以台账『规则参数』为唯一源，下表数值为镜像、如有不符以参数表为准。"
         },
         {
           "type": "table",
@@ -20380,7 +20400,7 @@
             ],
             [
               "定投联动（附录C）",
-              "高估/极度高估剔除当期0元暂停；低于进集中制按分位排序分配",
+              "分位≥高估线剔除当期定投、金额记0、动作读；分位<进集中制按分位排序分配",
               "按集中制分配档位金额(不再按系数调整)；主动/FOF固定定投额（台账·预算参数）"
             ],
             [

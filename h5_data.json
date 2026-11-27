@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T21:03:31",
+  "generated_at": "2026-11-27T21:29:15",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T21:03:31",
+        "as_of": "2026-11-27T21:29:15",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -1595,6 +1595,7 @@
           "decision": "数据不完整：缺趋势、资金、情绪，本笔不操作"
         }
       },
+      "guardrails": null,
       "artifacts": {
         "daily_checks": [
           {
@@ -3453,7 +3454,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T21:03:31",
+        "as_of": "2026-11-27T21:29:15",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -5703,6 +5704,7 @@
           "decision": "未达到加仓门槛，本笔不操作"
         }
       },
+      "guardrails": null,
       "artifacts": {
         "add_on_reviews": [
           {
@@ -6790,7 +6792,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T21:03:31",
+        "as_of": "2026-11-27T21:29:15",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -9126,6 +9128,7 @@
           "decision": "未达到加仓门槛，本笔不操作"
         }
       },
+      "guardrails": null,
       "artifacts": {
         "rebalance": {
           "erp_state": "high",
@@ -15094,7 +15097,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-27T21:03:31",
+        "as_of": "2026-11-27T21:29:15",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -16699,6 +16702,7 @@
           "decision": "未达到加仓门槛，本笔不操作"
         }
       },
+      "guardrails": null,
       "artifacts": {
         "concentration": {
           "sectors": [
@@ -19015,7 +19019,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-27T21:03:31",
+    "generated_at": "2026-11-27T21:29:15",
     "projection_id": "wf_b63cc66f0af2bac3",
     "visual": {
       "title": "操作流程总览",
@@ -22564,6 +22568,21 @@
     "ui_h2_refill_owner": "回补",
     "ui_lbl_refill_owner": "回补执行档",
     "ui_refill_owner_value": "每日档",
-    "ui_refill_owner_note": "回补触发、批次与记录统一在每日档查看；本档不重复输出回补动作"
+    "ui_refill_owner_note": "回补触发、批次与记录统一在每日档查看；本档不重复输出回补动作",
+    "ui_h2_guardrails": "风险守卫",
+    "ui_guard_peak_reduce": "高点回撤分档",
+    "ui_guard_single_stop": "单只止损线",
+    "ui_guard_position_limit": "单只仓位上限",
+    "ui_guard_locked": "锁定期内仅记录",
+    "ui_guard_missing": "以下判定因数据未接入暂不可用",
+    "ui_guard_all_clear": "全部守卫未触发",
+    "ui_lbl_guard_drawdown": "回撤",
+    "ui_lbl_guard_action": "处置",
+    "ui_lbl_guard_amount": "可执行金额",
+    "ui_guard_dim_bleed": "长期阴跌止血",
+    "ui_guard_dim_bond": "债券评级下限",
+    "ui_guard_dim_high": "高景气豁免",
+    "ui_lbl_position_pct": "当前占比",
+    "ui_lbl_limit": "上限"
   }
 }

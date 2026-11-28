@@ -542,3 +542,88 @@ details[open] > summary::after { content: '收起'; }
 }
 .check-normal-rest { margin-top: var(--sp-3); border-top: 1px solid var(--c-border); padding-top: var(--sp-2); }
 .check-normal-rest > summary { color: var(--c-primary); cursor: pointer; min-height: var(--tap); }
+
+/* ---------- 18. APP P1：四页骨架与行动手风琴 ---------- */
+header { flex-wrap: wrap; }
+.header-date { flex: 1; min-width: 0; text-align: right; line-height: 1.45; overflow-wrap: anywhere; }
+nav.top { gap: var(--sp-1); overflow: visible; }
+nav.top a {
+  flex: 1 1 0; min-width: 0; max-width: 120px; min-height: var(--tap);
+  font-size: var(--fs-base); position: relative;
+}
+nav.top a.active { background: transparent; }
+nav.top a.active::after {
+  content: ''; position: absolute; left: 25%; right: 25%; bottom: 0;
+  height: 3px; border-radius: var(--radius-full); background: var(--c-primary);
+}
+.app-page-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--sp-3); margin: var(--sp-4) 0 var(--sp-2); }
+.app-page-heading > div { min-width: 0; }
+.app-page-heading h1 { font-size: var(--fs-xl); line-height: 1.35; }
+.app-page-heading p { margin: var(--sp-1) 0 0; color: var(--c-text-2); font-size: var(--fs-base); }
+.app-page-heading > span { flex: none; color: var(--c-text-3); font-size: var(--fs-xs); }
+.app-summary { border-left: 4px solid var(--c-primary); }
+.app-summary.warn { border-left-color: var(--c-warn); }
+.app-summary.muted { border-left-color: var(--c-border-strong); }
+.app-summary-headline { color: var(--c-text); font-size: var(--fs-lg); font-weight: 700; line-height: 1.45; }
+.app-summary > p { margin: var(--sp-2) 0 0; color: var(--c-text-2); font-size: var(--fs-base); }
+.app-summary-primary { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); margin-top: var(--sp-4); padding-top: var(--sp-3); border-top: 1px dashed var(--c-border); }
+.app-summary-primary > span { color: var(--c-text-2); font-size: var(--fs-base); }
+.app-summary-primary strong { font-size: var(--fs-xl); line-height: 1.2; font-weight: 750; font-variant-numeric: tabular-nums; }
+.app-summary-primary strong.info { color: var(--c-primary); }
+.app-action-group { margin-top: var(--sp-5); }
+.app-action-group > h2 { margin: 0 var(--sp-1) var(--sp-2); font-size: var(--fs-md); }
+.app-card-list { display: grid; gap: var(--sp-3); }
+.app-card {
+  position: relative; min-width: 0; margin: 0; padding: var(--sp-4);
+  border: 1px solid var(--c-border); border-left: 4px solid var(--c-info);
+  border-radius: var(--radius-m); background: var(--c-surface); box-shadow: var(--shadow-1);
+}
+.app-card.warn { border-left-color: var(--c-warn); }
+.app-card.danger { border-left-color: var(--c-danger); }
+.app-card.pos { border-left-color: var(--c-danger); }
+.app-card.neg { border-left-color: var(--c-success); }
+.app-card.muted { border-left-color: var(--c-border-strong); }
+.app-action-card > summary {
+  display: block; position: relative; min-height: var(--tap); margin: 0; padding: 0 var(--sp-5) 0 0;
+  color: var(--c-text); cursor: pointer; border-radius: 0;
+}
+.app-action-card > summary::after { content: none; }
+.app-action-card[open] > summary { margin-bottom: var(--sp-3); }
+.app-card-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-2); }
+.app-card-name { min-width: 0; }
+.app-card-name strong { display: block; color: var(--c-text); font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+.app-card-name > span { display: block; margin-top: 2px; color: var(--c-text-3); font-size: var(--fs-xs); font-weight: 400; }
+.app-card-title-row > .badge { flex: none; margin-top: 1px; }
+.app-card-value-row { margin-top: var(--sp-2); }
+.app-card-value-row:empty { display: none; }
+.app-card-amount { font-size: var(--fs-xl); line-height: 1.25; font-weight: 750; color: var(--c-info); font-variant-numeric: tabular-nums; }
+.app-card-amount.pos { color: var(--c-danger); }
+.app-card-amount.neg { color: var(--c-success); }
+.app-card-amount.warn { color: var(--c-warn); }
+.app-card-amount.muted { color: var(--c-text); }
+.app-card-amount-label { margin-top: 2px; color: var(--c-text-3); font-size: var(--fs-xs); font-weight: 400; }
+.app-card-chevron { position: absolute; right: 0; top: 0; color: var(--c-primary); font-size: var(--fs-lg); line-height: 1; transition: transform var(--dur) var(--ease); }
+.app-action-card[open] .app-card-chevron { transform: rotate(180deg); }
+.app-card-reasons { padding-top: var(--sp-3); border-top: 1px dashed var(--c-border); }
+.app-card-reasons h2 { color: var(--c-text); font-size: var(--fs-base); }
+.app-card-reasons ol { margin: var(--sp-2) 0 0; padding-left: 1.4em; color: var(--c-text-2); font-size: var(--fs-base); line-height: 1.7; }
+.app-card-reasons li + li { margin-top: var(--sp-1); }
+.app-card-reasons li::marker { color: var(--c-primary); font-weight: 700; }
+.app-card-detail { margin: var(--sp-3) 0 0; color: var(--c-text-2); font-size: var(--fs-base); line-height: 1.65; overflow-wrap: anywhere; }
+.app-meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); margin-top: var(--sp-4); }
+.app-meta-item { min-width: 0; padding: var(--sp-2) var(--sp-3); border-radius: var(--radius-s); background: var(--c-surface-2); }
+.app-meta-item > span { display: block; color: var(--c-text-3); font-size: var(--fs-xs); }
+.app-meta-item > strong { display: block; margin-top: 2px; color: var(--c-text); font-size: var(--fs-base); line-height: 1.45; font-weight: 650; overflow-wrap: anywhere; }
+.app-card .app-meta-item > strong { font-size: var(--fs-lg); font-variant-numeric: tabular-nums; }
+.app-card .app-meta-item > strong.pos { color: var(--c-danger); }
+.app-card .app-meta-item > strong.neg { color: var(--c-success); }
+.app-card .app-meta-item > strong.info { color: var(--c-info); }
+.page-app > .card > .metric-grid { grid-template-columns: 1fr 1fr; }
+.page-app .metric-value { font-size: var(--fs-lg); font-weight: 700; }
+@media (max-width: 380px) {
+  .app-page-heading { align-items: flex-start; }
+  .app-page-heading > span { max-width: 92px; text-align: right; }
+  .app-card { padding: var(--sp-3); }
+  .app-meta-grid { gap: var(--sp-2); }
+  .app-meta-item { padding: var(--sp-2); }
+}

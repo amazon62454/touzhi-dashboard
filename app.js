@@ -229,6 +229,44 @@ function renderRetirement(display) {
   return `<div class="card accent"><h1 style="font-size:var(--fs-lg)">${esc(header.title || '')}</h1><div class="muted">${esc(header.base_label || dateText(header.base_date))}</div></div>${renderChildren(display.children)}`;
 }
 
+function renderAppHeader(header) {
+  return `<div class="app-page-heading"><div><h1>${esc(header.title || '')}</h1>${header.subtitle ? `<p>${esc(header.subtitle)}</p>` : ''}</div><span>${esc(header.base_label || dateText(header.base_date))}</span></div>`;
+}
+
+function renderAppMeta(items) {
+  const rows = (items || []).filter(Boolean).map(item => `<div class="app-meta-item"><span>${esc(item.label || '')}</span><strong class="${esc(item.tone || '')}">${formatCell(item.value)}</strong></div>`).join('');
+  return rows ? `<div class="app-meta-grid">${rows}</div>` : '';
+}
+
+function appCardInner(card) {
+  const status = card.status && card.status.text ? badge({ text: card.status.text, kind: card.status.kind }) : '';
+  const amount = card.amount ? `<div class="app-card-amount ${esc((card.amount.tone || card.tone) || '')}">${formatCell(card.amount)}</div>${card.amount_label ? `<div class="app-card-amount-label">${esc(card.amount_label)}</div>` : ''}` : '';
+  return `<div class="app-card-title-row"><div class="app-card-name"><strong>${esc(card.title || '')}</strong>${card.subtitle ? `<span>${esc(card.subtitle)}</span>` : ''}</div>${status}</div><div class="app-card-value-row">${amount}</div>`;
+}
+
+function renderAppCard(card) {
+  const body = `${card.detail ? `<p class="app-card-detail">${esc(card.detail)}</p>` : ''}${renderAppMeta(card.meta)}`;
+  if (!card.collapsible) {
+    return `<article class="app-card ${esc(card.tone || 'info')}" id="${esc(card.id || '')}">${appCardInner(card)}${body}</article>`;
+  }
+  const reasons = (card.reasons || []).map(reason => `<li>${esc(reason)}</li>`).join('');
+  return `<details class="app-card app-action-card ${esc(card.tone || 'info')}" id="${esc(card.id || '')}"><summary>${appCardInner(card)}<span class="app-card-chevron" aria-hidden="true">⌄</span></summary><div class="app-card-reasons"><h2>${esc(U.ui_action_reason_title || '')}</h2><ol>${reasons}</ol>${body}</div></details>`;
+}
+
+function renderActionPage(display) {
+  if (!display) return `<div class="empty">${esc(U.ui_action_contract_missing || '')}</div>`;
+  const hero = display.hero || {};
+  const primary = hero.primary ? `<div class="app-summary-primary"><span>${esc(hero.primary.label || '')}</span><strong class="${esc(hero.primary.tone || '')}">${formatCell(hero.primary.value)}</strong></div>` : '';
+  const summary = `<section class="card app-summary ${esc(hero.tone || '')}"><div class="app-summary-headline">${esc(hero.headline || '')}</div>${hero.note ? `<p>${esc(hero.note)}</p>` : ''}${primary}${renderAppMeta(hero.meta)}</section>`;
+  const groups = (display.groups || []).map(group => `<section class="app-action-group"><h2>${esc(group.title || '')}</h2><div class="app-card-list">${(group.cards || []).map(renderAppCard).join('')}</div></section>`).join('');
+  return renderAppHeader(display.header || {}) + summary + groups + renderNode(display.empty);
+}
+
+function renderAppSimplePage(display) {
+  if (!display) return `<div class="empty">${esc(U.ui_action_contract_missing || '')}</div>`;
+  return renderAppHeader(display.header || {}) + `<div class="card">${renderChildren(display.children)}</div>` + `<div class="app-card-list">${(display.cards || []).map(renderAppCard).join('')}</div>` + renderNode(display.empty);
+}
+
 function ruleCards(chapters) {
   return chapters.map(chapter => `<div class="card" data-rule="${esc(chapter.title)}"><div class="fund-top"><strong>${esc(chapter.title)}</strong></div></div>`).join('') || `<div class="empty">${esc(U.ui_rule_no_match || '')}</div>`;
 }
@@ -257,8 +295,20 @@ function renderPage(pageId) {
       bindRuleSearch();
       return;
     }
+    if (pageId === 'page-action') {
+      el.innerHTML = renderActionPage(D.action_display);
+      return;
+    }
+    if (pageId === 'page-funds') {
+      el.innerHTML = renderAppSimplePage(D.fund_display);
+      return;
+    }
+    if (pageId === 'page-assets') {
+      el.innerHTML = renderAppSimplePage(D.asset_display);
+      return;
+    }
     if (pageId === 'page-retirement') {
-      el.innerHTML = renderRetirement((D.retirement || {}).display);
+      el.innerHTML = renderAppSimplePage(D.pension_display);
       return;
     }
     const band = pageId.replace(/^page-/, '');
@@ -273,11 +323,10 @@ function renderPage(pageId) {
 }
 
 const NAV = [
+  { id: 'page-action', label: 'ui_nav_action' },
+  { id: 'page-funds', label: 'ui_nav_funds' },
+  { id: 'page-assets', label: 'ui_nav_assets' },
   { id: 'page-retirement', label: 'ui_nav_retirement' },
-  { id: 'page-band_daily', label: 'ui_nav_daily' },
-  { id: 'page-band_eval', label: 'ui_nav_eval' },
-  { id: 'page-band_monthly', label: 'ui_nav_monthly' },
-  { id: 'page-band_quarter', label: 'ui_nav_quarter' },
 ];
 
 function renderNav() {
@@ -286,7 +335,7 @@ function renderNav() {
 
 function showPage(pageId) {
   const valid = NAV.some(item => item.id === pageId) || pageId === 'page-rules';
-  const target = valid ? pageId : 'page-retirement';
+  const target = valid ? pageId : 'page-action';
   document.querySelectorAll('.page').forEach(page => page.classList.toggle('active', page.id === target));
   document.querySelectorAll('#nav a').forEach(link => link.classList.toggle('active', link.dataset.page === target));
   syncGlobalStatus(target);
@@ -390,7 +439,7 @@ function renderShell() {
   const banner = $('global-status');
   banner.className = 'status-banner live';
   banner.textContent = status.label ? `${status.label}${status.description ? ' · ' + status.description : ''}` : '';
-  syncGlobalStatus(document.querySelector('.page.active')?.id || 'page-retirement');
+  syncGlobalStatus(document.querySelector('.page.active')?.id || 'page-action');
 }
 
 async function init() {
@@ -402,9 +451,9 @@ async function init() {
     renderShell();
     renderNav();
     $('boot-skeleton').remove();
-    showPage(location.hash.slice(1) || 'page-retirement');
+    showPage(location.hash.slice(1) || 'page-action');
     startAutoRefresh();
-    window.addEventListener('hashchange', () => showPage(location.hash.slice(1) || 'page-retirement'));
+    window.addEventListener('hashchange', () => showPage(location.hash.slice(1) || 'page-action'));
   } catch (error) {
     $('boot-skeleton').remove();
     $('main').innerHTML = `<div class="error-state"><div>${esc(U.ui_data_read_error || '')}：${esc(error.message)}</div><button onclick="location.reload()">${esc(U.ui_retry || '')}</button></div>`;

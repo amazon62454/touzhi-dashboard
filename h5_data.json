@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:35:09",
+  "generated_at": "2026-11-28T17:42:16",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:35:09",
+        "as_of": "2026-11-28T17:42:16",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -3454,7 +3454,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:35:09",
+        "as_of": "2026-11-28T17:42:16",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6792,7 +6792,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:35:09",
+        "as_of": "2026-11-28T17:42:16",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -14632,7 +14632,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:35:09",
+        "as_of": "2026-11-28T17:42:16",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -18554,7 +18554,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-28T17:35:09",
+    "generated_at": "2026-11-28T17:42:16",
     "projection_id": "wf_e6d9f25047616457",
     "visual": {
       "title": "操作流程总览",
@@ -22187,7 +22187,7 @@
     "ui_action_rebalance_amount": "计划金额",
     "ui_action_amount_invest": "定投金额",
     "ui_action_fund_status": "当前状态",
-    "ui_funds_subtitle": "本期需操作的基金已置顶",
+    "ui_funds_subtitle": "按分类查看持仓与状态",
     "ui_fund_holding": "持有",
     "ui_assets_title": "资产总览",
     "ui_assets_subtitle": "只看当前市值与累计收益",
@@ -22423,7 +22423,7 @@
   "fund_display": {
     "header": {
       "title": "基金状态",
-      "subtitle": "本期需操作的基金已置顶",
+      "subtitle": "按分类查看持仓与状态",
       "base_date": "2026-11-26",
       "base_label": "持仓基准 2026-11-26"
     },
@@ -23183,6 +23183,102 @@
                 "tone": "neg"
               }
             ],
+            "collapsible": false
+          }
+        ]
+      },
+      {
+        "key": "candidate",
+        "title": "候选池",
+        "cards": [
+          {
+            "id": "cand-005693",
+            "title": "广发中证军工ETF联接C",
+            "subtitle": "005693 · 候选池",
+            "status": {
+              "text": "观察",
+              "kind": "muted"
+            },
+            "amount": null,
+            "amount_label": null,
+            "reasons": [
+              "趋势待补、未高估、趋势未破、资金未撤离、置换不成立"
+            ],
+            "detail": "候选池待复核，暂不纳入",
+            "tone": "muted",
+            "meta": [],
+            "collapsible": false
+          },
+          {
+            "id": "cand-007077",
+            "title": "汇添富中证医药ETF联接C",
+            "subtitle": "007077 · 候选池",
+            "status": {
+              "text": "观察",
+              "kind": "muted"
+            },
+            "amount": null,
+            "amount_label": null,
+            "reasons": [
+              "趋势待补、情绪待补、未高估、趋势未破、资金未撤离、四维未全优、置换不成立"
+            ],
+            "detail": "候选池待复核，暂不纳入",
+            "tone": "muted",
+            "meta": [],
+            "collapsible": false
+          },
+          {
+            "id": "cand-007300",
+            "title": "国联安中证全指半导体ETF联接A(007300/C:007301)",
+            "subtitle": "007300 · 候选池",
+            "status": {
+              "text": "观察",
+              "kind": "muted"
+            },
+            "amount": null,
+            "amount_label": null,
+            "reasons": [
+              "趋势待补、未高估、趋势未破、资金未撤离、置换不成立"
+            ],
+            "detail": "候选池待复核，暂不纳入",
+            "tone": "muted",
+            "meta": [],
+            "collapsible": false
+          },
+          {
+            "id": "cand-009881",
+            "title": "广发中证医疗ETF联接C(7.8亿)",
+            "subtitle": "009881 · 候选池",
+            "status": {
+              "text": "观察",
+              "kind": "muted"
+            },
+            "amount": null,
+            "amount_label": null,
+            "reasons": [
+              "趋势待补、未高估、趋势未破、资金未撤离、置换不成立"
+            ],
+            "detail": "候选池待复核，暂不纳入",
+            "tone": "muted",
+            "meta": [],
+            "collapsible": false
+          },
+          {
+            "id": "cand-110026",
+            "title": "易方达创业板ETF联接A(53.1亿,A类限频≥30日)",
+            "subtitle": "110026 · 候选池",
+            "status": {
+              "text": "观察",
+              "kind": "muted"
+            },
+            "amount": null,
+            "amount_label": null,
+            "reasons": [
+              "趋势待补、未高估、趋势未破、资金未撤离、置换不成立"
+            ],
+            "detail": "候选池待复核，暂不纳入",
+            "tone": "muted",
+            "meta": [],
             "collapsible": false
           }
         ]

@@ -262,9 +262,31 @@ function renderActionPage(display) {
   return renderAppHeader(display.header || {}) + summary + groups + renderNode(display.empty);
 }
 
+function renderFundGroups(groups) {
+  const opts = groups.map((g, i) => `<option value="${i}">${esc(g.title)} · ${(g.cards || []).length}只</option>`).join('');
+  const filter = `<div class="fund-filter"><select id="fund-filter"><option value="all">全部分类</option>${opts}</select></div>`;
+  const body = groups.map((g, i) => `<section class="app-action-group fund-group" data-group="${i}"><h2>${esc(g.title)}<span class="fund-group-count">${(g.cards || []).length}</span></h2><div class="app-card-list">${(g.cards || []).map(renderAppCard).join('')}</div></section>`).join('');
+  return filter + body;
+}
+
+function bindFundFilter() {
+  const sel = document.getElementById('fund-filter');
+  if (!sel) return;
+  sel.addEventListener('change', () => {
+    const v = sel.value;
+    document.querySelectorAll('.fund-group').forEach(sec => {
+      sec.style.display = (v === 'all' || sec.dataset.group === v) ? '' : 'none';
+    });
+  });
+}
+
 function renderAppSimplePage(display) {
   if (!display) return `<div class="empty">${esc(U.ui_action_contract_missing || '')}</div>`;
-  return renderAppHeader(display.header || {}) + `<div class="card">${renderChildren(display.children)}</div>` + `<div class="app-card-list">${(display.cards || []).map(renderAppCard).join('')}</div>` + renderNode(display.empty);
+  const head = renderAppHeader(display.header || {});
+  if (display.groups && display.groups.length) {
+    return head + renderFundGroups(display.groups);
+  }
+  return head + `<div class="card">${renderChildren(display.children)}</div>` + `<div class="app-card-list">${(display.cards || []).map(renderAppCard).join('')}</div>` + renderNode(display.empty);
 }
 
 function ruleCards(chapters) {
@@ -301,6 +323,7 @@ function renderPage(pageId) {
     }
     if (pageId === 'page-funds') {
       el.innerHTML = renderAppSimplePage(D.fund_display);
+      bindFundFilter();
       return;
     }
     if (pageId === 'page-assets') {
@@ -430,13 +453,12 @@ function startAutoRefresh() {
 
 function syncGlobalStatus(pageId) {
   const status = D.status || {};
-  // 正常“数据完整”不占顶部显眼位，仅异常状态才提示（2026-11-28 用户）
-  const normal = status.label && /完整/.test(status.label);
-  $('global-status').hidden = normal || pageId !== status.display_page || !status.label;
+  $('global-status').hidden = pageId !== status.display_page || !status.label;
 }
 
 function renderShell() {
-  $('header-date').textContent = `${U.ui_base || ''} ${dateText(D.base_date)} · ${U.ui_page_generated || ''} ${dateTimeText(D.generated_at)}`;
+  const _bd = dateText(D.base_date) || '', _gt = dateTimeText(D.generated_at) || '';
+  $('header-date').textContent = `基准 ${_bd.slice(5) || _bd} · 更新 ${(_gt.split(' ')[1] || _gt)}`;
   const status = D.status || {};
   const banner = $('global-status');
   banner.className = 'status-banner live';

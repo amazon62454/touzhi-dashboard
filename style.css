@@ -572,6 +572,10 @@ nav.top a.active::after {
 .app-summary-primary strong.info { color: var(--c-primary); }
 .app-action-group { margin-top: var(--sp-5); }
 .app-action-group > h2 { margin: 0 var(--sp-1) var(--sp-2); font-size: var(--fs-md); }
+.fund-filter { margin: var(--sp-3) 0 var(--sp-2); }
+.fund-filter select { width: 100%; min-height: var(--tap); padding: 0 var(--sp-3); border: 1px solid var(--c-border); border-radius: var(--radius-s); background: var(--c-surface); color: var(--c-text); font-size: var(--fs-base); }
+.fund-group > h2 { display: flex; align-items: center; gap: var(--sp-2); }
+.fund-group-count { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: var(--radius-full); background: var(--c-primary-weak); color: var(--c-primary); font-size: var(--fs-xs); font-weight: 600; }
 .app-card-list { display: grid; gap: var(--sp-3); }
 .app-card {
   position: relative; min-width: 0; margin: 0; padding: var(--sp-4);

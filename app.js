@@ -263,8 +263,8 @@ function renderActionPage(display) {
 }
 
 function renderFundGroups(groups) {
-  const opts = groups.map((g, i) => `<option value="${i}">${esc(g.title)} · ${(g.cards || []).length}只</option>`).join('');
-  const filter = `<div class="fund-filter"><select id="fund-filter"><option value="all">全部分类</option>${opts}</select></div>`;
+  const opts = groups.map((g, i) => `<option value="${i}">${esc(g.title)} · ${(g.cards || []).length}${U.ui_fund_count_unit||''}</option>`).join('');
+  const filter = `<div class="fund-filter"><select id="fund-filter"><option value="all">${U.ui_fund_all||''}</option>${opts}</select></div>`;
   const body = groups.map((g, i) => `<section class="app-action-group fund-group" data-group="${i}"><h2>${esc(g.title)}<span class="fund-group-count">${(g.cards || []).length}</span></h2><div class="app-card-list">${(g.cards || []).map(renderAppCard).join('')}</div></section>`).join('');
   return filter + body;
 }
@@ -458,7 +458,7 @@ function syncGlobalStatus(pageId) {
 
 function renderShell() {
   const _bd = dateText(D.base_date) || '', _gt = dateTimeText(D.generated_at) || '';
-  $('header-date').textContent = `基准 ${_bd.slice(5) || _bd} · 更新 ${(_gt.split(' ')[1] || _gt)}`;
+  $('header-date').textContent = `${U.ui_header_base||''} ${_bd.slice(5) || _bd} · ${U.ui_header_update||''} ${(_gt.split(' ')[1] || _gt)}`;
   const status = D.status || {};
   const banner = $('global-status');
   banner.className = 'status-banner live';

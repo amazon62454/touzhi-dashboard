@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:59:17",
+  "generated_at": "2026-11-28T18:03:23",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:59:17",
+        "as_of": "2026-11-28T18:03:22",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -3435,7 +3435,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:59:17",
+        "as_of": "2026-11-28T18:03:22",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6773,7 +6773,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:59:17",
+        "as_of": "2026-11-28T18:03:22",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -14613,7 +14613,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:59:17",
+        "as_of": "2026-11-28T18:03:22",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -18535,7 +18535,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-28T17:59:17",
+    "generated_at": "2026-11-28T18:03:23",
     "projection_id": "wf_e6d9f25047616457",
     "visual": {
       "title": "操作流程总览",
@@ -22188,7 +22188,11 @@
     "ui_risk_level_ok": "安全区（未触红线）",
     "ui_lbl_risk_current_level": "当前红线级别",
     "ui_lbl_risk_gap": "距下一级红线",
-    "ui_risk_gap_fmt": "还差 {gap} 个点"
+    "ui_risk_gap_fmt": "还差 {gap} 个点",
+    "ui_fund_state_fof": "养老底仓·固定定投",
+    "ui_fund_state_gold": "商品避险·定投",
+    "ui_fund_state_debt": "正常定投",
+    "ui_fund_state_hold": "正常定投"
   },
   "action_display": {
     "engine_contract": "h5_app_action_v1",
@@ -22626,7 +22630,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "正常定投(债比在目标容忍带内,高估态停投线65%)",
+        "detail": "正常定投",
         "tone": "muted",
         "meta": [
           {
@@ -22662,7 +22666,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "评分与数据闸门通过，再核现金池和频率闸门",
+        "detail": "正常定投",
         "tone": "muted",
         "meta": [
           {
@@ -22698,7 +22702,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "评分与数据闸门通过，再核现金池和频率闸门",
+        "detail": "正常定投",
         "tone": "muted",
         "meta": [
           {
@@ -22734,7 +22738,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "固定30元/周；独立养老底仓；不参加行业集中制/权益比较置换；按FOF穿透口径测算股债",
+        "detail": "养老底仓·固定定投",
         "tone": "muted",
         "meta": [
           {
@@ -22770,7 +22774,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "情绪过热，本笔不操作",
+        "detail": "商品避险·定投",
         "tone": "muted",
         "meta": [
           {
@@ -22806,7 +22810,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "暂停申购，不可定投,到期赎回退出(2026-10-31拍板:AI硬件方向停用+破止损线,到期后赎回退出,即使恢复申购也不买)",
+        "detail": "退出类",
         "tone": "muted",
         "meta": [
           {
@@ -22842,7 +22846,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "已暂停定投(2026-10-20用户实操),存量到期评估留/赎",
+        "detail": "退出类",
         "tone": "muted",
         "meta": [
           {
@@ -22878,7 +22882,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "已暂停定投(2026-10-20用户实操),存量到期评估留/赎",
+        "detail": "退出类",
         "tone": "muted",
         "meta": [
           {
@@ -22914,7 +22918,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "未达到加仓门槛，本笔不操作",
+        "detail": "正常定投",
         "tone": "muted",
         "meta": [
           {
@@ -22950,7 +22954,7 @@
         },
         "amount_label": "当前持有市值",
         "reasons": [],
-        "detail": "未达到加仓门槛，本笔不操作",
+        "detail": "正常定投",
         "tone": "muted",
         "meta": [
           {
@@ -22992,7 +22996,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "未达到加仓门槛，本笔不操作",
+            "detail": "正常定投",
             "tone": "muted",
             "meta": [
               {
@@ -23034,7 +23038,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "评分与数据闸门通过，再核现金池和频率闸门",
+            "detail": "正常定投",
             "tone": "muted",
             "meta": [
               {
@@ -23070,7 +23074,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "评分与数据闸门通过，再核现金池和频率闸门",
+            "detail": "正常定投",
             "tone": "muted",
             "meta": [
               {
@@ -23106,7 +23110,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "未达到加仓门槛，本笔不操作",
+            "detail": "正常定投",
             "tone": "muted",
             "meta": [
               {
@@ -23148,7 +23152,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "暂停申购，不可定投,到期赎回退出(2026-10-31拍板:AI硬件方向停用+破止损线,到期后赎回退出,即使恢复申购也不买)",
+            "detail": "退出类",
             "tone": "muted",
             "meta": [
               {
@@ -23184,7 +23188,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "已暂停定投(2026-10-20用户实操),存量到期评估留/赎",
+            "detail": "退出类",
             "tone": "muted",
             "meta": [
               {
@@ -23220,7 +23224,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "已暂停定投(2026-10-20用户实操),存量到期评估留/赎",
+            "detail": "退出类",
             "tone": "muted",
             "meta": [
               {
@@ -23262,7 +23266,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "正常定投(债比在目标容忍带内,高估态停投线65%)",
+            "detail": "正常定投",
             "tone": "muted",
             "meta": [
               {
@@ -23304,7 +23308,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "情绪过热，本笔不操作",
+            "detail": "商品避险·定投",
             "tone": "muted",
             "meta": [
               {
@@ -23346,7 +23350,7 @@
             },
             "amount_label": "当前持有市值",
             "reasons": [],
-            "detail": "固定30元/周；独立养老底仓；不参加行业集中制/权益比较置换；按FOF穿透口径测算股债",
+            "detail": "养老底仓·固定定投",
             "tone": "muted",
             "meta": [
               {

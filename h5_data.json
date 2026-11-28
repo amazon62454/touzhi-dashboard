@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:53:07",
+  "generated_at": "2026-11-28T17:59:17",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:53:07",
+        "as_of": "2026-11-28T17:59:17",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -2244,41 +2244,22 @@
               },
               {
                 "type": "kv",
-                "label": "一级红线",
+                "label": "当前红线级别",
                 "value": {
-                  "value": {
-                    "value": -15.0,
-                    "format": "pct"
-                  },
+                  "value": "安全区（未触红线）",
                   "format": "text"
                 },
-                "tone": "",
+                "tone": "pos",
                 "note": ""
               },
               {
                 "type": "kv",
-                "label": "二级红线",
+                "label": "距下一级红线",
                 "value": {
-                  "value": {
-                    "value": -20.0,
-                    "format": "pct"
-                  },
+                  "value": "还差 11.0 个点",
                   "format": "text"
                 },
-                "tone": "",
-                "note": ""
-              },
-              {
-                "type": "kv",
-                "label": "三级红线",
-                "value": {
-                  "value": {
-                    "value": -25.0,
-                    "format": "pct"
-                  },
-                  "format": "text"
-                },
-                "tone": "",
+                "tone": "muted",
                 "note": ""
               },
               {
@@ -3454,7 +3435,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:53:07",
+        "as_of": "2026-11-28T17:59:17",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6792,7 +6773,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:53:07",
+        "as_of": "2026-11-28T17:59:17",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -14632,7 +14613,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:53:07",
+        "as_of": "2026-11-28T17:59:17",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -18554,7 +18535,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-28T17:53:07",
+    "generated_at": "2026-11-28T17:59:17",
     "projection_id": "wf_e6d9f25047616457",
     "visual": {
       "title": "操作流程总览",
@@ -22203,7 +22184,11 @@
     "ui_ledger_spent": "本期已投",
     "ui_ledger_remain": "本期剩余",
     "ui_ledger_cash": "现金池",
-    "ui_ledger_closed": "上期（{old}）已封账 → 转入 {new}，现金池 {cash} 元"
+    "ui_ledger_closed": "上期（{old}）已封账 → 转入 {new}，现金池 {cash} 元",
+    "ui_risk_level_ok": "安全区（未触红线）",
+    "ui_lbl_risk_current_level": "当前红线级别",
+    "ui_lbl_risk_gap": "距下一级红线",
+    "ui_risk_gap_fmt": "还差 {gap} 个点"
   },
   "action_display": {
     "engine_contract": "h5_app_action_v1",
@@ -22311,41 +22296,22 @@
           },
           {
             "type": "kv",
-            "label": "一级红线",
+            "label": "当前红线级别",
             "value": {
-              "value": {
-                "value": -15.0,
-                "format": "pct"
-              },
+              "value": "安全区（未触红线）",
               "format": "text"
             },
-            "tone": "",
+            "tone": "pos",
             "note": ""
           },
           {
             "type": "kv",
-            "label": "二级红线",
+            "label": "距下一级红线",
             "value": {
-              "value": {
-                "value": -20.0,
-                "format": "pct"
-              },
+              "value": "还差 11.0 个点",
               "format": "text"
             },
-            "tone": "",
-            "note": ""
-          },
-          {
-            "type": "kv",
-            "label": "三级红线",
-            "value": {
-              "value": {
-                "value": -25.0,
-                "format": "pct"
-              },
-              "format": "text"
-            },
-            "tone": "",
+            "tone": "muted",
             "note": ""
           },
           {

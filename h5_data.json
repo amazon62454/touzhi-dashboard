@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:46:41",
+  "generated_at": "2026-11-28T17:53:07",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -325,25 +325,25 @@
   "funds_page": {
     "period": "11-20~12-19",
     "injection": 1800.0,
-    "spent": 0.0,
-    "remaining": 1800.0,
+    "spent": 106.0,
+    "remaining": 1694.0,
     "cash_pool": 322.16,
     "channels": [
       {
         "name": "定投",
-        "value": "0"
+        "value": "106.0"
       },
       {
         "name": "加仓",
-        "value": "0"
+        "value": "0.0"
       },
       {
         "name": "现金池结余加仓",
-        "value": "0"
+        "value": "0.0"
       },
       {
         "name": "减仓",
-        "value": "0"
+        "value": "0.0"
       }
     ],
     "cash_detail": {
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:46:41",
+        "as_of": "2026-11-28T17:53:07",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -3454,7 +3454,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:46:41",
+        "as_of": "2026-11-28T17:53:07",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6792,7 +6792,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:46:41",
+        "as_of": "2026-11-28T17:53:07",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -11209,7 +11209,7 @@
                         "type": "kv",
                         "label": "定投",
                         "value": {
-                          "value": "0",
+                          "value": "106.0",
                           "format": "money"
                         },
                         "tone": "info",
@@ -11219,7 +11219,7 @@
                         "type": "kv",
                         "label": "加仓",
                         "value": {
-                          "value": "0",
+                          "value": "0.0",
                           "format": "money"
                         },
                         "tone": "info",
@@ -11229,7 +11229,7 @@
                         "type": "kv",
                         "label": "现金池结余加仓",
                         "value": {
-                          "value": "0",
+                          "value": "0.0",
                           "format": "money"
                         },
                         "tone": "info",
@@ -11239,7 +11239,7 @@
                         "type": "kv",
                         "label": "减仓",
                         "value": {
-                          "value": "0",
+                          "value": "0.0",
                           "format": "money"
                         },
                         "tone": "info",
@@ -14632,7 +14632,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:46:41",
+        "as_of": "2026-11-28T17:53:07",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -18554,7 +18554,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-28T17:46:41",
+    "generated_at": "2026-11-28T17:53:07",
     "projection_id": "wf_e6d9f25047616457",
     "visual": {
       "title": "操作流程总览",
@@ -22455,7 +22455,7 @@
             "type": "kv",
             "label": "本期已投",
             "value": {
-              "value": 0.0,
+              "value": 106.0,
               "format": "money"
             },
             "tone": "info",
@@ -22465,7 +22465,7 @@
             "type": "kv",
             "label": "本期剩余",
             "value": {
-              "value": 1800.0,
+              "value": 1694.0,
               "format": "money"
             },
             "tone": "info",

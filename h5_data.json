@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:42:16",
+  "generated_at": "2026-11-28T17:46:41",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:42:16",
+        "as_of": "2026-11-28T17:46:41",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -3454,7 +3454,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:42:16",
+        "as_of": "2026-11-28T17:46:41",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6792,7 +6792,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:42:16",
+        "as_of": "2026-11-28T17:46:41",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -14632,7 +14632,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:42:16",
+        "as_of": "2026-11-28T17:46:41",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -18554,7 +18554,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-28T17:42:16",
+    "generated_at": "2026-11-28T17:46:41",
     "projection_id": "wf_e6d9f25047616457",
     "visual": {
       "title": "操作流程总览",
@@ -22190,13 +22190,20 @@
     "ui_funds_subtitle": "按分类查看持仓与状态",
     "ui_fund_holding": "持有",
     "ui_assets_title": "资产总览",
-    "ui_assets_subtitle": "只看当前市值与累计收益",
+    "ui_assets_subtitle": "市值收益 · 组合风控 · 资金账本",
     "ui_pension_title": "养老测算",
     "ui_pension_subtitle": "退休目标与到期收益假设演算",
     "ui_pension_sensitivity": "到期预期收益三档",
     "ui_pension_profit": "到期预期收益",
     "ui_pension_target": "到期总资产",
-    "ui_pension_disclaimer": "仅为假设演算，不构成收益承诺"
+    "ui_pension_disclaimer": "仅为假设演算，不构成收益承诺",
+    "ui_h2_fund_ledger": "本月资金账本",
+    "ui_ledger_period": "本期周期",
+    "ui_ledger_budget": "本期预算",
+    "ui_ledger_spent": "本期已投",
+    "ui_ledger_remain": "本期剩余",
+    "ui_ledger_cash": "现金池",
+    "ui_ledger_closed": "上期（{old}）已封账 → 转入 {new}，现金池 {cash} 元"
   },
   "action_display": {
     "engine_contract": "h5_app_action_v1",
@@ -22229,7 +22236,7 @@
   "asset_display": {
     "header": {
       "title": "资产总览",
-      "subtitle": "只看当前市值与累计收益",
+      "subtitle": "市值收益 · 组合风控 · 资金账本",
       "base_date": "2026-11-26",
       "base_label": "持仓基准 2026-11-26"
     },
@@ -22268,6 +22275,216 @@
               "format": "pct"
             },
             "tone": "neg"
+          }
+        ]
+      },
+      {
+        "type": "card",
+        "title": "回撤风险",
+        "kind": "",
+        "children": [
+          {
+            "type": "kv",
+            "label": "组合回撤（峰值口径）",
+            "value": {
+              "value": {
+                "value": -4.0,
+                "format": "pct"
+              },
+              "format": "text"
+            },
+            "tone": "pos",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "成本浮亏",
+            "value": {
+              "value": {
+                "value": -8.75,
+                "format": "pct"
+              },
+              "format": "text"
+            },
+            "tone": "neg",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "一级红线",
+            "value": {
+              "value": {
+                "value": -15.0,
+                "format": "pct"
+              },
+              "format": "text"
+            },
+            "tone": "",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "二级红线",
+            "value": {
+              "value": {
+                "value": -20.0,
+                "format": "pct"
+              },
+              "format": "text"
+            },
+            "tone": "",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "三级红线",
+            "value": {
+              "value": {
+                "value": -25.0,
+                "format": "pct"
+              },
+              "format": "text"
+            },
+            "tone": "",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "状态",
+            "value": {
+              "value": "预算内",
+              "format": "text"
+            },
+            "tone": "pos",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "减仓计划",
+            "value": {
+              "value": "无需减仓",
+              "format": "text"
+            },
+            "tone": "pos",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "回补档位",
+            "value": {
+              "value": "渐进回补（30/30/40 %）",
+              "format": "text"
+            },
+            "tone": "",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "回补状态",
+            "value": {
+              "value": "无已执行减仓，回补不启动",
+              "format": "text"
+            },
+            "tone": "pos",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "回补记录",
+            "value": {
+              "value": "暂无回补批次",
+              "format": "text"
+            },
+            "tone": "",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "历史高点",
+            "value": {
+              "value": {
+                "value": 22180.99,
+                "format": "money"
+              },
+              "format": "text"
+            },
+            "tone": "",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "当前市值",
+            "value": {
+              "value": {
+                "value": 21283.66,
+                "format": "money"
+              },
+              "format": "text"
+            },
+            "tone": "",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "type": "card",
+        "title": "本月资金账本",
+        "kind": "",
+        "children": [
+          {
+            "type": "kv",
+            "label": "本期周期",
+            "value": {
+              "value": "11-20~12-19",
+              "format": "text"
+            },
+            "tone": "info",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "本期预算",
+            "value": {
+              "value": 1800.0,
+              "format": "money"
+            },
+            "tone": "info",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "本期已投",
+            "value": {
+              "value": 0.0,
+              "format": "money"
+            },
+            "tone": "info",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "本期剩余",
+            "value": {
+              "value": 1800.0,
+              "format": "money"
+            },
+            "tone": "info",
+            "note": ""
+          },
+          {
+            "type": "kv",
+            "label": "现金池",
+            "value": {
+              "value": 322.16,
+              "format": "money"
+            },
+            "tone": "info",
+            "note": ""
+          },
+          {
+            "type": "text",
+            "text": "上期（10-20~11-19）已封账 → 转入 11-20~12-19，现金池 322.16 元",
+            "style": "muted"
           }
         ]
       },

@@ -90,8 +90,8 @@ header {
   background: color-mix(in srgb, var(--c-surface) 92%, transparent);
   backdrop-filter: blur(12px); border-bottom: 1px solid var(--c-border);
 }
-header strong { font-size: var(--fs-md); }
-.header-date { font-size: var(--fs-sm); color: var(--c-text-2); }
+header strong { font-size: var(--fs-lg); font-weight: 700; }
+.header-date { font-size: var(--fs-xs); color: var(--c-text-3); }
 
 /* 状态横幅 */
 .status-banner {
@@ -591,7 +591,7 @@ nav.top a.active::after {
 .app-action-card[open] > summary { margin-bottom: var(--sp-3); }
 .app-card-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-2); }
 .app-card-name { min-width: 0; }
-.app-card-name strong { display: block; color: var(--c-text); font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+.app-card-name strong { display: block; color: var(--c-text); font-size: var(--fs-md); font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
 .app-card-name > span { display: block; margin-top: 2px; color: var(--c-text-3); font-size: var(--fs-xs); font-weight: 400; }
 .app-card-title-row > .badge { flex: none; margin-top: 1px; }
 .app-card-value-row { margin-top: var(--sp-2); }

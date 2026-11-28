@@ -430,7 +430,9 @@ function startAutoRefresh() {
 
 function syncGlobalStatus(pageId) {
   const status = D.status || {};
-  $('global-status').hidden = pageId !== status.display_page || !status.label;
+  // 正常“数据完整”不占顶部显眼位，仅异常状态才提示（2026-11-28 用户）
+  const normal = status.label && /完整/.test(status.label);
+  $('global-status').hidden = normal || pageId !== status.display_page || !status.label;
 }
 
 function renderShell() {

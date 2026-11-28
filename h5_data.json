@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:11:15",
+  "generated_at": "2026-11-28T17:18:08",
   "base_date": "2026-11-26",
   "fund_names": {
     "017491": "财通景气甄选一年持有C",
@@ -247,7 +247,7 @@
             },
             {
               "type": "text",
-              "text": "按在管持仓（剔除退出类/暂停申购基金）的成立以来年化×当前市值权重测算；退出类市值视同赎回后再配置，按同一保守年化计入。每月1日刷新历史年化，台账更新即时重算权重与目标。历史年化≠未来收益，非承诺。",
+              "text": "按在管基金成立以来年化加权测算；历史年化不代表未来收益。",
               "style": "muted"
             }
           ]
@@ -359,7 +359,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:11:14",
+        "as_of": "2026-11-28T17:18:08",
         "next_review_date": "2026-11-30",
         "source_param": "P142/P206",
         "state": "expired",
@@ -3454,7 +3454,7 @@
       "summary": "本次动作已失效，不执行；等待重新评估",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:11:14",
+        "as_of": "2026-11-28T17:18:08",
         "next_review_date": "2026-11-29",
         "source_param": "P110/P206",
         "state": "expired",
@@ -6792,7 +6792,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:11:14",
+        "as_of": "2026-11-28T17:18:08",
         "next_review_date": "2026-12-20",
         "source_param": "P114",
         "state": "observation",
@@ -14632,7 +14632,7 @@
       "summary": "本期无需直接操作，查看对应评估结论即可",
       "validity": {
         "publishable": true,
-        "as_of": "2026-11-28T17:11:14",
+        "as_of": "2026-11-28T17:18:08",
         "next_review_date": "2026-12-20",
         "source_param": "P115",
         "state": "observation",
@@ -18554,7 +18554,7 @@
     }
   },
   "param_chain": {
-    "generated_at": "2026-11-28T17:11:15",
+    "generated_at": "2026-11-28T17:18:08",
     "projection_id": "wf_e6d9f25047616457",
     "visual": {
       "title": "操作流程总览",
@@ -21880,7 +21880,7 @@
     "ui_retirement_contribution": "每月持续投入",
     "ui_retirement_profit": "测算收益",
     "ui_retirement_years": "{years}年",
-    "ui_retirement_assumption": "按在管持仓（剔除退出类/暂停申购基金）的成立以来年化×当前市值权重测算；退出类市值视同赎回后再配置，按同一保守年化计入。每月1日刷新历史年化，台账更新即时重算权重与目标。历史年化≠未来收益，非承诺。",
+    "ui_retirement_assumption": "按在管基金成立以来年化加权测算；历史年化不代表未来收益。",
     "ui_retirement_coverage": "年化数据覆盖 {covered}/{total} 只在管基金（已剔除{excluded}只退出类/暂停申购）",
     "ui_retirement_zero": "若未来零收益（只算本金）",
     "ui_retirement_principal": "累计投入（当前市值＋未来每月投入）",
@@ -22170,7 +22170,7 @@
     "ui_action_next_review": "下次正式评估",
     "ui_action_expired": "本期动作已失效，请等待下次正式评估",
     "ui_action_no_current": "当前无需新增操作",
-    "ui_action_no_current_note": "本期没有可执行定投或债基转换",
+    "ui_action_no_current_note": "定投、加仓、减仓、再平衡本期均无触发",
     "ui_action_risk_remain": "仍有风险观察项，请点开查看原因",
     "ui_action_ready_headline": "本期{count}只基金需要定投",
     "ui_action_rebalance_ready": "本期有债基再平衡需要处理",
@@ -22208,7 +22208,7 @@
     },
     "hero": {
       "headline": "当前无需新增操作",
-      "note": "本期没有可执行定投或债基转换",
+      "note": "定投、加仓、减仓、再平衡本期均无触发",
       "tone": "muted",
       "primary": null,
       "meta": [
@@ -22331,7 +22331,7 @@
       },
       {
         "type": "text",
-        "text": "按在管持仓（剔除退出类/暂停申购基金）的成立以来年化×当前市值权重测算；退出类市值视同赎回后再配置，按同一保守年化计入。每月1日刷新历史年化，台账更新即时重算权重与目标。历史年化≠未来收益，非承诺。",
+        "text": "按在管基金成立以来年化加权测算；历史年化不代表未来收益。",
         "style": "muted"
       },
       {
